@@ -1,0 +1,8 @@
+#+TITLE: emacs-docs
+
+* Introduction
+This repo is for mobile e-book readers. However, the pdf version of these documents are not so friendly as mobi files. So I use `ebook-convert' from calibre to convert these documents to mobi.
+
+The files are generated from the git repo of Emacs. I may update them sometimes. You can make a issue to ask me for more documents or ask me to update.
+
+Licensed under GNU Free Documentation License, Version 1.3.
