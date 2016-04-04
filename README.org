@@ -6,3 +6,5 @@ This repo is for mobile e-book readers. However, the pdf version of these docume
 The files are generated from the git repo of Emacs. I may update them sometimes. You can make a issue to ask me for more documents or ask me to update.
 
 Licensed under GNU Free Documentation License, Version 1.3.
+
+Note: The Org Manual includes links to GNU Emacs Calc Manual, so that file contains both manuals. Not sure what would be better.
