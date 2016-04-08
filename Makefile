@@ -23,7 +23,18 @@ clean:
 	ebook-convert $< .mobi --language=${LANGUAGE} --authors=${AUTHORS}
 	mv $(@F) $(@D)
 
+%-pandoc.epub: %.html
+	mkdir -p $(@D)
+	pandoc $< -o $@ 
+
 %.epub: %.html
 	ebook-convert $< .epub --language=${LANGUAGE} --authors=${AUTHORS}
 	mv $(@F) $(@D)
 
+%.md: %.html
+	mkdir -p $(@D)
+	pandoc $< -o $@ 
+
+%.docx: %.html
+	mkdir -p $(@D)
+	pandoc -t docx $< -o $@ 
