@@ -1,7 +1,9 @@
 EMACS=/Volumes/Data/emacs
-DOCS=lispintro/emacs-lisp-intro.doc lispref/elisp.doc emacs/emacs.doc misc/gnus.doc misc/tramp.doc misc/calc.doc misc/org.doc misc/cl.doc misc/info.doc misc/eshell.doc
+DOCS=lispintro/emacs-lisp-intro.doc lispref/elisp.doc emacs/emacs.doc misc/gnus.doc misc/tramp.doc misc/calc.doc misc/org.doc misc/cl.doc misc/info.doc misc/eshell.doc misc/viper.doc misc/efaq.doc
 LANGUAGE=en
 AUTHORS="GNU Emacs"
+
+.PRECIOUS: %.mobi *.epub
 
 all: docs
 

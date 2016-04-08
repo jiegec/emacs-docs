@@ -3028,11 +3028,6 @@ by typing <kbd>M-x ansi-color-for-comint-mode</kbd> in the Shell buffer, or
 by adding <code>(add-hook 'shell-mode-hook
 'ansi-color-for-comint-mode-on)</code> to your init file.
 
-   <p>In Emacs versions before 21.1, the <code>ansi-color</code> package is not
-included.  In that case, you need to unalias <code>ls</code> for interactive
-shells running in Emacs; this can be done by checking the <code>EMACS</code>
-variable in the environment.
-
 <div class="node">
 <p><hr>
 <a name="Fullscreen-mode-on-MS-Windows"></a>
@@ -3141,17 +3136,15 @@ make them go away.  If that doesn't work, you have several options:
    <p>For <code>tcsh</code>, put this in your <samp><span class="file">.cshrc</span></samp> (or <samp><span class="file">.tcshrc</span></samp>)
 file:
 
-<pre class="example">     if ($?EMACS) then
-         if ("$EMACS" =~ /*) then
-             if ($?tcsh) unset edit
-             stty nl
-         endif
+<pre class="example">     if ($?INSIDE_EMACS &amp;&amp; $?tcsh)
+         unset edit
+         stty -icrnl -onlcr -echo susp ^Z
      endif
 </pre>
    <p>Or put this in your <samp><span class="file">.emacs_tcsh</span></samp> or <samp><span class="file">~/.emacs.d/init_tcsh.sh</span></samp> file:
 
 <pre class="example">     unset edit
-     stty nl
+     stty -icrnl -onlcr -echo susp ^Z
 </pre>
    <p>Alternatively, use <code>csh</code> in your shell buffers instead of
 <code>tcsh</code>.  One way is:
