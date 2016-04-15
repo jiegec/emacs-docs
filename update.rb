@@ -8,7 +8,7 @@ docs = Dir.glob '**/*.html'
 Dir.chdir pwd
 
 docs.each do |doc|
-  puts "Checking #{doc}"
+  # puts "Checking #{doc}"
   unless (File.exist? doc) && (FileUtils.identical? "#{emacs}/doc/#{doc}", doc)
     FileUtils.copy "#{emacs}/doc/#{doc}", doc
     puts "Updated #{doc}"
