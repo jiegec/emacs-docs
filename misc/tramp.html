@@ -2956,7 +2956,9 @@ their accessibility through remote access:
           <p>Since <samp><span class="file">filecache</span></samp> remembers visited places, add the remote
 directory to the cache:
 
-          <pre class="lisp">               (eval-after-load "filecache"
+          <pre class="lisp">               <!-- `with-eval-after-load' has been introduced with Emacs 24.4.  Shall -->
+               <!-- be used when appropriate. -->
+               (eval-after-load "filecache"
                  '(file-cache-add-directory
                    "/ssh:news@news.my.domain:/opt/news/etc/"))
           </pre>

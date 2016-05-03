@@ -252,12 +252,10 @@ give you access to EUDC.
 initialization file to add a shortcut for email address expansion in
 email composition buffers (see <a href="#Inline-Query-Expansion">Inline Query Expansion</a>)
 
-<pre class="lisp">     (eval-after-load
-      "message"
-      '(define-key message-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
-     (eval-after-load
-      "sendmail"
-      '(define-key mail-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
+<pre class="lisp">     (with-eval-after-load "message"
+       (define-key message-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
+     (with-eval-after-load "sendmail"
+       (define-key mail-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
 </pre>
    <ul class="menu">
 <li><a accesskey="1" href="#LDAP-Configuration">LDAP Configuration</a>:            EUDC needs external support for LDAP
@@ -346,8 +344,8 @@ as simple as one line:
 LDAP:
 
    <p><a name="index-message_002dmode_002dmap-3"></a><a name="index-eudc_002dexpand_002dinline-4"></a><a name="index-eudc_002dserver_002dhotlist-5"></a><a name="index-ldap_002dhost_002dparameters_002dalist-6"></a>
-<pre class="lisp">     (eval-after-load "message"
-       '(define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+<pre class="lisp">     (with-eval-after-load "message"
+       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
      (customize-set-variable 'eudc-server-hotlist
                              '(("" . bbdb)
                                ("ldaps://ldap.gnu.org" . ldap)))
@@ -394,8 +392,8 @@ example, <samp><span class="file">/etc/openldap/ldap.conf</span></samp> might co
 configure EUDC for LDAP:
 
    <p><a name="index-message_002dmode_002dmap-14"></a><a name="index-eudc_002dexpand_002dinline-15"></a><a name="index-eudc_002dserver_002dhotlist-16"></a><a name="index-ldap_002dhost_002dparameters_002dalist-17"></a>
-<pre class="lisp">     (eval-after-load "message"
-       '(define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+<pre class="lisp">     (with-eval-after-load "message"
+       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
      (customize-set-variable 'eudc-server-hotlist
                              '(("" . bbdb)
                                ("ldaps://ldap.gnu.org" . ldap)))
@@ -415,8 +413,8 @@ case <samp><span class="command">ldapsearch</span></samp> defaults to the host n
    <p class="noindent">and the <samp><span class="file">.emacs</span></samp> expressions become:
 
    <p><a name="index-message_002dmode_002dmap-18"></a><a name="index-eudc_002dexpand_002dinline-19"></a><a name="index-eudc_002dserver_002dhotlist-20"></a><a name="index-ldap_002dhost_002dparameters_002dalist-21"></a>
-<pre class="lisp">     (eval-after-load "message"
-       '(define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+<pre class="lisp">     (with-eval-after-load "message"
+       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
      (customize-set-variable 'eudc-server-hotlist
                              '(("" . bbdb) ("" . ldap)))
      (customize-set-variable 'ldap-host-parameters-alist

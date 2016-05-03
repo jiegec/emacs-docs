@@ -3242,6 +3242,9 @@ run.  One convenient function to use as the value of
 <code>confirm-kill-emacs</code> is the function <code>yes-or-no-p</code>.  The
 default value of <code>confirm-kill-emacs</code> is <code>nil</code>.
 
+   <p>To further customize what happens when Emacs is exiting, see
+<a href="elisp.html#Killing-Emacs">Killing Emacs</a>.
+
    <p><a name="index-kill_002demacs-57"></a>  To kill Emacs without being prompted about saving, type <kbd>M-x
 kill-emacs</kbd>.
 
@@ -3515,10 +3518,11 @@ Column 0 is the leftmost column.  If called with a prefix argument,
 move to the column number specified by the argument's numeric value.
 
      <br><dt><kbd>C-x C-n</kbd><dd><a name="index-C_002dx-C_002dn-131"></a><a name="index-set_002dgoal_002dcolumn-132"></a>Use the current column of point as the <dfn>semipermanent goal column</dfn>
-for <kbd>C-n</kbd> and <kbd>C-p</kbd> (<code>set-goal-column</code>).  When a
-semipermanent goal column is in effect, those commands always try to
-move to this column, or as close as possible to it, after moving
-vertically.  The goal column remains in effect until canceled.
+for <kbd>C-n</kbd> and <kbd>C-p</kbd> (<code>set-goal-column</code>) in the current
+buffer.  When a semipermanent goal column is in effect, those commands
+always try to move to this column, or as close as possible to it,
+after moving vertically.  The goal column remains in effect until
+canceled.
 
      <br><dt><kbd>C-u C-x C-n</kbd><dd>Cancel the goal column.  Henceforth, <kbd>C-n</kbd> and <kbd>C-p</kbd> try to
 preserve the horizontal position, as usual. 
@@ -4242,7 +4246,7 @@ the minibuffer is active.  To allow such commands in the minibuffer,
 set the variable <code>enable-recursive-minibuffers</code> to <code>t</code>.
 
    <p><a name="index-minibuffer_002dinactive_002dmode-197"></a>  When not active, the minibuffer is in <code>minibuffer-inactive-mode</code>,
-and clicking <kbd>Mouse-1</kbd> there shows the <samp><span class="file">*Messages*</span></samp> buffer. 
+and clicking <kbd>mouse-1</kbd> there shows the <samp><span class="file">*Messages*</span></samp> buffer. 
 If you use a dedicated frame for minibuffers, Emacs also recognizes
 certain keys there, for example <kbd>n</kbd> to make a new frame.
 
@@ -4369,7 +4373,7 @@ used with the completion list:
 
      
 <a name="index-mouse_002dchoose_002dcompletion-208"></a>
-<dl><dt><kbd>Mouse-1</kbd><dt><kbd>Mouse-2</kbd><dd>Clicking mouse button 1 or 2 on a completion alternative chooses it
+<dl><dt><kbd>mouse-1</kbd><dt><kbd>mouse-2</kbd><dd>Clicking mouse button 1 or 2 on a completion alternative chooses it
 (<code>mouse-choose-completion</code>).
 
      <p><a name="index-switch_002dto_002dcompletions-209"></a><br><dt><kbd>M-v</kbd><dt><kbd>&lt;PageUp&gt;</kbd><dt><kbd>&lt;prior&gt;</kbd><dd>Typing <kbd>M-v</kbd>, while in the minibuffer, selects the window showing
@@ -5211,7 +5215,7 @@ invoke it with.  In our example, it would say that you can invoke
 
    <p>For more information about a function definition, variable or symbol
 property listed in an apropos buffer, you can click on it with
-<kbd>Mouse-1</kbd> or <kbd>Mouse-2</kbd>, or move there and type &lt;RET&gt;.
+<kbd>mouse-1</kbd> or <kbd>mouse-2</kbd>, or move there and type &lt;RET&gt;.
 
    <p>When you specify more than one word in the apropos pattern, a name
 must contain at least two of the words in order to match.  Thus, if
@@ -5272,7 +5276,7 @@ provided:
 <dt><kbd>&lt;RET&gt;</kbd><dd>Follow a cross reference at point (<code>help-follow</code>). 
 <br><dt><kbd>&lt;TAB&gt;</kbd><dd>Move point forward to the next hyperlink (<code>forward-button</code>). 
 <br><dt><kbd>S-&lt;TAB&gt;</kbd><dd>Move point back to the previous hyperlink (<code>backward-button</code>). 
-<br><dt><kbd>Mouse-1</kbd><dt><kbd>Mouse-2</kbd><dd>Follow a hyperlink that you click on. 
+<br><dt><kbd>mouse-1</kbd><dt><kbd>mouse-2</kbd><dd>Follow a hyperlink that you click on. 
 <br><dt><kbd>C-c C-c</kbd><dd>Show all documentation about the symbol at point
 (<code>help-follow-symbol</code>). 
 <br><dt><kbd>C-c C-f</kbd><dd>Go forward to the next help topic (<code>help-go-forward</code>). 
@@ -5283,7 +5287,7 @@ provided:
 appears in the documentation in the help buffer, it is normally an
 underlined <dfn>hyperlink</dfn>.  To view the associated documentation,
 move point there and type &lt;RET&gt; (<code>help-follow</code>), or click on
-the hyperlink with <kbd>Mouse-1</kbd> or <kbd>Mouse-2</kbd>.  Doing so replaces
+the hyperlink with <kbd>mouse-1</kbd> or <kbd>mouse-2</kbd>.  Doing so replaces
 the contents of the help buffer; to retrace your steps, type <kbd>C-c
 C-b</kbd> (<code>help-go-back</code>).  While retracing your steps, you can go
 forward by using <kbd>C-c C-b</kbd> (<code>help-go-forward</code>).
@@ -5573,8 +5577,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Mark">Mark</a>
 <br><dt><kbd>C-@</kbd><dd>The same. 
 <br><dt><kbd>C-x C-x</kbd><dd>Set the mark at point, and activate it; then move point where the mark
 used to be (<code>exchange-point-and-mark</code>). 
-<br><dt><kbd>Drag-Mouse-1</kbd><dd>Set point and the mark around the text you drag across. 
-<br><dt><kbd>Mouse-3</kbd><dd>Set the mark at point, then move point to where you click
+<br><dt><kbd>Drag-mouse-1</kbd><dd>Set point and the mark around the text you drag across. 
+<br><dt><kbd>mouse-3</kbd><dd>Set the mark at point, then move point to where you click
 (<code>mouse-save-then-kill</code>). 
 <br><dt><kbd>`<samp></kbd><span class="samp">Shifted cursor motion keys</span><kbd></samp>'</kbd><dd>Set the mark at point if the mark is inactive, then move point. 
 See <a href="#Shift-Selection">Shift Selection</a>. 
@@ -6571,9 +6575,9 @@ you can access it using the following Emacs commands:
 
      
 <a name="index-mouse_002dset_002dsecondary-472"></a>
-<a name="index-M_002dDrag_002dMouse_002d1-473"></a>
+<a name="index-M_002dDrag_002dmouse_002d1-473"></a>
 <a name="index-secondary_002dselection-face-474"></a>
-<dl><dt><kbd>M-Drag-Mouse-1</kbd><dd>Set the secondary selection, with one end at the place where you press
+<dl><dt><kbd>M-Drag-mouse-1</kbd><dd>Set the secondary selection, with one end at the place where you press
 down the button, and the other end at the place where you release it
 (<code>mouse-set-secondary</code>).  The selected text is highlighted, using
 the <code>secondary-selection</code> face, as you drag.  The window scrolls
@@ -6582,23 +6586,23 @@ window, just like <code>mouse-set-region</code> (see <a href="#Mouse-Commands">M
 
      <p>This command does not alter the kill ring.
 
-     <p><a name="index-mouse_002dstart_002dsecondary-475"></a><a name="index-M_002dMouse_002d1-476"></a><br><dt><kbd>M-Mouse-1</kbd><dd>Set one endpoint for the <dfn>secondary selection</dfn>
+     <p><a name="index-mouse_002dstart_002dsecondary-475"></a><a name="index-M_002dmouse_002d1-476"></a><br><dt><kbd>M-mouse-1</kbd><dd>Set one endpoint for the <dfn>secondary selection</dfn>
 (<code>mouse-start-secondary</code>).
 
-     <p><a name="index-mouse_002dsecondary_002dsave_002dthen_002dkill-477"></a><a name="index-M_002dMouse_002d3-478"></a><br><dt><kbd>M-Mouse-3</kbd><dd>Set the secondary selection, with one end at the position clicked and
-the other at the position specified with <kbd>M-Mouse-1</kbd>
+     <p><a name="index-mouse_002dsecondary_002dsave_002dthen_002dkill-477"></a><a name="index-M_002dmouse_002d3-478"></a><br><dt><kbd>M-mouse-3</kbd><dd>Set the secondary selection, with one end at the position clicked and
+the other at the position specified with <kbd>M-mouse-1</kbd>
 (<code>mouse-secondary-save-then-kill</code>).  This also puts the selected
-text in the kill ring.  A second <kbd>M-Mouse-3</kbd> at the same place
+text in the kill ring.  A second <kbd>M-mouse-3</kbd> at the same place
 kills the secondary selection just made.
 
-     <p><a name="index-mouse_002dyank_002dsecondary-479"></a><a name="index-M_002dMouse_002d2-480"></a><br><dt><kbd>M-Mouse-2</kbd><dd>Insert the secondary selection where you click, placing point at the
+     <p><a name="index-mouse_002dyank_002dsecondary-479"></a><a name="index-M_002dmouse_002d2-480"></a><br><dt><kbd>M-mouse-2</kbd><dd>Insert the secondary selection where you click, placing point at the
 end of the yanked text (<code>mouse-yank-secondary</code>). 
 </dl>
 
-   <p>Double or triple clicking of <kbd>M-Mouse-1</kbd> operates on words and
-lines, much like <kbd>Mouse-1</kbd>.
+   <p>Double or triple clicking of <kbd>M-mouse-1</kbd> operates on words and
+lines, much like <kbd>mouse-1</kbd>.
 
-   <p>If <code>mouse-yank-at-point</code> is non-<code>nil</code>, <kbd>M-Mouse-2</kbd> yanks
+   <p>If <code>mouse-yank-at-point</code> is non-<code>nil</code>, <kbd>M-mouse-2</kbd> yanks
 at point.  Then it does not matter precisely where you click, or even
 which of the frame's windows you click on.  See <a href="#Mouse-Commands">Mouse Commands</a>.
 
@@ -9017,9 +9021,9 @@ searching for it.  The number of most recently used search strings
 saved in the search ring is specified by the variable
 <code>search-ring-max</code>, 16 by default.
 
-   <p><a name="index-incremental-search_002c-edit-search-string-876"></a><a name="index-interactively-edit-search-string-877"></a><a name="index-M_002de-_0040r_007b_0028Incremental-search_0029_007d-878"></a><a name="index-Mouse_002d1-_0040r_007bin-the-minibuffer-_0028Incremental-Search_0029_007d-879"></a>  To edit the current search string in the minibuffer without
+   <p><a name="index-incremental-search_002c-edit-search-string-876"></a><a name="index-interactively-edit-search-string-877"></a><a name="index-M_002de-_0040r_007b_0028Incremental-search_0029_007d-878"></a><a name="index-mouse_002d1-_0040r_007bin-the-minibuffer-_0028Incremental-Search_0029_007d-879"></a>  To edit the current search string in the minibuffer without
 replacing it with items from the search ring, type <kbd>M-e</kbd> or click
-<kbd>Mouse-1</kbd> in the minibuffer.  Type &lt;RET&gt;, <kbd>C-s</kbd> or
+<kbd>mouse-1</kbd> in the minibuffer.  Type &lt;RET&gt;, <kbd>C-s</kbd> or
 <kbd>C-r</kbd> to finish editing the string and search for it.  Type
 <kbd>C-f</kbd> or <kbd>&lt;RIGHT&gt;</kbd> to add to the search string characters
 following point from the buffer from which you started the search.
@@ -9049,11 +9053,11 @@ of the current line to the search string.  If point is already at the
 end of a line, it appends the next line.  With a prefix argument
 <var>n</var>, it appends the next <var>n</var> lines.
 
-   <p><a name="index-C_002dy-_0040r_007b_0028Incremental-search_0029_007d-884"></a><a name="index-M_002dy-_0040r_007b_0028Incremental-search_0029_007d-885"></a><a name="index-Mouse_002d2-_0040r_007bin-the-minibuffer-_0028Incremental-search_0029_007d-886"></a><a name="index-isearch_002dyank_002dkill-887"></a><a name="index-isearch_002dyank_002dpop-888"></a><a name="index-isearch_002dyank_002dx_002dselection-889"></a>  Within incremental search, <kbd>C-y</kbd> (<code>isearch-yank-kill</code>)
+   <p><a name="index-C_002dy-_0040r_007b_0028Incremental-search_0029_007d-884"></a><a name="index-M_002dy-_0040r_007b_0028Incremental-search_0029_007d-885"></a><a name="index-mouse_002d2-_0040r_007bin-the-minibuffer-_0028Incremental-search_0029_007d-886"></a><a name="index-isearch_002dyank_002dkill-887"></a><a name="index-isearch_002dyank_002dpop-888"></a><a name="index-isearch_002dyank_002dx_002dselection-889"></a>  Within incremental search, <kbd>C-y</kbd> (<code>isearch-yank-kill</code>)
 appends the current kill to the search string.  <kbd>M-y</kbd>
 (<code>isearch-yank-pop</code>), if called after <kbd>C-y</kbd>, replaces that
 appended text with an earlier kill, similar to the usual <kbd>M-y</kbd>
-(<code>yank-pop</code>) command (see <a href="#Yanking">Yanking</a>).  Clicking <kbd>Mouse-2</kbd>
+(<code>yank-pop</code>) command (see <a href="#Yanking">Yanking</a>).  Clicking <kbd>mouse-2</kbd>
 in the echo area appends the current X selection (see <a href="#Primary-Selection">Primary Selection</a>) to the search string (<code>isearch-yank-x-selection</code>).
 
    <p><a name="index-C_002dM_002dw-_0040r_007b_0028Incremental-search_0029_007d-890"></a><a name="index-C_002dM_002dy-_0040r_007b_0028Incremental-search_0029_007d-891"></a><a name="index-isearch_002ddel_002dchar-892"></a><a name="index-isearch_002dyank_002dchar-893"></a>  <kbd>C-M-w</kbd> (<code>isearch-del-char</code>) deletes the last character
@@ -10921,7 +10925,7 @@ buffers, add <code>flyspell-mode</code> to <code>text-mode-hook</code>.
 See <a href="#Hooks">Hooks</a>.
 
    <p><a name="index-flyspell_002dcorrect_002dword-1077"></a><a name="index-flyspell_002dauto_002dcorrect_002dword-1078"></a><a name="index-flyspell_002dcorrect_002dword_002dbefore_002dpoint-1079"></a>  When Flyspell mode highlights a word as misspelled, you can click on
-it with <kbd>Mouse-2</kbd> (<code>flyspell-correct-word</code>) to display a menu
+it with <kbd>mouse-2</kbd> (<code>flyspell-correct-word</code>) to display a menu
 of possible corrections and actions.  In addition, <kbd>C-.</kbd> or
 <kbd>&lt;ESC&gt;-&lt;TAB&gt;</kbd> (<code>flyspell-auto-correct-word</code>) will
 propose various successive corrections for the word at point, and
@@ -11958,6 +11962,17 @@ a new backup file.  <kbd>C-u C-u C-u C-x C-s</kbd> does both things: it
 makes a backup from the previous contents, and arranges to make
 another from the newly saved contents if you save again.
 
+   <p><a name="index-backup_002ddirectory_002dalist-1181"></a>  You can customize the variable <code>backup-directory-alist</code> to
+specify that files matching certain patterns should be backed up in
+specific directories.  A typical use is to add an element <code>("." 
+. </code><var>dir</var><code>)</code> to make all backups in the directory with absolute name
+<var>dir</var>.  Emacs modifies the backup file names to avoid clashes
+between files with the same names originating in different
+directories.  Alternatively, adding, <code>("." . ".~")</code> would make
+backups in the invisible subdirectory <samp><span class="file">.~</span></samp> of the original file's
+directory.  Emacs creates the directory, if necessary, to make the
+backup.
+
 <ul class="menu">
 <li><a accesskey="1" href="#Backup-Names">Names</a>:           How backup files are named. 
 <li><a accesskey="2" href="#Backup-Deletion">Deletion</a>:     Emacs deletes excess numbered backups. 
@@ -11974,12 +11989,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Backup">Backup</a>
 
 <h5 class="subsubsection">18.3.2.1 Single or Numbered Backups</h5>
 
-<p><a name="index-backup-file-names-1181"></a><a name="index-names-of-backup-files-1182"></a>
-<a name="index-g_t_0040file_007b_007e_007d_002c-in-names-of-backup-files-1183"></a><a name="index-tilde-_0028_0040file_007b_007e_007d_0029-at-end-of-backup-file-name-1184"></a>  When Emacs makes a backup file, its name is normally constructed by
+<p><a name="index-backup-file-names-1182"></a><a name="index-names-of-backup-files-1183"></a>
+<a name="index-g_t_0040file_007b_007e_007d_002c-in-names-of-backup-files-1184"></a><a name="index-tilde-_0028_0040file_007b_007e_007d_0029-at-end-of-backup-file-name-1185"></a>  When Emacs makes a backup file, its name is normally constructed by
 appending `<samp><span class="samp">~</span></samp>' to the file name being edited; thus, the backup
 file for <samp><span class="file">eval.c</span></samp> would be <samp><span class="file">eval.c~</span></samp>.
 
-   <p><a name="index-g_t_0040file_007b_007e_002f_002eemacs_002ed_002f_0025backup_0025_007e_007d-1185"></a>  If access control stops Emacs from writing backup files under the
+   <p><a name="index-g_t_0040file_007b_007e_002f_002eemacs_002ed_002f_0025backup_0025_007e_007d-1186"></a>  If access control stops Emacs from writing backup files under the
 usual names, it writes the backup file as <samp><span class="file">~/.emacs.d/%backup%~</span></samp>. 
 Only one such file can exist, so only the most recently made such
 backup is available.
@@ -11990,7 +12005,7 @@ the original file name.  Thus, the backup files of <samp><span class="file">eval
 be called <samp><span class="file">eval.c.~1~</span></samp>, <samp><span class="file">eval.c.~2~</span></samp>, and so on, all the way
 through names like <samp><span class="file">eval.c.~259~</span></samp> and beyond.
 
-   <p><a name="index-version_002dcontrol-1186"></a>  The variable <code>version-control</code> determines whether to make
+   <p><a name="index-version_002dcontrol-1187"></a>  The variable <code>version-control</code> determines whether to make
 single backup files or multiple numbered backup files.  Its possible
 values are:
 
@@ -12009,7 +12024,7 @@ have Emacs set <code>version-control</code> locally whenever you visit a
 given file (see <a href="#File-Variables">File Variables</a>).  Some modes, such as Rmail mode,
 set this variable.
 
-   <p><a name="index-g_t_0040env_007bVERSION_005fCONTROL_007d-environment-variable-1187"></a>  If you set the environment variable <samp><span class="env">VERSION_CONTROL</span></samp>, to tell
+   <p><a name="index-g_t_0040env_007bVERSION_005fCONTROL_007d-environment-variable-1188"></a>  If you set the environment variable <samp><span class="env">VERSION_CONTROL</span></samp>, to tell
 various GNU utilities what to do with backup files, Emacs also obeys the
 environment variable by setting the Lisp variable <code>version-control</code>
 accordingly at startup.  If the environment variable's value is `<samp><span class="samp">t</span></samp>'
@@ -12017,18 +12032,6 @@ or `<samp><span class="samp">numbered</span></samp>', then <code>version-control
 value is `<samp><span class="samp">nil</span></samp>' or `<samp><span class="samp">existing</span></samp>', then <code>version-control</code>
 becomes <code>nil</code>; if it is `<samp><span class="samp">never</span></samp>' or `<samp><span class="samp">simple</span></samp>', then
 <code>version-control</code> becomes <code>never</code>.
-
-   <p><a name="index-backup_002ddirectory_002dalist-1188"></a>  You can customize the variable <code>backup-directory-alist</code> to
-specify that files matching certain patterns should be backed up in
-specific directories.  This variable applies to both single and
-numbered backups.  A typical use is to add an element <code>("." 
-. </code><var>dir</var><code>)</code> to make all backups in the directory with absolute name
-<var>dir</var>; Emacs modifies the backup file names to avoid clashes
-between files with the same names originating in different
-directories.  Alternatively, adding, <code>("." . ".~")</code> would make
-backups in the invisible subdirectory <samp><span class="file">.~</span></samp> of the original file's
-directory.  Emacs creates the directory, if necessary, to make the
-backup.
 
    <p><a name="index-make_002dbackup_002dfile_002dname_002dfunction-1189"></a>  If you set the variable <code>make-backup-file-name-function</code> to
 a suitable Lisp function, you can override the usual way Emacs
@@ -14236,10 +14239,10 @@ this to the usual buffer list, you can bind this command to <kbd>C-x
 C-b</kbd>.  To customize this buffer list, use the <code>bs</code> Custom group
 (see <a href="#Easy-Customization">Easy Customization</a>).
 
-   <p><a name="index-msb_002dmode-1501"></a><a name="index-mode_002c-MSB-1502"></a><a name="index-MSB-mode-1503"></a><a name="index-mouse_002dbuffer_002dmenu-1504"></a><a name="index-C_002dDown_002dMouse_002d1-1505"></a>  MSB global minor mode (&ldquo;MSB&rdquo; stands for &ldquo;mouse select buffer&rdquo;)
+   <p><a name="index-msb_002dmode-1501"></a><a name="index-mode_002c-MSB-1502"></a><a name="index-MSB-mode-1503"></a><a name="index-mouse_002dbuffer_002dmenu-1504"></a><a name="index-C_002dDown_002dmouse_002d1-1505"></a>  MSB global minor mode (&ldquo;MSB&rdquo; stands for &ldquo;mouse select buffer&rdquo;)
 provides a different and customizable mouse buffer menu which you may
 prefer.  It replaces the bindings of <code>mouse-buffer-menu</code>,
-normally on <kbd>C-Down-Mouse-1</kbd> and <kbd>C-&lt;F10&gt;</kbd>, and the menu
+normally on <kbd>C-Down-mouse-1</kbd> and <kbd>C-&lt;F10&gt;</kbd>, and the menu
 bar buffer menu.  You can customize the menu in the <code>msb</code> Custom
 group.
 
@@ -14335,7 +14338,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Windows">Windows</a>
 (<code>split-window-below</code>). 
 <br><dt><kbd>C-x 3</kbd><dd>Split the selected window into two windows, positioned side by side
 (<code>split-window-right</code>). 
-<br><dt><kbd>C-Mouse-2</kbd><dd>In the mode line of a window, split that window. 
+<br><dt><kbd>C-mouse-2</kbd><dd>In the mode line of a window, split that window. 
 </dl>
 
    <p><a name="index-C_002dx-2-1509"></a><a name="index-split_002dwindow_002dbelow-1510"></a>  <kbd>C-x 2</kbd> (<code>split-window-below</code>) splits the selected window
@@ -14385,10 +14388,10 @@ truncation glyphs, the margins, and the scroll bar.
    <p>On text terminals, side-by-side windows are separated by a vertical
 divider which is drawn using the <code>vertical-border</code> face.
 
-   <p><a name="index-C_002dMouse_002d2-_0040r_007b_0028mode-line_0029_007d-1515"></a><a name="index-C_002dMouse_002d2-_0040r_007b_0028scroll-bar_0029_007d-1516"></a>  If you click <kbd>C-Mouse-2</kbd> in the mode line of a window, that
+   <p><a name="index-C_002dmouse_002d2-_0040r_007b_0028mode-line_0029_007d-1515"></a><a name="index-C_002dmouse_002d2-_0040r_007b_0028scroll-bar_0029_007d-1516"></a>  If you click <kbd>C-mouse-2</kbd> in the mode line of a window, that
 splits the window, putting a vertical divider where you click. 
 Depending on how Emacs is compiled, you can also split a window by
-clicking <kbd>C-Mouse-2</kbd> in the scroll bar, which puts a horizontal
+clicking <kbd>C-mouse-2</kbd> in the scroll bar, which puts a horizontal
 divider where you click (this feature does not work when Emacs uses
 GTK+ scroll bars).
 
@@ -14417,7 +14420,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Windows">Windows</a>
      <dl>
 <dt><kbd>C-x o</kbd><dd>Select another window (<code>other-window</code>). 
 <br><dt><kbd>C-M-v</kbd><dd>Scroll the next window (<code>scroll-other-window</code>). 
-<br><dt><kbd>Mouse-1</kbd><dd><kbd>Mouse-1</kbd>, in the text area of a window, selects the window and
+<br><dt><kbd>mouse-1</kbd><dd><kbd>mouse-1</kbd>, in the text area of a window, selects the window and
 moves point to the position clicked.  Clicking in the mode line
 selects the window without moving point in it. 
 </dl>
@@ -14841,24 +14844,24 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 <h3 class="section">21.1 Mouse Commands for Editing</h3>
 
 <p><a name="index-mouse-buttons-_0028what-they-do_0029-1577"></a><a name="index-mouse_002c-selecting-text-using-1578"></a>
-<a name="index-Mouse_002d1-1579"></a><a name="index-Mouse_002d2-1580"></a><a name="index-Mouse_002d3-1581"></a>
+<a name="index-mouse_002d1-1579"></a><a name="index-mouse_002d2-1580"></a><a name="index-mouse_002d3-1581"></a>
      <dl>
-<dt><kbd>Mouse-1</kbd><dd>Move point to where you click (<code>mouse-set-point</code>).
+<dt><kbd>mouse-1</kbd><dd>Move point to where you click (<code>mouse-set-point</code>).
 
-     <br><dt><kbd>Drag-Mouse-1</kbd><dd>Activate the region around the text selected by dragging, and put the
+     <br><dt><kbd>Drag-mouse-1</kbd><dd>Activate the region around the text selected by dragging, and put the
 text in the primary selection (<code>mouse-set-region</code>).
 
-     <br><dt><kbd>Mouse-2</kbd><dd>Move point to where you click, and insert the contents of the primary
+     <br><dt><kbd>mouse-2</kbd><dd>Move point to where you click, and insert the contents of the primary
 selection there (<code>mouse-yank-primary</code>).
 
-     <br><dt><kbd>Mouse-3</kbd><dd>If the region is active, move the nearer end of the region to the
+     <br><dt><kbd>mouse-3</kbd><dd>If the region is active, move the nearer end of the region to the
 click position; otherwise, set mark at the current value of point and
 point at the click position.  Save the resulting region in the kill
 ring; on a second click, kill it (<code>mouse-save-then-kill</code>). 
 </dl>
 
    <p><a name="index-mouse_002dset_002dpoint-1582"></a>  The most basic mouse command is <code>mouse-set-point</code>, which is
-invoked by clicking with the left mouse button, <kbd>Mouse-1</kbd>, in the
+invoked by clicking with the left mouse button, <kbd>mouse-1</kbd>, in the
 text area of a window.  This moves point to the position where you
 clicked.  If that window was not the selected window, it becomes the
 selected window.
@@ -14871,7 +14874,7 @@ setting the variable <code>x-mouse-click-focus-ignore-position</code> to
 selects the frame, without doing anything else; clicking again selects
 the window and sets the cursor position.
 
-   <p><a name="index-mouse_002c-dragging-1584"></a><a name="index-mouse_002dset_002dregion-1585"></a>  Holding down <kbd>Mouse-1</kbd> and dragging the mouse over a stretch
+   <p><a name="index-mouse_002c-dragging-1584"></a><a name="index-mouse_002dset_002dregion-1585"></a>  Holding down <kbd>mouse-1</kbd> and dragging the mouse over a stretch
 of text activates the region around that text
 (<code>mouse-set-region</code>), placing the mark where you started holding
 down the mouse button, and point where you release it (see <a href="#Mark">Mark</a>). 
@@ -14889,43 +14892,43 @@ entirely on the screen.  The number of lines scrolled per step depends
 on how far away from the window edge the mouse has gone; the variable
 <code>mouse-scroll-min-lines</code> specifies a minimum step size.
 
-   <p><a name="index-mouse_002dyank_002dprimary-1588"></a><a name="index-mouse_002dyank_002dat_002dclick-1589"></a>  Clicking with the middle mouse button, <kbd>Mouse-2</kbd>, moves point to
+   <p><a name="index-mouse_002dyank_002dprimary-1588"></a><a name="index-mouse_002dyank_002dat_002dclick-1589"></a>  Clicking with the middle mouse button, <kbd>mouse-2</kbd>, moves point to
 the position where you clicked and inserts the contents of the primary
 selection (<code>mouse-yank-primary</code>).  See <a href="#Primary-Selection">Primary Selection</a>. 
 This behavior is consistent with other X applications.  Alternatively,
-you can rebind <kbd>Mouse-2</kbd> to <code>mouse-yank-at-click</code>, which
+you can rebind <kbd>mouse-2</kbd> to <code>mouse-yank-at-click</code>, which
 performs a yank at the position you click.
 
    <p><a name="index-mouse_002dyank_002dat_002dpoint-1590"></a>  If you change the variable <code>mouse-yank-at-point</code> to a
-non-<code>nil</code> value, <kbd>Mouse-2</kbd> does not move point; it inserts
+non-<code>nil</code> value, <kbd>mouse-2</kbd> does not move point; it inserts
 the text at point, regardless of where you clicked or even which of
 the frame's windows you clicked on.  This variable affects both
 <code>mouse-yank-primary</code> and <code>mouse-yank-at-click</code>.
 
-   <p><a name="index-mouse_002dsave_002dthen_002dkill-1591"></a>  Clicking with the right mouse button, <kbd>Mouse-3</kbd>, runs the
+   <p><a name="index-mouse_002dsave_002dthen_002dkill-1591"></a>  Clicking with the right mouse button, <kbd>mouse-3</kbd>, runs the
 command <code>mouse-save-then-kill</code>.  This performs several actions
 depending on where you click and the status of the region:
 
      <ul>
-<li>If no region is active, clicking <kbd>Mouse-3</kbd> activates the region,
+<li>If no region is active, clicking <kbd>mouse-3</kbd> activates the region,
 placing the mark where point was and point at the clicked position.
 
-     <li>If a region is active, clicking <kbd>Mouse-3</kbd> adjusts the nearer end
+     <li>If a region is active, clicking <kbd>mouse-3</kbd> adjusts the nearer end
 of the region by moving it to the clicked position.  The adjusted
 region's text is copied to the kill ring; if the text in the original
 region was already on the kill ring, it replaces it there.
 
      <li>If you originally specified the region using a double or triple
-<kbd>Mouse-1</kbd>, so that the region is defined to consist of entire
+<kbd>mouse-1</kbd>, so that the region is defined to consist of entire
 words or lines (see <a href="#Word-and-Line-Mouse">Word and Line Mouse</a>), then adjusting the
-region with <kbd>Mouse-3</kbd> also proceeds by entire words or lines.
+region with <kbd>mouse-3</kbd> also proceeds by entire words or lines.
 
-     <li>If you use <kbd>Mouse-3</kbd> a second time consecutively, at the same
+     <li>If you use <kbd>mouse-3</kbd> a second time consecutively, at the same
 place, that kills the region already selected.  Thus, the simplest way
-to kill text with the mouse is to click <kbd>Mouse-1</kbd> at one end, then
-click <kbd>Mouse-3</kbd> twice at the other end.  To copy the text into the
-kill ring without deleting it from the buffer, press <kbd>Mouse-3</kbd>
-just once&mdash;or just drag across the text with <kbd>Mouse-1</kbd>.  Then you
+to kill text with the mouse is to click <kbd>mouse-1</kbd> at one end, then
+click <kbd>mouse-3</kbd> twice at the other end.  To copy the text into the
+kill ring without deleting it from the buffer, press <kbd>mouse-3</kbd>
+just once&mdash;or just drag across the text with <kbd>mouse-1</kbd>.  Then you
 can copy it elsewhere by yanking it. 
 </ul>
 
@@ -14961,12 +14964,12 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 
 <h3 class="section">21.2 Mouse Commands for Words and Lines</h3>
 
-<p>These variants of <kbd>Mouse-1</kbd> select entire words or lines at a
+<p>These variants of <kbd>mouse-1</kbd> select entire words or lines at a
 time.  Emacs activates the region around the selected text, which is
 also copied to the kill ring.
 
      <dl>
-<dt><kbd>Double-Mouse-1</kbd><dd>Select the text around the word which you click on.
+<dt><kbd>Double-mouse-1</kbd><dd>Select the text around the word which you click on.
 
      <p>Double-clicking on a character with symbol syntax (such as
 underscore, in C mode) selects the symbol surrounding that character. 
@@ -14977,11 +14980,11 @@ ends.  Double-clicking on a character with string-delimiter syntax
 constant (Emacs uses heuristics to figure out whether that character
 is the beginning or the end of it).
 
-     <br><dt><kbd>Double-Drag-Mouse-1</kbd><dd>Select the text you drag across, in the form of whole words.
+     <br><dt><kbd>Double-Drag-mouse-1</kbd><dd>Select the text you drag across, in the form of whole words.
 
-     <br><dt><kbd>Triple-Mouse-1</kbd><dd>Select the line you click on.
+     <br><dt><kbd>Triple-mouse-1</kbd><dd>Select the line you click on.
 
-     <br><dt><kbd>Triple-Drag-Mouse-1</kbd><dd>Select the text you drag across, in the form of whole lines. 
+     <br><dt><kbd>Triple-Drag-mouse-1</kbd><dd>Select the text you drag across, in the form of whole lines. 
 </dl>
 
 <div class="node">
@@ -14995,7 +14998,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 
 <h3 class="section">21.3 Following References with the Mouse</h3>
 
-<p><a name="index-Mouse_002d1-_0040r_007b_0028on-buttons_0029_007d-1599"></a><a name="index-Mouse_002d2-_0040r_007b_0028on-buttons_0029_007d-1600"></a><a name="index-hyperlinks-1601"></a><a name="index-links-1602"></a><a name="index-text-buttons-1603"></a><a name="index-buttons-1604"></a>
+<p><a name="index-mouse_002d1-_0040r_007b_0028on-buttons_0029_007d-1599"></a><a name="index-mouse_002d2-_0040r_007b_0028on-buttons_0029_007d-1600"></a><a name="index-hyperlinks-1601"></a><a name="index-links-1602"></a><a name="index-text-buttons-1603"></a><a name="index-buttons-1604"></a>
 <a name="index-mouse_002dhighlight-1605"></a>  Some Emacs buffers include <dfn>buttons</dfn>, or <dfn>hyperlinks</dfn>:
 pieces of text that perform some action (e.g., following a reference)
 when activated (e.g., by clicking on them).  Usually, a button's text
@@ -15006,14 +15009,14 @@ cursor changes and the button lights up.  If you change the variable
 highlighting.
 
    <p>You can activate a button by moving point to it and typing
-&lt;RET&gt;, or by clicking either <kbd>Mouse-1</kbd> or <kbd>Mouse-2</kbd> on the
+&lt;RET&gt;, or by clicking either <kbd>mouse-1</kbd> or <kbd>mouse-2</kbd> on the
 button.  For example, in a Dired buffer, each file name is a button;
 activating it causes Emacs to visit that file (see <a href="#Dired">Dired</a>).  In a
 <samp><span class="file">*Compilation*</span></samp> buffer, each error message is a button, and
 activating it visits the source code for that error
 (see <a href="#Compilation">Compilation</a>).
 
-   <p>Although clicking <kbd>Mouse-1</kbd> on a button usually activates the
+   <p>Although clicking <kbd>mouse-1</kbd> on a button usually activates the
 button, if you hold the mouse button down for a period of time before
 releasing it (specifically, for more than 450 milliseconds), then
 Emacs moves point where you clicked, without activating the button. 
@@ -15021,19 +15024,19 @@ In this way, you can use the mouse to move point over a button without
 activating it.  Dragging the mouse over or onto a button has its usual
 behavior of setting the region, and does not activate the button.
 
-   <p>You can change how <kbd>Mouse-1</kbd> applies to buttons by customizing
+   <p>You can change how <kbd>mouse-1</kbd> applies to buttons by customizing
 the variable <code>mouse-1-click-follows-link</code>.  If the value is a
 positive integer, that determines how long you need to hold the mouse
 button down for, in milliseconds, to cancel button activation; the
 default is 450, as described in the previous paragraph.  If the value
-is <code>nil</code>, <kbd>Mouse-1</kbd> just sets point where you clicked, and
+is <code>nil</code>, <kbd>mouse-1</kbd> just sets point where you clicked, and
 does not activate buttons.  If the value is <code>double</code>, double
 clicks activate buttons but single clicks just set point.
 
-   <p><a name="index-mouse_002d1_002dclick_002din_002dnon_002dselected_002dwindows-1606"></a>  Normally, <kbd>Mouse-1</kbd> on a button activates the button even if it
+   <p><a name="index-mouse_002d1_002dclick_002din_002dnon_002dselected_002dwindows-1606"></a>  Normally, <kbd>mouse-1</kbd> on a button activates the button even if it
 is in a non-selected window.  If you change the variable
 <code>mouse-1-click-in-non-selected-windows</code> to <code>nil</code>,
-<kbd>Mouse-1</kbd> on a button in an unselected window moves point to the
+<kbd>mouse-1</kbd> on a button in an unselected window moves point to the
 clicked position and selects that window, without activating the
 button.
 
@@ -15052,16 +15055,16 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 bring up menus.
 
      <dl>
-<dt><kbd>C-Mouse-1</kbd><dd><a name="index-C_002dMouse_002d1-1607"></a>This menu is for selecting a buffer.
+<dt><kbd>C-mouse-1</kbd><dd><a name="index-C_002dmouse_002d1-1607"></a>This menu is for selecting a buffer.
 
      <p>The MSB (&ldquo;mouse select buffer&rdquo;) global minor mode makes this
 menu smarter and more customizable.  See <a href="#Buffer-Menus">Buffer Menus</a>.
 
-     <br><dt><kbd>C-Mouse-2</kbd><dd><a name="index-C_002dMouse_002d2-1608"></a>This menu contains entries for examining faces and other text
+     <br><dt><kbd>C-mouse-2</kbd><dd><a name="index-C_002dmouse_002d2-1608"></a>This menu contains entries for examining faces and other text
 properties, and well as for setting them (the latter is mainly useful
 when editing enriched text; see <a href="#Enriched-Text">Enriched Text</a>).
 
-     <br><dt><kbd>C-Mouse-3</kbd><dd><a name="index-C_002dMouse_002d3-1609"></a>This menu is mode-specific.  For most modes if Menu-bar mode is on,
+     <br><dt><kbd>C-mouse-3</kbd><dd><a name="index-C_002dmouse_002d3-1609"></a>This menu is mode-specific.  For most modes if Menu-bar mode is on,
 this menu has the same items as all the mode-specific menu-bar menus
 put together.  Some modes may specify a different menu for this
 button.  If Menu Bar mode is off, this menu contains all the items
@@ -15069,14 +15072,14 @@ which would be present in the menu bar&mdash;not just the mode-specific
 ones&mdash;so that you can access them without having to display the menu
 bar.
 
-     <br><dt><kbd>S-Mouse-1</kbd><dd>This menu is for changing the default face within the window's buffer. 
+     <br><dt><kbd>S-mouse-1</kbd><dd>This menu is for changing the default face within the window's buffer. 
 See <a href="#Text-Scale">Text Scale</a>. 
 </dl>
 
-   <p>Some graphical applications use <kbd>Mouse-3</kbd> for a mode-specific
-menu.  If you prefer <kbd>Mouse-3</kbd> in Emacs to bring up such a menu
+   <p>Some graphical applications use <kbd>mouse-3</kbd> for a mode-specific
+menu.  If you prefer <kbd>mouse-3</kbd> in Emacs to bring up such a menu
 instead of running the <code>mouse-save-then-kill</code> command, rebind
-<kbd>Mouse-3</kbd> by adding the following line to your init file
+<kbd>mouse-3</kbd> by adding the following line to your init file
 (see <a href="#Init-Rebinding">Init Rebinding</a>):
 
 <!-- FIXME: `mouse-popup-menubar-stuff' is obsolete since 23.1. -->
@@ -15104,23 +15107,23 @@ the special bindings will be displayed (see <a href="#Tooltips">Tooltips</a>).  
 section's commands do not apply in those areas.
 
      <dl>
-<dt><kbd>Mouse-1</kbd><dd><a name="index-Mouse_002d1-_0040r_007b_0028mode-line_0029_007d-1612"></a><kbd>Mouse-1</kbd> on a mode line selects the window it belongs to.  By
-dragging <kbd>Mouse-1</kbd> on the mode line, you can move it, thus
+<dt><kbd>mouse-1</kbd><dd><a name="index-mouse_002d1-_0040r_007b_0028mode-line_0029_007d-1612"></a><kbd>mouse-1</kbd> on a mode line selects the window it belongs to.  By
+dragging <kbd>mouse-1</kbd> on the mode line, you can move it, thus
 changing the height of the windows above and below.  Changing heights
 with the mouse in this way never deletes windows, it just refuses to
 make any window smaller than the minimum height.
 
-     <br><dt><kbd>Mouse-2</kbd><dd><a name="index-Mouse_002d2-_0040r_007b_0028mode-line_0029_007d-1613"></a><kbd>Mouse-2</kbd> on a mode line expands that window to fill its frame.
+     <br><dt><kbd>mouse-2</kbd><dd><a name="index-mouse_002d2-_0040r_007b_0028mode-line_0029_007d-1613"></a><kbd>mouse-2</kbd> on a mode line expands that window to fill its frame.
 
-     <br><dt><kbd>Mouse-3</kbd><dd><a name="index-Mouse_002d3-_0040r_007b_0028mode-line_0029_007d-1614"></a><kbd>Mouse-3</kbd> on a mode line deletes the window it belongs to.  If the
+     <br><dt><kbd>mouse-3</kbd><dd><a name="index-mouse_002d3-_0040r_007b_0028mode-line_0029_007d-1614"></a><kbd>mouse-3</kbd> on a mode line deletes the window it belongs to.  If the
 frame has only one window, it does nothing.
 
-     <br><dt><kbd>C-Mouse-2</kbd><dd><a name="index-C_002dmouse_002d2-_0040r_007b_0028mode-line_0029_007d-1615"></a><kbd>C-Mouse-2</kbd> on a mode line splits that window, producing two
+     <br><dt><kbd>C-mouse-2</kbd><dd><a name="index-C_002dmouse_002d2-_0040r_007b_0028mode-line_0029_007d-1615"></a><kbd>C-mouse-2</kbd> on a mode line splits that window, producing two
 side-by-side windows with the boundary running through the click
 position (see <a href="#Split-Window">Split Window</a>). 
 </dl>
 
-   <p><a name="index-Mouse_002d1-_0040r_007b_0028scroll-bar_0029_007d-1616"></a>  Furthermore, by clicking and dragging <kbd>Mouse-1</kbd> on the divider
+   <p><a name="index-mouse_002d1-_0040r_007b_0028scroll-bar_0029_007d-1616"></a>  Furthermore, by clicking and dragging <kbd>mouse-1</kbd> on the divider
 between two side-by-side mode lines, you can move the vertical
 boundary to the left or right.
 
@@ -15604,17 +15607,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 
 <p><a name="index-Scroll-Bar-mode-1654"></a><a name="index-mode_002c-Scroll-Bar-1655"></a><a name="index-Vertical-Scroll-Bar-1656"></a>
   On graphical displays, there is a <dfn>vertical scroll bar</dfn> on the
-side of each Emacs window.  Clicking <kbd>Mouse-1</kbd> on the scroll bar's
+side of each Emacs window.  Clicking <kbd>mouse-1</kbd> on the scroll bar's
 up and down buttons scrolls the window by one line at a time.  Clicking
-<kbd>Mouse-1</kbd> above or below the scroll bar's inner box scrolls the
+<kbd>mouse-1</kbd> above or below the scroll bar's inner box scrolls the
 window by nearly the entire height of the window, like <kbd>M-v</kbd> and
 <kbd>C-v</kbd> respectively (see <a href="#Moving-Point">Moving Point</a>).  Dragging the inner box
 scrolls continuously.
 
    <p>If Emacs is compiled on the X Window System without X toolkit
-support, the scroll bar behaves differently.  Clicking <kbd>Mouse-1</kbd>
+support, the scroll bar behaves differently.  Clicking <kbd>mouse-1</kbd>
 anywhere on the scroll bar scrolls forward like <kbd>C-v</kbd>, while
-<kbd>Mouse-3</kbd> scrolls backward like <kbd>M-v</kbd>.  Clicking <kbd>Mouse-2</kbd>
+<kbd>mouse-3</kbd> scrolls backward like <kbd>M-v</kbd>.  Clicking <kbd>mouse-2</kbd>
 in the scroll bar lets you drag the inner box up and down.
 
    <p><a name="index-scroll_002dbar_002dmode-1657"></a><a name="index-toggle_002dscroll_002dbar-1658"></a>  To toggle the use of vertical scroll bars, type <kbd>M-x
@@ -15650,8 +15653,8 @@ when the entire buffer is visible.
 
    <p><a name="index-Horizontal-Scroll-Bar-1665"></a><a name="index-Horizontal-Scroll-Bar-mode-1666"></a>  On graphical displays with toolkit support, Emacs may also supply a
 <dfn>horizontal scroll bar</dfn> on the bottom of each window.  Clicking
-<kbd>Mouse-1</kbd> on the that scroll bar's left and right buttons scrolls
-the window horizontally by one column at a time.  Clicking <kbd>Mouse-1</kbd>
+<kbd>mouse-1</kbd> on the that scroll bar's left and right buttons scrolls
+the window horizontally by one column at a time.  Clicking <kbd>mouse-1</kbd>
 on the left or right of the scroll bar's inner box scrolls the window by
 four columns.  Dragging the inner box scrolls the window continuously.
 
@@ -15751,10 +15754,10 @@ argument is positive, off if the argument is not positive.  To control
 the use of menu bars at startup, customize the variable
 <code>menu-bar-mode</code>.
 
-   <p><a name="index-C_002dMouse_002d3-_0040r_007b_0028when-menu-bar-is-disabled_0029_007d-1683"></a>  Expert users often turn off the menu bar, especially on text
+   <p><a name="index-C_002dmouse_002d3-_0040r_007b_0028when-menu-bar-is-disabled_0029_007d-1683"></a>  Expert users often turn off the menu bar, especially on text
 terminals, where this makes one additional line available for text. 
 If the menu bar is off, you can still pop up a menu of its contents
-with <kbd>C-Mouse-3</kbd> on a display which supports pop-up menus. 
+with <kbd>C-mouse-3</kbd> on a display which supports pop-up menus. 
 See <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a>.
 
    <p>See <a href="#Menu-Bar">Menu Bar</a>, for information on how to invoke commands with the
@@ -16422,7 +16425,7 @@ the alternative.  Typing a number selects the associated alternative
 of the current row and uses it as input.
 
    <p>&lt;TAB&gt; in these Chinese input methods displays a buffer showing
-all the possible characters at once; then clicking <kbd>Mouse-2</kbd> on
+all the possible characters at once; then clicking <kbd>mouse-2</kbd> on
 one of them selects that alternative.  The keys <kbd>C-f</kbd>, <kbd>C-b</kbd>,
 <kbd>C-n</kbd>, <kbd>C-p</kbd>, and digits continue to work as usual, but they
 do the highlighting in the buffer showing the possible characters,
@@ -16928,7 +16931,7 @@ decoding it using coding system <var>right</var> instead.
 the current buffer (i.e., the coding system to use when saving or
 reverting the file).  You specify which coding system using the
 minibuffer.  You can also invoke this command by clicking with
-<kbd>Mouse-3</kbd> on the coding system indicator in the mode line
+<kbd>mouse-3</kbd> on the coding system indicator in the mode line
 (see <a href="#Mode-Line">Mode Line</a>).
 
    <p>If you specify a coding system that cannot handle all the characters
@@ -19485,21 +19488,21 @@ C-x</kbd> exits two folds and leaves the text and subheadings exposed.
 folds, and for showing and hiding text:
 
      <dl>
-<dt><kbd>C-M-Mouse-1</kbd> zooms in on the heading clicked on<dd>
+<dt><kbd>C-M-mouse-1</kbd> zooms in on the heading clicked on<dd>
           <ul>
 <li>single click: expose body. 
 <li>double click: expose subheadings. 
 <li>triple click: expose body and subheadings. 
 <li>quad click: expose entire subtree. 
 </ul>
-     <br><dt><kbd>C-M-Mouse-2</kbd> exposes text under the heading clicked on<dd>
+     <br><dt><kbd>C-M-mouse-2</kbd> exposes text under the heading clicked on<dd>
           <ul>
 <li>single click: expose body. 
 <li>double click: expose subheadings. 
 <li>triple click: expose body and subheadings. 
 <li>quad click: expose entire subtree. 
 </ul>
-     <br><dt><kbd>C-M-Mouse-3</kbd> hides text under the heading clicked on or exits fold<dd>
+     <br><dt><kbd>C-M-mouse-3</kbd> hides text under the heading clicked on or exits fold<dd>
           <ul>
 <li>single click: hide subtree. 
 <li>double click: exit fold and hide text. 
@@ -19518,7 +19521,8 @@ it in order for this to take effect.
 &lt;RET&gt; foldout &lt;RET&gt;</kbd>; or you can arrange for to do that
 automatically by putting the following in your init file:
 
-<pre class="example">     (eval-after-load "outline" '(require 'foldout))
+<pre class="example">     (with-eval-after-load "outline"
+       (require 'foldout))
 </pre>
    <div class="node">
 <p><hr>
@@ -20262,7 +20266,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Enriched-Text">Enriched Text</a>
 
 <p>The easiest way to alter properties is with the `<samp><span class="samp">Text
 Properties</span></samp>' menu.  You can get to this menu from the `<samp><span class="samp">Edit</span></samp>' menu
-in the menu bar (see <a href="#Menu-Bar">Menu Bar</a>), or with <kbd>C-Mouse-2</kbd>
+in the menu bar (see <a href="#Menu-Bar">Menu Bar</a>), or with <kbd>C-mouse-2</kbd>
 (see <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a>).  Some of the commands in the `<samp><span class="samp">Text
 Properties</span></samp>' menu are listed below (you can also invoke them with
 <kbd>M-x</kbd>):
@@ -22171,12 +22175,12 @@ count as blocks.
 
    <p>Hideshow mode provides the following commands:
 
-   <p><a name="index-hs_002dhide_002dall-2606"></a><a name="index-hs_002dhide_002dblock-2607"></a><a name="index-hs_002dshow_002dall-2608"></a><a name="index-hs_002dshow_002dblock-2609"></a><a name="index-hs_002dshow_002dregion-2610"></a><a name="index-hs_002dhide_002dlevel-2611"></a><a name="index-hs_002dminor_002dmode-2612"></a><a name="index-C_002dc-_0040_0040-C_002dh-2613"></a><a name="index-C_002dc-_0040_0040-C_002ds-2614"></a><a name="index-C_002dc-_0040_0040-C_002dM_002dh-2615"></a><a name="index-C_002dc-_0040_0040-C_002dM_002ds-2616"></a><a name="index-C_002dc-_0040_0040-C_002dr-2617"></a><a name="index-C_002dc-_0040_0040-C_002dl-2618"></a><a name="index-S_002dMouse_002d2-2619"></a>
+   <p><a name="index-hs_002dhide_002dall-2606"></a><a name="index-hs_002dhide_002dblock-2607"></a><a name="index-hs_002dshow_002dall-2608"></a><a name="index-hs_002dshow_002dblock-2609"></a><a name="index-hs_002dshow_002dregion-2610"></a><a name="index-hs_002dhide_002dlevel-2611"></a><a name="index-hs_002dminor_002dmode-2612"></a><a name="index-C_002dc-_0040_0040-C_002dh-2613"></a><a name="index-C_002dc-_0040_0040-C_002ds-2614"></a><a name="index-C_002dc-_0040_0040-C_002dM_002dh-2615"></a><a name="index-C_002dc-_0040_0040-C_002dM_002ds-2616"></a><a name="index-C_002dc-_0040_0040-C_002dr-2617"></a><a name="index-C_002dc-_0040_0040-C_002dl-2618"></a><a name="index-S_002dmouse_002d2-2619"></a>
      <dl>
 <dt><kbd>C-c @ C-h</kbd><dd>Hide the current block (<code>hs-hide-block</code>). 
 <br><dt><kbd>C-c @ C-s</kbd><dd>Show the current block (<code>hs-show-block</code>). 
 <br><dt><kbd>C-c @ C-c</kbd><dd>Either hide or show the current block (<code>hs-toggle-hiding</code>). 
-<br><dt><kbd>S-Mouse-2</kbd><dd>Toggle hiding for the block you click on (<code>hs-mouse-toggle-hiding</code>). 
+<br><dt><kbd>S-mouse-2</kbd><dd>Toggle hiding for the block you click on (<code>hs-mouse-toggle-hiding</code>). 
 <br><dt><kbd>C-c @ C-M-h</kbd><dd>Hide all top-level blocks (<code>hs-hide-all</code>). 
 <br><dt><kbd>C-c @ C-M-s</kbd><dd>Show all blocks in the buffer (<code>hs-show-all</code>). 
 <br><dt><kbd>C-c @ C-l</kbd><dd>Hide all blocks <var>n</var> levels below this block
@@ -24043,19 +24047,19 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#GDB-Graphical-Interface">GDB Graphical
 
 <p><a name="index-fringes_002c-for-debugging-2884"></a>
      <dl>
-<dt><kbd>Mouse-1</kbd> (in fringe)<dd>Set or clear a breakpoint on that line.
+<dt><kbd>mouse-1</kbd> (in fringe)<dd>Set or clear a breakpoint on that line.
 
-     <br><dt><kbd>C-Mouse-1</kbd> (in fringe)<dd>Enable or disable a breakpoint on that line.
+     <br><dt><kbd>C-mouse-1</kbd> (in fringe)<dd>Enable or disable a breakpoint on that line.
 
-     <br><dt><kbd>Mouse-3</kbd> (in fringe)<dd>Continue execution to that line.
+     <br><dt><kbd>mouse-3</kbd> (in fringe)<dd>Continue execution to that line.
 
-     <br><dt><kbd>C-Mouse-3</kbd> (in fringe)<dd>Jump to that line. 
+     <br><dt><kbd>C-mouse-3</kbd> (in fringe)<dd>Jump to that line. 
 </dl>
 
-   <p>On a graphical display, you can click <kbd>Mouse-1</kbd> in the fringe of
+   <p>On a graphical display, you can click <kbd>mouse-1</kbd> in the fringe of
 a source buffer, to set a breakpoint on that line (see <a href="#Fringes">Fringes</a>). 
 A red dot appears in the fringe, where you clicked.  If a breakpoint
-already exists there, the click removes it.  A <kbd>C-Mouse-1</kbd> click
+already exists there, the click removes it.  A <kbd>C-mouse-1</kbd> click
 enables or disables an existing breakpoint; a breakpoint that is
 disabled, but not unset, is indicated by a gray dot.
 
@@ -24067,10 +24071,10 @@ of the window.  Disabled breakpoints are indicated with `<samp><span class="samp
    <p>A solid arrow in the left fringe of a source buffer indicates the
 line of the innermost frame where the debugged program has stopped.  A
 hollow arrow indicates the current execution line of a higher-level
-frame.  If you drag the arrow in the fringe with <kbd>Mouse-1</kbd>, that
+frame.  If you drag the arrow in the fringe with <kbd>mouse-1</kbd>, that
 causes execution to advance to the line where you release the button. 
-Alternatively, you can click <kbd>Mouse-3</kbd> in the fringe to advance to
-that line.  You can click <kbd>C-Mouse-3</kbd> in the fringe to jump to
+Alternatively, you can click <kbd>mouse-3</kbd> in the fringe to advance to
+that line.  You can click <kbd>C-mouse-3</kbd> in the fringe to jump to
 that line without executing the intermediate lines.  This command
 allows you to go backwards, which can be useful for running through
 code that has already executed, in order to examine its execution in
@@ -24102,12 +24106,12 @@ is enabled, and gray when it is disabled.
      <br><dt><kbd>&lt;RET&gt;</kbd><dd><a name="index-RET-_0040r_007b_0028GDB-Breakpoints-buffer_0029_007d-2889"></a><a name="index-gdb_002dgoto_002dbreakpoint-2890"></a>Visit the source line for the current breakpoint
 (<code>gdb-goto-breakpoint</code>).
 
-     <br><dt><kbd>Mouse-2</kbd><dd><a name="index-Mouse_002d2-_0040r_007b_0028GDB-Breakpoints-buffer_0029_007d-2891"></a>Visit the source line for the breakpoint you click on. 
+     <br><dt><kbd>mouse-2</kbd><dd><a name="index-mouse_002d2-_0040r_007b_0028GDB-Breakpoints-buffer_0029_007d-2891"></a>Visit the source line for the breakpoint you click on. 
 </dl>
 
    <p><a name="index-gdb_002dshow_002dthreads_002dby_002ddefault-2892"></a>  When <code>gdb-many-windows</code> is non-<code>nil</code>, the GDB Breakpoints
 buffer shares its window with the GDB Threads buffer.  To switch from
-one to the other click with <kbd>Mouse-1</kbd> on the relevant button in
+one to the other click with <kbd>mouse-1</kbd> on the relevant button in
 the header line.  If <code>gdb-show-threads-by-default</code> is
 non-<code>nil</code>, the GDB Threads buffer is the one shown by default.
 
@@ -24125,7 +24129,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#GDB-Graphical-Interface">GDB Graphical
 <p><a name="index-gdb_002dselect_002dthread-2893"></a>  The GDB Threads buffer displays a summary of the threads in the
 debugged program.  See <a href="gdb.html#Threads">Threads</a>.  To select a thread, move
 point there and press &lt;RET&gt; (<code>gdb-select-thread</code>), or click on
-it with <kbd>Mouse-2</kbd>.  This also displays the associated source
+it with <kbd>mouse-2</kbd>.  This also displays the associated source
 buffer, and updates the contents of the other GDB buffers.
 
    <p>You can customize variables under <code>gdb-buffers</code> group to select
@@ -24191,7 +24195,7 @@ debugger session.  See <a href="gdb.html#Backtrace">Backtraces</a>.
 arrow in the fringe.  On text terminals, or when fringes are disabled,
 the selected stack frame is displayed in reverse contrast.  To select
 a stack frame, move point in its line and type &lt;RET&gt;
-(<code>gdb-frames-select</code>), or click <kbd>Mouse-2</kbd> on it.  Doing so
+(<code>gdb-frames-select</code>), or click <kbd>mouse-2</kbd> on it.  Doing so
 also updates the Locals buffer
 (see <a href="#Other-GDB-Buffers">Other GDB Buffers</a>).
 
@@ -24209,17 +24213,17 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#GDB-Graphical-Interface">GDB Graphical
      <dl>
 <dt>Locals Buffer<dd>This buffer displays the values of local variables of the current
 frame for simple data types (see <a href="gdb.html#Frame-Info">Frame Info</a>).  Press &lt;RET&gt; or
-click <kbd>Mouse-2</kbd> on the value if you want to edit it.
+click <kbd>mouse-2</kbd> on the value if you want to edit it.
 
      <p>Arrays and structures display their type only.  With GDB 6.4 or later,
 you can examine the value of the local variable at point by typing
-&lt;RET&gt;, or with a <kbd>Mouse-2</kbd> click.  With earlier versions of
-GDB, use &lt;RET&gt; or <kbd>Mouse-2</kbd> on the type description
+&lt;RET&gt;, or with a <kbd>mouse-2</kbd> click.  With earlier versions of
+GDB, use &lt;RET&gt; or <kbd>mouse-2</kbd> on the type description
 (`<samp><span class="samp">[struct/union]</span></samp>' or `<samp><span class="samp">[array]</span></samp>').  See <a href="#Watch-Expressions">Watch Expressions</a>.
 
      <br><dt>Registers Buffer<dd><a name="index-toggle_002dgdb_002dall_002dregisters-2907"></a>This buffer displays the values held by the registers
 (see <a href="gdb.html#Registers">Registers</a>).  Press &lt;RET&gt; or
-click <kbd>Mouse-2</kbd> on a register if you want to edit its value.  With
+click <kbd>mouse-2</kbd> on a register if you want to edit its value.  With
 GDB 6.4 or later, recently changed register values display with
 <code>font-lock-warning-face</code>.
 
@@ -24230,17 +24234,17 @@ the fringe or margin.
 
      <br><dt>Memory Buffer<dd>The memory buffer lets you examine sections of program memory
 (see <a href="gdb.html#Memory">Memory</a>). 
-Click <kbd>Mouse-1</kbd> on the appropriate part of the header line to
+Click <kbd>mouse-1</kbd> on the appropriate part of the header line to
 change the starting address or number of data items that the buffer
 displays.  Alternatively, use <kbd>S</kbd> or <kbd>N</kbd> respectively.  Click
-<kbd>Mouse-3</kbd> on the header line to select the display format or unit
+<kbd>mouse-3</kbd> on the header line to select the display format or unit
 size for these data items. 
 </dl>
 
    <p>When <code>gdb-many-windows</code> is non-<code>nil</code>, the locals buffer
 shares its window with the registers buffer, just like breakpoints and
 threads buffers.  To switch from one to the other, click with
-<kbd>Mouse-1</kbd> on the relevant button in the header line.
+<kbd>mouse-1</kbd> on the relevant button in the header line.
 
 <div class="node">
 <p><hr>
@@ -24270,7 +24274,7 @@ name and type otherwise.  Root expressions also display the frame
 address as a tooltip to help identify the frame in which they were
 defined.
 
-   <p>To expand or contract a complex data type, click <kbd>Mouse-2</kbd> or
+   <p>To expand or contract a complex data type, click <kbd>mouse-2</kbd> or
 press &lt;SPC&gt; on the tag to the left of the expression.  Emacs asks
 for confirmation before expanding the expression if its number of
 immediate children exceeds the value of the variable
@@ -24281,7 +24285,7 @@ expression in the speedbar and type <kbd>D</kbd> (<code>gdb-var-delete</code>).
 
    <p><a name="index-RET-_0040r_007b_0028GDB-speedbar_0029_007d-2913"></a><a name="index-gdb_002dedit_002dvalue-2914"></a>  To edit a variable with a simple data type, or a simple element of a
 complex data type, move point there in the speedbar and type &lt;RET&gt;
-(<code>gdb-edit-value</code>).  Or you can click <kbd>Mouse-2</kbd> on a value to
+(<code>gdb-edit-value</code>).  Or you can click <kbd>mouse-2</kbd> on a value to
 edit it.  Either way, this reads the new value using the minibuffer.
 
    <p><a name="index-gdb_002dshow_002dchanged_002dvalues-2915"></a>  If you set the variable <code>gdb-show-changed-values</code> to
@@ -25134,7 +25138,7 @@ to the master repository.
 
    <p>On a graphical display, you can move the mouse over this mode line
 indicator to pop up a tool-tip, which displays a more verbose
-description of the version control status.  Pressing <kbd>Mouse-1</kbd>
+description of the version control status.  Pressing <kbd>mouse-1</kbd>
 over the indicator pops up a menu of VC commands, identical to
 `<samp><span class="samp">Tools / Version Control</span></samp>' on the menu bar.
 
@@ -25974,7 +25978,7 @@ replace on the current VC fileset, with the following commands:
 their single-buffer counterparts (see <a href="#Search">Search</a>).
 
    <p><a name="index-stashes-in-version-control-3066"></a><a name="index-shelves-in-version-control-3067"></a>  The above commands are also available via the menu bar, and via a
-context menu invoked by <kbd>Mouse-2</kbd>.  Furthermore, some VC backends
+context menu invoked by <kbd>mouse-2</kbd>.  Furthermore, some VC backends
 use the menu to provide extra backend-specific commands.  For example,
 Git and Bazaar allow you to manipulate <dfn>stashes</dfn> and <dfn>shelves</dfn>
 (where are a way to temporarily put aside uncommitted changes, and
@@ -26892,7 +26896,7 @@ object-oriented language, or if there's a function and a variable by
 the same name), the command shows the candidate definitions in a
 <samp><span class="file">*xref*</span></samp> buffer, together with the files in which these
 definitions are found.  Selecting one of these candidates by typing
-<kbd>&lt;RET&gt;</kbd> or clicking <kbd>Mouse-2</kbd> will pop a buffer showing
+<kbd>&lt;RET&gt;</kbd> or clicking <kbd>mouse-2</kbd> will pop a buffer showing
 the corresponding definition.
 
    <p>When entering the identifier argument to <kbd>M-.</kbd>, the usual
@@ -26941,7 +26945,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Find-Identifiers">Find Identifiers</a>
 the special XREF mode:
 
      <dl>
-<dt><kbd>&lt;RET&gt;</kbd><dt><kbd>Mouse-2</kbd><dd>Display the reference on the current line and bury the <samp><span class="file">*xref*</span></samp>
+<dt><kbd>&lt;RET&gt;</kbd><dt><kbd>mouse-2</kbd><dd>Display the reference on the current line and bury the <samp><span class="file">*xref*</span></samp>
 buffer. 
 <br><dt><kbd>n</kbd><dt><kbd>.</kbd><dd><a name="index-xref_002dnext_002dline-3139"></a>Move to the next reference and display it in the other window
 (<code>xref-next-line</code>). 
@@ -28788,7 +28792,7 @@ file.  See <a href="#Windows">Windows</a>.
      <br><dt><kbd>C-o</kbd><dd><a name="index-C_002do-_0040r_007b_0028Dired_0029_007d-3282"></a><a name="index-dired_002ddisplay_002dfile-3283"></a>Visit the file described on the current line, and display the buffer in
 another window, but do not select that window (<code>dired-display-file</code>).
 
-     <br><dt><kbd>Mouse-1</kbd><dt><kbd>Mouse-2</kbd><dd><a name="index-dired_002dmouse_002dfind_002dfile_002dother_002dwindow-3284"></a>Visit the file whose name you clicked on
+     <br><dt><kbd>mouse-1</kbd><dt><kbd>mouse-2</kbd><dd><a name="index-dired_002dmouse_002dfind_002dfile_002dother_002dwindow-3284"></a>Visit the file whose name you clicked on
 (<code>dired-mouse-find-file-other-window</code>).  This uses another window
 to display the file, like the <kbd>o</kbd> command.
 
@@ -29804,8 +29808,8 @@ prompts you for the month and year to be the center of the three-month
 calendar.  The calendar uses its own buffer, whose major mode is
 Calendar mode.
 
-   <p><kbd>Mouse-3</kbd> in the calendar brings up a menu of operations on a
-particular date; <kbd>Mouse-2</kbd> brings up a menu of commonly used
+   <p><kbd>mouse-3</kbd> in the calendar brings up a menu of operations on a
+particular date; <kbd>mouse-2</kbd> brings up a menu of commonly used
 calendar features that are independent of any particular date.  To exit
 the calendar, type <kbd>q</kbd>.
 
@@ -30196,7 +30200,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Calendar_002fDiary">Calendar/Diary</a>
 and can display them.  You can add your own holidays to the default list.
 
      <dl>
-<dt><kbd>Mouse-3 Holidays</kbd><dt><kbd>h</kbd><dd>Display holidays for the selected date
+<dt><kbd>mouse-3 Holidays</kbd><dt><kbd>h</kbd><dd>Display holidays for the selected date
 (<code>calendar-cursor-holidays</code>). 
 <br><dt><kbd>x</kbd><dd>Mark holidays in the calendar window (<code>calendar-mark-holidays</code>). 
 <br><dt><kbd>u</kbd><dd>Unmark calendar window (<code>calendar-unmark</code>). 
@@ -30209,7 +30213,7 @@ window.
 
    <p><a name="index-h-_0040r_007b_0028Calendar-mode_0029_007d-3570"></a><a name="index-calendar_002dcursor_002dholidays-3571"></a><a name="index-calendar_002dview_002dholidays_002dinitially_002dflag-3572"></a>  To see if any holidays fall on a given date, position point on that
 date in the calendar window and use the <kbd>h</kbd> command.  Alternatively,
-click on that date with <kbd>Mouse-3</kbd> and then choose <kbd>Holidays</kbd>
+click on that date with <kbd>mouse-3</kbd> and then choose <kbd>Holidays</kbd>
 from the menu that appears.  Either way, this displays the holidays for
 that date, in the echo area if they fit there, otherwise in a separate
 window.
@@ -30269,7 +30273,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Calendar_002fDiary">Calendar/Diary</a>
 times of sunrise and sunset for any date.
 
      <dl>
-<dt><kbd>Mouse-3 Sunrise/sunset</kbd><dt><kbd>S</kbd><dd>Display times of sunrise and sunset for the selected date
+<dt><kbd>mouse-3 Sunrise/sunset</kbd><dt><kbd>S</kbd><dd>Display times of sunrise and sunset for the selected date
 (<code>calendar-sunrise-sunset</code>). 
 <br><dt><kbd>M-x sunrise-sunset</kbd><dd>Display times of sunrise and sunset for today's date. 
 <br><dt><kbd>C-u M-x sunrise-sunset</kbd><dd>Display times of sunrise and sunset for a specified date. 
@@ -30278,7 +30282,7 @@ times of sunrise and sunset for any date.
 
    <p><a name="index-S-_0040r_007b_0028Calendar-mode_0029_007d-3583"></a><a name="index-calendar_002dsunrise_002dsunset-3584"></a><a name="index-sunrise_002dsunset-3585"></a>  Within the calendar, to display the <em>local times</em> of sunrise and
 sunset in the echo area, move point to the date you want, and type
-<kbd>S</kbd>.  Alternatively, click <kbd>Mouse-3</kbd> on the date, then choose
+<kbd>S</kbd>.  Alternatively, click <kbd>mouse-3</kbd> on the date, then choose
 `<samp><span class="samp">Sunrise/sunset</span></samp>' from the menu that appears.  The command <kbd>M-x
 sunrise-sunset</kbd> is available outside the calendar to display this
 information for today's date or a specified date.  To specify a date
@@ -30491,7 +30495,7 @@ in various other calendar systems:
      
 <a name="index-p-_0040r_007b_0028Calendar-mode_0029_007d-3611"></a>
 <a name="index-calendar_002dprint_002dother_002ddates-3612"></a>
-<dl><dt><kbd>Mouse-3  Other calendars</kbd><dt><kbd>p o</kbd><dd>Display the selected date in various other calendars. 
+<dl><dt><kbd>mouse-3  Other calendars</kbd><dt><kbd>p o</kbd><dd>Display the selected date in various other calendars. 
 (<code>calendar-print-other-dates</code>). 
 <a name="index-calendar_002diso_002dprint_002ddate-3613"></a><br><dt><kbd>p c</kbd><dd>Display ISO commercial calendar equivalent for selected day
 (<code>calendar-iso-print-date</code>). 
@@ -30519,7 +30523,7 @@ in various other calendar systems:
 appropriate command starting with <kbd>p</kbd> from the table above.  The
 prefix <kbd>p</kbd> is a mnemonic for &ldquo;print&rdquo;, since Emacs &ldquo;prints&rdquo; the
 equivalent date in the echo area.  <kbd>p o</kbd> displays the
-date in all forms known to Emacs.  You can also use <kbd>Mouse-3</kbd> and
+date in all forms known to Emacs.  You can also use <kbd>mouse-3</kbd> and
 then choose <kbd>Other calendars</kbd> from the menu that appears.  This
 displays the equivalent forms of the date in all the calendars Emacs
 understands, in the form of a menu.  (Choosing an alternative from
@@ -30691,7 +30695,7 @@ it.  You can also view today's events outside of Calendar mode.  In the
 following, key bindings refer to the Calendar buffer.
 
      <dl>
-<dt><kbd>Mouse-3 Diary</kbd><dt><kbd>d</kbd><dd>Display all diary entries for the selected date
+<dt><kbd>mouse-3 Diary</kbd><dt><kbd>d</kbd><dd>Display all diary entries for the selected date
 (<code>diary-view-entries</code>). 
 <br><dt><kbd>s</kbd><dd>Display the entire diary file (<code>diary-show-all-entries</code>). 
 <br><dt><kbd>m</kbd><dd>Mark all visible dates that have diary entries
@@ -30713,7 +30717,7 @@ entries for that many successive days.  Thus, <kbd>2 d</kbd> displays all the
 entries for the selected date and for the following day.
 
    <p>Another way to display the diary entries for a date is to click
-<kbd>Mouse-3</kbd> on the date, and then choose <kbd>Diary entries</kbd> from
+<kbd>mouse-3</kbd> on the date, and then choose <kbd>Diary entries</kbd> from
 the menu that appears.  If the variable
 <code>calendar-view-diary-initially-flag</code> is non-<code>nil</code>, creating the
 calendar lists the diary entries for the current date (provided the
@@ -33814,8 +33818,8 @@ Address mode:
 <!-- FIXME goto-addr.el commentary says to use goto-address instead. -->
 <pre class="example">     (add-hook 'rmail-show-message-hook 'goto-address-mode)
 </pre>
-   <p class="noindent">Then you can browse these URLs by clicking on them with <kbd>Mouse-2</kbd>
-(or <kbd>Mouse-1</kbd> quickly) or by moving to one and typing <kbd>C-c
+   <p class="noindent">Then you can browse these URLs by clicking on them with <kbd>mouse-2</kbd>
+(or <kbd>mouse-1</kbd> quickly) or by moving to one and typing <kbd>C-c
 &lt;RET&gt;</kbd>.  See <a href="#Goto-Address-mode">Activating URLs</a>.
 
 <div class="node">
@@ -35232,7 +35236,7 @@ submit the copy as input with &lt;RET&gt;.  If you wish, you can edit
 the copy before resubmitting it.  If you use this command on an output
 line, it copies that line to the end of the buffer.
 
-     <br><dt><kbd>Mouse-2</kbd><dd>If <code>comint-use-prompt-regexp</code> is <code>nil</code> (the default), copy
+     <br><dt><kbd>mouse-2</kbd><dd>If <code>comint-use-prompt-regexp</code> is <code>nil</code> (the default), copy
 the old input command that you click on, inserting the copy at the end
 of the buffer (<code>comint-insert-input</code>).  If
 <code>comint-use-prompt-regexp</code> is non-<code>nil</code>, or if the click is
@@ -35240,7 +35244,7 @@ not over old input, just yank as usual.
 </dl>
 
    <p>Moving to a previous input and then copying it with <kbd>C-c
-&lt;RET&gt;</kbd> or <kbd>Mouse-2</kbd> produces the same results&mdash;the same
+&lt;RET&gt;</kbd> or <kbd>mouse-2</kbd> produces the same results&mdash;the same
 buffer contents&mdash;that you would get by using <kbd>M-p</kbd> enough times
 to fetch that previous input from the history list.  However, <kbd>C-c
 &lt;RET&gt;</kbd> copies the text from the buffer, which can be different
@@ -36067,7 +36071,7 @@ You can also type <kbd>M-x pr-interface &lt;RET&gt;</kbd>; this creates a
 <samp><span class="file">*Printing Interface*</span></samp> buffer, similar to a customization buffer,
 where you can set the printing options.  After selecting what and how
 to print, you start the print job using the `<samp><span class="samp">Print</span></samp>' button (click
-<kbd>Mouse-2</kbd> on it, or move point over it and type &lt;RET&gt;).  For
+<kbd>mouse-2</kbd> on it, or move point over it and type &lt;RET&gt;).  For
 further information on the various options, use the `<samp><span class="samp">Interface
 Help</span></samp>' button.
 
@@ -36703,8 +36707,8 @@ typing <kbd>M-x goto-address-mode</kbd>.  When this buffer-local minor mode
 is enabled, it finds all the URLs in the buffer, highlights them, and
 turns them into clickable buttons.  You can follow the URL by typing
 <kbd>C-c &lt;RET&gt;</kbd> (<code>goto-address-at-point</code>) while point is on
-its text; or by clicking with <kbd>Mouse-2</kbd>, or by clicking
-<kbd>Mouse-1</kbd> quickly (see <a href="#Mouse-References">Mouse References</a>).  Following a URL is
+its text; or by clicking with <kbd>mouse-2</kbd>, or by clicking
+<kbd>mouse-1</kbd> quickly (see <a href="#Mouse-References">Mouse References</a>).  Following a URL is
 done by calling <code>browse-url</code> as a subroutine
 (see <a href="#Browse_002dURL">Browse-URL</a>).
 
@@ -36759,9 +36763,9 @@ point (<code>dired-at-point</code>).
 <code>find-file-read-only-other-frame</code>. 
 <br><dt><kbd>C-x 5 d</kbd><dd><code>ffap-dired-other-frame</code>, analogous to <code>dired-other-frame</code>. 
 <br><dt><kbd>M-x ffap-next</kbd><dd>Search buffer for next file name or URL, then find that file or URL. 
-<br><dt><kbd>S-Mouse-3</kbd><dd><a name="index-S_002dMouse_002d3-_0040r_007b_0028FFAP_0029_007d-4521"></a><code>ffap-at-mouse</code> finds the file guessed from text around the position
+<br><dt><kbd>S-mouse-3</kbd><dd><a name="index-S_002dmouse_002d3-_0040r_007b_0028FFAP_0029_007d-4521"></a><code>ffap-at-mouse</code> finds the file guessed from text around the position
 of a mouse click. 
-<br><dt><kbd>C-S-Mouse-3</kbd><dd><a name="index-C_002dS_002dMouse_002d3-_0040r_007b_0028FFAP_0029_007d-4522"></a>Display a menu of files and URLs mentioned in current buffer, then
+<br><dt><kbd>C-S-mouse-3</kbd><dd><a name="index-C_002dS_002dmouse_002d3-_0040r_007b_0028FFAP_0029_007d-4522"></a>Display a menu of files and URLs mentioned in current buffer, then
 find the one you select (<code>ffap-menu</code>). 
 </dl>
 
@@ -40880,7 +40884,7 @@ can use it.
      <ul>
 <li>See <a href="elisp.html#Tips">&ldquo;Tips and Conventions&rdquo; Appendix in the Emacs Lisp Reference</a>.
 
-     <li>Avoid using <code>defadvice</code> or <code>eval-after-load</code> for Lisp code
+     <li>Avoid using <code>defadvice</code> or <code>with-eval-after-load</code> for Lisp code
 to be included in Emacs.
 
      <li>Remove all trailing whitespace in all source and text files.
@@ -44082,9 +44086,9 @@ modifier keys; a value to <code>left</code> means be the same key as
 <code>ns-alternate-modifier</code>; a value of <code>none</code> tells Emacs to
 ignore them.
 
-   <p><kbd>S-Mouse-1</kbd> adjusts the region to the click position,
-just like <kbd>Mouse-3</kbd> (<code>mouse-save-then-kill</code>); it does not pop
-up a menu for changing the default face, as <kbd>S-Mouse-1</kbd> normally
+   <p><kbd>S-mouse-1</kbd> adjusts the region to the click position,
+just like <kbd>mouse-3</kbd> (<code>mouse-save-then-kill</code>); it does not pop
+up a menu for changing the default face, as <kbd>S-mouse-1</kbd> normally
 does (see <a href="#Text-Scale">Text Scale</a>).  This change makes Emacs behave more like
 other Mac / GNUstep applications.
 
@@ -45310,8 +45314,8 @@ The mouse commands work as documented, including those that use menus
 and the menu bar
 (see <a href="#Menu-Bar">Menu Bar</a>). 
  Scroll bars don't work in MS-DOS Emacs.  PC mice usually have only
-two buttons; these act as <kbd>Mouse-1</kbd> and <kbd>Mouse-2</kbd>, but if you
-press both of them together, that has the effect of <kbd>Mouse-3</kbd>.  If
+two buttons; these act as <kbd>mouse-1</kbd> and <kbd>mouse-2</kbd>, but if you
+press both of them together, that has the effect of <kbd>mouse-3</kbd>.  If
 the mouse does have 3 buttons, Emacs detects that at startup, and all
 the 3 buttons function normally, as on X.
 
@@ -48858,7 +48862,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-C_002dd-_0040r_007b_0028Buffer-Menu_0029_007d-1449"><code>C-d </code><span class="roman">(Buffer Menu)</span></a>: <a href="#Several-Buffers">Several Buffers</a></li>
 <li><a href="#index-C_002dd-_0040r_007b_0028Rmail_0029_007d-3965"><code>C-d </code><span class="roman">(Rmail)</span></a>: <a href="#Rmail-Deletion">Rmail Deletion</a></li>
 <li><a href="#index-C_002dd-_0040r_007b_0028Shell-mode_0029_007d-4239"><code>C-d </code><span class="roman">(Shell mode)</span></a>: <a href="#Shell-Mode">Shell Mode</a></li>
-<li><a href="#index-C_002dDown_002dMouse_002d1-1505"><code>C-Down-Mouse-1</code></a>: <a href="#Buffer-Menus">Buffer Menus</a></li>
+<li><a href="#index-C_002dDown_002dmouse_002d1-1505"><code>C-Down-mouse-1</code></a>: <a href="#Buffer-Menus">Buffer Menus</a></li>
 <li><a href="#index-C_002de-105"><code>C-e</code></a>: <a href="#Moving-Point">Moving Point</a></li>
 <li><a href="#index-C_002de-_0040r_007b_0028Calendar-mode_0029_007d-3520"><code>C-e </code><span class="roman">(Calendar mode)</span></a>: <a href="#Move-to-Beginning-or-End">Move to Beginning or End</a></li>
 <li><a href="#index-C_002df-86"><code>C-f</code></a>: <a href="#Moving-Point">Moving Point</a></li>
@@ -48969,13 +48973,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-C_002dM_002dx-_0040r_007b_0028Lisp-mode_0029_007d-2965"><code>C-M-x </code><span class="roman">(Lisp mode)</span></a>: <a href="#External-Lisp">External Lisp</a></li>
 <li><a href="#index-C_002dM_002dx-_0040r_007b_0028Scheme-mode_0029_007d-2971"><code>C-M-x </code><span class="roman">(Scheme mode)</span></a>: <a href="#External-Lisp">External Lisp</a></li>
 <li><a href="#index-C_002dM_002dy-_0040r_007b_0028Incremental-search_0029_007d-891"><code>C-M-y </code><span class="roman">(Incremental search)</span></a>: <a href="#Isearch-Yank">Isearch Yank</a></li>
-<li><a href="#index-C_002dMouse_002d1-1607"><code>C-Mouse-1</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
-<li><a href="#index-C_002dMouse_002d2-1608"><code>C-Mouse-2</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
+<li><a href="#index-C_002dmouse_002d1-1607"><code>C-mouse-1</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
+<li><a href="#index-C_002dmouse_002d2-1608"><code>C-mouse-2</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
 <li><a href="#index-C_002dmouse_002d2-_0040r_007b_0028mode-line_0029_007d-1615"><code>C-mouse-2 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
-<li><a href="#index-C_002dMouse_002d2-_0040r_007b_0028mode-line_0029_007d-1515"><code>C-Mouse-2 </code><span class="roman">(mode line)</span></a>: <a href="#Split-Window">Split Window</a></li>
-<li><a href="#index-C_002dMouse_002d2-_0040r_007b_0028scroll-bar_0029_007d-1516"><code>C-Mouse-2 </code><span class="roman">(scroll bar)</span></a>: <a href="#Split-Window">Split Window</a></li>
-<li><a href="#index-C_002dMouse_002d3-1609"><code>C-Mouse-3</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
-<li><a href="#index-C_002dMouse_002d3-_0040r_007b_0028when-menu-bar-is-disabled_0029_007d-1683"><code>C-Mouse-3 </code><span class="roman">(when menu bar is disabled)</span></a>: <a href="#Menu-Bars">Menu Bars</a></li>
+<li><a href="#index-C_002dmouse_002d2-_0040r_007b_0028mode-line_0029_007d-1515"><code>C-mouse-2 </code><span class="roman">(mode line)</span></a>: <a href="#Split-Window">Split Window</a></li>
+<li><a href="#index-C_002dmouse_002d2-_0040r_007b_0028scroll-bar_0029_007d-1516"><code>C-mouse-2 </code><span class="roman">(scroll bar)</span></a>: <a href="#Split-Window">Split Window</a></li>
+<li><a href="#index-C_002dmouse_002d3-1609"><code>C-mouse-3</code></a>: <a href="#Menu-Mouse-Clicks">Menu Mouse Clicks</a></li>
+<li><a href="#index-C_002dmouse_002d3-_0040r_007b_0028when-menu-bar-is-disabled_0029_007d-1683"><code>C-mouse-3 </code><span class="roman">(when menu bar is disabled)</span></a>: <a href="#Menu-Bars">Menu Bars</a></li>
 <li><a href="#index-C_002dn-96"><code>C-n</code></a>: <a href="#Moving-Point">Moving Point</a></li>
 <li><a href="#index-C_002dn-_0040r_007b_0028Calendar-mode_0029_007d-3506"><code>C-n </code><span class="roman">(Calendar mode)</span></a>: <a href="#Calendar-Unit-Motion">Calendar Unit Motion</a></li>
 <li><a href="#index-C_002dn-_0040r_007b_0028Dired_0029_007d-3239"><code>C-n </code><span class="roman">(Dired)</span></a>: <a href="#Dired-Navigation">Dired Navigation</a></li>
@@ -48992,7 +48996,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-C_002dRIGHT-110"><code>C-RIGHT</code></a>: <a href="#Moving-Point">Moving Point</a></li>
 <li><a href="#index-C_002ds-859"><code>C-s</code></a>: <a href="#Basic-Isearch">Basic Isearch</a></li>
 <li><a href="#index-C_002dS_002dbackspace-424"><code>C-S-backspace</code></a>: <a href="#Killing-by-Lines">Killing by Lines</a></li>
-<li><a href="#index-C_002dS_002dMouse_002d3-_0040r_007b_0028FFAP_0029_007d-4522"><code>C-S-Mouse-3 </code><span class="roman">(FFAP)</span></a>: <a href="#FFAP">FFAP</a></li>
+<li><a href="#index-C_002dS_002dmouse_002d3-_0040r_007b_0028FFAP_0029_007d-4522"><code>C-S-mouse-3 </code><span class="roman">(FFAP)</span></a>: <a href="#FFAP">FFAP</a></li>
 <li><a href="#index-C_002dSPC-371"><code>C-SPC</code></a>: <a href="#Setting-Mark">Setting Mark</a></li>
 <li><a href="#index-C_002dSPC-C_002dSPC-393"><code>C-SPC C-SPC</code></a>: <a href="#Mark-Ring">Mark Ring</a></li>
 <li><a href="#index-C_002dt-1048"><code>C-t</code></a>: <a href="#Transpose">Transpose</a></li>
@@ -49333,7 +49337,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-M_002dd-2011"><code>M-d</code></a>: <a href="#Words">Words</a></li>
 <li><a href="#index-M_002dDEL-2014"><code>M-DEL</code></a>: <a href="#Words">Words</a></li>
 <li><a href="#index-M_002dDEL-_0040r_007b_0028Dired_0029_007d-3314"><code>M-DEL </code><span class="roman">(Dired)</span></a>: <a href="#Marks-vs-Flags">Marks vs Flags</a></li>
-<li><a href="#index-M_002dDrag_002dMouse_002d1-473"><code>M-Drag-Mouse-1</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
+<li><a href="#index-M_002dDrag_002dmouse_002d1-473"><code>M-Drag-mouse-1</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
 <li><a href="#index-M_002de-2020"><code>M-e</code></a>: <a href="#Sentences">Sentences</a></li>
 <li><a href="#index-M_002de-_0028C-mode_0029-2670"><code>M-e (C mode)</code></a>: <a href="#Motion-in-C">Motion in C</a></li>
 <li><a href="#index-M_002de-_0040r_007b_0028Calendar-mode_0029_007d-3524"><code>M-e </code><span class="roman">(Calendar mode)</span></a>: <a href="#Move-to-Beginning-or-End">Move to Beginning or End</a></li>
@@ -49359,9 +49363,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-M_002dLEFT-116"><code>M-LEFT</code></a>: <a href="#Moving-Point">Moving Point</a></li>
 <li><a href="#index-M_002dm-1974"><code>M-m</code></a>: <a href="#Indentation-Commands">Indentation Commands</a></li>
 <li><a href="#index-M_002dm-_0040r_007b_0028Rmail_0029_007d-4011"><code>M-m </code><span class="roman">(Rmail)</span></a>: <a href="#Rmail-Reply">Rmail Reply</a></li>
-<li><a href="#index-M_002dMouse_002d1-476"><code>M-Mouse-1</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
-<li><a href="#index-M_002dMouse_002d2-480"><code>M-Mouse-2</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
-<li><a href="#index-M_002dMouse_002d3-478"><code>M-Mouse-3</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
+<li><a href="#index-M_002dmouse_002d1-476"><code>M-mouse-1</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
+<li><a href="#index-M_002dmouse_002d2-480"><code>M-mouse-2</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
+<li><a href="#index-M_002dmouse_002d3-478"><code>M-mouse-3</code></a>: <a href="#Secondary-Selection">Secondary Selection</a></li>
 <li><a href="#index-M_002dn-_0040r_007b_0028Incremental-search_0029_007d-873"><code>M-n </code><span class="roman">(Incremental search)</span></a>: <a href="#Repeat-Isearch">Repeat Isearch</a></li>
 <li><a href="#index-M_002dn-_0040r_007b_0028Log-Edit-mode_0029_007d-3026"><code>M-n </code><span class="roman">(Log Edit mode)</span></a>: <a href="#Log-Buffer">Log Buffer</a></li>
 <li><a href="#index-M_002dn-_0040r_007b_0028Man-mode_0029_007d-2596"><code>M-n </code><span class="roman">(Man mode)</span></a>: <a href="#Man-Page">Man Page</a></li>
@@ -49445,18 +49449,18 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-M_002d_0040_007d-_0040r_007b_0028Calendar-mode_0029_007d-3510"><code>M-} </code><span class="roman">(Calendar mode)</span></a>: <a href="#Calendar-Unit-Motion">Calendar Unit Motion</a></li>
 <li><a href="#index-M_002d_0040_007d-_0040r_007b_0028Dired_0029_007d-3318"><code>M-} </code><span class="roman">(Dired)</span></a>: <a href="#Marks-vs-Flags">Marks vs Flags</a></li>
 <li><a href="#index-M_002d_007e-1170"><code>M-~</code></a>: <a href="#Save-Commands">Save Commands</a></li>
-<li><a href="#index-Mouse_002d1-1579"><code>Mouse-1</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
-<li><a href="#index-Mouse_002d1-_0040r_007b_0028mode-line_0029_007d-1612"><code>Mouse-1 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
-<li><a href="#index-Mouse_002d1-_0040r_007b_0028on-buttons_0029_007d-1599"><code>Mouse-1 </code><span class="roman">(on buttons)</span></a>: <a href="#Mouse-References">Mouse References</a></li>
-<li><a href="#index-Mouse_002d1-_0040r_007b_0028scroll-bar_0029_007d-1616"><code>Mouse-1 </code><span class="roman">(scroll bar)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
-<li><a href="#index-Mouse_002d1-_0040r_007bin-the-minibuffer-_0028Incremental-Search_0029_007d-879"><code>Mouse-1 </code><span class="roman">in the minibuffer (Incremental Search)</span></a>: <a href="#Repeat-Isearch">Repeat Isearch</a></li>
-<li><a href="#index-Mouse_002d2-1580"><code>Mouse-2</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
-<li><a href="#index-Mouse_002d2-_0040r_007b_0028GDB-Breakpoints-buffer_0029_007d-2891"><code>Mouse-2 </code><span class="roman">(GDB Breakpoints buffer)</span></a>: <a href="#Breakpoints-Buffer">Breakpoints Buffer</a></li>
-<li><a href="#index-Mouse_002d2-_0040r_007b_0028mode-line_0029_007d-1613"><code>Mouse-2 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
-<li><a href="#index-Mouse_002d2-_0040r_007b_0028on-buttons_0029_007d-1600"><code>Mouse-2 </code><span class="roman">(on buttons)</span></a>: <a href="#Mouse-References">Mouse References</a></li>
-<li><a href="#index-Mouse_002d2-_0040r_007bin-the-minibuffer-_0028Incremental-search_0029_007d-886"><code>Mouse-2 </code><span class="roman">in the minibuffer (Incremental search)</span></a>: <a href="#Isearch-Yank">Isearch Yank</a></li>
-<li><a href="#index-Mouse_002d3-1581"><code>Mouse-3</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
-<li><a href="#index-Mouse_002d3-_0040r_007b_0028mode-line_0029_007d-1614"><code>Mouse-3 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
+<li><a href="#index-mouse_002d1-1579"><code>mouse-1</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
+<li><a href="#index-mouse_002d1-_0040r_007b_0028mode-line_0029_007d-1612"><code>mouse-1 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
+<li><a href="#index-mouse_002d1-_0040r_007b_0028on-buttons_0029_007d-1599"><code>mouse-1 </code><span class="roman">(on buttons)</span></a>: <a href="#Mouse-References">Mouse References</a></li>
+<li><a href="#index-mouse_002d1-_0040r_007b_0028scroll-bar_0029_007d-1616"><code>mouse-1 </code><span class="roman">(scroll bar)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
+<li><a href="#index-mouse_002d1-_0040r_007bin-the-minibuffer-_0028Incremental-Search_0029_007d-879"><code>mouse-1 </code><span class="roman">in the minibuffer (Incremental Search)</span></a>: <a href="#Repeat-Isearch">Repeat Isearch</a></li>
+<li><a href="#index-mouse_002d2-1580"><code>mouse-2</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
+<li><a href="#index-mouse_002d2-_0040r_007b_0028GDB-Breakpoints-buffer_0029_007d-2891"><code>mouse-2 </code><span class="roman">(GDB Breakpoints buffer)</span></a>: <a href="#Breakpoints-Buffer">Breakpoints Buffer</a></li>
+<li><a href="#index-mouse_002d2-_0040r_007b_0028mode-line_0029_007d-1613"><code>mouse-2 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
+<li><a href="#index-mouse_002d2-_0040r_007b_0028on-buttons_0029_007d-1600"><code>mouse-2 </code><span class="roman">(on buttons)</span></a>: <a href="#Mouse-References">Mouse References</a></li>
+<li><a href="#index-mouse_002d2-_0040r_007bin-the-minibuffer-_0028Incremental-search_0029_007d-886"><code>mouse-2 </code><span class="roman">in the minibuffer (Incremental search)</span></a>: <a href="#Isearch-Yank">Isearch Yank</a></li>
+<li><a href="#index-mouse_002d3-1581"><code>mouse-3</code></a>: <a href="#Mouse-Commands">Mouse Commands</a></li>
+<li><a href="#index-mouse_002d3-_0040r_007b_0028mode-line_0029_007d-1614"><code>mouse-3 </code><span class="roman">(mode line)</span></a>: <a href="#Mode-Line-Mouse">Mode Line Mouse</a></li>
 <li><a href="#index-n-_0040r_007b_0028DocView-mode_0029_007d-4174"><code>n </code><span class="roman">(DocView mode)</span></a>: <a href="#DocView-Navigation">DocView Navigation</a></li>
 <li><a href="#index-n-_0040r_007b_0028Gnus-Group-mode_0029_007d-4124"><code>n </code><span class="roman">(Gnus Group mode)</span></a>: <a href="#Gnus-Group-Buffer">Gnus Group Buffer</a></li>
 <li><a href="#index-n-_0040r_007b_0028Gnus-Summary-mode_0029_007d-4136"><code>n </code><span class="roman">(Gnus Summary mode)</span></a>: <a href="#Gnus-Summary-Buffer">Gnus Summary Buffer</a></li>
@@ -49510,8 +49514,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-s-_0040r_007b_0028Gnus-Summary-mode_0029_007d-4142"><code>s </code><span class="roman">(Gnus Summary mode)</span></a>: <a href="#Gnus-Summary-Buffer">Gnus Summary Buffer</a></li>
 <li><a href="#index-s-_0040r_007b_0028Rmail_0029_007d-3928"><code>s </code><span class="roman">(Rmail)</span></a>: <a href="#Rmail-Basics">Rmail Basics</a></li>
 <li><a href="#index-s-_0040r_007b_0028View-mode_0029_007d-627"><code>s </code><span class="roman">(View mode)</span></a>: <a href="#View-Mode">View Mode</a></li>
-<li><a href="#index-S_002dMouse_002d2-2619"><code>S-Mouse-2</code></a>: <a href="#Hideshow">Hideshow</a></li>
-<li><a href="#index-S_002dMouse_002d3-_0040r_007b_0028FFAP_0029_007d-4521"><code>S-Mouse-3 </code><span class="roman">(FFAP)</span></a>: <a href="#FFAP">FFAP</a></li>
+<li><a href="#index-S_002dmouse_002d2-2619"><code>S-mouse-2</code></a>: <a href="#Hideshow">Hideshow</a></li>
+<li><a href="#index-S_002dmouse_002d3-_0040r_007b_0028FFAP_0029_007d-4521"><code>S-mouse-3 </code><span class="roman">(FFAP)</span></a>: <a href="#FFAP">FFAP</a></li>
 <li><a href="#index-S_002dSPC-_0040r_007b_0028Rmail_0029_007d-3936"><code>S-SPC </code><span class="roman">(Rmail)</span></a>: <a href="#Rmail-Scrolling">Rmail Scrolling</a></li>
 <li><a href="#index-S_002dTAB-_0040r_007b_0028customization-buffer_0029_007d-4599"><code>S-TAB </code><span class="roman">(customization buffer)</span></a>: <a href="#Customization-Groups">Customization Groups</a></li>
 <li><a href="#index-S_002dTAB-_0040r_007b_0028Help-mode_0029_007d-313"><code>S-TAB </code><span class="roman">(Help mode)</span></a>: <a href="#Help-Mode">Help Mode</a></li>
@@ -51291,7 +51295,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-backup_002dby_002dcopying_002dwhen_002dlinked-1194"><code>backup-by-copying-when-linked</code></a>: <a href="#Backup-Copying">Backup Copying</a></li>
 <li><a href="#index-backup_002dby_002dcopying_002dwhen_002dmismatch-1195"><code>backup-by-copying-when-mismatch</code></a>: <a href="#Backup-Copying">Backup Copying</a></li>
 <li><a href="#index-backup_002dby_002dcopying_002dwhen_002dprivileged_002dmismatch-1196"><code>backup-by-copying-when-privileged-mismatch</code></a>: <a href="#Backup-Copying">Backup Copying</a></li>
-<li><a href="#index-backup_002ddirectory_002dalist-1188"><code>backup-directory-alist</code></a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-backup_002ddirectory_002dalist-1181"><code>backup-directory-alist</code></a>: <a href="#Backup">Backup</a></li>
 <li><a href="#index-backup_002denable_002dpredicate-1178"><code>backup-enable-predicate</code></a>: <a href="#Backup">Backup</a></li>
 <li><a href="#index-battery_002dmode_002dline_002dformat-786"><code>battery-mode-line-format</code></a>: <a href="#Optional-Mode-Line">Optional Mode Line</a></li>
 <li><a href="#index-bdf_002ddirectory_002dlist-4403"><code>bdf-directory-list</code></a>: <a href="#PostScript-Variables">PostScript Variables</a></li>
@@ -52063,7 +52067,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-vc_002dstay_002dlocal-3104"><code>vc-stay-local</code></a>: <a href="#CVS-Options">CVS Options</a></li>
 <li><a href="#index-vc_002dstay_002dlocal-3061"><code>vc-stay-local</code></a>: <a href="#VC-Directory-Buffer">VC Directory Buffer</a></li>
 <li><a href="#index-vc_002dsuppress_002dconfirm-3097"><code>vc-suppress-confirm</code></a>: <a href="#General-VC-Options">General VC Options</a></li>
-<li><a href="#index-version_002dcontrol-1186"><code>version-control</code></a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-version_002dcontrol-1187"><code>version-control</code></a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-VERSION_005fCONTROL_002c-environment-variable-4936"><code>VERSION_CONTROL, environment variable</code></a>: <a href="#General-Variables">General Variables</a></li>
 <li><a href="#index-view_002dread_002donly-1428"><code>view-read-only</code></a>: <a href="#Misc-Buffer">Misc Buffer</a></li>
 <li><a href="#index-visible_002dbell-844"><code>visible-bell</code></a>: <a href="#Display-Custom">Display Custom</a></li>
@@ -52215,7 +52219,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-backtrace-4786">backtrace</a>: <a href="#Crashing">Crashing</a></li>
 <li><a href="#index-backtrace-for-bug-reports-4812">backtrace for bug reports</a>: <a href="#Checklist">Checklist</a></li>
 <li><a href="#index-backup-file-1175">backup file</a>: <a href="#Backup">Backup</a></li>
-<li><a href="#index-backup-file-names-1181">backup file names</a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-backup-file-names-1182">backup file names</a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-backup-file-names-on-MS_002dDOS-5191">backup file names on MS-DOS</a>: <a href="#MS_002dDOS-File-Names">MS-DOS File Names</a></li>
 <li><a href="#index-backup_002c-and-user_002did-1198">backup, and user-id</a>: <a href="#Backup-Copying">Backup Copying</a></li>
 <li><a href="#index-backups-for-remote-files-1358">backups for remote files</a>: <a href="#Remote-Files">Remote Files</a></li>
@@ -53255,7 +53259,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-multiple_002dfile-search-and-replace-3145">multiple-file search and replace</a>: <a href="#Identifier-Search">Identifier Search</a></li>
 <li><a href="#index-Multipurpose-Internet-Mail-Extensions-3897">Multipurpose Internet Mail Extensions</a>: <a href="#Mail-Misc">Mail Misc</a></li>
 <li><a href="#index-Multithreaded-debugging-in-GDB-2919">Multithreaded debugging in GDB</a>: <a href="#Multithreaded-Debugging">Multithreaded Debugging</a></li>
-<li><a href="#index-names-of-backup-files-1182">names of backup files</a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-names-of-backup-files-1183">names of backup files</a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-narrowing-615">narrowing</a>: <a href="#Narrowing">Narrowing</a></li>
 <li><a href="#index-narrowing_002c-and-line-number-display-772">narrowing, and line number display</a>: <a href="#Optional-Mode-Line">Optional Mode Line</a></li>
 <li><a href="#index-g_t_0040samp_007bnet-use_007d_002c-and-printing-on-MS_002dWindows-5135">`<samp><span class="samp">net use</span></samp>', and printing on MS-Windows</a>: <a href="#Windows-Printing">Windows Printing</a></li>
@@ -53696,7 +53700,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-Thai-1740">Thai</a>: <a href="#International">International</a></li>
 <li><a href="#index-Thai-1806">Thai</a>: <a href="#Language-Environments">Language Environments</a></li>
 <li><a href="#index-Tibetan-1807">Tibetan</a>: <a href="#Language-Environments">Language Environments</a></li>
-<li><a href="#index-tilde-_0028_0040file_007b_007e_007d_0029-at-end-of-backup-file-name-1184">tilde (<samp><span class="file">~</span></samp>) at end of backup file name</a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-tilde-_0028_0040file_007b_007e_007d_0029-at-end-of-backup-file-name-1185">tilde (<samp><span class="file">~</span></samp>) at end of backup file name</a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-time-_0028on-mode-line_0029-776">time (on mode line)</a>: <a href="#Optional-Mode-Line">Optional Mode Line</a></li>
 <li><a href="#index-time-intervals_002c-summing-3699">time intervals, summing</a>: <a href="#Time-Intervals">Time Intervals</a></li>
 <li><a href="#index-time-stamps-1211">time stamps</a>: <a href="#Time-Stamps">Time Stamps</a></li>
@@ -53773,7 +53777,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-version-control-2972">version control</a>: <a href="#Version-Control">Version Control</a></li>
 <li><a href="#index-version-control-log-3005">version control log</a>: <a href="#Types-of-Log-File">Types of Log File</a></li>
 <li><a href="#index-version-control-status-3007">version control status</a>: <a href="#VC-Mode-Line">VC Mode Line</a></li>
-<li><a href="#index-g_t_0040env_007bVERSION_005fCONTROL_007d-environment-variable-1187"><samp><span class="env">VERSION_CONTROL</span></samp> environment variable</a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-g_t_0040env_007bVERSION_005fCONTROL_007d-environment-variable-1188"><samp><span class="env">VERSION_CONTROL</span></samp> environment variable</a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-Vertical-Scroll-Bar-1656">Vertical Scroll Bar</a>: <a href="#Scroll-Bars">Scroll Bars</a></li>
 <li><a href="#index-vertical-scroll-bars_002c-command_002dline-argument-5013">vertical scroll bars, command-line argument</a>: <a href="#Misc-X">Misc X</a></li>
 <li><a href="#index-vertical_002dborder-face-663">vertical-border face</a>: <a href="#Standard-Faces">Standard Faces</a></li>
@@ -53852,9 +53856,9 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <li><a href="#index-g_t_0040code_007bzip_007d-1338"><code>zip</code></a>: <a href="#File-Archives">File Archives</a></li>
 <li><a href="#index-Zmacs-mode-406">Zmacs mode</a>: <a href="#Disabled-Transient-Mark">Disabled Transient Mark</a></li>
 <li><a href="#index-zoo-1347"><code>zoo</code></a>: <a href="#File-Archives">File Archives</a></li>
-<li><a href="#index-g_t_0040file_007b_007e_007d_002c-in-names-of-backup-files-1183"><samp><span class="file">~</span></samp>, in names of backup files</a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-g_t_0040file_007b_007e_007d_002c-in-names-of-backup-files-1184"><samp><span class="file">~</span></samp>, in names of backup files</a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-g_t_007e_002f_002eemacs-file-4734">~/.emacs file</a>: <a href="#Init-File">Init File</a></li>
-<li><a href="#index-g_t_0040file_007b_007e_002f_002eemacs_002ed_002f_0025backup_0025_007e_007d-1185"><samp><span class="file">~/.emacs.d/%backup%~</span></samp></a>: <a href="#Backup-Names">Backup Names</a></li>
+<li><a href="#index-g_t_0040file_007b_007e_002f_002eemacs_002ed_002f_0025backup_0025_007e_007d-1186"><samp><span class="file">~/.emacs.d/%backup%~</span></samp></a>: <a href="#Backup-Names">Backup Names</a></li>
 <li><a href="#index-g_t_0040file_007b_007e_002f_002eemacs_002ed_002fgtkrc_007d-file-5050"><samp><span class="file">~/.emacs.d/gtkrc</span></samp> file</a>: <a href="#GTK-resources">GTK resources</a></li>
 <li><a href="#index-g_t_0040file_007b_007e_002f_002egtkrc_002d2_002e0_007d-file-5049"><samp><span class="file">~/.gtkrc-2.0</span></samp> file</a>: <a href="#GTK-resources">GTK resources</a></li>
 <li><a href="#index-g_t_0040file_007b_007e_002f_002eXdefaults_007d-file-5024"><samp><span class="file">~/.Xdefaults</span></samp> file</a>: <a href="#Resources">Resources</a></li>

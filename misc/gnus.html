@@ -14742,9 +14742,9 @@ summary buffer.
                (gnus-summary-mark-as-read-forward 1))
            (gnus-summary-scroll-up arg))))
      
-     (eval-after-load "gnus"
-       #'(define-key gnus-summary-mode-map
-           (kbd "&lt;RET&gt;") 'browse-nnrss-url))
+     (with-eval-after-load "gnus"
+       (define-key gnus-summary-mode-map
+         (kbd "&lt;RET&gt;") 'browse-nnrss-url))
      (add-to-list 'nnmail-extra-headers nnrss-url-field)
 </pre>
    <p>Even if you have added `<samp><span class="samp">text/html</span></samp>' to the
@@ -14755,11 +14755,11 @@ more useful especially in <code>nnrss</code> groups to display
 <code>nnrss</code> groups:
 
 <pre class="lisp">     ;; <span class="roman">Set the default value of </span><code>mm-discouraged-alternatives</code><span class="roman">.</span>
-     (eval-after-load "gnus-sum"
-       '(add-to-list
-         'gnus-newsgroup-variables
-         '(mm-discouraged-alternatives
-           . '("text/html" "image/.*"))))
+     (with-eval-after-load "gnus-sum"
+       (add-to-list
+        'gnus-newsgroup-variables
+        '(mm-discouraged-alternatives
+          . '("text/html" "image/.*"))))
      
      ;; <span class="roman">Display `<samp>text/html</samp>' parts in </span><code>nnrss</code><span class="roman"> groups.</span>
      (add-to-list
@@ -28650,33 +28650,33 @@ choice for you.  To use nnml add the following to <samp><span class="file">~/.gn
    <p class="noindent">Now we need to tell Gnus, where to get its mail from. If
 it's a POP3 server, then you need something like this:
 
-<pre class="example">     (eval-after-load "mail-source"
-       '(add-to-list 'mail-sources '(pop :server "pop.YourProvider.net"
-                                         :user "yourUserName"
-                                         :password "yourPassword")))
+<pre class="example">     (with-eval-after-load "mail-source"
+       (add-to-list 'mail-sources '(pop :server "pop.YourProvider.net"
+                                        :user "yourUserName"
+                                        :password "yourPassword")))
 </pre>
    <p class="noindent">Make sure <samp><span class="file">~/.gnus.el</span></samp> isn't readable to others if you store
 your password there. If you want to read your mail from a
 traditional spool file on your local machine, it's
 
-<pre class="example">     (eval-after-load "mail-source"
-       '(add-to-list 'mail-sources '(file :path "/path/to/spool/file"))
+<pre class="example">     (with-eval-after-load "mail-source"
+       (add-to-list 'mail-sources '(file :path "/path/to/spool/file"))
 </pre>
    <p class="noindent">If it's a Maildir, with one file per message as used by
 postfix, Qmail and (optionally) fetchmail it's
 
-<pre class="example">     (eval-after-load "mail-source"
-       '(add-to-list 'mail-sources '(maildir :path "/path/to/Maildir/"
-                                             :subdirs ("cur" "new")))
+<pre class="example">     (with-eval-after-load "mail-source"
+       (add-to-list 'mail-sources '(maildir :path "/path/to/Maildir/"
+                                            :subdirs ("cur" "new")))
 </pre>
    <p class="noindent">And finally if you want to read your mail from several files
 in one directory, for example because procmail already split your
 mail, it's
 
-<pre class="example">     (eval-after-load "mail-source"
-       '(add-to-list 'mail-sources
-                     '(directory :path "/path/to/procmail-dir/"
-                                 :suffix ".prcml")))
+<pre class="example">     (with-eval-after-load "mail-source"
+       (add-to-list 'mail-sources
+                    '(directory :path "/path/to/procmail-dir/"
+                                :suffix ".prcml")))
 </pre>
    <p class="noindent">Where :suffix ".prcml" tells Gnus only to use files with the
 suffix .prcml.
@@ -28977,10 +28977,9 @@ text part if it's available. How to do it?
 
 <p>Say
 
-<pre class="example">     (eval-after-load "mm-decode"
-      '(progn
-           (add-to-list 'mm-discouraged-alternatives "text/html")
-           (add-to-list 'mm-discouraged-alternatives "text/richtext")))
+<pre class="example">     (with-eval-after-load "mm-decode"
+       (add-to-list 'mm-discouraged-alternatives "text/html")
+       (add-to-list 'mm-discouraged-alternatives "text/richtext"))
 </pre>
    <p class="noindent">in <samp><span class="file">~/.gnus.el</span></samp>. If you don't want HTML rendered, even if there's no text alternative add
 
@@ -29807,14 +29806,14 @@ newsgroups?
    <p class="noindent">if you already use Gnus 5.10, if you still use 5.8.8 or
 5.9 try this instead:
 
-<pre class="example">     (eval-after-load "gnus-msg"
-       '(unless (boundp 'gnus-confirm-mail-reply-to-news)
-          (defadvice gnus-summary-reply (around reply-in-news activate)
-            "Request confirmation when replying to news."
-            (interactive)
-            (when (or (not (gnus-news-group-p gnus-newsgroup-name))
-                      (y-or-n-p "Really reply by mail to article author? "))
-              ad-do-it))))
+<pre class="example">     (with-eval-after-load "gnus-msg"
+       (unless (boundp 'gnus-confirm-mail-reply-to-news)
+         (defadvice gnus-summary-reply (around reply-in-news activate)
+           "Request confirmation when replying to news."
+           (interactive)
+           (when (or (not (gnus-news-group-p gnus-newsgroup-name))
+                     (y-or-n-p "Really reply by mail to article author? "))
+             ad-do-it))))
 </pre>
    <p class="noindent"><div class="node">
 <p><hr>
@@ -29835,8 +29834,8 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#FAQ-5-_002d-Composing-messages">FAQ 5 
 <p>Since 5.10 Gnus doesn't generate a sender header by
 default. For older Gnus' try this in <samp><span class="file">~/.gnus.el</span></samp>:
 
-<pre class="example">     (eval-after-load "message"
-           '(add-to-list 'message-syntax-checks '(sender . disabled)))
+<pre class="example">     (with-eval-after-load "message"
+       (add-to-list 'message-syntax-checks '(sender . disabled)))
 </pre>
    <p class="noindent"><div class="node">
 <p><hr>
@@ -29915,14 +29914,14 @@ by saying:
    <p class="noindent">in <samp><span class="file">~/.gnus.el</span></samp>.  If you use Gnus 5.9 or earlier, you can use this
 instead (works for newer versions as well):
 
-<pre class="example">     (eval-after-load "message"
-       '(let ((fqdn "yourmachine.yourdomain.tld"));; &lt;-- Edit this!
-          (if (boundp 'message-user-fqdn)
-              (setq message-user-fqdn fqdn)
-            (gnus-message 1 "Redefining `message-make-fqdn'.")
-            (defun message-make-fqdn ()
-              "Return user's fully qualified domain name."
-              fqdn))))
+<pre class="example">     (with-eval-after-load "message"
+       (let ((fqdn "yourmachine.yourdomain.tld"));; &lt;-- Edit this!
+         (if (boundp 'message-user-fqdn)
+             (setq message-user-fqdn fqdn)
+           (gnus-message 1 "Redefining `message-make-fqdn'.")
+           (defun message-make-fqdn ()
+             "Return user's fully qualified domain name."
+             fqdn))))
 </pre>
    <p class="noindent">If you have no idea what to insert for
 "yourmachine.yourdomain.tld", you've got several
@@ -30600,7 +30599,7 @@ An other idea would be to byte compile your <samp><span class="file">~/.gnus.el<
 `<samp><span class="samp">M-x byte-compile-file RET ~/.gnus.el
 RET</span></samp>' to do it). Finally, if you have require
 statements in your .gnus, you could replace them with
-eval-after-load, which loads the stuff not at startup
+<code>with-eval-after-load</code>, which loads the stuff not at startup
 time, but when it's needed. Say you've got this in your
 <samp><span class="file">~/.gnus.el</span></samp>:
 
@@ -30610,8 +30609,8 @@ time, but when it's needed. Say you've got this in your
    <p class="noindent">then as soon as you start Gnus, message.el is loaded. If
 you replace it with
 
-<pre class="example">     (eval-after-load "message"
-           '(add-to-list 'message-syntax-checks '(sender . disabled)))
+<pre class="example">     (with-eval-after-load "message"
+       (add-to-list 'message-syntax-checks '(sender . disabled)))
 </pre>
    <p class="noindent">it's loaded when it's needed.
 

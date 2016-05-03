@@ -359,11 +359,15 @@ passed through <code>url-encode-url</code> before using it, to ensure that
 it is properly URI-encoded (see <a href="#URI-Encoding">URI Encoding</a>).
 
 <div class="defun">
-&mdash; Function: <b>url-retrieve-synchronously</b><var> url<a name="index-url_002dretrieve_002dsynchronously-25"></a></var><br>
+&mdash; Function: <b>url-retrieve-synchronously</b><var> url silent no-cookies<a name="index-url_002dretrieve_002dsynchronously-25"></a></var><br>
 <blockquote><p>This function synchronously retrieves the data specified by <var>url</var>,
 and returns a buffer containing the data.  The return value is
 <code>nil</code> if there is no data associated with the URL (as is the case
-for <code>dired</code>, <code>info</code>, and <code>mailto</code> URLs). 
+for <code>dired</code>, <code>info</code>, and <code>mailto</code> URLs).
+
+        <p>If the optional argument <var>silent</var> is non-<code>nil</code>, progress
+messages are suppressed.  If the optional argument <var>no-cookies</var> is
+non-<code>nil</code>, cookies are not stored or sent. 
 </p></blockquote></div>
 
 <div class="defun">
