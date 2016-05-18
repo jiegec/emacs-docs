@@ -1449,7 +1449,7 @@ time structure, a decoded time list, a second number, and a day number.
      (time-less-p '(13818 19266) '(13818 19145))
      =&gt; nil
      
-     (subtract-time '(13818 19266) '(13818 19145))
+     (time-subtract '(13818 19266) '(13818 19145))
      =&gt; (0 121)
      
      (days-between "Sat Sep 12 12:21:54 1998 +0200"
@@ -1512,12 +1512,12 @@ instance: <code>729644</code>.
 return a &ldquo;zero&rdquo; time.
 
      <br><dt><code>time-less-p</code><dd>Take two times and say whether the first time is less (i.e., earlier)
-than the second time.
+than the second time.  (This is a built-in function.)
 
      <br><dt><code>time-since</code><dd>Take a time and return a time saying how long it was since that time.
 
-     <br><dt><code>subtract-time</code><dd>Take two times and subtract the second from the first.  I.e., return
-the time between the two times.
+     <br><dt><code>time-subtract</code><dd>Take two times and subtract the second from the first.  I.e., return
+the time between the two times.  (This is a built-in function.)
 
      <br><dt><code>days-between</code><dd>Take two days and return the number of days between those two days.
 

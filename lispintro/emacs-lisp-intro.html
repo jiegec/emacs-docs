@@ -10,7 +10,7 @@
 This is an `Introduction to Programming in Emacs Lisp', for
 people who are not programmers.
 
-   Distributed with Emacs version 25.0.93.
+   Distributed with Emacs version 25.0.94.
 
    Copyright (C) 1990-1995, 1997, 2001-2016 Free Software
 Foundation, Inc.
@@ -523,7 +523,7 @@ people who are not programmers.
    <pre class="sp">
 
 </pre>
-Distributed with Emacs version 25.0.93.
+Distributed with Emacs version 25.0.94.
    <pre class="sp">
 
 </pre>
@@ -1536,8 +1536,9 @@ the name stands for &ldquo;Lots of Isolated Silly Parentheses&rdquo;.  But the
 claim is unwarranted.  Lisp stands for LISt Processing, and the
 programming language handles <em>lists</em> (and lists of lists) by
 putting them between parentheses.  The parentheses mark the boundaries
-of the list.  Sometimes a list is preceded by a single apostrophe or
-quotation mark, `<samp><span class="samp">'</span></samp>'<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>  Lists are the basis of Lisp.
+of the list.  Sometimes a list is preceded by an apostrophe `<samp><span class="samp">'</span></samp>',
+called a <dfn>single-quote</dfn> in Lisp.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>  Lists are the basis
+of Lisp.
 
 <ul class="menu">
 <li><a accesskey="1" href="#Lisp-Lists">Lisp Lists</a>:                   What are lists? 
@@ -2943,9 +2944,7 @@ quotation marks, or numbers.
 in the list and then at the function definition bound to that symbol. 
 Then the instructions in the function definition are carried out.
 
-     <li>A single quotation mark,
-<code>'</code>
-, tells the Lisp interpreter that it should
+     <li>A single-quote `<samp><span class="samp">'</span></samp>' tells the Lisp interpreter that it should
 return the following expression as written, and not evaluate it as it
 would if the quote were not there.
 
@@ -7616,7 +7615,8 @@ displays in which grave accent and apostrophe were often mirror images
 suitable for use as quotes.  On most modern displays this is no longer
 true, and when these two ASCII characters appear in documentation
 strings or diagnostic message formats, Emacs typically transliterates
-them to curved single quotes, so that the abovequoted symbol appears
+them to <dfn>curved quotes</dfn> (left and right single quotation marks),
+so that the abovequoted symbol appears
 as <tt>‘case-fold-search’</tt>.  Source-code strings can also simply use
 curved quotes directly.
 
@@ -15572,7 +15572,7 @@ per-buffer, local variables list, if any.
 
    <p>We are already familiar with <code>setq</code>.  It sets the following variable,
 <code>major-mode</code>, to the subsequent value, which is <code>text-mode</code>. 
-The single quote mark before <code>text-mode</code> tells Emacs to deal directly
+The single-quote before <code>text-mode</code> tells Emacs to deal directly
 with the <code>text-mode</code> symbol, not with whatever it might stand for. 
 See <a href="#set-_0026-setq">Setting the Value of a Variable</a>,
 for a reminder of how <code>setq</code> works. 
@@ -15718,11 +15718,11 @@ quotation marks.  In documentation, you would write this as
 details.)
 
    <p>The command invoked by the keys is <code>compare-windows</code>.  Note that
-<code>compare-windows</code> is preceded by a single quote; otherwise, Emacs
+<code>compare-windows</code> is preceded by a single-quote; otherwise, Emacs
 would first try to evaluate the symbol to determine its value.
 
    <p>These three things, the double quotation marks, the backslash before
-the `<samp><span class="samp">C</span></samp>', and the single quote mark are necessary parts of
+the `<samp><span class="samp">C</span></samp>', and the single-quote are necessary parts of
 keybinding that I tend to forget.  Fortunately, I have come to
 remember that I should look at my existing <samp><span class="file">.emacs</span></samp> file, and
 adapt what is there.
@@ -20141,9 +20141,9 @@ airplane.
 <!-- @end iftex -->
 <div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> The single apostrophe or quotation
-mark is an abbreviation for the function <code>quote</code>; you need not
-think about functions now; functions are defined in <a href="#Making-Errors">Generate an Error Message</a>.</p>
+<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> A single-quote is an
+abbreviation for the special form <code>quote</code>; you need not think
+about special forms now.  See <a href="#Complications">Complications</a>.</p>
 
    <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> It is curious to track the path by which the word &ldquo;argument&rdquo;
 came to have two different meanings, one in mathematics and the other in
