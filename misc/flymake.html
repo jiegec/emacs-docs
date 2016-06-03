@@ -136,7 +136,7 @@ Copyright (C) 2004-2016 Free Software Foundation, Inc.
 
 
 
-<pagebreak></pagebreak><div class="node"><a name="Top"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Top"></a></div>
 
 <h2 class="unnumbered">GNU Flymake</h2>
 
@@ -184,7 +184,7 @@ modify this GNU manual.”
 </li>
 </ul>
 
-<pagebreak></pagebreak><div class="node"><a name="Overview-of-Flymake"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Overview-of-Flymake"></a></div>
 
 <h2 class="chapter">1 Overview</h2>
 
@@ -234,7 +234,7 @@ extended to support new syntax check tools and error message
 patterns.  See <a href="#Configuring-Flymake">Configuring Flymake</a>.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Installing-Flymake"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Installing-Flymake"></a></div>
 
 <h2 class="chapter">2 Installing</h2>
 
@@ -261,7 +261,7 @@ somewhere on Emacs load path.  You might also want to byte-compile
 <pre class="lisp">     (global-set-key [f3] 'flymake-display-err-menu-for-current-line)
      (global-set-key [f4] 'flymake-goto-next-error)
 </pre>
-   <pagebreak></pagebreak><div class="node"><a name="Using-Flymake"></a></div>
+   <mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Using-Flymake"></a></div>
 
 <h2 class="chapter">3 Using Flymake</h2>
 
@@ -289,7 +289,7 @@ somewhere on Emacs load path.  You might also want to byte-compile
 </li>
 </ul>
 
-<pagebreak></pagebreak><div class="node"><a name="Flymake-mode"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Flymake-mode"></a></div>
 
 <h3 class="section">3.1 Flymake mode</h3>
 
@@ -307,7 +307,7 @@ line in <code>.emacs</code>:
 </p>
 <pre class="lisp">     (add-hook 'find-file-hook 'flymake-find-file-hook)
 </pre>
-   <pagebreak></pagebreak><div class="node"><a name="Running-the-syntax-check"></a></div>
+   <mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Running-the-syntax-check"></a></div>
 
 <h3 class="section">3.2 Running the syntax check</h3>
 
@@ -320,7 +320,7 @@ can be used, for example, when changes were made to some other buffer
 affecting the current buffer.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Navigating-to-error-lines"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Navigating-to-error-lines"></a></div>
 
 <h3 class="section">3.3 Navigating to error lines</h3>
 
@@ -358,7 +358,7 @@ navigate the highlighted lines.
 when invoked in the end of the buffer.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Viewing-error-messages"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Viewing-error-messages"></a></div>
 
 <h3 class="section">3.4 Viewing error messages</h3>
 
@@ -372,7 +372,7 @@ forward that file with the help of the
 <code>flymake-goto-file-and-line</code> function.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Syntax-check-statuses"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Syntax-check-statuses"></a></div>
 
 <h3 class="section">3.5 Syntax check statuses</h3>
 
@@ -463,7 +463,7 @@ syntax check tool).
 </tr>
 </table>
 
-<pagebreak></pagebreak><div class="node"><a name="Troubleshooting"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Troubleshooting"></a></div>
 
 <h3 class="section">3.6 Troubleshooting</h3>
 
@@ -479,7 +479,7 @@ variable.  <code>3</code> is the  most verbose level, and <code>-1</code> switch
 logging off.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Configuring-Flymake"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Configuring-Flymake"></a></div>
 
 <h2 class="chapter">4 Configuring and Extending Flymake</h2>
 
@@ -499,7 +499,7 @@ logging off.
 check tools and error message patterns.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Customizable-variables"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Customizable-variables"></a></div>
 
 <h3 class="section">4.1 Customizable variables</h3>
 
@@ -605,7 +605,7 @@ been reported.
    </dd>
 </dl>
 
-<pagebreak></pagebreak><div class="node"><a name="Adding-support-for-a-new-syntax-check-tool"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Adding-support-for-a-new-syntax-check-tool"></a></div>
 
 <h3 class="section">4.2 Adding support for a new syntax check tool</h3>
 
@@ -678,7 +678,7 @@ the <code>flymake-err-line-patterns</code> list.
 support for various syntax check tools.
 
 </p>
-<pagebreak></pagebreak><div class="node">
+<mbp:pagebreak></mbp:pagebreak><div class="node">
 <a name="Example---Configuring-a-tool-called-directly"></a><a name="Example_002d_002d_002dConfiguring-a-tool-called-directly"></a>
 </div>
 
@@ -730,7 +730,7 @@ command line.
                    2 3 nil 1)
                  flymake-err-line-patterns))
 </pre>
-   <pagebreak></pagebreak><div class="node">
+   <mbp:pagebreak></mbp:pagebreak><div class="node">
 <a name="Example---Configuring-a-tool-called-via-make"></a><a name="Example_002d_002d_002dConfiguring-a-tool-called-via-make"></a>
 </div>
 
@@ -788,7 +788,7 @@ check-syntax:
 	$(COMPILE) -o /dev/null -S ${CHK_SOURCES}
 </pre>
 
-<pagebreak></pagebreak><div class="node"><a name="Flymake-Implementation"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Flymake-Implementation"></a></div>
 
 <h2 class="chapter">5 Flymake Implementation</h2>
 
@@ -836,7 +836,7 @@ saved.  After the process has finished, Flymake highlights erroneous
 lines in the buffer using the accumulated error information.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Determining-whether-syntax-check-is-possible"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Determining-whether-syntax-check-is-possible"></a></div>
 
 <h3 class="section">5.1 Determining whether syntax check is possible</h3>
 
@@ -876,7 +876,7 @@ copies, finding master files, etc.), as well as some tool-specific
 (routines for Make, Ant, etc.) code.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Making-a-temporary-copy"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Making-a-temporary-copy"></a></div>
 
 <h3 class="section">5.2 Making a temporary copy</h3>
 
@@ -913,7 +913,7 @@ is saved to <code>file_flymake_master.cpp</code>, and the last one is passed to
 the syntax check tool.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Locating-a-master-file"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Locating-a-master-file"></a></div>
 
 <h3 class="section">5.3 Locating a master file</h3>
 
@@ -948,7 +948,7 @@ patched and saved to disk.  In case no master file is found, syntax check is
 aborted, and corresponding status (!) is reported in the mode line.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Getting-the-include-directories"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Getting-the-include-directories"></a></div>
 
 <h3 class="section">5.4 Getting the include directories</h3>
 
@@ -972,7 +972,7 @@ return value is cached in the hash table.  The cache is cleared in the beginning
 of every syntax check attempt.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Locating-the-buildfile"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Locating-the-buildfile"></a></div>
 
 <h3 class="section">5.5 Locating the buildfile</h3>
 
@@ -1003,7 +1003,7 @@ In case there's no build file, syntax check is aborted.
 <p>Buildfile values are also cached.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Starting-the-syntax-check-process"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Starting-the-syntax-check-process"></a></div>
 
 <h3 class="section">5.6 Starting the syntax check process</h3>
 
@@ -1015,7 +1015,7 @@ sentinel, which are used for processing the output of the syntax check
 tool.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Parsing-the-output"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Parsing-the-output"></a></div>
 
 <h3 class="section">5.7 Parsing the output</h3>
 
@@ -1046,7 +1046,7 @@ determined from the process-id<!-- /@w -->-&gt;<!-- /@w -->buffer mapping update
 after every process launch/exit.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Highlighting-erroneous-lines"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Highlighting-erroneous-lines"></a></div>
 
 <h3 class="section">5.8 Highlighting erroneous lines</h3>
 
@@ -1068,7 +1068,7 @@ using the bitmaps specified by <code>flymake-error-bitmap</code>
 and <code>flymake-warning-bitmap</code>.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Interaction-with-other-modes"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Interaction-with-other-modes"></a></div>
 
 <h3 class="section">5.9 Interaction with other modes</h3>
 
@@ -1100,7 +1100,7 @@ compiler.
 <code>compile</code>.
 
 </p>
-<pagebreak></pagebreak><div class="node"><a name="GNU-Free-Documentation-License"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="GNU-Free-Documentation-License"></a></div>
 
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
 
@@ -1646,7 +1646,7 @@ to permit their use in free software.
 <!-- ispell-local-pdict: "ispell-dict" -->
 <!-- End: -->
 </p>
-<pagebreak></pagebreak><div class="node"><a name="Index"></a></div>
+<mbp:pagebreak></mbp:pagebreak><div class="node"><a name="Index"></a></div>
 
 <h2 class="unnumbered">Index</h2>
 

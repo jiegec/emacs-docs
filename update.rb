@@ -11,19 +11,19 @@ Dir.chdir pwd
 
 docs.each do |doc|
   # puts "Checking #{doc}"
-  # unless (File.exist? doc) && (FileUtils.identical? "#{emacs}/doc/#{doc}", doc)
-  FileUtils.copy "#{emacs}/doc/#{doc}", "#{doc}.orig"
-  puts "Updated #{doc}"
-  # end
-  file = Nokogiri::HTML(File.open("#{doc}.orig"))
-  nodes = file.search(".node")
-  nodes.each do |node|
-    node.before("<pagebreak />")
-    link = node.css("a[name]")
-    node.children = link
+  unless (File.exist? "#{doc}.orig") && (FileUtils.identical? "#{emacs}/doc/#{doc}", "#{doc}.orig")
+    FileUtils.copy "#{emacs}/doc/#{doc}", "#{doc}.orig"
+    puts "Updated #{doc}"
+    file = Nokogiri::HTML(File.open("#{doc}.orig"))
+    nodes = file.search(".node")
+    nodes.each do |node|
+      node.before(file.create_element("mbp:pagebreak"))
+      link = node.css("a[name]")
+      node.children = link
+    end
+    File.open(doc, "w") { |f|
+      f.puts file
+    }
+    puts "Generating #{doc}"
   end
-  File.open(doc, "w") { |f|
-    f.puts file
-  }
-  puts "Generating #{doc}"
 end
