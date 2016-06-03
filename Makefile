@@ -12,12 +12,13 @@ docs: ${DOCS}
 clean:
 	rm *.mobi
 
-%.doc: %.html %.mobi
+%.doc: %.new.html %.mobi
 	touch $@
 
 %.html:
-	mkdir -p $(@D)
-	cp ${EMACS}/doc/$@ $(@D) 
+	ruby update.rb
+	# mkdir -p $(@D)
+	# cp ${EMACS}/doc/$@ $(@D) 
 
 %.mobi: %.html
 	ebook-convert $< .mobi --language=${LANGUAGE} --authors=${AUTHORS}

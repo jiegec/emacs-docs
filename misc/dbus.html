@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html lang="en">
 <head>
 <title>Using of D-Bus</title>
@@ -38,44 +39,79 @@ Copyright (C) 2007-2016 Free Software Foundation, Inc.
    <div class="contents">
 <h2>Table of Contents</h2>
 <ul>
-<li><a name="toc_Top" href="#Top">D-Bus integration in Emacs</a>
-<li><a name="toc_Overview" href="#Overview">1 An overview of D-Bus</a>
-<li><a name="toc_Inspection" href="#Inspection">2 Inspection of D-Bus services.</a>
+<li>
+<a name="toc_Top" href="#Top">D-Bus integration in Emacs</a>
+</li>
+<li>
+<a name="toc_Overview" href="#Overview">1 An overview of D-Bus</a>
+</li>
+<li>
+<a name="toc_Inspection" href="#Inspection">2 Inspection of D-Bus services.</a>
 <ul>
-<li><a href="#Version">2.1 D-Bus version.</a>
-<li><a href="#Bus-names">2.2 Bus names.</a>
-<li><a href="#Introspection">2.3 Knowing the details of D-Bus services.</a>
-<li><a href="#Nodes-and-Interfaces">2.4 Detecting object paths and interfaces.</a>
-<li><a href="#Methods-and-Signal">2.5 Applying the functionality.</a>
-<li><a href="#Properties-and-Annotations">2.6 What else to know about interfaces.</a>
-<li><a href="#Arguments-and-Signatures">2.7 The final details.</a>
-</li></ul>
-<li><a name="toc_Type-Conversion" href="#Type-Conversion">3 Mapping Lisp types and D-Bus types.</a>
+<li>
+<a href="#Version">2.1 D-Bus version.</a>
+</li>
+<li>
+<a href="#Bus-names">2.2 Bus names.</a>
+</li>
+<li>
+<a href="#Introspection">2.3 Knowing the details of D-Bus services.</a>
+</li>
+<li>
+<a href="#Nodes-and-Interfaces">2.4 Detecting object paths and interfaces.</a>
+</li>
+<li>
+<a href="#Methods-and-Signal">2.5 Applying the functionality.</a>
+</li>
+<li>
+<a href="#Properties-and-Annotations">2.6 What else to know about interfaces.</a>
+</li>
+<li>
+<a href="#Arguments-and-Signatures">2.7 The final details.</a>
+</li>
+</ul>
+</li>
+<li>
+<a name="toc_Type-Conversion" href="#Type-Conversion">3 Mapping Lisp types and D-Bus types.</a>
 <ul>
-<li><a href="#Type-Conversion">3.1 Input parameters.</a>
-<li><a href="#Type-Conversion">3.2 Output parameters.</a>
-</li></ul>
-<li><a name="toc_Synchronous-Methods" href="#Synchronous-Methods">4 Calling methods in a blocking way.</a>
-<li><a name="toc_Asynchronous-Methods" href="#Asynchronous-Methods">5 Calling methods non-blocking.</a>
-<li><a name="toc_Receiving-Method-Calls" href="#Receiving-Method-Calls">6 Offering own methods.</a>
-<li><a name="toc_Signals" href="#Signals">7 Sending and receiving signals.</a>
-<li><a name="toc_Alternative-Buses" href="#Alternative-Buses">8 Alternative buses and environments.</a>
-<li><a name="toc_Errors-and-Events" href="#Errors-and-Events">9 Errors and events.</a>
-<li><a name="toc_Index" href="#Index">Index</a>
-<li><a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li></ul>
+<li>
+<a href="#Type-Conversion">3.1 Input parameters.</a>
+</li>
+<li>
+<a href="#Type-Conversion">3.2 Output parameters.</a>
+</li>
+</ul>
+</li>
+<li>
+<a name="toc_Synchronous-Methods" href="#Synchronous-Methods">4 Calling methods in a blocking way.</a>
+</li>
+<li>
+<a name="toc_Asynchronous-Methods" href="#Asynchronous-Methods">5 Calling methods non-blocking.</a>
+</li>
+<li>
+<a name="toc_Receiving-Method-Calls" href="#Receiving-Method-Calls">6 Offering own methods.</a>
+</li>
+<li>
+<a name="toc_Signals" href="#Signals">7 Sending and receiving signals.</a>
+</li>
+<li>
+<a name="toc_Alternative-Buses" href="#Alternative-Buses">8 Alternative buses and environments.</a>
+</li>
+<li>
+<a name="toc_Errors-and-Events" href="#Errors-and-Events">9 Errors and events.</a>
+</li>
+<li>
+<a name="toc_Index" href="#Index">Index</a>
+</li>
+<li>
+<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
+</li>
+</ul>
 </div>
 
 
 
-<div class="node">
-<p><hr>
-<a name="Top"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Overview">Overview</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#dir">(dir)</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Top"></a></div>
 
 <h2 class="unnumbered">D-Bus integration in Emacs</h2>
 
@@ -84,43 +120,61 @@ message bus system, a simple way for applications to talk to one
 another.  An overview of D-Bus can be found at
 <a href="http://dbus.freedesktop.org/">http://dbus.freedesktop.org/</a>.
 
-   <p>Copyright &copy; 2007&ndash;2016 Free Software Foundation, Inc.
+   </p>
+<p>Copyright © 2007–2016 Free Software Foundation, Inc.
 
-   <blockquote>
+   </p>
+<blockquote>
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being &ldquo;A GNU Manual&rdquo;,
+Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled &ldquo;GNU Free Documentation License&rdquo;.
+is included in the section entitled “GNU Free Documentation License”.
 
-        <p>(a) The FSF's Back-Cover Text is: &ldquo;You have the freedom to copy and
-modify this GNU manual.&rdquo;
+        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+modify this GNU manual.”
+</p>
 </blockquote>
 
 <ul class="menu">
-<li><a accesskey="1" href="#Overview">Overview</a>:                     An overview of D-Bus. 
-<li><a accesskey="2" href="#Inspection">Inspection</a>:                   Inspection of D-Bus services. 
-<li><a accesskey="3" href="#Type-Conversion">Type Conversion</a>:              Mapping Lisp types and D-Bus types. 
-<li><a accesskey="4" href="#Synchronous-Methods">Synchronous Methods</a>:          Calling methods in a blocking way. 
-<li><a accesskey="5" href="#Asynchronous-Methods">Asynchronous Methods</a>:         Calling methods non-blocking. 
-<li><a accesskey="6" href="#Receiving-Method-Calls">Receiving Method Calls</a>:       Offering own methods. 
-<li><a accesskey="7" href="#Signals">Signals</a>:                      Sending and receiving signals. 
-<li><a accesskey="8" href="#Alternative-Buses">Alternative Buses</a>:            Alternative buses and environments. 
-<li><a accesskey="9" href="#Errors-and-Events">Errors and Events</a>:            Errors and events. 
-<li><a href="#Index">Index</a>:                        Index including concepts, functions, variables.
+<li>
+<a accesskey="1" href="#Overview">Overview</a>:                     An overview of D-Bus. 
+</li>
+<li>
+<a accesskey="2" href="#Inspection">Inspection</a>:                   Inspection of D-Bus services. 
+</li>
+<li>
+<a accesskey="3" href="#Type-Conversion">Type Conversion</a>:              Mapping Lisp types and D-Bus types. 
+</li>
+<li>
+<a accesskey="4" href="#Synchronous-Methods">Synchronous Methods</a>:          Calling methods in a blocking way. 
+</li>
+<li>
+<a accesskey="5" href="#Asynchronous-Methods">Asynchronous Methods</a>:         Calling methods non-blocking. 
+</li>
+<li>
+<a accesskey="6" href="#Receiving-Method-Calls">Receiving Method Calls</a>:       Offering own methods. 
+</li>
+<li>
+<a accesskey="7" href="#Signals">Signals</a>:                      Sending and receiving signals. 
+</li>
+<li>
+<a accesskey="8" href="#Alternative-Buses">Alternative Buses</a>:            Alternative buses and environments. 
+</li>
+<li>
+<a accesskey="9" href="#Errors-and-Events">Errors and Events</a>:            Errors and events. 
+</li>
+<li>
+<a href="#Index">Index</a>:                        Index including concepts, functions, variables.
 
-<li><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
+</li>
+<li>
+<a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Overview"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Inspection">Inspection</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Overview"></a></div>
 
 <h2 class="chapter">1 An overview of D-Bus</h2>
 
@@ -130,19 +184,22 @@ residing on the same host.  The communication is based on
 <dfn>messages</dfn>.  Data in the messages is carried in a structured way,
 it is not just a byte stream.
 
-   <p>The communication is connection oriented to two kinds of message
+   </p>
+<p>The communication is connection oriented to two kinds of message
 buses: a so called <dfn>system bus</dfn>, and a <dfn>session bus</dfn>.  On a
 given machine, there is always one single system bus for miscellaneous
 system-wide communication, like changing of hardware configuration. 
 On the other hand, the session bus is always related to a single
 user's session.
 
-   <p>Every client application, which is connected to a bus, registers under
+   </p>
+<p>Every client application, which is connected to a bus, registers under
 a <dfn>unique name</dfn> at the bus.  This name is used for identifying the
 client application.  Such a unique name starts always with a colon,
 and looks like `<samp><span class="samp">:1.42</span></samp>'.
 
-   <p>Additionally, a client application can register itself to a so called
+   </p>
+<p>Additionally, a client application can register itself to a so called
 <dfn>known name</dfn>, which is a series of identifiers separated by dots,
 as in `<samp><span class="samp">org.gnu.Emacs</span></samp>'.  If several applications register to the
 same known name, these registrations are queued, and only the first
@@ -150,56 +207,63 @@ application which has registered for the known name is reachable via
 this name.  If this application disconnects from the bus, the next
 queued unique name becomes the owner of this known name.
 
-   <p>An application can install one or several objects under its name. 
+   </p>
+<p>An application can install one or several objects under its name. 
 Such objects are identified by an <dfn>object path</dfn>, which looks
 similar to paths in a filesystem.  An example of such an object path
 could be `<samp><span class="samp">/org/gnu/Emacs/</span></samp>'.
 
-   <p>Applications might send a request to an object, that means sending a
+   </p>
+<p>Applications might send a request to an object, that means sending a
 message with some data as input parameters, and receiving a message
 from that object with the result of this message, the output
 parameters.  Such a request is called <dfn>method</dfn> in D-Bus.
 
-   <p>The other form of communication are <dfn>signals</dfn>.  The underlying
+   </p>
+<p>The other form of communication are <dfn>signals</dfn>.  The underlying
 message is emitted from an object and will be received by all other
 applications which have registered for such a signal.
 
-   <p>All methods and signals an object supports are called <dfn>interface</dfn>
+   </p>
+<p>All methods and signals an object supports are called <dfn>interface</dfn>
 of the object.  Interfaces are specified under a hierarchical name in
 D-Bus; an object can support several interfaces.  Such an interface
 name could be `<samp><span class="samp">org.gnu.Emacs.TextEditor</span></samp>' or
 `<samp><span class="samp">org.gnu.Emacs.FileManager</span></samp>'.
 
-<div class="node">
-<p><hr>
-<a name="Inspection"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Type-Conversion">Type Conversion</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Inspection"></a></div>
 
 <h2 class="chapter">2 Inspection of D-Bus services.</h2>
 
 <p><a name="index-inspection-2"></a>
 
+</p>
 <ul class="menu">
-<li><a accesskey="1" href="#Version">Version</a>:                      Determining the D-Bus version. 
-<li><a accesskey="2" href="#Bus-names">Bus names</a>:                    Discovering D-Bus names. 
-<li><a accesskey="3" href="#Introspection">Introspection</a>:                Knowing the details of D-Bus services. 
-<li><a accesskey="4" href="#Nodes-and-Interfaces">Nodes and Interfaces</a>:         Detecting object paths and interfaces. 
-<li><a accesskey="5" href="#Methods-and-Signal">Methods and Signal</a>:           Applying the functionality. 
-<li><a accesskey="6" href="#Properties-and-Annotations">Properties and Annotations</a>:   What else to know about interfaces. 
-<li><a accesskey="7" href="#Arguments-and-Signatures">Arguments and Signatures</a>:     The final details. 
+<li>
+<a accesskey="1" href="#Version">Version</a>:                      Determining the D-Bus version. 
+</li>
+<li>
+<a accesskey="2" href="#Bus-names">Bus names</a>:                    Discovering D-Bus names. 
+</li>
+<li>
+<a accesskey="3" href="#Introspection">Introspection</a>:                Knowing the details of D-Bus services. 
+</li>
+<li>
+<a accesskey="4" href="#Nodes-and-Interfaces">Nodes and Interfaces</a>:         Detecting object paths and interfaces. 
+</li>
+<li>
+<a accesskey="5" href="#Methods-and-Signal">Methods and Signal</a>:           Applying the functionality. 
+</li>
+<li>
+<a accesskey="6" href="#Properties-and-Annotations">Properties and Annotations</a>:   What else to know about interfaces. 
+</li>
+<li>
+<a accesskey="7" href="#Arguments-and-Signatures">Arguments and Signatures</a>:     The final details. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Version"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Bus-names">Bus names</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Version"></a></div>
 
 <h3 class="section">2.1 D-Bus version.</h3>
 
@@ -207,27 +271,23 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
 new D-Bus versions.  There are two variables, which allow the determination
 of the D-Bus version used.
 
+</p>
 <div class="defun">
-&mdash; Variable: <b>dbus-compiled-version</b><var><a name="index-dbus_002dcompiled_002dversion-3"></a></var><br>
+— Variable: <b>dbus-compiled-version</b><var><a name="index-dbus_002dcompiled_002dversion-3"></a></var><br>
 <blockquote><p>This variable, a string, determines the version of D-Bus Emacs is
 compiled against.  If it cannot be determined the value is <code>nil</code>. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Variable: <b>dbus-runtime-version</b><var><a name="index-dbus_002druntime_002dversion-4"></a></var><br>
+— Variable: <b>dbus-runtime-version</b><var><a name="index-dbus_002druntime_002dversion-4"></a></var><br>
 <blockquote><p>The other D-Bus version to be checked is the version of D-Bus Emacs
 runs with.  This string can be different from <code>dbus-compiled-version</code>. 
 It is also <code>nil</code>, if it cannot be determined at runtime. 
-</p></blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Bus-names"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Introspection">Introspection</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Version">Version</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
+</p></blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Bus-names"></a></div>
 
 <h3 class="section">2.2 Bus names.</h3>
 
@@ -235,9 +295,11 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
 registered names.  Internally they use the basic interface
 `<samp><span class="samp">org.freedesktop.DBus</span></samp>', which is supported by all objects of a bus.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-list-activatable-names</b><var> &amp;optional bus<a name="index-dbus_002dlist_002dactivatable_002dnames-5"></a></var><br>
-<blockquote><p>This function returns the D-Bus service names, which can be activated
+— Function: <b>dbus-list-activatable-names</b><var> &amp;optional bus<a name="index-dbus_002dlist_002dactivatable_002dnames-5"></a></var><br>
+<blockquote>
+<p>This function returns the D-Bus service names, which can be activated
 for <var>bus</var>.  It must be either the symbol <code>:system</code> (the
 default) or the symbol <code>:session</code>.  An activatable service is
 described in a service registration file.  Under GNU/Linux, such files
@@ -245,74 +307,96 @@ are located at <samp><span class="file">/usr/share/dbus-1/system-services/</span
 <code>:system</code> bus) or <samp><span class="file">/usr/share/dbus-1/services/</span></samp>.  An
 activatable service is not necessarily registered at <var>bus</var> at already.
 
-        <p>The result is a list of strings, which is <code>nil</code> when there are no
+        </p>
+<p>The result is a list of strings, which is <code>nil</code> when there are no
 activatable service names at all.  Example:
 
-     <pre class="lisp">          ;; Check, whether the document viewer can be accessed via D-Bus.
+     </p>
+<pre class="lisp">          ;; Check, whether the document viewer can be accessed via D-Bus.
           (member "org.gnome.evince.Daemon"
                   (dbus-list-activatable-names :session))
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-list-names</b><var> bus<a name="index-dbus_002dlist_002dnames-6"></a></var><br>
-<blockquote><p>All service names, which are registered at D-Bus <var>bus</var>, are
+— Function: <b>dbus-list-names</b><var> bus<a name="index-dbus_002dlist_002dnames-6"></a></var><br>
+<blockquote>
+<p>All service names, which are registered at D-Bus <var>bus</var>, are
 returned.  The result is a list of strings, which is <code>nil</code> when
 there are no registered service names at all.  Well known names are
 strings like `<samp><span class="samp">org.freedesktop.DBus</span></samp>'.  Names starting with
 `<samp><span class="samp">:</span></samp>' are unique names for services.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-list-known-names</b><var> bus<a name="index-dbus_002dlist_002dknown_002dnames-7"></a></var><br>
-<blockquote><p>Retrieves all registered services which correspond to a known name in <var>bus</var>. 
+— Function: <b>dbus-list-known-names</b><var> bus<a name="index-dbus_002dlist_002dknown_002dnames-7"></a></var><br>
+<blockquote>
+<p>Retrieves all registered services which correspond to a known name in <var>bus</var>. 
 A service has a known name if it doesn't start with `<samp><span class="samp">:</span></samp>'.  The
 result is a list of strings, which is <code>nil</code> when there are no
 known names at all.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-list-queued-owners</b><var> bus service<a name="index-dbus_002dlist_002dqueued_002downers-8"></a></var><br>
-<blockquote><p>For a given service, registered at D-Bus <var>bus</var> under the name
+— Function: <b>dbus-list-queued-owners</b><var> bus service<a name="index-dbus_002dlist_002dqueued_002downers-8"></a></var><br>
+<blockquote>
+<p>For a given service, registered at D-Bus <var>bus</var> under the name
 <var>service</var>, all queued unique names are returned.  The result is a
 list of strings, or <code>nil</code> when there are no queued names for
 <var>service</var> at all.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>.  <var>service</var> must be a known service name as
 string. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-get-name-owner</b><var> bus service<a name="index-dbus_002dget_002dname_002downer-9"></a></var><br>
-<blockquote><p>For a given service, registered at D-Bus <var>bus</var> under the name
+— Function: <b>dbus-get-name-owner</b><var> bus service<a name="index-dbus_002dget_002dname_002downer-9"></a></var><br>
+<blockquote>
+<p>For a given service, registered at D-Bus <var>bus</var> under the name
 <var>service</var>, the unique name of the name owner is returned.  The
 result is a string, or <code>nil</code> when there exist no name owner of
 <var>service</var>.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>.  <var>service</var> must be a known service name as
 string. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-ping</b><var> bus service &amp;optional timeout<a name="index-dbus_002dping-10"></a></var><br>
-<blockquote><p>Check whether the service name <var>service</var> is registered at D-Bus
+— Function: <b>dbus-ping</b><var> bus service &amp;optional timeout<a name="index-dbus_002dping-10"></a></var><br>
+<blockquote>
+<p>Check whether the service name <var>service</var> is registered at D-Bus
 <var>bus</var>.  <var>service</var> might not have been started yet, it is
 autostarted if possible.  The result is either <code>t</code> or <code>nil</code>.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>.  <var>service</var> must be a string.  <var>timeout</var>, a
 nonnegative integer, specifies the maximum number of milliseconds
 <code>dbus-ping</code> must return.  The default value is 25,000.  Example:
 
-     <pre class="lisp">          (message
+     </p>
+<pre class="lisp">          (message
              "%s screensaver on board."
              (cond
                ((dbus-ping :session "org.gnome.ScreenSaver" 100) "Gnome")
@@ -322,27 +406,26 @@ nonnegative integer, specifies the maximum number of milliseconds
         <p>If it shall be checked whether <var>service</var> is already running
 without autostarting it, one shall apply
 
-     <pre class="lisp">          (member service (dbus-list-known-names bus))
+     </p>
+<pre class="lisp">          (member service (dbus-list-known-names bus))
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-get-unique-name</b><var> bus<a name="index-dbus_002dget_002dunique_002dname-11"></a></var><br>
-<blockquote><p>The unique name, under which Emacs is registered at D-Bus <var>bus</var>,
+— Function: <b>dbus-get-unique-name</b><var> bus<a name="index-dbus_002dget_002dunique_002dname-11"></a></var><br>
+<blockquote>
+<p>The unique name, under which Emacs is registered at D-Bus <var>bus</var>,
 is returned as string.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>. 
-</p></blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Introspection"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Nodes-and-Interfaces">Nodes and Interfaces</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Bus-names">Bus names</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
+</p>
+</blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Introspection"></a></div>
 
 <h3 class="section">2.3 Knowing the details of D-Bus services.</h3>
 
@@ -350,20 +433,24 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
 analyzed during runtime, in order to understand the used
 implementation.
 
-   <p>The resulting introspection data are in XML format.  The root
+   </p>
+<p>The resulting introspection data are in XML format.  The root
 introspection element is always a <code>node</code> element.  It might have
 a <code>name</code> attribute, which denotes the (absolute) object path an
 interface is introspected.
 
-   <p>The root <code>node</code> element may have <code>node</code> and <code>interface</code>
+   </p>
+<p>The root <code>node</code> element may have <code>node</code> and <code>interface</code>
 children.  A child <code>node</code> element must have a <code>name</code>
 attribute, this case it is the relative object path to the root
 <code>node</code> element.
 
-   <p>An <code>interface</code> element has just one attribute, <code>name</code>, which
+   </p>
+<p>An <code>interface</code> element has just one attribute, <code>name</code>, which
 is the full name of that interface.  The default interface
 `<samp><span class="samp">org.freedesktop.DBus.Introspectable</span></samp>' is always present.  Example:
 
+</p>
 <pre class="example">     &lt;node name="/org/bluez"&gt;
        &lt;interface name="org.freedesktop.DBus.Introspectable"&gt;
          ...
@@ -389,6 +476,7 @@ stands for a D-Bus method of the surrounding interface.  The element
 itself has a <code>name</code> attribute, showing the method name.  Children
 elements <code>arg</code> stand for the arguments of a method.  Example:
 
+</p>
 <pre class="example">     &lt;method name="ResolveHostName"&gt;
        &lt;arg name="interface" type="i" direction="in"/&gt;
        &lt;arg name="protocol" type="i" direction="in"/&gt;
@@ -412,11 +500,13 @@ The <code>direction</code> attribute of an <code>arg</code> element can be only
 `<samp><span class="samp">in</span></samp>' or `<samp><span class="samp">out</span></samp>'; in case it is omitted, it defaults to
 `<samp><span class="samp">in</span></samp>'.
 
-   <p>A <code>signal</code> element of an <code>interface</code> has a similar
+   </p>
+<p>A <code>signal</code> element of an <code>interface</code> has a similar
 structure.  The <code>direction</code> attribute of an <code>arg</code> child
 element can be only `<samp><span class="samp">out</span></samp>' here; which is also the default value. 
 Example:
 
+</p>
 <pre class="example">     &lt;signal name="StateChanged"&gt;
        &lt;arg name="state" type="i"/&gt;
        &lt;arg name="error" type="s"/&gt;
@@ -428,6 +518,7 @@ element.  It just has the attributes <code>name</code>, <code>type</code> and
 allows the values `<samp><span class="samp">readwrite</span></samp>', `<samp><span class="samp">read</span></samp>', and `<samp><span class="samp">write</span></samp>'. 
 Example:
 
+</p>
 <pre class="example">     &lt;property name="Status" type="u" direction="read"/&gt;
 </pre>
    <p><code>annotation</code> elements can be children of <code>interface</code>,
@@ -436,23 +527,28 @@ properties, which can change their values during lifetime of a D-Bus
 object, annotations are static.  Often they are used for code
 generators of D-Bus language bindings.  Example:
 
+</p>
 <pre class="example">     &lt;annotation name="de.berlios.Pinot.GetStatistics" value="pinotDBus"/&gt;
 </pre>
    <p>Annotations have just <code>name</code> and <code>value</code> attributes, both
 must be strings.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-introspect</b><var> bus service path<a name="index-dbus_002dintrospect-12"></a></var><br>
-<blockquote><p>This function returns all interfaces and sub-nodes of <var>service</var>,
+— Function: <b>dbus-introspect</b><var> bus service path<a name="index-dbus_002dintrospect-12"></a></var><br>
+<blockquote>
+<p>This function returns all interfaces and sub-nodes of <var>service</var>,
 registered at object path <var>path</var> at bus <var>bus</var>.
 
-        <p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> must be either the symbol <code>:system</code> or the symbol
 <code>:session</code>.  <var>service</var> must be a known service name, and
 <var>path</var> must be a valid object path.  The last two parameters are
 strings.  The result, the introspection data, is a string in XML
 format.  Example:
 
-     <pre class="lisp">          (dbus-introspect
+     </p>
+<pre class="lisp">          (dbus-introspect
             :system "org.freedesktop.Hal"
             "/org/freedesktop/Hal/devices/computer")
           
@@ -481,18 +577,23 @@ not documented here).  This interface contains the method
 as output parameter an array of dictionary entries (key-value pairs). 
 Every dictionary entry has a string as key, and a variant as value.
 
-        <p>The interface offers also a signal, which returns 2 parameters: an
+        </p>
+<p>The interface offers also a signal, which returns 2 parameters: an
 integer, and an array consisting of elements which are a struct of a
 string and 2 boolean values.<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a>
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-xml</b><var> bus service path<a name="index-dbus_002dintrospect_002dxml-13"></a></var><br>
-<blockquote><p>This function has the same intention as function
+— Function: <b>dbus-introspect-xml</b><var> bus service path<a name="index-dbus_002dintrospect_002dxml-13"></a></var><br>
+<blockquote>
+<p>This function has the same intention as function
 <code>dbus-introspect</code>.  The returned value is a parsed XML tree,
 which can be used for further analysis.  Example:
 
-     <pre class="lisp">          (dbus-introspect-xml
+     </p>
+<pre class="lisp">          (dbus-introspect-xml
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main")
           
@@ -513,17 +614,20 @@ which can be used for further analysis.  Example:
                ...
              )
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-attribute</b><var> object attribute<a name="index-dbus_002dintrospect_002dget_002dattribute-14"></a></var><br>
-<blockquote><p>It returns the <var>attribute</var> value of a D-Bus introspection
+— Function: <b>dbus-introspect-get-attribute</b><var> object attribute<a name="index-dbus_002dintrospect_002dget_002dattribute-14"></a></var><br>
+<blockquote>
+<p>It returns the <var>attribute</var> value of a D-Bus introspection
 <var>object</var>.  <var>object</var> can be every subtree of a parsed XML tree
 as retrieved with <code>dbus-introspect-xml</code>.  <var>attribute</var> must be
 a string according to the attribute names in the D-Bus specification. 
 Example:
 
-     <pre class="lisp">          (dbus-introspect-get-attribute
+     </p>
+<pre class="lisp">          (dbus-introspect-get-attribute
             (dbus-introspect-xml :system "org.freedesktop.SystemToolsBackends"
               "/org/freedesktop/SystemToolsBackends/UsersConfig")
             "name")
@@ -532,28 +636,26 @@ Example:
      </pre>
         <p>If <var>object</var> has no <var>attribute</var>, the function returns
 <code>nil</code>. 
-</p></blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Nodes-and-Interfaces"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Methods-and-Signal">Methods and Signal</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Introspection">Introspection</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
+</p>
+</blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Nodes-and-Interfaces"></a></div>
 
 <h3 class="section">2.4 Detecting object paths and interfaces.</h3>
 
 <p>The first elements, to be introspected for a D-Bus object, are further
 object paths and interfaces.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-node-names</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dnode_002dnames-15"></a></var><br>
-<blockquote><p>All node names of <var>service</var> in D-Bus <var>bus</var> at object path
+— Function: <b>dbus-introspect-get-node-names</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dnode_002dnames-15"></a></var><br>
+<blockquote>
+<p>All node names of <var>service</var> in D-Bus <var>bus</var> at object path
 <var>path</var> are returned as list of strings.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-node-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-node-names
             :session "org.gnome.seahorse" "/org/gnome/seahorse")
           
           =&gt; ("crypto" "keys")
@@ -562,16 +664,20 @@ object paths and interfaces.
 <var>service</var>, relative to <var>path</var>.  In the example,
 `<samp><span class="samp">/org/gnome/seahorse/crypto</span></samp>' and `<samp><span class="samp">/org/gnome/seahorse/keys</span></samp>'
 are also object paths of the D-Bus service `<samp><span class="samp">org.gnome.seahorse</span></samp>'. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-all-nodes</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dall_002dnodes-16"></a></var><br>
-<blockquote><p>This function returns all node names of <var>service</var> in D-Bus
+— Function: <b>dbus-introspect-get-all-nodes</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dall_002dnodes-16"></a></var><br>
+<blockquote>
+<p>This function returns all node names of <var>service</var> in D-Bus
 <var>bus</var> at object path <var>path</var>.  It returns a list of strings
 with all object paths of <var>service</var>, starting at <var>path</var>. 
 Example:
 
-     <pre class="lisp">          (dbus-introspect-get-all-nodes :session "org.gnome.seahorse" "/")
+     </p>
+<pre class="lisp">          (dbus-introspect-get-all-nodes :session "org.gnome.seahorse" "/")
           
           =&gt; ("/" "/org" "/org/gnome" "/org/gnome/seahorse"
               "/org/gnome/seahorse/crypto"
@@ -581,19 +687,23 @@ Example:
               "/org/gnome/seahorse/keys/openssh"
               "/org/gnome/seahorse/keys/openssh/local")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-interface-names</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dinterface_002dnames-17"></a></var><br>
-<blockquote><p>There will be returned a list strings of all interface names of
+— Function: <b>dbus-introspect-get-interface-names</b><var> bus service path<a name="index-dbus_002dintrospect_002dget_002dinterface_002dnames-17"></a></var><br>
+<blockquote>
+<p>There will be returned a list strings of all interface names of
 <var>service</var> in D-Bus <var>bus</var> at object path <var>path</var>.  This list
 will contain the default interface `<samp><span class="samp">org.freedesktop.DBus.Introspectable</span></samp>'.
 
-        <p>Another default interface is `<samp><span class="samp">org.freedesktop.DBus.Properties</span></samp>'. 
+        </p>
+<p>Another default interface is `<samp><span class="samp">org.freedesktop.DBus.Properties</span></samp>'. 
 If present, <code>interface</code> elements can also have <code>property</code>
 children.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-interface-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-interface-names
             :system "org.freedesktop.Hal"
             "/org/freedesktop/Hal/devices/computer")
           
@@ -602,16 +712,19 @@ children.  Example:
               "org.freedesktop.Hal.Device.SystemPowerManagement"
               "org.freedesktop.Hal.Device.CPUFreq")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-interface</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dinterface-18"></a></var><br>
-<blockquote><p>Return <var>interface</var> of <var>service</var> in D-Bus <var>bus</var> at object
+— Function: <b>dbus-introspect-get-interface</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dinterface-18"></a></var><br>
+<blockquote>
+<p>Return <var>interface</var> of <var>service</var> in D-Bus <var>bus</var> at object
 path <var>path</var>.  The return value is an XML element.  <var>interface</var>
 must be a string, element of the list returned by
 <code>dbus-introspect-get-interface-names</code>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-interface
+     </p>
+<pre class="lisp">          (dbus-introspect-get-interface
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search")
@@ -630,11 +743,13 @@ must be a string, element of the list returned by
                )
              )
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <p class="noindent">With these functions, it is possible to retrieve all introspection
 data from a running system:
 
+</p>
 <pre class="lisp">     (with-current-buffer (switch-to-buffer "*introspect*")
        (erase-buffer)
        (dolist (service (dbus-list-known-names :session))
@@ -648,26 +763,22 @@ data from a running system:
                      (dbus-introspect :session service path))
              (redisplay t)))))
 </pre>
-   <div class="node">
-<p><hr>
-<a name="Methods-and-Signal"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Properties-and-Annotations">Properties and Annotations</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Nodes-and-Interfaces">Nodes and Interfaces</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
-</div>
+   <pagebreak></pagebreak><div class="node"><a name="Methods-and-Signal"></a></div>
 
 <h3 class="section">2.5 Applying the functionality.</h3>
 
 <p>Methods and signals are the communication means to D-Bus.  The
 following functions return their specifications.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-method-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dmethod_002dnames-19"></a></var><br>
-<blockquote><p>Return a list of strings of all method names of <var>interface</var> of
+— Function: <b>dbus-introspect-get-method-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dmethod_002dnames-19"></a></var><br>
+<blockquote>
+<p>Return a list of strings of all method names of <var>interface</var> of
 <var>service</var> in D-Bus <var>bus</var> at object path <var>path</var>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-method-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-method-names
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search")
@@ -676,16 +787,19 @@ following functions return their specifications.
               "CloseSession" "GetHitData" "SetProperty" "NewSearch"
               "GetProperty" "CloseSearch")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-method</b><var> bus service path interface method<a name="index-dbus_002dintrospect_002dget_002dmethod-20"></a></var><br>
-<blockquote><p>This function returns <var>method</var> of <var>interface</var> as XML element. 
+— Function: <b>dbus-introspect-get-method</b><var> bus service path interface method<a name="index-dbus_002dintrospect_002dget_002dmethod-20"></a></var><br>
+<blockquote>
+<p>This function returns <var>method</var> of <var>interface</var> as XML element. 
 It must be located at <var>service</var> in D-Bus <var>bus</var> at object path
 <var>path</var>.  <var>method</var> must be a string, element of the list
 returned by <code>dbus-introspect-get-method-names</code>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-method
+     </p>
+<pre class="lisp">          (dbus-introspect-get-method
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search" "GetHitData")
@@ -697,14 +811,17 @@ returned by <code>dbus-introspect-get-method-names</code>.  Example:
                (arg ((name . "hit_data") (type . "aav") (direction . "out")))
              )
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-signal-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dsignal_002dnames-21"></a></var><br>
-<blockquote><p>Return a list of strings of all signal names of <var>interface</var> of
+— Function: <b>dbus-introspect-get-signal-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dsignal_002dnames-21"></a></var><br>
+<blockquote>
+<p>Return a list of strings of all signal names of <var>interface</var> of
 <var>service</var> in D-Bus <var>bus</var> at object path <var>path</var>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-signal-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-signal-names
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search")
@@ -712,16 +829,19 @@ returned by <code>dbus-introspect-get-method-names</code>.  Example:
           =&gt; ("StateChanged" "SearchDone" "HitsModified"
               "HitsRemoved" "HitsAdded")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-signal</b><var> bus service path interface signal<a name="index-dbus_002dintrospect_002dget_002dsignal-22"></a></var><br>
-<blockquote><p>This function returns <var>signal</var> of <var>interface</var> as XML element. 
+— Function: <b>dbus-introspect-get-signal</b><var> bus service path interface signal<a name="index-dbus_002dintrospect_002dget_002dsignal-22"></a></var><br>
+<blockquote>
+<p>This function returns <var>signal</var> of <var>interface</var> as XML element. 
 It must be located at <var>service</var> in D-Bus <var>bus</var> at object path
 <var>path</var>.  <var>signal</var> must be a string, element of the list
 returned by <code>dbus-introspect-get-signal-names</code>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-signal
+     </p>
+<pre class="lisp">          (dbus-introspect-get-signal
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search" "HitsAdded")
@@ -731,16 +851,10 @@ returned by <code>dbus-introspect-get-signal-names</code>.  Example:
                (arg ((name . "count") (type . "u")))
              )
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Properties-and-Annotations"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Arguments-and-Signatures">Arguments and Signatures</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Methods-and-Signal">Methods and Signal</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Properties-and-Annotations"></a></div>
 
 <h3 class="section">2.6 What else to know about interfaces.</h3>
 
@@ -749,21 +863,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
 That is, properties can be retrieved and changed during lifetime of an
 element.
 
-   <p>A generalized interface is
+   </p>
+<p>A generalized interface is
 `<samp><span class="samp">org.freedesktop.DBus.Objectmanager</span></samp>'<a rel="footnote" href="#fn-4" name="fnd-4"><sup>4</sup></a>,
 which returns objects, their interfaces and properties for a given
 service in just one call.
 
-   <p>Annotations, on the other hand, are static values for an element. 
+   </p>
+<p>Annotations, on the other hand, are static values for an element. 
 Often, they are used to instruct generators, how to generate code from
 the interface for a given language binding.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-property-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dproperty_002dnames-23"></a></var><br>
-<blockquote><p>Return a list of strings with all property names of <var>interface</var> of
+— Function: <b>dbus-introspect-get-property-names</b><var> bus service path interface<a name="index-dbus_002dintrospect_002dget_002dproperty_002dnames-23"></a></var><br>
+<blockquote>
+<p>Return a list of strings with all property names of <var>interface</var> of
 <var>service</var> in D-Bus <var>bus</var> at object path <var>path</var>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-property-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-property-names
             :session "org.kde.kded" "/modules/networkstatus"
             "org.kde.Solid.Networking.Client")
           
@@ -771,19 +890,24 @@ the interface for a given language binding.
      </pre>
         <p>If an interface declares properties, the corresponding element supports
 also the `<samp><span class="samp">org.freedesktop.DBus.Properties</span></samp>' interface. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-property</b><var> bus service path interface property<a name="index-dbus_002dintrospect_002dget_002dproperty-24"></a></var><br>
-<blockquote><p>This function returns <var>property</var> of <var>interface</var> as XML element. 
+— Function: <b>dbus-introspect-get-property</b><var> bus service path interface property<a name="index-dbus_002dintrospect_002dget_002dproperty-24"></a></var><br>
+<blockquote>
+<p>This function returns <var>property</var> of <var>interface</var> as XML element. 
 It must be located at <var>service</var> in D-Bus <var>bus</var> at object path
 <var>path</var>.  <var>property</var> must be a string, element of the list
 returned by <code>dbus-introspect-get-property-names</code>.
 
-        <p>A <var>property</var> value can be retrieved by the function
+        </p>
+<p>A <var>property</var> value can be retrieved by the function
 <code>dbus-introspect-get-attribute</code>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-property
+     </p>
+<pre class="lisp">          (dbus-introspect-get-property
             :session "org.kde.kded" "/modules/networkstatus"
             "org.kde.Solid.Networking.Client" "Status")
           
@@ -797,46 +921,55 @@ returned by <code>dbus-introspect-get-property-names</code>.
           
           =&gt; "read"
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-get-property</b><var> bus service path interface property<a name="index-dbus_002dget_002dproperty-25"></a></var><br>
-<blockquote><p>This function returns the value of <var>property</var> of <var>interface</var>. 
+— Function: <b>dbus-get-property</b><var> bus service path interface property<a name="index-dbus_002dget_002dproperty-25"></a></var><br>
+<blockquote>
+<p>This function returns the value of <var>property</var> of <var>interface</var>. 
 It will be checked at <var>bus</var>, <var>service</var>, <var>path</var>.  The
 result can be any valid D-Bus value, or <code>nil</code> if there is no
 <var>property</var>.  Example:
 
-     <pre class="lisp">          (dbus-get-property
+     </p>
+<pre class="lisp">          (dbus-get-property
             :session "org.kde.kded" "/modules/networkstatus"
             "org.kde.Solid.Networking.Client" "Status")
           
           =&gt; 4
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-set-property</b><var> bus service path interface property value<a name="index-dbus_002dset_002dproperty-26"></a></var><br>
-<blockquote><p>Set value of <var>property</var> of <var>interface</var> to <var>value</var>.  It
+— Function: <b>dbus-set-property</b><var> bus service path interface property value<a name="index-dbus_002dset_002dproperty-26"></a></var><br>
+<blockquote>
+<p>Set value of <var>property</var> of <var>interface</var> to <var>value</var>.  It
 will be checked at <var>bus</var>, <var>service</var>, <var>path</var>.  When the
 value has been set successful, the result is <var>value</var>.  Otherwise,
 <code>nil</code> is returned.  Example:
 
-     <pre class="lisp">          (dbus-set-property
+     </p>
+<pre class="lisp">          (dbus-set-property
             :session "org.kde.kaccess" "/MainApplication"
             "com.trolltech.Qt.QApplication" "doubleClickInterval" 500)
           
           =&gt; 500
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-get-all-properties</b><var> bus service path interface<a name="index-dbus_002dget_002dall_002dproperties-27"></a></var><br>
-<blockquote><p>This function returns all properties of <var>interface</var>.  It will be
+— Function: <b>dbus-get-all-properties</b><var> bus service path interface<a name="index-dbus_002dget_002dall_002dproperties-27"></a></var><br>
+<blockquote>
+<p>This function returns all properties of <var>interface</var>.  It will be
 checked at <var>bus</var>, <var>service</var>, <var>path</var>.  The result is a list
 of cons.  Every cons contains the name of the property, and its value. 
 If there are no properties, <code>nil</code> is returned.  Example:
 
-     <pre class="lisp">          (dbus-get-all-properties
+     </p>
+<pre class="lisp">          (dbus-get-all-properties
             :session "org.kde.kaccess" "/MainApplication"
             "com.trolltech.Qt.QApplication")
           
@@ -846,11 +979,13 @@ If there are no properties, <code>nil</code> is returned.  Example:
               ("startDragDistance" . 4) ("quitOnLastWindowClosed" . t)
               ("styleSheet" . ""))
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-get-all-managed-objects</b><var> bus service path<a name="index-dbus_002dget_002dall_002dmanaged_002dobjects-28"></a></var><br>
-<blockquote><p>This function returns all objects at <var>bus</var>, <var>service</var>,
+— Function: <b>dbus-get-all-managed-objects</b><var> bus service path<a name="index-dbus_002dget_002dall_002dmanaged_002dobjects-28"></a></var><br>
+<blockquote>
+<p>This function returns all objects at <var>bus</var>, <var>service</var>,
 <var>path</var>, and the children of <var>path</var>.  The result is a list of
 objects.  Every object is a cons of an existing path name, and the
 list of available interface objects.  An interface object is another
@@ -858,7 +993,8 @@ cons, which car is the interface name, and the cdr is the list of
 properties as returned by <code>dbus-get-all-properties</code> for that path
 and interface. Example:
 
-     <pre class="lisp">          (dbus-get-all-managed-objects
+     </p>
+<pre class="lisp">          (dbus-get-all-managed-objects
             :session "org.gnome.SettingsDaemon" "/")
           
           =&gt; (("/org/gnome/SettingsDaemon/MediaKeys"
@@ -884,10 +1020,12 @@ is used for retrieving the information.  Otherwise, the information
 is collected via `<samp><span class="samp">org.freedesktop.DBus.Introspectable.Introspect</span></samp>'
 and `<samp><span class="samp">org.freedesktop.DBus.Properties.GetAll</span></samp>', which is slow.
 
-        <p>An overview of all existing object paths, their interfaces and
+        </p>
+<p>An overview of all existing object paths, their interfaces and
 properties could be retrieved by the following code:
 
-     <pre class="lisp">          (with-current-buffer (switch-to-buffer "*objectmanager*")
+     </p>
+<pre class="lisp">          (with-current-buffer (switch-to-buffer "*objectmanager*")
             (erase-buffer)
             (let (result)
               (dolist (service (dbus-list-known-names :session) result)
@@ -899,17 +1037,20 @@ properties could be retrieved by the following code:
               (insert (message "%s" (pp result)))
               (redisplay t)))
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-annotation-names</b><var> bus service path interface &amp;optional name<a name="index-dbus_002dintrospect_002dget_002dannotation_002dnames-29"></a></var><br>
-<blockquote><p>Return a list of all annotation names as list of strings.  If
+— Function: <b>dbus-introspect-get-annotation-names</b><var> bus service path interface &amp;optional name<a name="index-dbus_002dintrospect_002dget_002dannotation_002dnames-29"></a></var><br>
+<blockquote>
+<p>Return a list of all annotation names as list of strings.  If
 <var>name</var> is <code>nil</code>, the annotations are children of
 <var>interface</var>, otherwise <var>name</var> must be a <code>method</code>,
 <code>signal</code>, or <code>property</code> XML element, where the annotations
 belong to.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-annotation-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-annotation-names
             :session "de.berlios.Pinot" "/de/berlios/Pinot"
             "de.berlios.Pinot" "GetStatistics")
           
@@ -918,26 +1059,39 @@ belong to.  Example:
         <p>Default annotation names<a rel="footnote" href="#fn-5" name="fnd-5"><sup>5</sup></a>
 are
 
-          <dl>
-<dt>`<samp><span class="samp">org.freedesktop.DBus.Deprecated</span></samp>'<dd>Whether or not the entity is deprecated; defaults to <code>nil</code>
+          </p>
+<dl>
+<dt>`<samp><span class="samp">org.freedesktop.DBus.Deprecated</span></samp>'</dt>
+<dd>Whether or not the entity is deprecated; defaults to <code>nil</code>
 
-          <br><dt>`<samp><span class="samp">org.freedesktop.DBus.GLib.CSymbol</span></samp>'<dd>The C symbol; may be used for <code>methods</code> and <code>interfaces</code>
+          <br>
+</dd>
+<dt>`<samp><span class="samp">org.freedesktop.DBus.GLib.CSymbol</span></samp>'</dt>
+<dd>The C symbol; may be used for <code>methods</code> and <code>interfaces</code>
 
-          <br><dt>`<samp><span class="samp">org.freedesktop.DBus.Method.NoReply</span></samp>'<dd>If set, don't expect a reply to the <code>method</code> call; defaults to <code>nil</code>
+          <br>
+</dd>
+<dt>`<samp><span class="samp">org.freedesktop.DBus.Method.NoReply</span></samp>'</dt>
+<dd>If set, don't expect a reply to the <code>method</code> call; defaults to <code>nil</code>
+</dd>
 </dl>
-        </p></blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-annotation</b><var> bus service path interface name annotation<a name="index-dbus_002dintrospect_002dget_002dannotation-30"></a></var><br>
-<blockquote><p>Return annotation <var>ANNOTATION</var> as XML object.  If <var>name</var> is
+— Function: <b>dbus-introspect-get-annotation</b><var> bus service path interface name annotation<a name="index-dbus_002dintrospect_002dget_002dannotation-30"></a></var><br>
+<blockquote>
+<p>Return annotation <var>ANNOTATION</var> as XML object.  If <var>name</var> is
 <code>nil</code>, <var>ANNOTATION</var> is a child of <var>interface</var>, otherwise
 <var>name</var> must be the name of a <code>method</code>, <code>signal</code>, or
 <code>property</code> XML element, where the <var>ANNOTATION</var> belongs to.
 
-        <p>An attribute value can be retrieved by
+        </p>
+<p>An attribute value can be retrieved by
 <code>dbus-introspect-get-attribute</code>.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-annotation
+     </p>
+<pre class="lisp">          (dbus-introspect-get-annotation
             :session "de.berlios.Pinot" "/de/berlios/Pinot"
             "de.berlios.Pinot" "GetStatistics"
             "de.berlios.Pinot.GetStatistics")
@@ -954,27 +1108,25 @@ are
           
           =&gt; "pinotDBus"
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Arguments-and-Signatures"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Properties-and-Annotations">Properties and Annotations</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Inspection">Inspection</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Arguments-and-Signatures"></a></div>
 
 <h3 class="section">2.7 The final details.</h3>
 
 <p>Methods and signals have arguments.  They are described in the
 <code>arg</code> XML elements.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-argument-names</b><var> bus service path interface name<a name="index-dbus_002dintrospect_002dget_002dargument_002dnames-31"></a></var><br>
-<blockquote><p>Return a list of all argument names as list of strings.  <var>name</var>
+— Function: <b>dbus-introspect-get-argument-names</b><var> bus service path interface name<a name="index-dbus_002dintrospect_002dget_002dargument_002dnames-31"></a></var><br>
+<blockquote>
+<p>Return a list of all argument names as list of strings.  <var>name</var>
 must be a <code>method</code> or <code>signal</code> XML element.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-argument-names
+     </p>
+<pre class="lisp">          (dbus-introspect-get-argument-names
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search" "GetHitData")
@@ -983,35 +1135,44 @@ must be a <code>method</code> or <code>signal</code> XML element.  Example:
      </pre>
         <p>Argument names are optional; the function can return <code>nil</code>
 therefore, even if the method or signal has arguments. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-argument</b><var> bus service path interface name arg<a name="index-dbus_002dintrospect_002dget_002dargument-32"></a></var><br>
-<blockquote><p>Return argument <var>ARG</var> as XML object.  <var>name</var>
+— Function: <b>dbus-introspect-get-argument</b><var> bus service path interface name arg<a name="index-dbus_002dintrospect_002dget_002dargument-32"></a></var><br>
+<blockquote>
+<p>Return argument <var>ARG</var> as XML object.  <var>name</var>
 must be a <code>method</code> or <code>signal</code> XML element.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-argument
+     </p>
+<pre class="lisp">          (dbus-introspect-get-argument
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search" "GetHitData" "search")
           
           =&gt; (arg ((name . "search") (type . "s") (direction . "in")))
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-introspect-get-signature</b><var> bus service path interface name &amp;optional direction<a name="index-dbus_002dintrospect_002dget_002dsignature-33"></a></var><br>
-<blockquote><p>Return signature of a <code>method</code> or <code>signal</code>, represented by
+— Function: <b>dbus-introspect-get-signature</b><var> bus service path interface name &amp;optional direction<a name="index-dbus_002dintrospect_002dget_002dsignature-33"></a></var><br>
+<blockquote>
+<p>Return signature of a <code>method</code> or <code>signal</code>, represented by
 <var>name</var>, as string.
 
-        <p>If <var>name</var> is a <code>method</code>, <var>direction</var> can be either
+        </p>
+<p>If <var>name</var> is a <code>method</code>, <var>direction</var> can be either
 `<samp><span class="samp">in</span></samp>' or `<samp><span class="samp">out</span></samp>'.  If <var>direction</var> is <code>nil</code>, `<samp><span class="samp">in</span></samp>'
 is assumed.
 
-        <p>If <var>name</var> is a <code>signal</code>, and <var>direction</var> is
+        </p>
+<p>If <var>name</var> is a <code>signal</code>, and <var>direction</var> is
 non-<code>nil</code>, <var>direction</var> must be `<samp><span class="samp">out</span></samp>'.  Example:
 
-     <pre class="lisp">          (dbus-introspect-get-signature
+     </p>
+<pre class="lisp">          (dbus-introspect-get-signature
             :session "org.freedesktop.xesam.searcher"
             "/org/freedesktop/xesam/searcher/main"
             "org.freedesktop.xesam.Search" "GetHitData" "in")
@@ -1025,16 +1186,10 @@ non-<code>nil</code>, <var>direction</var> must be `<samp><span class="samp">out
           
           =&gt; "su"
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Type-Conversion"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Synchronous-Methods">Synchronous Methods</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Inspection">Inspection</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Type-Conversion"></a></div>
 
 <h2 class="chapter">3 Mapping Lisp types and D-Bus types.</h2>
 
@@ -1043,31 +1198,81 @@ D-Bus method calls and signals accept usually several arguments as
 parameters, either as input parameter, or as output parameter.  Every
 argument belongs to a D-Bus type.
 
-   <p>Such arguments must be mapped between the value encoded as a D-Bus
+   </p>
+<p>Such arguments must be mapped between the value encoded as a D-Bus
 type, and the corresponding type of Lisp objects.  The mapping is
 applied Lisp object ==&gt; D-Bus type for input parameters, and
 D-Bus type ==&gt; Lisp object for output parameters.
 
+</p>
 <h3 class="section">3.1 Input parameters.</h3>
 
 <p>Input parameters for D-Bus methods and signals occur as arguments of a
 Lisp function call.  The following mapping to D-Bus types is
 applied, when the corresponding D-Bus message is created:
 
+</p>
 <pre class="example">
-     <p><table summary=""><tr align="left"><td valign="top">Lisp type               </td><td valign="top"></td><td valign="top">D-Bus type
-     <br></td></tr><tr align="left"><td valign="top"><br></td></tr><tr align="left"><td valign="top"><code>t</code> and <code>nil</code> </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_BOOLEAN
-     <br></td></tr><tr align="left"><td valign="top">natural number          </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_UINT32
-     <br></td></tr><tr align="left"><td valign="top">negative integer        </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_INT32
-     <br></td></tr><tr align="left"><td valign="top">float                   </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_DOUBLE
-     <br></td></tr><tr align="left"><td valign="top">string                  </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_STRING
-     <br></td></tr><tr align="left"><td valign="top">list                    </td><td valign="top">==&gt; </td><td valign="top">DBUS_TYPE_ARRAY
-     <br></td></tr></table>
-</pre>
+     <p></p></pre>
+<table summary="">
+<tr align="left">
+<td valign="top">Lisp type               </td>
+<td valign="top"></td>
+<td valign="top">D-Bus type
+     <br>
+</td>
+</tr>
+<tr align="left"><td valign="top"><br></td></tr>
+<tr align="left">
+<td valign="top">
+<code>t</code> and <code>nil</code> </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_BOOLEAN
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">natural number          </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_UINT32
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">negative integer        </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_INT32
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">float                   </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_DOUBLE
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">string                  </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_STRING
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">list                    </td>
+<td valign="top">==&gt; </td>
+<td valign="top">DBUS_TYPE_ARRAY
+     <br>
+</td>
+</tr>
+</table>
+
    <p>Other Lisp objects, like symbols or hash tables, are not accepted as
 input parameters.
 
-   <p>If it is necessary to use another D-Bus type, a corresponding type
+   </p>
+<p>If it is necessary to use another D-Bus type, a corresponding type
 symbol can be prepended to the corresponding Lisp object.  Basic D-Bus
 types are represented by the type symbols <code>:byte</code>,
 <code>:boolean</code>, <code>:int16</code>, <code>:uint16</code>, <code>:int32</code>,
@@ -1075,16 +1280,20 @@ types are represented by the type symbols <code>:byte</code>,
 <code>:string</code>, <code>:object-path</code>, <code>:signature</code> and
 <code>:unix-fd</code>.
 
+</p>
 <p class="noindent">Example:
 
+</p>
 <pre class="lisp">     (dbus-call-method ... <var>NAT-NUMBER</var> <var>STRING</var>)
 </pre>
    <p>is equivalent to
 
+</p>
 <pre class="lisp">     (dbus-call-method ... :uint32 <var>NAT-NUMBER</var> :string <var>STRING</var>)
 </pre>
    <p>but different to
 
+</p>
 <pre class="lisp">     (dbus-call-method ... :int32 <var>NAT-NUMBER</var> :signature <var>STRING</var>)
 </pre>
    <p>The value for a byte D-Bus type can be any integer in the range 0
@@ -1093,30 +1302,38 @@ represented outside this range are stripped of.  For example,
 <code>:byte ?x</code> is equal to <code>:byte ?\M-x</code>, but it is not equal to
 <code>:byte ?\C-x</code> or <code>:byte ?\M-\C-x</code>.
 
-   <p>Signed and unsigned integer D-Bus types expect a corresponding integer
+   </p>
+<p>Signed and unsigned integer D-Bus types expect a corresponding integer
 value.  If the value does not fit Emacs's integer range, it is also
 possible to use an equivalent floating point number.
 
-   <p>A D-Bus compound type is always represented as a list.  The <span class="sc">car</span>
+   </p>
+<p>A D-Bus compound type is always represented as a list.  The <span class="sc">car</span>
 of this list can be the type symbol <code>:array</code>, <code>:variant</code>,
 <code>:struct</code> or <code>:dict-entry</code>, which would result in a
 corresponding D-Bus container.  <code>:array</code> is optional, because
 this is the default compound D-Bus type for a list.
 
-   <p>The objects being elements of the list are checked according to the
+   </p>
+<p>The objects being elements of the list are checked according to the
 D-Bus compound type rules.
 
-     <ul>
+     </p>
+<ul>
 <li>An array must contain only elements of the same D-Bus type.  It
 can be empty.
 
-     <li>A variant must contain only one single element.
+     </li>
+<li>A variant must contain only one single element.
 
-     <li>A dictionary entry must be element of an array, and it must
+     </li>
+<li>A dictionary entry must be element of an array, and it must
 contain only a key-value pair of two elements, with a basic D-Bus type
 key.
 
-     <li>There is no restriction for structs. 
+     </li>
+<li>There is no restriction for structs. 
+</li>
 </ul>
 
    <p>If an empty array needs an element D-Bus type other than string, it
@@ -1124,6 +1341,7 @@ can contain exactly one element of D-Bus type <code>:signature</code>.  The
 value of this element (a string) is used as the signature of the
 elements of this array.  Example:
 
+</p>
 <pre class="lisp">     (dbus-call-method
        :session "org.freedesktop.Notifications"
        "/org/freedesktop/Notifications"
@@ -1142,97 +1360,225 @@ elements of this array.  Example:
      =&gt; 3
 </pre>
    <div class="defun">
-&mdash; Function: <b>dbus-string-to-byte-array</b><var> string<a name="index-dbus_002dstring_002dto_002dbyte_002darray-35"></a></var><br>
-<blockquote><p>Sometimes, D-Bus methods require as input parameter an array of bytes,
+— Function: <b>dbus-string-to-byte-array</b><var> string<a name="index-dbus_002dstring_002dto_002dbyte_002darray-35"></a></var><br>
+<blockquote>
+<p>Sometimes, D-Bus methods require as input parameter an array of bytes,
 instead of a string.  If it is guaranteed, that <var>string</var> is an
 UTF8 string, this function performs the conversion.  Example:
 
-     <pre class="lisp">          (dbus-string-to-byte-array "/etc/hosts")
+     </p>
+<pre class="lisp">          (dbus-string-to-byte-array "/etc/hosts")
           
           =&gt; (:array :byte 47 :byte 101 :byte 116 :byte 99 :byte 47
                      :byte 104 :byte 111 :byte 115 :byte 116 :byte 115)
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-escape-as-identifier</b><var> string<a name="index-dbus_002descape_002das_002didentifier-36"></a></var><br>
-<blockquote><p>Escape an arbitrary <var>string</var> so it follows the rules for a C
+— Function: <b>dbus-escape-as-identifier</b><var> string<a name="index-dbus_002descape_002das_002didentifier-36"></a></var><br>
+<blockquote>
+<p>Escape an arbitrary <var>string</var> so it follows the rules for a C
 identifier.  The escaped string can be used as object path component,
 interface element component, bus name component or member name in
 D-Bus.
 
-        <p>The escaping consists of replacing all non-alphanumerics, and the
+        </p>
+<p>The escaping consists of replacing all non-alphanumerics, and the
 first character if it's a digit, with an underscore and two
 lower-case hex digits.  As a special case, "" is escaped to
 "_".  Example:
 
-     <pre class="lisp">          (dbus-escape-as-identifier "0123abc_xyz\x01\xff")
+     </p>
+<pre class="lisp">          (dbus-escape-as-identifier "0123abc_xyz\x01\xff")
           
           =&gt; "_30123abc_5fxyz_01_ff"
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <h3 class="section">3.2 Output parameters.</h3>
 
 <p>Output parameters of D-Bus methods and signals are mapped to Lisp
 objects.
 
+</p>
 <pre class="example">
-     <p><table summary=""><tr align="left"><td valign="top">D-Bus type            </td><td valign="top"></td><td valign="top">Lisp type
-     <br></td></tr><tr align="left"><td valign="top"><br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_BOOLEAN     </td><td valign="top">==&gt; </td><td valign="top"><code>t</code> or <code>nil</code>
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_BYTE        </td><td valign="top">==&gt; </td><td valign="top">natural number
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_UINT16      </td><td valign="top">==&gt; </td><td valign="top">natural number
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_INT16       </td><td valign="top">==&gt; </td><td valign="top">integer
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_UINT32      </td><td valign="top">==&gt; </td><td valign="top">natural number or float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_UNIX_FD     </td><td valign="top">==&gt; </td><td valign="top">natural number or float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_INT32       </td><td valign="top">==&gt; </td><td valign="top">integer or float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_UINT64      </td><td valign="top">==&gt; </td><td valign="top">natural number or float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_INT64       </td><td valign="top">==&gt; </td><td valign="top">integer or float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_DOUBLE      </td><td valign="top">==&gt; </td><td valign="top">float
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_STRING      </td><td valign="top">==&gt; </td><td valign="top">string
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_OBJECT_PATH </td><td valign="top">==&gt; </td><td valign="top">string
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_SIGNATURE   </td><td valign="top">==&gt; </td><td valign="top">string
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_ARRAY       </td><td valign="top">==&gt; </td><td valign="top">list
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_VARIANT     </td><td valign="top">==&gt; </td><td valign="top">list
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_STRUCT      </td><td valign="top">==&gt; </td><td valign="top">list
-     <br></td></tr><tr align="left"><td valign="top">DBUS_TYPE_DICT_ENTRY  </td><td valign="top">==&gt; </td><td valign="top">list
-     <br></td></tr></table>
-</pre>
+     <p></p></pre>
+<table summary="">
+<tr align="left">
+<td valign="top">D-Bus type            </td>
+<td valign="top"></td>
+<td valign="top">Lisp type
+     <br>
+</td>
+</tr>
+<tr align="left"><td valign="top"><br></td></tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_BOOLEAN     </td>
+<td valign="top">==&gt; </td>
+<td valign="top">
+<code>t</code> or <code>nil</code>
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_BYTE        </td>
+<td valign="top">==&gt; </td>
+<td valign="top">natural number
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_UINT16      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">natural number
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_INT16       </td>
+<td valign="top">==&gt; </td>
+<td valign="top">integer
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_UINT32      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">natural number or float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_UNIX_FD     </td>
+<td valign="top">==&gt; </td>
+<td valign="top">natural number or float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_INT32       </td>
+<td valign="top">==&gt; </td>
+<td valign="top">integer or float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_UINT64      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">natural number or float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_INT64       </td>
+<td valign="top">==&gt; </td>
+<td valign="top">integer or float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_DOUBLE      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">float
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_STRING      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">string
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_OBJECT_PATH </td>
+<td valign="top">==&gt; </td>
+<td valign="top">string
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_SIGNATURE   </td>
+<td valign="top">==&gt; </td>
+<td valign="top">string
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_ARRAY       </td>
+<td valign="top">==&gt; </td>
+<td valign="top">list
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_VARIANT     </td>
+<td valign="top">==&gt; </td>
+<td valign="top">list
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_STRUCT      </td>
+<td valign="top">==&gt; </td>
+<td valign="top">list
+     <br>
+</td>
+</tr>
+<tr align="left">
+<td valign="top">DBUS_TYPE_DICT_ENTRY  </td>
+<td valign="top">==&gt; </td>
+<td valign="top">list
+     <br>
+</td>
+</tr>
+</table>
+
    <p>A float object in case of <code>DBUS_TYPE_UINT32</code>,
 <code>DBUS_TYPE_INT32</code>, <code>DBUS_TYPE_UINT64</code>,
 <code>DBUS_TYPE_INT64</code> and <code>DBUS_TYPE_UNIX_FD</code> is returned, when
 the C value exceeds the Emacs number size range.
 
-   <p>The resulting list of the last 4 D-Bus compound types contains as
+   </p>
+<p>The resulting list of the last 4 D-Bus compound types contains as
 elements the elements of the D-Bus container, mapped according to the
 same rules.
 
-   <p>The signal <code>PropertyModified</code>, discussed as example in
+   </p>
+<p>The signal <code>PropertyModified</code>, discussed as example in
 <a href="#Inspection">Inspection</a>, would offer as Lisp data the following object
 (<var>BOOL</var> stands here for either <code>nil</code> or <code>t</code>):
 
+</p>
 <pre class="lisp">     (<var>INTEGER</var> ((<var>STRING</var> <var>BOOL</var> <var>BOOL</var>) (<var>STRING</var> <var>BOOL</var> <var>BOOL</var>) ...))
 </pre>
    <div class="defun">
-&mdash; Function: <b>dbus-byte-array-to-string</b><var> byte-array &amp;optional multibyte<a name="index-dbus_002dbyte_002darray_002dto_002dstring-37"></a></var><br>
-<blockquote><p>If a D-Bus method or signal returns an array of bytes, which are known
+— Function: <b>dbus-byte-array-to-string</b><var> byte-array &amp;optional multibyte<a name="index-dbus_002dbyte_002darray_002dto_002dstring-37"></a></var><br>
+<blockquote>
+<p>If a D-Bus method or signal returns an array of bytes, which are known
 to represent an UTF8 string, this function converts <var>byte-array</var>
 to the corresponding string.  The string is unibyte encoded, unless
 <var>multibyte</var> is non-<code>nil</code>.  Example:
 
-     <pre class="lisp">          (dbus-byte-array-to-string '(47 101 116 99 47 104 111 115 116 115))
+     </p>
+<pre class="lisp">          (dbus-byte-array-to-string '(47 101 116 99 47 104 111 115 116 115))
           
           =&gt; "/etc/hosts"
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-unescape-from-identifier</b><var> string<a name="index-dbus_002dunescape_002dfrom_002didentifier-38"></a></var><br>
-<blockquote><p>Retrieve the original string from the encoded <var>string</var> as unibyte
+— Function: <b>dbus-unescape-from-identifier</b><var> string<a name="index-dbus_002dunescape_002dfrom_002didentifier-38"></a></var><br>
+<blockquote>
+<p>Retrieve the original string from the encoded <var>string</var> as unibyte
 string.  <var>string</var> must have been encoded with
 <code>dbus-escape-as-identifier</code>.  Example:
 
-     <pre class="lisp">          (dbus-unescape-from-identifier "_30123abc_5fxyz_01_ff")
+     </p>
+<pre class="lisp">          (dbus-unescape-from-identifier "_30123abc_5fxyz_01_ff")
           
           =&gt; "0123abc_xyz\x01\xff"
      </pre>
@@ -1240,23 +1586,18 @@ string.  <var>string</var> must have been encoded with
 multibyte string, it cannot be expected that this function returns
 that string:
 
-     <pre class="lisp">          (string-equal
+     </p>
+<pre class="lisp">          (string-equal
             (dbus-unescape-from-identifier
               (dbus-escape-as-identifier "Grüß Göttin"))
             "Grüß Göttin")
           
           =&gt; nil
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Synchronous-Methods"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Asynchronous-Methods">Asynchronous Methods</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Type-Conversion">Type Conversion</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Synchronous-Methods"></a></div>
 
 <h2 class="chapter">4 Calling methods in a blocking way.</h2>
 
@@ -1264,33 +1605,41 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 Methods can be called synchronously (<dfn>blocking</dfn>) or asynchronously
 (<dfn>non-blocking</dfn>).
 
-   <p>At D-Bus level, a method call consist of two messages: one message
+   </p>
+<p>At D-Bus level, a method call consist of two messages: one message
 which carries the input parameters to the object owning the method to
 be called, and a reply message returning the resulting output
 parameters from the object.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-call-method</b><var> bus service path interface method &amp;optional :timeout timeout &amp;rest args<a name="index-dbus_002dcall_002dmethod-41"></a></var><br>
-<blockquote><p>This function calls <var>method</var> on the D-Bus <var>bus</var>.  <var>bus</var> is
+— Function: <b>dbus-call-method</b><var> bus service path interface method &amp;optional :timeout timeout &amp;rest args<a name="index-dbus_002dcall_002dmethod-41"></a></var><br>
+<blockquote>
+<p>This function calls <var>method</var> on the D-Bus <var>bus</var>.  <var>bus</var> is
 either the symbol <code>:system</code> or the symbol <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name to be used.  <var>path</var> is the
+        </p>
+<p><var>service</var> is the D-Bus service name to be used.  <var>path</var> is the
 D-Bus object path, <var>service</var> is registered at.  <var>interface</var> is
 an interface offered by <var>service</var>.  It must provide <var>method</var>.
 
-        <p>If the parameter <code>:timeout</code> is given, the following integer
+        </p>
+<p>If the parameter <code>:timeout</code> is given, the following integer
 <var>timeout</var> specifies the maximum number of milliseconds the method
 call must return.  The default value is 25,000.  If the method call
 doesn't return in time, a D-Bus error is raised (see <a href="#Errors-and-Events">Errors and Events</a>).
 
-        <p>All other arguments args are passed to <var>method</var> as arguments. 
+        </p>
+<p>All other arguments args are passed to <var>method</var> as arguments. 
 They are converted into D-Bus types as described in <a href="#Type-Conversion">Type Conversion</a>.
 
-        <p>The function returns the resulting values of <var>method</var> as a list of
+        </p>
+<p>The function returns the resulting values of <var>method</var> as a list of
 Lisp objects, according to the type conversion rules described in
 <a href="#Type-Conversion">Type Conversion</a>.  Example:
 
-     <pre class="lisp">          (dbus-call-method
+     </p>
+<pre class="lisp">          (dbus-call-method
             :session "org.gnome.seahorse" "/org/gnome/seahorse/keys/openpgp"
             "org.gnome.seahorse.Keys" "GetKeyField"
             "openpgp:657984B8C7A966DD" "simple-name")
@@ -1301,7 +1650,8 @@ Lisp objects, according to the type conversion rules described in
 object is returned instead of a list containing this single Lisp
 object.  Example:
 
-     <pre class="lisp">          (dbus-call-method
+     </p>
+<pre class="lisp">          (dbus-call-method
             :system "org.freedesktop.Hal"
             "/org/freedesktop/Hal/devices/computer"
             "org.freedesktop.Hal.Device" "GetPropertyString"
@@ -1318,7 +1668,8 @@ path `<samp><span class="samp">/org/freedesktop/Hal/devices</span></samp>'.  Wit
 `<samp><span class="samp">GetAllDevices</span></samp>' and `<samp><span class="samp">GetAllProperties</span></samp>', it is simple to
 emulate the <code>lshal</code> command on GNU/Linux systems:
 
-     <pre class="lisp">          (dolist (device
+     </p>
+<pre class="lisp">          (dolist (device
                     (dbus-call-method
                       :system "org.freedesktop.Hal"
                       "/org/freedesktop/Hal/Manager"
@@ -1348,49 +1699,51 @@ emulate the <code>lshal</code> command on GNU/Linux systems:
                 system.firmware.release_date = \"03/19/2005\"
                 ..."
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Asynchronous-Methods"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Receiving-Method-Calls">Receiving Method Calls</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Synchronous-Methods">Synchronous Methods</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Asynchronous-Methods"></a></div>
 
 <h2 class="chapter">5 Calling methods non-blocking.</h2>
 
 <p><a name="index-method-calls_002c-asynchronous-42"></a><a name="index-asynchronous-method-calls-43"></a>
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-call-method-asynchronously</b><var> bus service path interface method handler &amp;optional :timeout timeout &amp;rest args<a name="index-dbus_002dcall_002dmethod_002dasynchronously-44"></a></var><br>
-<blockquote><p>This function calls <var>method</var> on the D-Bus <var>bus</var>
+— Function: <b>dbus-call-method-asynchronously</b><var> bus service path interface method handler &amp;optional :timeout timeout &amp;rest args<a name="index-dbus_002dcall_002dmethod_002dasynchronously-44"></a></var><br>
+<blockquote>
+<p>This function calls <var>method</var> on the D-Bus <var>bus</var>
 asynchronously.  <var>bus</var> is either the symbol <code>:system</code> or the
 symbol <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name to be used.  <var>path</var> is the
+        </p>
+<p><var>service</var> is the D-Bus service name to be used.  <var>path</var> is the
 D-Bus object path, <var>service</var> is registered at.  <var>interface</var> is
 an interface offered by <var>service</var>.  It must provide <var>method</var>.
 
-        <p><var>handler</var> is a Lisp function, which is called when the
+        </p>
+<p><var>handler</var> is a Lisp function, which is called when the
 corresponding return message has arrived.  If <var>handler</var> is
 <code>nil</code>, no return message will be expected.
 
-        <p>If the parameter <code>:timeout</code> is given, the following integer
+        </p>
+<p>If the parameter <code>:timeout</code> is given, the following integer
 <var>timeout</var> specifies the maximum number of milliseconds a reply
 message must arrive.  The default value is 25,000.  If there is no
 reply message in time, a D-Bus error is raised (see <a href="#Errors-and-Events">Errors and Events</a>).
 
-        <p>All other arguments args are passed to <var>method</var> as arguments. 
+        </p>
+<p>All other arguments args are passed to <var>method</var> as arguments. 
 They are converted into D-Bus types as described in <a href="#Type-Conversion">Type Conversion</a>.
 
-        <p>If <var>handler</var> is a Lisp function, the function returns a key into
+        </p>
+<p>If <var>handler</var> is a Lisp function, the function returns a key into
 the hash table <code>dbus-registered-objects-table</code>.  The
 corresponding entry in the hash table is removed, when the return
 message has been arrived, and <var>handler</var> is called.  Example:
 
-     <pre class="lisp">          (dbus-call-method-asynchronously
+     </p>
+<pre class="lisp">          (dbus-call-method-asynchronously
             :system "org.freedesktop.Hal"
             "/org/freedesktop/Hal/devices/computer"
             "org.freedesktop.Hal.Device" "GetPropertyString" 'message
@@ -1400,16 +1753,10 @@ message has been arrived, and <var>handler</var> is called.  Example:
           
           -| i686
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Receiving-Method-Calls"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Signals">Signals</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Asynchronous-Methods">Asynchronous Methods</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Receiving-Method-Calls"></a></div>
 
 <h2 class="chapter">6 Offering own methods.</h2>
 
@@ -1419,140 +1766,191 @@ known name on the D-Bus under which it will be available for other
 clients.  Names on the D-Bus can be registered and unregistered using
 the following functions:
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-register-service</b><var> bus service &amp;rest flags<a name="index-dbus_002dregister_002dservice-47"></a></var><br>
-<blockquote><p>Register the known name <var>service</var> on D-Bus <var>bus</var>.
+— Function: <b>dbus-register-service</b><var> bus service &amp;rest flags<a name="index-dbus_002dregister_002dservice-47"></a></var><br>
+<blockquote>
+<p>Register the known name <var>service</var> on D-Bus <var>bus</var>.
 
-        <p><var>bus</var> is either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> is either the symbol <code>:system</code> or the symbol
 <code>:session</code>.
 
-        <p><var>service</var> is the service name to be registered on the D-Bus.  It
+        </p>
+<p><var>service</var> is the service name to be registered on the D-Bus.  It
 must be a known name.
 
-        <p><var>flags</var> is a subset of the following keywords:
+        </p>
+<p><var>flags</var> is a subset of the following keywords:
 
-          <ul>
-<li><code>:allow-replacement</code>: Allow another service to become the primary
+          </p>
+<ul>
+<li>
+<code>:allow-replacement</code>: Allow another service to become the primary
 owner if requested.
 
-          <li><code>:replace-existing</code>: Request to replace the current primary owner.
+          </li>
+<li>
+<code>:replace-existing</code>: Request to replace the current primary owner.
 
-          <li><code>:do-not-queue</code>: If we can not become the primary owner do not
+          </li>
+<li>
+<code>:do-not-queue</code>: If we can not become the primary owner do not
 place us in the queue. 
+</li>
 </ul>
 
         <p>One of the following keywords is returned:
 
-          <ul>
-<li><code>:primary-owner</code>: We have become the primary owner of the name
+          </p>
+<ul>
+<li>
+<code>:primary-owner</code>: We have become the primary owner of the name
 <var>service</var>.
 
-          <li><code>:in-queue</code>: We could not become the primary owner and
+          </li>
+<li>
+<code>:in-queue</code>: We could not become the primary owner and
 have been placed in the queue.
 
-          <li><code>:exists</code>: We already are in the queue.
+          </li>
+<li>
+<code>:exists</code>: We already are in the queue.
 
-          <li><code>:already-owner</code>: We already are the primary
+          </li>
+<li>
+<code>:already-owner</code>: We already are the primary
 owner. 
+</li>
 </ul>
-        </p></blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-unregister-service</b><var> bus service<a name="index-dbus_002dunregister_002dservice-48"></a></var><br>
-<blockquote><p>Unregister all objects from D-Bus <var>bus</var>, registered by Emacs for
+— Function: <b>dbus-unregister-service</b><var> bus service<a name="index-dbus_002dunregister_002dservice-48"></a></var><br>
+<blockquote>
+<p>Unregister all objects from D-Bus <var>bus</var>, registered by Emacs for
 <var>service</var>.
 
-        <p><var>bus</var> is either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> is either the symbol <code>:system</code> or the symbol
 <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name of the D-Bus.  It must be a
+        </p>
+<p><var>service</var> is the D-Bus service name of the D-Bus.  It must be a
 known name.  Emacs releases its association to <var>service</var> from
 D-Bus.
 
-        <p>One of the following keywords is returned:
+        </p>
+<p>One of the following keywords is returned:
 
-          <ul>
-<li><code>:released</code>: We successfully released the name <var>service</var>. 
-<li><code>:non-existent</code>: The name <var>service</var> does not exist on the bus. 
-<li><code>:not-owner</code>: We are not an owner of the name <var>service</var>. 
+          </p>
+<ul>
+<li>
+<code>:released</code>: We successfully released the name <var>service</var>. 
+</li>
+<li>
+<code>:non-existent</code>: The name <var>service</var> does not exist on the bus. 
+</li>
+<li>
+<code>:not-owner</code>: We are not an owner of the name <var>service</var>. 
+</li>
 </ul>
-        </p></blockquote></div>
+        </blockquote>
+</div>
 
    <p>When a name has been chosen, Emacs can offer own methods, which can be
 called by other applications.  These methods could be an
 implementation of an interface of a well known service, like
 `<samp><span class="samp">org.freedesktop.TextEditor</span></samp>'.
 
-   <p>It could be also an implementation of an own interface.  In this case,
+   </p>
+<p>It could be also an implementation of an own interface.  In this case,
 the service name must be `<samp><span class="samp">org.gnu.Emacs</span></samp>'.  The object path shall
 begin with `<samp><span class="samp">/org/gnu/Emacs/</span><strong>Application</strong></samp>', and the
 interface name shall be <code>org.gnu.Emacs.</code><strong>Application</strong>. 
 `<samp><strong>Application</strong></samp>' is the name of the application which
 provides the interface.
 
+</p>
 <div class="defun">
-&mdash; Constant: <b>dbus-service-emacs</b><var><a name="index-dbus_002dservice_002demacs-49"></a></var><br>
+— Constant: <b>dbus-service-emacs</b><var><a name="index-dbus_002dservice_002demacs-49"></a></var><br>
 <blockquote><p>The well known service name `<samp><span class="samp">org.gnu.Emacs</span></samp>' of Emacs. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Constant: <b>dbus-path-emacs</b><var><a name="index-dbus_002dpath_002demacs-50"></a></var><br>
+— Constant: <b>dbus-path-emacs</b><var><a name="index-dbus_002dpath_002demacs-50"></a></var><br>
 <blockquote><p>The object path namespace `<samp><span class="samp">/org/gnu/Emacs</span></samp>' used by Emacs. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Constant: <b>dbus-interface-emacs</b><var><a name="index-dbus_002dinterface_002demacs-51"></a></var><br>
+— Constant: <b>dbus-interface-emacs</b><var><a name="index-dbus_002dinterface_002demacs-51"></a></var><br>
 <blockquote><p>The interface namespace <code>org.gnu.Emacs</code> used by Emacs. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-register-method</b><var> bus service path interface method handler dont-register-service<a name="index-dbus_002dregister_002dmethod-52"></a></var><br>
-<blockquote><p>With this function, an application registers <var>method</var> on the D-Bus
+— Function: <b>dbus-register-method</b><var> bus service path interface method handler dont-register-service<a name="index-dbus_002dregister_002dmethod-52"></a></var><br>
+<blockquote>
+<p>With this function, an application registers <var>method</var> on the D-Bus
 <var>bus</var>.
 
-        <p><var>bus</var> is either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> is either the symbol <code>:system</code> or the symbol
 <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name of the D-Bus object
+        </p>
+<p><var>service</var> is the D-Bus service name of the D-Bus object
 <var>method</var> is registered for.  It must be a known name (See
 discussion of <var>dont-register-service</var> below).
 
-        <p><var>path</var> is the D-Bus object path <var>service</var> is registered (See
+        </p>
+<p><var>path</var> is the D-Bus object path <var>service</var> is registered (See
 discussion of <var>dont-register-service</var> below).
 
-        <p><var>interface</var> is the interface offered by <var>service</var>.  It must
+        </p>
+<p><var>interface</var> is the interface offered by <var>service</var>.  It must
 provide <var>method</var>.
 
-        <p><var>handler</var> is a Lisp function to be called when a <var>method</var> call
+        </p>
+<p><var>handler</var> is a Lisp function to be called when a <var>method</var> call
 is received.  It must accept as arguments the input arguments of
 <var>method</var>.  <var>handler</var> should return a list, whose elements are
 to be used as arguments for the reply message of <var>method</var>.  This
 list can be composed like the input parameters in <a href="#Type-Conversion">Type Conversion</a>.
 
-        <p>If <var>handler</var> wants to return just one Lisp object and it is not a
+        </p>
+<p>If <var>handler</var> wants to return just one Lisp object and it is not a
 cons cell, <var>handler</var> can return this object directly, instead of
 returning a list containing the object.
 
-        <p>In case <var>handler</var> shall return a reply message with an empty
+        </p>
+<p>In case <var>handler</var> shall return a reply message with an empty
 argument list, <var>handler</var> must return the symbol <code>:ignore</code>.
 
-        <p>When <var>dont-register-service</var> is non-<code>nil</code>, the known name
+        </p>
+<p>When <var>dont-register-service</var> is non-<code>nil</code>, the known name
 <var>service</var> is not registered.  This means that other D-Bus clients
 have no way of noticing the newly registered method.  When interfaces
 are constructed incrementally by adding single methods or properties
 at a time, <var>dont-register-service</var> can be used to prevent other
 clients from discovering the still incomplete interface.
 
-        <p>The default D-Bus timeout when waiting for a message reply is 25
+        </p>
+<p>The default D-Bus timeout when waiting for a message reply is 25
 seconds.  This value could be even smaller, depending on the calling
 client.  Therefore, <var>handler</var> shall not last longer than
 absolutely necessary.
 
-        <p><code>dbus-register-method</code> returns a Lisp object, which can be used
+        </p>
+<p><code>dbus-register-method</code> returns a Lisp object, which can be used
 as argument in <code>dbus-unregister-object</code> for removing the
 registration for <var>method</var>.  Example:
 
-     <pre class="lisp">          (defun my-dbus-method-handler (filename)
+     </p>
+<pre class="lisp">          (defun my-dbus-method-handler (filename)
             (let (result)
               (if (find-file filename)
                   (setq result '(:boolean t))
@@ -1576,7 +1974,8 @@ is opened in Emacs, and the method returns either <var>true</var> or
 <var>false</var>, indicating the success of the method.  As test tool one
 could use the command line tool <code>dbus-send</code> in a shell:
 
-     <pre class="example">          # dbus-send --session --print-reply \
+     </p>
+<pre class="example">          # dbus-send --session --print-reply \
               --dest="org.freedesktop.TextEditor" \
               "/org/freedesktop/TextEditor" \
               "org.freedesktop.TextEditor.OpenFile" string:"/etc/hosts"
@@ -1587,7 +1986,8 @@ could use the command line tool <code>dbus-send</code> in a shell:
         <p>You can indicate an error by raising the Emacs signal
 <code>dbus-error</code>.  The handler above could be changed like this:
 
-     <pre class="lisp">          (defun my-dbus-method-handler (&amp;rest args)
+     </p>
+<pre class="lisp">          (defun my-dbus-method-handler (&amp;rest args)
             (unless (and (= (length args) 1) (stringp (car args)))
               (signal 'dbus-error (list (format "Wrong argument list: %S" args))))
             (condition-case err
@@ -1599,7 +1999,8 @@ could use the command line tool <code>dbus-send</code> in a shell:
      </pre>
         <p>The test runs then
 
-     <pre class="example">          # dbus-send --session --print-reply \
+     </p>
+<pre class="example">          # dbus-send --session --print-reply \
               --dest="org.freedesktop.TextEditor" \
               "/org/freedesktop/TextEditor" \
               "org.freedesktop.TextEditor.OpenFile" \
@@ -1608,52 +2009,64 @@ could use the command line tool <code>dbus-send</code> in a shell:
           -| Error org.freedesktop.DBus.Error.Failed:
              Wrong argument list: ("/etc/hosts" "/etc/passwd")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-register-property</b><var> bus service path interface property access value &amp;optional emits-signal dont-register-service<a name="index-dbus_002dregister_002dproperty-53"></a></var><br>
-<blockquote><p>With this function, an application declares a <var>property</var> on the D-Bus
+— Function: <b>dbus-register-property</b><var> bus service path interface property access value &amp;optional emits-signal dont-register-service<a name="index-dbus_002dregister_002dproperty-53"></a></var><br>
+<blockquote>
+<p>With this function, an application declares a <var>property</var> on the D-Bus
 <var>bus</var>.
 
-        <p><var>bus</var> is either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> is either the symbol <code>:system</code> or the symbol
 <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name of the D-Bus.  It must be a
+        </p>
+<p><var>service</var> is the D-Bus service name of the D-Bus.  It must be a
 known name.
 
-        <p><var>path</var> is the D-Bus object path <var>service</var> is registered (See
+        </p>
+<p><var>path</var> is the D-Bus object path <var>service</var> is registered (See
 discussion of <var>dont-register-service</var> below).
 
-        <p><var>interface</var> is the name of the interface used at <var>path</var>,
+        </p>
+<p><var>interface</var> is the name of the interface used at <var>path</var>,
 <var>property</var> is the name of the property of <var>interface</var>.
 
-        <p><var>access</var> indicates, whether the property can be changed by other
+        </p>
+<p><var>access</var> indicates, whether the property can be changed by other
 services via D-Bus.  It must be either the symbol <code>:read</code> or
 <code>:readwrite</code>.  <var>value</var> is the initial value of the property,
 it can be of any valid type (see <code>dbus-call-method</code> for details).
 
-        <p>If <var>property</var> already exists on <var>path</var>, it will be
+        </p>
+<p>If <var>property</var> already exists on <var>path</var>, it will be
 overwritten.  For properties with access type <code>:read</code> this is the
 only way to change their values.  Properties with access type
 <code>:readwrite</code> can be changed by <code>dbus-set-property</code>.
 
-        <p>The interface `<samp><span class="samp">org.freedesktop.DBus.Properties</span></samp>' is added to
+        </p>
+<p>The interface `<samp><span class="samp">org.freedesktop.DBus.Properties</span></samp>' is added to
 <var>path</var>, including a default handler for the `<samp><span class="samp">Get</span></samp>',
 `<samp><span class="samp">GetAll</span></samp>' and `<samp><span class="samp">Set</span></samp>' methods of this interface.  When
 <var>emits-signal</var> is non-<code>nil</code>, the signal
 `<samp><span class="samp">PropertiesChanged</span></samp>' is sent when the property is changed by
 <code>dbus-set-property</code>.
 
-        <p>When <var>dont-register-service</var> is non-<code>nil</code>, the known name
+        </p>
+<p>When <var>dont-register-service</var> is non-<code>nil</code>, the known name
 <var>service</var> is not registered.  This means that other D-Bus clients
 have no way of noticing the newly registered method.  When interfaces
 are constructed incrementally by adding single methods or properties
 at a time, <var>dont-register-service</var> can be used to prevent other
 clients from discovering the still incomplete interface.
 
-     <p class="noindent">Example:
+     </p>
+<p class="noindent">Example:
 
-     <pre class="lisp">          (dbus-register-property
+     </p>
+<pre class="lisp">          (dbus-register-property
             :session "org.freedesktop.TextEditor" "/org/freedesktop/TextEditor"
             "org.freedesktop.TextEditor" "name" :read "GNU Emacs")
           
@@ -1672,7 +2085,8 @@ clients from discovering the still incomplete interface.
 `<samp><span class="samp">org.freedesktop.DBus.Properties.GetAll</span></samp>'.  Testing is also
 possible via the command line tool <code>dbus-send</code> in a shell:
 
-     <pre class="example">          # dbus-send --session --print-reply \
+     </p>
+<pre class="example">          # dbus-send --session --print-reply \
               --dest="org.freedesktop.TextEditor" \
               "/org/freedesktop/TextEditor" \
               "org.freedesktop.DBus.Properties.GetAll" \
@@ -1694,7 +2108,8 @@ possible via the command line tool <code>dbus-send</code> in a shell:
 <code>dbus-get-all-properties</code> and <code>dbus-set-property</code> functions
 (see <a href="#Properties-and-Annotations">Properties and Annotations</a>).
 
-     <pre class="lisp">          (dbus-set-property
+     </p>
+<pre class="lisp">          (dbus-set-property
             :session "org.freedesktop.TextEditor" "/org/freedesktop/TextEditor"
             "org.freedesktop.TextEditor" "version" "23.1.50")
           
@@ -1706,29 +2121,27 @@ possible via the command line tool <code>dbus-send</code> in a shell:
           
           =&gt; "23.1.50"
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-unregister-object</b><var> object<a name="index-dbus_002dunregister_002dobject-54"></a></var><br>
-<blockquote><p>Unregister <var>object</var> from the D-Bus.  <var>object</var> must be the
+— Function: <b>dbus-unregister-object</b><var> object<a name="index-dbus_002dunregister_002dobject-54"></a></var><br>
+<blockquote>
+<p>Unregister <var>object</var> from the D-Bus.  <var>object</var> must be the
 result of a preceding <code>dbus-register-method</code>,
 <code>dbus-register-property</code> or <code>dbus-register-signal</code> call
 (see <a href="#Signals">Signals</a>).  It returns <code>t</code> if <var>object</var> has been
 unregistered, <code>nil</code> otherwise.
 
-        <p>When <var>object</var> identifies the last method or property, which is
+        </p>
+<p>When <var>object</var> identifies the last method or property, which is
 registered for the respective service, Emacs releases its association
 to the service from D-Bus. 
-</p></blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Signals"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Alternative-Buses">Alternative Buses</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Receiving-Method-Calls">Receiving Method Calls</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+</p>
+</blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Signals"></a></div>
 
 <h2 class="chapter">7 Sending and receiving signals.</h2>
 
@@ -1736,90 +2149,114 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 Signals are one way messages.  They carry input parameters, which are
 received by all objects which have registered for such a signal.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-send-signal</b><var> bus service path interface signal &amp;rest args<a name="index-dbus_002dsend_002dsignal-56"></a></var><br>
-<blockquote><p>This function is similar to <code>dbus-call-method</code>.  The difference
+— Function: <b>dbus-send-signal</b><var> bus service path interface signal &amp;rest args<a name="index-dbus_002dsend_002dsignal-56"></a></var><br>
+<blockquote>
+<p>This function is similar to <code>dbus-call-method</code>.  The difference
 is, that there are no returning output parameters.
 
-        <p>The function emits <var>signal</var> on the D-Bus <var>bus</var>.  <var>bus</var> is
+        </p>
+<p>The function emits <var>signal</var> on the D-Bus <var>bus</var>.  <var>bus</var> is
 either the symbol <code>:system</code> or the symbol <code>:session</code>.  It
 doesn't matter whether another object has registered for <var>signal</var>.
 
-        <p>Signals can be unicast or broadcast messages.  For broadcast messages,
+        </p>
+<p>Signals can be unicast or broadcast messages.  For broadcast messages,
 <var>service</var> must be <code>nil</code>.  Otherwise, <var>service</var> is the
 D-Bus service name the signal is sent to as unicast
 message.<a rel="footnote" href="#fn-6" name="fnd-6"><sup>6</sup></a>  <var>path</var> is the D-Bus object path
 <var>signal</var> is sent from.  <var>interface</var> is an interface available
 at <var>path</var>.  It must provide <var>signal</var>.
 
-        <p>All other arguments args are passed to <var>signal</var> as arguments. 
+        </p>
+<p>All other arguments args are passed to <var>signal</var> as arguments. 
 They are converted into D-Bus types as described in <a href="#Type-Conversion">Type Conversion</a>.  Example:
 
-     <pre class="lisp">          (dbus-send-signal
+     </p>
+<pre class="lisp">          (dbus-send-signal
             :session nil dbus-path-emacs
             (concat dbus-interface-emacs ".FileManager") "FileModified"
             "/home/albinus/.emacs")
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-register-signal</b><var> bus service path interface signal handler &amp;rest args<a name="index-dbus_002dregister_002dsignal-57"></a></var><br>
-<blockquote><p>With this function, an application registers for a signal on the D-Bus
+— Function: <b>dbus-register-signal</b><var> bus service path interface signal handler &amp;rest args<a name="index-dbus_002dregister_002dsignal-57"></a></var><br>
+<blockquote>
+<p>With this function, an application registers for a signal on the D-Bus
 <var>bus</var>.
 
-        <p><var>bus</var> is either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> is either the symbol <code>:system</code> or the symbol
 <code>:session</code>.
 
-        <p><var>service</var> is the D-Bus service name used by the sending D-Bus
+        </p>
+<p><var>service</var> is the D-Bus service name used by the sending D-Bus
 object.  It can be either a known name or the unique name of the D-Bus
 object sending the signal.  A known name will be mapped onto the
 unique name of the object, owning <var>service</var> at registration time. 
 When the corresponding D-Bus object disappears, signals won't be
 received any longer.
 
-        <p><var>path</var> is the corresponding D-Bus object path, <var>service</var> is
+        </p>
+<p><var>path</var> is the corresponding D-Bus object path, <var>service</var> is
 registered at.  <var>interface</var> is an interface offered by
 <var>service</var>.  It must provide <var>signal</var>.
 
-        <p><var>service</var>, <var>path</var>, <var>interface</var> and <var>signal</var> can be
+        </p>
+<p><var>service</var>, <var>path</var>, <var>interface</var> and <var>signal</var> can be
 <code>nil</code>.  This is interpreted as a wildcard for the respective
 argument.
 
-        <p><var>handler</var> is a Lisp function to be called when the <var>signal</var> is
+        </p>
+<p><var>handler</var> is a Lisp function to be called when the <var>signal</var> is
 received.  It must accept as arguments the output parameters
 <var>signal</var> is sending.
 
-        <p>The remaining arguments <var>args</var> can be keywords or keyword string
+        </p>
+<p>The remaining arguments <var>args</var> can be keywords or keyword string
 pairs.<a rel="footnote" href="#fn-7" name="fnd-7"><sup>7</sup></a>  The meaning
 is as follows:
 
-          <ul>
-<li><code>:argN</code> <var>string</var>:<br>
+          </p>
+<ul>
+<li>
+<code>:argN</code> <var>string</var>:<br>
 <code>:pathN</code> <var>string</var>:<br>
 This stands for the Nth argument of the signal.  <code>:pathN</code>
 arguments can be used for object path wildcard matches as specified by
 D-Bus, while an <code>:argN</code> argument requires an exact match.
 
-          <li><code>:arg-namespace</code> <var>string</var>:<br>
+          </li>
+<li>
+<code>:arg-namespace</code> <var>string</var>:<br>
 Register for the signals, which first argument defines the service or
 interface namespace <var>string</var>.
 
-          <li><code>:path-namespace</code> <var>string</var>:<br>
+          </li>
+<li>
+<code>:path-namespace</code> <var>string</var>:<br>
 Register for the object path namespace <var>string</var>.  All signals sent
 from an object path, which has <var>string</var> as the preceding string,
 are matched.  This requires <var>path</var> to be <code>nil</code>.
 
-          <li><code>:eavesdrop</code>:<br>
+          </li>
+<li>
+<code>:eavesdrop</code>:<br>
 Register for unicast signals which are not directed to the D-Bus
 object Emacs is registered at D-Bus BUS, if the security policy of BUS
 allows this.  Otherwise, this argument is ignored. 
+</li>
 </ul>
 
         <p><code>dbus-register-signal</code> returns a Lisp object, which can be used
 as argument in <code>dbus-unregister-object</code> for removing the
 registration for <var>signal</var>.  Example:
 
-     <pre class="lisp">          (defun my-dbus-signal-handler (device)
+     </p>
+<pre class="lisp">          (defun my-dbus-signal-handler (device)
             (message "Device %s added" device))
           
           =&gt; my-dbus-signal-handler
@@ -1841,26 +2278,22 @@ single string argument therefore.  Plugging an USB device to your
 machine, when registered for signal `<samp><span class="samp">DeviceAdded</span></samp>', will show you
 which objects the GNU/Linux <code>hal</code> daemon adds.
 
-        <p>Some of the match rules have been added to a later version of D-Bus. 
+        </p>
+<p>Some of the match rules have been added to a later version of D-Bus. 
 In order to test the availability of such features, you could register
 for a dummy signal, and check the result:
 
-     <pre class="lisp">          (dbus-ignore-errors
+     </p>
+<pre class="lisp">          (dbus-ignore-errors
             (dbus-register-signal
               :system nil nil nil nil 'ignore :path-namespace "/invalid/path"))
           
           =&gt; nil
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Alternative-Buses"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Errors-and-Events">Errors and Events</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Signals">Signals</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Alternative-Buses"></a></div>
 
 <h2 class="chapter">8 Alternative buses and environments.</h2>
 
@@ -1873,17 +2306,21 @@ mentioned as argument of a function (the symbol <code>:system</code> or the
 symbol <code>:session</code>), this address can be used instead.  The
 connection to this bus must be initialized first.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-init-bus</b><var> bus &amp;optional private<a name="index-dbus_002dinit_002dbus-61"></a></var><br>
-<blockquote><p>Establish the connection to D-Bus <var>bus</var>.
+— Function: <b>dbus-init-bus</b><var> bus &amp;optional private<a name="index-dbus_002dinit_002dbus-61"></a></var><br>
+<blockquote>
+<p>Establish the connection to D-Bus <var>bus</var>.
 
-        <p><var>bus</var> can be either the symbol <code>:system</code> or the symbol
+        </p>
+<p><var>bus</var> can be either the symbol <code>:system</code> or the symbol
 <code>:session</code>, or it can be a string denoting the address of the
 corresponding bus.  For the system and session buses, this function
 is called when loading <samp><span class="file">dbus.el</span></samp>, there is no need to call it
 again.
 
-        <p>The function returns a number, which counts the connections this Emacs
+        </p>
+<p>The function returns a number, which counts the connections this Emacs
 session has established to the <var>bus</var> under the same unique name
 (see <code>dbus-get-unique-name</code>).  It depends on the libraries Emacs
 is linked with, and on the environment Emacs is running.  For example,
@@ -1891,7 +2328,8 @@ if Emacs is linked with the gtk toolkit, and it runs in a GTK-aware
 environment like Gnome, another connection might already be
 established.
 
-        <p>When <var>private</var> is non-<code>nil</code>, a new connection is established
+        </p>
+<p>When <var>private</var> is non-<code>nil</code>, a new connection is established
 instead of reusing an existing one.  It results in a new unique name
 at the bus.  This can be used, if it is necessary to distinguish from
 another connection used in the same Emacs process, like the one
@@ -1899,9 +2337,11 @@ established by GTK+.  It should be used with care for at least the
 <code>:system</code> and <code>:session</code> buses, because other Emacs Lisp
 packages might already use this connection to those buses.
 
-        <p>Example: You initialize a connection to the AT-SPI bus on your host:
+        </p>
+<p>Example: You initialize a connection to the AT-SPI bus on your host:
 
-     <pre class="lisp">          (setq my-bus
+     </p>
+<pre class="lisp">          (setq my-bus
             (dbus-call-method
              :session "org.a11y.Bus" "/org/a11y/bus"
              "org.a11y.Bus" "GetAddress"))
@@ -1932,29 +2372,37 @@ packages might already use this connection to those buses.
         <p>D-Bus addresses can specify different transport.  A possible address
 could be based on TCP/IP sockets, see next example.  However, it
 depends on the bus daemon configuration, which transport is supported. 
-</p></blockquote></div>
+</p>
+</blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-setenv</b><var> bus variable value<a name="index-dbus_002dsetenv-62"></a></var><br>
-<blockquote><p>Set the value of the <var>bus</var> environment variable <var>variable</var> to
+— Function: <b>dbus-setenv</b><var> bus variable value<a name="index-dbus_002dsetenv-62"></a></var><br>
+<blockquote>
+<p>Set the value of the <var>bus</var> environment variable <var>variable</var> to
 <var>value</var>.
 
-        <p><var>bus</var> is either a Lisp symbol, <code>:system</code> or <code>:session</code>,
+        </p>
+<p><var>bus</var> is either a Lisp symbol, <code>:system</code> or <code>:session</code>,
 or a string denoting the bus address.  Both <var>variable</var> and
 <var>value</var> should be strings.
 
-        <p>Normally, services inherit the environment of the bus daemon.  This
+        </p>
+<p>Normally, services inherit the environment of the bus daemon.  This
 function adds to or modifies that environment when activating services.
 
-        <p>Some bus instances, such as <code>:system</code>, may disable setting the
+        </p>
+<p>Some bus instances, such as <code>:system</code>, may disable setting the
 environment.  In such cases, or if this feature is not available in
 older D-Bus versions, a <code>dbus-error</code> error is raised.
 
-        <p>As an example, it might be desirable to start X11 enabled services on
+        </p>
+<p>As an example, it might be desirable to start X11 enabled services on
 a remote host's bus on the same X11 server the local Emacs is
 running.  This could be achieved by
 
-     <pre class="lisp">          (setq my-bus "unix:host=example.gnu.org,port=4711")
+     </p>
+<pre class="lisp">          (setq my-bus "unix:host=example.gnu.org,port=4711")
           
           =&gt; "unix:host=example.gnu.org,port=4711"
           
@@ -1966,26 +2414,22 @@ running.  This could be achieved by
           
           =&gt; nil
      </pre>
-        </blockquote></div>
-
-<div class="node">
-<p><hr>
-<a name="Errors-and-Events"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Index">Index</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Alternative-Buses">Alternative Buses</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+        </blockquote>
 </div>
+
+<pagebreak></pagebreak><div class="node"><a name="Errors-and-Events"></a></div>
 
 <h2 class="chapter">9 Errors and events.</h2>
 
 <p><a name="index-debugging-63"></a><a name="index-errors-64"></a><a name="index-events-65"></a>
 The internal actions can be traced by running in a debug mode.
 
+</p>
 <div class="defun">
-&mdash; Variable: <b>dbus-debug</b><var><a name="index-dbus_002ddebug-66"></a></var><br>
+— Variable: <b>dbus-debug</b><var><a name="index-dbus_002ddebug-66"></a></var><br>
 <blockquote><p>If this variable is non-<code>nil</code>, D-Bus specific debug messages are raised. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
    <p>Input parameters of <code>dbus-call-method</code>,
 <code>dbus-call-method-asynchronously</code>, <code>dbus-send-signal</code>,
@@ -1994,105 +2438,126 @@ The internal actions can be traced by running in a debug mode.
 there is a type mismatch, the Lisp error <code>wrong-type-argument</code>
 <code>D-Bus ARG</code> is raised.
 
-   <p>All errors raised by D-Bus are signaled with the error symbol
+   </p>
+<p>All errors raised by D-Bus are signaled with the error symbol
 <code>dbus-error</code>.  If possible, error messages from D-Bus are
 appended to the <code>dbus-error</code>.
 
+</p>
 <div class="defun">
-&mdash; Special Form: <b>dbus-ignore-errors</b><var> forms<small class="dots">...</small><a name="index-dbus_002dignore_002derrors-67"></a></var><br>
+— Special Form: <b>dbus-ignore-errors</b><var> forms<small class="dots">...</small><a name="index-dbus_002dignore_002derrors-67"></a></var><br>
 <blockquote><p>This executes <var>forms</var> exactly like a <code>progn</code>, except that
 <code>dbus-error</code> errors are ignored during the <var>forms</var>.  These
 errors can be made visible when <code>dbus-debug</code> is set to <code>t</code>. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
    <p>Incoming D-Bus messages are handled as Emacs events, see see <a href="elisp.html#Misc-Events">Misc Events</a>.  They are retrieved only, when Emacs runs in
 interactive mode.  The generated event has this form:
 
+</p>
 <pre class="lisp">     (dbus-event <var>bus</var> <var>type</var> <var>serial</var> <var>service</var> <var>path</var> <var>interface</var> <var>member</var> <var>handler</var>
              &amp;rest <var>args</var>)
 </pre>
    <p><var>bus</var> identifies the D-Bus the message is coming from.  It is
 either the symbol <code>:system</code> or the symbol <code>:session</code>.
 
-   <p><var>type</var> is the D-Bus message type which has caused the event.  It
+   </p>
+<p><var>type</var> is the D-Bus message type which has caused the event.  It
 can be <code>dbus-message-type-invalid</code>,
 <code>dbus-message-type-method-call</code>,
 <code>dbus-message-type-method-return</code>,
 <code>dbus-message-type-error</code>, or <code>dbus-message-type-signal</code>. 
 <var>serial</var> is the serial number of the received D-Bus message.
 
-   <p><var>service</var> and <var>path</var> are the unique name and the object path
+   </p>
+<p><var>service</var> and <var>path</var> are the unique name and the object path
 of the D-Bus object emitting the message.  <var>interface</var> and
 <var>member</var> denote the message which has been sent.
 
-   <p><var>handler</var> is the callback function which has been registered for
+   </p>
+<p><var>handler</var> is the callback function which has been registered for
 this message (see see <a href="#Signals">Signals</a>).  When a <code>dbus-event</code> event
 arrives, <var>handler</var> is called with <var>args</var> as arguments.
 
-   <p>In order to inspect the <code>dbus-event</code> data, you could extend the
+   </p>
+<p>In order to inspect the <code>dbus-event</code> data, you could extend the
 definition of the callback function in <a href="#Signals">Signals</a>:
 
+</p>
 <pre class="lisp">     (defun my-dbus-signal-handler (&amp;rest args)
        (message "my-dbus-signal-handler: %S" last-input-event))
 </pre>
    <p>There exist convenience functions which could be called inside a
 callback function in order to retrieve the information from the event.
 
+</p>
 <div class="defun">
-&mdash; Function: <b>dbus-event-bus-name</b><var> event<a name="index-dbus_002devent_002dbus_002dname-68"></a></var><br>
+— Function: <b>dbus-event-bus-name</b><var> event<a name="index-dbus_002devent_002dbus_002dname-68"></a></var><br>
 <blockquote><p>Returns the bus name <var>event</var> is coming from. 
 The result is either the symbol <code>:system</code> or the symbol <code>:session</code>. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-message-type</b><var> event<a name="index-dbus_002devent_002dmessage_002dtype-69"></a></var><br>
+— Function: <b>dbus-event-message-type</b><var> event<a name="index-dbus_002devent_002dmessage_002dtype-69"></a></var><br>
 <blockquote><p>Returns the message type of the corresponding D-Bus message.  The
 result is a natural number. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-serial-number</b><var> event<a name="index-dbus_002devent_002dserial_002dnumber-70"></a></var><br>
+— Function: <b>dbus-event-serial-number</b><var> event<a name="index-dbus_002devent_002dserial_002dnumber-70"></a></var><br>
 <blockquote><p>Returns the serial number of the corresponding D-Bus message. 
 The result is a natural number. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-service-name</b><var> event<a name="index-dbus_002devent_002dservice_002dname-71"></a></var><br>
+— Function: <b>dbus-event-service-name</b><var> event<a name="index-dbus_002devent_002dservice_002dname-71"></a></var><br>
 <blockquote><p>Returns the unique name of the D-Bus object <var>event</var> is coming from. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-path-name</b><var> event<a name="index-dbus_002devent_002dpath_002dname-72"></a></var><br>
+— Function: <b>dbus-event-path-name</b><var> event<a name="index-dbus_002devent_002dpath_002dname-72"></a></var><br>
 <blockquote><p>Returns the object path of the D-Bus object <var>event</var> is coming from. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-interface-name</b><var> event<a name="index-dbus_002devent_002dinterface_002dname-73"></a></var><br>
+— Function: <b>dbus-event-interface-name</b><var> event<a name="index-dbus_002devent_002dinterface_002dname-73"></a></var><br>
 <blockquote><p>Returns the interface name of the D-Bus object <var>event</var> is coming from. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
 <div class="defun">
-&mdash; Function: <b>dbus-event-member-name</b><var> event<a name="index-dbus_002devent_002dmember_002dname-74"></a></var><br>
+— Function: <b>dbus-event-member-name</b><var> event<a name="index-dbus_002devent_002dmember_002dname-74"></a></var><br>
 <blockquote><p>Returns the member name of the D-Bus object <var>event</var> is coming
 from.  It is either a signal name or a method name. 
-</p></blockquote></div>
+</p></blockquote>
+</div>
 
    <p>D-Bus errors are not propagated during event handling, because it is
 usually not desired.  D-Bus errors in events can be made visible by
 setting the variable <code>dbus-debug</code> to <code>t</code>.  They can also be
 handled by a hook function.
 
+</p>
 <div class="defun">
-&mdash; Variable: <b>dbus-event-error-functions</b><var><a name="index-dbus_002devent_002derror_002dfunctions-75"></a></var><br>
-<blockquote><p>This hook variable keeps a list of functions, which are called when a
+— Variable: <b>dbus-event-error-functions</b><var><a name="index-dbus_002devent_002derror_002dfunctions-75"></a></var><br>
+<blockquote>
+<p>This hook variable keeps a list of functions, which are called when a
 D-Bus error happens in the event handler.  Every function must accept
 two arguments, the event and the error variable caught in
 <code>condition-case</code> by <code>dbus-error</code>.
 
-        <p>Such functions can be used the adapt the error signal to be raised. 
+        </p>
+<p>Such functions can be used the adapt the error signal to be raised. 
 Example:
 
-     <pre class="lisp">          (defun my-dbus-event-error-handler (event error)
+     </p>
+<pre class="lisp">          (defun my-dbus-event-error-handler (event error)
             (when (string-equal (concat dbus-interface-emacs ".FileManager")
                                 (dbus-event-interface-name event))
               (message "my-dbus-event-error-handler: %S %S" event error)
@@ -2100,106 +2565,246 @@ Example:
           
           (add-hook 'dbus-event-error-functions 'my-dbus-event-error-handler)
      </pre>
-        </blockquote></div>
+        </blockquote>
+</div>
 
    <p>Hook functions shall take into account, that there might be other
 D-Bus applications running.  Therefore, they shall check carefully,
 whether a given D-Bus error is related to them.
 
-<div class="node">
-<p><hr>
-<a name="Index"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Errors-and-Events">Errors and Events</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Index"></a></div>
 
 <h2 class="unnumbered">Index</h2>
 
 <ul class="index-cp" compact>
-<li><a href="#index-asynchronous-method-calls-43">asynchronous method calls</a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a></li>
-<li><a href="#index-bus-names-58">bus names</a>: <a href="#Alternative-Buses">Alternative Buses</a></li>
-<li><a href="#index-dbus_002dbyte_002darray_002dto_002dstring-37"><code>dbus-byte-array-to-string</code></a>: <a href="#Type-Conversion">Type Conversion</a></li>
-<li><a href="#index-dbus_002dcall_002dmethod-41"><code>dbus-call-method</code></a>: <a href="#Synchronous-Methods">Synchronous Methods</a></li>
-<li><a href="#index-dbus_002dcall_002dmethod_002dasynchronously-44"><code>dbus-call-method-asynchronously</code></a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a></li>
-<li><a href="#index-dbus_002dcompiled_002dversion-3"><code>dbus-compiled-version</code></a>: <a href="#Version">Version</a></li>
-<li><a href="#index-dbus_002ddebug-66"><code>dbus-debug</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002descape_002das_002didentifier-36"><code>dbus-escape-as-identifier</code></a>: <a href="#Type-Conversion">Type Conversion</a></li>
-<li><a href="#index-dbus_002devent_002dbus_002dname-68"><code>dbus-event-bus-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002derror_002dfunctions-75"><code>dbus-event-error-functions</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dinterface_002dname-73"><code>dbus-event-interface-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dmember_002dname-74"><code>dbus-event-member-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dmessage_002dtype-69"><code>dbus-event-message-type</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dpath_002dname-72"><code>dbus-event-path-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dserial_002dnumber-70"><code>dbus-event-serial-number</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002devent_002dservice_002dname-71"><code>dbus-event-service-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002dget_002dall_002dmanaged_002dobjects-28"><code>dbus-get-all-managed-objects</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dget_002dall_002dproperties-27"><code>dbus-get-all-properties</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dget_002dname_002downer-9"><code>dbus-get-name-owner</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dget_002dproperty-25"><code>dbus-get-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dget_002dunique_002dname-11"><code>dbus-get-unique-name</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dignore_002derrors-67"><code>dbus-ignore-errors</code></a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-dbus_002dinit_002dbus-61"><code>dbus-init-bus</code></a>: <a href="#Alternative-Buses">Alternative Buses</a></li>
-<li><a href="#index-dbus_002dinterface_002demacs-51"><code>dbus-interface-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dintrospect-12"><code>dbus-introspect</code></a>: <a href="#Introspection">Introspection</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dall_002dnodes-16"><code>dbus-introspect-get-all-nodes</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dannotation-30"><code>dbus-introspect-get-annotation</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dannotation_002dnames-29"><code>dbus-introspect-get-annotation-names</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dargument-32"><code>dbus-introspect-get-argument</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dargument_002dnames-31"><code>dbus-introspect-get-argument-names</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dattribute-14"><code>dbus-introspect-get-attribute</code></a>: <a href="#Introspection">Introspection</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dinterface-18"><code>dbus-introspect-get-interface</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dinterface_002dnames-17"><code>dbus-introspect-get-interface-names</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dmethod-20"><code>dbus-introspect-get-method</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dmethod_002dnames-19"><code>dbus-introspect-get-method-names</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dnode_002dnames-15"><code>dbus-introspect-get-node-names</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dproperty-24"><code>dbus-introspect-get-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dproperty_002dnames-23"><code>dbus-introspect-get-property-names</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dsignal-22"><code>dbus-introspect-get-signal</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dsignal_002dnames-21"><code>dbus-introspect-get-signal-names</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a></li>
-<li><a href="#index-dbus_002dintrospect_002dget_002dsignature-33"><code>dbus-introspect-get-signature</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a></li>
-<li><a href="#index-dbus_002dintrospect_002dxml-13"><code>dbus-introspect-xml</code></a>: <a href="#Introspection">Introspection</a></li>
-<li><a href="#index-dbus_002dlist_002dactivatable_002dnames-5"><code>dbus-list-activatable-names</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dlist_002dknown_002dnames-7"><code>dbus-list-known-names</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dlist_002dnames-6"><code>dbus-list-names</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dlist_002dqueued_002downers-8"><code>dbus-list-queued-owners</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dpath_002demacs-50"><code>dbus-path-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dping-10"><code>dbus-ping</code></a>: <a href="#Bus-names">Bus names</a></li>
-<li><a href="#index-dbus_002dregister_002dmethod-52"><code>dbus-register-method</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dregister_002dproperty-53"><code>dbus-register-property</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dregister_002dservice-47"><code>dbus-register-service</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dregister_002dsignal-57"><code>dbus-register-signal</code></a>: <a href="#Signals">Signals</a></li>
-<li><a href="#index-dbus_002druntime_002dversion-4"><code>dbus-runtime-version</code></a>: <a href="#Version">Version</a></li>
-<li><a href="#index-dbus_002dsend_002dsignal-56"><code>dbus-send-signal</code></a>: <a href="#Signals">Signals</a></li>
-<li><a href="#index-dbus_002dservice_002demacs-49"><code>dbus-service-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dset_002dproperty-26"><code>dbus-set-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a></li>
-<li><a href="#index-dbus_002dsetenv-62"><code>dbus-setenv</code></a>: <a href="#Alternative-Buses">Alternative Buses</a></li>
-<li><a href="#index-dbus_002dstring_002dto_002dbyte_002darray-35"><code>dbus-string-to-byte-array</code></a>: <a href="#Type-Conversion">Type Conversion</a></li>
-<li><a href="#index-dbus_002dunescape_002dfrom_002didentifier-38"><code>dbus-unescape-from-identifier</code></a>: <a href="#Type-Conversion">Type Conversion</a></li>
-<li><a href="#index-dbus_002dunregister_002dobject-54"><code>dbus-unregister-object</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-dbus_002dunregister_002dservice-48"><code>dbus-unregister-service</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-debugging-63">debugging</a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-errors-64">errors</a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-events-65">events</a>: <a href="#Errors-and-Events">Errors and Events</a></li>
-<li><a href="#index-inspection-2">inspection</a>: <a href="#Inspection">Inspection</a></li>
-<li><a href="#index-method-calls_002c-asynchronous-42">method calls, asynchronous</a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a></li>
-<li><a href="#index-method-calls_002c-returning-45">method calls, returning</a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-method-calls_002c-synchronous-39">method calls, synchronous</a>: <a href="#Synchronous-Methods">Synchronous Methods</a></li>
-<li><a href="#index-overview-1">overview</a>: <a href="#Overview">Overview</a></li>
-<li><a href="#index-returning-method-calls-46">returning method calls</a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a></li>
-<li><a href="#index-signals-55">signals</a>: <a href="#Signals">Signals</a></li>
-<li><a href="#index-synchronous-method-calls-40">synchronous method calls</a>: <a href="#Synchronous-Methods">Synchronous Methods</a></li>
-<li><a href="#index-TCP_002fIP-socket-60">TCP/IP socket</a>: <a href="#Alternative-Buses">Alternative Buses</a></li>
-<li><a href="#index-type-conversion-34">type conversion</a>: <a href="#Type-Conversion">Type Conversion</a></li>
-<li><a href="#index-UNIX-domain-socket-59">UNIX domain socket</a>: <a href="#Alternative-Buses">Alternative Buses</a></li>
-   </ul><div class="node">
-<p><hr>
-<a name="GNU-Free-Documentation-License"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Index">Index</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<li>
+<a href="#index-asynchronous-method-calls-43">asynchronous method calls</a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a>
+</li>
+<li>
+<a href="#index-bus-names-58">bus names</a>: <a href="#Alternative-Buses">Alternative Buses</a>
+</li>
+<li>
+<a href="#index-dbus_002dbyte_002darray_002dto_002dstring-37"><code>dbus-byte-array-to-string</code></a>: <a href="#Type-Conversion">Type Conversion</a>
+</li>
+<li>
+<a href="#index-dbus_002dcall_002dmethod-41"><code>dbus-call-method</code></a>: <a href="#Synchronous-Methods">Synchronous Methods</a>
+</li>
+<li>
+<a href="#index-dbus_002dcall_002dmethod_002dasynchronously-44"><code>dbus-call-method-asynchronously</code></a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a>
+</li>
+<li>
+<a href="#index-dbus_002dcompiled_002dversion-3"><code>dbus-compiled-version</code></a>: <a href="#Version">Version</a>
+</li>
+<li>
+<a href="#index-dbus_002ddebug-66"><code>dbus-debug</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002descape_002das_002didentifier-36"><code>dbus-escape-as-identifier</code></a>: <a href="#Type-Conversion">Type Conversion</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dbus_002dname-68"><code>dbus-event-bus-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002derror_002dfunctions-75"><code>dbus-event-error-functions</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dinterface_002dname-73"><code>dbus-event-interface-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dmember_002dname-74"><code>dbus-event-member-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dmessage_002dtype-69"><code>dbus-event-message-type</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dpath_002dname-72"><code>dbus-event-path-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dserial_002dnumber-70"><code>dbus-event-serial-number</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002devent_002dservice_002dname-71"><code>dbus-event-service-name</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002dget_002dall_002dmanaged_002dobjects-28"><code>dbus-get-all-managed-objects</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dget_002dall_002dproperties-27"><code>dbus-get-all-properties</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dget_002dname_002downer-9"><code>dbus-get-name-owner</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dget_002dproperty-25"><code>dbus-get-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dget_002dunique_002dname-11"><code>dbus-get-unique-name</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dignore_002derrors-67"><code>dbus-ignore-errors</code></a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-dbus_002dinit_002dbus-61"><code>dbus-init-bus</code></a>: <a href="#Alternative-Buses">Alternative Buses</a>
+</li>
+<li>
+<a href="#index-dbus_002dinterface_002demacs-51"><code>dbus-interface-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect-12"><code>dbus-introspect</code></a>: <a href="#Introspection">Introspection</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dall_002dnodes-16"><code>dbus-introspect-get-all-nodes</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dannotation-30"><code>dbus-introspect-get-annotation</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dannotation_002dnames-29"><code>dbus-introspect-get-annotation-names</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dargument-32"><code>dbus-introspect-get-argument</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dargument_002dnames-31"><code>dbus-introspect-get-argument-names</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dattribute-14"><code>dbus-introspect-get-attribute</code></a>: <a href="#Introspection">Introspection</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dinterface-18"><code>dbus-introspect-get-interface</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dinterface_002dnames-17"><code>dbus-introspect-get-interface-names</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dmethod-20"><code>dbus-introspect-get-method</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dmethod_002dnames-19"><code>dbus-introspect-get-method-names</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dnode_002dnames-15"><code>dbus-introspect-get-node-names</code></a>: <a href="#Nodes-and-Interfaces">Nodes and Interfaces</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dproperty-24"><code>dbus-introspect-get-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dproperty_002dnames-23"><code>dbus-introspect-get-property-names</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dsignal-22"><code>dbus-introspect-get-signal</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dsignal_002dnames-21"><code>dbus-introspect-get-signal-names</code></a>: <a href="#Methods-and-Signal">Methods and Signal</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dget_002dsignature-33"><code>dbus-introspect-get-signature</code></a>: <a href="#Arguments-and-Signatures">Arguments and Signatures</a>
+</li>
+<li>
+<a href="#index-dbus_002dintrospect_002dxml-13"><code>dbus-introspect-xml</code></a>: <a href="#Introspection">Introspection</a>
+</li>
+<li>
+<a href="#index-dbus_002dlist_002dactivatable_002dnames-5"><code>dbus-list-activatable-names</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dlist_002dknown_002dnames-7"><code>dbus-list-known-names</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dlist_002dnames-6"><code>dbus-list-names</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dlist_002dqueued_002downers-8"><code>dbus-list-queued-owners</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dpath_002demacs-50"><code>dbus-path-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dping-10"><code>dbus-ping</code></a>: <a href="#Bus-names">Bus names</a>
+</li>
+<li>
+<a href="#index-dbus_002dregister_002dmethod-52"><code>dbus-register-method</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dregister_002dproperty-53"><code>dbus-register-property</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dregister_002dservice-47"><code>dbus-register-service</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dregister_002dsignal-57"><code>dbus-register-signal</code></a>: <a href="#Signals">Signals</a>
+</li>
+<li>
+<a href="#index-dbus_002druntime_002dversion-4"><code>dbus-runtime-version</code></a>: <a href="#Version">Version</a>
+</li>
+<li>
+<a href="#index-dbus_002dsend_002dsignal-56"><code>dbus-send-signal</code></a>: <a href="#Signals">Signals</a>
+</li>
+<li>
+<a href="#index-dbus_002dservice_002demacs-49"><code>dbus-service-emacs</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dset_002dproperty-26"><code>dbus-set-property</code></a>: <a href="#Properties-and-Annotations">Properties and Annotations</a>
+</li>
+<li>
+<a href="#index-dbus_002dsetenv-62"><code>dbus-setenv</code></a>: <a href="#Alternative-Buses">Alternative Buses</a>
+</li>
+<li>
+<a href="#index-dbus_002dstring_002dto_002dbyte_002darray-35"><code>dbus-string-to-byte-array</code></a>: <a href="#Type-Conversion">Type Conversion</a>
+</li>
+<li>
+<a href="#index-dbus_002dunescape_002dfrom_002didentifier-38"><code>dbus-unescape-from-identifier</code></a>: <a href="#Type-Conversion">Type Conversion</a>
+</li>
+<li>
+<a href="#index-dbus_002dunregister_002dobject-54"><code>dbus-unregister-object</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-dbus_002dunregister_002dservice-48"><code>dbus-unregister-service</code></a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-debugging-63">debugging</a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-errors-64">errors</a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-events-65">events</a>: <a href="#Errors-and-Events">Errors and Events</a>
+</li>
+<li>
+<a href="#index-inspection-2">inspection</a>: <a href="#Inspection">Inspection</a>
+</li>
+<li>
+<a href="#index-method-calls_002c-asynchronous-42">method calls, asynchronous</a>: <a href="#Asynchronous-Methods">Asynchronous Methods</a>
+</li>
+<li>
+<a href="#index-method-calls_002c-returning-45">method calls, returning</a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-method-calls_002c-synchronous-39">method calls, synchronous</a>: <a href="#Synchronous-Methods">Synchronous Methods</a>
+</li>
+<li>
+<a href="#index-overview-1">overview</a>: <a href="#Overview">Overview</a>
+</li>
+<li>
+<a href="#index-returning-method-calls-46">returning method calls</a>: <a href="#Receiving-Method-Calls">Receiving Method Calls</a>
+</li>
+<li>
+<a href="#index-signals-55">signals</a>: <a href="#Signals">Signals</a>
+</li>
+<li>
+<a href="#index-synchronous-method-calls-40">synchronous method calls</a>: <a href="#Synchronous-Methods">Synchronous Methods</a>
+</li>
+<li>
+<a href="#index-TCP_002fIP-socket-60">TCP/IP socket</a>: <a href="#Alternative-Buses">Alternative Buses</a>
+</li>
+<li>
+<a href="#index-type-conversion-34">type conversion</a>: <a href="#Type-Conversion">Type Conversion</a>
+</li>
+<li>
+<a href="#index-UNIX-domain-socket-59">UNIX domain socket</a>: <a href="#Alternative-Buses">Alternative Buses</a>
+</li>
+   </ul>
+<pagebreak></pagebreak><div class="node"><a name="GNU-Free-Documentation-License"></a></div>
 
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
 
@@ -2208,13 +2813,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <!-- This file is intended to be included within another document, -->
 <!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
      <a href="http://fsf.org/">http://fsf.org/</a>
      
      Everyone is permitted to copy and distribute verbatim copies
      of this license document, but changing it is not allowed.
 </pre>
-     <ol type=1 start=0>
+     <ol type="1" start="0">
 <li>PREAMBLE
 
      <p>The purpose of this License is to make a manual, textbook, or other
@@ -2225,12 +2830,14 @@ Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
 
-     <p>This License is a kind of &ldquo;copyleft&rdquo;, which means that derivative
+     </p>
+<p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
 
-     <p>We have designed this License in order to use it for manuals for free
+     </p>
+<p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
 software does.  But this License is not limited to software manuals;
@@ -2238,23 +2845,27 @@ it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
 
-     <li>APPLICABILITY AND DEFINITIONS
+     </p>
+</li>
+<li>APPLICABILITY AND DEFINITIONS
 
      <p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
-work under the conditions stated herein.  The &ldquo;Document&rdquo;, below,
+work under the conditions stated herein.  The “Document”, below,
 refers to any such manual or work.  Any member of the public is a
-licensee, and is addressed as &ldquo;you&rdquo;.  You accept the license if you
+licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
 
-     <p>A &ldquo;Modified Version&rdquo; of the Document means any work containing the
+     </p>
+<p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
 
-     <p>A &ldquo;Secondary Section&rdquo; is a named appendix or a front-matter section
+     </p>
+<p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
 publishers or authors of the Document to the Document's overall
 subject (or to related matters) and contains nothing that could fall
@@ -2265,7 +2876,8 @@ connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
 
-     <p>The &ldquo;Invariant Sections&rdquo; are certain Secondary Sections whose titles
+     </p>
+<p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
 section does not fit the above definition of Secondary then it is not
@@ -2273,12 +2885,14 @@ allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
 
-     <p>The &ldquo;Cover Texts&rdquo; are certain short passages of text that are listed,
+     </p>
+<p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
 
-     <p>A &ldquo;Transparent&rdquo; copy of the Document means a machine-readable copy,
+     </p>
+<p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
 straightforwardly with generic text editors or (for images composed of
@@ -2289,9 +2903,10 @@ to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
 or discourage subsequent modification by readers is not Transparent. 
 An image format is not Transparent if used for any substantial amount
-of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
+of text.  A copy that is not “Transparent” is called “Opaque”.
 
-     <p>Examples of suitable formats for Transparent copies include plain
+     </p>
+<p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
 DTD, and standard-conforming simple HTML,
@@ -2304,32 +2919,38 @@ not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
 
-     <p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
+     </p>
+<p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
-formats which do not have any title page as such, &ldquo;Title Page&rdquo; means
+formats which do not have any title page as such, “Title Page” means
 the text near the most prominent appearance of the work's title,
 preceding the beginning of the body of the text.
 
-     <p>The &ldquo;publisher&rdquo; means any person or entity that distributes copies
+     </p>
+<p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
 
-     <p>A section &ldquo;Entitled XYZ&rdquo; means a named subunit of the Document whose
+     </p>
+<p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
-specific section name mentioned below, such as &ldquo;Acknowledgements&rdquo;,
-&ldquo;Dedications&rdquo;, &ldquo;Endorsements&rdquo;, or &ldquo;History&rdquo;.)  To &ldquo;Preserve the Title&rdquo;
+specific section name mentioned below, such as “Acknowledgements”,
+“Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
-section &ldquo;Entitled XYZ&rdquo; according to this definition.
+section “Entitled XYZ” according to this definition.
 
-     <p>The Document may include Warranty Disclaimers next to the notice which
+     </p>
+<p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
 
-     <li>VERBATIM COPYING
+     </p>
+</li>
+<li>VERBATIM COPYING
 
      <p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
@@ -2341,10 +2962,13 @@ copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
 
-     <p>You may also lend copies, under the same conditions stated above, and
+     </p>
+<p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
 
-     <li>COPYING IN QUANTITY
+     </p>
+</li>
+<li>COPYING IN QUANTITY
 
      <p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
@@ -2359,12 +2983,14 @@ Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
 
-     <p>If the required texts for either cover are too voluminous to fit
+     </p>
+<p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
 
-     <p>If you publish or distribute Opaque copies of the Document numbering
+     </p>
+<p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
@@ -2377,11 +3003,14 @@ location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
 
-     <p>It is requested, but not required, that you contact the authors of the
+     </p>
+<p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
 
-     <li>MODIFICATIONS
+     </p>
+</li>
+<li>MODIFICATIONS
 
      <p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
@@ -2390,69 +3019,85 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 
-          <ol type=A start=1>
+          </p>
+<ol type="A" start="1">
 <li>Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          <li>List on the Title Page, as authors, one or more persons or entities
+          </li>
+<li>List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          <li>State on the Title page the name of the publisher of the
+          </li>
+<li>State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          <li>Preserve all the copyright notices of the Document.
+          </li>
+<li>Preserve all the copyright notices of the Document.
 
-          <li>Add an appropriate copyright notice for your modifications
+          </li>
+<li>Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          <li>Include, immediately after the copyright notices, a license notice
+          </li>
+<li>Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          <li>Preserve in that license notice the full lists of Invariant Sections
+          </li>
+<li>Preserve in that license notice the full lists of Invariant Sections
 and required Cover Texts given in the Document's license notice.
 
-          <li>Include an unaltered copy of this License.
+          </li>
+<li>Include an unaltered copy of this License.
 
-          <li>Preserve the section Entitled &ldquo;History&rdquo;, Preserve its Title, and add
+          </li>
+<li>Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
-there is no section Entitled &ldquo;History&rdquo; in the Document, create one
+there is no section Entitled “History” in the Document, create one
 stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          <li>Preserve the network location, if any, given in the Document for
+          </li>
+<li>Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the &ldquo;History&rdquo; section. 
+it was based on.  These may be placed in the “History” section. 
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          <li>For any section Entitled &ldquo;Acknowledgements&rdquo; or &ldquo;Dedications&rdquo;, Preserve
+          </li>
+<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          <li>Preserve all the Invariant Sections of the Document,
+          </li>
+<li>Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          <li>Delete any section Entitled &ldquo;Endorsements&rdquo;.  Such a section
+          </li>
+<li>Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          <li>Do not retitle any existing section to be Entitled &ldquo;Endorsements&rdquo; or
+          </li>
+<li>Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          <li>Preserve any Warranty Disclaimers.
-          </ol>
+          </li>
+<li>Preserve any Warranty Disclaimers.
+          </li>
+</ol>
 
      <p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
@@ -2461,13 +3106,15 @@ of these sections as invariant.  To do this, add their titles to the
 list of Invariant Sections in the Modified Version's license notice. 
 These titles must be distinct from any other section titles.
 
-     <p>You may add a section Entitled &ldquo;Endorsements&rdquo;, provided it contains
+     </p>
+<p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
-parties&mdash;for example, statements of peer review or that the text has
+parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
 
-     <p>You may add a passage of up to five words as a Front-Cover Text, and a
+     </p>
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
 Front-Cover Text and one of Back-Cover Text may be added by (or
@@ -2477,11 +3124,14 @@ by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
 
-     <p>The author(s) and publisher(s) of the Document do not by this License
+     </p>
+<p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
 
-     <li>COMBINING DOCUMENTS
+     </p>
+</li>
+<li>COMBINING DOCUMENTS
 
      <p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
@@ -2490,7 +3140,8 @@ Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
 
-     <p>The combined work need only contain one copy of this License, and
+     </p>
+<p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
@@ -2499,13 +3150,16 @@ author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
 
-     <p>In the combination, you must combine any sections Entitled &ldquo;History&rdquo;
+     </p>
+<p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
-&ldquo;History&rdquo;; likewise combine any sections Entitled &ldquo;Acknowledgements&rdquo;,
-and any sections Entitled &ldquo;Dedications&rdquo;.  You must delete all
-sections Entitled &ldquo;Endorsements.&rdquo;
+“History”; likewise combine any sections Entitled “Acknowledgements”,
+and any sections Entitled “Dedications”.  You must delete all
+sections Entitled “Endorsements.”
 
-     <li>COLLECTIONS OF DOCUMENTS
+     </p>
+</li>
+<li>COLLECTIONS OF DOCUMENTS
 
      <p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
@@ -2513,23 +3167,27 @@ License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
 
-     <p>You may extract a single document from such a collection, and distribute
+     </p>
+<p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
 
-     <li>AGGREGATION WITH INDEPENDENT WORKS
+     </p>
+</li>
+<li>AGGREGATION WITH INDEPENDENT WORKS
 
      <p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
-distribution medium, is called an &ldquo;aggregate&rdquo; if the copyright
+distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
 of the compilation's users beyond what the individual works permit. 
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
 
-     <p>If the Cover Text requirement of section 3 is applicable to these
+     </p>
+<p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
 the entire aggregate, the Document's Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
@@ -2537,7 +3195,9 @@ electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
 
-     <li>TRANSLATION
+     </p>
+</li>
+<li>TRANSLATION
 
      <p>Translation is considered a kind of modification, so you may
 distribute translations of the Document under the terms of section 4. 
@@ -2552,39 +3212,47 @@ of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
 
-     <p>If a section in the Document is Entitled &ldquo;Acknowledgements&rdquo;,
-&ldquo;Dedications&rdquo;, or &ldquo;History&rdquo;, the requirement (section 4) to Preserve
+     </p>
+<p>If a section in the Document is Entitled “Acknowledgements”,
+“Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
 
-     <li>TERMINATION
+     </p>
+</li>
+<li>TERMINATION
 
      <p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
 
-     <p>However, if you cease all violation of this License, then your license
+     </p>
+<p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
 
-     <p>Moreover, your license from a particular copyright holder is
+     </p>
+<p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
 
-     <p>Termination of your rights under this section does not terminate the
+     </p>
+<p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
 
-     <li>FUTURE REVISIONS OF THIS LICENSE
+     </p>
+</li>
+<li>FUTURE REVISIONS OF THIS LICENSE
 
      <p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
@@ -2592,9 +3260,10 @@ versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
 
-     <p>Each version of the License is given a distinguishing version number. 
+     </p>
+<p>Each version of the License is given a distinguishing version number. 
 If the Document specifies that a particular numbered version of this
-License &ldquo;or any later version&rdquo; applies to it, you have the option of
+License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
 of any later version that has been published (not as a draft) by the
 Free Software Foundation.  If the Document does not specify a version
@@ -2605,36 +3274,44 @@ License can be used, that proxy's public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
 
-     <li>RELICENSING
+     </p>
+</li>
+<li>RELICENSING
 
-     <p>&ldquo;Massive Multiauthor Collaboration Site&rdquo; (or &ldquo;MMC Site&rdquo;) means any
+     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
-&ldquo;Massive Multiauthor Collaboration&rdquo; (or &ldquo;MMC&rdquo;) contained in the
+“Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
 
-     <p>&ldquo;CC-BY-SA&rdquo; means the Creative Commons Attribution-Share Alike 3.0
+     </p>
+<p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
 
-     <p>&ldquo;Incorporate&rdquo; means to publish or republish a Document, in whole or
+     </p>
+<p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
 
-     <p>An MMC is &ldquo;eligible for relicensing&rdquo; if it is licensed under this
+     </p>
+<p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
 
-     <p>The operator of an MMC Site may republish an MMC contained in the site
+     </p>
+<p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
 
-        </ol>
+        </p>
+</li>
+</ol>
 
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
@@ -2642,6 +3319,7 @@ provided the MMC is eligible for relicensing.
 the License in the document and put the following copyright and
 license notices just after the title page:
 
+</p>
 <pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
        Permission is granted to copy, distribute and/or modify this document
        under the terms of the GNU Free Documentation License, Version 1.3
@@ -2651,8 +3329,9 @@ license notices just after the title page:
        Free Documentation License''.
 </pre>
    <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the &ldquo;with<small class="dots">...</small>Texts.&rdquo; line with this:
+replace the “with<small class="dots">...</small>Texts.” line with this:
 
+</p>
 <pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
          the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
          being <var>list</var>.
@@ -2661,7 +3340,8 @@ replace the &ldquo;with<small class="dots">...</small>Texts.&rdquo; line with th
 combination of the three, merge those two alternatives to suit the
 situation.
 
-   <p>If your document contains nontrivial examples of program code, we
+   </p>
+<p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
@@ -2669,9 +3349,11 @@ to permit their use in free software.
 <!-- Local Variables: -->
 <!-- ispell-local-pdict: "ispell-dict" -->
 <!-- End: -->
+</p>
 <div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4><p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> D-Bus signatures
+<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4>
+<p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> D-Bus signatures
 are explained in the D-Bus specification
 <a href="http://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-signatures">http://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-signatures</a>.</p>
 
@@ -2699,7 +3381,9 @@ can also be just strings.  They stand for the respective arguments of
 <var>signal</var> in their order, and are used for filtering as well.  A
 <code>nil</code> argument might be used to preserve the order.</p>
 
-   <p><hr></div>
+   <p></p>
+<hr>
+</div>
 
-</body></html>
-
+</body>
+</html>

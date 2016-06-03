@@ -1,3 +1,4 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html lang="en">
 <head>
 <title>EDT Emulation for Emacs</title>
@@ -41,87 +42,134 @@ Free Software Foundation, Inc.
    <div class="contents">
 <h2>Table of Contents</h2>
 <ul>
-<li><a name="toc_Top" href="#Top">Emacs EDT emulation</a>
-<li><a name="toc_Overview" href="#Overview">1 Overview of the EDT Package</a>
+<li>
+<a name="toc_Top" href="#Top">Emacs EDT emulation</a>
+</li>
+<li>
+<a name="toc_Overview" href="#Overview">1 Overview of the EDT Package</a>
 <ul>
-<li><a href="#Quick-start">1.1 How to Begin Using EDT</a>
-<li><a href="#Changes">1.2 What's New in Version 4.0</a>
-<li><a href="#Goals">1.3 The Aims of this Package</a>
-</li></ul>
-<li><a name="toc_Supported-terminals" href="#Supported-terminals">2 Terminals/Keyboards that are Supported</a>
-<li><a name="toc_Starting-emulation" href="#Starting-emulation">3 How to Get Started</a>
-<li><a name="toc_Platform_002dspecific-notes" href="#Platform_002dspecific-notes">4 Notes Specific to Certain Platforms</a>
+<li>
+<a href="#Quick-start">1.1 How to Begin Using EDT</a>
+</li>
+<li>
+<a href="#Changes">1.2 What's New in Version 4.0</a>
+</li>
+<li>
+<a href="#Goals">1.3 The Aims of this Package</a>
+</li>
+</ul>
+</li>
+<li>
+<a name="toc_Supported-terminals" href="#Supported-terminals">2 Terminals/Keyboards that are Supported</a>
+</li>
+<li>
+<a name="toc_Starting-emulation" href="#Starting-emulation">3 How to Get Started</a>
+</li>
+<li>
+<a name="toc_Platform_002dspecific-notes" href="#Platform_002dspecific-notes">4 Notes Specific to Certain Platforms</a>
 <ul>
-<li><a href="#Sun-workstations">4.1 Sun Workstations Running X</a>
-<li><a href="#MS_002dDOS">4.2 PC Users Running MS-DOS</a>
-<li><a href="#GNU_002fLinux">4.3 PC Users Running GNU/Linux</a>
-<li><a href="#Unix">4.4 General Notes on Using &lt;NumLock&gt; for the &lt;PF1&gt; Key on Unix Systems</a>
-</li></ul>
-<li><a name="toc_Differences" href="#Differences">5 How Does this EDT Emulation Differ from Real EDT?</a>
-<li><a name="toc_Highlights" href="#Highlights">6 Some Highlights, and Comparisons to the Original Emacs EDT Emulation</a>
-<li><a name="toc_Customizing" href="#Customizing">7 Customizing Emulation</a>
+<li>
+<a href="#Sun-workstations">4.1 Sun Workstations Running X</a>
+</li>
+<li>
+<a href="#MS_002dDOS">4.2 PC Users Running MS-DOS</a>
+</li>
+<li>
+<a href="#GNU_002fLinux">4.3 PC Users Running GNU/Linux</a>
+</li>
+<li>
+<a href="#Unix">4.4 General Notes on Using &lt;NumLock&gt; for the &lt;PF1&gt; Key on Unix Systems</a>
+</li>
+</ul>
+</li>
+<li>
+<a name="toc_Differences" href="#Differences">5 How Does this EDT Emulation Differ from Real EDT?</a>
+</li>
+<li>
+<a name="toc_Highlights" href="#Highlights">6 Some Highlights, and Comparisons to the Original Emacs EDT Emulation</a>
+</li>
+<li>
+<a name="toc_Customizing" href="#Customizing">7 Customizing Emulation</a>
 <ul>
-<li><a href="#Init-file">7.1 Creating your own <samp><span class="file">edt-user.el</span></samp> File</a>
-<li><a href="#Words">7.2 Specifying Word Entities</a>
-<li><a href="#Control-keys">7.3 Enabling EDT Control Key Sequence Bindings</a>
-<li><a href="#Scroll-margins">7.4 Setting Scroll Margins</a>
-</li></ul>
-<li><a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li></ul>
+<li>
+<a href="#Init-file">7.1 Creating your own <samp><span class="file">edt-user.el</span></samp> File</a>
+</li>
+<li>
+<a href="#Words">7.2 Specifying Word Entities</a>
+</li>
+<li>
+<a href="#Control-keys">7.3 Enabling EDT Control Key Sequence Bindings</a>
+</li>
+<li>
+<a href="#Scroll-margins">7.4 Setting Scroll Margins</a>
+</li>
+</ul>
+</li>
+<li>
+<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
+</li>
+</ul>
 </div>
 
 
 
-<div class="node">
-<p><hr>
-<a name="Top"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Overview">Overview</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Top"></a></div>
 
 <h2 class="unnumbered">Emacs EDT emulation</h2>
 
 <p>This manual describes the Emacs EDT package, which provides emulation
 of DEC's EDT editor.
 
-   <p>This file documents the EDT emulation package for Emacs.
+   </p>
+<p>This file documents the EDT emulation package for Emacs.
 
-   <p>Copyright &copy; 1986, 1992, 1994&ndash;1995, 1999&ndash;2016
+   </p>
+<p>Copyright © 1986, 1992, 1994–1995, 1999–2016
 Free Software Foundation, Inc.
 
-   <blockquote>
+   </p>
+<blockquote>
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
-Invariant Sections, with the Front-Cover Texts being &ldquo;A GNU Manual,&rdquo;
+Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
-is included in the section entitled &ldquo;GNU Free Documentation License&rdquo;.
+is included in the section entitled “GNU Free Documentation License”.
 
-        <p>(a) The FSF's Back-Cover Text is: &ldquo;You have the freedom to copy and
-modify this GNU manual.&rdquo;
+        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+modify this GNU manual.”
+</p>
 </blockquote>
 
 <ul class="menu">
-<li><a accesskey="1" href="#Overview">Overview</a>:                 Overview of the EDT package. 
-<li><a accesskey="2" href="#Supported-terminals">Supported terminals</a>:      Terminals/keyboards that are supported. 
-<li><a accesskey="3" href="#Starting-emulation">Starting emulation</a>:       How to get started. 
-<li><a accesskey="4" href="#Platform_002dspecific-notes">Platform-specific notes</a>:  Notes specific to certain platforms. 
-<li><a accesskey="5" href="#Differences">Differences</a>:              How does this EDT emulation differ from real EDT? 
-<li><a accesskey="6" href="#Highlights">Highlights</a>:               Some highlights, and comparisons to the
+<li>
+<a accesskey="1" href="#Overview">Overview</a>:                 Overview of the EDT package. 
+</li>
+<li>
+<a accesskey="2" href="#Supported-terminals">Supported terminals</a>:      Terminals/keyboards that are supported. 
+</li>
+<li>
+<a accesskey="3" href="#Starting-emulation">Starting emulation</a>:       How to get started. 
+</li>
+<li>
+<a accesskey="4" href="#Platform_002dspecific-notes">Platform-specific notes</a>:  Notes specific to certain platforms. 
+</li>
+<li>
+<a accesskey="5" href="#Differences">Differences</a>:              How does this EDT emulation differ from real EDT? 
+</li>
+<li>
+<a accesskey="6" href="#Highlights">Highlights</a>:               Some highlights, and comparisons to the
                               original Emacs EDT emulation. 
-<li><a accesskey="7" href="#Customizing">Customizing</a>:              Customizing emulation. 
-<li><a accesskey="8" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this manual. 
+</li>
+<li>
+<a accesskey="7" href="#Customizing">Customizing</a>:              Customizing emulation. 
+</li>
+<li>
+<a accesskey="8" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this manual. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Overview"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Supported-terminals">Supported terminals</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Top">Top</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Overview"></a></div>
 
 <h2 class="chapter">1 Overview of the EDT Package</h2>
 
@@ -132,75 +180,89 @@ bindings which closely match those found in EDT.  Support is provided so
 that users may reconfigure most keypad and function key bindings to
 their own liking.
 
-   <p>Version 4.0 contains several enhancements (see <a href="#Changes">Changes</a>).
+   </p>
+<p>Version 4.0 contains several enhancements (see <a href="#Changes">Changes</a>).
 
+</p>
 <ul class="menu">
-<li><a accesskey="1" href="#Quick-start">Quick start</a>:              How to begin using EDT. 
-<li><a accesskey="2" href="#Changes">Changes</a>:                  What's new in version 4.0. 
-<li><a accesskey="3" href="#Goals">Goals</a>:                    The aims of this package. 
+<li>
+<a accesskey="1" href="#Quick-start">Quick start</a>:              How to begin using EDT. 
+</li>
+<li>
+<a accesskey="2" href="#Changes">Changes</a>:                  What's new in version 4.0. 
+</li>
+<li>
+<a accesskey="3" href="#Goals">Goals</a>:                    The aims of this package. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Quick-start"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Changes">Changes</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Quick-start"></a></div>
 
 <h3 class="section">1.1 How to Begin Using EDT</h3>
 
 <p>To start the EDT Emulation, first start Emacs and then enter <kbd>M-x
 edt-emulation-on</kbd> to begin the emulation.  After initialization is
 complete, the following message will appear below the status line
-informing you that the emulation has been enabled: &ldquo;Default EDT keymap
-active&rdquo;.
+informing you that the emulation has been enabled: “Default EDT keymap
+active”.
 
-   <p>You can have the EDT Emulation start up automatically, each time you
+   </p>
+<p>You can have the EDT Emulation start up automatically, each time you
 initiate an Emacs session, by adding the following line to your
 <samp><span class="file">.emacs</span></samp> file:
 
+</p>
 <pre class="example">     (add-hook 'emacs-startup-hook 'edt-emulation-on)
 </pre>
    <p class="noindent"><strong>Important:</strong> Be sure to read the rest of this manual. 
 It contains very useful information on how the EDT Emulation behaves and
 how to customize it to your liking.
 
+</p>
 <p class="noindent">The EDT emulation consists of the following files:
 
-     <ul>
-<li><samp><span class="file">edt.texi</span></samp>&mdash;This manual.
+     </p>
+<ul>
+<li>
+<samp><span class="file">edt.texi</span></samp>—This manual.
 
-     <li><samp><span class="file">edt-user.el</span></samp>&mdash;An example customization file (located in the
+     </li>
+<li>
+<samp><span class="file">edt-user.el</span></samp>—An example customization file (located in the
 Emacs distribution etc directory).
 
-     <li><samp><span class="file">edt.el</span></samp>&mdash;EDT emulation functions and default configuration.
+     </li>
+<li>
+<samp><span class="file">edt.el</span></samp>—EDT emulation functions and default configuration.
 
-     <li><samp><span class="file">edt-lk201.el</span></samp>&mdash;Built-in support for DEC LK-201 keyboards.
+     </li>
+<li>
+<samp><span class="file">edt-lk201.el</span></samp>—Built-in support for DEC LK-201 keyboards.
 
-     <li><samp><span class="file">edt-vt100.el</span></samp>&mdash;Built-in support for DEC VT-100 (and above) terminals.
+     </li>
+<li>
+<samp><span class="file">edt-vt100.el</span></samp>—Built-in support for DEC VT-100 (and above) terminals.
 
-     <li><samp><span class="file">edt-pc.el</span></samp>&mdash;Built-in support for PC 101 Keyboards under MS-DOS.
+     </li>
+<li>
+<samp><span class="file">edt-pc.el</span></samp>—Built-in support for PC 101 Keyboards under MS-DOS.
 
-     <li><samp><span class="file">edt-mapper.el</span></samp>&mdash;Create an EDT LK-201 map file for keyboards
+     </li>
+<li>
+<samp><span class="file">edt-mapper.el</span></samp>—Create an EDT LK-201 map file for keyboards
 without built-in support.
 
-   </ul>
+   </li>
+</ul>
 
-<div class="node">
-<p><hr>
-<a name="Changes"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Goals">Goals</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Quick-start">Quick start</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Changes"></a></div>
 
 <h3 class="section">1.2 What's New in Version 4.0</h3>
 
 <p>Version 4.0 contains the following enhancements:
 
-     <ol type=1 start=1>
+     </p>
+<ol type="1" start="1">
 
      <li>Scroll margins at the top and bottom of the window are now supported. 
 (The design was copied from <samp><span class="file">tpu-extras.el</span></samp>.)  By default, this
@@ -216,15 +278,19 @@ to 25% of the window.  To disable this feature, set each margin to 0%.
 You can also invoke <code>edt-set-scroll-margins</code> interactively while
 EDT Emulation is active to change the settings for that session.
 
-     <p><strong>Please note:</strong> Another way to set the scroll margins is to use
+     </p>
+<p><strong>Please note:</strong> Another way to set the scroll margins is to use
 the Emacs customization feature to set the following two variables
 directly: <code>edt-top-scroll-margin</code> and <code>edt-bottom-scroll-margin</code>.
 
-     <p>Enter the Emacs <code>customize</code> command.  First select the
+     </p>
+<p>Enter the Emacs <code>customize</code> command.  First select the
 `<samp><span class="samp">Editing</span></samp>' group and then select the `<samp><span class="samp">Emulations</span></samp>' group. 
 Finally, select the `<samp><span class="samp">Edt</span></samp>' group and follow the directions.
 
-     <li>The `<samp><span class="samp">SUBS</span></samp>' command is now supported and bound to <kbd>GOLD-Enter</kbd>
+     </p>
+</li>
+<li>The `<samp><span class="samp">SUBS</span></samp>' command is now supported and bound to <kbd>GOLD-Enter</kbd>
 by default.  (This design was copied from <samp><span class="file">tpu-edt.el</span></samp>.)  Note, in
 earlier versions of EDT Emulation, <kbd>GOLD-Enter</kbd> was assigned to the
 Emacs function <code>query-replace</code>.  The binding of
@@ -233,10 +299,12 @@ restore <code>query-replace</code> to <kbd>GOLD-Enter</kbd>, then use an EDT use
 customization file, <samp><span class="file">edt-user.el</span></samp>, to do this
 (see <a href="#Customizing">Customizing</a>).
 
-     <li>EDT Emulation now also works in XEmacs, including the highlighting of
+     </li>
+<li>EDT Emulation now also works in XEmacs, including the highlighting of
 selected text.
 
-     <li>If you access a workstation using an X Server, observe that the
+     </li>
+<li>If you access a workstation using an X Server, observe that the
 initialization file generated by <samp><span class="file">edt-mapper.el</span></samp> will now contain
 the name of the X Server vendor.  This is a convenience for those who
 have access to their Unix account from more than one type of X Server. 
@@ -246,7 +314,8 @@ different initialization files and save them with different names.
 Then, the correct initialization file for the particular X server in use
 is loaded correctly automatically.
 
-     <li>Also, <samp><span class="file">edt-mapper.el</span></samp> is now capable of binding an <acronym>ASCII</acronym>
+     </li>
+<li>Also, <samp><span class="file">edt-mapper.el</span></samp> is now capable of binding an <acronym>ASCII</acronym>
 key sequence, providing the <acronym>ASCII</acronym> key sequence prefix is
 already known by Emacs to be a prefix.  As a result of providing this
 support, some terminal/keyboard/window system configurations, which
@@ -265,60 +334,58 @@ for your keyboard within Emacs <strong>or</strong> a bug in the Unix
 termcap/terminfo support for your terminal <strong>or</strong> a bug in the
 terminal emulation software you are using.)
 
-     <li>The <code>edt-quit</code> function (bound to <kbd>GOLD-q</kbd> by default) has been
+     </li>
+<li>The <code>edt-quit</code> function (bound to <kbd>GOLD-q</kbd> by default) has been
 modified to warn the user when file-related buffer modifications exist. 
 It now cautions the user that those modifications will be lost if the
 user quits without saving those buffers.
 
-        </ol>
+        </li>
+</ol>
 
-<div class="node">
-<p><hr>
-<a name="Goals"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Changes">Changes</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Overview">Overview</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Goals"></a></div>
 
 <h3 class="section">1.3 The Aims of this Package</h3>
 
-     <ol type=1 start=1>
+     <ol type="1" start="1">
 
      <li>Emulate EDT Keypad Mode commands closely so that current EDT users will
 find that it easy and comfortable to use Emacs with a small learning
 curve.
 
-     <li>Make it easy for a user to customize EDT emulation key bindings without
+     </li>
+<li>Make it easy for a user to customize EDT emulation key bindings without
 knowing much about Emacs Lisp.
 
-     <li>Make it easy to switch between the original EDT default bindings and the
+     </li>
+<li>Make it easy to switch between the original EDT default bindings and the
 user's customized EDT bindings, without having to exit Emacs.
 
-     <li>Provide support for some TPU/EVE functions not supported in EDT.
+     </li>
+<li>Provide support for some TPU/EVE functions not supported in EDT.
 
-     <li>Provide an easy way to restore <strong>all</strong> original Emacs key bindings,
+     </li>
+<li>Provide an easy way to restore <strong>all</strong> original Emacs key bindings,
 just as they existed before the EDT emulation was first invoked.
 
-     <li>Support Emacs and XEmacs 19 and higher.
+     </li>
+<li>Support Emacs and XEmacs 19 and higher.
 
-     <li>Supports highlighting of marked text within the EDT emulation on all
+     </li>
+<li>Supports highlighting of marked text within the EDT emulation on all
 platforms on which Emacs supports highlighting of marked text.
 
-     <li>Handle terminal configuration interactively for most terminal
+     </li>
+<li>Handle terminal configuration interactively for most terminal
 configurations, when the emulation is invoked for the first time.
 
-     <li>Support a PC AT keyboard under MS-DOS.
+     </li>
+<li>Support a PC AT keyboard under MS-DOS.
 
-     </ol>
+     </li>
+</ol>
 
-<div class="node">
-<p><hr>
-<a name="Supported-terminals"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Starting-emulation">Starting emulation</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Overview">Overview</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Supported-terminals"></a></div>
 
 <h2 class="chapter">2 Terminals/Keyboards that are Supported</h2>
 
@@ -331,42 +398,42 @@ expects (e.g., &lt;PF1&gt;, &lt;PF2&gt;, &lt;KP0&gt;, &lt;KP1&gt;, &lt;F1&gt;,
 &lt;F2&gt;, etc.).  This configuration is saved to disk read each time the
 emulation is invoked.
 
-   <p>In character oriented connections not running a window manager, built-in
+   </p>
+<p>In character oriented connections not running a window manager, built-in
 support for the following terminals/keyboards is provided:
 
-     <ol type=1 start=1>
+     </p>
+<ol type="1" start="1">
 
      <li>DEC VT-100 series and higher.  This includes well behaved VT clones and
 emulators.  If you are using a VT series terminal, be sure that the
 <samp><span class="env">TERM</span></samp> environment variable is set properly before invoking emacs.
 
-     <li>PC AT keyboard under MS-DOS.
+     </li>
+<li>PC AT keyboard under MS-DOS.
 
-        </ol>
+        </li>
+</ol>
 
    <p>Be sure to read <a href="#Platform_002dspecific-notes">Platform-specific notes</a> to see if those notes
 apply to you.
 
-<div class="node">
-<p><hr>
-<a name="Starting-emulation"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Platform_002dspecific-notes">Platform-specific notes</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Supported-terminals">Supported terminals</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Starting-emulation"></a></div>
 
 <h2 class="chapter">3 How to Get Started</h2>
 
 <p>Start up Emacs and enter <kbd>M-x edt-emulation-on</kbd> to begin the
 emulation.  After initialization is complete, the following message will
 appear below the status line informing you that the emulation has been
-enabled: &ldquo;Default EDT keymap active&rdquo;.
+enabled: “Default EDT keymap active”.
 
-   <p>You can have the EDT Emulation start up automatically, each time you
+   </p>
+<p>You can have the EDT Emulation start up automatically, each time you
 initiate an Emacs session, by adding the following line to your
 <samp><span class="file">.emacs</span></samp> file:
 
+</p>
 <pre class="example">     (add-hook 'emacs-startup-hook 'edt-emulation-on)
 </pre>
    <p>A reference sheet is included (later on) listing the default EDT
@@ -374,16 +441,18 @@ Emulation key bindings.  This sheet is also accessible on line from
 within Emacs by pressing &lt;PF2&gt;, <kbd>GOLD-H</kbd>, or `<samp><span class="samp">HELP</span></samp>' (when
 in the EDT Default Mode).
 
-   <p>It is easy to customize key bindings in the EDT Emulation
+   </p>
+<p>It is easy to customize key bindings in the EDT Emulation
 (see <a href="#Customizing">Customizing</a>).  Customizations are placed in a file called
 <samp><span class="file">edt-user.el</span></samp>.  The Emacs <samp><span class="file">etc/</span></samp> directory contains an
 example.  If <samp><span class="file">edt-user.el</span></samp> is found in your Emacs load path
 during EDT Emulation initialization, then the following message will
 appear below the status line indicating that the emulation has been
-enabled, enhanced by your own customizations: &ldquo;User EDT custom keymap
-active&rdquo;.
+enabled, enhanced by your own customizations: “User EDT custom keymap
+active”.
 
-   <p>Once enabled, it is easy to switch back and forth between your
+   </p>
+<p>Once enabled, it is easy to switch back and forth between your
 customized EDT Emulation key bindings and the default EDT Emulation key
 bindings.  (Look at the binding to <kbd>GOLD-Z</kbd> in the sample
 <samp><span class="file">edt-user.el</span></samp> file.)  It is also easy to turn off the emulation
@@ -391,7 +460,8 @@ bindings.  (Look at the binding to <kbd>GOLD-Z</kbd> in the sample
 restores the original key bindings in effect just prior to invoking the
 emulation.
 
-   <p>Emacs binds keys to <acronym>ASCII</acronym> control characters and so does the
+   </p>
+<p>Emacs binds keys to <acronym>ASCII</acronym> control characters and so does the
 real EDT.  Where EDT key bindings and Emacs key bindings conflict,
 the default Emacs key bindings are retained by the EDT emulation by
 default.  If you are a diehard EDT user you may not like this.  The
@@ -399,32 +469,29 @@ default.  If you are a diehard EDT user you may not like this.  The
 bindings to <acronym>ASCII</acronym> control characters override the default
 Emacs bindings.
 
-<div class="node">
-<p><hr>
-<a name="Platform-specific-notes"></a>
-<a name="Platform_002dspecific-notes"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Differences">Differences</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Starting-emulation">Starting emulation</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
+</p>
+<pagebreak></pagebreak><div class="node">
+<a name="Platform-specific-notes"></a><a name="Platform_002dspecific-notes"></a>
 </div>
 
 <h2 class="chapter">4 Notes Specific to Certain Platforms</h2>
 
 <ul class="menu">
-<li><a accesskey="1" href="#Sun-workstations">Sun workstations</a>:   Sun workstations running X. 
-<li><a accesskey="2" href="#MS_002dDOS">MS-DOS</a>:             PC users running MS-DOS. 
-<li><a accesskey="3" href="#GNU_002fLinux">GNU/Linux</a>:          PC users running GNU/Linux. 
-<li><a accesskey="4" href="#Unix">Unix</a>:               Using &lt;NumLock&gt; for the &lt;PF1&gt; key on Unix systems. 
+<li>
+<a accesskey="1" href="#Sun-workstations">Sun workstations</a>:   Sun workstations running X. 
+</li>
+<li>
+<a accesskey="2" href="#MS_002dDOS">MS-DOS</a>:             PC users running MS-DOS. 
+</li>
+<li>
+<a accesskey="3" href="#GNU_002fLinux">GNU/Linux</a>:          PC users running GNU/Linux. 
+</li>
+<li>
+<a accesskey="4" href="#Unix">Unix</a>:               Using &lt;NumLock&gt; for the &lt;PF1&gt; key on Unix systems. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Sun-workstations"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#MS_002dDOS">MS-DOS</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Platform_002dspecific-notes">Platform-specific notes</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Sun-workstations"></a></div>
 
 <h3 class="section">4.1 Sun Workstations Running X</h3>
 
@@ -432,22 +499,26 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Platform_002dspecific-notes">Platform-
 keypad keys.  It is difficult to emulate the full EDT keypad and still
 retain use of the arrow keys on such keyboards.
 
-   <p>The Sun Type 5 and other more recent Sun keyboards, however, do have
+   </p>
+<p>The Sun Type 5 and other more recent Sun keyboards, however, do have
 separate arrow keys.  This makes them candidates for setting up a
 reasonable EDT keypad emulation.
 
-   <p>Depending upon the configuration of the version of X installed on your
+   </p>
+<p>Depending upon the configuration of the version of X installed on your
 system, you may find the default X keynames for the keypad keys don't
 permit Emacs to interpret some or all the keypad keys as something other
 than arrow keys, numeric keys, &lt;Home&gt;, &lt;PageUp&gt;, etc.  Both Sun
 and HP have been particularly guilty of making bizarre keysym
 assignments to the keypad keys.
 
-   <p>In most cases, the X Windows command, <code>xmodmap</code>, can be used to
+   </p>
+<p>In most cases, the X Windows command, <code>xmodmap</code>, can be used to
 correct the problem.  Here's a sample <samp><span class="file">.xmodmaprc</span></samp> file which
 corrects this problem on one Sun workstation configuration using an
 older SunOS release configured with a Sun Type 5 keyboard:
 
+</p>
 <pre class="example">     ! File:  .xmodmaprc
      !
      ! Set up Sun Type 5 keypad for use with the Emacs EDT Emulation
@@ -475,17 +546,20 @@ keys, use the command `<samp><span class="samp">xmodmap -pke</span></samp>' to g
 key codes and the keysyms mapped to them and then generate you own
 custom <samp><span class="file">.xmodmaprc</span></samp> similar to the one above.
 
-   <p>Next, feed <samp><span class="file">.xmodmaprc</span></samp> to the <code>xmodmap</code> command and all the
+   </p>
+<p>Next, feed <samp><span class="file">.xmodmaprc</span></samp> to the <code>xmodmap</code> command and all the
 Sun Type 5 keypad keys will now be configurable for the emulation of an
 LK-201 keypad (less the &lt;,&gt; key).  In this example, the line
 
+</p>
 <pre class="example">     keycode 105 = F24
 </pre>
    <p class="noindent">changes the X Windows name of the keypad &lt;NumLock&gt; key to
 be known internally as the &lt;F24&gt; key.  Doing so permits it to be
 configured to behave as the &lt;PF1&gt; (&lt;GOLD&gt;) key.
 
-   <p>The side effect of this change is that you will no longer have a
+   </p>
+<p>The side effect of this change is that you will no longer have a
 &lt;NumLock&gt; key.  If you are using other software under X which
 requires a &lt;NumLock&gt; key, then examine your keyboard and look for
 one you don't use and redefine it to be the &lt;NumLock&gt; key. 
@@ -493,14 +567,9 @@ Basically, you need to clear the &lt;NumLock&gt; key from being assigned
 as a modifier, assign it to the key of your choice, and then add it back
 as a modifier.  (<a href="#Unix">Unix</a> for further help on how to do this.)
 
-<div class="node">
-<p><hr>
-<a name="MS-DOS"></a>
-<a name="MS_002dDOS"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#GNU_002fLinux">GNU/Linux</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Sun-workstations">Sun workstations</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Platform_002dspecific-notes">Platform-specific notes</a>
-
+</p>
+<pagebreak></pagebreak><div class="node">
+<a name="MS-DOS"></a><a name="MS_002dDOS"></a>
 </div>
 
 <h3 class="section">4.2 PC Users Running MS-DOS</h3>
@@ -512,14 +581,9 @@ distributed in a file called <samp><span class="file">gold22.zip</span></samp> a
 code as well as a loadable binary image.  (See <samp><span class="file">edt-pc.el</span></samp> in the
 Emacs <samp><span class="file">lisp/emulation</span></samp> directory for more information.)
 
-<div class="node">
-<p><hr>
-<a name="GNU%2fLinux"></a>
-<a name="GNU_002fLinux"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Unix">Unix</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#MS_002dDOS">MS-DOS</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Platform_002dspecific-notes">Platform-specific notes</a>
-
+</p>
+<pagebreak></pagebreak><div class="node">
+<a name="GNU%2fLinux"></a><a name="GNU_002fLinux"></a>
 </div>
 
 <h3 class="section">4.3 PC Users Running GNU/Linux</h3>
@@ -531,9 +595,11 @@ turning it on or off, as the case may be, then try again.  If this
 doesn't solve your problem, you may have to modify the X keysym mappings
 with <code>xmodmap</code>.
 
-   <p>On one distribution on an Intel PC, the following <samp><span class="file">.xmodmaprc</span></samp> set
+   </p>
+<p>On one distribution on an Intel PC, the following <samp><span class="file">.xmodmaprc</span></samp> set
 things up nicely.
 
+</p>
 <pre class="example">     ! File:  .xmodmaprc
      !
      ! Set up PC keypad under GNU/Linux for the Emacs EDT Emulation
@@ -552,17 +618,13 @@ VT-200 and above.  This <samp><span class="file">.xmodmaprc</span></samp> file s
 GNU/Linux 5.2.  Other versions of GNU/Linux may require different
 keycodes.  (<a href="#Unix">Unix</a> for further help on how to do this.)
 
-   <p><strong>Please note:</strong> Remember, it may be necessary to have &lt;NumLock&gt; in
+   </p>
+<p><strong>Please note:</strong> Remember, it may be necessary to have &lt;NumLock&gt; in
 one position (ON) or the other (OFF) for the PC keypad to emulate the
 LK-201 keypad properly.
 
-<div class="node">
-<p><hr>
-<a name="Unix"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#GNU_002fLinux">GNU/Linux</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Platform_002dspecific-notes">Platform-specific notes</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Unix"></a></div>
 
 <h3 class="section">4.4 General Notes on Using &lt;NumLock&gt; for the &lt;PF1&gt; Key on Unix Systems</h3>
 
@@ -571,10 +633,12 @@ requires some modification to the default X Window settings.  Since the
 keycode assignments vary from system to system, some investigation is
 needed to see how to do this on a particular system.
 
-   <p>You will need to look at the output generated by <code>xmodmap</code> invoked
+   </p>
+<p>You will need to look at the output generated by <code>xmodmap</code> invoked
 with the "-pm" switch.  For example, on RedHat GNU/Linux 5.2 on a PC, we
 get the following output when running `<samp><span class="samp">xmodmap -pm</span></samp>':
 
+</p>
 <pre class="example">     xmodmap:  up to 2 keys per modifier, (keycodes in parentheses):
      
      shift       Shift_L (0x32),  Shift_R (0x3e)
@@ -589,8 +653,10 @@ get the following output when running `<samp><span class="samp">xmodmap -pm</spa
    <p class="noindent">Note that Num_Lock is assigned to the modifier `<samp><span class="samp">mod2</span></samp>'.  This is
 what hides Num_Lock from being seen by Emacs.
 
-   <p>Now, `<samp><span class="samp">xmodmap -pke</span></samp>' yields:
+   </p>
+<p>Now, `<samp><span class="samp">xmodmap -pke</span></samp>' yields:
 
+</p>
 <pre class="example">        .
         .
         .
@@ -606,14 +672,19 @@ what hides Num_Lock from being seen by Emacs.
    <p class="noindent">So, in RedHat GNU/Linux 5.2 on a PC, Num_Lock generates keycode 77. 
 The following steps are taken:
 
-     <ol type=1 start=1>
+     </p>
+<ol type="1" start="1">
 <li>clear the assignment of Num_Lock to mod2;
+</li>
 <li>swap the keycodes assigned to F12 and Num_Lock;
+</li>
 <li>assign Num_Lock back to mod2.
-        </ol>
+        </li>
+</ol>
 
 <p class="noindent">The <samp><span class="file">.xmodmaprc</span></samp> file looks like this:
 
+</p>
 <pre class="example">     ! File:  .xmodmaprc
      !
      ! Set up PC keypad under GNU/Linux for the Emacs EDT Emulation
@@ -627,18 +698,13 @@ The following steps are taken:
 &lt;F12&gt; key looks like a Num_Lock keypress to X.  Also, a press of the
 physical &lt;NumLock&gt; key looks like a press of the &lt;F12&gt; key to X.
 
-   <p>Now, <samp><span class="file">edt-mapper.el</span></samp> will see `<samp><span class="samp">f12</span></samp>' when the physical
+   </p>
+<p>Now, <samp><span class="file">edt-mapper.el</span></samp> will see `<samp><span class="samp">f12</span></samp>' when the physical
 &lt;NumLock&gt; key is pressed, allowing the &lt;NumLock&gt; key to be used
 as the EDT &lt;PF1&gt; (&lt;GOLD&gt;) key.
 
-<div class="node">
-<p><hr>
-<a name="Differences"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Highlights">Highlights</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Platform_002dspecific-notes">Platform-specific notes</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Differences"></a></div>
 
 <h2 class="chapter">5 How Does this EDT Emulation Differ from Real EDT?</h2>
 
@@ -648,11 +714,13 @@ behavior.  It is not perfect, but most EDT users who have tried the
 emulation agree that it is quite good enough to make it easy for
 die-hard EDT users to move over to using Emacs.
 
-   <p>Here's a list of the most important differences between EDT and this GNU
+   </p>
+<p>Here's a list of the most important differences between EDT and this GNU
 Emacs EDT Emulation.  The list is short but you must be aware of these
 differences if you are to use the EDT Emulation effectively.
 
-     <ol type=1 start=1>
+     </p>
+<ol type="1" start="1">
 
      <li>Entering repeat counts works a little differently than in EDT.
 
@@ -661,7 +729,8 @@ accepts repeat counts.  For example, when using the real EDT, pressing
 these three keys in sequence, <kbd>GOLD 5 KP1</kbd>, will move the cursor in
 the current direction 5 words.  This does <strong>not</strong> work in Emacs!
 
-     <p>Emacs provides two ways to enter repeat counts and neither involves
+     </p>
+<p>Emacs provides two ways to enter repeat counts and neither involves
 using the &lt;GOLD&gt; key.  First, repeat counts can be entered in Emacs
 by using the &lt;ESC&gt; key.  For example, pressing these keys in
 sequence, <kbd>ESC 1 0 KP1</kbd>, will move the cursor in the current
@@ -669,7 +738,9 @@ direction 10 words.  Second, Emacs provides another command called
 <code>universal-argument</code> that can be used to do the same thing. 
 Normally, in Emacs has this bound to <kbd>C-u</kbd>.
 
-     <li>EDT's line mode commands and nokeypad mode commands are <strong>not</strong>
+     </p>
+</li>
+<li>EDT's line mode commands and nokeypad mode commands are <strong>not</strong>
 supported (with one important exception; see item 8 in
 <a href="#Highlights">Highlights</a>).  Although, at first, this may seem like a big
 omission, the set of built-in Emacs commands provides a much richer set
@@ -682,28 +753,25 @@ shift key.  The &lt;Alt&gt; key is often mapped to behave as a &lt;Meta&gt;
 key.  So, you can also invoke this prompt by pressing <kbd>Meta-x</kbd>. 
 Typing the sequence <kbd>ESC x</kbd> will also invoke the prompt.
 
-     <li>Selected text is highlighted <strong>only</strong> on systems where Emacs
+     </p>
+</li>
+<li>Selected text is highlighted <strong>only</strong> on systems where Emacs
 supports the highlighting of text.
 
-     <li>Just like in TPU/EVE, the &lt;ENTER&gt; key is <strong>not</strong> used to
+     </li>
+<li>Just like in TPU/EVE, the &lt;ENTER&gt; key is <strong>not</strong> used to
 terminate input when the editor prompts you for input.  The &lt;RETURN&gt;
 key is used, instead.  (&lt;KP4&gt; and &lt;KP5&gt; (the direction keys) do
 terminate input for the `<samp><span class="samp">FIND</span></samp>' command, just like in EDT, however.)
 
-        </ol>
+        </li>
+</ol>
 
-<div class="node">
-<p><hr>
-<a name="Highlights"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Customizing">Customizing</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Differences">Differences</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Highlights"></a></div>
 
 <h2 class="chapter">6 Some Highlights, and Comparisons to the Original Emacs EDT Emulation</h2>
 
-     <ol type=1 start=1>
+     <ol type="1" start="1">
 
      <li>The EDT define key command is supported (<code>edt-define-key</code>) and is
 bound to <kbd>C-k</kbd> in the default EDT mode when EDT control sequence
@@ -717,7 +785,8 @@ sequence, <kbd>C-l</kbd>, and another command to remember the sequence,
 <kbd>C-r</kbd>, this version of the learn command (<code>edt-learn</code>) serves
 as a toggle to both begin and to remember the learn sequence.
 
-     <p>Many users who change the meaning of a key with the define key and the
+     </p>
+<p>Many users who change the meaning of a key with the define key and the
 learn commands, would like to be able to restore the original key
 binding without having to quit and restart emacs.  So a restore key
 command is provided to do just that.  When invoked, it prompts you to
@@ -726,9 +795,12 @@ restored.  It is bound to <kbd>GOLD C-k</kbd> in the default EDT mode when
 EDT control sequence bindings are enabled or the sample
 <samp><span class="file">edt-user.el</span></samp> customization file is used.
 
-     <li>Direction support is fully supported.
+     </p>
+</li>
+<li>Direction support is fully supported.
 
-     <li>All original Emacs bindings are fully restored when EDT emulation is
+     </li>
+<li>All original Emacs bindings are fully restored when EDT emulation is
 turned off.  So, if a fellow worker comes over to your terminal to help
 you with a software problem, for example, and is completely confused by
 your EDT emulation bindings, just enter the command,
@@ -736,11 +808,13 @@ your EDT emulation bindings, just enter the command,
 Emacs bindings will be restored.  To resume the EDT emulation, just
 enter <code>edt-emulation-on</code>.
 
-     <li>User custom EDT bindings are kept separate from the default EDT
+     </li>
+<li>User custom EDT bindings are kept separate from the default EDT
 bindings.  One can toggle back and forth between the custom EDT bindings
 and default EDT bindings.
 
-     <li>The Emacs functions in <samp><span class="file">edt.el</span></samp> attempt to emulate, where
+     </li>
+<li>The Emacs functions in <samp><span class="file">edt.el</span></samp> attempt to emulate, where
 practical, the exact behavior of the corresponding EDT keypad mode
 commands.  In a few cases, the emulation is not exact, but we hope you
 will agree it is close enough.  In a very few cases, we chose to use the
@@ -748,7 +822,8 @@ Emacs way of handling things.  As mentioned earlier, we do not emulate
 the EDT `<samp><span class="samp">SUBS</span></samp>' command.  Instead, we chose to use the Emacs
 <code>query-replace</code> function, which we find to be easier to use.
 
-     <li>Emacs uses the regexp assigned to <code>page-delimiter</code> to determine
+     </li>
+<li>Emacs uses the regexp assigned to <code>page-delimiter</code> to determine
 what marks a page break.  This is normally `<samp><span class="samp">^\f</span></samp>', which causes the
 <code>edt-page</code> command to ignore form feeds not located at the
 beginning of a line.  To emulate the EDT `<samp><span class="samp">PAGE</span></samp>' command exactly,
@@ -763,7 +838,9 @@ definition by placing
      <p class="noindent">in your <samp><span class="file">.emacs</span></samp> file.  Or, you can used the Emacs customize
 command to change its setting.
 
-     <li>The EDT definition of a section of a terminal window is hardwired to be
+     </p>
+</li>
+<li>The EDT definition of a section of a terminal window is hardwired to be
 16 lines of its one-and-only 24-line window (the EDT `<samp><span class="samp">SECT</span></samp>' command
 bound to &lt;KP8&gt;).  That's two-thirds of the window at a time.  Since
 Emacs, like TPU/EVE, can handle multiple windows of sizes of other than
@@ -772,36 +849,44 @@ two-thirds of the current window.  (There is also an
 <code>edt-scroll-window</code> function which you may prefer over the
 `<samp><span class="samp">SECT</span></samp>' emulation.)
 
-     <li>Cursor movement and deletion involving word entities is identical to
+     </li>
+<li>Cursor movement and deletion involving word entities is identical to
 EDT.  This, above all else, gives the die-hard EDT user a sense of being
 at home.  Also, an emulation of EDT's `<samp><span class="samp">SET ENTITY WORD</span></samp>' command is
 provided, for those users who like to customize movement by a word at a
 time to their own liking.
 
-     <li>EDT's `<samp><span class="samp">FIND</span></samp>' and `<samp><span class="samp">FNDNXT</span></samp>' are supported.
+     </li>
+<li>EDT's `<samp><span class="samp">FIND</span></samp>' and `<samp><span class="samp">FNDNXT</span></samp>' are supported.
 
-     <li>EDT's `<samp><span class="samp">APPEND</span></samp>', `<samp><span class="samp">REPLACE</span></samp>', and `<samp><span class="samp">SUBS</span></samp>' commands are supported.
+     </li>
+<li>EDT's `<samp><span class="samp">APPEND</span></samp>', `<samp><span class="samp">REPLACE</span></samp>', and `<samp><span class="samp">SUBS</span></samp>' commands are supported.
 
-     <li>`<samp><span class="samp">CHNGCASE</span></samp>' is supported.  It works on individual characters or
+     </li>
+<li>`<samp><span class="samp">CHNGCASE</span></samp>' is supported.  It works on individual characters or
 selected text, if `<samp><span class="samp">SELECT</span></samp>' is active.  In addition, two new
 commands are provided: <code>edt-lowercase</code> and <code>edt-uppercase</code>. 
 They work on individual <strong>words</strong> or selected text, if
 `<samp><span class="samp">SELECT</span></samp>' is active.
 
-     <li>Form feed and tab insert commands are supported.
+     </li>
+<li>Form feed and tab insert commands are supported.
 
-     <li>A new command, <code>edt-duplicate-word</code>, is provided.  If you
+     </li>
+<li>A new command, <code>edt-duplicate-word</code>, is provided.  If you
 experiment with it, you might find it to be surprisingly useful and may
 wonder how you ever got along without it!  It is assigned to <kbd>C-j</kbd>
 in the sample <samp><span class="file">edt-user.el</span></samp> customization file.
 
-     <li>TPU/EVE's Rectangular Cut and Paste functions (originally from the
+     </li>
+<li>TPU/EVE's Rectangular Cut and Paste functions (originally from the
 EVE-Plus package) are supported.  But unlike the TPU/EVE versions, these
 here support both insert and overwrite modes.  The seven rectangular
 functions are bound to &lt;F7&gt;, &lt;F8&gt;, <kbd>GOLD-F8</kbd>, &lt;F9&gt;,
 <kbd>GOLD-F9</kbd>, &lt;F10&gt;, and <kbd>GOLD-F10</kbd> in the default EDT mode.
 
-     <li>The original EDT emulation package set up many default regular and GOLD
+     </li>
+<li>The original EDT emulation package set up many default regular and GOLD
 bindings.  We tried to preserve most (but not all!) of these, so users
 of the original emulation package will feel more at home.
 
@@ -809,11 +894,14 @@ of the original emulation package will feel more at home.
 bound to any functions.  These are prime candidates to use for your own
 customizations.
 
-     <p>Also, there are several commands in <samp><span class="file">edt.el</span></samp> not bound to any key. 
+     </p>
+<p>Also, there are several commands in <samp><span class="file">edt.el</span></samp> not bound to any key. 
 So, you will find it worthwhile to look through <samp><span class="file">edt.el</span></samp> for
 functions you may wish to add to your personal customized bindings.
 
-     <li>The VT200/VT300 series terminals steal the function keys &lt;F1&gt; to
+     </p>
+</li>
+<li>The VT200/VT300 series terminals steal the function keys &lt;F1&gt; to
 &lt;F5&gt; for their own use.  These do not generate signals which are
 sent to the host.  So, <samp><span class="file">edt.el</span></samp> does not assign any default
 bindings to &lt;F1&gt; through &lt;F5&gt;.
@@ -824,16 +912,20 @@ the character sequence documented in the manual.  So, binding Emacs
 commands to &lt;F6&gt; will not work if your terminal behaves the same
 way.
 
-     <li>The VT220 terminal has no &lt;ESC&gt;, &lt;BS&gt;, nor &lt;LF&gt; keys, as
+     </p>
+</li>
+<li>The VT220 terminal has no &lt;ESC&gt;, &lt;BS&gt;, nor &lt;LF&gt; keys, as
 does a VT100.  So the default EDT bindings adopt the standard DEC
 convention of having the &lt;F11&gt;, &lt;F12&gt;, and &lt;F13&gt; keys, on a
 VT200 series (and above) terminal, assigned to the same EDT functions
 that are bound to &lt;ESC&gt;, &lt;BS&gt;, and &lt;LF&gt; on a VT100 terminal.
 
-     <li>Each user, through the use of a private <samp><span class="file">edt-user.el</span></samp> file, can
+     </li>
+<li>Each user, through the use of a private <samp><span class="file">edt-user.el</span></samp> file, can
 customize, very easily, personal EDT emulation bindings.
 
-     <li>The EDT `<samp><span class="samp">SELECT</span></samp>' and `<samp><span class="samp">RESET</span></samp>' functions are supported. 
+     </li>
+<li>The EDT `<samp><span class="samp">SELECT</span></samp>' and `<samp><span class="samp">RESET</span></samp>' functions are supported. 
 However, unlike EDT, pressing `<samp><span class="samp">RESET</span></samp>' to cancel text selection does
 <strong>not</strong> reset the existing setting of the current direction.
 
@@ -844,19 +936,15 @@ selection is on, pressing `<samp><span class="samp">SELECT</span></samp>' again 
 (cancels selection).  This function is used in the sample
 <samp><span class="file">edt-user.el</span></samp> customization file.
 
-     <li>EDT scroll margins are supported, but are disabled by default. 
+     </p>
+</li>
+<li>EDT scroll margins are supported, but are disabled by default. 
 (<a href="#Scroll-margins">Scroll margins</a> for instructions on how to enable them.)
 
-     </ol>
+     </li>
+</ol>
 
-<div class="node">
-<p><hr>
-<a name="Customizing"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Highlights">Highlights</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Customizing"></a></div>
 
 <h2 class="chapter">7 Customizing Emulation</h2>
 
@@ -865,33 +953,39 @@ or use someone else's custom key bindings, which they come to depend
 upon just as if they were built-in bindings.  This EDT Emulation for GNU
 Emacs is designed to make it easy to customize bindings.
 
-   <p>If you wish to customize the EDT Emulation to use some of your own key
+   </p>
+<p>If you wish to customize the EDT Emulation to use some of your own key
 bindings, you need to make a private version of <samp><span class="file">edt-user.el</span></samp> in
 your own private lisp directory.  The Emacs <samp><span class="file">etc/</span></samp> directory
 contains an example for you to use as a template and for ideas. 
 <!-- This seems to be untrue. -->
 
-   <p>First, you need to have your own private lisp directory, say
+   </p>
+<p>First, you need to have your own private lisp directory, say
 <samp><span class="file">~/lisp</span></samp>, and you should add it to the Emacs load path.
 
-   <p><strong>Please note:</strong> A few sites have different load-path requirements,
+   </p>
+<p><strong>Please note:</strong> A few sites have different load-path requirements,
 so the above directions may need some modification if your site has such
 special needs.
 
+</p>
 <ul class="menu">
-<li><a accesskey="1" href="#Init-file">Init file</a>:             Creating your own <samp><span class="file">edt-user.el</span></samp> file. 
-<li><a accesskey="2" href="#Words">Words</a>:                 Specifying word entities. 
-<li><a accesskey="3" href="#Control-keys">Control keys</a>:          Enabling EDT control key sequence bindings. 
-<li><a accesskey="4" href="#Scroll-margins">Scroll margins</a>:        Setting scroll margins. 
+<li>
+<a accesskey="1" href="#Init-file">Init file</a>:             Creating your own <samp><span class="file">edt-user.el</span></samp> file. 
+</li>
+<li>
+<a accesskey="2" href="#Words">Words</a>:                 Specifying word entities. 
+</li>
+<li>
+<a accesskey="3" href="#Control-keys">Control keys</a>:          Enabling EDT control key sequence bindings. 
+</li>
+<li>
+<a accesskey="4" href="#Scroll-margins">Scroll margins</a>:        Setting scroll margins. 
+</li>
 </ul>
 
-<div class="node">
-<p><hr>
-<a name="Init-file"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Words">Words</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Customizing">Customizing</a>
-
-</div>
+<pagebreak></pagebreak><div class="node"><a name="Init-file"></a></div>
 
 <h3 class="section">7.1 Creating your own <samp><span class="file">edt-user.el</span></samp> File</h3>
 
@@ -900,6 +994,7 @@ directory.  You should use it as a guide to learn how you can customize
 EDT emulation bindings to your own liking.  Names used to identify the
 set of LK-201 keypad and function keys are:
 
+</p>
 <pre class="example">     Keypad Keys:
                      PF1 PF2 PF3 PF4
                      KP7 KP8 KP9 KP-
@@ -922,16 +1017,19 @@ through &lt;F5&gt; for terminal setup control and don't send anything to
 the host if pressed.  So customizing bindings to these keys may not work
 for you.
 
-   <p>There are three basic functions that do the EDT emulation custom
+   </p>
+<p>There are three basic functions that do the EDT emulation custom
 bindings: <code>edt-bind-key</code>, <code>edt-bind-gold-key</code>, and
 <code>edt-bind-function-key</code>.
 
-   <p>The first two are for binding functions to keys which are standard
+   </p>
+<p>The first two are for binding functions to keys which are standard
 across most keyboards.  This makes them keyboard independent, making it
 possible to define these key bindings for all terminals in the file
 <samp><span class="file">edt.el</span></samp>.
 
-   <p>The first, <code>edt-bind-key</code>, is used typically to bind emacs commands
+   </p>
+<p>The first, <code>edt-bind-key</code>, is used typically to bind emacs commands
 to control keys, although some people use it to bind commands to other
 keys, as well.  (For example, some people use it to bind the VT200
 seldom used back-tick key (`<samp><span class="samp">`</span></samp>') to the function `<samp><span class="samp">ESC-prefix</span></samp>'
@@ -940,19 +1038,14 @@ so it will behave like an &lt;ESC&gt; key.)  The second function,
 sequences involving alpha-numeric keys, special character keys, and
 control keys.
 
-   <p>The third function, <code>edt-bind-function-key</code>, is terminal dependent
+   </p>
+<p>The third function, <code>edt-bind-function-key</code>, is terminal dependent
 and is defined in a terminal specific file (see <samp><span class="file">edt-vt100.el</span></samp> for
 example).  It is used to bind emacs commands to LK-201 function keys, to
 keypad keys, and to gold sequences of those keys.
 
-<div class="node">
-<p><hr>
-<a name="Words"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Control-keys">Control keys</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Init-file">Init file</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Customizing">Customizing</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="Words"></a></div>
 
 <h3 class="section">7.2 Specifying Word Entities</h3>
 
@@ -962,13 +1055,15 @@ words in themselves.  If the user does not define
 <code>edt-word-entities</code> in his/her <samp><span class="file">.emacs</span></samp> file, then it is set
 up with the EDT default containing only &lt;TAB&gt;.
 
-   <p>The characters are stored in the list by their numerical values, not as
+   </p>
+<p>The characters are stored in the list by their numerical values, not as
 strings.  Emacs supports several ways to specify the numerical value of
 a character.  One method is to use the question mark: `<samp><span class="samp">?A</span></samp>' means
 the numerical value for `<samp><span class="samp">A</span></samp>', `<samp><span class="samp">?/</span></samp>' means the numerical value
 for `<samp><span class="samp">/</span></samp>', and so on.  Several unprintable characters have special
 representations:
 
+</p>
 <pre class="example">     ?\b  specifies  BS, C-h
      ?\t  specifies  TAB, C-i
      ?\n  specifies  LFD, C-j
@@ -980,21 +1075,16 @@ representations:
 </pre>
    <p>Here are some examples:
 
+</p>
 <pre class="example">     (setq edt-word-entities '(?\t ?- ?/)) ; specifies TAB, - , and /
      (setq edt-word-entities '(?\t)        ; specifies TAB, the default
 </pre>
    <p class="noindent">You can also specify characters by their decimal ascii values:
 
+</p>
 <pre class="example">     (setq edt-word-entities '(9 45 47))   ; specifies TAB, - , and /
 </pre>
-   <div class="node">
-<p><hr>
-<a name="Control-keys"></a>
-Next:&nbsp;<a rel="next" accesskey="n" href="#Scroll-margins">Scroll margins</a>,
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Words">Words</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Customizing">Customizing</a>
-
-</div>
+   <pagebreak></pagebreak><div class="node"><a name="Control-keys"></a></div>
 
 <h3 class="section">7.3 Enabling EDT Control Key Sequence Bindings</h3>
 
@@ -1006,15 +1096,10 @@ may not like this.  So, if the variable
 of the original EDT control key sequence bindings.  If you wish to do
 this, add the following line to your <samp><span class="file">.emacs</span></samp> file:
 
+</p>
 <pre class="example">     (setq edt-use-EDT-control-key-bindings t)
 </pre>
-   <div class="node">
-<p><hr>
-<a name="Scroll-margins"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Control-keys">Control keys</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Customizing">Customizing</a>
-
-</div>
+   <pagebreak></pagebreak><div class="node"><a name="Scroll-margins"></a></div>
 
 <h3 class="section">7.4 Setting Scroll Margins</h3>
 
@@ -1025,6 +1110,7 @@ bottom margin set to 15% of the window.  To change these settings, you
 can invoke the function <code>edt-set-scroll-margins</code> in your
 <samp><span class="file">.emacs</span></samp> file.  For example, the following line
 
+</p>
 <pre class="example">     (edt-set-scroll-margins "20%" "25%")
 </pre>
    <p class="noindent">sets the top margin to 20% of the window and the bottom margin
@@ -1032,21 +1118,18 @@ to 25% of the window.  To disable this feature, set each margin to 0%.
 You can also invoke <code>edt-set-scroll-margins</code> interactively while
 EDT Emulation is active to change the settings for that session.
 
-   <p><strong>Please note:</strong> Another way to set the scroll margins is to use
+   </p>
+<p><strong>Please note:</strong> Another way to set the scroll margins is to use
 the Emacs customization feature to set the following two variables
 directly: <code>edt-top-scroll-margin</code> and <code>edt-bottom-scroll-margin</code>.
 
-   <p>Enter the Emacs <code>customize</code> command.  First select the
+   </p>
+<p>Enter the Emacs <code>customize</code> command.  First select the
 `<samp><span class="samp">Editing</span></samp>' group and then select the `<samp><span class="samp">Emulations</span></samp>' group. 
 Finally, select the `<samp><span class="samp">Edt</span></samp>' group and follow the directions.
 
-<div class="node">
-<p><hr>
-<a name="GNU-Free-Documentation-License"></a>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="#Customizing">Customizing</a>,
-Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
-
-</div>
+</p>
+<pagebreak></pagebreak><div class="node"><a name="GNU-Free-Documentation-License"></a></div>
 
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
 
@@ -1055,13 +1138,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 
 <!-- This file is intended to be included within another document, -->
 <!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
      <a href="http://fsf.org/">http://fsf.org/</a>
      
      Everyone is permitted to copy and distribute verbatim copies
      of this license document, but changing it is not allowed.
 </pre>
-     <ol type=1 start=0>
+     <ol type="1" start="0">
 <li>PREAMBLE
 
      <p>The purpose of this License is to make a manual, textbook, or other
@@ -1072,12 +1155,14 @@ Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
 
-     <p>This License is a kind of &ldquo;copyleft&rdquo;, which means that derivative
+     </p>
+<p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
 
-     <p>We have designed this License in order to use it for manuals for free
+     </p>
+<p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
 software does.  But this License is not limited to software manuals;
@@ -1085,23 +1170,27 @@ it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
 
-     <li>APPLICABILITY AND DEFINITIONS
+     </p>
+</li>
+<li>APPLICABILITY AND DEFINITIONS
 
      <p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
-work under the conditions stated herein.  The &ldquo;Document&rdquo;, below,
+work under the conditions stated herein.  The “Document”, below,
 refers to any such manual or work.  Any member of the public is a
-licensee, and is addressed as &ldquo;you&rdquo;.  You accept the license if you
+licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
 
-     <p>A &ldquo;Modified Version&rdquo; of the Document means any work containing the
+     </p>
+<p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
 
-     <p>A &ldquo;Secondary Section&rdquo; is a named appendix or a front-matter section
+     </p>
+<p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
 publishers or authors of the Document to the Document's overall
 subject (or to related matters) and contains nothing that could fall
@@ -1112,7 +1201,8 @@ connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
 
-     <p>The &ldquo;Invariant Sections&rdquo; are certain Secondary Sections whose titles
+     </p>
+<p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
 section does not fit the above definition of Secondary then it is not
@@ -1120,12 +1210,14 @@ allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
 
-     <p>The &ldquo;Cover Texts&rdquo; are certain short passages of text that are listed,
+     </p>
+<p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
 
-     <p>A &ldquo;Transparent&rdquo; copy of the Document means a machine-readable copy,
+     </p>
+<p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
 straightforwardly with generic text editors or (for images composed of
@@ -1136,9 +1228,10 @@ to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
 or discourage subsequent modification by readers is not Transparent. 
 An image format is not Transparent if used for any substantial amount
-of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
+of text.  A copy that is not “Transparent” is called “Opaque”.
 
-     <p>Examples of suitable formats for Transparent copies include plain
+     </p>
+<p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
 DTD, and standard-conforming simple HTML,
@@ -1151,32 +1244,38 @@ not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
 
-     <p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
+     </p>
+<p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
-formats which do not have any title page as such, &ldquo;Title Page&rdquo; means
+formats which do not have any title page as such, “Title Page” means
 the text near the most prominent appearance of the work's title,
 preceding the beginning of the body of the text.
 
-     <p>The &ldquo;publisher&rdquo; means any person or entity that distributes copies
+     </p>
+<p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
 
-     <p>A section &ldquo;Entitled XYZ&rdquo; means a named subunit of the Document whose
+     </p>
+<p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
-specific section name mentioned below, such as &ldquo;Acknowledgements&rdquo;,
-&ldquo;Dedications&rdquo;, &ldquo;Endorsements&rdquo;, or &ldquo;History&rdquo;.)  To &ldquo;Preserve the Title&rdquo;
+specific section name mentioned below, such as “Acknowledgements”,
+“Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
-section &ldquo;Entitled XYZ&rdquo; according to this definition.
+section “Entitled XYZ” according to this definition.
 
-     <p>The Document may include Warranty Disclaimers next to the notice which
+     </p>
+<p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
 
-     <li>VERBATIM COPYING
+     </p>
+</li>
+<li>VERBATIM COPYING
 
      <p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
@@ -1188,10 +1287,13 @@ copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
 
-     <p>You may also lend copies, under the same conditions stated above, and
+     </p>
+<p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
 
-     <li>COPYING IN QUANTITY
+     </p>
+</li>
+<li>COPYING IN QUANTITY
 
      <p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
@@ -1206,12 +1308,14 @@ Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
 
-     <p>If the required texts for either cover are too voluminous to fit
+     </p>
+<p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
 
-     <p>If you publish or distribute Opaque copies of the Document numbering
+     </p>
+<p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
@@ -1224,11 +1328,14 @@ location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
 
-     <p>It is requested, but not required, that you contact the authors of the
+     </p>
+<p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
 
-     <li>MODIFICATIONS
+     </p>
+</li>
+<li>MODIFICATIONS
 
      <p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
@@ -1237,69 +1344,85 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 
-          <ol type=A start=1>
+          </p>
+<ol type="A" start="1">
 <li>Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          <li>List on the Title Page, as authors, one or more persons or entities
+          </li>
+<li>List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          <li>State on the Title page the name of the publisher of the
+          </li>
+<li>State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          <li>Preserve all the copyright notices of the Document.
+          </li>
+<li>Preserve all the copyright notices of the Document.
 
-          <li>Add an appropriate copyright notice for your modifications
+          </li>
+<li>Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          <li>Include, immediately after the copyright notices, a license notice
+          </li>
+<li>Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          <li>Preserve in that license notice the full lists of Invariant Sections
+          </li>
+<li>Preserve in that license notice the full lists of Invariant Sections
 and required Cover Texts given in the Document's license notice.
 
-          <li>Include an unaltered copy of this License.
+          </li>
+<li>Include an unaltered copy of this License.
 
-          <li>Preserve the section Entitled &ldquo;History&rdquo;, Preserve its Title, and add
+          </li>
+<li>Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
-there is no section Entitled &ldquo;History&rdquo; in the Document, create one
+there is no section Entitled “History” in the Document, create one
 stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          <li>Preserve the network location, if any, given in the Document for
+          </li>
+<li>Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the &ldquo;History&rdquo; section. 
+it was based on.  These may be placed in the “History” section. 
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          <li>For any section Entitled &ldquo;Acknowledgements&rdquo; or &ldquo;Dedications&rdquo;, Preserve
+          </li>
+<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          <li>Preserve all the Invariant Sections of the Document,
+          </li>
+<li>Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          <li>Delete any section Entitled &ldquo;Endorsements&rdquo;.  Such a section
+          </li>
+<li>Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          <li>Do not retitle any existing section to be Entitled &ldquo;Endorsements&rdquo; or
+          </li>
+<li>Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          <li>Preserve any Warranty Disclaimers.
-          </ol>
+          </li>
+<li>Preserve any Warranty Disclaimers.
+          </li>
+</ol>
 
      <p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
@@ -1308,13 +1431,15 @@ of these sections as invariant.  To do this, add their titles to the
 list of Invariant Sections in the Modified Version's license notice. 
 These titles must be distinct from any other section titles.
 
-     <p>You may add a section Entitled &ldquo;Endorsements&rdquo;, provided it contains
+     </p>
+<p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
-parties&mdash;for example, statements of peer review or that the text has
+parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
 
-     <p>You may add a passage of up to five words as a Front-Cover Text, and a
+     </p>
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
 Front-Cover Text and one of Back-Cover Text may be added by (or
@@ -1324,11 +1449,14 @@ by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
 
-     <p>The author(s) and publisher(s) of the Document do not by this License
+     </p>
+<p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
 
-     <li>COMBINING DOCUMENTS
+     </p>
+</li>
+<li>COMBINING DOCUMENTS
 
      <p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
@@ -1337,7 +1465,8 @@ Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
 
-     <p>The combined work need only contain one copy of this License, and
+     </p>
+<p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
@@ -1346,13 +1475,16 @@ author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
 
-     <p>In the combination, you must combine any sections Entitled &ldquo;History&rdquo;
+     </p>
+<p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
-&ldquo;History&rdquo;; likewise combine any sections Entitled &ldquo;Acknowledgements&rdquo;,
-and any sections Entitled &ldquo;Dedications&rdquo;.  You must delete all
-sections Entitled &ldquo;Endorsements.&rdquo;
+“History”; likewise combine any sections Entitled “Acknowledgements”,
+and any sections Entitled “Dedications”.  You must delete all
+sections Entitled “Endorsements.”
 
-     <li>COLLECTIONS OF DOCUMENTS
+     </p>
+</li>
+<li>COLLECTIONS OF DOCUMENTS
 
      <p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
@@ -1360,23 +1492,27 @@ License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
 
-     <p>You may extract a single document from such a collection, and distribute
+     </p>
+<p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
 
-     <li>AGGREGATION WITH INDEPENDENT WORKS
+     </p>
+</li>
+<li>AGGREGATION WITH INDEPENDENT WORKS
 
      <p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
-distribution medium, is called an &ldquo;aggregate&rdquo; if the copyright
+distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
 of the compilation's users beyond what the individual works permit. 
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
 
-     <p>If the Cover Text requirement of section 3 is applicable to these
+     </p>
+<p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
 the entire aggregate, the Document's Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
@@ -1384,7 +1520,9 @@ electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
 
-     <li>TRANSLATION
+     </p>
+</li>
+<li>TRANSLATION
 
      <p>Translation is considered a kind of modification, so you may
 distribute translations of the Document under the terms of section 4. 
@@ -1399,39 +1537,47 @@ of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
 
-     <p>If a section in the Document is Entitled &ldquo;Acknowledgements&rdquo;,
-&ldquo;Dedications&rdquo;, or &ldquo;History&rdquo;, the requirement (section 4) to Preserve
+     </p>
+<p>If a section in the Document is Entitled “Acknowledgements”,
+“Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
 
-     <li>TERMINATION
+     </p>
+</li>
+<li>TERMINATION
 
      <p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
 
-     <p>However, if you cease all violation of this License, then your license
+     </p>
+<p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
 
-     <p>Moreover, your license from a particular copyright holder is
+     </p>
+<p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
 
-     <p>Termination of your rights under this section does not terminate the
+     </p>
+<p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
 
-     <li>FUTURE REVISIONS OF THIS LICENSE
+     </p>
+</li>
+<li>FUTURE REVISIONS OF THIS LICENSE
 
      <p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
@@ -1439,9 +1585,10 @@ versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
 
-     <p>Each version of the License is given a distinguishing version number. 
+     </p>
+<p>Each version of the License is given a distinguishing version number. 
 If the Document specifies that a particular numbered version of this
-License &ldquo;or any later version&rdquo; applies to it, you have the option of
+License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
 of any later version that has been published (not as a draft) by the
 Free Software Foundation.  If the Document does not specify a version
@@ -1452,36 +1599,44 @@ License can be used, that proxy's public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
 
-     <li>RELICENSING
+     </p>
+</li>
+<li>RELICENSING
 
-     <p>&ldquo;Massive Multiauthor Collaboration Site&rdquo; (or &ldquo;MMC Site&rdquo;) means any
+     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
-&ldquo;Massive Multiauthor Collaboration&rdquo; (or &ldquo;MMC&rdquo;) contained in the
+“Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
 
-     <p>&ldquo;CC-BY-SA&rdquo; means the Creative Commons Attribution-Share Alike 3.0
+     </p>
+<p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
 
-     <p>&ldquo;Incorporate&rdquo; means to publish or republish a Document, in whole or
+     </p>
+<p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
 
-     <p>An MMC is &ldquo;eligible for relicensing&rdquo; if it is licensed under this
+     </p>
+<p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
 
-     <p>The operator of an MMC Site may republish an MMC contained in the site
+     </p>
+<p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
 
-        </ol>
+        </p>
+</li>
+</ol>
 
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
@@ -1489,6 +1644,7 @@ provided the MMC is eligible for relicensing.
 the License in the document and put the following copyright and
 license notices just after the title page:
 
+</p>
 <pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
        Permission is granted to copy, distribute and/or modify this document
        under the terms of the GNU Free Documentation License, Version 1.3
@@ -1498,8 +1654,9 @@ license notices just after the title page:
        Free Documentation License''.
 </pre>
    <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the &ldquo;with<small class="dots">...</small>Texts.&rdquo; line with this:
+replace the “with<small class="dots">...</small>Texts.” line with this:
 
+</p>
 <pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
          the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
          being <var>list</var>.
@@ -1508,7 +1665,8 @@ replace the &ldquo;with<small class="dots">...</small>Texts.&rdquo; line with th
 combination of the three, merge those two alternatives to suit the
 situation.
 
-   <p>If your document contains nontrivial examples of program code, we
+   </p>
+<p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
@@ -1516,5 +1674,6 @@ to permit their use in free software.
 <!-- Local Variables: -->
 <!-- ispell-local-pdict: "ispell-dict" -->
 <!-- End: -->
-</body></html>
-
+</p>
+</body>
+</html>
