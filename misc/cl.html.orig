@@ -3570,7 +3570,7 @@ was <code>nil</code> for all elements.
 &mdash; Function: <b>cl-notevery</b><var> predicate seq &amp;rest more-seqs<a name="index-cl_002dnotevery-105"></a></var><br>
 <blockquote><p>This function calls <var>predicate</var> on each element of the sequence(s)
 in turn; it returns a non-<code>nil</code> value as soon as <var>predicate</var>
-returns <code>nil</code> for any element, or <code>t</code> if the predicate was
+returns <code>nil</code> for any element, or <code>nil</code> if the predicate was
 true for all elements. 
 </p></blockquote></div>
 
