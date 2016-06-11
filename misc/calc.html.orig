@@ -8,7 +8,7 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents Calc, the GNU Emacs calculator, included with
-GNU Emacs 25.0.94.
+GNU Emacs 25.0.95.
 
 Copyright (C) 1990-1991, 2001-2016 Free Software Foundation, Inc.
 
@@ -579,7 +579,7 @@ Calculator use in an easy, hands-on way.  The remainder of the manual is
 a complete reference to the features of the Calculator.
 
    <p>This file documents Calc, the GNU Emacs calculator, included with
-GNU Emacs 25.0.94.
+GNU Emacs 25.0.95.
 
    <p>Copyright &copy; 1990&ndash;1991, 2001&ndash;2016 Free Software Foundation, Inc.
 
