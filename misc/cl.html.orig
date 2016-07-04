@@ -273,6 +273,11 @@ the beginning:
    <p class="noindent">You may wish to add such a statement to your init file, if you
 make frequent use of features from this package.
 
+   <p>Code that only uses macros from this package can enclose the above in
+<code>eval-when-compile</code>.  Internally, this library is divided into
+several files, see <a href="#Organization">Organization</a>.  Your code should only ever load
+the main <samp><span class="file">cl-lib</span></samp> file, which will load the others as needed.
+
 <div class="node">
 <p><hr>
 <a name="Organization"></a>

@@ -1,14 +1,14 @@
 <html lang="en">
 <head>
-<title>Newsticker 25.0.93</title>
+<title>Newsticker 25.0.95</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Newsticker 25.0.93">
+<meta name="description" content="Newsticker 25.0.95">
 <meta name="generator" content="makeinfo 4.8">
 <link title="Top" rel="top" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This manual documents Newsticker, a feed reader for Emacs.  It
-corresponds to Emacs version 25.0.93.
+corresponds to Emacs version 25.0.95.
 
 Copyright (C) 2004-2016 Free Software Foundation, Inc.
 
@@ -37,7 +37,7 @@ Copyright (C) 2004-2016 Free Software Foundation, Inc.
 --></style>
 </head>
 <body>
-<h1 class="settitle">Newsticker 25.0.93</h1>
+<h1 class="settitle">Newsticker 25.0.95</h1>
 <div class="contents">
 <h2>Table of Contents</h2>
 <ul>
@@ -74,7 +74,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <h2 class="unnumbered">Newsticker</h2>
 
 <p>This manual documents Newsticker, a feed reader for Emacs.  It
-corresponds to Emacs version 25.0.93.
+corresponds to Emacs version 25.0.95.
 
 <p class="noindent">Copyright &copy; 2004&ndash;2016 Free Software Foundation, Inc.
 

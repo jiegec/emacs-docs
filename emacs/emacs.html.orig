@@ -8045,9 +8045,15 @@ to alter the amount of fontification applied by Font Lock mode, for
 major modes that support this feature.  The value should be a number
 (with 1 representing a minimal amount of fontification; some modes
 support levels as high as 3); or <code>t</code>, meaning &ldquo;as high as
-possible&rdquo; (the default).  You can also specify different numbers for
-particular major modes; for example, to use level 1 for C/C++ modes,
-and the default level otherwise, use the value
+possible&rdquo; (the default).  To be effective for a given file buffer,
+the customization of <code>font-lock-maximum-decoration</code> should be
+done <em>before</em> the file is visited; if you already have the file
+visited in a buffer when you customize this variable, kill the buffer
+and visit the file again after the customization.
+
+   <p>You can also specify different numbers for particular major modes; for
+example, to use level 1 for C/C++ modes, and the default level
+otherwise, use the value
 
 <pre class="example">     '((c-mode . 1) (c++-mode . 1)))
 </pre>
@@ -10129,12 +10135,12 @@ any match for a specified regular expression pattern (see <a href="#Regexps">Reg
 it can refer to all or part of what is matched by the <var>regexp</var>. 
 `<samp><span class="samp">\&amp;</span></samp>' in <var>newstring</var> stands for the entire match being
 replaced.  `<samp><span class="samp">\</span><var>d</var></samp>' in <var>newstring</var>, where <var>d</var> is a
-digit, stands for whatever matched the <var>d</var>th parenthesized
-grouping in <var>regexp</var>.  (This is called a &ldquo;back reference&rdquo;.) 
-`<samp><span class="samp">\#</span></samp>' refers to the count of replacements already made in this
-command, as a decimal number.  In the first replacement, `<samp><span class="samp">\#</span></samp>'
-stands for `<samp><span class="samp">0</span></samp>'; in the second, for `<samp><span class="samp">1</span></samp>'; and so on.  For
-example,
+digit starting from 1, stands for whatever matched the <var>d</var>th
+parenthesized grouping in <var>regexp</var>.  (This is called a &ldquo;back
+reference&rdquo;.)  `<samp><span class="samp">\#</span></samp>' refers to the count of replacements already
+made in this command, as a decimal number.  In the first replacement,
+`<samp><span class="samp">\#</span></samp>' stands for `<samp><span class="samp">0</span></samp>'; in the second, for `<samp><span class="samp">1</span></samp>'; and so on. 
+For example,
 
 <pre class="example">     M-x replace-regexp &lt;RET&gt; c[ad]+r &lt;RET&gt; \&amp;-safe &lt;RET&gt;
 </pre>
@@ -12144,7 +12150,7 @@ after it visits the file.  (This marks the buffer as modified, and you
 can undo it.)  If the value is <code>visit-save</code>, Emacs adds such
 newlines both on visiting and on saving.  If the value is <code>nil</code>,
 Emacs leaves the end of the file unchanged; any other non-<code>nil</code>
-value means to asks you whether to add a newline.  The default is
+value means Emacs asks you whether to add a newline.  The default is
 <code>nil</code>.
 
    <p><a name="index-mode_002drequire_002dfinal_002dnewline-1200"></a>  Some major modes are designed for specific kinds of files that are
@@ -15692,7 +15698,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Frames">Frames</a>
 <p><a name="index-Window-Divider-mode-1671"></a><a name="index-mode_002c-Window-Divider-1672"></a>
   On graphical displays, you can use <dfn>window dividers</dfn> in order to
 separate windows visually.  Window dividers are bars that can be dragged
-with the mouse, thus allowing to easily resize adjacent windows.
+with the mouse, thus allowing you to easily resize adjacent windows.
 
    <p><a name="index-window_002ddivider_002dmode-1673"></a>  To toggle the display of window dividers, use the command <kbd>M-x
 window-divider-mode</kbd>.
@@ -35892,7 +35898,7 @@ file name and page number.
 <br><dt><kbd>M-x lpr-region</kbd><dd>Like <code>lpr-buffer</code> but print only the current region. 
 </dl>
 
-   <p><a name="index-print_002dbuffer-4367"></a><a name="index-print_002dregion-4368"></a><a name="index-lpr_002dbuffer-4369"></a><a name="index-lpr_002dregion-4370"></a><a name="index-lpr_002dswitches-4371"></a><a name="index-lpr_002dcommands-4372"></a>  On most operating system, the above hardcopy commands submit files
+   <p><a name="index-print_002dbuffer-4367"></a><a name="index-print_002dregion-4368"></a><a name="index-lpr_002dbuffer-4369"></a><a name="index-lpr_002dregion-4370"></a><a name="index-lpr_002dswitches-4371"></a><a name="index-lpr_002dcommands-4372"></a>  On most operating systems, the above hardcopy commands submit files
 for printing by calling the <samp><span class="command">lpr</span></samp> program.  To change the
 printer program, customize the variable <code>lpr-command</code>.  To
 specify extra switches to give the printer program, customize the list
@@ -37086,10 +37092,12 @@ controlled by the value of <code>package-menu-hide-low-priority</code>.)
 
    <p>Once a package is downloaded and installed, it is <dfn>loaded</dfn> into
 the current Emacs session.  Loading a package is not quite the same as
-loading a Lisp library (see <a href="#Lisp-Libraries">Lisp Libraries</a>); its effect varies
-from package to package.  Most packages just make some new commands
-available, while others have more wide-ranging effects on the Emacs
-session.  For such information, consult the package's help buffer.
+loading a Lisp library (see <a href="#Lisp-Libraries">Lisp Libraries</a>); loading a package
+adds its directory to <code>load-path</code> and loads its autoloads.  The
+effect of a package's autoloads varies from package to package.  Most
+packages just make some new commands available, while others have more
+wide-ranging effects on the Emacs session.  For such information,
+consult the package's help buffer.
 
    <p>By default, Emacs also automatically loads all installed packages in
 subsequent Emacs sessions.  This happens at startup, after processing
