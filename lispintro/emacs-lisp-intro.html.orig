@@ -10,7 +10,7 @@
 This is an `Introduction to Programming in Emacs Lisp', for
 people who are not programmers.
 
-   Distributed with Emacs version 25.0.95.
+   Distributed with Emacs version 25.1.
 
    Copyright (C) 1990-1995, 1997, 2001-2016 Free Software
 Foundation, Inc.
@@ -522,7 +522,7 @@ people who are not programmers.
    <pre class="sp">
 
 </pre>
-Distributed with Emacs version 25.0.95.
+Distributed with Emacs version 25.1.
    <pre class="sp">
 
 </pre>

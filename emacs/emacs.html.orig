@@ -8,7 +8,7 @@
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This is the `GNU Emacs Manual',
-updated for Emacs version 25.0.95.
+updated for Emacs version 25.1.
 
 Copyright (C) 1985-1987, 1993-2016 Free Software Foundation, Inc.
 
@@ -1058,13 +1058,13 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#dir">(dir)</a>
 <p>Emacs is the extensible, customizable, self-documenting real-time
 display editor.  This manual describes how to edit with Emacs and
 some of the ways to customize it; it corresponds to GNU Emacs version
-25.0.95.
+25.1.
 
 <!-- See 'manual-html-mono' and 'manual-html-node' in admin/admin.el. -->
 <p>For information on extending Emacs, see <a href="elisp.html#Top">Emacs Lisp</a>.
 
    <p>This is the <cite>GNU Emacs Manual</cite>,
-updated for Emacs version 25.0.95.
+updated for Emacs version 25.1.
 
    <p>Copyright &copy; 1985&ndash;1987, 1993&ndash;2016 Free Software Foundation, Inc.
 
@@ -43866,7 +43866,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="#Top">Top</a>
 <p>For those users who live backwards in time, here is information
 about downgrading to Emacs version 24.5.  We hope you will enjoy the
 greater simplicity that results from the absence of many Emacs
-25.0.95 features.
+25.1 features.
 
      <ul>
 <li>Support for Cairo drawing has been removed.  On GNU and Unix systems,
