@@ -1,461 +1,536 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2008-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Emacs Interface for Mairix</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="description" content="Emacs Interface for Mairix">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta name="keywords" content="Emacs Interface for Mairix">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
 <!--
-Copyright (C) 2008-2016 Free Software Foundation, Inc.
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 </head>
-<body>
-<h1 class="settitle">Emacs Interface for Mairix</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">mairix.el—Mairix interface for Emacs</a>
-</li>
-<li>
-<a name="toc_About" href="#About">1 About mairix and mairix.el</a>
-</li>
-<li>
-<a name="toc_Configuring-mairix" href="#Configuring-mairix">2 Configuring mairix</a>
-</li>
-<li>
-<a name="toc_Setting-up-the-mairix-interface" href="#Setting-up-the-mairix-interface">3 Setting up the mairix interface</a>
-</li>
-<li>
-<a name="toc_Using" href="#Using">4 Using mairix.el</a>
-</li>
-<li>
-<a name="toc_Extending" href="#Extending">5 Extending mairix.el</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
+
+<body lang="en">
+<h1 class="settitle" align="center">Emacs Interface for Mairix</h1>
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-About-mairix-and-mairix_002eel" href="#About">1 About mairix and mairix.el</a></li>
+  <li><a name="toc-Configuring-mairix-1" href="#Configuring-mairix">2 Configuring mairix</a></li>
+  <li><a name="toc-Setting-up-the-mairix-interface-1" href="#Setting-up-the-mairix-interface">3 Setting up the mairix interface</a></li>
+  <li><a name="toc-Using-mairix_002eel" href="#Using">4 Using mairix.el</a></li>
+  <li><a name="toc-Extending-mairix_002eel" href="#Extending">5 Extending mairix.el</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">mairix.el—Mairix interface for Emacs</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#About" accesskey="n" rel="next">About</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="mairix_002eel_002d_002d_002dMairix-interface-for-Emacs"></a>
+<h1 class="top">mairix.el—Mairix interface for Emacs</h1>
 
 <p>Mairix is a tool for indexing and searching words in locally stored
 mail.  It was written by Richard Curnow and is licensed under the
 GPL.
-
-   </p>
+</p>
 <p><code>mairix.el</code> is an interface to the mairix search engine.  It allows you to
 call mairix with a search term, easily create searches based on the
 currently displayed mail, save regularly used searches in your
-<samp><span class="file">.emacs</span></samp> for future use and lets you call mairix for updating the
+<samp>.emacs</samp> for future use and lets you call mairix for updating the
 database.
-
-   </p>
+</p>
 <p>Copyright © 2008–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#About">About</a>:                        About the mairix search engine and mairix.el. 
-</li>
-<li>
-<a accesskey="2" href="#Configuring-mairix">Configuring mairix</a>:           How to configure mairix. 
-</li>
-<li>
-<a accesskey="3" href="#Setting-up-the-mairix-interface">Setting up the mairix interface</a>:  Set up mairix.el. 
-</li>
-<li>
-<a accesskey="4" href="#Using">Using</a>:                        List of interactive functions
-</li>
-<li>
-<a accesskey="5" href="#Extending">Extending</a>:                    Support your favorite mail reader! 
-</li>
-<li>
-<a accesskey="6" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this documentation. 
-</li>
-</ul>
 
-<div class="node"><a name="About"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#About" accesskey="1">About</a>:</td>
+<td>  </td>
+<td align="left" valign="top">About the mairix search engine and mairix.el.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Configuring-mairix" accesskey="2">Configuring mairix</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to configure mairix.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Setting-up-the-mairix-interface" accesskey="3">Setting up the mairix interface</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Set up mairix.el.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Using" accesskey="4">Using</a>:</td>
+<td>  </td>
+<td align="left" valign="top">List of interactive functions
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Extending" accesskey="5">Extending</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Support your favorite mail reader!
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="6">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="About"></a>
+<div class="header">
+<p>
+Next: <a href="#Configuring-mairix" accesskey="n" rel="next">Configuring mairix</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="About-mairix-and-mairix_002eel"></a>
 <h2 class="chapter">1 About mairix and mairix.el</h2>
 
 <p>Mairix is a tool for indexing and searching words in locally stored
 mail.  It was written by Richard Curnow and is licensed under the
 GPL.  Mairix comes with most popular GNU/Linux distributions, but it also
-runs under Windows (with cygwin), Mac OS X and Solaris.  The homepage can
+runs under Windows (with cygwin), macOS and Solaris.  The homepage can
 be found at
 <a href="http://www.rpcurnow.force9.co.uk/mairix/index.html">http://www.rpcurnow.force9.co.uk/mairix/index.html</a>
-
-   </p>
+</p>
 <p>Though mairix might not be as flexible as other search tools like
-swish++ or namazu, it has the prime advantage of being incredibly fast. 
+swish++ or namazu, it has the prime advantage of being incredibly fast.
 On current systems, it can easily search through headers and message
-bodies of thousands and thousands of mails in well under a second. 
+bodies of thousands and thousands of mails in well under a second.
 Building the database necessary for searching might take a minute or
 two, but only has to be done once fully.  Afterwards, the updates are
 done incrementally and therefore are really fast, too.  Additionally,
 mairix is very easy to set up.
-
-   </p>
+</p>
 <p>Mairix presents the search results by either populating a <em>virtual</em>
 maildir/MH folder with symlinks which point to the “real” message
 files, or if mbox is used, it creates a new mbox file which contains
 copies of the found messages.
-
-   </p>
+</p>
 <p><code>mairix.el</code> is an interface to the mairix search engine.  It allows
 you to call mairix with a search term, easily create searches based on
 the currently displayed mail, save regularly used searches in your
-<samp><span class="file">.emacs</span></samp> for future use and lets you call mairix for updating the
+<samp>.emacs</samp> for future use and lets you call mairix for updating the
 database.  It also lets you easily create search queries using graphical
 widgets, similar to a customization buffer.
-
-   </p>
+</p>
 <p>Currently, <code>mairix.el</code> is only tested with mbox output together
 with RMail, Gnus, or VM as the Emacs mail program.  However, it should
 also work with Maildir or MH, and it should be very easy to integrate
 other Emacs mail programs into <code>mairix.el</code>
 (see <a href="#Extending">Extending</a>).
-
-   </p>
+</p>
 <p>If you use Gnus with maildir or MH, you should really use the native
 Gnus back end <code>nnmairix</code> instead, since it is more tightly
 integrated into Gnus and has more features.
-
 </p>
-<div class="node"><a name="Configuring-mairix"></a></div>
-
+<hr>
+<a name="Configuring-mairix"></a>
+<div class="header">
+<p>
+Next: <a href="#Setting-up-the-mairix-interface" accesskey="n" rel="next">Setting up the mairix interface</a>, Previous: <a href="#About" accesskey="p" rel="prev">About</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Configuring-mairix-1"></a>
 <h2 class="chapter">2 Configuring mairix</h2>
 
-<p>Setting up mairix is easy: simply create a <samp><span class="file">.mairixrc</span></samp> file with
+<p>Setting up mairix is easy: simply create a <samp>.mairixrc</samp> file with
 (at least) the following entries:
-
 </p>
-<pre class="example">     # Your mail base folder
-     base=~/Mail
+<div class="example">
+<pre class="example"># Your mail base folder
+base=~/Mail
 </pre>
-   <p>This is the base folder for your mails.  All the following directories,
+</div>
+
+<p>This is the base folder for your mails.  All the following directories,
 except the one for the database, are relative to this base folder.
-
 </p>
-<pre class="example">     mbox = ... your mbox files which should be indexed ...
-     maildir= ... your maildir folders which should be indexed ...
-     mh= ... your nnml/mh folders which should be indexed ...
+<div class="example">
+<pre class="example">mbox = ... your mbox files which should be indexed ...
+maildir= ... your maildir folders which should be indexed ...
+mh= ... your nnml/mh folders which should be indexed ...
 </pre>
-   <p>Specify all your maildir/nnml folders and mbox files (relative to the
+</div>
+
+<p>Specify all your maildir/nnml folders and mbox files (relative to the
 base directory!) you want to index with mairix.  Use colons to separate
 different files.  See the man-page for <code>mairixrc</code> for details.
-
 </p>
-<pre class="example">     mformat = mbox
-     database = ... location of database file ...
+<div class="example">
+<pre class="example">mformat = mbox
+database = ... location of database file ...
 </pre>
-   <p>This chooses <code>mbox</code> as the output format for the mairix search
+</div>
+
+<p>This chooses <code>mbox</code> as the output format for the mairix search
 results.  Currently, this is the supported format by mairix.el, but
-technically it should be possible to also use maildir or mh; it's just
+technically it should be possible to also use maildir or mh; it’s just
 not tested (yet).
-
-   </p>
-<p>You should make sure that you don't accidentally index the search
+</p>
+<p>You should make sure that you don’t accidentally index the search
 results produced by mairix.  This can be done by pointing
-<code>mairix-file-path</code> to a directory which is surely not indexed by mairix. 
+<code>mairix-file-path</code> to a directory which is surely not indexed by mairix.
 Another possibility is to use something like
-
 </p>
-<pre class="example">     omit = mairix*
+<div class="example">
+<pre class="example">omit = mairix*
 </pre>
-   <p>in the <samp><span class="file">.mairixrc</span></samp> file, and prefix every search file you use with
+</div>
+
+<p>in the <samp>.mairixrc</samp> file, and prefix every search file you use with
 “mairix”.
-
 </p>
-<pre class="example">     database = /home/user/.mairixdatabase
+<div class="example">
+<pre class="example">database = /home/user/.mairixdatabase
 </pre>
-   <p>This specifies the name of the database file.  Note that this is not
-relative to the <code>base</code> folder.
+</div>
 
-   </p>
+<p>This specifies the name of the database file.  Note that this is not
+relative to the <code>base</code> folder.
+</p>
 <p>See the man page for <code>mairixrc</code> for details and further options,
 especially regarding wildcard usage, which may be a little different
 than you are used to.
-
-   </p>
-<p>Now simply call <code>mairix</code> to create the index for the first time. 
+</p>
+<p>Now simply call <code>mairix</code> to create the index for the first time.
 Note that this may take a few minutes, but every following index will do
 the updates incrementally and hence is very fast.
-
 </p>
-<div class="node"><a name="Setting-up-the-mairix-interface"></a></div>
-
+<hr>
+<a name="Setting-up-the-mairix-interface"></a>
+<div class="header">
+<p>
+Next: <a href="#Using" accesskey="n" rel="next">Using</a>, Previous: <a href="#Configuring-mairix" accesskey="p" rel="prev">Configuring mairix</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Setting-up-the-mairix-interface-1"></a>
 <h2 class="chapter">3 Setting up the mairix interface</h2>
 
 <p>First, put <code>mairix.el</code> in your Emacs search path and put
-<code>(require 'mairix)</code> into your <samp><span class="file">.emacs</span></samp> file.  Then, use
+<code>(require 'mairix)</code> into your <samp>.emacs</samp> file.  Then, use
 <kbd>M-x customize-group mairix RET</kbd> to set your preferences for
 mairix.el.  The most important items are <em>Mairix File Path</em>,
 <em>Mairix Search File</em> and <em>Mairix Mail Program</em>.  The latter
 specifies which mail program should be used to display the mairix search
-results.  Currently, RMail, Gnus with mbox files, and VM are supported. 
+results.  Currently, RMail, Gnus with mbox files, and VM are supported.
 If you use Gnus with maildir or mh, use the native Gnus back end
 nnmairix instead.
-
-   </p>
+</p>
 <p>If you use another Emacs mail program which is not yet supported by
 mairix.el, it is pretty easy to integrate it.  See <a href="#Extending">Extending</a>,
 on how to integrate it into mairix.el.
-
-   </p>
-<p>Now you should be ready to go. See <a href="#Using">Using</a>, for the available commands.
-
 </p>
-<div class="node"><a name="Using"></a></div>
-
+<p>Now you should be ready to go. See <a href="#Using">Using</a>, for the available commands.
+</p>
+<hr>
+<a name="Using"></a>
+<div class="header">
+<p>
+Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Setting-up-the-mairix-interface" accesskey="p" rel="prev">Setting up the mairix interface</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Using-mairix_002eel"></a>
 <h2 class="chapter">4 Using mairix.el</h2>
 
 <p>There are currently no default key bindings for mairix.el, since those
 should depend on the used mail program and I personally do not use
-RMail, so I wouldn't know which key bindings are reasonable.  I hope some
+RMail, so I wouldn’t know which key bindings are reasonable.  I hope some
 day this will change and <code>mairix.el</code> will come with some good
 key bindings for the different mail programs.  Feel free to send me your
-suggestions.  Until then, define some bindings yourself.  Here's a quick
+suggestions.  Until then, define some bindings yourself.  Here’s a quick
 and dirty solution with global key definitions I currently use, which
 might or might not collide with some other modes.  Simply include them
-in your <samp><span class="file">.emacs</span></samp> and adapt to your needs:
-
+in your <samp>.emacs</samp> and adapt to your needs:
 </p>
-<pre class="lisp">     (global-set-key (kbd "C-c C-o m") 'mairix-search)
-     (global-set-key (kbd "C-c C-o w") 'mairix-widget-search)
-     (global-set-key (kbd "C-c C-o u") 'mairix-update-database)
-     (global-set-key (kbd "C-c C-o f") 'mairix-search-from-this-article)
-     (global-set-key (kbd "C-c C-o t") 'mairix-search-thread-this-article)
-     (global-set-key (kbd "C-c C-o b") 'mairix-widget-search-based-on-article)
-     (global-set-key (kbd "C-c C-o s") 'mairix-save-search)
-     (global-set-key (kbd "C-c C-o i") 'mairix-use-saved-search)
-     (global-set-key (kbd "C-c C-o e") 'mairix-edit-saved-searches)
+<div class="lisp">
+<pre class="lisp">(global-set-key (kbd "C-c C-o m") 'mairix-search)
+(global-set-key (kbd "C-c C-o w") 'mairix-widget-search)
+(global-set-key (kbd "C-c C-o u") 'mairix-update-database)
+(global-set-key (kbd "C-c C-o f") 'mairix-search-from-this-article)
+(global-set-key (kbd "C-c C-o t") 'mairix-search-thread-this-article)
+(global-set-key (kbd "C-c C-o b") 'mairix-widget-search-based-on-article)
+(global-set-key (kbd "C-c C-o s") 'mairix-save-search)
+(global-set-key (kbd "C-c C-o i") 'mairix-use-saved-search)
+(global-set-key (kbd "C-c C-o e") 'mairix-edit-saved-searches)
 </pre>
-   <p>Here's a description of the available interactive functions:
+</div>
 
-     </p>
-<dl>
+<p>Here’s a description of the available interactive functions:
+</p>
+<dl compact>
 <dt><code>mairix-search</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dsearch-1"></a><a name="index-mairix_002dsearch-2"></a><a name="index-mairix_002dsearch_002dfile-3"></a><a name="index-mairix_002dfile_002dpath-4"></a><a name="index-mairix_002dcommand-5"></a><a name="index-mairix_002dsearch_002doptions-6"></a>Call mairix with a search query.  You will also be asked if you want to
+<a name="index-M_002dx-mairix_002dsearch"></a>
+<a name="index-mairix_002dsearch"></a>
+<a name="index-mairix_002dsearch_002dfile"></a>
+<a name="index-mairix_002dfile_002dpath"></a>
+<a name="index-mairix_002dcommand"></a>
+<a name="index-mairix_002dsearch_002doptions"></a>
+<p>Call mairix with a search query.  You will also be asked if you want to
 include whole threads.  The results are saved by mairix in the default
 mail file, which is set through the variable <code>mairix-search-file</code>, which
 again is prefixed by <code>mairix-file-path</code>.  The results will then be
 displayed with the chosen mail program.  The command used to call mairix
 is specified by the variable <code>mairix-command</code>, together with the options
-<code>mairix-search-options</code>.  The latter has the default <samp><span class="option">-F</span></samp>
+<code>mairix-search-options</code>.  The latter has the default <samp>-F</samp>
 for making searching faster.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-widget-search</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dwidget_002dsearch-7"></a><a name="index-mairix_002dwidget_002dsearch-8"></a><a name="index-mairix_002dwidget_002dfields_002dlist-9"></a>Creates a mairix query using graphical widgets.  Very handy if you're
+<a name="index-M_002dx-mairix_002dwidget_002dsearch"></a>
+<a name="index-mairix_002dwidget_002dsearch"></a>
+<a name="index-mairix_002dwidget_002dfields_002dlist"></a>
+<p>Creates a mairix query using graphical widgets.  Very handy if you’re
 not (yet) familiar with the mairix search syntax.  Just call it to see
 how it works.  You can then directly call mairix with the search term or
 save it for future use.  Since mairix allows almost arbitrary
 combinations of search commands (like “tc” for “to or cc”), you
 might want to include some other fields.  This can be easily done by
 modifying <code>mairix-widget-fields-list</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-widget-search-based-on-article</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dwidget_002dsearch_002dbased_002don_002darticle-10"></a><a name="index-mairix_002dwidget_002dsearch_002dbased_002don_002darticle-11"></a>Create a mairix query using graphical widgets, but based on the
+<a name="index-M_002dx-mairix_002dwidget_002dsearch_002dbased_002don_002darticle"></a>
+<a name="index-mairix_002dwidget_002dsearch_002dbased_002don_002darticle"></a>
+<p>Create a mairix query using graphical widgets, but based on the
 currently displayed article, i.e., the available fields will be filled
 with the current header values.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-search-from-this-article</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dsearch_002dfrom_002dthis_002darticle-12"></a><a name="index-mairix_002dsearch_002dfrom_002dthis_002darticle-13"></a>Search messages from sender of the current article.  This is effectively
-a shortcut for calling <code>mairix-search</code> with <code>f:current_from</code>. 
+<a name="index-M_002dx-mairix_002dsearch_002dfrom_002dthis_002darticle"></a>
+<a name="index-mairix_002dsearch_002dfrom_002dthis_002darticle"></a>
+<p>Search messages from sender of the current article.  This is effectively
+a shortcut for calling <code>mairix-search</code> with <code>f:current_from</code>.
 If used with a prefix, include whole threads of the found messages.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-search-thread-this-article</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dsearch_002dthread_002dthis_002darticle-14"></a><a name="index-mairix_002dsearch_002dthread_002dthis_002darticle-15"></a>Search thread for the current article.  This is effectively a shortcut
+<a name="index-M_002dx-mairix_002dsearch_002dthread_002dthis_002darticle"></a>
+<a name="index-mairix_002dsearch_002dthread_002dthis_002darticle"></a>
+<p>Search thread for the current article.  This is effectively a shortcut
 for calling <code>mairix-search</code> with <code>m:msgid</code> of the current article and
 enabled threads.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-save-search</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dsave_002dsearch-16"></a><a name="index-mairix_002dsave_002dsearch-17"></a>Save the last search for future use.  You will have to specify a name
+<a name="index-M_002dx-mairix_002dsave_002dsearch"></a>
+<a name="index-mairix_002dsave_002dsearch"></a>
+<p>Save the last search for future use.  You will have to specify a name
 for the search and will then be asked if you want to save your saved
-searches in your <samp><span class="file">.emacs</span></samp>.  If you answer with yes, the variable
+searches in your <samp>.emacs</samp>.  If you answer with yes, the variable
 <code>mairix-saved-searches</code> will be saved in the customize section of
-your <samp><span class="file">.emacs</span></samp>.  You can also do this later by using
+your <samp>.emacs</samp>.  You can also do this later by using
 <code>mairix-edit-saved-searches</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-use-saved-search</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002duse_002dsaved_002dsearch-18"></a><a name="index-mairix_002duse_002dsaved_002dsearch-19"></a>Call mairix with a previously saved search.  You will be asked for the
+<a name="index-M_002dx-mairix_002duse_002dsaved_002dsearch"></a>
+<a name="index-mairix_002duse_002dsaved_002dsearch"></a>
+<p>Call mairix with a previously saved search.  You will be asked for the
 name of the saved search (use <kbd>TAB</kbd> for completion).
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-edit-saved-searches</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dedit_002dsaved_002dsearches-20"></a><a name="index-mairix_002dedit_002dsaved_002dsearches-21"></a>Edit your current mairix searches.  This is a simple major mode for
+<a name="index-M_002dx-mairix_002dedit_002dsaved_002dsearches"></a>
+<a name="index-mairix_002dedit_002dsaved_002dsearches"></a>
+<p>Edit your current mairix searches.  This is a simple major mode for
 editing the contents of the variable <code>mairix-saved-searches</code>.  You
-can edit and delete searches and save them in your <samp><span class="file">.emacs</span></samp>.  You
-can also use this mode to call mairix with one of the saved searches. 
+can edit and delete searches and save them in your <samp>.emacs</samp>.  You
+can also use this mode to call mairix with one of the saved searches.
 Additionally, you can specify a file name for mairix to use for a
 certain search instead of the default one.  This is useful if you want
 to open different searches at the same time, or if you want to regularly
 access certain searches without the need to call mairix.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-edit-saved-searches-customize</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dedit_002dsaved_002dsearches_002dcustomize-22"></a><a name="index-mairix_002dedit_002dsaved_002dsearches_002dcustomize-23"></a>Edit the variable <code>mairix-saved-searches</code> in a normal customization
+<a name="index-M_002dx-mairix_002dedit_002dsaved_002dsearches_002dcustomize"></a>
+<a name="index-mairix_002dedit_002dsaved_002dsearches_002dcustomize"></a>
+<p>Edit the variable <code>mairix-saved-searches</code> in a normal customization
 buffer.  This function exists more or less for historic reasons, but
 maybe you like it.
-
-     <br>
+</p>
 </dd>
 <dt><code>mairix-update-database</code></dt>
 <dd>
-<a name="index-M_002dx-mairix_002dupdate_002ddatabase-24"></a><a name="index-mairix_002dupdate_002ddatabase-25"></a><a name="index-mairix_002dupdate_002doptions-26"></a><a name="index-mairix_002dsynchronous_002dupdate-27"></a>Call mairix to update the database.  Mairix will be called with the
-options <code>mairix-update-options</code>; the default is <samp><span class="option">-F</span></samp> and
-<samp><span class="option">-Q</span></samp> to
+<a name="index-M_002dx-mairix_002dupdate_002ddatabase"></a>
+<a name="index-mairix_002dupdate_002ddatabase"></a>
+<a name="index-mairix_002dupdate_002doptions"></a>
+<a name="index-mairix_002dsynchronous_002dupdate"></a>
+<p>Call mairix to update the database.  Mairix will be called with the
+options <code>mairix-update-options</code>; the default is <samp>-F</samp> and
+<samp>-Q</samp> to
 make updates as fast as possible.  Note that by using these options,
 absolutely no integrity checking is done.  If your database somehow gets
 corrupted, simply delete it and update.  If <code>mairix-synchronous-update</code>
 is <code>nil</code> (the default), mairix will be called in a subprocess so Emacs
 will still be usable while the update is done.
-
-   </dd>
+</p>
+</dd>
 </dl>
 
-<div class="node"><a name="Extending"></a></div>
 
+<hr>
+<a name="Extending"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Using" accesskey="p" rel="prev">Using</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Extending-mairix_002eel"></a>
 <h2 class="chapter">5 Extending mairix.el</h2>
 
 <p>Your favorite Emacs mail program is not supported?  Shame on me.  But
 it is really easy to integrate other mail programs into mairix.el.  Just
 do the following:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><strong>Write a display function</strong></dt>
-<dd>Write a function that displays the mairix search results.  This function
+<dd>
+<p>Write a function that displays the mairix search results.  This function
 will be called from <code>mairix.el</code> with the mail file/folder as the
 single argument.  For example, the function <code>mairix-rmail-display</code>
 is currently used for RMail and <code>mairix-gnus-ephemeral-nndoc</code> is
 used for Gnus.
-
-     <br>
+</p>
 </dd>
 <dt><strong>Write a get-header function</strong></dt>
-<dd>Write a function that retrieves a header from the currently active mail. 
-The single argument for this function is a string with the header name. 
+<dd>
+<p>Write a function that retrieves a header from the currently active mail.
+The single argument for this function is a string with the header name.
 For examples, see <code>mairix-rmail-fetch-field</code> and
 <code>mairix-gnus-fetch-field</code> for RMail and Gnus, respectively.
-
-     <br>
+</p>
 </dd>
 <dt><strong>Integrate the functions into mairix.el</strong></dt>
-<dd>Add your mail program to the defcustom of <code>mairix-mail-program</code>. 
+<dd>
+<p>Add your mail program to the defcustom of <code>mairix-mail-program</code>.
 Then add the functions to <code>mairix-display-functions</code> and
 <code>mairix-get-mail-header-functions</code>.
-
-     <br>
+</p>
 </dd>
 <dt><strong>Let me know...</strong></dt>
-<dd>...so that I can eventually integrate it into future versions of mairix.el. 
-</dd>
+<dd><p>...so that I can eventually integrate it into future versions of mairix.el.
+</p></dd>
 </dl>
 
-   <p>And that's it!
-
+<p>And that’s it!
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -463,12 +538,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -477,16 +551,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -494,8 +566,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -503,14 +574,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -520,11 +589,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -537,20 +605,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -558,20 +623,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -580,104 +643,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -685,54 +741,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -742,84 +796,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -830,57 +875,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -889,85 +927,84 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
+
+<hr>
+
+
+
 </body>
 </html>

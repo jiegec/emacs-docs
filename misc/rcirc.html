@@ -1,1082 +1,1455 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2006-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license is
+included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>rcirc Manual</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="description" content="rcirc Manual">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta name="keywords" content="rcirc Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Key-Index" rel="index" title="Key Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
 <!--
-Copyright (C) 2006-2016 Free Software Foundation, Inc.
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 </head>
-<body>
-<h1 class="settitle">rcirc Manual</h1>
+
+<body lang="en">
+<h1 class="settitle" align="center">rcirc Manual</h1>
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
 <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">rcirc Manual</a>
+
+<ul class="no-bullet">
+  <li>
+<a name="toc-Basics-1" href="#Basics">1 Basics</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Internet-Relay-Chat-1" href="#Internet-Relay-Chat">1.1 Internet Relay Chat</a></li>
+    <li><a name="toc-Getting-started-with-rcirc-1" href="#Getting-started-with-rcirc">1.2 Getting started with rcirc</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Basics" href="#Basics">1 Basics</a>
-<ul>
-<li>
-<a href="#Internet-Relay-Chat">1.1 Internet Relay Chat</a>
+  <li>
+<a name="toc-Reference-1" href="#Reference">2 Reference</a>
+  <ul class="no-bullet">
+    <li><a name="toc-rcirc-commands-1" href="#rcirc-commands">2.1 rcirc commands</a></li>
+    <li><a name="toc-Useful-IRC-commands-1" href="#Useful-IRC-commands">2.2 Useful IRC commands</a></li>
+    <li><a name="toc-Configuration-1" href="#Configuration">2.3 Configuration</a></li>
+  </ul>
 </li>
-<li>
-<a href="#Getting-started-with-rcirc">1.2 Getting started with rcirc</a>
+  <li>
+<a name="toc-Fighting-Information-Overload-1" href="#Fighting-Information-Overload">3 Fighting Information Overload</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Channels-1" href="#Channels">3.1 Channels</a></li>
+    <li><a name="toc-People-1" href="#People">3.2 People</a></li>
+    <li><a name="toc-Keywords-1" href="#Keywords">3.3 Keywords</a></li>
+    <li><a name="toc-Notices-1" href="#Notices">3.4 Notices</a></li>
+  </ul>
 </li>
-</ul>
+  <li>
+<a name="toc-Hacking-and-Tweaking-1" href="#Hacking-and-Tweaking">4 Hacking and Tweaking</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Skipping-_002faway-messages-using-handlers-1" href="#Skipping-_002faway-messages-using-handlers">4.1 Skipping <code>/away</code> messages using handlers</a></li>
+    <li><a name="toc-Using-fly-spell-mode-1" href="#Using-fly-spell-mode">4.2 Using fly spell mode</a></li>
+    <li><a name="toc-Scrolling-conservatively-1" href="#Scrolling-conservatively">4.3 Scrolling conservatively</a></li>
+    <li><a name="toc-Changing-the-time-stamp-format-1" href="#Changing-the-time-stamp-format">4.4 Changing the time stamp format</a></li>
+    <li><a name="toc-Defining-a-new-command-1" href="#Defining-a-new-command">4.5 Defining a new command</a></li>
+    <li><a name="toc-Reconnecting-after-you-have-lost-the-connection-1" href="#Reconnecting-after-you-have-lost-the-connection">4.6 Reconnecting after you have lost the connection</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Reference" href="#Reference">2 Reference</a>
-<ul>
-<li>
-<a href="#rcirc-commands">2.1 rcirc commands</a>
-</li>
-<li>
-<a href="#Useful-IRC-commands">2.2 Useful IRC commands</a>
-</li>
-<li>
-<a href="#Configuration">2.3 Configuration</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Fighting-Information-Overload" href="#Fighting-Information-Overload">3 Fighting Information Overload</a>
-<ul>
-<li>
-<a href="#Channels">3.1 Channels</a>
-</li>
-<li>
-<a href="#People">3.2 People</a>
-</li>
-<li>
-<a href="#Keywords">3.3 Keywords</a>
-</li>
-<li>
-<a href="#Notices">3.4 Notices</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Hacking-and-Tweaking" href="#Hacking-and-Tweaking">4 Hacking and Tweaking</a>
-<ul>
-<li>
-<a href="#Skipping-_002faway-messages-using-handlers">4.1 Skipping <code>/away</code> messages using handlers</a>
-</li>
-<li>
-<a href="#Using-fly-spell-mode">4.2 Using fly spell mode</a>
-</li>
-<li>
-<a href="#Scrolling-conservatively">4.3 Scrolling conservatively</a>
-</li>
-<li>
-<a href="#Changing-the-time-stamp-format">4.4 Changing the time stamp format</a>
-</li>
-<li>
-<a href="#Defining-a-new-command">4.5 Defining a new command</a>
-</li>
-<li>
-<a href="#Reconnecting-after-you-have-lost-the-connection">4.6 Reconnecting after you have lost the connection</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Key-Index" href="#Key-Index">Key Index</a>
-</li>
-<li>
-<a name="toc_Variable-Index" href="#Variable-Index">Variable Index</a>
-</li>
-<li>
-<a name="toc_Index" href="#Index">Index</a>
-</li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
+  <li><a name="toc-Key-Index-1" href="#Key-Index">Key Index</a></li>
+  <li><a name="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">rcirc Manual</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Basics" accesskey="n" rel="next">Basics</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="rcirc-Manual"></a>
+<h1 class="top">rcirc Manual</h1>
 
 <p><code>rcirc</code> is an Emacs IRC client.
-
-   </p>
+</p>
 <p>IRC (Internet Relay Chat) is a multi-user chat protocol.  Users
 communicate with each other in real-time.  Communication occurs both in
 topic channels which are collections of many users, or privately, with
 just one other user.
-
-   </p>
+</p>
 <p>Copyright © 2006–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license is
 included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Basics">Basics</a>
-</li>
-<li>
-<a accesskey="2" href="#Reference">Reference</a>
-</li>
-<li>
-<a accesskey="3" href="#Fighting-Information-Overload">Fighting Information Overload</a>
-</li>
-<li>
-<a accesskey="4" href="#Hacking-and-Tweaking">Hacking and Tweaking</a>
-</li>
-<li>
-<a accesskey="5" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>
-</li>
-<li>
-<a accesskey="6" href="#Key-Index">Key Index</a>
-</li>
-<li>
-<a accesskey="7" href="#Variable-Index">Variable Index</a>
-</li>
-<li>
-<a accesskey="8" href="#Index">Index</a>
 
-</li>
-</ul>
-<p>--- The Detailed Node Listing ---
 
-</p>
-<p>Basics
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Basics" accesskey="1">Basics</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Reference" accesskey="2">Reference</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Fighting-Information-Overload" accesskey="3">Fighting Information Overload</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Hacking-and-Tweaking" accesskey="4">Hacking and Tweaking</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="5">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Key-Index" accesskey="6">Key Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Variable-Index" accesskey="7">Variable Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index" accesskey="8">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</p>
-<ul class="menu">
-<li>
-<a accesskey="9" href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
+</pre></th></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment"> — The Detailed Node Listing —
 
-</li>
-</ul>
-<p>Reference
+Basics
 
-</p>
-<ul class="menu">
-<li>
-<a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#Configuration">Configuration</a>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#Internet-Relay-Chat" accesskey="9">Internet Relay Chat</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</li>
-</ul>
-<p>Fighting Information Overload
+Reference
 
-</p>
-<ul class="menu">
-<li>
-<a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#People">People</a>
-</li>
-<li>
-<a href="#Keywords">Keywords</a>
-</li>
-<li>
-<a href="#Notices">Notices</a>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#rcirc-commands">rcirc commands</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Useful-IRC-commands">Useful IRC commands</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Configuration">Configuration</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</li>
-</ul>
-<p>Hacking and Tweaking
+Fighting Information Overload
 
-</p>
-<ul class="menu">
-<li>
-<a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>
-</li>
-<li>
-<a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a href="#Defining-a-new-command">Defining a new command</a>
-</li>
-<li>
-<a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#Channels">Channels</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#People">People</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Keywords">Keywords</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Notices">Notices</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-   </li>
-</ul>
+Hacking and Tweaking
 
-<div class="node"><a name="Basics"></a></div>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Using-fly-spell-mode">Using fly spell mode</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Scrolling-conservatively">Scrolling conservatively</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Defining-a-new-command">Defining a new command</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+</pre></th></tr>
+</table>
+
+<hr>
+<a name="Basics"></a>
+<div class="header">
+<p>
+Next: <a href="#Reference" accesskey="n" rel="next">Reference</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Basics-1"></a>
 <h2 class="chapter">1 Basics</h2>
 
 <p>This chapter contains a brief introduction to IRC (Internet Relay Chat),
 and a quick tutorial on <code>rcirc</code>.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a accesskey="2" href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Internet-Relay-Chat" accesskey="1">Internet Relay Chat</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Getting-started-with-rcirc" accesskey="2">Getting started with rcirc</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Internet-Relay-Chat"></a></div>
-
+<hr>
+<a name="Internet-Relay-Chat"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-started-with-rcirc" accesskey="n" rel="next">Getting started with rcirc</a>, Up: <a href="#Basics" accesskey="u" rel="up">Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Internet-Relay-Chat-1"></a>
 <h3 class="section">1.1 Internet Relay Chat</h3>
+<a name="index-internet-relay-chat"></a>
+<a name="index-irc"></a>
 
-<p><a name="index-internet-relay-chat-1"></a><a name="index-irc-2"></a>
-<a name="index-channel-3"></a><dfn>Internet Relay Chat</dfn> (IRC) is a form of instant communication over the
+<a name="index-channel"></a>
+<p><em>Internet Relay Chat</em> (IRC) is a form of instant communication over the
 Internet.  It is mainly designed for group (many-to-many) communication
 in discussion forums called channels, but also allows one-to-one
 communication.
-
-   </p>
-<p><a name="index-instant-messaging_002c-comparison-4"></a><a name="index-server-5"></a><a name="index-network-6"></a>Contrary to most Instant Messenger (IM) systems, users usually don't
+</p>
+<a name="index-instant-messaging_002c-comparison"></a>
+<a name="index-server"></a>
+<a name="index-network"></a>
+<p>Contrary to most Instant Messenger (IM) systems, users usually don’t
 connect to a central server.  Instead, users connect to a random
 server in a network, and servers relay messages from one to the next.
-
-   </p>
-<p>Here's a typical example:
-
-   </p>
-<p><a name="index-redirection-to-random-servers-7"></a>When you connect to the Freenode network
+</p>
+<p>Here’s a typical example:
+</p>
+<a name="index-redirection-to-random-servers"></a>
+<p>When you connect to the Freenode network
 (<code>http://freenode.net/</code>), you point your IRC client at the
 server <code>irc.freenode.net</code>.  That server will redirect your client
 to a random server on the network, such as <code>zelazny.freenode.net</code>.
-
-   </p>
-<p><a name="index-channel-name-8"></a><a name="index-g_t_0023-starts-a-channel-name-9"></a>Once you're connected, you can send messages to all other users
+</p>
+<a name="index-channel-name"></a>
+<a name="index-_0023-starts-a-channel-name"></a>
+<p>Once you’re connected, you can send messages to all other users
 connected to the same network, and you can join all channels on the same
 network.  You might join the <code>#emacs</code> and the <code>#rcirc</code>
 channels, for example.  (Typically, channel names begin with a hash
 character.)
-
-   </p>
+</p>
 <p>Once you have joined a channel, anything you type will be broadcast to
 all the other users on the same channel.
-
-   </p>
-<p><a name="index-addressing-other-people-10"></a><a name="index-other-people_002c-addressing-them-11"></a><a name="index-talk-to-other-people-12"></a>If you want to address someone specifically, for example as an answer to
+</p>
+<a name="index-addressing-other-people"></a>
+<a name="index-other-people_002c-addressing-them"></a>
+<a name="index-talk-to-other-people"></a>
+<p>If you want to address someone specifically, for example as an answer to
 a question, it is customary to prefix the message with the nick followed
 by a colon, like this:
-
 </p>
-<pre class="example">     deego: fsbot rules!
+<div class="example">
+<pre class="example">deego: fsbot rules!
 </pre>
-   <p><a name="index-nick-completion-13"></a><a name="index-completion-of-nicks-14"></a><a name="index-TAB-15"></a>Since this is so common, you can use &lt;TAB&gt; to do nick completion.
+</div>
 
+<a name="index-nick-completion"></a>
+<a name="index-completion-of-nicks"></a>
+<a name="index-TAB"></a>
+<p>Since this is so common, you can use <tt class="key">TAB</tt> to do nick completion.
 </p>
-<div class="node"><a name="Getting-started-with-rcirc"></a></div>
-
+<hr>
+<a name="Getting-started-with-rcirc"></a>
+<div class="header">
+<p>
+Previous: <a href="#Internet-Relay-Chat" accesskey="p" rel="prev">Internet Relay Chat</a>, Up: <a href="#Basics" accesskey="u" rel="up">Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Getting-started-with-rcirc-1"></a>
 <h3 class="section">1.2 Getting started with rcirc</h3>
+<a name="index-getting-started"></a>
+<a name="index-connecting-to-a-server"></a>
 
-<p><a name="index-getting-started-16"></a><a name="index-connecting-to-a-server-17"></a>
-<a name="index-irc-command-18"></a>Use the command <kbd>M-x irc</kbd> to connect using the defaults. 
+<a name="index-irc-command"></a>
+<p>Use the command <kbd>M-x irc</kbd> to connect using the defaults.
 See <a href="#Configuration">Configuration</a>, if you want to change the defaults.
-
-   </p>
-<p>Use <kbd>C-u M-x irc</kbd> if you don't want to use the defaults, e.g., if you
+</p>
+<p>Use <kbd>C-u M-x irc</kbd> if you don’t want to use the defaults, e.g., if you
 want to connect to a different network, or connect to the same network
 using a different nick.  This will prompt you for four things:
-
-     
-<a name="index-server_002c-connecting-19"></a>
-<a name="index-Freenode-network-20"></a>
 </p>
-<dl>
+<dl compact>
+<dd>
+<a name="index-server_002c-connecting"></a>
+<a name="index-Freenode-network"></a>
+</dd>
 <dt>IRC Server</dt>
-<dd>What server do you want to connect to? All the servers in a particular
+<dd>
+<p>What server do you want to connect to? All the servers in a particular
 network are equivalent.  Some networks use a round-robin system where a
 single server redirects new connections to a random server in the
 network.  <code>irc.freenode.net</code> is such a server for the Freenode
 network.  Freenode provides the network “for the Free and Open Source
 Software communities, for not-for-profit organizations and for related
 communities and organizations.”
-
-     <p><a name="index-port_002c-connecting-21"></a><a name="index-g_t6667_002c-default-IRC-port-22"></a><br></p>
+</p>
+<a name="index-port_002c-connecting"></a>
+<a name="index-6667_002c-default-IRC-port"></a>
 </dd>
 <dt>IRC Port</dt>
-<dd>All network connections require a port.  Just as web servers and clients
+<dd>
+<p>All network connections require a port.  Just as web servers and clients
 use port 80 per default, IRC uses port 6667 per default.  You rarely
 have to use a different port.
-
-     <p><a name="index-nick_002c-connecting-23"></a><a name="index-changing-nick-24"></a><a name="index-name-changes-25"></a><br></p>
+</p>
+<a name="index-nick_002c-connecting"></a>
+<a name="index-changing-nick"></a>
+<a name="index-name-changes"></a>
 </dd>
 <dt>IRC Nick</dt>
 <dd>
-<a name="index-user_002dlogin_002dname-26"></a>Every users needs a handle on-line.  You will automatically be assigned
+<a name="index-user_002dlogin_002dname"></a>
+<p>Every users needs a handle on-line.  You will automatically be assigned
 a slightly different nick if your chosen nick is already in use.  If
 your <code>user-login-name</code> is <code>alex</code>, and this nick is already
 in use, you might for example get assigned the nick <code>alex`</code>.
-
-     <p><a name="index-channels_002c-connecting-27"></a><a name="index-initial-channels-28"></a><a name="index-startup-channels-29"></a><br></p>
+</p>
+<a name="index-channels_002c-connecting"></a>
+<a name="index-initial-channels"></a>
+<a name="index-startup-channels"></a>
 </dd>
 <dt>IRC Channels</dt>
-<dd>A space separated list of channels you want to join when connecting. 
-You don't need to join any channels, if you just want to have one-to-one
-conversations with friends on the same network.  If you're new to the
+<dd><p>A space separated list of channels you want to join when connecting.
+You don’t need to join any channels, if you just want to have one-to-one
+conversations with friends on the same network.  If you’re new to the
 Freenode network, join <code>#emacs</code>, the channel about all things
-Emacs, or join <code>#rcirc</code>, the channel about <code>rcirc</code>. 
-</dd>
+Emacs, or join <code>#rcirc</code>, the channel about <code>rcirc</code>.
+</p></dd>
 </dl>
 
-   <p><a name="index-server-buffer-30"></a>When you have answered these questions, <code>rcirc</code> will create a server
-buffer, which will be named something like <samp><span class="file">*irc.freenode.net*</span></samp>,
+<a name="index-server-buffer"></a>
+<p>When you have answered these questions, <code>rcirc</code> will create a server
+buffer, which will be named something like <samp>*irc.freenode.net*</samp>,
 and a channel buffer for each of the channels you wanted to join.
-
-   </p>
-<p><a name="index-RET-31"></a><a name="index-talking-32"></a><a name="index-communicating-33"></a>To talk in a channel, just type what you want to say in a channel
-buffer, and press &lt;RET&gt;.
-
-   </p>
-<p><a name="index-C_002dc-C_002dc-34"></a><a name="index-multiline-messages-35"></a><a name="index-messages_002c-multiple-lines-36"></a><a name="index-pasting-multiple-lines-37"></a><a name="index-edit-message-before-sending-38"></a>If you want to paste multiple lines, such as source code, you can use
-<kbd>C-c C-c</kbd> to edit your message in a separate buffer.  Use <kbd>C-c
-C-c</kbd> to finish editing.  You still need to press &lt;RET&gt; to send it,
-though.  Generally, IRC users don't like people pasting more than around
-four lines of code, so use with care.
-
-<!-- This section copied from the Channels section. -->
-<!-- All index markers should point to the original! -->
 </p>
-<p>Once you are connected to multiple channels, or once you've turned you
+<a name="index-RET"></a>
+<a name="index-talking"></a>
+<a name="index-communicating"></a>
+<p>To talk in a channel, just type what you want to say in a channel
+buffer, and press <tt class="key">RET</tt>.
+</p>
+<a name="index-C_002dc-C_002dc"></a>
+<a name="index-multiline-messages"></a>
+<a name="index-messages_002c-multiple-lines"></a>
+<a name="index-pasting-multiple-lines"></a>
+<a name="index-edit-message-before-sending"></a>
+<p>If you want to paste multiple lines, such as source code, you can use
+<kbd>C-c C-c</kbd> to edit your message in a separate buffer.  Use <kbd>C-c
+C-c</kbd> to finish editing.  You still need to press <tt class="key">RET</tt> to send it,
+though.  Generally, IRC users don’t like people pasting more than around
+four lines of code, so use with care.
+</p>
+<p>Once you are connected to multiple channels, or once you’ve turned you
 attention to other buffers in Emacs, you probably want to be notified
 of any activity in channels not currently visible.  All you need to do
-is switch channel tracking on using <kbd>M-x rcirc-track-minor-mode</kbd>. 
+is switch channel tracking on using <kbd>M-x rcirc-track-minor-mode</kbd>.
 To make this permanent, add the following to your init file:
-
 </p>
-<pre class="example">     (rcirc-track-minor-mode 1)
+<div class="example">
+<pre class="example">(rcirc-track-minor-mode 1)
 </pre>
-   <p>Use <kbd>C-c C-&lt;SPC&gt;</kbd> to switch to these buffers.
+</div>
 
+<p>Use <kbd>C-c C-<span class="key">SPC</span></kbd> to switch to these buffers.
 </p>
-<div class="node"><a name="Reference"></a></div>
-
+<hr>
+<a name="Reference"></a>
+<div class="header">
+<p>
+Next: <a href="#Fighting-Information-Overload" accesskey="n" rel="next">Fighting Information Overload</a>, Previous: <a href="#Basics" accesskey="p" rel="prev">Basics</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Reference-1"></a>
 <h2 class="chapter">2 Reference</h2>
+<a name="index-reference"></a>
 
-<p><a name="index-reference-39"></a>
-This is the reference section of the manual.  It is not complete.  For
+<p>This is the reference section of the manual.  It is not complete.  For
 complete listings of <code>rcirc</code> features, use Emacs built-in
 documentation.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a accesskey="2" href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a accesskey="3" href="#Configuration">Configuration</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#rcirc-commands" accesskey="1">rcirc commands</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Useful-IRC-commands" accesskey="2">Useful IRC commands</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Configuration" accesskey="3">Configuration</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="rcirc-commands"></a></div>
-
+<hr>
+<a name="rcirc-commands"></a>
+<div class="header">
+<p>
+Next: <a href="#Useful-IRC-commands" accesskey="n" rel="next">Useful IRC commands</a>, Up: <a href="#Reference" accesskey="u" rel="up">Reference</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="rcirc-commands-1"></a>
 <h3 class="section">2.1 rcirc commands</h3>
+<a name="index-rcirc-commands"></a>
+<a name="index-commands"></a>
 
-<p><a name="index-rcirc-commands-40"></a><a name="index-commands-41"></a>
-<a name="index-C_002dh-m-42"></a>This is a list of commands that you may use in <code>rcirc</code>.  It is not
+<a name="index-C_002dh-m"></a>
+<p>This is a list of commands that you may use in <code>rcirc</code>.  It is not
 complete.  For a complete listing, press <kbd>C-h m</kbd> in an <code>rcirc</code>
 buffer.
-
-   </p>
+</p>
 <p>In addition to using regular Emacs key bindings, you can call them by
 typing them into an <code>rcirc</code> buffer.
-
-   </p>
-<p><a name="index-call-commands-43"></a><a name="index-typing-commands-44"></a><a name="index-commands-45"></a>For instance, instead of using the command <kbd>C-c C-j</kbd> to join a new
-channel, you may type this in an <code>rcirc</code> buffer, and press &lt;RET&gt;:
-
 </p>
-<pre class="example">     /join #emacs
+<a name="index-call-commands"></a>
+<a name="index-typing-commands"></a>
+<a name="index-commands-1"></a>
+<p>For instance, instead of using the command <kbd>C-c C-j</kbd> to join a new
+channel, you may type this in an <code>rcirc</code> buffer, and press <tt class="key">RET</tt>:
+</p>
+<div class="example">
+<pre class="example">/join #emacs
 </pre>
-   <p><a name="index-g_t_002f-starts-a-command-46"></a><a name="index-messages-starting-with-a-slash-disappear-47"></a><a name="index-disappearing-messages-if-starting-with-a-slash-48"></a><a name="index-slash-hides-message-49"></a>This is why you cannot start a message with a slash.  You will have to
+</div>
+
+<a name="index-_002f-starts-a-command"></a>
+<a name="index-messages-starting-with-a-slash-disappear"></a>
+<a name="index-disappearing-messages-if-starting-with-a-slash"></a>
+<a name="index-slash-hides-message"></a>
+<p>This is why you cannot start a message with a slash.  You will have to
 precede the command with a space, or rewrite your message in order to
 send it to a channel.
-
-   </p>
-<p><a name="index-multiple-words-as-parameters-50"></a><a name="index-string-delimiters-51"></a><a name="index-quotes-52"></a><a name="index-double_002dquotes-53"></a>Many commands take parameters.  IRC commands usually ignore string
+</p>
+<a name="index-multiple-words-as-parameters"></a>
+<a name="index-string-delimiters"></a>
+<a name="index-quotes"></a>
+<a name="index-double_002dquotes"></a>
+<p>Many commands take parameters.  IRC commands usually ignore string
 delimiters.  Neither apostrophe nor double-quote have special meanings in
 IRC.
-
 </p>
-<pre class="example">     /nick "alex schroeder"
+<div class="example">
+<pre class="example">/nick "alex schroeder"
 </pre>
-   <p>This will try to change your nick to <code>"alex</code>.  Usually this will
+</div>
+
+<p>This will try to change your nick to <code>"alex</code>.  Usually this will
 fail because the double quote character is not a valid character for
 nicks.
-
-   </p>
-<p><a name="index-case-insensitive-commands-54"></a>These commands are case insensitive.
-
-   </p>
-<p><a name="index-new-command-55"></a><a name="index-unknown-command-56"></a><a name="index-command-unknown-57"></a>If a command isn't known by <code>rcirc</code>, it will simply be sent along to the
+</p>
+<a name="index-case-insensitive-commands"></a>
+<p>These commands are case insensitive.
+</p>
+<a name="index-new-command"></a>
+<a name="index-unknown-command"></a>
+<a name="index-command-unknown"></a>
+<p>If a command isn’t known by <code>rcirc</code>, it will simply be sent along to the
 server.  There is a list of some useful commands like that in the next
 section.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>C-c C-j</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dj-58"></a><a name="index-g_t_002fjoin-59"></a><a name="index-join-channels-60"></a><a name="index-other-channels-61"></a><a name="index-rooms_002c-joining-62"></a><a name="index-discussion_002c-joining-63"></a>This joins a channel such as <code>#rcirc</code> or <code>#emacs</code>.  On most
+<a name="index-C_002dc-C_002dj"></a>
+<a name="index-_002fjoin"></a>
+<a name="index-join-channels"></a>
+<a name="index-other-channels"></a>
+<a name="index-rooms_002c-joining"></a>
+<a name="index-discussion_002c-joining"></a>
+<p>This joins a channel such as <code>#rcirc</code> or <code>#emacs</code>.  On most
 networks, anybody can create new channels.  If you want to talk with
 some friends, for example, all you have to do is agree on a valid
 channel name and join that channel.  (Also <code>/join #emacs</code>.)
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-c C-p</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dp-64"></a><a name="index-g_t_002fpart-65"></a><a name="index-part-a-channel-66"></a><a name="index-leave-a-channel-67"></a><a name="index-disconnect-from-a-channel-68"></a><a name="index-stop-talking-on-a-channel-69"></a><a name="index-kill-channel-buffer-70"></a>This leaves the current channel.  You can optionally provide a reason
+<a name="index-C_002dc-C_002dp"></a>
+<a name="index-_002fpart"></a>
+<a name="index-part-a-channel"></a>
+<a name="index-leave-a-channel"></a>
+<a name="index-disconnect-from-a-channel"></a>
+<a name="index-stop-talking-on-a-channel"></a>
+<a name="index-kill-channel-buffer"></a>
+<p>This leaves the current channel.  You can optionally provide a reason
 for parting.  When you kill a channel buffer, you automatically part the
 corresponding channel.  (Also <code>/part you are too weird!</code>.)
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-c C-r</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dr-71"></a><a name="index-g_t_002fnick-72"></a><a name="index-change-name-73"></a><a name="index-nick-changing-74"></a><a name="index-rename-yourself-75"></a><a name="index-other-name-76"></a>This changes your nick to some other name.  Your nick must be unique
-across the network.  Most networks don't allow too many nick changes in
+<a name="index-C_002dc-C_002dr"></a>
+<a name="index-_002fnick"></a>
+<a name="index-change-name"></a>
+<a name="index-nick-changing"></a>
+<a name="index-rename-yourself"></a>
+<a name="index-other-name"></a>
+<p>This changes your nick to some other name.  Your nick must be unique
+across the network.  Most networks don’t allow too many nick changes in
 quick succession, and have restrictions on the valid characters in nick
 names.  (Also <code>/nick alex-test</code>)
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-c C-w</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dw-77"></a><a name="index-g_t_002fwhois-78"></a><a name="index-who-are-these-people-79"></a><a name="index-identifying-people-80"></a><a name="index-channels-other-people-are-on-81"></a><a name="index-what-channels-people-are-on-82"></a>Gives you some basic information about a nick.  This often includes what
+<a name="index-C_002dc-C_002dw"></a>
+<a name="index-_002fwhois"></a>
+<a name="index-who-are-these-people"></a>
+<a name="index-identifying-people"></a>
+<a name="index-channels-other-people-are-on"></a>
+<a name="index-what-channels-people-are-on"></a>
+<p>Gives you some basic information about a nick.  This often includes what
 other channels people are on.  (Also <code>/whois fsbot</code>.)
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-c C-q</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dq-83"></a><a name="index-g_t_002fquery-84"></a><a name="index-starting-a-private-conversation-85"></a><a name="index-one_002dto_002done-conversation-86"></a><a name="index-talk-privately-87"></a><a name="index-private-conversation-88"></a><a name="index-contact-one-person-only-89"></a><a name="index-query-a-person-90"></a>Starts a one-to-one conversation with another person on the same
+<a name="index-C_002dc-C_002dq"></a>
+<a name="index-_002fquery"></a>
+<a name="index-starting-a-private-conversation"></a>
+<a name="index-one_002dto_002done-conversation"></a>
+<a name="index-talk-privately"></a>
+<a name="index-private-conversation"></a>
+<a name="index-contact-one-person-only"></a>
+<a name="index-query-a-person"></a>
+<p>Starts a one-to-one conversation with another person on the same
 network.  A new buffer will be created for this conversation.  It works
 like a channel with only two members.  (Also <code>/query fsbot</code>.)
-
-     <br>
+</p>
 </dd>
-<dt><kbd>C-c &lt;RET&gt;</kbd></dt>
+<dt><kbd>C-c <span class="key">RET</span></kbd></dt>
 <dd>
-<a name="index-C_002dc-RET-91"></a><a name="index-g_t_002fmsg-92"></a><a name="index-single-message-93"></a><a name="index-message-sending-94"></a>This sends a single message to a nick.  Like with <kbd>C-c C-q</kbd>, a new
+<a name="index-C_002dc-RET"></a>
+<a name="index-_002fmsg"></a>
+<a name="index-single-message"></a>
+<a name="index-message-sending"></a>
+<p>This sends a single message to a nick.  Like with <kbd>C-c C-q</kbd>, a new
 buffer is created, where the response from the other party will show
 up.  (Also <code>/msg nickserv identify secret</code>.)
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-c C-x</kbd></dt>
 <dd>
-<a name="index-C_002dc-C_002dx-95"></a><a name="index-g_t_002fquit-96"></a><a name="index-quit-97"></a><a name="index-disconnect-98"></a><a name="index-kill-connection-99"></a><a name="index-connection-end-100"></a><a name="index-part-all-channels-101"></a><a name="index-end-connection-102"></a><a name="index-server-buffer-killing-103"></a><a name="index-reason-for-quitting-104"></a>This disconnects from the server and parts all channels.  You can
+<a name="index-C_002dc-C_002dx"></a>
+<a name="index-_002fquit"></a>
+<a name="index-quit"></a>
+<a name="index-disconnect"></a>
+<a name="index-kill-connection"></a>
+<a name="index-connection-end"></a>
+<a name="index-part-all-channels"></a>
+<a name="index-end-connection"></a>
+<a name="index-server-buffer-killing"></a>
+<a name="index-reason-for-quitting"></a>
+<p>This disconnects from the server and parts all channels.  You can
 optionally provide a reason for quitting.  When you kill the server
 buffer, you automatically quit the server and part all channels.  (Also
-<code>/quit ZZZzzz...</code>.) 
+<code>/quit ZZZzzz...</code>.)
+</p>
 </dd>
 </dl>
 
-<div class="node"><a name="Useful-IRC-commands"></a></div>
-
+<hr>
+<a name="Useful-IRC-commands"></a>
+<div class="header">
+<p>
+Next: <a href="#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="#rcirc-commands" accesskey="p" rel="prev">rcirc commands</a>, Up: <a href="#Reference" accesskey="u" rel="up">Reference</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Useful-IRC-commands-1"></a>
 <h3 class="section">2.2 Useful IRC commands</h3>
+<a name="index-irc-commands"></a>
+<a name="index-commands-2"></a>
 
-<p><a name="index-irc-commands-105"></a><a name="index-commands-106"></a>
-As mentioned, if a command isn't known by <code>rcirc</code>, it will simply be sent
+<p>As mentioned, if a command isn’t known by <code>rcirc</code>, it will simply be sent
 along to the server.  Some such commands are available on nearly all IRC
 servers, such as:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>/away</code></dt>
 <dd>
-<a name="index-g_t_002faway-107"></a><a name="index-away-status-108"></a><a name="index-pause-status-109"></a><a name="index-unavailable-status-110"></a><a name="index-set-away-status-111"></a>This sets your status as “being away” if you provide a reason, or sets
+<a name="index-_002faway"></a>
+<a name="index-away-status"></a>
+<a name="index-pause-status"></a>
+<a name="index-unavailable-status"></a>
+<a name="index-set-away-status"></a>
+<p>This sets your status as “being away” if you provide a reason, or sets
 your status as “being back” if you do not.  People can use the
-<kbd>C-c C-w</kbd> command to check your status.  Example: <code>/away food</code>. 
+<kbd>C-c C-w</kbd> command to check your status.  Example: <code>/away food</code>.
+</p>
 </dd>
 </dl>
 
-   <p><a name="index-irc-resources-112"></a><a name="index-help-about-irc-113"></a>Typical IRC servers implement many more commands.  You can read more
+<a name="index-irc-resources"></a>
+<a name="index-help-about-irc"></a>
+<p>Typical IRC servers implement many more commands.  You can read more
 about the fantastic world of IRC online at
-<a href="http://www.irchelp.org/">the Internet Relay Chat (IRC) help archive</a>.
-
+<a href="http://www.irchelp.org/">the Internet Relay Chat (IRC) help
+archive</a>.
 </p>
-<div class="node"><a name="Configuration"></a></div>
-
+<hr>
+<a name="Configuration"></a>
+<div class="header">
+<p>
+Previous: <a href="#Useful-IRC-commands" accesskey="p" rel="prev">Useful IRC commands</a>, Up: <a href="#Reference" accesskey="u" rel="up">Reference</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Configuration-1"></a>
 <h3 class="section">2.3 Configuration</h3>
+<a name="index-configuring-rcirc"></a>
 
-<p><a name="index-configuring-rcirc-114"></a>
-These are some variables you can change to configure <code>rcirc</code> to your
+<p>These are some variables you can change to configure <code>rcirc</code> to your
 liking.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>rcirc-server-alist</code></dt>
 <dd>
-<a name="index-rcirc_002dserver_002dalist-115"></a><a name="index-channels_002c-configuration-116"></a><a name="index-initial-channels_002c-configuration-117"></a><a name="index-startup-channels_002c-configuration-118"></a><a name="index-servers_002c-configuration-119"></a><a name="index-initial-servers_002c-configuration-120"></a><a name="index-startup-servers_002c-configuration-121"></a>This variable contains an alist of servers to connect to by default
+<a name="index-rcirc_002dserver_002dalist"></a>
+<a name="index-channels_002c-configuration"></a>
+<a name="index-initial-channels_002c-configuration"></a>
+<a name="index-startup-channels_002c-configuration"></a>
+<a name="index-servers_002c-configuration"></a>
+<a name="index-initial-servers_002c-configuration"></a>
+<a name="index-startup-servers_002c-configuration"></a>
+<p>This variable contains an alist of servers to connect to by default
 and the keywords parameters to use.  The keyword parameters are
-optional.  If you don't provide any, the defaults as documented below
+optional.  If you don’t provide any, the defaults as documented below
 will be used.
-
-     <p>The most important parameter is the <code>:channels</code> parameter.  It
+</p>
+<p>The most important parameter is the <code>:channels</code> parameter.  It
 controls which channels you will join by default as soon as you are
 connected to the server.
+</p>
+<p>Here’s an example of how to set it:
+</p>
+<div class="example">
+<pre class="example">(add-to-list 'rcirc-server-alist
+             '("otherworlders.org"
+               :channels ("#FUDGE" "#game-design")))
+</pre>
+</div>
 
-     </p>
-<p>Here's an example of how to set it:
-
-     </p>
-<pre class="example">          (add-to-list 'rcirc-server-alist
-                       '("otherworlders.org"
-                         :channels ("#FUDGE" "#game-design")))
-     </pre>
-     <p>By default you will be connected to the <code>rcirc</code> support channel:
+<p>By default you will be connected to the <code>rcirc</code> support channel:
 <code>#rcirc</code> on <code>irc.freenode.net</code>.
-
-          </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>:nick</code></dt>
-<dd>This overrides <code>rcirc-default-nick</code>.
-
-          <br>
+<dd>
+<p>This overrides <code>rcirc-default-nick</code>.
+</p>
 </dd>
 <dt><code>:port</code></dt>
-<dd>This overrides <code>rcirc-default-port</code>.
-
-          <br>
+<dd>
+<p>This overrides <code>rcirc-default-port</code>.
+</p>
 </dd>
 <dt><code>:user-name</code></dt>
-<dd>This overrides <code>rcirc-default-user-name</code>.
-
-          <br>
+<dd>
+<p>This overrides <code>rcirc-default-user-name</code>.
+</p>
 </dd>
 <dt><code>:full-name</code></dt>
-<dd>This overrides <code>rcirc-default-full-name</code>.
-
-          <br>
+<dd>
+<p>This overrides <code>rcirc-default-full-name</code>.
+</p>
 </dd>
 <dt><code>:channels</code></dt>
-<dd>This describes which channels to join when connecting to the server. 
+<dd>
+<p>This describes which channels to join when connecting to the server.
 If absent, no channels will be connected to automatically.
-
-     </dd>
+</p>
+</dd>
 </dl>
 
-     <br>
 </dd>
 <dt><code>rcirc-default-nick</code></dt>
 <dd>
-<a name="index-rcirc_002ddefault_002dnick-122"></a>This variable is used for the default nick.  It defaults to the login
+<a name="index-rcirc_002ddefault_002dnick"></a>
+<p>This variable is used for the default nick.  It defaults to the login
 name returned by <code>user-login-name</code>.
+</p>
+<div class="example">
+<pre class="example">(setq rcirc-default-nick "kensanata")
+</pre>
+</div>
 
-     <pre class="example">          (setq rcirc-default-nick "kensanata")
-     </pre>
-     <br>
 </dd>
 <dt><code>rcirc-default-port</code></dt>
 <dd>
-<a name="index-rcirc_002ddefault_002dport-123"></a><a name="index-port-124"></a>This variable contains the default port to connect to.  It is 6667 by
+<a name="index-rcirc_002ddefault_002dport"></a>
+<a name="index-port"></a>
+<p>This variable contains the default port to connect to.  It is 6667 by
 default and rarely needs changing.
-
-     <br>
+</p>
 </dd>
 <dt><code>rcirc-default-user-name</code></dt>
 <dd>
-<a name="index-rcirc_002ddefault_002duser_002dname-125"></a><a name="index-user-name-126"></a>This variable contains the default user name to report to the server. 
+<a name="index-rcirc_002ddefault_002duser_002dname"></a>
+<a name="index-user-name"></a>
+<p>This variable contains the default user name to report to the server.
 It defaults to the login name returned by <code>user-login-name</code>, just
 like <code>rcirc-default-nick</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>rcirc-default-full-name</code></dt>
 <dd>
-<a name="index-rcirc_002ddefault_002dfull_002dname-127"></a><a name="index-full-name-128"></a><a name="index-real-name-129"></a><a name="index-surname-130"></a>This variable is used to set your “real name” on IRC.  It defaults
+<a name="index-rcirc_002ddefault_002dfull_002dname"></a>
+<a name="index-full-name"></a>
+<a name="index-real-name"></a>
+<a name="index-surname"></a>
+<p>This variable is used to set your “real name” on IRC.  It defaults
 to the name returned by <code>user-full-name</code>.  If you want to hide
 your full name, you might want to set it to some pseudonym.
+</p>
+<div class="example">
+<pre class="example">(setq rcirc-default-full-name "Curious Minds Want To Know")
+</pre>
+</div>
 
-     <pre class="example">          (setq rcirc-default-full-name "Curious Minds Want To Know")
-     </pre>
-     <br>
 </dd>
 <dt><code>rcirc-authinfo</code></dt>
 <dd>
-<a name="index-rcirc_002dauthinfo-131"></a><a name="index-authentication-132"></a><a name="index-identification-133"></a><a name="index-nickserv-134"></a><a name="index-login-135"></a>This variable is an alist used to automatically identify yourself on
+<a name="index-rcirc_002dauthinfo"></a>
+<a name="index-authentication"></a>
+<a name="index-identification"></a>
+<a name="index-nickserv"></a>
+<a name="index-login"></a>
+<p>This variable is an alist used to automatically identify yourself on
 networks.  Each sublist starts with a regular expression that is
-compared to the server address you're connecting to.  The second
+compared to the server address you’re connecting to.  The second
 element in the list is a symbol representing the method to use,
 followed by the arguments this method requires.
+</p>
+<p>Here is an example to illustrate how you would set it:
+</p>
+<div class="example">
+<pre class="example">(setq rcirc-authinfo
+      '(("freenode" nickserv "bob" "p455w0rd")
+        ("freenode" chanserv "bob" "#bobland" "passwd99")
+        ("bitlbee" bitlbee "robert" "sekrit")))
+</pre>
+</div>
 
-     <p>Here is an example to illustrate how you would set it:
-
-     </p>
-<pre class="example">          (setq rcirc-authinfo
-                '(("freenode" nickserv "bob" "p455w0rd")
-                  ("freenode" chanserv "bob" "#bobland" "passwd99")
-                  ("bitlbee" bitlbee "robert" "sekrit")))
-     </pre>
-     <p>And here are the valid method symbols and the arguments they require:
-
-          </p>
-<dl>
+<p>And here are the valid method symbols and the arguments they require:
+</p>
+<dl compact>
 <dt><code>nickserv</code></dt>
 <dd>
-<a name="index-nickserv-authentication-136"></a>Use this symbol if you need to identify yourself as follows when
+<a name="index-nickserv-authentication"></a>
+<p>Use this symbol if you need to identify yourself as follows when
 connecting to a network: <code>/msg nickserv identify secret</code>.  The
 necessary arguments are the nickname you want to use this for, and the
 password to use.
-
-          <p>Before you can use this method, you will have to register your nick and
+</p>
+<p>Before you can use this method, you will have to register your nick and
 pick a password for it.  Contact <code>nickserv</code> and check out the
 details.  (Using <code>/msg nickserv help</code>, for example.)
-
-          <br></p>
+</p>
 </dd>
 <dt><code>chanserv</code></dt>
 <dd>
-<a name="index-chanserv-authentication-137"></a>Use this symbol if you need to identify yourself as follows if you want
+<a name="index-chanserv-authentication"></a>
+<p>Use this symbol if you need to identify yourself as follows if you want
 to join a particular channel: <code>/msg chanserv identify #underground
 secret</code>.  The necessary arguments are the nickname and channel you want
 to use this for, and the password to use.
-
-          <p>Before you can use this method, a channel contact must tell you about
-the password to use.  Contact <code>chanserv</code> and check out the details. 
+</p>
+<p>Before you can use this method, a channel contact must tell you about
+the password to use.  Contact <code>chanserv</code> and check out the details.
 (Using <code>/msg chanserv help</code>, for example.)
-
-          <br></p>
+</p>
 </dd>
 <dt><code>bitlbee</code></dt>
 <dd>
-<a name="index-bitlbee-authentication-138"></a>Use this symbol if you need to identify yourself in the Bitlbee channel
+<a name="index-bitlbee-authentication"></a>
+<p>Use this symbol if you need to identify yourself in the Bitlbee channel
 as follows: <code>identify secret</code>.  The necessary arguments are the
 nickname you want to use this for, and the password to use.
-
-          <p><a name="index-gateway-to-other-IM-services-139"></a><a name="index-instant-messaging_002c-other-services-140"></a><a name="index-Jabber-141"></a><a name="index-AIM-142"></a><a name="index-ICQ-143"></a><a name="index-MSN-144"></a><a name="index-Yahoo_0021-145"></a>Bitlbee acts like an IRC server, but in fact it is a gateway to a lot of
+</p>
+<a name="index-gateway-to-other-IM-services"></a>
+<a name="index-instant-messaging_002c-other-services"></a>
+<a name="index-Jabber"></a>
+<a name="index-AIM"></a>
+<a name="index-ICQ"></a>
+<a name="index-MSN"></a>
+<a name="index-Yahoo_0021"></a>
+<p>Bitlbee acts like an IRC server, but in fact it is a gateway to a lot of
 other instant messaging services.  You can either install Bitlbee
 locally or use a public Bitlbee server.  There, you need to create an
 account with a password.  This is the nick and password you need to
 provide for the bitlbee authentication method.
-
-          </p>
+</p>
 <p>Later, you will tell Bitlbee about your accounts and passwords on all
 the other instant messaging services, and Bitlbee will log you in.  All
-<code>rcirc</code> needs to know, is the login to your Bitlbee account.  Don't
+<code>rcirc</code> needs to know, is the login to your Bitlbee account.  Don’t
 confuse the Bitlbee account with all the other accounts.
-
-     </p>
+</p>
 </dd>
 </dl>
 
-   </dd>
+</dd>
 </dl>
 
-<div class="node"><a name="Fighting-Information-Overload"></a></div>
-
+<hr>
+<a name="Fighting-Information-Overload"></a>
+<div class="header">
+<p>
+Next: <a href="#Hacking-and-Tweaking" accesskey="n" rel="next">Hacking and Tweaking</a>, Previous: <a href="#Reference" accesskey="p" rel="prev">Reference</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Fighting-Information-Overload-1"></a>
 <h2 class="chapter">3 Fighting Information Overload</h2>
+<a name="index-information-overload"></a>
 
-<p><a name="index-information-overload-146"></a>
-This is the section of the manual that caters to the busy person
+<p>This is the section of the manual that caters to the busy person
 online.  There are support channels with several hundred people in
 them.  Trying to follow a conversation in these channels can be a
 daunting task.  This chapters tells you how <code>rcirc</code> can help.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Channels">Channels</a>
-</li>
-<li>
-<a accesskey="2" href="#People">People</a>
-</li>
-<li>
-<a accesskey="3" href="#Keywords">Keywords</a>
-</li>
-<li>
-<a accesskey="4" href="#Notices">Notices</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Channels" accesskey="1">Channels</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#People" accesskey="2">People</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Keywords" accesskey="3">Keywords</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Notices" accesskey="4">Notices</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Channels"></a></div>
-
+<hr>
+<a name="Channels"></a>
+<div class="header">
+<p>
+Next: <a href="#People" accesskey="n" rel="next">People</a>, Up: <a href="#Fighting-Information-Overload" accesskey="u" rel="up">Fighting Information Overload</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Channels-1"></a>
 <h3 class="section">3.1 Channels</h3>
+<a name="index-channels"></a>
+<a name="index-modeline"></a>
 
-<p><a name="index-channels-147"></a><a name="index-modeline-148"></a>
-<!-- This section copied to the Getting started with rcirc section -->
-<a name="index-C_002dc-C_002dSPC-149"></a><a name="index-rcirc_002dtrack_002dminor_002dmode-150"></a><a name="index-switching-channels-151"></a><a name="index-tracking-activity-152"></a><a name="index-active-channel-153"></a><a name="index-abbreviated-channel-names-154"></a><a name="index-modeline-tracks-activity-155"></a>Most people want a notification when something is said on a channel they
+<a name="index-C_002dc-C_002dSPC"></a>
+<a name="index-rcirc_002dtrack_002dminor_002dmode"></a>
+<a name="index-switching-channels"></a>
+<a name="index-tracking-activity"></a>
+<a name="index-active-channel"></a>
+<a name="index-abbreviated-channel-names"></a>
+<a name="index-modeline-tracks-activity"></a>
+<p>Most people want a notification when something is said on a channel they
 have joined, particularly if they have been addressed directly.  There
 is a global minor mode that will do this kind of tracking for you.  All
-you need to do is switch it on using <kbd>M-x rcirc-track-minor-mode</kbd>. 
+you need to do is switch it on using <kbd>M-x rcirc-track-minor-mode</kbd>.
 To make this permanent, add the following to your init file:
-
 </p>
-<pre class="example">     (rcirc-track-minor-mode 1)
+<div class="example">
+<pre class="example">(rcirc-track-minor-mode 1)
 </pre>
-   <p>When other people say things in buffers that are currently buried (no
+</div>
+
+<p>When other people say things in buffers that are currently buried (no
 window is showing them), the mode line will now show you the abbreviated
-channel or nick name.  Use <kbd>C-c C-&lt;SPC&gt;</kbd> to switch to these
+channel or nick name.  Use <kbd>C-c C-<span class="key">SPC</span></kbd> to switch to these
 buffers.
-
-   </p>
-<p><a name="index-rcirc_002dmode_002dhook-156"></a>If you prefer not to load <code>rcirc</code> immediately, you can delay the
+</p>
+<a name="index-rcirc_002dmode_002dhook"></a>
+<p>If you prefer not to load <code>rcirc</code> immediately, you can delay the
 activation of this mode:
-
 </p>
-<pre class="example">     (add-hook 'rcirc-mode-hook
-               (lambda ()
-                 (rcirc-track-minor-mode 1)))
+<div class="example">
+<pre class="example">(add-hook 'rcirc-mode-hook
+          (lambda ()
+            (rcirc-track-minor-mode 1)))
 </pre>
-   <p><a name="index-busy-channels-157"></a>If you've joined a very active support channel, tracking activity is
+</div>
+
+<a name="index-busy-channels"></a>
+<p>If you’ve joined a very active support channel, tracking activity is
 no longer useful.  The channel will be always active.  Switching to
-active channels using <kbd>C-c C-&lt;SPC&gt;</kbd> no longer works as
+active channels using <kbd>C-c C-<span class="key">SPC</span></kbd> no longer works as
 expected.
-
-   </p>
-<p><a name="index-C_002dc-C_002dl-158"></a><a name="index-low-priority-channels-159"></a>The solution is to mark this channel as a low priority channel. 
-Use <kbd>C-c C-l</kbd> to make the current channel a low-priority channel. 
-Low priority channels have the modeline indicator “LowPri”. 
-<kbd>C-c C-&lt;SPC&gt;</kbd> will not switch to low priority channels unless
-you use the <kbd>C-u</kbd> prefix.
-
-   </p>
-<p><a name="index-C_002dc-TAB-160"></a><a name="index-ignored-channels-161"></a>If you prefer a channel to never show up in the modeline, then you
-have to ignore it.  Use <kbd>C-c &lt;TAB&gt;</kbd> to ignore the current
-channel.
-
 </p>
-<div class="node"><a name="People"></a></div>
-
+<a name="index-C_002dc-C_002dl"></a>
+<a name="index-low-priority-channels"></a>
+<p>The solution is to mark this channel as a low priority channel.
+Use <kbd>C-c C-l</kbd> to make the current channel a low-priority channel.
+Low priority channels have the modeline indicator “LowPri”.
+<kbd>C-c C-<span class="key">SPC</span></kbd> will not switch to low priority channels unless
+you use the <kbd>C-u</kbd> prefix.
+</p>
+<a name="index-C_002dc-TAB"></a>
+<a name="index-ignored-channels"></a>
+<p>If you prefer a channel to never show up in the modeline, then you
+have to ignore it.  Use <kbd>C-c <span class="key">TAB</span></kbd> to ignore the current
+channel.
+</p>
+<hr>
+<a name="People"></a>
+<div class="header">
+<p>
+Next: <a href="#Keywords" accesskey="n" rel="next">Keywords</a>, Previous: <a href="#Channels" accesskey="p" rel="prev">Channels</a>, Up: <a href="#Fighting-Information-Overload" accesskey="u" rel="up">Fighting Information Overload</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="People-1"></a>
 <h3 class="section">3.2 People</h3>
+<a name="index-people_002c-how-to-ignore"></a>
+<a name="index-nicks_002c-how-to-ignore"></a>
+<a name="index-friends"></a>
+<a name="index-buddies"></a>
+<a name="index-trolls"></a>
 
-<p><a name="index-people_002c-how-to-ignore-162"></a><a name="index-nicks_002c-how-to-ignore-163"></a><a name="index-friends-164"></a><a name="index-buddies-165"></a><a name="index-trolls-166"></a>
-The most important command available to the discerning IRC user is
-<code>/ignore</code>.  It's the big equalizer online: If people aggravate
+<p>The most important command available to the discerning IRC user is
+<code>/ignore</code>.  It’s the big equalizer online: If people aggravate
 you, just ignore them.
-
-   </p>
+</p>
 <p>This is of course a crude all-or-nothing solution.  Fear not,
 <code>rcirc</code> offers alternatives: You can “brighten” your buddies
-and “dim” certain other nicks that you don't want to ignore
+and “dim” certain other nicks that you don’t want to ignore
 altogether.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>/ignore</code></dt>
 <dd>
-<a name="index-g_t_002fignore-167"></a><a name="index-ignoring-other-people-168"></a><a name="index-trolls_002c-ignoring-169"></a><a name="index-hide-some-posts-170"></a><a name="index-idiots-online-171"></a>This command toggles the ignore status of a nick, if you provide one. 
-If you don't provide a nick, the command lists all the nicks you are
-ignoring.  All messages by ignored nicks are—you guessed it—ignored. 
+<a name="index-_002fignore"></a>
+<a name="index-ignoring-other-people"></a>
+<a name="index-trolls_002c-ignoring"></a>
+<a name="index-hide-some-posts"></a>
+<a name="index-idiots-online"></a>
+<p>This command toggles the ignore status of a nick, if you provide one.
+If you don’t provide a nick, the command lists all the nicks you are
+ignoring.  All messages by ignored nicks are—you guessed it—ignored.
 Since only “operators” can kick people from channels, the
 ignore command is often the only way to deal with some of the more
 obnoxious fellows online.  Example: <code>/ignore rudybot</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>/bright</code></dt>
 <dd>
-<a name="index-g_t_002fbright-172"></a><a name="index-highlight-other-people-173"></a><a name="index-friends_002c-highlight-174"></a><a name="index-buddies_002c-highlight-175"></a><a name="index-nicks_002c-highlight-176"></a><a name="index-brighten-nicks-177"></a>This command toggles the bright status of a nick, if you provide one. 
-If you don't provide a nick, the command lists all the “brightened”
+<a name="index-_002fbright"></a>
+<a name="index-highlight-other-people"></a>
+<a name="index-friends_002c-highlight"></a>
+<a name="index-buddies_002c-highlight"></a>
+<a name="index-nicks_002c-highlight"></a>
+<a name="index-brighten-nicks"></a>
+<p>This command toggles the bright status of a nick, if you provide one.
+If you don’t provide a nick, the command lists all the “brightened”
 nicks.  All messages by brightened nicks are—you guessed
 it—brightened.  Use this for your friends.  Example: <code>/bright
 rcy</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>/dim</code></dt>
 <dd>
-<a name="index-g_t_002fdim-178"></a><a name="index-soft_002dignore-other-people-179"></a><a name="index-obnoxious-people-online-180"></a><a name="index-rabble-online-181"></a>This command toggles the dim status of a nick, if you provide one.  If
-you don't provide a nick, the command lists all the “dimmed” nicks. 
+<a name="index-_002fdim"></a>
+<a name="index-soft_002dignore-other-people"></a>
+<a name="index-obnoxious-people-online"></a>
+<a name="index-rabble-online"></a>
+<p>This command toggles the dim status of a nick, if you provide one.  If
+you don’t provide a nick, the command lists all the “dimmed” nicks.
 All messages by dimmed nicks are—you guessed it—dimmed.  Use this
 for boring people and bots.  If you are tracking channel activity,
 messages by dimmed nicks will not register as activity.  Example:
-<code>/dim fsbot</code>. 
+<code>/dim fsbot</code>.
+</p>
 </dd>
 </dl>
 
-<div class="node"><a name="Keywords"></a></div>
 
+<hr>
+<a name="Keywords"></a>
+<div class="header">
+<p>
+Next: <a href="#Notices" accesskey="n" rel="next">Notices</a>, Previous: <a href="#People" accesskey="p" rel="prev">People</a>, Up: <a href="#Fighting-Information-Overload" accesskey="u" rel="up">Fighting Information Overload</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Keywords-1"></a>
 <h3 class="section">3.3 Keywords</h3>
+<a name="index-keywords"></a>
 
-<p><a name="index-keywords-182"></a>
-On a busy channel, you might want to ignore all activity (using
-<kbd>C-c &lt;TAB&gt;</kbd>) and just watch for certain keywords.  The
+<p>On a busy channel, you might want to ignore all activity (using
+<kbd>C-c <span class="key">TAB</span></kbd>) and just watch for certain keywords.  The
 following command allows you to highlight certain keywords:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>/keyword</code></dt>
 <dd>
-<a name="index-g_t_002fkeyword-183"></a>This command toggles the highlighting of a keyword, if you provide
-one.  If you don't provide a keyword, the current keywords are
-listed.  Example: <code>/keyword manual</code>. 
+<a name="index-_002fkeyword"></a>
+<p>This command toggles the highlighting of a keyword, if you provide
+one.  If you don’t provide a keyword, the current keywords are
+listed.  Example: <code>/keyword manual</code>.
+</p>
 </dd>
 </dl>
 
-<div class="node"><a name="Notices"></a></div>
-
+<hr>
+<a name="Notices"></a>
+<div class="header">
+<p>
+Previous: <a href="#Keywords" accesskey="p" rel="prev">Keywords</a>, Up: <a href="#Fighting-Information-Overload" accesskey="u" rel="up">Fighting Information Overload</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Notices-1"></a>
 <h3 class="section">3.4 Notices</h3>
+<a name="index-part-notices_002c-how-to-omit"></a>
+<a name="index-join-notices_002c-how-to-omit"></a>
+<a name="index-quit-notices_002c-how-to-omit"></a>
+<a name="index-nick-notices_002c-how-to-omit"></a>
 
-<p><a name="index-part-notices_002c-how-to-omit-184"></a><a name="index-join-notices_002c-how-to-omit-185"></a><a name="index-quit-notices_002c-how-to-omit-186"></a><a name="index-nick-notices_002c-how-to-omit-187"></a>
-<a name="index-C_002dc-C_002do-188"></a><a name="index-low-priority-channels-189"></a>In busy channels you might not be interested in all the joining,
+<a name="index-C_002dc-C_002do"></a>
+<a name="index-low-priority-channels-1"></a>
+<p>In busy channels you might not be interested in all the joining,
 parting, quitting, and renaming that goes on.  You can omit those
 notices using <kbd>C-c C-o</kbd>.
-
-   </p>
-<p><a name="index-rcirc_002domit_002dresponses-190"></a><a name="index-away-notices_002c-how-to-omit-191"></a>You can control which notices get omitted via the
-<code>rcirc-omit-responses</code> variable.  Here's an example of how to
-omit away messages:
-
 </p>
-<pre class="example">     (setq rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY"))
+<a name="index-rcirc_002domit_002dresponses"></a>
+<a name="index-away-notices_002c-how-to-omit"></a>
+<p>You can control which notices get omitted via the
+<code>rcirc-omit-responses</code> variable.  Here’s an example of how to
+omit away messages:
+</p>
+<div class="example">
+<pre class="example">(setq rcirc-omit-responses '("JOIN" "PART" "QUIT" "NICK" "AWAY"))
 </pre>
-   <p><a name="index-rcirc_002domit_002dthreshold-192"></a>Notice that these messages will not be omitted if the nick in question
-has recently been active.  After all, you don't want to continue a
-conversation with somebody who just left.  That's why <code>rcirc</code>
+</div>
+
+<a name="index-rcirc_002domit_002dthreshold"></a>
+<p>Notice that these messages will not be omitted if the nick in question
+has recently been active.  After all, you don’t want to continue a
+conversation with somebody who just left.  That’s why <code>rcirc</code>
 checks recent lines in the buffer to figure out if a nick has been
 active and only omits a message if the nick has not been active.  The
 window <code>rcirc</code> considers is controlled by the
 <code>rcirc-omit-threshold</code> variable.
-
 </p>
-<div class="node"><a name="Hacking-and-Tweaking"></a></div>
-
-<h2 class="chapter">4 Hacking and Tweaking</h2>
-
-<p><a name="index-hacking-and-tweaking-193"></a>
-Here are some examples of stuff you can do to configure <code>rcirc</code>.
-
-</p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>
-</li>
-<li>
-<a accesskey="2" href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a accesskey="3" href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a accesskey="4" href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a accesskey="5" href="#Defining-a-new-command">Defining a new command</a>
-</li>
-<li>
-<a accesskey="6" href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a>
-</li>
-</ul>
-
-<div class="node">
-<a name="Skipping-%2faway-messages-using-handlers"></a><a name="Skipping-_002faway-messages-using-handlers"></a>
+<hr>
+<a name="Hacking-and-Tweaking"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Fighting-Information-Overload" accesskey="p" rel="prev">Fighting Information Overload</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
 </div>
+<a name="Hacking-and-Tweaking-1"></a>
+<h2 class="chapter">4 Hacking and Tweaking</h2>
+<a name="index-hacking-and-tweaking"></a>
 
+<p>Here are some examples of stuff you can do to configure <code>rcirc</code>.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Skipping-_002faway-messages-using-handlers" accesskey="1">Skipping /away messages using handlers</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Using-fly-spell-mode" accesskey="2">Using fly spell mode</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Scrolling-conservatively" accesskey="3">Scrolling conservatively</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Changing-the-time-stamp-format" accesskey="4">Changing the time stamp format</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Defining-a-new-command" accesskey="5">Defining a new command</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Reconnecting-after-you-have-lost-the-connection" accesskey="6">Reconnecting after you have lost the connection</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
+
+<hr>
+<a name="Skipping-_002faway-messages-using-handlers"></a>
+<div class="header">
+<p>
+Next: <a href="#Using-fly-spell-mode" accesskey="n" rel="next">Using fly spell mode</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Skipping-_002faway-messages-using-handlers-1"></a>
 <h3 class="section">4.1 Skipping <code>/away</code> messages using handlers</h3>
+<a name="index-_002faway-messages"></a>
 
-<p><a name="index-g_t_002faway-messages-194"></a>
-<a name="index-handlers-195"></a><a name="index-status-codes-196"></a>The IRC protocol specifies how certain events are signaled from server
+<a name="index-handlers"></a>
+<a name="index-status-codes"></a>
+<p>The IRC protocol specifies how certain events are signaled from server
 to client.  These events have numbers and are dealt with using so-called
 handlers.  You can override existing handlers by exploiting the naming
 convention adopted for <code>rcirc</code>.
-
-   </p>
-<p>Here's how to stop <code>rcirc</code> from printing <code>/away</code> messages. 
-Since <code>rcirc</code> doesn't define a 301 handler, you don't need to
+</p>
+<p>Here’s how to stop <code>rcirc</code> from printing <code>/away</code> messages.
+Since <code>rcirc</code> doesn’t define a 301 handler, you don’t need to
 require <code>rcirc</code> before defining the handler:
-
 </p>
-<pre class="example">     (defun rcirc-handler-301 (process cmd sender args)
-       "/away message handler.")
+<div class="example">
+<pre class="example">(defun rcirc-handler-301 (process cmd sender args)
+  "/away message handler.")
 </pre>
-   <div class="node"><a name="Using-fly-spell-mode"></a></div>
+</div>
 
+<hr>
+<a name="Using-fly-spell-mode"></a>
+<div class="header">
+<p>
+Next: <a href="#Scrolling-conservatively" accesskey="n" rel="next">Scrolling conservatively</a>, Previous: <a href="#Skipping-_002faway-messages-using-handlers" accesskey="p" rel="prev">Skipping /away messages using handlers</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-fly-spell-mode-1"></a>
 <h3 class="section">4.2 Using fly spell mode</h3>
+<a name="index-fly-spell"></a>
+<a name="index-spelling"></a>
+<a name="index-spell_002dchecking-as-you-type"></a>
+<a name="index-automatic-spelling"></a>
+<a name="index-rcirc_002dmode_002dhook-1"></a>
 
-<p><a name="index-fly-spell-197"></a><a name="index-spelling-198"></a><a name="index-spell_002dchecking-as-you-type-199"></a><a name="index-automatic-spelling-200"></a><a name="index-rcirc_002dmode_002dhook-201"></a>
-The following code activates Fly Spell Mode
+<p>The following code activates Fly Spell Mode
 for <code>rcirc</code> buffers:
-
 </p>
-<pre class="example">     (add-hook 'rcirc-mode-hook (lambda ()
-                                  (flyspell-mode 1)))
+<div class="example">
+<pre class="example">(add-hook 'rcirc-mode-hook (lambda ()
+                             (flyspell-mode 1)))
 </pre>
-   <p>See <a href="emacs.html#Spelling">Flyspell mode</a>,
+</div>
+
+<p>See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Spelling">Flyspell mode</a> in <cite>The GNU Emacs Manual</cite>,
 for details.
-
 </p>
-<div class="node"><a name="Scrolling-conservatively"></a></div>
-
+<hr>
+<a name="Scrolling-conservatively"></a>
+<div class="header">
+<p>
+Next: <a href="#Changing-the-time-stamp-format" accesskey="n" rel="next">Changing the time stamp format</a>, Previous: <a href="#Using-fly-spell-mode" accesskey="p" rel="prev">Using fly spell mode</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Scrolling-conservatively-1"></a>
 <h3 class="section">4.3 Scrolling conservatively</h3>
+<a name="index-input-line"></a>
+<a name="index-scrolling"></a>
+<a name="index-scroll_002dconservatively"></a>
+<a name="index-rcirc_002dmode_002dhook-2"></a>
 
-<p><a name="index-input-line-202"></a><a name="index-scrolling-203"></a><a name="index-scroll_002dconservatively-204"></a><a name="index-rcirc_002dmode_002dhook-205"></a>
-IRC buffers are constantly growing.  If you want to see as much as
+<p>IRC buffers are constantly growing.  If you want to see as much as
 possible at all times, you would want the prompt at the bottom of the
 window when possible.  The following snippet uses a local value for
 <code>scroll-conservatively</code> to achieve this:
-
 </p>
-<pre class="example">     (add-hook 'rcirc-mode-hook
-               (lambda ()
-                 (set (make-local-variable 'scroll-conservatively)
-                      8192)))
+<div class="example">
+<pre class="example">(add-hook 'rcirc-mode-hook
+          (lambda ()
+            (set (make-local-variable 'scroll-conservatively)
+                 8192)))
 </pre>
-   <p>See <a href="emacs.html#Scrolling">Scrolling conservatively</a>, for details.
+</div>
 
+<p>See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Scrolling">Scrolling conservatively</a> in <cite>The GNU Emacs
+Manual</cite>, for details.
 </p>
-<div class="node"><a name="Changing-the-time-stamp-format"></a></div>
-
+<hr>
+<a name="Changing-the-time-stamp-format"></a>
+<div class="header">
+<p>
+Next: <a href="#Defining-a-new-command" accesskey="n" rel="next">Defining a new command</a>, Previous: <a href="#Scrolling-conservatively" accesskey="p" rel="prev">Scrolling conservatively</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Changing-the-time-stamp-format-1"></a>
 <h3 class="section">4.4 Changing the time stamp format</h3>
+<a name="index-time-stamp"></a>
+<a name="index-date-time"></a>
+<a name="index-format-time-stamp"></a>
+<a name="index-rcirc_002dtime_002dformat"></a>
 
-<p><a name="index-time-stamp-206"></a><a name="index-date-time-207"></a><a name="index-format-time-stamp-208"></a><a name="index-rcirc_002dtime_002dformat-209"></a>
-<code>rcirc-time-format</code> is the format used for the time stamp.  Here's
+<p><code>rcirc-time-format</code> is the format used for the time stamp.  Here’s
 how to include the date in the time stamp:
-
 </p>
-<pre class="example">     (setq rcirc-time-format "%Y-%m-%d %H:%M ")
+<div class="example">
+<pre class="example">(setq rcirc-time-format "%Y-%m-%d %H:%M ")
 </pre>
-   <div class="node"><a name="Defining-a-new-command"></a></div>
+</div>
 
+<hr>
+<a name="Defining-a-new-command"></a>
+<div class="header">
+<p>
+Next: <a href="#Reconnecting-after-you-have-lost-the-connection" accesskey="n" rel="next">Reconnecting after you have lost the connection</a>, Previous: <a href="#Changing-the-time-stamp-format" accesskey="p" rel="prev">Changing the time stamp format</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Defining-a-new-command-1"></a>
 <h3 class="section">4.5 Defining a new command</h3>
+<a name="index-defining-commands"></a>
+<a name="index-commands_002c-defining"></a>
+<a name="index-new-commands_002c-defining"></a>
 
-<p><a name="index-defining-commands-210"></a><a name="index-commands_002c-defining-211"></a><a name="index-new-commands_002c-defining-212"></a>
-Here's a simple new command, <code>/sv</code>.  With it, you can boast about
+<p>Here’s a simple new command, <code>/sv</code>.  With it, you can boast about
 your IRC client.  It shows how you can use <code>defun-rcirc-command</code> to
 define new commands.
-
-   </p>
-<p>We're waiting for the definition of this command until <code>rcirc</code> is loaded
-because <code>defun-rcirc-command</code> is not yet available, and without
-<code>rcirc</code> loaded, the command wouldn't do us much good anyway.
-
 </p>
-<pre class="smallexample">     (with-eval-after-load 'rcirc
-       (defun-rcirc-command sv (arg)
-         "Boast about rcirc."
-         (interactive "i")
-         (rcirc-send-message process target
-                              (concat "I use " rcirc-id-string))))
+<p>We’re waiting for the definition of this command until <code>rcirc</code> is loaded
+because <code>defun-rcirc-command</code> is not yet available, and without
+<code>rcirc</code> loaded, the command wouldn’t do us much good anyway.
+</p>
+<div class="smallexample">
+<pre class="smallexample">(with-eval-after-load 'rcirc
+  (defun-rcirc-command sv (arg)
+    "Boast about rcirc."
+    (interactive "i")
+    (rcirc-send-message process target
+                         (concat "I use " rcirc-id-string))))
 </pre>
-   <div class="node"><a name="Reconnecting-after-you-have-lost-the-connection"></a></div>
+</div>
 
+<hr>
+<a name="Reconnecting-after-you-have-lost-the-connection"></a>
+<div class="header">
+<p>
+Previous: <a href="#Defining-a-new-command" accesskey="p" rel="prev">Defining a new command</a>, Up: <a href="#Hacking-and-Tweaking" accesskey="u" rel="up">Hacking and Tweaking</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Reconnecting-after-you-have-lost-the-connection-1"></a>
 <h3 class="section">4.6 Reconnecting after you have lost the connection</h3>
+<a name="index-reconnecting"></a>
+<a name="index-disconnecting-servers_002c-reconnecting"></a>
 
-<p><a name="index-reconnecting-213"></a><a name="index-disconnecting-servers_002c-reconnecting-214"></a>
-If you're chatting from a laptop, then you might be familiar with this
+<p>If you’re chatting from a laptop, then you might be familiar with this
 problem: When your laptop falls asleep and wakes up later, your IRC
-client doesn't realize that it has been disconnected.  It takes several
+client doesn’t realize that it has been disconnected.  It takes several
 minutes until the client decides that the connection has in fact been
 lost.  The simple solution is to use <kbd>M-x rcirc</kbd>.  The problem is
-that this opens an <em>additional</em> connection, so you'll have two
+that this opens an <em>additional</em> connection, so you’ll have two
 copies of every channel buffer, one dead and one live.
-
-   </p>
-<p>The real answer, therefore, is a <code>/reconnect</code> command:
-
 </p>
-<pre class="smallexample">     (with-eval-after-load 'rcirc
-       (defun-rcirc-command reconnect (arg)
-         "Reconnect the server process."
-         (interactive "i")
-         (unless process
-           (error "There's no process for this target"))
-         (let* ((server (car (process-contact process)))
-                (port (process-contact process :service))
-                (nick (rcirc-nick process))
-                channels query-buffers)
-           (dolist (buf (buffer-list))
-             (with-current-buffer buf
-               (when (eq process (rcirc-buffer-process))
-                 (remove-hook 'change-major-mode-hook
-                              'rcirc-change-major-mode-hook)
-                 (if (rcirc-channel-p rcirc-target)
-                     (setq channels (cons rcirc-target channels))
-                   (setq query-buffers (cons buf query-buffers))))))
-           (delete-process process)
-           (rcirc-connect server port nick
-                          rcirc-default-user-name
-                          rcirc-default-full-name
-                          channels))))
+<p>The real answer, therefore, is a <code>/reconnect</code> command:
+</p>
+<div class="smallexample">
+<pre class="smallexample">(with-eval-after-load 'rcirc
+  (defun-rcirc-command reconnect (arg)
+    "Reconnect the server process."
+    (interactive "i")
+    (unless process
+      (error "There's no process for this target"))
+    (let* ((server (car (process-contact process)))
+           (port (process-contact process :service))
+           (nick (rcirc-nick process))
+           channels query-buffers)
+      (dolist (buf (buffer-list))
+        (with-current-buffer buf
+          (when (eq process (rcirc-buffer-process))
+            (remove-hook 'change-major-mode-hook
+                         'rcirc-change-major-mode-hook)
+            (if (rcirc-channel-p rcirc-target)
+                (setq channels (cons rcirc-target channels))
+              (setq query-buffers (cons buf query-buffers))))))
+      (delete-process process)
+      (rcirc-connect server port nick
+                     rcirc-default-user-name
+                     rcirc-default-full-name
+                     channels))))
 </pre>
-   <div class="node"><a name="GNU-Free-Documentation-License"></a></div>
+</div>
 
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a href="#Hacking-and-Tweaking" accesskey="p" rel="prev">Hacking and Tweaking</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -1084,12 +1457,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -1098,16 +1470,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -1115,8 +1485,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -1124,14 +1493,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -1141,11 +1508,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -1158,20 +1524,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -1179,20 +1542,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -1201,104 +1562,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -1306,54 +1660,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -1363,84 +1715,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -1451,57 +1794,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1510,749 +1846,2024 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Key-Index"></a></div>
 
+
+<hr>
+<a name="Key-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Key-Index-1"></a>
 <h2 class="unnumbered">Key Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
+<table class="index-ky" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dc"><code>C-c C-c</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dj"><code>C-c C-j</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dl"><code>C-c C-l</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002do"><code>C-c C-o</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dp"><code>C-c C-p</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dq"><code>C-c C-q</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dr"><code>C-c C-r</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dSPC"><code>C-c C-SPC</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dw"><code>C-c C-w</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-C_002dx"><code>C-c C-x</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-RET"><code>C-c RET</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-TAB"><code>C-c TAB</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dh-m"><code>C-h m</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-RET"><code>RET</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-TAB"><code>TAB</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
 
-<ul class="index-ky" compact>
-<li>
-<a href="#index-C_002dc-C_002dc-34"><code>C-c C-c</code></a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dj-58"><code>C-c C-j</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dl-158"><code>C-c C-l</code></a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002do-188"><code>C-c C-o</code></a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dp-64"><code>C-c C-p</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dq-83"><code>C-c C-q</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dr-71"><code>C-c C-r</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dSPC-149"><code>C-c C-SPC</code></a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dw-77"><code>C-c C-w</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-C_002dx-95"><code>C-c C-x</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-RET-91"><code>C-c RET</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-C_002dc-TAB-160"><code>C-c TAB</code></a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-C_002dh-m-42"><code>C-h m</code></a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-RET-31"><code>RET</code></a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-TAB-15"><code>TAB</code></a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-   </ul>
-<div class="node"><a name="Variable-Index"></a></div>
-
+<hr>
+<a name="Variable-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Key-Index" accesskey="p" rel="prev">Key Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variable-Index-1"></a>
 <h2 class="unnumbered">Variable Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-U"><b>U</b></a>
+   
+</td>
+</tr></table>
+<table class="index-vr" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dauthinfo"><code>rcirc-authinfo</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002ddefault_002dfull_002dname"><code>rcirc-default-full-name</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002ddefault_002dnick"><code>rcirc-default-nick</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002ddefault_002dport"><code>rcirc-default-port</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002ddefault_002duser_002dname"><code>rcirc-default-user-name</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dmode_002dhook"><code>rcirc-mode-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dmode_002dhook-1"><code>rcirc-mode-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-fly-spell-mode">Using fly spell mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dmode_002dhook-2"><code>rcirc-mode-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scrolling-conservatively">Scrolling conservatively</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002domit_002dresponses"><code>rcirc-omit-responses</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002domit_002dthreshold"><code>rcirc-omit-threshold</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dserver_002dalist"><code>rcirc-server-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dtime_002dformat"><code>rcirc-time-format</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Changing-the-time-stamp-format">Changing the time stamp format</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc_002dtrack_002dminor_002dmode"><code>rcirc-track-minor-mode</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-scroll_002dconservatively"><code>scroll-conservatively</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scrolling-conservatively">Scrolling conservatively</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-user_002dlogin_002dname"><code>user-login-name</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-U"><b>U</b></a>
+   
+</td>
+</tr></table>
 
-
-
-<ul class="index-vr" compact>
-<li>
-<a href="#index-rcirc_002dauthinfo-131"><code>rcirc-authinfo</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002ddefault_002dfull_002dname-127"><code>rcirc-default-full-name</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002ddefault_002dnick-122"><code>rcirc-default-nick</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002ddefault_002dport-123"><code>rcirc-default-port</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002ddefault_002duser_002dname-125"><code>rcirc-default-user-name</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002dmode_002dhook-156"><code>rcirc-mode-hook</code></a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-rcirc_002dmode_002dhook-205"><code>rcirc-mode-hook</code></a>: <a href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a href="#index-rcirc_002dmode_002dhook-201"><code>rcirc-mode-hook</code></a>: <a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#index-rcirc_002domit_002dresponses-190"><code>rcirc-omit-responses</code></a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-rcirc_002domit_002dthreshold-192"><code>rcirc-omit-threshold</code></a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-rcirc_002dserver_002dalist-115"><code>rcirc-server-alist</code></a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-rcirc_002dtime_002dformat-209"><code>rcirc-time-format</code></a>: <a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a href="#index-rcirc_002dtrack_002dminor_002dmode-150"><code>rcirc-track-minor-mode</code></a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-scroll_002dconservatively-204"><code>scroll-conservatively</code></a>: <a href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a href="#index-user_002dlogin_002dname-26"><code>user-login-name</code></a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-   </ul>
-<div class="node"><a name="Index"></a></div>
-
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="unnumbered">Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>#</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>/</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-3"><b>6</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-J"><b>J</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-O"><b>O</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Y"><b>Y</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-1">#</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0023-starts-a-channel-name"># starts a channel name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-2">/</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002f-starts-a-command">/ starts a command</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002faway">/away</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002faway-messages">/away messages</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fbright">/bright</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fdim">/dim</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fignore">/ignore</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fjoin">/join</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fkeyword">/keyword</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Keywords">Keywords</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fmsg">/msg</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fnick">/nick</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fpart">/part</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fquery">/query</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fquit">/quit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002fwhois">/whois</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-3">6</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-6667_002c-default-IRC-port">6667, default IRC port</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-abbreviated-channel-names">abbreviated channel names</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-active-channel">active channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-addressing-other-people">addressing other people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-AIM">AIM</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-authentication">authentication</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-automatic-spelling">automatic spelling</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-fly-spell-mode">Using fly spell mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-away-notices_002c-how-to-omit">away notices, how to omit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-away-status">away status</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-bitlbee-authentication">bitlbee authentication</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-brighten-nicks">brighten nicks</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-buddies">buddies</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-buddies_002c-highlight">buddies, highlight</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-busy-channels">busy channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-call-commands">call commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-case-insensitive-commands">case insensitive commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-change-name">change name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-changing-nick">changing nick</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channel">channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channel-name">channel name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channels">channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channels-other-people-are-on">channels other people are on</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channels_002c-configuration">channels, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-channels_002c-connecting">channels, connecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-chanserv-authentication">chanserv authentication</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-command-unknown">command unknown</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-commands">commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-commands-1">commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-commands-2">commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-commands_002c-defining">commands, defining</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Defining-a-new-command">Defining a new command</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-communicating">communicating</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-completion-of-nicks">completion of nicks</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-configuring-rcirc">configuring rcirc</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-connecting-to-a-server">connecting to a server</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-connection-end">connection end</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-contact-one-person-only">contact one person only</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-date-time">date time</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Changing-the-time-stamp-format">Changing the time stamp format</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-defining-commands">defining commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Defining-a-new-command">Defining a new command</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-disappearing-messages-if-starting-with-a-slash">disappearing messages if starting with a slash</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-disconnect">disconnect</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-disconnect-from-a-channel">disconnect from a channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-disconnecting-servers_002c-reconnecting">disconnecting servers, reconnecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-discussion_002c-joining">discussion, joining</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-double_002dquotes">double-quotes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-edit-message-before-sending">edit message before sending</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-end-connection">end connection</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-fly-spell">fly spell</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-fly-spell-mode">Using fly spell mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-format-time-stamp">format time stamp</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Changing-the-time-stamp-format">Changing the time stamp format</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Freenode-network">Freenode network</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-friends">friends</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-friends_002c-highlight">friends, highlight</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-full-name">full name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-G">G</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-gateway-to-other-IM-services">gateway to other IM services</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-getting-started">getting started</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-hacking-and-tweaking">hacking and tweaking</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Hacking-and-Tweaking">Hacking and Tweaking</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-handlers">handlers</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-help-about-irc">help about irc</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-hide-some-posts">hide some posts</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-highlight-other-people">highlight other people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ICQ">ICQ</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-identification">identification</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-identifying-people">identifying people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-idiots-online">idiots online</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ignored-channels">ignored channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ignoring-other-people">ignoring other people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-information-overload">information overload</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Fighting-Information-Overload">Fighting Information Overload</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-initial-channels">initial channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-initial-channels_002c-configuration">initial channels, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-initial-servers_002c-configuration">initial servers, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-input-line">input line</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scrolling-conservatively">Scrolling conservatively</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-instant-messaging_002c-comparison">instant messaging, comparison</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-instant-messaging_002c-other-services">instant messaging, other services</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-internet-relay-chat">internet relay chat</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-irc">irc</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-irc-command">irc command</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-irc-commands">irc commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-irc-resources">irc resources</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-J">J</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Jabber">Jabber</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-join-channels">join channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-join-notices_002c-how-to-omit">join notices, how to omit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-K">K</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-keywords">keywords</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Keywords">Keywords</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-kill-channel-buffer">kill channel buffer</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-kill-connection">kill connection</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-leave-a-channel">leave a channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-login">login</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-low-priority-channels">low priority channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-low-priority-channels-1">low priority channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-message-sending">message sending</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-messages-starting-with-a-slash-disappear">messages starting with a slash disappear</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-messages_002c-multiple-lines">messages, multiple lines</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-modeline">modeline</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-modeline-tracks-activity">modeline tracks activity</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-MSN">MSN</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-multiline-messages">multiline messages</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-multiple-words-as-parameters">multiple words as parameters</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-N">N</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-name-changes">name changes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-network">network</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-new-command">new command</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-new-commands_002c-defining">new commands, defining</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Defining-a-new-command">Defining a new command</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nick-changing">nick changing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nick-completion">nick completion</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nick-notices_002c-how-to-omit">nick notices, how to omit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nick_002c-connecting">nick, connecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nicks_002c-highlight">nicks, highlight</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nicks_002c-how-to-ignore">nicks, how to ignore</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nickserv">nickserv</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nickserv-authentication">nickserv authentication</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-O">O</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-obnoxious-people-online">obnoxious people online</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-one_002dto_002done-conversation">one-to-one conversation</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-other-channels">other channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-other-name">other name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-other-people_002c-addressing-them">other people, addressing them</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-part-a-channel">part a channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-part-all-channels">part all channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-part-notices_002c-how-to-omit">part notices, how to omit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-pasting-multiple-lines">pasting multiple lines</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-pause-status">pause status</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-people_002c-how-to-ignore">people, how to ignore</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-port">port</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-port_002c-connecting">port, connecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-private-conversation">private conversation</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-Q">Q</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-query-a-person">query a person</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quit">quit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quit-notices_002c-how-to-omit">quit notices, how to omit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Notices">Notices</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quotes">quotes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rabble-online">rabble online</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rcirc-commands">rcirc commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-real-name">real name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-reason-for-quitting">reason for quitting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-reconnecting">reconnecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-redirection-to-random-servers">redirection to random servers</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-reference">reference</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Reference">Reference</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rename-yourself">rename yourself</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-rooms_002c-joining">rooms, joining</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-scrolling">scrolling</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scrolling-conservatively">Scrolling conservatively</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-server">server</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-server-buffer">server buffer</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-server-buffer-killing">server buffer killing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-server_002c-connecting">server, connecting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-servers_002c-configuration">servers, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-set-away-status">set away status</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-single-message">single message</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-slash-hides-message">slash hides message</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-soft_002dignore-other-people">soft-ignore other people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-spell_002dchecking-as-you-type">spell-checking as you type</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-fly-spell-mode">Using fly spell mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-spelling">spelling</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-fly-spell-mode">Using fly spell mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-starting-a-private-conversation">starting a private conversation</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-startup-channels">startup channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-startup-channels_002c-configuration">startup channels, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-startup-servers_002c-configuration">startup servers, configuration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-status-codes">status codes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-stop-talking-on-a-channel">stop talking on a channel</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-string-delimiters">string delimiters</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-surname">surname</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-switching-channels">switching channels</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-talk-privately">talk privately</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-talk-to-other-people">talk to other people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Internet-Relay-Chat">Internet Relay Chat</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-talking">talking</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-started-with-rcirc">Getting started with rcirc</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time-stamp">time stamp</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Changing-the-time-stamp-format">Changing the time stamp format</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-tracking-activity">tracking activity</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Channels">Channels</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-trolls">trolls</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-trolls_002c-ignoring">trolls, ignoring</a>:</td>
+<td> </td>
+<td valign="top"><a href="#People">People</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-typing-commands">typing commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-unavailable-status">unavailable status</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Useful-IRC-commands">Useful IRC commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-unknown-command">unknown command</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-user-name">user name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-what-channels-people-are-on">what channels people are on</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-who-are-these-people">who are these people</a>:</td>
+<td> </td>
+<td valign="top"><a href="#rcirc-commands">rcirc commands</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-Y">Y</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Yahoo_0021">Yahoo!</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Configuration">Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>#</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>/</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-3"><b>6</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-J"><b>J</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-O"><b>O</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Y"><b>Y</b></a>
+   
+</td>
+</tr></table>
+
+<hr>
 
 
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-g_t_0023-starts-a-channel-name-9"># starts a channel name</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-g_t_002f-starts-a-command-46">/ starts a command</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002faway-107">/away</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-g_t_002faway-messages-194">/away messages</a>: <a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>
-</li>
-<li>
-<a href="#index-g_t_002fbright-172">/bright</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-g_t_002fdim-178">/dim</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-g_t_002fignore-167">/ignore</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-g_t_002fjoin-59">/join</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fkeyword-183">/keyword</a>: <a href="#Keywords">Keywords</a>
-</li>
-<li>
-<a href="#index-g_t_002fmsg-92">/msg</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fnick-72">/nick</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fpart-65">/part</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fquery-84">/query</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fquit-96">/quit</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t_002fwhois-78">/whois</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-g_t6667_002c-default-IRC-port-22">6667, default IRC port</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-abbreviated-channel-names-154">abbreviated channel names</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-active-channel-153">active channel</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-addressing-other-people-10">addressing other people</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-AIM-142">AIM</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-authentication-132">authentication</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-automatic-spelling-200">automatic spelling</a>: <a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#index-away-notices_002c-how-to-omit-191">away notices, how to omit</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-away-status-108">away status</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-bitlbee-authentication-138">bitlbee authentication</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-brighten-nicks-177">brighten nicks</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-buddies-165">buddies</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-buddies_002c-highlight-175">buddies, highlight</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-busy-channels-157">busy channels</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-call-commands-43">call commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-case-insensitive-commands-54">case insensitive commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-change-name-73">change name</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-changing-nick-24">changing nick</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-channel-3">channel</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-channel-name-8">channel name</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-channels-147">channels</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-channels-other-people-are-on-81">channels other people are on</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-channels_002c-configuration-116">channels, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-channels_002c-connecting-27">channels, connecting</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-chanserv-authentication-137">chanserv authentication</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-command-unknown-57">command unknown</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-commands-41">commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-commands-106">commands</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-commands-45">commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-commands_002c-defining-211">commands, defining</a>: <a href="#Defining-a-new-command">Defining a new command</a>
-</li>
-<li>
-<a href="#index-communicating-33">communicating</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-completion-of-nicks-14">completion of nicks</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-configuring-rcirc-114">configuring rcirc</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-connecting-to-a-server-17">connecting to a server</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-connection-end-100">connection end</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-contact-one-person-only-89">contact one person only</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-date-time-207">date time</a>: <a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a href="#index-defining-commands-210">defining commands</a>: <a href="#Defining-a-new-command">Defining a new command</a>
-</li>
-<li>
-<a href="#index-disappearing-messages-if-starting-with-a-slash-48">disappearing messages if starting with a slash</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-disconnect-98">disconnect</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-disconnect-from-a-channel-68">disconnect from a channel</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-disconnecting-servers_002c-reconnecting-214">disconnecting servers, reconnecting</a>: <a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a>
-</li>
-<li>
-<a href="#index-discussion_002c-joining-63">discussion, joining</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-double_002dquotes-53">double-quotes</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-edit-message-before-sending-38">edit message before sending</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-end-connection-102">end connection</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-fly-spell-197">fly spell</a>: <a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#index-format-time-stamp-208">format time stamp</a>: <a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a href="#index-Freenode-network-20">Freenode network</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-friends-164">friends</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-friends_002c-highlight-174">friends, highlight</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-full-name-128">full name</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-gateway-to-other-IM-services-139">gateway to other IM services</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-getting-started-16">getting started</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-hacking-and-tweaking-193">hacking and tweaking</a>: <a href="#Hacking-and-Tweaking">Hacking and Tweaking</a>
-</li>
-<li>
-<a href="#index-handlers-195">handlers</a>: <a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>
-</li>
-<li>
-<a href="#index-help-about-irc-113">help about irc</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-hide-some-posts-170">hide some posts</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-highlight-other-people-173">highlight other people</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-ICQ-143">ICQ</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-identification-133">identification</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-identifying-people-80">identifying people</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-idiots-online-171">idiots online</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-ignored-channels-161">ignored channels</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-ignoring-other-people-168">ignoring other people</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-information-overload-146">information overload</a>: <a href="#Fighting-Information-Overload">Fighting Information Overload</a>
-</li>
-<li>
-<a href="#index-initial-channels-28">initial channels</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-initial-channels_002c-configuration-117">initial channels, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-initial-servers_002c-configuration-120">initial servers, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-input-line-202">input line</a>: <a href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a href="#index-instant-messaging_002c-comparison-4">instant messaging, comparison</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-instant-messaging_002c-other-services-140">instant messaging, other services</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-internet-relay-chat-1">internet relay chat</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-irc-2">irc</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-irc-command-18">irc command</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-irc-commands-105">irc commands</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-irc-resources-112">irc resources</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-Jabber-141">Jabber</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-join-channels-60">join channels</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-join-notices_002c-how-to-omit-185">join notices, how to omit</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-keywords-182">keywords</a>: <a href="#Keywords">Keywords</a>
-</li>
-<li>
-<a href="#index-kill-channel-buffer-70">kill channel buffer</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-kill-connection-99">kill connection</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-leave-a-channel-67">leave a channel</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-login-135">login</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-low-priority-channels-189">low priority channels</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-low-priority-channels-159">low priority channels</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-message-sending-94">message sending</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-messages-starting-with-a-slash-disappear-47">messages starting with a slash disappear</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-messages_002c-multiple-lines-36">messages, multiple lines</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-modeline-148">modeline</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-modeline-tracks-activity-155">modeline tracks activity</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-MSN-144">MSN</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-multiline-messages-35">multiline messages</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-multiple-words-as-parameters-50">multiple words as parameters</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-name-changes-25">name changes</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-network-6">network</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-new-command-55">new command</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-new-commands_002c-defining-212">new commands, defining</a>: <a href="#Defining-a-new-command">Defining a new command</a>
-</li>
-<li>
-<a href="#index-nick-changing-74">nick changing</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-nick-completion-13">nick completion</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-nick-notices_002c-how-to-omit-187">nick notices, how to omit</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-nick_002c-connecting-23">nick, connecting</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-nicks_002c-highlight-176">nicks, highlight</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-nicks_002c-how-to-ignore-163">nicks, how to ignore</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-nickserv-134">nickserv</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-nickserv-authentication-136">nickserv authentication</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-obnoxious-people-online-180">obnoxious people online</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-one_002dto_002done-conversation-86">one-to-one conversation</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-other-channels-61">other channels</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-other-name-76">other name</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-other-people_002c-addressing-them-11">other people, addressing them</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-part-a-channel-66">part a channel</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-part-all-channels-101">part all channels</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-part-notices_002c-how-to-omit-184">part notices, how to omit</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-pasting-multiple-lines-37">pasting multiple lines</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-pause-status-109">pause status</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-people_002c-how-to-ignore-162">people, how to ignore</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-port-124">port</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-port_002c-connecting-21">port, connecting</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-private-conversation-88">private conversation</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-query-a-person-90">query a person</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-quit-97">quit</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-quit-notices_002c-how-to-omit-186">quit notices, how to omit</a>: <a href="#Notices">Notices</a>
-</li>
-<li>
-<a href="#index-quotes-52">quotes</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-rabble-online-181">rabble online</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-rcirc-commands-40">rcirc commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-real-name-129">real name</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-reason-for-quitting-104">reason for quitting</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-reconnecting-213">reconnecting</a>: <a href="#Reconnecting-after-you-have-lost-the-connection">Reconnecting after you have lost the connection</a>
-</li>
-<li>
-<a href="#index-redirection-to-random-servers-7">redirection to random servers</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-reference-39">reference</a>: <a href="#Reference">Reference</a>
-</li>
-<li>
-<a href="#index-rename-yourself-75">rename yourself</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-rooms_002c-joining-62">rooms, joining</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-scrolling-203">scrolling</a>: <a href="#Scrolling-conservatively">Scrolling conservatively</a>
-</li>
-<li>
-<a href="#index-server-5">server</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-server-buffer-30">server buffer</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-server-buffer-killing-103">server buffer killing</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-server_002c-connecting-19">server, connecting</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-servers_002c-configuration-119">servers, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-set-away-status-111">set away status</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-single-message-93">single message</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-slash-hides-message-49">slash hides message</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-soft_002dignore-other-people-179">soft-ignore other people</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-spell_002dchecking-as-you-type-199">spell-checking as you type</a>: <a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#index-spelling-198">spelling</a>: <a href="#Using-fly-spell-mode">Using fly spell mode</a>
-</li>
-<li>
-<a href="#index-starting-a-private-conversation-85">starting a private conversation</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-startup-channels-29">startup channels</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-startup-channels_002c-configuration-118">startup channels, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-startup-servers_002c-configuration-121">startup servers, configuration</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-status-codes-196">status codes</a>: <a href="#Skipping-_002faway-messages-using-handlers">Skipping /away messages using handlers</a>
-</li>
-<li>
-<a href="#index-stop-talking-on-a-channel-69">stop talking on a channel</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-string-delimiters-51">string delimiters</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-surname-130">surname</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-switching-channels-151">switching channels</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-talk-privately-87">talk privately</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-talk-to-other-people-12">talk to other people</a>: <a href="#Internet-Relay-Chat">Internet Relay Chat</a>
-</li>
-<li>
-<a href="#index-talking-32">talking</a>: <a href="#Getting-started-with-rcirc">Getting started with rcirc</a>
-</li>
-<li>
-<a href="#index-time-stamp-206">time stamp</a>: <a href="#Changing-the-time-stamp-format">Changing the time stamp format</a>
-</li>
-<li>
-<a href="#index-tracking-activity-152">tracking activity</a>: <a href="#Channels">Channels</a>
-</li>
-<li>
-<a href="#index-trolls-166">trolls</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-trolls_002c-ignoring-169">trolls, ignoring</a>: <a href="#People">People</a>
-</li>
-<li>
-<a href="#index-typing-commands-44">typing commands</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-unavailable-status-110">unavailable status</a>: <a href="#Useful-IRC-commands">Useful IRC commands</a>
-</li>
-<li>
-<a href="#index-unknown-command-56">unknown command</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-user-name-126">user name</a>: <a href="#Configuration">Configuration</a>
-</li>
-<li>
-<a href="#index-what-channels-people-are-on-82">what channels people are on</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-who-are-these-people-79">who are these people</a>: <a href="#rcirc-commands">rcirc commands</a>
-</li>
-<li>
-<a href="#index-Yahoo_0021-145">Yahoo!</a>: <a href="#Configuration">Configuration</a>
-</li>
-   </ul>
 </body>
 </html>

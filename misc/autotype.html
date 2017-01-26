@@ -1,274 +1,323 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>Features for Automatic Typing</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Features for Automatic Typing">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-Copyright (C) 1994-1995, 1999, 2001-2016
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1994-1995, 1999, 2001-2016
 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Features for Automatic Typing</title>
+
+<meta name="description" content="Features for Automatic Typing">
+<meta name="keywords" content="Features for Automatic Typing">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">Features for Automatic Typing</h1>
+
+<body lang="en">
+<h1 class="settitle" align="center">Features for Automatic Typing</h1>
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
 <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Autotyping</a>
-</li>
-<li>
-<a name="toc_Using-Skeletons" href="#Using-Skeletons">1 Using Skeletons</a>
-</li>
-<li>
-<a name="toc_Wrapping-Skeletons" href="#Wrapping-Skeletons">2 Wrapping Skeletons Around Existing Text</a>
-</li>
-<li>
-<a name="toc_Skeletons-as-Abbrevs" href="#Skeletons-as-Abbrevs">3 Skeletons as Abbrev Expansions</a>
-</li>
-<li>
-<a name="toc_Skeleton-Language" href="#Skeleton-Language">4 Skeleton Language</a>
-</li>
-<li>
-<a name="toc_Inserting-Pairs" href="#Inserting-Pairs">5 Inserting Matching Pairs of Characters</a>
-</li>
-<li>
-<a name="toc_Autoinserting" href="#Autoinserting">6 Autoinserting Text in Empty Files</a>
-</li>
-<li>
-<a name="toc_Copyrights" href="#Copyrights">7 Inserting and Updating Copyrights</a>
-</li>
-<li>
-<a name="toc_Executables" href="#Executables">8 Making Interpreter Scripts Executable</a>
-</li>
-<li>
-<a name="toc_Timestamps" href="#Timestamps">9 Maintaining Timestamps in Modified Files</a>
-</li>
-<li>
-<a name="toc_QuickURL" href="#QuickURL">10 QuickURL: Inserting URLs Based on Text at Point</a>
-</li>
-<li>
-<a name="toc_Tempo" href="#Tempo">11 Tempo: Flexible Template Insertion</a>
-</li>
-<li>
-<a name="toc_Hippie-Expand" href="#Hippie-Expand">12 “Hippie” Expansion</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Concept-Index" href="#Concept-Index">Concept Index</a>
-</li>
-<li>
-<a name="toc_Command-Index" href="#Command-Index">Command Index</a>
-</li>
-<li>
-<a name="toc_Variable-Index" href="#Variable-Index">Variable Index</a>
-</li>
+
+<ul class="no-bullet">
+  <li><a name="toc-Using-Skeletons-1" href="#Using-Skeletons">1 Using Skeletons</a></li>
+  <li><a name="toc-Wrapping-Skeletons-Around-Existing-Text" href="#Wrapping-Skeletons">2 Wrapping Skeletons Around Existing Text</a></li>
+  <li><a name="toc-Skeletons-as-Abbrev-Expansions" href="#Skeletons-as-Abbrevs">3 Skeletons as Abbrev Expansions</a></li>
+  <li><a name="toc-Skeleton-Language-1" href="#Skeleton-Language">4 Skeleton Language</a></li>
+  <li><a name="toc-Inserting-Matching-Pairs-of-Characters" href="#Inserting-Pairs">5 Inserting Matching Pairs of Characters</a></li>
+  <li><a name="toc-Autoinserting-Text-in-Empty-Files" href="#Autoinserting">6 Autoinserting Text in Empty Files</a></li>
+  <li><a name="toc-Inserting-and-Updating-Copyrights" href="#Copyrights">7 Inserting and Updating Copyrights</a></li>
+  <li><a name="toc-Making-Interpreter-Scripts-Executable" href="#Executables">8 Making Interpreter Scripts Executable</a></li>
+  <li><a name="toc-Maintaining-Timestamps-in-Modified-Files" href="#Timestamps">9 Maintaining Timestamps in Modified Files</a></li>
+  <li><a name="toc-QuickURL_003a-Inserting-URLs-Based-on-Text-at-Point" href="#QuickURL">10 QuickURL: Inserting URLs Based on Text at Point</a></li>
+  <li><a name="toc-Tempo_003a-Flexible-Template-Insertion" href="#Tempo">11 Tempo: Flexible Template Insertion</a></li>
+  <li><a name="toc-_0060_0060Hippie_0027_0027-Expansion" href="#Hippie-Expand">12 “Hippie” Expansion</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
+  <li><a name="toc-Command-Index-1" href="#Command-Index">Command Index</a></li>
+  <li><a name="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">Autotyping</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Using-Skeletons" accesskey="n" rel="next">Using Skeletons</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Autotyping"></a>
+<h1 class="top">Autotyping</h1>
 
 <p>Under certain circumstances you will find yourself typing similar things
 over and over again.  This is especially true of form letters and programming
 language constructs.  Project-specific header comments, flow-control
 constructs or magic numbers are essentially the same every time.  Emacs has
 various features for doing tedious and repetitive typing chores for you
-in addition to the Abbrev features (see <a href="emacs.html#Abbrevs">Abbrevs</a>).
-
-   </p>
+in addition to the Abbrev features (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Abbrevs">Abbrevs</a> in <cite>The GNU Emacs Manual</cite>).
+</p>
 <p>One solution is using skeletons, flexible rules that say what to
 insert, and how to do it.  Various programming language modes offer some
 ready-to-use skeletons, and you can adapt them to suit your needs or
 taste, or define new ones.
-
-   </p>
+</p>
 <p>Another feature is automatic insertion of what you want into empty files,
 depending on the file-name or the mode as appropriate.  You can have a file or
 a skeleton inserted, or you can call a function.  Then there is the
 possibility to have Un*x interpreter scripts automatically take on a magic
 number and be executable as soon as they are saved.  Or you can have a
-copyright notice's year updated, if necessary, every time you save a
+copyright notice’s year updated, if necessary, every time you save a
 file.  Similarly for time stamps in the file.
-
-   </p>
+</p>
 <p>URLs can be inserted based on a word at point.  Flexible templates can
 be defined for inserting and navigating between text more generally.  A
 sort of meta-expansion facility can be used to try a set of alternative
 completions and expansions of text at point.
-
-   </p>
+</p>
 <p>Copyright © 1994–1995, 1999, 2001–2016
 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Using-Skeletons">Using Skeletons</a>:         How to insert a skeleton into your text. 
-</li>
-<li>
-<a accesskey="2" href="#Wrapping-Skeletons">Wrapping Skeletons</a>:      Putting existing text within a skeleton. 
-</li>
-<li>
-<a accesskey="3" href="#Skeletons-as-Abbrevs">Skeletons as Abbrevs</a>:    An alternative for issuing skeleton commands. 
-</li>
-<li>
-<a accesskey="4" href="#Skeleton-Language">Skeleton Language</a>:       Making skeleton commands insert what you want. 
-</li>
-<li>
-<a accesskey="5" href="#Inserting-Pairs">Inserting Pairs</a>:         Typing one character and getting another
-                             after point. 
-</li>
-<li>
-<a accesskey="6" href="#Autoinserting">Autoinserting</a>:           Filling up empty files as soon as you visit them. 
-</li>
-<li>
-<a accesskey="7" href="#Copyrights">Copyrights</a>:              Inserting and updating copyrights. 
-</li>
-<li>
-<a accesskey="8" href="#Executables">Executables</a>:             Turning interpreter scripts into executables. 
-</li>
-<li>
-<a accesskey="9" href="#Timestamps">Timestamps</a>:              Updating dates and times in modified files. 
-</li>
-<li>
-<a href="#QuickURL">QuickURL</a>:                Inserting URLs based on text at point. 
-</li>
-<li>
-<a href="#Tempo">Tempo</a>:                   Flexible template insertion. 
-</li>
-<li>
-<a href="#Hippie-Expand">Hippie Expand</a>:           Expansion of text trying various methods.
 
-</li>
-<li>
-<a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
-</li>
-<li>
-<a href="#Concept-Index">Concept Index</a>
-</li>
-<li>
-<a href="#Command-Index">Command Index</a>
-</li>
-<li>
-<a href="#Variable-Index">Variable Index</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Using-Skeletons" accesskey="1">Using Skeletons</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to insert a skeleton into your text.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Wrapping-Skeletons" accesskey="2">Wrapping Skeletons</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Putting existing text within a skeleton.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Skeletons-as-Abbrevs" accesskey="3">Skeletons as Abbrevs</a>:</td>
+<td>  </td>
+<td align="left" valign="top">An alternative for issuing skeleton commands.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Skeleton-Language" accesskey="4">Skeleton Language</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Making skeleton commands insert what you want.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Inserting-Pairs" accesskey="5">Inserting Pairs</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Typing one character and getting another
+                             after point.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Autoinserting" accesskey="6">Autoinserting</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Filling up empty files as soon as you visit them.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Copyrights" accesskey="7">Copyrights</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Inserting and updating copyrights.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Executables" accesskey="8">Executables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Turning interpreter scripts into executables.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Timestamps" accesskey="9">Timestamps</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Updating dates and times in modified files.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#QuickURL">QuickURL</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Inserting URLs based on text at point.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Tempo">Tempo</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Flexible template insertion.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Hippie-Expand">Hippie Expand</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Expansion of text trying various methods.
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-<div class="node"><a name="Using-Skeletons"></a></div>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Concept-Index">Concept Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Command-Index">Command Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Variable-Index">Variable Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+
+<hr>
+<a name="Using-Skeletons"></a>
+<div class="header">
+<p>
+Next: <a href="#Wrapping-Skeletons" accesskey="n" rel="next">Wrapping Skeletons</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Using-Skeletons-1"></a>
 <h2 class="chapter">1 Using Skeletons</h2>
+<a name="index-skeletons"></a>
+<a name="index-using-skeletons"></a>
 
-<p><a name="index-skeletons-1"></a><a name="index-using-skeletons-2"></a>
-  When you want Emacs to insert a form letter or a typical construct of the
+<p>When you want Emacs to insert a form letter or a typical construct of the
 programming language you are using, skeletons are a means of accomplishing
 this.  Normally skeletons each have a command of their own, that, when called,
 will insert the skeleton.  These commands can be issued in the usual ways
-(see <a href="emacs.html#Commands">Commands</a>).  Modes that offer various skeletons will often
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Commands">Commands</a> in <cite>The GNU Emacs Manual</cite>).  Modes that offer various skeletons will often
 bind these to key-sequences on the <kbd>C-c</kbd> prefix, as well as having
 an <cite>Insert</cite> menu and maybe even predefined abbrevs for them
 (see <a href="#Skeletons-as-Abbrevs">Skeletons as Abbrevs</a>).
-
-   </p>
+</p>
 <p>The simplest kind of skeleton will simply insert some text indented
 according to the major mode and leave the cursor at a likely place in the
 middle.  Interactive skeletons may prompt you for a string that will be part
 of the inserted text.
-
-   </p>
+</p>
 <p>Skeletons may ask for input several times.  They even have a looping
 mechanism in which you will be asked for input as long as you are willing to
 furnish it.  An example would be multiple “else if” conditions.  You can
-recognize this situation by a prompt ending in &lt;RET&gt;, <kbd>C-g</kbd>
+recognize this situation by a prompt ending in <tt class="key">RET</tt>, <kbd>C-g</kbd>
 or <kbd>C-h</kbd>.  This
-means that entering an empty string will simply assume that you are finished. 
+means that entering an empty string will simply assume that you are finished.
 Typing quit on the other hand terminates the loop but also the rest of the
 skeleton, e.g., an “else” clause is skipped.  Only a syntactically necessary
 termination still gets inserted.
-
 </p>
-<div class="node"><a name="Wrapping-Skeletons"></a></div>
 
+
+<hr>
+<a name="Wrapping-Skeletons"></a>
+<div class="header">
+<p>
+Next: <a href="#Skeletons-as-Abbrevs" accesskey="n" rel="next">Skeletons as Abbrevs</a>, Previous: <a href="#Using-Skeletons" accesskey="p" rel="prev">Using Skeletons</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Wrapping-Skeletons-Around-Existing-Text"></a>
 <h2 class="chapter">2 Wrapping Skeletons Around Existing Text</h2>
+<a name="index-wrapping-skeletons"></a>
 
-<p><a name="index-wrapping-skeletons-3"></a>
-  Often you will find yourself with some code that for whatever reason
+<p>Often you will find yourself with some code that for whatever reason
 suddenly becomes conditional.  Or you have written a bit of text and want to
 put it in the middle of a form letter.  Skeletons provide a means for
 accomplishing this, and can even, in the case of programming languages,
 reindent the wrapped code for you.
-
-   </p>
+</p>
 <p>Skeleton commands take an optional numeric prefix argument
-(see <a href="emacs.html#Arguments">Arguments</a>).  This is interpreted in two different ways depending
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Arguments">Arguments</a> in <cite>The GNU Emacs Manual</cite>).  This is interpreted in two different ways depending
 on whether the prefix is positive, i.e., forwards oriented, or negative,
 i.e., backwards oriented.
-
-   </p>
+</p>
 <p>A positive prefix means to wrap the skeleton around that many
 following words.  This is accomplished by putting the words there where
-the point is normally left after that skeleton is inserted (see <a href="#Using-Skeletons">Using Skeletons</a>).  The point (see <a href="emacs.html#Point">Point</a>) is left at the next
+the point is normally left after that skeleton is inserted (see <a href="#Using-Skeletons">Using Skeletons</a>).  The point (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Point">Point</a> in <cite>The GNU Emacs Manual</cite>) is left at the next
 interesting spot in the skeleton instead.
-
-   </p>
+</p>
 <p>A negative prefix means to do something similar with that many previously
-marked interregions (see <a href="emacs.html#Mark">Mark</a>).  In the simplest case, if you type
+marked interregions (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Mark">Mark</a> in <cite>The GNU Emacs Manual</cite>).  In the simplest case, if you type
 <kbd>M--</kbd> just before issuing the skeleton command, that will wrap the
 skeleton around the current region, just like a positive argument would have
 wrapped it around a number of words.
-
-   </p>
+</p>
 <p>Smaller negative arguments will wrap that many interregions into successive
-interesting spots within the skeleton, again leaving the point at the next one. 
+interesting spots within the skeleton, again leaving the point at the next one.
 We speak about interregions rather than regions here, because we treat them in
 the order they appear in the buffer, which coincides with successive regions
 only if they were marked in order.
-
-   </p>
+</p>
 <p>That is, if you marked in alphabetical order the points A B C [] (where []
 represents the point) and call a skeleton command with <kbd>M-- 3</kbd>, you will
 wrap the text from A to B into the first interesting spot of the skeleton, the
@@ -276,499 +325,555 @@ text from B to C into the next one, the text from C to the point into the
 third one, and leave the point in the fourth one.  If there are less marks in
 the buffer, or if the skeleton defines less interesting points, the surplus is
 ignored.
-
-   </p>
+</p>
 <p>If, on the other hand, you marked in alphabetical order the points [] A C B,
 and call a skeleton command with <kbd>M-- 3</kbd>, you will wrap the text from
 point to A, then the text from A to C and finally the text from C to B.  This
 is done because the regions overlap and Emacs would be helplessly lost if it
 tried to follow the order in which you marked these points.
-
 </p>
-<div class="node"><a name="Skeletons-as-Abbrevs"></a></div>
 
+
+<hr>
+<a name="Skeletons-as-Abbrevs"></a>
+<div class="header">
+<p>
+Next: <a href="#Skeleton-Language" accesskey="n" rel="next">Skeleton Language</a>, Previous: <a href="#Wrapping-Skeletons" accesskey="p" rel="prev">Wrapping Skeletons</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Skeletons-as-Abbrev-Expansions"></a>
 <h2 class="chapter">3 Skeletons as Abbrev Expansions</h2>
+<a name="index-skeletons-as-abbrevs"></a>
 
-<p><a name="index-skeletons-as-abbrevs-4"></a>
-  Rather than use a key binding for every skeleton command, you can also
-define an abbreviation (see <a href="emacs.html#Defining-Abbrevs">Defining Abbrevs</a>) that will expand
-(see <a href="emacs.html#Expanding-Abbrevs">Expanding Abbrevs</a>) into the skeleton.
-
-   </p>
-<p>Say you want `<samp><span class="samp">ifst</span></samp>' to be an abbreviation for the C language if
-statement.  You will tell Emacs that `<samp><span class="samp">ifst</span></samp>' expands to the empty string
+<p>Rather than use a key binding for every skeleton command, you can also
+define an abbreviation (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Defining-Abbrevs">Defining Abbrevs</a> in <cite>The GNU Emacs Manual</cite>) that will expand
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Expanding-Abbrevs">Expanding Abbrevs</a> in <cite>The GNU Emacs Manual</cite>) into the skeleton.
+</p>
+<p>Say you want ‘<samp>ifst</samp>’ to be an abbreviation for the C language if
+statement.  You will tell Emacs that ‘<samp>ifst</samp>’ expands to the empty string
 and then calls the skeleton command.  In Emacs Lisp you can say something like
 <code>(define-abbrev c-mode-abbrev-table "ifst" "" 'c-if)</code>.  Or you can edit
 the output from <kbd>M-x list-abbrevs</kbd> to make it look like this:
-
 </p>
-<pre class="example">     (c-mode-abbrev-table)
-     "ifst"           0    ""         c-if
+<div class="example">
+<pre class="example">(c-mode-abbrev-table)
+"ifst"           0    ""         c-if
 </pre>
-   <p class="noindent">(Some blank lines of no semantic significance, and other abbrev tables,
+</div>
+
+<p>(Some blank lines of no semantic significance, and other abbrev tables,
 have been omitted.)
-
 </p>
-<div class="node"><a name="Skeleton-Language"></a></div>
 
+
+<hr>
+<a name="Skeleton-Language"></a>
+<div class="header">
+<p>
+Next: <a href="#Inserting-Pairs" accesskey="n" rel="next">Inserting Pairs</a>, Previous: <a href="#Skeletons-as-Abbrevs" accesskey="p" rel="prev">Skeletons as Abbrevs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Skeleton-Language-1"></a>
 <h2 class="chapter">4 Skeleton Language</h2>
+<a name="index-skeleton-language"></a>
 
-<p><a name="index-skeleton-language-5"></a>
-<a name="index-skeleton_002dinsert-6"></a>  Skeletons are an shorthand extension to the Lisp language, where various
+<a name="index-skeleton_002dinsert"></a>
+<p>Skeletons are an shorthand extension to the Lisp language, where various
 atoms directly perform either actions on the current buffer or rudimentary
 flow control mechanisms.  Skeletons are interpreted by the function
 <code>skeleton-insert</code>.
-
-   </p>
+</p>
 <p>A skeleton is a list starting with an interactor, which is usually a
 prompt-string, or <code>nil</code> when not needed, but can also be a Lisp
-expression for complex read functions or for returning some calculated value. 
+expression for complex read functions or for returning some calculated value.
 The rest of the list are any number of elements as described in the following
 table:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt>
-<code>"</code><var>string</var><code>"</code>, <code>?</code><var>c</var>, <code>?\</code><var>c</var>
+<code>"<var>string</var>"</code>, <code>?<var>c</var></code>, <code>?\<var>c</var></code>
 </dt>
 <dd>
-<a name="index-skeleton_002dtransformation-7"></a>Insert string or character.  Literal strings and characters are passed through
-<code>skeleton-transformation</code> when that is non-<code>nil</code>. 
-<br>
+<a name="index-skeleton_002dtransformation"></a>
+<p>Insert string or character.  Literal strings and characters are passed through
+<code>skeleton-transformation</code> when that is non-<code>nil</code>.
+</p>
 </dd>
 <dt><code>?\n</code></dt>
-<dd>
-<!-- ??? something seems very wrong here. -->
-Insert a newline and align under current line, but not if this is the
+<dd><p>Insert a newline and align under current line, but not if this is the
 last element of a skeleton and the newline would be inserted at end of
 line, or this is the first element and the newline would be inserted
 at beginning of line.  Use newline character <code>?\n</code> to prevent
 alignment.  Use <code>"\n"</code> as the first or last string element of a
-skeleton to insert a newline unconditionally. 
-<br>
-</dd>
+skeleton to insert a newline unconditionally.
+</p></dd>
 <dt><code>_</code></dt>
-<dd>Interesting point.  When wrapping skeletons around successive regions, they are
-put at these places.  Point is left at first <code>_</code> where nothing is wrapped. 
-<br>
-</dd>
+<dd><p>Interesting point.  When wrapping skeletons around successive regions, they are
+put at these places.  Point is left at first <code>_</code> where nothing is wrapped.
+</p></dd>
 <dt><code>&gt;</code></dt>
-<dd>Indent line according to major mode.  When following element is <code>_</code>, and
-there is a interregion that will be wrapped here, indent that interregion. 
-<br>
-</dd>
+<dd><p>Indent line according to major mode.  When following element is <code>_</code>, and
+there is a interregion that will be wrapped here, indent that interregion.
+</p></dd>
 <dt><code>&amp;</code></dt>
-<dd>Logical and.  If preceding element moved point, i.e., usually inserted
-something, do following element. 
-<br>
-</dd>
+<dd><p>Logical and.  If preceding element moved point, i.e., usually inserted
+something, do following element.
+</p></dd>
 <dt><code>|</code></dt>
-<dd>Logical xor.  If preceding element didn't move point, i.e., usually inserted
-nothing, do following element. 
-<br>
-</dd>
-<dt>
-<code>-</code><var>number</var>
-</dt>
-<dd>Delete preceding number characters.  Depends on value of
-<code>skeleton-untabify</code>. 
-<br>
-</dd>
+<dd><p>Logical xor.  If preceding element didn’t move point, i.e., usually inserted
+nothing, do following element.
+</p></dd>
+<dt><code>-<var>number</var></code></dt>
+<dd><p>Delete preceding number characters.  Depends on value of
+<code>skeleton-untabify</code>.
+</p></dd>
 <dt>
 <code>()</code> or <code>nil</code>
 </dt>
-<dd>Ignored. 
-<br>
-</dd>
+<dd><p>Ignored.
+</p></dd>
 <dt><var>lisp-expression</var></dt>
-<dd>Evaluated, and the return value is again interpreted as a skeleton element. 
-<br>
-</dd>
+<dd><p>Evaluated, and the return value is again interpreted as a skeleton element.
+</p></dd>
 <dt><code>str</code></dt>
-<dd>A special variable that, when evaluated the first time, usually prompts
-for input according to the skeleton's interactor.  It is then set to the
+<dd><p>A special variable that, when evaluated the first time, usually prompts
+for input according to the skeleton’s interactor.  It is then set to the
 return value resulting from the interactor.  Each subskeleton has its local
-copy of this variable. 
-<br>
-</dd>
+copy of this variable.
+</p></dd>
 <dt>
 <code>v1</code>, <code>v2</code>
 </dt>
-<dd>Skeleton-local user variables. 
-<br>
-</dd>
-<dt>
-<code>'</code><var>expression</var>
-</dt>
-<dd>Evaluate following Lisp expression for its side-effect, but prevent it from
-being interpreted as a skeleton element. 
-<br>
-</dd>
+<dd><p>Skeleton-local user variables.
+</p></dd>
+<dt><code>'<var>expression</var></code></dt>
+<dd><p>Evaluate following Lisp expression for its side-effect, but prevent it from
+being interpreted as a skeleton element.
+</p></dd>
 <dt><var>skeleton</var></dt>
-<dd>Subskeletons are inserted recursively, not once, but as often as the user
+<dd><p>Subskeletons are inserted recursively, not once, but as often as the user
 enters something at the subskeletons interactor.  Thus there must be a
 <code>str</code> in the subskeleton.  They can also be used non-interactively, when
-prompt is a lisp-expression that returns successive list-elements. 
-<br>
-</dd>
+prompt is a lisp-expression that returns successive list-elements.
+</p></dd>
 <dt><code>resume:</code></dt>
-<dd>Ignored.  Execution resumes here if the user quits during skeleton
-interpretation. 
-<br>
-</dd>
+<dd><p>Ignored.  Execution resumes here if the user quits during skeleton
+interpretation.
+</p></dd>
 <dt><code>quit</code></dt>
-<dd>A constant which is non-<code>nil</code> when the <code>resume:</code> section was entered
-because the user quit. 
-</dd>
+<dd><p>A constant which is non-<code>nil</code> when the <code>resume:</code> section was entered
+because the user quit.
+</p></dd>
 </dl>
 
-   <p><a name="index-skeleton_002dfurther_002delements-8"></a>  Some modes also use other skeleton elements they themselves defined.  For
-example in shell script mode's skeletons you will find <code>&lt;</code> which does a
-rigid indentation backwards, or in CC mode's skeletons you find the
+<a name="index-skeleton_002dfurther_002delements"></a>
+<p>Some modes also use other skeleton elements they themselves defined.  For
+example in shell script mode’s skeletons you will find <code>&lt;</code> which does a
+rigid indentation backwards, or in CC mode’s skeletons you find the
 self-inserting elements <code>{</code> and <code>}</code>.  These are defined by the
 buffer-local variable <code>skeleton-further-elements</code> which is a list of
 variables bound while interpreting a skeleton.
-
-   </p>
-<p><a name="index-define_002dskeleton-9"></a>  The macro <code>define-skeleton</code> defines a command for interpreting a
+</p>
+<a name="index-define_002dskeleton"></a>
+<p>The macro <code>define-skeleton</code> defines a command for interpreting a
 skeleton.  The first argument is the command name, the second is a
 documentation string, and the rest is an interactor and any number of skeleton
 elements together forming a skeleton.  This skeleton is assigned to a variable
 of the same name as the command and can thus be overridden from your
-<samp><span class="file">~/.emacs</span></samp> file (see <a href="emacs.html#Init-File">Init File</a>).
-
+<samp>~/.emacs</samp> file (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Init-File">Init File</a> in <cite>The GNU Emacs Manual</cite>).
 </p>
-<div class="node"><a name="Inserting-Pairs"></a></div>
 
+
+<hr>
+<a name="Inserting-Pairs"></a>
+<div class="header">
+<p>
+Next: <a href="#Autoinserting" accesskey="n" rel="next">Autoinserting</a>, Previous: <a href="#Skeleton-Language" accesskey="p" rel="prev">Skeleton Language</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Inserting-Matching-Pairs-of-Characters"></a>
 <h2 class="chapter">5 Inserting Matching Pairs of Characters</h2>
+<a name="index-inserting-pairs"></a>
+<a name="index-pairs"></a>
 
-<p><a name="index-inserting-pairs-10"></a><a name="index-pairs-11"></a>
-  Various characters usually appear in pairs.  When, for example, you insert
+<p>Various characters usually appear in pairs.  When, for example, you insert
 an open parenthesis, no matter whether you are programming or writing prose,
 you will surely enter a closing one later.  By entering both at the same time
 and leaving the cursor in between, Emacs can guarantee you that such
 parentheses are always balanced.  And if you have a non-qwerty keyboard, where
 typing some of the stranger programming language symbols makes you bend your
 fingers backwards, this can be quite relieving too.
-
-   </p>
-<p><a name="index-skeleton_002dpair_002dinsert_002dmaybe-12"></a><a name="index-skeleton_002dpair-13"></a>  This is done by binding the first key (see <a href="emacs.html#Rebinding">Rebinding</a>) of
+</p>
+<a name="index-skeleton_002dpair_002dinsert_002dmaybe"></a>
+<a name="index-skeleton_002dpair"></a>
+<p>This is done by binding the first key (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Rebinding">Rebinding</a> in <cite>The GNU Emacs Manual</cite>) of
 the pair to <code>skeleton-pair-insert-maybe</code> instead of
 <code>self-insert-command</code>.  The “maybe” comes from the fact that
 this at-first surprising behavior is initially turned off.  To enable
-it, you must set <code>skeleton-pair</code> to some non-<code>nil</code> value. 
-And even then, a positive argument (see <a href="emacs.html#Arguments">Arguments</a>) will
+it, you must set <code>skeleton-pair</code> to some non-<code>nil</code> value.
+And even then, a positive argument (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Arguments">Arguments</a> in <cite>The GNU Emacs Manual</cite>) will
 make this key behave like a self-inserting key
-(see <a href="emacs.html#Inserting-Text">Inserting Text</a>).
-
-   </p>
-<p><a name="index-skeleton_002dpair_002don_002dword-14"></a>  While this breaks with the stated intention of always balancing pairs, it
-turns out that one often doesn't want pairing to occur, when the following
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Inserting-Text">Inserting Text</a> in <cite>The GNU Emacs Manual</cite>).
+</p>
+<a name="index-skeleton_002dpair_002don_002dword"></a>
+<p>While this breaks with the stated intention of always balancing pairs, it
+turns out that one often doesn’t want pairing to occur, when the following
 character is part of a word.  If you want pairing to occur even then, set
 <code>skeleton-pair-on-word</code> to some non-<code>nil</code> value.
-
-   </p>
-<p><a name="index-skeleton_002dpair_002dalist-15"></a>  Pairing is possible for all visible characters.  By default the
-parenthesis `<samp><span class="samp">(</span></samp>', the square bracket `<samp><span class="samp">[</span></samp>', the brace
-`<samp><span class="samp">{</span></samp>' and the pointed bracket `<samp><span class="samp">&lt;</span></samp>' all
-pair with the symmetrical character, and the grave accent `<samp><span class="samp">`</span></samp>'
-pairs with the apostrophe `<samp><span class="samp">'</span></samp>'.  All other characters pair
+</p>
+<a name="index-skeleton_002dpair_002dalist"></a>
+<p>Pairing is possible for all visible characters.  By default the
+parenthesis ‘<samp>(</samp>’, the square bracket ‘<samp>[</samp>’, the brace
+‘<samp>{</samp>’ and the pointed bracket ‘<samp>&lt;</samp>’ all
+pair with the symmetrical character, and the grave accent ‘<samp>`</samp>’
+pairs with the apostrophe ‘<samp>'</samp>’.  All other characters pair
 themselves.  This behavior can be modified by the variable
 <code>skeleton-pair-alist</code>.  This is in fact an alist of skeletons
 (see <a href="#Skeleton-Language">Skeleton Language</a>), with the first part of each sublist
 matching the typed character.  This is the position of the interactor,
-but since pairs don't need the <code>str</code> element, this is ignored.
-
-   </p>
+but since pairs don’t need the <code>str</code> element, this is ignored.
+</p>
 <p>Some modes have bound the command <code>skeleton-pair-insert-maybe</code>
 to relevant keys.  These modes also configure the pairs as
-appropriate.  For example, when typing TeX input, you'd expect the
-grave accent (`<samp><span class="samp">`</span></samp>') to pair with the apostrophe (`<samp><span class="samp">'</span></samp>'), while in Shell
+appropriate.  For example, when typing TeX input, you’d expect the
+grave accent (‘<samp>`</samp>’) to pair with the apostrophe (‘<samp>'</samp>’), while in Shell
 script mode it must pair to itself.  They can also inhibit pairing in
 certain contexts.  For example an escaped character stands for itself.
-
 </p>
-<div class="node"><a name="Autoinserting"></a></div>
 
+
+<hr>
+<a name="Autoinserting"></a>
+<div class="header">
+<p>
+Next: <a href="#Copyrights" accesskey="n" rel="next">Copyrights</a>, Previous: <a href="#Inserting-Pairs" accesskey="p" rel="prev">Inserting Pairs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Autoinserting-Text-in-Empty-Files"></a>
 <h2 class="chapter">6 Autoinserting Text in Empty Files</h2>
+<a name="index-autoinserting"></a>
 
-<p><a name="index-autoinserting-16"></a>
-<a name="index-auto_002dinsert-17"></a>  <kbd>M-x auto-insert</kbd> will put some predefined text at the beginning of
+<a name="index-auto_002dinsert"></a>
+<p><kbd>M-x auto-insert</kbd> will put some predefined text at the beginning of
 the buffer.  The main application for this function, as its name suggests,
 is to have it be called automatically every time an empty, and only an
 empty file is visited.  This is accomplished by putting <code>(add-hook
-'find-file-hook 'auto-insert)</code> into your <samp><span class="file">~/.emacs</span></samp> file
-(see <a href="emacs.html#Init-File">Init File</a>).
-
-   </p>
-<p><a name="index-auto_002dinsert_002dalist-18"></a>  What gets inserted, if anything, is determined by the variable
-<code>auto-insert-alist</code>.  The <span class="sc">car</span>s of this list are each either
+'find-file-hook 'auto-insert)</code> into your <samp>~/.emacs</samp> file
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Init-File">Init File</a> in <cite>The GNU Emacs Manual</cite>).
+</p>
+<a name="index-auto_002dinsert_002dalist"></a>
+<p>What gets inserted, if anything, is determined by the variable
+<code>auto-insert-alist</code>.  The <small>CAR</small>s of this list are each either
 a mode name, making an element applicable when a buffer is in that
 mode.  Or they can be a string, which is a regexp matched against the
-buffer's file name.  In that way different kinds of files that have
-the same mode in Emacs can be distinguished.  The <span class="sc">car</span>s may also
+buffer’s file name.  In that way different kinds of files that have
+the same mode in Emacs can be distinguished.  The <small>CAR</small>s may also
 be cons cells consisting of mode name or regexp as above and an
 additional descriptive string.
-
-   </p>
-<p>When a matching element is found, the <span class="sc">cdr</span> says what to do.  It may
+</p>
+<p>When a matching element is found, the <small>CDR</small> says what to do.  It may
 be a string, which is a file name, whose contents are to be inserted, if
 that file is found in the directory <code>auto-insert-directory</code> or under a
 absolute file name.  Or it can be a skeleton (see <a href="#Skeleton-Language">Skeleton Language</a>) to
 be inserted.
-
-   </p>
+</p>
 <p>It can also be a function, which allows doing various things.  The function
 can simply insert some text, indeed, it can be skeleton command (see <a href="#Using-Skeletons">Using Skeletons</a>).  It can be a lambda function which will for example conditionally
 call another function.  Or it can even reset the mode for the buffer. If you
 want to perform several such actions in order, you use a vector, i.e., several
-of the above elements between square brackets (`<samp><span class="samp">[...]</span></samp>').
-
-   </p>
+of the above elements between square brackets (‘<samp>[<span class="roman">…</span>]</samp>’).
+</p>
 <p>By default C and C++ headers insert a definition of a symbol derived from
 the filename to prevent multiple inclusions.  C and C++ sources insert an
 include of the header.  Makefiles insert the file makefile.inc if it exists.
-
-   </p>
+</p>
 <p>TeX and bibTeX mode files insert the file tex-insert.tex if it exists, while
 LaTeX mode files insert a typical <code>\documentclass</code> frame.  Html
 files insert a skeleton with the usual frame.
-
-   </p>
+</p>
 <p>Ada mode files call the Ada header skeleton command.  Emacs lisp
 source files insert the usual header, with a copyright of your
-environment variable <samp><span class="env">$ORGANIZATION</span></samp> or else the FSF, and prompt
-for valid keywords describing the contents.  Files in a <samp><span class="file">bin</span></samp>
+environment variable <code>$ORGANIZATION</code> or else the FSF, and prompt
+for valid keywords describing the contents.  Files in a <samp>bin</samp>
 directory for which Emacs could determine no specialized mode
-(see <a href="emacs.html#Choosing-Modes">Choosing Modes</a>) are set to Shell script mode.
-
-   </p>
-<p><a name="index-define_002dauto_002dinsert-19"></a>  In Lisp (see <a href="emacs.html#Init-File">Init File</a>) you can use the function
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Choosing-Modes">Choosing Modes</a> in <cite>The GNU Emacs Manual</cite>) are set to Shell script mode.
+</p>
+<a name="index-define_002dauto_002dinsert"></a>
+<p>In Lisp (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Init-File">Init File</a> in <cite>The GNU Emacs Manual</cite>) you can use the function
 <code>define-auto-insert</code> to add to or modify
 <code>auto-insert-alist</code>.  See its documentation with <kbd>C-h f
 define-auto-insert</kbd>.
-
-   </p>
-<p><a name="index-auto_002dinsert-20"></a>  The variable <code>auto-insert</code> says what to do when <code>auto-insert</code> is
+</p>
+<a name="index-auto_002dinsert-1"></a>
+<p>The variable <code>auto-insert</code> says what to do when <code>auto-insert</code> is
 called non-interactively, e.g., when a newly found file is empty (see above):
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>nil</code></dt>
-<dd>Do nothing. 
-<br>
-</dd>
+<dd><p>Do nothing.
+</p></dd>
 <dt><code>t</code></dt>
-<dd>Insert something if possible, i.e., there is a matching entry in
-<code>auto-insert-alist</code>. 
-<br>
-</dd>
+<dd><p>Insert something if possible, i.e., there is a matching entry in
+<code>auto-insert-alist</code>.
+</p></dd>
 <dt>other</dt>
-<dd>Insert something if possible, but mark as unmodified. 
-</dd>
+<dd><p>Insert something if possible, but mark as unmodified.
+</p></dd>
 </dl>
 
-   <p><a name="index-auto_002dinsert_002dquery-21"></a>  The variable <code>auto-insert-query</code> controls whether to ask about
+<a name="index-auto_002dinsert_002dquery"></a>
+<p>The variable <code>auto-insert-query</code> controls whether to ask about
 inserting something.  When this is <code>nil</code>, inserting is only done with
 <kbd>M-x auto-insert</kbd>.  When this is <code>function</code>, you are queried
 whenever <code>auto-insert</code> is called as a function, such as when Emacs
 visits an empty file and you have set the above-mentioned hook.  Otherwise
 you are always queried.
-
-   </p>
-<p><a name="index-auto_002dinsert_002dprompt-22"></a>  When querying, the variable <code>auto-insert-prompt</code>'s value is used as a
-prompt for a y-or-n-type question.  If this includes a `<samp><span class="samp">%s</span></samp>' construct,
+</p>
+<a name="index-auto_002dinsert_002dprompt"></a>
+<p>When querying, the variable <code>auto-insert-prompt</code>’s value is used as a
+prompt for a y-or-n-type question.  If this includes a ‘<samp>%s</samp>’ construct,
 that is replaced by what caused the insertion rule to be chosen.  This is
 either a descriptive text, the mode-name of the buffer or the regular
 expression that matched the filename.
-
 </p>
-<div class="node"><a name="Copyrights"></a></div>
 
+
+<hr>
+<a name="Copyrights"></a>
+<div class="header">
+<p>
+Next: <a href="#Executables" accesskey="n" rel="next">Executables</a>, Previous: <a href="#Autoinserting" accesskey="p" rel="prev">Autoinserting</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Inserting-and-Updating-Copyrights"></a>
 <h2 class="chapter">7 Inserting and Updating Copyrights</h2>
+<a name="index-copyrights"></a>
 
-<p><a name="index-copyrights-23"></a>
-<a name="index-copyright-24"></a>  <kbd>M-x copyright</kbd> is a skeleton inserting command, that adds a copyright
+<a name="index-copyright"></a>
+<p><kbd>M-x copyright</kbd> is a skeleton inserting command, that adds a copyright
 notice at the point.  The “by” part is taken from your environment variable
-<samp><span class="env">$ORGANIZATION</span></samp> or if that isn't set you are prompted for it.  If the
-buffer has a comment syntax (see <a href="emacs.html#Comments">Comments</a>), this is inserted as a comment.
-
-   </p>
-<p><a name="index-copyright_002dupdate-25"></a><a name="index-copyright_002dlimit-26"></a><a name="index-copyright_002dcurrent_002dyear-27"></a>  <kbd>M-x copyright-update</kbd> looks for a copyright notice in the first
-<code>copyright-limit</code> characters of the buffer and updates it when necessary. 
+<code>$ORGANIZATION</code> or if that isn’t set you are prompted for it.  If the
+buffer has a comment syntax (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Comments">Comments</a> in <cite>The GNU Emacs Manual</cite>), this is inserted as a comment.
+</p>
+<a name="index-copyright_002dupdate"></a>
+<a name="index-copyright_002dlimit"></a>
+<a name="index-copyright_002dcurrent_002dyear"></a>
+<p><kbd>M-x copyright-update</kbd> looks for a copyright notice in the first
+<code>copyright-limit</code> characters of the buffer and updates it when necessary.
 The current year (variable <code>copyright-current-year</code>) is added to the
-existing ones, in the same format as the preceding year, i.e., 1994, '94 or 94. 
+existing ones, in the same format as the preceding year, i.e., 1994, ’94 or 94.
 If a dash-separated year list up to last year is found, that is extended to
 current year, else the year is added separated by a comma.  Or it replaces
 them when this is called with a prefix argument.  If a header referring to a
-wrong version of the GNU General Public License (see <a href="emacs.html#Copying">Copying</a>) is found,
+wrong version of the GNU General Public License (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Copying">Copying</a> in <cite>The GNU Emacs Manual</cite>) is found,
 that is updated too.
-
-   </p>
+</p>
 <p>An interesting application for this function is to have it be called
 automatically every time a file is saved.  This is accomplished by
 putting <code>(add-hook 'before-save-hook 'copyright-update)</code> into
-your <samp><span class="file">~/.emacs</span></samp> file (see <a href="emacs.html#Init-File">Init File</a>).  Alternative,
-you can do <kbd>M-x customize-variable &lt;RET&gt; before-save-hook
-&lt;RET&gt;</kbd>.  <code>copyright-update</code> is conveniently listed as an
+your <samp>~/.emacs</samp> file (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Init-File">Init File</a> in <cite>The GNU Emacs Manual</cite>).  Alternative,
+you can do <kbd>M-x customize-variable <span class="key">RET</span> before-save-hook
+<span class="key">RET</span></kbd>.  <code>copyright-update</code> is conveniently listed as an
 option in the customization buffer.
-
-   </p>
-<p><a name="index-copyright_002dquery-28"></a>  The variable <code>copyright-query</code> controls whether to update the
+</p>
+<a name="index-copyright_002dquery"></a>
+<p>The variable <code>copyright-query</code> controls whether to update the
 copyright or whether to ask about it.  When this is <code>nil</code> updating is
 only done with <kbd>M-x copyright-update</kbd>.  When this is <code>function</code>
 you are queried whenever <code>copyright-update</code> is called as a function,
 such as in the <code>before-save-hook</code> feature mentioned above.  Otherwise
 you are always queried.
-
 </p>
-<div class="node"><a name="Executables"></a></div>
 
+
+<hr>
+<a name="Executables"></a>
+<div class="header">
+<p>
+Next: <a href="#Timestamps" accesskey="n" rel="next">Timestamps</a>, Previous: <a href="#Copyrights" accesskey="p" rel="prev">Copyrights</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Making-Interpreter-Scripts-Executable"></a>
 <h2 class="chapter">8 Making Interpreter Scripts Executable</h2>
+<a name="index-executables"></a>
 
-<p><a name="index-executables-29"></a>
-<a name="index-executable_002dprefix-30"></a><a name="index-executable_002dchmod-31"></a>  Various interpreter modes such as Shell script mode or AWK mode will
-automatically insert or update the buffer's magic number, a special
+<a name="index-executable_002dprefix"></a>
+<a name="index-executable_002dchmod"></a>
+<p>Various interpreter modes such as Shell script mode or AWK mode will
+automatically insert or update the buffer’s magic number, a special
 comment on the first line that makes the <code>exec</code> systemcall know
 how to execute the script.  To this end the script is automatically
 made executable upon saving, with <code>executable-chmod</code> as argument
 to the system <code>chmod</code> command.  The magic number is prefixed by
 the value of <code>executable-prefix</code>.
-
-   </p>
-<p><a name="index-executable_002dmagicless_002dfile_002dregexp-32"></a>  Any file whose name matches <code>executable-magicless-file-regexp</code> is not
+</p>
+<a name="index-executable_002dmagicless_002dfile_002dregexp"></a>
+<p>Any file whose name matches <code>executable-magicless-file-regexp</code> is not
 furnished with a magic number, nor is it made executable.  This is mainly
 intended for resource files, which are only meant to be read in.
-
-   </p>
-<p><a name="index-executable_002dinsert-33"></a>  The variable <code>executable-insert</code> says what to do when
+</p>
+<a name="index-executable_002dinsert"></a>
+<p>The variable <code>executable-insert</code> says what to do when
 <code>executable-set-magic</code> is called non-interactively, e.g., when file has no
 or the wrong magic number:
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>nil</code></dt>
-<dd>Do nothing. 
-<br>
-</dd>
+<dd><p>Do nothing.
+</p></dd>
 <dt><code>t</code></dt>
-<dd>Insert or update magic number. 
-<br>
-</dd>
+<dd><p>Insert or update magic number.
+</p></dd>
 <dt>other</dt>
-<dd>Insert or update magic number, but mark as unmodified. 
-</dd>
+<dd><p>Insert or update magic number, but mark as unmodified.
+</p></dd>
 </dl>
 
-   <p><a name="index-executable_002dset_002dmagic-34"></a><a name="index-executable_002dquery-35"></a>  The variable <code>executable-query</code> controls whether to ask about
+<a name="index-executable_002dset_002dmagic"></a>
+<a name="index-executable_002dquery"></a>
+<p>The variable <code>executable-query</code> controls whether to ask about
 inserting or updating the magic number.  When this is <code>nil</code> updating
 is only done with <kbd>M-x executable-set-magic</kbd>.  When this is
 <code>function</code> you are queried whenever <code>executable-set-magic</code> is
 called as a function, such as when Emacs puts a buffer in Shell script
 mode.  Otherwise you are always queried.
-
 </p>
-<div class="node"><a name="Timestamps"></a></div>
-
+<hr>
+<a name="Timestamps"></a>
+<div class="header">
+<p>
+Next: <a href="#QuickURL" accesskey="n" rel="next">QuickURL</a>, Previous: <a href="#Executables" accesskey="p" rel="prev">Executables</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Maintaining-Timestamps-in-Modified-Files"></a>
 <h2 class="chapter">9 Maintaining Timestamps in Modified Files</h2>
+<a name="index-timestamps"></a>
 
-<p><a name="index-timestamps-36"></a>
-<a name="index-time_002dstamp-37"></a><a name="index-before_002dsave_002dhook-38"></a>The <code>time-stamp</code> command can be used to update automatically a
-template in a file with a new time stamp every time you save the file. 
+<a name="index-time_002dstamp"></a>
+<a name="index-before_002dsave_002dhook"></a>
+<p>The <code>time-stamp</code> command can be used to update automatically a
+template in a file with a new time stamp every time you save the file.
 Customize the hook <code>before-save-hook</code> to add the function
 <code>time-stamp</code> to arrange this.  It you use Custom to do this,
 then <code>time-stamp</code> is conveniently listed as an option in the
 customization buffer.
-
-   </p>
-<p><a name="index-time_002dstamp_002dactive-39"></a><a name="index-time_002dstamp_002dtoggle_002dactive-40"></a><a name="index-time_002dstamp_002dformat-41"></a><a name="index-time_002dstamp_002dtime_002dzone-42"></a>The time stamp is updated only if the customizable variable
+</p>
+<a name="index-time_002dstamp_002dactive"></a>
+<a name="index-time_002dstamp_002dtoggle_002dactive"></a>
+<a name="index-time_002dstamp_002dformat"></a>
+<a name="index-time_002dstamp_002dtime_002dzone"></a>
+<p>The time stamp is updated only if the customizable variable
 <code>time-stamp-active</code> is on, which it is by default; the command
 <code>time-stamp-toggle-active</code> can be used to toggle it.  The format of
 the time stamp is set by the customizable variables
 <code>time-stamp-format</code> and <code>time-stamp-time-zone</code>.
-
-   </p>
-<p><a name="index-time_002dstamp_002dline_002dlimit-43"></a><a name="index-time_002dstamp_002dstart-44"></a><a name="index-time_002dstamp_002dend-45"></a><a name="index-time_002dstamp_002dcount-46"></a><a name="index-time_002dstamp_002dinserts_002dlines-47"></a>The variables <code>time-stamp-line-limit</code>, <code>time-stamp-start</code>,
+</p>
+<a name="index-time_002dstamp_002dline_002dlimit"></a>
+<a name="index-time_002dstamp_002dstart"></a>
+<a name="index-time_002dstamp_002dend"></a>
+<a name="index-time_002dstamp_002dcount"></a>
+<a name="index-time_002dstamp_002dinserts_002dlines"></a>
+<p>The variables <code>time-stamp-line-limit</code>, <code>time-stamp-start</code>,
 <code>time-stamp-end</code>, <code>time-stamp-count</code>, and
 <code>time-stamp-inserts-lines</code> control finding the template.  Do not
 change these in your init file or you will be incompatible with other
-people's files.  If you must change them, do so only in the local
+people’s files.  If you must change them, do so only in the local
 variables section of the file itself.
-
-   </p>
+</p>
 <p>Normally the template must appear in the first 8 lines of a file and
 look like one of the following:
-
 </p>
-<pre class="example">     Time-stamp: &lt;&gt;
-     Time-stamp: " "
+<div class="example">
+<pre class="example">Time-stamp: &lt;&gt;
+Time-stamp: " "
 </pre>
-   <p>The time stamp is written between the brackets or quotes:
+</div>
 
+<p>The time stamp is written between the brackets or quotes:
 </p>
-<pre class="example">     Time-stamp: &lt;1998-02-18 10:20:51 gildea&gt;
+<div class="example">
+<pre class="example">Time-stamp: &lt;1998-02-18 10:20:51 gildea&gt;
 </pre>
-   <div class="node"><a name="QuickURL"></a></div>
+</div>
 
+<hr>
+<a name="QuickURL"></a>
+<div class="header">
+<p>
+Next: <a href="#Tempo" accesskey="n" rel="next">Tempo</a>, Previous: <a href="#Timestamps" accesskey="p" rel="prev">Timestamps</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="QuickURL_003a-Inserting-URLs-Based-on-Text-at-Point"></a>
 <h2 class="chapter">10 QuickURL: Inserting URLs Based on Text at Point</h2>
 
-<p><a name="index-quickurl_002durl_002dfile-48"></a><a name="index-quickurl-49"></a><a name="index-URLs-50"></a><kbd>M-x quickurl</kbd> can be used to insert a URL into a buffer based on
+<a name="index-quickurl_002durl_002dfile"></a>
+<a name="index-quickurl"></a>
+<a name="index-URLs"></a>
+<p><kbd>M-x quickurl</kbd> can be used to insert a URL into a buffer based on
 the text at point.  The URLs are stored in an external file defined by
 the variable <code>quickurl-url-file</code> as a list of either cons cells of
-the form <code>(</code><var>key</var><code> . </code><var>URL</var><code>)</code> or
-lists of the form <code>(</code><var>key</var> <var>URL</var> <var>comment</var><code>)</code>.  These
+the form <code>(<var>key</var> . <var>URL</var>)</code> or
+lists of the form <code>(<var>key</var> <var>URL</var> <var>comment</var>)</code>.  These
 specify that <kbd>M-x quickurl</kbd> should insert <var>URL</var> if the word
 <var>key</var> is at point, for example:
-
 </p>
-<pre class="example">     (("FSF"      "http://www.fsf.org/" "The Free Software Foundation")
-      ("emacs"  . "http://www.emacs.org/")
-      ("hagbard"  "http://www.hagbard.demon.co.uk" "Hagbard's World"))
+<div class="example">
+<pre class="example">(("FSF"      "http://www.fsf.org/" "The Free Software Foundation")
+ ("emacs"  . "http://www.emacs.org/")
+ ("hagbard"  "http://www.hagbard.demon.co.uk" "Hagbard's World"))
 </pre>
-   <p><a name="index-quickurl_002dadd_002durl-51"></a><a name="index-quickurl_002dlist-52"></a><kbd>M-x quickurl-add-url</kbd> can be used to add a new <var>key</var>/<var>URL</var>
+</div>
+
+<a name="index-quickurl_002dadd_002durl"></a>
+<a name="index-quickurl_002dlist"></a>
+<p><kbd>M-x quickurl-add-url</kbd> can be used to add a new <var>key</var>/<var>URL</var>
 pair.  <kbd>M-x quickurl-list</kbd> provides interactive editing of the URL
 list.
-
 </p>
-<div class="node"><a name="Tempo"></a></div>
-
+<hr>
+<a name="Tempo"></a>
+<div class="header">
+<p>
+Next: <a href="#Hippie-Expand" accesskey="n" rel="next">Hippie Expand</a>, Previous: <a href="#QuickURL" accesskey="p" rel="prev">QuickURL</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Tempo_003a-Flexible-Template-Insertion"></a>
 <h2 class="chapter">11 Tempo: Flexible Template Insertion</h2>
 
-<p><a name="index-templates-53"></a>The Tempo package provides a simple way to define powerful templates, or
+<a name="index-templates"></a>
+<p>The Tempo package provides a simple way to define powerful templates, or
 macros, if you wish.  It is mainly intended for, but not limited to,
 programmers to be used for creating shortcuts for editing
 certain kinds of documents.
-
-   </p>
-<p><a name="index-tempo_002dbackward_002dmark-54"></a><a name="index-tempo_002dforward_002dmark-55"></a>A template is defined as a list of items to be inserted in the current
+</p>
+<a name="index-tempo_002dbackward_002dmark"></a>
+<a name="index-tempo_002dforward_002dmark"></a>
+<p>A template is defined as a list of items to be inserted in the current
 buffer at point.  Some can be simple strings, while others can control
-formatting or define special points of interest in the inserted text. 
+formatting or define special points of interest in the inserted text.
 <kbd>M-x tempo-backward-mark</kbd> and <kbd>M-x tempo-forward-mark</kbd> can be
 used to jump between such points.
-
-   </p>
+</p>
 <p>More flexible templates can be created by including Lisp symbols, which
 will be evaluated as variables, or lists, which will be evaluated
 as Lisp expressions.  Automatic completion of specified tags to expanded
 templates can be provided.
-
-   </p>
-<p><a name="index-tempo_002ddefine_002dtemplate-56"></a>See the documentation for <code>tempo-define-template</code> for the different
+</p>
+<a name="index-tempo_002ddefine_002dtemplate"></a>
+<p>See the documentation for <code>tempo-define-template</code> for the different
 items that can be used to define a tempo template with a command for
 inserting it.
-
-   </p>
-<p>See the commentary in <samp><span class="file">tempo.el</span></samp> for more information on using the
-Tempo package.
-
 </p>
-<div class="node"><a name="Hippie-Expand"></a></div>
-
+<p>See the commentary in <samp>tempo.el</samp> for more information on using the
+Tempo package.
+</p>
+<hr>
+<a name="Hippie-Expand"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Tempo" accesskey="p" rel="prev">Tempo</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t_0060_0060Hippie_0027_0027-Expansion"></a>
 <h2 class="chapter">12 “Hippie” Expansion</h2>
 
-<p><a name="index-hippie_002dexpand-57"></a><a name="index-M_002d_002f-58"></a><a name="index-hippie_002dexpand_002dtry_002dfunctions_002dlist-59"></a><kbd>M-x hippie-expand</kbd> is a single command providing a variety of
+<a name="index-hippie_002dexpand"></a>
+<a name="index-M_002d_002f"></a>
+<a name="index-hippie_002dexpand_002dtry_002dfunctions_002dlist"></a>
+<p><kbd>M-x hippie-expand</kbd> is a single command providing a variety of
 completions and expansions.  Called repeatedly, it tries all possible
 completions in succession.
-
-   </p>
+</p>
 <p>Which ones to try, and in which order, is determined by the contents of
 the customizable option <code>hippie-expand-try-functions-list</code>.  Much
 customization of the expansion behavior can be made by changing the
@@ -776,50 +881,50 @@ order of, removing, or inserting new functions in this list.  Given a
 positive numeric argument, <kbd>M-x hippie-expand</kbd> jumps directly that
 number of functions forward in this list.  Given some other argument (a
 negative argument or just <kbd>C-u</kbd>) it undoes the tried completion.
-
-   </p>
-<p>See the commentary in <samp><span class="file">hippie-exp.el</span></samp> for more information on the
+</p>
+<p>See the commentary in <samp>hippie-exp.el</samp> for more information on the
 possibilities.
-
-   </p>
+</p>
 <p>Typically you would bind <code>hippie-expand</code> to <kbd>M-/</kbd> with
 <code>dabbrev-expand</code>, the standard binding of <kbd>M-/</kbd>, providing one
 of the expansion possibilities.
-
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Hippie-Expand" accesskey="p" rel="prev">Hippie Expand</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -827,12 +932,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -841,16 +945,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -858,8 +960,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -867,14 +968,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -884,11 +983,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -901,20 +999,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -922,20 +1017,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -944,104 +1037,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -1049,54 +1135,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -1106,84 +1190,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -1194,57 +1269,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1253,281 +1321,852 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Concept-Index"></a></div>
 
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Command-Index" accesskey="n" rel="next">Command Index</a>, Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concept-Index-1"></a>
 <h2 class="unnumbered">Concept Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-autoinserting">autoinserting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyrights">copyrights</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executables">executables</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-inserting-pairs">inserting pairs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-pairs">pairs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton-language">skeleton language</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeleton-Language">Skeleton Language</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeletons">skeletons</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-Skeletons">Using Skeletons</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeletons-as-abbrevs">skeletons as abbrevs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeletons-as-Abbrevs">Skeletons as Abbrevs</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-templates">templates</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Tempo">Tempo</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-timestamps">timestamps</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-URLs">URLs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#QuickURL">QuickURL</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-using-skeletons">using skeletons</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Using-Skeletons">Using Skeletons</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-wrapping-skeletons">wrapping skeletons</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Wrapping-Skeletons">Wrapping Skeletons</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-autoinserting-16">autoinserting</a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-copyrights-23">copyrights</a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-executables-29">executables</a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-inserting-pairs-10">inserting pairs</a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-pairs-11">pairs</a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-skeleton-language-5">skeleton language</a>: <a href="#Skeleton-Language">Skeleton Language</a>
-</li>
-<li>
-<a href="#index-skeletons-1">skeletons</a>: <a href="#Using-Skeletons">Using Skeletons</a>
-</li>
-<li>
-<a href="#index-skeletons-as-abbrevs-4">skeletons as abbrevs</a>: <a href="#Skeletons-as-Abbrevs">Skeletons as Abbrevs</a>
-</li>
-<li>
-<a href="#index-templates-53">templates</a>: <a href="#Tempo">Tempo</a>
-</li>
-<li>
-<a href="#index-timestamps-36">timestamps</a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-URLs-50">URLs</a>: <a href="#QuickURL">QuickURL</a>
-</li>
-<li>
-<a href="#index-using-skeletons-2">using skeletons</a>: <a href="#Using-Skeletons">Using Skeletons</a>
-</li>
-<li>
-<a href="#index-wrapping-skeletons-3">wrapping skeletons</a>: <a href="#Wrapping-Skeletons">Wrapping Skeletons</a>
-</li>
-   </ul>
-<div class="node"><a name="Command-Index"></a></div>
-
+<hr>
+<a name="Command-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Command-Index-1"></a>
 <h2 class="unnumbered">Command Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Command-Index_fn_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
+<table class="index-fn" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-auto_002dinsert"><code>auto-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyright"><code>copyright</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyright_002dupdate"><code>copyright-update</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-define_002dauto_002dinsert"><code>define-auto-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-define_002dskeleton"><code>define-skeleton</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeleton-Language">Skeleton Language</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dset_002dmagic"><code>executable-set-magic</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-hippie_002dexpand"><code>hippie-expand</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Hippie-Expand">Hippie Expand</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-Q">Q</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quickurl"><code>quickurl</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#QuickURL">QuickURL</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quickurl_002dadd_002durl"><code>quickurl-add-url</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#QuickURL">QuickURL</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quickurl_002dlist"><code>quickurl-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#QuickURL">QuickURL</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dfurther_002delements"><code>skeleton-further-elements</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeleton-Language">Skeleton Language</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dinsert"><code>skeleton-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeleton-Language">Skeleton Language</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dpair_002dinsert_002dmaybe"><code>skeleton-pair-insert-maybe</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_fn_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-tempo_002dbackward_002dmark"><code>tempo-backward-mark</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Tempo">Tempo</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-tempo_002ddefine_002dtemplate"><code>tempo-define-template</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Tempo">Tempo</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-tempo_002dforward_002dmark"><code>tempo-forward-mark</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Tempo">Tempo</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp"><code>time-stamp</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dtoggle_002dactive"><code>time-stamp-toggle-active</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Command-Index_fn_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Command-Index_fn_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
 
-
-
-<ul class="index-fn" compact>
-<li>
-<a href="#index-auto_002dinsert-17"><code>auto-insert</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-copyright-24"><code>copyright</code></a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-copyright_002dupdate-25"><code>copyright-update</code></a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-define_002dauto_002dinsert-19"><code>define-auto-insert</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-define_002dskeleton-9"><code>define-skeleton</code></a>: <a href="#Skeleton-Language">Skeleton Language</a>
-</li>
-<li>
-<a href="#index-executable_002dset_002dmagic-34"><code>executable-set-magic</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-hippie_002dexpand-57"><code>hippie-expand</code></a>: <a href="#Hippie-Expand">Hippie Expand</a>
-</li>
-<li>
-<a href="#index-quickurl-49"><code>quickurl</code></a>: <a href="#QuickURL">QuickURL</a>
-</li>
-<li>
-<a href="#index-quickurl_002dadd_002durl-51"><code>quickurl-add-url</code></a>: <a href="#QuickURL">QuickURL</a>
-</li>
-<li>
-<a href="#index-quickurl_002dlist-52"><code>quickurl-list</code></a>: <a href="#QuickURL">QuickURL</a>
-</li>
-<li>
-<a href="#index-skeleton_002dfurther_002delements-8"><code>skeleton-further-elements</code></a>: <a href="#Skeleton-Language">Skeleton Language</a>
-</li>
-<li>
-<a href="#index-skeleton_002dinsert-6"><code>skeleton-insert</code></a>: <a href="#Skeleton-Language">Skeleton Language</a>
-</li>
-<li>
-<a href="#index-skeleton_002dpair_002dinsert_002dmaybe-12"><code>skeleton-pair-insert-maybe</code></a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-tempo_002dbackward_002dmark-54"><code>tempo-backward-mark</code></a>: <a href="#Tempo">Tempo</a>
-</li>
-<li>
-<a href="#index-tempo_002ddefine_002dtemplate-56"><code>tempo-define-template</code></a>: <a href="#Tempo">Tempo</a>
-</li>
-<li>
-<a href="#index-tempo_002dforward_002dmark-55"><code>tempo-forward-mark</code></a>: <a href="#Tempo">Tempo</a>
-</li>
-<li>
-<a href="#index-time_002dstamp-37"><code>time-stamp</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dtoggle_002dactive-40"><code>time-stamp-toggle-active</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-   </ul>
-<div class="node"><a name="Variable-Index"></a></div>
-
+<hr>
+<a name="Variable-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Command-Index" accesskey="p" rel="prev">Command Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variable-Index-1"></a>
 <h2 class="unnumbered">Variable Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
+<table class="index-vr" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-auto_002dinsert-1"><code>auto-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-auto_002dinsert_002dalist"><code>auto-insert-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-auto_002dinsert_002dprompt"><code>auto-insert-prompt</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-auto_002dinsert_002dquery"><code>auto-insert-query</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Autoinserting">Autoinserting</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-before_002dsave_002dhook"><code>before-save-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyright_002dcurrent_002dyear"><code>copyright-current-year</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyright_002dlimit"><code>copyright-limit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copyright_002dquery"><code>copyright-query</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copyrights">Copyrights</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dchmod"><code>executable-chmod</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dinsert"><code>executable-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dmagicless_002dfile_002dregexp"><code>executable-magicless-file-regexp</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dprefix"><code>executable-prefix</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-executable_002dquery"><code>executable-query</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Executables">Executables</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-hippie_002dexpand_002dtry_002dfunctions_002dlist"><code>hippie-expand-try-functions-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Hippie-Expand">Hippie Expand</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-Q">Q</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quickurl_002durl_002dfile"><code>quickurl-url-file</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#QuickURL">QuickURL</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dpair"><code>skeleton-pair</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dpair_002dalist"><code>skeleton-pair-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dpair_002don_002dword"><code>skeleton-pair-on-word</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Pairs">Inserting Pairs</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-skeleton_002dtransformation"><code>skeleton-transformation</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Skeleton-Language">Skeleton Language</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dactive"><code>time-stamp-active</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dcount"><code>time-stamp-count</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dend"><code>time-stamp-end</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dformat"><code>time-stamp-format</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dinserts_002dlines"><code>time-stamp-inserts-lines</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dline_002dlimit"><code>time-stamp-line-limit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dstart"><code>time-stamp-start</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-time_002dstamp_002dtime_002dzone"><code>time-stamp-time-zone</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Timestamps">Timestamps</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-T"><b>T</b></a>
+   
+</td>
+</tr></table>
+
+<hr>
 
 
 
-<ul class="index-vr" compact>
-<li>
-<a href="#index-auto_002dinsert-20"><code>auto-insert</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-auto_002dinsert_002dalist-18"><code>auto-insert-alist</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-auto_002dinsert_002dprompt-22"><code>auto-insert-prompt</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-auto_002dinsert_002dquery-21"><code>auto-insert-query</code></a>: <a href="#Autoinserting">Autoinserting</a>
-</li>
-<li>
-<a href="#index-before_002dsave_002dhook-38"><code>before-save-hook</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-copyright_002dcurrent_002dyear-27"><code>copyright-current-year</code></a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-copyright_002dlimit-26"><code>copyright-limit</code></a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-copyright_002dquery-28"><code>copyright-query</code></a>: <a href="#Copyrights">Copyrights</a>
-</li>
-<li>
-<a href="#index-executable_002dchmod-31"><code>executable-chmod</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-executable_002dinsert-33"><code>executable-insert</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-executable_002dmagicless_002dfile_002dregexp-32"><code>executable-magicless-file-regexp</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-executable_002dprefix-30"><code>executable-prefix</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-executable_002dquery-35"><code>executable-query</code></a>: <a href="#Executables">Executables</a>
-</li>
-<li>
-<a href="#index-hippie_002dexpand_002dtry_002dfunctions_002dlist-59"><code>hippie-expand-try-functions-list</code></a>: <a href="#Hippie-Expand">Hippie Expand</a>
-</li>
-<li>
-<a href="#index-quickurl_002durl_002dfile-48"><code>quickurl-url-file</code></a>: <a href="#QuickURL">QuickURL</a>
-</li>
-<li>
-<a href="#index-skeleton_002dpair-13"><code>skeleton-pair</code></a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-skeleton_002dpair_002dalist-15"><code>skeleton-pair-alist</code></a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-skeleton_002dpair_002don_002dword-14"><code>skeleton-pair-on-word</code></a>: <a href="#Inserting-Pairs">Inserting Pairs</a>
-</li>
-<li>
-<a href="#index-skeleton_002dtransformation-7"><code>skeleton-transformation</code></a>: <a href="#Skeleton-Language">Skeleton Language</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dactive-39"><code>time-stamp-active</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dcount-46"><code>time-stamp-count</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dend-45"><code>time-stamp-end</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dformat-41"><code>time-stamp-format</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dinserts_002dlines-47"><code>time-stamp-inserts-lines</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dline_002dlimit-43"><code>time-stamp-line-limit</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dstart-44"><code>time-stamp-start</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-<li>
-<a href="#index-time_002dstamp_002dtime_002dzone-42"><code>time-stamp-time-zone</code></a>: <a href="#Timestamps">Timestamps</a>
-</li>
-   </ul>
 </body>
 </html>

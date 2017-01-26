@@ -1,285 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>Emacs Unified Directory Client (EUDC) Manual</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Emacs Unified Directory Client (EUDC) Manual">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-This file documents EUDC version 1.40.0.
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents EUDC version 1.40.0.
 
 EUDC is the Emacs Unified Directory Client, a common interface to
 directory servers and contact information.
 
 Copyright (C) 1998, 2000-2016 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Emacs Unified Directory Client (EUDC) Manual</title>
+
+<meta name="description" content="Emacs Unified Directory Client (EUDC) Manual">
+<meta name="keywords" content="Emacs Unified Directory Client (EUDC) Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">Emacs Unified Directory Client (EUDC) Manual</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Emacs Unified Directory Client</a>
+
+<body lang="en">
+<h1 class="settitle" align="center">Emacs Unified Directory Client (EUDC) Manual</h1>
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li>
+<a name="toc-Overview-1" href="#Overview">1 Overview</a>
+  <ul class="no-bullet">
+    <li><a name="toc-LDAP-1" href="#LDAP">1.1 LDAP</a></li>
+    <li><a name="toc-BBDB-1" href="#BBDB">1.2 BBDB</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Overview" href="#Overview">1 Overview</a>
-<ul>
-<li>
-<a href="#LDAP">1.1 LDAP</a>
+  <li>
+<a name="toc-Installation-1" href="#Installation">2 Installation</a>
+  <ul class="no-bullet">
+    <li>
+<a name="toc-LDAP-Configuration-1" href="#LDAP-Configuration">2.1 LDAP Configuration</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Emacs_002donly-Configuration-1" href="#Emacs_002donly-Configuration">2.1.1 Emacs-only Configuration</a></li>
+      <li><a name="toc-External-Configuration-1" href="#External-Configuration">2.1.2 External Configuration</a></li>
+      <li><a name="toc-Troubleshooting-1" href="#Troubleshooting">2.1.3 Troubleshooting</a></li>
+    </ul>
 </li>
-<li>
-<a href="#BBDB">1.2 BBDB</a>
+  </ul>
 </li>
-</ul>
+  <li>
+<a name="toc-Usage-1" href="#Usage">3 Usage</a>
+  <ul class="no-bullet">
+    <li>
+<a name="toc-Querying-Servers-1" href="#Querying-Servers">3.1 Querying Servers</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Selecting-a-Server-1" href="#Selecting-a-Server">3.1.1 Selecting a Server</a></li>
+      <li><a name="toc-Return-Attributes-1" href="#Return-Attributes">3.1.2 Return Attributes</a></li>
+      <li><a name="toc-Duplicate-Attributes-1" href="#Duplicate-Attributes">3.1.3 Duplicate Attributes</a></li>
+    </ul>
 </li>
-<li>
-<a name="toc_Installation" href="#Installation">2 Installation</a>
-<ul>
-<li>
-<a href="#LDAP-Configuration">2.1 LDAP Configuration</a>
-<ul>
-<li>
-<a href="#Emacs_002donly-Configuration">2.1.1 Emacs-only Configuration</a>
+    <li><a name="toc-Query-Form-1" href="#Query-Form">3.2 Query Form</a></li>
+    <li><a name="toc-Display-of-Query-Results-1" href="#Display-of-Query-Results">3.3 Display of Query Results</a></li>
+    <li><a name="toc-Inline-Query-Expansion-1" href="#Inline-Query-Expansion">3.4 Inline Query Expansion</a></li>
+    <li>
+<a name="toc-The-Server-Hotlist-1" href="#The-Server-Hotlist">3.5 The Server Hotlist</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-Hotlist-Edit-Buffer-1" href="#The-Hotlist-Edit-Buffer">3.5.1 The Hotlist Edit Buffer</a></li>
+    </ul>
 </li>
-<li>
-<a href="#External-Configuration">2.1.2 External Configuration</a>
+    <li><a name="toc-Multi_002dserver-Queries-1" href="#Multi_002dserver-Queries">3.6 Multi-server Queries</a></li>
+    <li><a name="toc-Creating-BBDB-Records-1" href="#Creating-BBDB-Records">3.7 Creating BBDB Records</a></li>
+    <li>
+<a name="toc-Server_002fProtocol-Locals-1" href="#Server_002fProtocol-Locals">3.8 Server/Protocol Locals</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Manipulating-local-bindings-1" href="#Manipulating-local-bindings">3.8.1 Manipulating local bindings</a></li>
+    </ul>
 </li>
-<li>
-<a href="#Troubleshooting">2.1.3 Troubleshooting</a>
+  </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Usage" href="#Usage">3 Usage</a>
-<ul>
-<li>
-<a href="#Querying-Servers">3.1 Querying Servers</a>
-<ul>
-<li>
-<a href="#Selecting-a-Server">3.1.1 Selecting a Server</a>
-</li>
-<li>
-<a href="#Return-Attributes">3.1.2 Return Attributes</a>
-</li>
-<li>
-<a href="#Duplicate-Attributes">3.1.3 Duplicate Attributes</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Query-Form">3.2 Query Form</a>
-</li>
-<li>
-<a href="#Display-of-Query-Results">3.3 Display of Query Results</a>
-</li>
-<li>
-<a href="#Inline-Query-Expansion">3.4 Inline Query Expansion</a>
-</li>
-<li>
-<a href="#The-Server-Hotlist">3.5 The Server Hotlist</a>
-<ul>
-<li>
-<a href="#The-Hotlist-Edit-Buffer">3.5.1 The Hotlist Edit Buffer</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Multi_002dserver-Queries">3.6 Multi-server Queries</a>
-</li>
-<li>
-<a href="#Creating-BBDB-Records">3.7 Creating BBDB Records</a>
-</li>
-<li>
-<a href="#Server_002fProtocol-Locals">3.8 Server/Protocol Locals</a>
-<ul>
-<li>
-<a href="#Manipulating-local-bindings">3.8.1 Manipulating local bindings</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Credits" href="#Credits">4 Credits</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Index" href="#Index">Index</a>
-</li>
+  <li><a name="toc-Credits-1" href="#Credits">4 Credits</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">Emacs Unified Directory Client</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Emacs-Unified-Directory-Client"></a>
+<h1 class="top">Emacs Unified Directory Client</h1>
 
 <p>This file documents EUDC version 1.40.0.
-
-   </p>
+</p>
 <p>EUDC is the Emacs Unified Directory Client, a common interface to
 directory servers and contact information.
-
-   </p>
+</p>
 <p>Copyright © 1998, 2000–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Overview">Overview</a>:                     Summary of EUDC features
-</li>
-<li>
-<a accesskey="2" href="#Installation">Installation</a>:                 How to install EUDC
-</li>
-<li>
-<a accesskey="3" href="#Usage">Usage</a>:                        The various usage possibilities explained
-</li>
-<li>
-<a accesskey="4" href="#Credits">Credits</a>:                      Who's done what
-</li>
-<li>
-<a accesskey="5" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
-</li>
-<li>
-<a accesskey="6" href="#Index">Index</a>
-</li>
-</ul>
 
-<div class="node"><a name="Overview"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Overview" accesskey="1">Overview</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Summary of EUDC features
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Installation" accesskey="2">Installation</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to install EUDC
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Usage" accesskey="3">Usage</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The various usage possibilities explained
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Credits" accesskey="4">Credits</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Who’s done what
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="5">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index" accesskey="6">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+
+
+
+
+<hr>
+<a name="Overview"></a>
+<div class="header">
+<p>
+Next: <a href="#Installation" accesskey="n" rel="next">Installation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Overview-1"></a>
 <h2 class="chapter">1 Overview</h2>
 
-<p>EUDC, the <dfn>Emacs Unified Directory Client</dfn>, provides a common user
+<p>EUDC, the <em>Emacs Unified Directory Client</em>, provides a common user
 interface to access directory servers using different directory
 protocols.
-
-   </p>
+</p>
 <p>Currently supported back-ends are:
-
-     </p>
+</p>
 <ul>
-<li>LDAP, Lightweight Directory Access Protocol
+<li> LDAP, Lightweight Directory Access Protocol
 </li>
-<li>BBDB, Big Brother's Insidious Database
+<li> BBDB, Big Brother’s Insidious Database
 </li>
 </ul>
 
-   <p>The main features of the EUDC interface are:
-
-     </p>
+<p>The main features of the EUDC interface are:
+</p>
 <ul>
-<li>Queries using a customizable form
+<li> Queries using a customizable form
 </li>
-<li>Inline query expansion (for instance you can expand a name
+<li> Inline query expansion (for instance you can expand a name
 to an email address in a mail message buffer using a server as an
 address book)
 </li>
-<li>Multiple servers can be tried in turn until a match is found for an
+<li> Multiple servers can be tried in turn until a match is found for an
 inline query
 </li>
-<li>Fast minibuffer queries for email addresses and phone numbers
+<li> Fast minibuffer queries for email addresses and phone numbers
 </li>
-<li>Interface to BBDB to let you insert server records into your own BBDB database
-(see <a href="bbdb.html#Top">BBDB</a>)
-</li>
-</ul>
-
-<ul class="menu">
-<li>
-<a accesskey="1" href="#LDAP">LDAP</a>:                         What is LDAP ? 
-</li>
-<li>
-<a accesskey="2" href="#BBDB">BBDB</a>:                         What is BBDB ? 
+<li> Interface to BBDB to let you insert server records into your own BBDB database
+(see <a href="bbdb.html#Top">BBDB</a> in <cite>BBDB Manual</cite>)
 </li>
 </ul>
 
-<div class="node"><a name="LDAP"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#LDAP" accesskey="1">LDAP</a>:</td>
+<td>  </td>
+<td align="left" valign="top">What is LDAP ?
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#BBDB" accesskey="2">BBDB</a>:</td>
+<td>  </td>
+<td align="left" valign="top">What is BBDB ?
+</td>
+</tr>
+</table>
 
+
+
+<hr>
+<a name="LDAP"></a>
+<div class="header">
+<p>
+Next: <a href="#BBDB" accesskey="n" rel="next">BBDB</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="LDAP-1"></a>
 <h3 class="section">1.1 LDAP</h3>
 
-<p>LDAP, <dfn>the Lightweight Directory Access Protocol</dfn>, is a communication
+<p>LDAP, <em>the Lightweight Directory Access Protocol</em>, is a communication
 protocol for directory applications defined in RFC 1777.
-
-   </p>
+</p>
 <p>Quoted from RFC 1777:
-
-   </p>
+</p>
 <blockquote>
-[LDAP] is designed to provide access to the X.500 Directory while not
+<p>[LDAP] is designed to provide access to the X.500 Directory while not
 incurring the resource requirements of the Directory Access Protocol
 (DAP). This protocol is specifically targeted at simple management
 applications and browser applications that provide simple read/write
 interactive access to the X.500 Directory, and is intended to be a
-complement to the DAP itself. 
+complement to the DAP itself.
+</p>
 </blockquote>
 
-   <p>LDAP servers usually store (but are not limited to) information about
+<p>LDAP servers usually store (but are not limited to) information about
 people such as their name, phone number, email address, office
-location, etc<small class="enddots">....</small> More information about LDAP can be found at
+location, etc<small class="enddots">...</small> More information about LDAP can be found at
 <a href="http://www.openldap.org/">http://www.openldap.org/</a>.
-
-   </p>
+</p>
 <p>EUDC requires external support to access LDAP directory servers
 (see <a href="#LDAP-Configuration">LDAP Configuration</a>)
-
 </p>
-<div class="node"><a name="BBDB"></a></div>
 
+<hr>
+<a name="BBDB"></a>
+<div class="header">
+<p>
+Previous: <a href="#LDAP" accesskey="p" rel="prev">LDAP</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="BBDB-1"></a>
 <h3 class="section">1.2 BBDB</h3>
 
-<p>BBDB is the <dfn>Big Brother's Insidious Database</dfn>, a package for Emacs
+<p>BBDB is the <em>Big Brother’s Insidious Database</em>, a package for Emacs
 originally written by Jamie Zawinski which provides rolodex-like
 database functionality featuring tight integration with the Emacs mail
 and news readers.
-
-   </p>
+</p>
 <p>It is often used as an enhanced email address book.
-
-   </p>
+</p>
 <p>EUDC considers BBDB as a directory server back end just like LDAP,
 though BBDB has no client/server protocol and thus always resides
 locally on your machine.  The point in this is not to offer an
@@ -288,444 +318,566 @@ more flexible ways to do that), but rather to offer an interface to
 your local directory that is consistent with the interface to external
 LDAP directories.  This is particularly interesting when performing
 queries on multiple servers.
-
-   </p>
+</p>
 <p>EUDC also offers a means to insert results from directory queries into
 your own local BBDB (see <a href="#Creating-BBDB-Records">Creating BBDB Records</a>)
-
 </p>
-<div class="node"><a name="Installation"></a></div>
-
+<hr>
+<a name="Installation"></a>
+<div class="header">
+<p>
+Next: <a href="#Usage" accesskey="n" rel="next">Usage</a>, Previous: <a href="#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Installation-1"></a>
 <h2 class="chapter">2 Installation</h2>
 
-<p>Add the following to your <samp><span class="file">.emacs</span></samp> init file:
+<p>Add the following to your <samp>.emacs</samp> init file:
 </p>
-<pre class="lisp">     (require 'eudc)
+<div class="lisp">
+<pre class="lisp">(require 'eudc)
 </pre>
-   <p>This will install EUDC at startup.
-
-   </p>
+</div>
+<p>This will install EUDC at startup.
+</p>
 <p>After installing EUDC you will find (the next time you launch Emacs) a
-new <code>Directory Search</code> submenu in the `<samp><span class="samp">Tools</span></samp>' menu that will
+new <code>Directory Search</code> submenu in the ‘<samp>Tools</samp>’ menu that will
 give you access to EUDC.
-
-   </p>
-<p>You may also find it useful to add the following to your <samp><span class="file">.emacs</span></samp>
+</p>
+<p>You may also find it useful to add the following to your <samp>.emacs</samp>
 initialization file to add a shortcut for email address expansion in
 email composition buffers (see <a href="#Inline-Query-Expansion">Inline Query Expansion</a>)
-
 </p>
-<pre class="lisp">     (with-eval-after-load "message"
-       (define-key message-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
-     (with-eval-after-load "sendmail"
-       (define-key mail-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
+<div class="lisp">
+<pre class="lisp">(with-eval-after-load "message"
+  (define-key message-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
+(with-eval-after-load "sendmail"
+  (define-key mail-mode-map [(control ?c) (tab)] 'eudc-expand-inline))
 </pre>
-   <ul class="menu">
-<li>
-<a accesskey="1" href="#LDAP-Configuration">LDAP Configuration</a>:            EUDC needs external support for LDAP
-</li>
-</ul>
+</div>
 
-<div class="node"><a name="LDAP-Configuration"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#LDAP-Configuration" accesskey="1">LDAP Configuration</a>:</td>
+<td>  </td>
+<td align="left" valign="top">EUDC needs external support for LDAP
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="LDAP-Configuration"></a>
+<div class="header">
+<p>
+Up: <a href="#Installation" accesskey="u" rel="up">Installation</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="LDAP-Configuration-1"></a>
 <h3 class="section">2.1 LDAP Configuration</h3>
 
-<p>LDAP support is added by means of <samp><span class="file">ldap.el</span></samp>, which is part of
-Emacs.  <samp><span class="file">ldap.el</span></samp> needs an external program called
-<samp><span class="command">ldapsearch</span></samp>, available as part of OpenLDAP
+<p>LDAP support is added by means of <samp>ldap.el</samp>, which is part of
+Emacs.  <samp>ldap.el</samp> needs an external program called
+<code>ldapsearch</code>, available as part of OpenLDAP
 (<a href="http://www.openldap.org/">http://www.openldap.org/</a>).  The configurations in this section
 were tested with OpenLDAP 2.4.23.
-
-   </p>
+</p>
 <p>Most servers use LDAP-over-SSL these days; the examples here reflect
 that.  The other possibilities are:
-
-   </p>
-<p><a name="index-ldap_002dhost_002dparameters_002dalist-1"></a><a name="index-ldap_002dldapsearch_002dargs-2"></a>
-     </p>
+</p>
+<a name="index-ldap_002dhost_002dparameters_002dalist"></a>
+<a name="index-ldap_002dldapsearch_002dargs"></a>
 <ul>
-<li>Servers that do not require authentication or that do not encrypt
+<li> Servers that do not require authentication or that do not encrypt
 authentication traffic.
 
-     <p>Include <code>auth simple</code> in <code>ldap-host-parameters-alist</code>, which
-causes the <code>-x</code> option to be passed to <samp><span class="command">ldapsearch</span></samp>.
-
-     </p>
+<p>Include <code>auth simple</code> in <code>ldap-host-parameters-alist</code>, which
+causes the <code>-x</code> option to be passed to <code>ldapsearch</code>.
+</p>
 </li>
-<li>Servers that require SASL authentication.
+<li> Servers that require SASL authentication.
 
-     <p>Pass any required extra options to <samp><span class="command">ldapsearch</span></samp> using
-<code>ldap-ldapsearch-args</code>. 
+<p>Pass any required extra options to <code>ldapsearch</code> using
+<code>ldap-ldapsearch-args</code>.
 </p>
 </li>
 </ul>
 
-   <p>The following examples use a base of
+<p>The following examples use a base of
 <code>ou=people,dc=gnu,dc=org</code> and the host name
 <code>ldap.gnu.org</code>, a server that supports LDAP-over-SSL (the
 <code>ldaps</code> protocol, with default port <code>636</code>) and which
 requires authentication by the user <code>emacsuser</code> with password
 <code>s3cr3t</code>.
-
-   </p>
+</p>
 <p>These configurations are meant to be self-contained; that is, each
 provides everything required for sensible TAB-completion of email
 fields.  BBDB lookups are attempted first; if a matching BBDB entry is
 found then EUDC will not attempt any LDAP lookups.
-
-   </p>
+</p>
 <p>Wildcard LDAP lookups are supported using the <code>*</code> character.  For
 example, attempting to TAB-complete the following:
-
 </p>
-<pre class="example">     To: * Smith
+<div class="example">
+<pre class="example">To: * Smith
 </pre>
-   <p class="noindent">will return all LDAP entries with surnames that begin with
-<code>Smith</code>.  In every LDAP query it makes, EUDC implicitly appends
-the wildcard character to the end of the last word.
-
-</p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>:     Configure with <samp><span class="file">.emacs</span></samp>
-</li>
-<li>
-<a accesskey="2" href="#External-Configuration">External Configuration</a>:       Configure with <samp><span class="file">/etc/openldap/ldap.conf</span></samp>
-</li>
-<li>
-<a accesskey="3" href="#Troubleshooting">Troubleshooting</a>:              Debug <samp><span class="command">ldapsearch</span></samp> failures
-</li>
-</ul>
-
-<div class="node">
-<a name="Emacs-only-Configuration"></a><a name="Emacs_002donly-Configuration"></a>
 </div>
 
+<p>will return all LDAP entries with surnames that begin with
+<code>Smith</code>.  In every LDAP query it makes, EUDC implicitly appends
+the wildcard character to the end of the last word.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Emacs_002donly-Configuration" accesskey="1">Emacs-only Configuration</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Configure with <samp>.emacs</samp>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#External-Configuration" accesskey="2">External Configuration</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Configure with <samp>/etc/openldap/ldap.conf</samp>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Troubleshooting" accesskey="3">Troubleshooting</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Debug <code>ldapsearch</code> failures
+</td>
+</tr>
+</table>
+
+<hr>
+<a name="Emacs_002donly-Configuration"></a>
+<div class="header">
+<p>
+Next: <a href="#External-Configuration" accesskey="n" rel="next">External Configuration</a>, Up: <a href="#LDAP-Configuration" accesskey="u" rel="up">LDAP Configuration</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Emacs_002donly-Configuration-1"></a>
 <h4 class="subsection">2.1.1 Emacs-only Configuration</h4>
 
 <p>Emacs can pass most required configuration options via the
-<samp><span class="command">ldapsearch</span></samp> command-line.  One exception is certificate
+<code>ldapsearch</code> command-line.  One exception is certificate
 configuration for LDAP-over-SSL, which must be specified in
-<samp><span class="file">/etc/openldap/ldap.conf</span></samp>.  On systems that provide such
+<samp>/etc/openldap/ldap.conf</samp>.  On systems that provide such
 certificates as part of the <code>OpenLDAP</code> installation, this can be
 as simple as one line:
-
 </p>
-<pre class="example">     TLS_CACERTDIR /etc/openldap/certs
+<div class="example">
+<pre class="example">TLS_CACERTDIR /etc/openldap/certs
 </pre>
-   <p>In <samp><span class="file">.emacs</span></samp>, these expressions suffice to configure EUDC for
+</div>
+
+<p>In <samp>.emacs</samp>, these expressions suffice to configure EUDC for
 LDAP:
-
-   </p>
-<p><a name="index-message_002dmode_002dmap-3"></a><a name="index-eudc_002dexpand_002dinline-4"></a><a name="index-eudc_002dserver_002dhotlist-5"></a><a name="index-ldap_002dhost_002dparameters_002dalist-6"></a>
 </p>
-<pre class="lisp">     (with-eval-after-load "message"
-       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
-     (customize-set-variable 'eudc-server-hotlist
-                             '(("" . bbdb)
-                               ("ldaps://ldap.gnu.org" . ldap)))
-     (customize-set-variable 'ldap-host-parameters-alist
-                             '(("ldaps://ldap.gnu.org"
-                                base "ou=people,dc=gnu,dc=org"
-                                binddn "gnu\\emacsuser"
-                                passwd ldap-password-read)))
+<a name="index-message_002dmode_002dmap"></a>
+<a name="index-eudc_002dexpand_002dinline"></a>
+<a name="index-eudc_002dserver_002dhotlist"></a>
+<a name="index-ldap_002dhost_002dparameters_002dalist-1"></a>
+<div class="lisp">
+<pre class="lisp">(with-eval-after-load "message"
+  (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+(customize-set-variable 'eudc-server-hotlist
+                        '(("" . bbdb)
+                          ("ldaps://ldap.gnu.org" . ldap)))
+(customize-set-variable 'ldap-host-parameters-alist
+                        '(("ldaps://ldap.gnu.org"
+                           base "ou=people,dc=gnu,dc=org"
+                           binddn "gnu\\emacsuser"
+                           passwd ldap-password-read)))
 </pre>
-   <p><a name="index-ldap_002dpassword_002dread-7"></a><a name="index-passwd-8"></a><a name="index-password_002dcache-9"></a><a name="index-password_002dcache_002dexpiry-10"></a><a name="index-password_002dreset-11"></a>Specifying the function <code>ldap-password-read</code> for <code>passwd</code>
+</div>
+
+<a name="index-ldap_002dpassword_002dread"></a>
+<a name="index-passwd"></a>
+<a name="index-password_002dcache"></a>
+<a name="index-password_002dcache_002dexpiry"></a>
+<a name="index-password_002dreset"></a>
+<p>Specifying the function <code>ldap-password-read</code> for <code>passwd</code>
 will cause Emacs to prompt interactively for the password.  The
 password will then be validated and cached, unless
 <code>password-cache</code> is nil.  You can customize
 <code>password-cache-expiry</code> to control the duration for which the
 password is cached.  If you want to clear the cache, call
 <code>password-reset</code>.
-
 </p>
-<div class="node"><a name="External-Configuration"></a></div>
-
+<hr>
+<a name="External-Configuration"></a>
+<div class="header">
+<p>
+Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Emacs_002donly-Configuration" accesskey="p" rel="prev">Emacs-only Configuration</a>, Up: <a href="#LDAP-Configuration" accesskey="u" rel="up">LDAP Configuration</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="External-Configuration-1"></a>
 <h4 class="subsection">2.1.2 External Configuration</h4>
 
 <p>Your system may already be configured for a default LDAP server.  For
-example, <samp><span class="file">/etc/openldap/ldap.conf</span></samp> might contain:
-
+example, <samp>/etc/openldap/ldap.conf</samp> might contain:
 </p>
-<pre class="example">     BASE ou=people,dc=gnu,dc=org
-     URI ldaps://ldap.gnu.org
-     TLS_CACERTDIR /etc/openldap/certs
+<div class="example">
+<pre class="example">BASE ou=people,dc=gnu,dc=org
+URI ldaps://ldap.gnu.org
+TLS_CACERTDIR /etc/openldap/certs
 </pre>
-   <p><a name="index-bind-distinguished-name-12"></a><a name="index-binddn-13"></a>Authentication requires a password, and a <dfn>bind distinguished name
-(binddn)</dfn> representing the user, in this case,
+</div>
+
+<a name="index-bind-distinguished-name"></a>
+<a name="index-binddn"></a>
+<p>Authentication requires a password, and a <em>bind distinguished name
+(binddn)</em> representing the user, in this case,
 <code>gnu\emacsuser</code>.  These can be specified in
-<samp><span class="file">~/.authinfo.gpg</span></samp> with the following line:
-
+<samp>~/.authinfo.gpg</samp> with the following line:
 </p>
-<pre class="example">     machine ldaps://ldap.gnu.org binddn gnu\emacsuser password s3cr3t
+<div class="example">
+<pre class="example">machine ldaps://ldap.gnu.org binddn gnu\emacsuser password s3cr3t
 </pre>
-   <p>Then in the <samp><span class="file">.emacs</span></samp> init file, these expressions suffice to
+</div>
+
+<p>Then in the <samp>.emacs</samp> init file, these expressions suffice to
 configure EUDC for LDAP:
-
-   </p>
-<p><a name="index-message_002dmode_002dmap-14"></a><a name="index-eudc_002dexpand_002dinline-15"></a><a name="index-eudc_002dserver_002dhotlist-16"></a><a name="index-ldap_002dhost_002dparameters_002dalist-17"></a>
 </p>
-<pre class="lisp">     (with-eval-after-load "message"
-       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
-     (customize-set-variable 'eudc-server-hotlist
-                             '(("" . bbdb)
-                               ("ldaps://ldap.gnu.org" . ldap)))
-     (customize-set-variable 'ldap-host-parameters-alist
-                             '(("ldaps://ldap.gnu.org"
-                                auth-source t)))
+<a name="index-message_002dmode_002dmap-1"></a>
+<a name="index-eudc_002dexpand_002dinline-1"></a>
+<a name="index-eudc_002dserver_002dhotlist-1"></a>
+<a name="index-ldap_002dhost_002dparameters_002dalist-2"></a>
+<div class="lisp">
+<pre class="lisp">(with-eval-after-load "message"
+  (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+(customize-set-variable 'eudc-server-hotlist
+                        '(("" . bbdb)
+                          ("ldaps://ldap.gnu.org" . ldap)))
+(customize-set-variable 'ldap-host-parameters-alist
+                        '(("ldaps://ldap.gnu.org"
+                           auth-source t)))
 </pre>
-   <p>For this example where we only care about one server, the server name
-can be omitted in <samp><span class="file">~/.authinfo.gpg</span></samp> and <samp><span class="file">.emacs</span></samp>, in which
-case <samp><span class="command">ldapsearch</span></samp> defaults to the host name in
-<samp><span class="file">/etc/openldap/ldap.conf</span></samp>.
+</div>
 
-   </p>
-<p>The <samp><span class="file">~/.authinfo.gpg</span></samp> line becomes:
-
+<p>For this example where we only care about one server, the server name
+can be omitted in <samp>~/.authinfo.gpg</samp> and <samp>.emacs</samp>, in which
+case <code>ldapsearch</code> defaults to the host name in
+<samp>/etc/openldap/ldap.conf</samp>.
 </p>
-<pre class="example">     binddn gnu\emacsuser password s3cr3t
-</pre>
-   <p class="noindent">and the <samp><span class="file">.emacs</span></samp> expressions become:
-
-   </p>
-<p><a name="index-message_002dmode_002dmap-18"></a><a name="index-eudc_002dexpand_002dinline-19"></a><a name="index-eudc_002dserver_002dhotlist-20"></a><a name="index-ldap_002dhost_002dparameters_002dalist-21"></a>
+<p>The <samp>~/.authinfo.gpg</samp> line becomes:
 </p>
-<pre class="lisp">     (with-eval-after-load "message"
-       (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
-     (customize-set-variable 'eudc-server-hotlist
-                             '(("" . bbdb) ("" . ldap)))
-     (customize-set-variable 'ldap-host-parameters-alist
-                             '(("" auth-source t)))
+<div class="example">
+<pre class="example">binddn gnu\emacsuser password s3cr3t
 </pre>
-   <div class="node"><a name="Troubleshooting"></a></div>
+</div>
 
+<p>and the <samp>.emacs</samp> expressions become:
+</p>
+<a name="index-message_002dmode_002dmap-2"></a>
+<a name="index-eudc_002dexpand_002dinline-2"></a>
+<a name="index-eudc_002dserver_002dhotlist-2"></a>
+<a name="index-ldap_002dhost_002dparameters_002dalist-3"></a>
+<div class="lisp">
+<pre class="lisp">(with-eval-after-load "message"
+  (define-key message-mode-map (kbd "TAB") 'eudc-expand-inline))
+(customize-set-variable 'eudc-server-hotlist
+                        '(("" . bbdb) ("" . ldap)))
+(customize-set-variable 'ldap-host-parameters-alist
+                        '(("" auth-source t)))
+</pre>
+</div>
+
+<hr>
+<a name="Troubleshooting"></a>
+<div class="header">
+<p>
+Previous: <a href="#External-Configuration" accesskey="p" rel="prev">External Configuration</a>, Up: <a href="#LDAP-Configuration" accesskey="u" rel="up">LDAP Configuration</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Troubleshooting-1"></a>
 <h4 class="subsection">2.1.3 Troubleshooting</h4>
 
-<p>If <samp><span class="command">ldapsearch</span></samp> exits with an error, you'll see a message like
+<p>If <code>ldapsearch</code> exits with an error, you’ll see a message like
 this in the <code>*Messages*</code> buffer (all on one line):
-
 </p>
-<pre class="example">     ldap-search-internal: Failed ldapsearch invocation:
-        ldapsearch "-Hldaps://ldap.gnu.org" "-bou=people,dc=gnu,dc=org"
-        "-Dgnu\emacsuser" "-W" "-LL" "-tt" "(&amp;(mail=name*))"
-        "givenname" "sn" "mail"
+<div class="example">
+<pre class="example">ldap-search-internal: Failed ldapsearch invocation:
+   ldapsearch "-Hldaps://ldap.gnu.org" "-bou=people,dc=gnu,dc=org"
+   "-Dgnu\emacsuser" "-W" "-LL" "-tt" "(&amp;(mail=name*))"
+   "givenname" "sn" "mail"
 </pre>
-   <p>The <samp><span class="command">ldapsearch</span></samp> command is formatted such that it can be
-copied and pasted into a terminal.  Set the <samp><span class="command">ldapsearch</span></samp> debug
+</div>
+
+<p>The <code>ldapsearch</code> command is formatted such that it can be
+copied and pasted into a terminal.  Set the <code>ldapsearch</code> debug
 level to 5 by appending <code>-d 5</code> to the command line.
-
 </p>
-<div class="node"><a name="Usage"></a></div>
-
+<hr>
+<a name="Usage"></a>
+<div class="header">
+<p>
+Next: <a href="#Credits" accesskey="n" rel="next">Credits</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Usage-1"></a>
 <h2 class="chapter">3 Usage</h2>
 
 <p>This chapter describes the usage of EUDC.  Most functions and
-customization options are available through the `<samp><span class="samp">Directory Search</span></samp>'
-submenu of the `<samp><span class="samp">Tools</span></samp>' submenu.
-
+customization options are available through the ‘<samp>Directory Search</samp>’
+submenu of the ‘<samp>Tools</samp>’ submenu.
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Querying-Servers">Querying Servers</a>:             How queries are performed and handled
-</li>
-<li>
-<a accesskey="2" href="#Query-Form">Query Form</a>:                   How to use and customize the query form
-</li>
-<li>
-<a accesskey="3" href="#Display-of-Query-Results">Display of Query Results</a>:     Controlling how query results are presented
-</li>
-<li>
-<a accesskey="4" href="#Inline-Query-Expansion">Inline Query Expansion</a>:       How to use and customize inline queries
-</li>
-<li>
-<a accesskey="5" href="#The-Server-Hotlist">The Server Hotlist</a>:           How to use and manage the server hotlist
-</li>
-<li>
-<a accesskey="6" href="#Multi_002dserver-Queries">Multi-server Queries</a>:         How to query multiple servers successively
-</li>
-<li>
-<a accesskey="7" href="#Creating-BBDB-Records">Creating BBDB Records</a>:        How to insert query results into your BBDB
-</li>
-<li>
-<a accesskey="8" href="#Server_002fProtocol-Locals">Server/Protocol Locals</a>:       Customizing on a per server/protocol basis
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Querying-Servers" accesskey="1">Querying Servers</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How queries are performed and handled
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Query-Form" accesskey="2">Query Form</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to use and customize the query form
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Display-of-Query-Results" accesskey="3">Display of Query Results</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Controlling how query results are presented
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Inline-Query-Expansion" accesskey="4">Inline Query Expansion</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to use and customize inline queries
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#The-Server-Hotlist" accesskey="5">The Server Hotlist</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to use and manage the server hotlist
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Multi_002dserver-Queries" accesskey="6">Multi-server Queries</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to query multiple servers successively
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Creating-BBDB-Records" accesskey="7">Creating BBDB Records</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to insert query results into your BBDB
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Server_002fProtocol-Locals" accesskey="8">Server/Protocol Locals</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Customizing on a per server/protocol basis
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Querying-Servers"></a></div>
 
+<hr>
+<a name="Querying-Servers"></a>
+<div class="header">
+<p>
+Next: <a href="#Query-Form" accesskey="n" rel="next">Query Form</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Querying-Servers-1"></a>
 <h3 class="section">3.1 Querying Servers</h3>
 
-<p>EUDC's basic functionality is to let you query a directory server and
+<p>EUDC’s basic functionality is to let you query a directory server and
 return the results back to you.  There are several things you may want
 to customize in this process.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Selecting-a-Server">Selecting a Server</a>:           The first thing to do
-</li>
-<li>
-<a accesskey="2" href="#Return-Attributes">Return Attributes</a>:            Configuring what the server should return
-</li>
-<li>
-<a accesskey="3" href="#Duplicate-Attributes">Duplicate Attributes</a>:         What to do when records have duplicate attributes
-</li>
-</ul>
 
-<div class="node"><a name="Selecting-a-Server"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Selecting-a-Server" accesskey="1">Selecting a Server</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The first thing to do
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Return-Attributes" accesskey="2">Return Attributes</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Configuring what the server should return
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Duplicate-Attributes" accesskey="3">Duplicate Attributes</a>:</td>
+<td>  </td>
+<td align="left" valign="top">What to do when records have duplicate attributes
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Selecting-a-Server"></a>
+<div class="header">
+<p>
+Next: <a href="#Return-Attributes" accesskey="n" rel="next">Return Attributes</a>, Up: <a href="#Querying-Servers" accesskey="u" rel="up">Querying Servers</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Selecting-a-Server-1"></a>
 <h4 class="subsection">3.1.1 Selecting a Server</h4>
 
 <p>Before doing any query you will need to set the directory server.  You
 need to specify the name of the host machine running the server software
 and the protocol to use. If you do not set the server in any fashion,
 EUDC will ask you for one when you make your first query.
-
-   </p>
+</p>
 <p>You can set the server by selecting one from your hotlist of servers
-(see <a href="#The-Server-Hotlist">The Server Hotlist</a>) available in the `<samp><span class="samp">Server</span></samp>' submenu or
-by selecting `<samp><span class="samp">New Server</span></samp>' in that same menu.
-
-   </p>
+(see <a href="#The-Server-Hotlist">The Server Hotlist</a>) available in the ‘<samp>Server</samp>’ submenu or
+by selecting ‘<samp>New Server</samp>’ in that same menu.
+</p>
 <p>LDAP servers generally require some configuration before you can perform
-queries on them.  In particular, the <dfn>search base</dfn> must be
+queries on them.  In particular, the <em>search base</em> must be
 configured.  If the server you select has no configured search base then
 EUDC will propose you to configure it at this point.  A customization
 buffer will be displayed where you can edit the search base and other
 parameters for the server.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-server</b><var><a name="index-eudc_002dserver-22"></a></var><br>
-<blockquote><p>The name or IP address of the remote directory server. A TCP port number
+<dl>
+<dt>
+<a name="index-eudc_002dserver"></a>Variable: <strong>eudc-server</strong>
+</dt>
+<dd><p>The name or IP address of the remote directory server. A TCP port number
 may be specified by appending a colon and a number to the name of the
 server. You will not need this unless your server runs on a port other
-than the default (which depends on the protocol). 
+than the default (which depends on the protocol).
 If the directory server resides on your own computer (which is the case
-if you use the BBDB back end) then `<samp><span class="samp">localhost</span></samp>' is a reasonable value but
-it will be ignored anyway. 
-</p></blockquote>
+if you use the BBDB back end) then ‘<samp>localhost</samp>’ is a reasonable value but
+it will be ignored anyway.
+</p></dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-eudc_002dprotocol"></a>Variable: <strong>eudc-protocol</strong>
+</dt>
+<dd><p>The directory protocol to use to query the server.  Currently supported
+protocols in this version of EUDC are <code>ldap</code> and <code>bbdb</code>.
+</p></dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-eudc_002dset_002dserver"></a>Command: <strong>eudc-set-server</strong>
+</dt>
+<dd><p>This command accessible from ‘<samp>New Server</samp>’ submenu lets you specify a
+new directory server and protocol.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Return-Attributes"></a>
+<div class="header">
+<p>
+Next: <a href="#Duplicate-Attributes" accesskey="n" rel="next">Duplicate Attributes</a>, Previous: <a href="#Selecting-a-Server" accesskey="p" rel="prev">Selecting a Server</a>, Up: <a href="#Querying-Servers" accesskey="u" rel="up">Querying Servers</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="defun">
-— Variable: <b>eudc-protocol</b><var><a name="index-eudc_002dprotocol-23"></a></var><br>
-<blockquote><p>The directory protocol to use to query the server.  Currently supported
-protocols in this version of EUDC are <code>ldap</code> and <code>bbdb</code>. 
-</p></blockquote>
-</div>
-
-<div class="defun">
-— Command: <b>eudc-set-server</b><var><a name="index-eudc_002dset_002dserver-24"></a></var><br>
-<blockquote><p>This command accessible from `<samp><span class="samp">New Server</span></samp>' submenu lets you specify a
-new directory server and protocol. 
-</p></blockquote>
-</div>
-
-<div class="node"><a name="Return-Attributes"></a></div>
-
+<a name="Return-Attributes-1"></a>
 <h4 class="subsection">3.1.2 Return Attributes</h4>
 
 <p>Directory servers may be configured to return a default set of
-attributes for each record matching a query if the query specifies none. 
+attributes for each record matching a query if the query specifies none.
 The variable <code>eudc-default-return-attributes</code> controls the return
 attributes you want to see, if different from the server defaults.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-default-return-attributes</b><var><a name="index-eudc_002ddefault_002dreturn_002dattributes-25"></a></var><br>
-<blockquote><p>A list of the default attributes to extract from directory entries.  If
+<dl>
+<dt>
+<a name="index-eudc_002ddefault_002dreturn_002dattributes"></a>Variable: <strong>eudc-default-return-attributes</strong>
+</dt>
+<dd><p>A list of the default attributes to extract from directory entries.  If
 set to the symbol <code>all</code> then all available attributes are
 returned. A value of <code>nil</code>, the default, means to return the
-default attributes as configured in the server. 
-</p></blockquote>
-</div>
+default attributes as configured in the server.
+</p></dd>
+</dl>
 
-   <p>The server may return several matching records to a query. Some of the
+<p>The server may return several matching records to a query. Some of the
 records may however not contain all the attributes you requested. You can
 discard those records.
-
 </p>
-<div class="defun">
-— User Option: <b>eudc-strict-return-matches</b><var><a name="index-eudc_002dstrict_002dreturn_002dmatches-26"></a></var><br>
-<blockquote><p>If non-<code>nil</code>, entries that do not contain all the requested return
-attributes are ignored.  Default is <code>t</code>. 
-</p></blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dstrict_002dreturn_002dmatches"></a>User Option: <strong>eudc-strict-return-matches</strong>
+</dt>
+<dd><p>If non-<code>nil</code>, entries that do not contain all the requested return
+attributes are ignored.  Default is <code>t</code>.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Duplicate-Attributes"></a>
+<div class="header">
+<p>
+Previous: <a href="#Return-Attributes" accesskey="p" rel="prev">Return Attributes</a>, Up: <a href="#Querying-Servers" accesskey="u" rel="up">Querying Servers</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Duplicate-Attributes"></a></div>
-
+<a name="Duplicate-Attributes-1"></a>
 <h4 class="subsection">3.1.3 Duplicate Attributes</h4>
 
 <p>Directory standards may authorize different instances of the same
 attribute in a record. For instance the record of a person may contain
 several email fields containing different email addresses, in which
 case EUDC will consider the attribute duplicated.
-
-   </p>
+</p>
 <p>EUDC has several methods to deal with duplicated attributes. The
 available methods are:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>list</code></dt>
-<dd>Makes a list with the different values of the duplicate attribute. The
+<dd><p>Makes a list with the different values of the duplicate attribute. The
 record is returned with only one instance of the attribute with a list
 of all the different values as a value. This is the default method that
 is used to handle duplicate fields for which no other method has been
-specified. 
-<br>
-</dd>
+specified.
+</p></dd>
 <dt><code>first</code></dt>
-<dd>Discards all the duplicate values of the field keeping only the first
-one. 
-<br>
-</dd>
+<dd><p>Discards all the duplicate values of the field keeping only the first
+one.
+</p></dd>
 <dt><code>concat</code></dt>
-<dd>Concatenates the different values using a newline as a separator. The
+<dd><p>Concatenates the different values using a newline as a separator. The
 record keeps only one instance of the field the value of which is a
-single multi-line string. 
-<br>
-</dd>
+single multi-line string.
+</p></dd>
 <dt><code>duplicate</code></dt>
-<dd>Duplicates the whole record into as many instances as there are different
+<dd><p>Duplicates the whole record into as many instances as there are different
 values for the field. This is the default for the email field. Thus a
 record containing 3 different email addresses is duplicated into three
 different records each having a single email address. This is
 particularly useful in combination with <code>select</code> as the method to
 handle multiple matches in inline expansion queries (see <a href="#Inline-Query-Expansion">Inline Query Expansion</a>) because you are presented with the 3 addresses in a
 selection buffer
-</dd>
+</p></dd>
 </dl>
 
-   <p>Because a method may not be applicable to all fields, the variable
+<p>Because a method may not be applicable to all fields, the variable
 <code>eudc-duplicate-attribute-handling-method</code> lets you specify either a
 default method for all fields or a method for each individual field.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-duplicate-attribute-handling-method</b><var><a name="index-eudc_002dduplicate_002dattribute_002dhandling_002dmethod-27"></a></var><br>
-<blockquote><p>A method to handle entries containing duplicate attributes.  This is
-either an alist of elements <code>(</code><var>attr</var><code> . </code><var>method</var><code>)</code>, or a symbol
+<dl>
+<dt>
+<a name="index-eudc_002dduplicate_002dattribute_002dhandling_002dmethod"></a>Variable: <strong>eudc-duplicate-attribute-handling-method</strong>
+</dt>
+<dd><p>A method to handle entries containing duplicate attributes.  This is
+either an alist of elements <code>(<var>attr</var> . <var>method</var>)</code>, or a symbol
 <var>method</var>.  The alist form of the variable associates a method to an
 individual attribute name; the second form specifies a method applicable
 to all attribute names. Available methods are: <code>list</code>,
 <code>first</code>, <code>concat</code>, and <code>duplicate</code> (see above).  The default is
-<code>list</code>. 
-</p></blockquote>
+<code>list</code>.
+</p></dd>
+</dl>
+
+
+
+<hr>
+<a name="Query-Form"></a>
+<div class="header">
+<p>
+Next: <a href="#Display-of-Query-Results" accesskey="n" rel="next">Display of Query Results</a>, Previous: <a href="#Querying-Servers" accesskey="p" rel="prev">Querying Servers</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Query-Form"></a></div>
-
+<a name="Query-Form-1"></a>
 <h3 class="section">3.2 Query Form</h3>
 
 <p>The simplest way to query your directory server is to use the query
-form. You display the query form with the `<samp><span class="samp">Query with Form</span></samp>' menu
+form. You display the query form with the ‘<samp>Query with Form</samp>’ menu
 item or by invoking the command <kbd>M-x eudc-query-form</kbd>. The attribute
 names presented in this form are defined by the
 <code>eudc-query-form-attributes</code> variable (unless a non-<code>nil</code>
 argument is supplied to <code>eudc-query-form</code>).
-
-   </p>
+</p>
 <p>Since the different directory protocols to which EUDC interfaces may
 use different names for equivalent attributes, EUDC defines its own set
 of attribute names and a mapping between these names and their
@@ -733,168 +885,199 @@ protocol-specific equivalent through the variable
 <code>eudc-protocol-attributes-translation-alist</code>.  Names currently
 defined by EUDC are <code>name</code>, <code>firstname</code>, <code>email</code> and
 <code>phone</code>.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-query-form-attributes</b><var><a name="index-eudc_002dquery_002dform_002dattributes-28"></a></var><br>
-<blockquote><p><a name="index-eudc_002dget_002dattribute_002dlist-29"></a>A list of attributes presented in the query form.  Attribute names in
+<dl>
+<dt>
+<a name="index-eudc_002dquery_002dform_002dattributes"></a>Variable: <strong>eudc-query-form-attributes</strong>
+</dt>
+<dd>
+<a name="index-eudc_002dget_002dattribute_002dlist"></a>
+<p>A list of attributes presented in the query form.  Attribute names in
 this list should be either EUDC attribute names or valid attribute
 names.  You can get a list of valid attribute names for the current
-protocol with the `<samp><span class="samp">List Valid Attribute Names</span></samp>' menu item or the
+protocol with the ‘<samp>List Valid Attribute Names</samp>’ menu item or the
 <kbd>M-x eudc-get-attribute-list</kbd> command.  Defaults to <code>name</code>,
-<code>email</code> and <code>phone</code>. 
-</p></blockquote>
-</div>
+<code>email</code> and <code>phone</code>.
+</p>
+</dd>
+</dl>
 
-<div class="defun">
-— Command: <b>eudc-query-form</b><var> get-fields-from-server<a name="index-eudc_002dquery_002dform-30"></a></var><br>
-<blockquote><p>Display a form to query the directory server.  If given a non-<code>nil</code>
+<dl>
+<dt>
+<a name="index-eudc_002dquery_002dform"></a>Command: <strong>eudc-query-form</strong> <em>get-fields-from-server</em>
+</dt>
+<dd><p>Display a form to query the directory server.  If given a non-<code>nil</code>
 argument the function first queries the server for the existing fields
 and displays a corresponding form.  Not all protocols may support a
-non-<code>nil</code> argument here. 
-</p></blockquote>
-</div>
+non-<code>nil</code> argument here.
+</p></dd>
+</dl>
 
-   <p>Since the names of the fields may not be explicit enough or adapted to
+<p>Since the names of the fields may not be explicit enough or adapted to
 be directly displayed as prompt strings in the form, the variable
 <code>eudc-user-attribute-names-alist</code> lets you define more explicit
 names for directory attribute names.  This variable is ignored if
 <code>eudc-use-raw-directory-names</code> is non-<code>nil</code>.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-user-attribute-names-alist</b><var><a name="index-eudc_002duser_002dattribute_002dnames_002dalist-31"></a></var><br>
-<blockquote><p>This is an alist of user-defined names for the directory attributes used in
+<dl>
+<dt>
+<a name="index-eudc_002duser_002dattribute_002dnames_002dalist"></a>Variable: <strong>eudc-user-attribute-names-alist</strong>
+</dt>
+<dd><p>This is an alist of user-defined names for the directory attributes used in
 query/response forms. Prompt strings for attributes that are not in this
 alist are derived by splitting the attribute name at underscores and
-capitalizing the individual words. 
-</p></blockquote>
-</div>
+capitalizing the individual words.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Variable: <b>eudc-use-raw-directory-names</b><var><a name="index-eudc_002duse_002draw_002ddirectory_002dnames-32"></a></var><br>
-<blockquote><p>If non-<code>nil</code>, use attributes names as defined in the directory. 
+<dl>
+<dt>
+<a name="index-eudc_002duse_002draw_002ddirectory_002dnames"></a>Variable: <strong>eudc-use-raw-directory-names</strong>
+</dt>
+<dd><p>If non-<code>nil</code>, use attributes names as defined in the directory.
 Otherwise, directory query/response forms display the user attribute
-names defined in <code>eudc-user-attribute-names-alist</code>. 
-</p></blockquote>
+names defined in <code>eudc-user-attribute-names-alist</code>.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Display-of-Query-Results"></a>
+<div class="header">
+<p>
+Next: <a href="#Inline-Query-Expansion" accesskey="n" rel="next">Inline Query Expansion</a>, Previous: <a href="#Query-Form" accesskey="p" rel="prev">Query Form</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Display-of-Query-Results"></a></div>
-
+<a name="Display-of-Query-Results-1"></a>
 <h3 class="section">3.3 Display of Query Results</h3>
 
 <p>Upon successful completion of a form query, EUDC will display a buffer
 containing the results of the query.
-
-   </p>
+</p>
 <p>The fields that are returned for each record
 are controlled by <code>eudc-default-return-attributes</code> (see <a href="#Return-Attributes">Return Attributes</a>).
-
-   </p>
+</p>
 <p>The display of each individual field can be performed by an arbitrary
 function which allows specific processing for binary values, such as
 images or audio samples, as well as values with semantics, such as
 URLs.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-attribute-display-method-alist</b><var><a name="index-eudc_002dattribute_002ddisplay_002dmethod_002dalist-33"></a></var><br>
-<blockquote><p>An alist specifying methods to display attribute values.  Each member of
-the list is of the form <code>(</code><var>name</var><code> . </code><var>func</var><code>)</code> where
+<dl>
+<dt>
+<a name="index-eudc_002dattribute_002ddisplay_002dmethod_002dalist"></a>Variable: <strong>eudc-attribute-display-method-alist</strong>
+</dt>
+<dd><p>An alist specifying methods to display attribute values.  Each member of
+the list is of the form <code>(<var>name</var> . <var>func</var>)</code> where
 <var>name</var> is a lowercased string naming a directory attribute
 (translated according to <code>eudc-user-attribute-names-alist</code> if
 <code>eudc-use-raw-directory-names</code> is non-<code>nil</code>) and <var>func</var> a
 function that will be passed the corresponding attribute values for
-display. 
-</p></blockquote>
-</div>
+display.
+</p></dd>
+</dl>
 
-   <p>This variable has protocol-local definitions (see see <a href="#Server_002fProtocol-Locals">Server/Protocol Locals</a>).  For instance, it is defined as follows for LDAP:
-
+<p>This variable has protocol-local definitions (see see <a href="#Server_002fProtocol-Locals">Server/Protocol Locals</a>).  For instance, it is defined as follows for LDAP:
 </p>
-<pre class="lisp">     (eudc-protocol-set 'eudc-attribute-display-method-alist
-                        '(("jpegphoto" . eudc-display-jpeg-inline)
-                          ("labeledurl" . eudc-display-url)
-                          ("audio" . eudc-display-sound)
-                          ("labeledurl" . eudc-display-url)
-                          ("url" . eudc-display-url))
-                        'ldap)
+<div class="lisp">
+<pre class="lisp">(eudc-protocol-set 'eudc-attribute-display-method-alist
+                   '(("jpegphoto" . eudc-display-jpeg-inline)
+                     ("labeledurl" . eudc-display-url)
+                     ("audio" . eudc-display-sound)
+                     ("labeledurl" . eudc-display-url)
+                     ("url" . eudc-display-url))
+                   'ldap)
 </pre>
-   <p>EUDC provides a set of built-in functions to display binary value types:
+</div>
 
+<p>EUDC provides a set of built-in functions to display binary value types:
 </p>
-<div class="defun">
-— Function: <b>eudc-display-generic-binary</b><var> data<a name="index-eudc_002ddisplay_002dgeneric_002dbinary-34"></a></var><br>
-<blockquote><p>Display a button for unidentified binary <var>data</var>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002ddisplay_002dgeneric_002dbinary"></a>Function: <strong>eudc-display-generic-binary</strong> <em>data</em>
+</dt>
+<dd><p>Display a button for unidentified binary <var>data</var>.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-display-url</b><var> url<a name="index-eudc_002ddisplay_002durl-35"></a></var><br>
-<blockquote><p>Display URL and make it clickable. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002ddisplay_002durl"></a>Function: <strong>eudc-display-url</strong> <em>url</em>
+</dt>
+<dd><p>Display URL and make it clickable.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-display-sound</b><var> data<a name="index-eudc_002ddisplay_002dsound-36"></a></var><br>
-<blockquote><p>Display a button to play the sound <var>data</var>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002ddisplay_002dsound"></a>Function: <strong>eudc-display-sound</strong> <em>data</em>
+</dt>
+<dd><p>Display a button to play the sound <var>data</var>.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-display-jpeg-inline</b><var> data<a name="index-eudc_002ddisplay_002djpeg_002dinline-37"></a></var><br>
-<blockquote><p>Display the JPEG <var>data</var> inline at point if possible. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002ddisplay_002djpeg_002dinline"></a>Function: <strong>eudc-display-jpeg-inline</strong> <em>data</em>
+</dt>
+<dd><p>Display the JPEG <var>data</var> inline at point if possible.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-display-jpeg-as-button</b><var> data<a name="index-eudc_002ddisplay_002djpeg_002das_002dbutton-38"></a></var><br>
-<blockquote><p>Display a button for the JPEG <var>data</var>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002ddisplay_002djpeg_002das_002dbutton"></a>Function: <strong>eudc-display-jpeg-as-button</strong> <em>data</em>
+</dt>
+<dd><p>Display a button for the JPEG <var>data</var>.
+</p></dd>
+</dl>
 
-   <p>Right-clicking on a binary value button pops up a contextual menu with
+<p>Right-clicking on a binary value button pops up a contextual menu with
 options to process the value.  Among these are saving the attribute
 value to a file or sending it to an external viewer command.  External
 viewers should expect the value on their standard input and should
 display it or perform arbitrary processing on it.  Messages sent to
 standard output are discarded.  External viewers are listed in the
 variable <code>eudc-external-viewers</code> which you can customize.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-external-viewers</b><var><a name="index-eudc_002dexternal_002dviewers-39"></a></var><br>
-<blockquote><p>This is a list of viewer program specifications.  Each specification is
+<dl>
+<dt>
+<a name="index-eudc_002dexternal_002dviewers"></a>Variable: <strong>eudc-external-viewers</strong>
+</dt>
+<dd><p>This is a list of viewer program specifications.  Each specification is
 a list whose first element is a string naming the viewer for unique
 identification, the second element is the executable program which
 should be invoked and the following elements are arguments that should
-be passed to the program. 
-</p></blockquote>
+be passed to the program.
+</p></dd>
+</dl>
+
+
+<hr>
+<a name="Inline-Query-Expansion"></a>
+<div class="header">
+<p>
+Next: <a href="#The-Server-Hotlist" accesskey="n" rel="next">The Server Hotlist</a>, Previous: <a href="#Display-of-Query-Results" accesskey="p" rel="prev">Display of Query Results</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Inline-Query-Expansion"></a></div>
-
+<a name="Inline-Query-Expansion-1"></a>
 <h3 class="section">3.4 Inline Query Expansion</h3>
 
 <p>Inline query expansion is a powerful method to get completion from your
 directory server.  The most common usage is for expanding names to email
 addresses in mail message buffers.  The expansion is performed by the
 command <kbd>M-x eudc-expand-inline</kbd> which is available from the
-`<samp><span class="samp">Expand Inline Query</span></samp>' menu item but can also be conveniently
+‘<samp>Expand Inline Query</samp>’ menu item but can also be conveniently
 bound to a key shortcut (see <a href="#Installation">Installation</a>).  The operation is
 controlled by the variables <code>eudc-inline-expansion-format</code>,
 <code>eudc-inline-query-format</code>,
 <code>eudc-expanding-overwrites-query</code> and
 <code>eudc-multiple-match-handling-method</code>.
-
-   </p>
+</p>
 <p>If the query fails for a server, other servers may be tried successively
 until one of them finds a match (see <a href="#Multi_002dserver-Queries">Multi-server Queries</a>).
-
 </p>
-<div class="defun">
-— Command: <b>eudc-expand-inline</b><var> replace-p<a name="index-eudc_002dexpand_002dinline-40"></a></var><br>
-<blockquote><p>Query the server and expand the query string before point.  The query
+<dl>
+<dt>
+<a name="index-eudc_002dexpand_002dinline-3"></a>Command: <strong>eudc-expand-inline</strong> <em>replace-p</em>
+</dt>
+<dd><p>Query the server and expand the query string before point.  The query
 string consists of the buffer substring from the point back to the
 preceding comma, colon or beginning of
 line.  <code>eudc-inline-query-format</code> controls how individual words
@@ -903,495 +1086,573 @@ for the given string, the expansion specified by
 <code>eudc-inline-expansion-format</code> is inserted in the buffer at
 point. If <var>replace-p</var> is <code>t</code> then this expansion replaces the
 query string in the buffer.  If <code>eudc-expanding-overwrites-query</code>
-is non-<code>nil</code> then the meaning of <var>replace-p</var> is negated. 
-</p></blockquote>
-</div>
+is non-<code>nil</code> then the meaning of <var>replace-p</var> is negated.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Variable: <b>eudc-inline-query-format</b><var><a name="index-eudc_002dinline_002dquery_002dformat-41"></a></var><br>
-<blockquote>
-<p>Format of an inline expansion query. 
+<dl>
+<dt>
+<a name="index-eudc_002dinline_002dquery_002dformat"></a>Variable: <strong>eudc-inline-query-format</strong>
+</dt>
+<dd>
+<p>Format of an inline expansion query.
 This is actually a list of <var>format</var>s.  A <var>format</var> is a list of
 one or more EUDC attribute names.  A <var>format</var> applies if it contains
 as many attributes as individual words in the inline query string.  If
 several <var>format</var>s apply then they are tried in order until a match
 is found.  If <code>nil</code> all the words will be mapped onto the default
 server/protocol attribute name (generally <code>name</code>).
-
-        </p>
+</p>
 <p>For instance, use the following
-     </p>
-<pre class="lisp">          (setq eudc-inline-query-format '((name)
-                                           (firstname)
-                                           (firstname name)))
-     </pre>
-        <p class="noindent">to indicate that single word expansion queries are to be considered as
+</p>
+<div class="lisp">
+<pre class="lisp">(setq eudc-inline-query-format '((name)
+                                 (firstname)
+                                 (firstname name)))
+</pre>
+</div>
+<p>to indicate that single word expansion queries are to be considered as
 surnames and if no match is found then they should be tried as first
 names.  Inline queries consisting of two words are considered as
 consisting of a first name followed by a surname.  If the query consists
 of more than two words, then the first one is considered as the first
 name and the remaining words are all considered as surname constituents.
-
-        </p>
+</p>
 <p><var>format</var>s are in fact not limited to EUDC attribute names, you can
 use server or protocol specific names in them.  It may be safer if you
 do so, to set the variable <code>eudc-inline-query-format</code> in a protocol
 or server local fashion (see see <a href="#Server_002fProtocol-Locals">Server/Protocol Locals</a>).
-
-        </p>
+</p>
 <p>For instance you could use the following to match up to three words
 against the <code>cn</code> attribute of LDAP servers:
-     </p>
-<pre class="lisp">          (eudc-protocol-set 'eudc-inline-query-format
-                             '((cn)
-                               (cn cn)
-                               (cn cn cn))
-                             'ldap)
-     </pre>
-        </blockquote>
+</p>
+<div class="lisp">
+<pre class="lisp">(eudc-protocol-set 'eudc-inline-query-format
+                   '((cn)
+                     (cn cn)
+                     (cn cn cn))
+                   'ldap)
+</pre>
 </div>
+</dd>
+</dl>
 
-<div class="defun">
-— Variable: <b>eudc-inline-expansion-format</b><var><a name="index-eudc_002dinline_002dexpansion_002dformat-42"></a></var><br>
-<blockquote><p>This variable lets you control exactly what is inserted into the buffer
+<dl>
+<dt>
+<a name="index-eudc_002dinline_002dexpansion_002dformat"></a>Variable: <strong>eudc-inline-expansion-format</strong>
+</dt>
+<dd><p>This variable lets you control exactly what is inserted into the buffer
 upon an inline expansion request.  It is a list whose first element is a
 string passed to <code>format</code>.  Remaining elements are symbols
 corresponding to directory attribute names.  The corresponding attribute
 values are passed as additional arguments to <code>format</code>.  Default is
-<code>("%s" email)</code> but you may want to consider a value like <code>("%s
-&lt;%s&gt;" name email)</code>
-</p></blockquote>
-</div>
+<code>("%s %s &lt;%s&gt;" firstname name email)</code>.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Variable: <b>eudc-multiple-match-handling-method</b><var><a name="index-eudc_002dmultiple_002dmatch_002dhandling_002dmethod-43"></a></var><br>
-<blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dmultiple_002dmatch_002dhandling_002dmethod"></a>Variable: <strong>eudc-multiple-match-handling-method</strong>
+</dt>
+<dd>
 <p>This variable controls what to do when multiple entries match a query
 for an inline expansion.  Possible values are:
-          </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>first</code></dt>
-<dd>The first match is considered as being the only one, the others are
-discarded. 
-<br>
-</dd>
+<dd><p>The first match is considered as being the only one, the others are
+discarded.
+</p></dd>
 <dt><code>select</code></dt>
-<dd>A selection buffer pops up where you can choose a particular match.  This
-is the default value of the variable. 
-<br>
-</dd>
+<dd><p>A selection buffer pops up where you can choose a particular match.  This
+is the default value of the variable.
+</p></dd>
 <dt><code>all</code></dt>
-<dd>The expansion uses all records successively
-<br>
-</dd>
+<dd><p>The expansion uses all records successively
+</p></dd>
 <dt><code>abort</code></dt>
-<dd>An error is signaled.  The expansion aborts. 
+<dd><p>An error is signaled.  The expansion aborts.
+</p></dd>
+</dl>
+
+<p>Default is <code>select</code>
+</p>
 </dd>
 </dl>
 
-        <p>Default is <code>select</code>
-</p>
-</blockquote>
+
+
+<hr>
+<a name="The-Server-Hotlist"></a>
+<div class="header">
+<p>
+Next: <a href="#Multi_002dserver-Queries" accesskey="n" rel="next">Multi-server Queries</a>, Previous: <a href="#Inline-Query-Expansion" accesskey="p" rel="prev">Inline Query Expansion</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="The-Server-Hotlist"></a></div>
-
+<a name="The-Server-Hotlist-1"></a>
 <h3 class="section">3.5 The Server Hotlist</h3>
 
 <p>EUDC lets you maintain a list of frequently used servers so that you
 can easily switch from one to another.  This hotlist appears in the
-`<samp><span class="samp">Server</span></samp>' submenu.  You select a server in this list by clicking on
+‘<samp>Server</samp>’ submenu.  You select a server in this list by clicking on
 its name.  You can add the current server to the list with the command
 <kbd>M-x eudc-bookmark-current-server</kbd>.  The list is contained in the variable
 <code>eudc-server-hotlist</code> which is stored in and retrieved from the file
 designated by <code>eudc-options-file</code>.  EUDC also provides a facility to
 edit the hotlist interactively (see <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>).
-
-   </p>
+</p>
 <p>The hotlist is also used to make queries on multiple servers
 successively (see <a href="#Multi_002dserver-Queries">Multi-server Queries</a>).  The order in which the
 servers are tried is the order they appear in the hotlist, therefore it
 is important to sort the hotlist appropriately.
-
 </p>
-<div class="defun">
-— Command: <b>eudc-bookmark-server</b><var> server<a name="index-eudc_002dbookmark_002dserver-44"></a></var><br>
-<blockquote><p>Add <var>server</var> to the hotlist of servers
-</p></blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dbookmark_002dserver"></a>Command: <strong>eudc-bookmark-server</strong> <em>server</em>
+</dt>
+<dd><p>Add <var>server</var> to the hotlist of servers
+</p></dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-eudc_002dbookmark_002dcurrent_002dserver"></a>Command: <strong>eudc-bookmark-current-server</strong>
+</dt>
+<dd><p>Add the current server to the hotlist of servers
+</p></dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-eudc_002doptions_002dfile"></a>Variable: <strong>eudc-options-file</strong>
+</dt>
+<dd><p>The name of a file where EUDC stores its internal variables (the
+hotlist and the current server).  EUDC will try to load that file upon
+initialization so, if you choose a file name different from the
+defaults <samp>~/.emacs.d/eudc-options</samp>, be sure to set this variable
+to the appropriate value <em>before</em> EUDC is itself loaded.
+</p></dd>
+</dl>
+
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#The-Hotlist-Edit-Buffer" accesskey="1">The Hotlist Edit Buffer</a>:</td>
+<td>  </td>
+<td align="left" valign="top">An interactive hotlist editing facility
+</td>
+</tr>
+</table>
+
+<hr>
+<a name="The-Hotlist-Edit-Buffer"></a>
+<div class="header">
+<p>
+Up: <a href="#The-Server-Hotlist" accesskey="u" rel="up">The Server Hotlist</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="defun">
-— Command: <b>eudc-bookmark-current-server</b><var><a name="index-eudc_002dbookmark_002dcurrent_002dserver-45"></a></var><br>
-<blockquote><p>Add the current server to the hotlist of servers
-</p></blockquote>
-</div>
-
-<div class="defun">
-— Variable: <b>eudc-options-file</b><var><a name="index-eudc_002doptions_002dfile-46"></a></var><br>
-<blockquote><p>The name of a file where EUDC stores its internal variables
-(the hotlist and the current server).  EUDC will try to load
-that file upon initialization so, if you choose a file name
-different from the defaults <samp><span class="file">~/.eudc-options</span></samp>, be sure to set this
-variable to the appropriate value <em>before</em> EUDC is itself
-loaded. 
-</p></blockquote>
-</div>
-
-<ul class="menu">
-<li>
-<a accesskey="1" href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>:      An interactive hotlist editing facility
-</li>
-</ul>
-
-<div class="node"><a name="The-Hotlist-Edit-Buffer"></a></div>
-
+<a name="The-Hotlist-Edit-Buffer-1"></a>
 <h4 class="subsection">3.5.1 The Hotlist Edit Buffer</h4>
 
 <p>The hotlist edit buffer offers a means to manage a list of frequently
 used servers.  Commands are available in the context pop-up menu
 generally bound to the right mouse button.  Those commands also have
 equivalent key bindings.
-
 </p>
-<div class="defun">
-— Command: <b>eudc-hotlist-add-server</b><var><a name="index-eudc_002dhotlist_002dadd_002dserver-47"></a></var><br>
-<blockquote><p>Bound to <kbd>a</kbd>. 
+<dl>
+<dt>
+<a name="index-eudc_002dhotlist_002dadd_002dserver"></a>Command: <strong>eudc-hotlist-add-server</strong>
+</dt>
+<dd><p>Bound to <kbd>a</kbd>.
 Add a new server to the hotlist on the line after point
-</p></blockquote>
-</div>
+</p></dd>
+</dl>
 
-<div class="defun">
-— Command: <b>eudc-hotlist-delete-server</b><var><a name="index-eudc_002dhotlist_002ddelete_002dserver-48"></a></var><br>
-<blockquote><p>Bound to <kbd>d</kbd>. 
+<dl>
+<dt>
+<a name="index-eudc_002dhotlist_002ddelete_002dserver"></a>Command: <strong>eudc-hotlist-delete-server</strong>
+</dt>
+<dd><p>Bound to <kbd>d</kbd>.
 Delete the server on the line point is on
-</p></blockquote>
-</div>
+</p></dd>
+</dl>
 
-<div class="defun">
-— Command: <b>eudc-hotlist-select-server</b><var><a name="index-eudc_002dhotlist_002dselect_002dserver-49"></a></var><br>
-<blockquote><p>Bound to <kbd>s</kbd>. 
+<dl>
+<dt>
+<a name="index-eudc_002dhotlist_002dselect_002dserver"></a>Command: <strong>eudc-hotlist-select-server</strong>
+</dt>
+<dd><p>Bound to <kbd>s</kbd>.
 Select the server the point is on as the current directory server for
 the next queries
-</p></blockquote>
-</div>
+</p></dd>
+</dl>
 
-<div class="defun">
-— Command: <b>eudc-hotlist-transpose-servers</b><var><a name="index-eudc_002dhotlist_002dtranspose_002dservers-50"></a></var><br>
-<blockquote><p>Bound to <kbd>t</kbd>. 
+<dl>
+<dt>
+<a name="index-eudc_002dhotlist_002dtranspose_002dservers"></a>Command: <strong>eudc-hotlist-transpose-servers</strong>
+</dt>
+<dd><p>Bound to <kbd>t</kbd>.
 Bubble up the server the point is on to the top of the list
-</p></blockquote>
-</div>
+</p></dd>
+</dl>
 
-<div class="defun">
-— Command: <b>eudc-hotlist-quit-edit</b><var><a name="index-eudc_002dhotlist_002dquit_002dedit-51"></a></var><br>
-<blockquote><p>Bound to <kbd>q</kbd>. 
+<dl>
+<dt>
+<a name="index-eudc_002dhotlist_002dquit_002dedit"></a>Command: <strong>eudc-hotlist-quit-edit</strong>
+</dt>
+<dd><p>Bound to <kbd>q</kbd>.
 Save the changes and quit the hotlist edit buffer.  Use <kbd>x</kbd> or
-<kbd>M-x kill-buffer</kbd> to exit without saving. 
-</p></blockquote>
-</div>
+<kbd>M-x kill-buffer</kbd> to exit without saving.
+</p></dd>
+</dl>
 
-<div class="node">
-<a name="Multi-server-Queries"></a><a name="Multi_002dserver-Queries"></a>
-</div>
 
+<hr>
+<a name="Multi_002dserver-Queries"></a>
+<div class="header">
+<p>
+Next: <a href="#Creating-BBDB-Records" accesskey="n" rel="next">Creating BBDB Records</a>, Previous: <a href="#The-Server-Hotlist" accesskey="p" rel="prev">The Server Hotlist</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Multi_002dserver-Queries-1"></a>
 <h3 class="section">3.6 Multi-server Queries</h3>
 
 <p>When using inline query expansion (see <a href="#Inline-Query-Expansion">Inline Query Expansion</a>), EUDC
 can try to query successively a sequence of directory servers until one
 of them successfully finds a match for the query.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-inline-expansion-servers</b><var><a name="index-eudc_002dinline_002dexpansion_002dservers-52"></a></var><br>
-<blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dinline_002dexpansion_002dservers"></a>Variable: <strong>eudc-inline-expansion-servers</strong>
+</dt>
+<dd>
 <p>This variable controls which servers are tried and in which order when
 trying to perform an inline query.  Possible values are:
-          </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>current-server</code></dt>
-<dd>Only the current directory server is tried
-<br>
-</dd>
+<dd><p>Only the current directory server is tried
+</p></dd>
 <dt><code>hotlist</code></dt>
-<dd>The servers in the hotlist are tried in order until one finds a match
+<dd><p>The servers in the hotlist are tried in order until one finds a match
 for the query or <code>eudc-max-servers-to-query</code> is reached
-<br>
-</dd>
+</p></dd>
 <dt><code>server-then-hotlist</code></dt>
-<dd>The current server then the servers in the hotlist are tried in the
+<dd><p>The current server then the servers in the hotlist are tried in the
 order they appear in the hotlist until one of them finds a match or
-<code>eudc-max-servers-to-query</code> is reached.  This is the default. 
+<code>eudc-max-servers-to-query</code> is reached.  This is the default.
+</p></dd>
+</dl>
 </dd>
 </dl>
-        </blockquote>
-</div>
 
-<div class="defun">
-— Variable: <b>eudc-max-servers-to-query</b><var><a name="index-eudc_002dmax_002dservers_002dto_002dquery-53"></a></var><br>
-<blockquote><p>This variable indicates the maximum number of servers to query when
+<dl>
+<dt>
+<a name="index-eudc_002dmax_002dservers_002dto_002dquery"></a>Variable: <strong>eudc-max-servers-to-query</strong>
+</dt>
+<dd><p>This variable indicates the maximum number of servers to query when
 performing a multi-server query.  The default, <code>nil</code>, indicates
-that all available servers should be tried. 
-</p></blockquote>
+that all available servers should be tried.
+</p></dd>
+</dl>
+
+
+
+<hr>
+<a name="Creating-BBDB-Records"></a>
+<div class="header">
+<p>
+Next: <a href="#Server_002fProtocol-Locals" accesskey="n" rel="next">Server/Protocol Locals</a>, Previous: <a href="#Multi_002dserver-Queries" accesskey="p" rel="prev">Multi-server Queries</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Creating-BBDB-Records"></a></div>
-
+<a name="Creating-BBDB-Records-1"></a>
 <h3 class="section">3.7 Creating BBDB Records</h3>
 
-<p><a name="index-eudc_002dinsert_002drecord_002dat_002dpoint_002dinto_002dbbdb-54"></a><a name="index-eudc_002dtry_002dbbdb_002dinsert-55"></a>With EUDC, you can automatically create BBDB records
-(see <a href="bbdb.html#Top">BBDB</a>) from records you get from a
+<a name="index-eudc_002dinsert_002drecord_002dat_002dpoint_002dinto_002dbbdb"></a>
+<a name="index-eudc_002dtry_002dbbdb_002dinsert"></a>
+<p>With EUDC, you can automatically create BBDB records
+(see <a href="bbdb.html#Top">BBDB</a> in <cite>BBDB Manual</cite>) from records you get from a
 directory server.  You do this by moving point to the appropriate
 record in a query result display buffer and invoking the command
 <kbd>M-x eudc-insert-record-at-point-into-bbdb</kbd> with the
-keyboard binding <kbd>b</kbd><a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>, or with the menu.  EUDC
+keyboard binding <kbd>b</kbd><a name="DOCF1" href="#FOOT1"><sup>1</sup></a>, or with the menu.  EUDC
 cannot update an existing BBDB record and will signal an error if you
 try to insert a record matching an existing one.
-
-   </p>
-<p><a name="index-eudc_002dbatch_002dexport_002drecords_002dto_002dbbdb-56"></a>It is also possible to export to BBDB the whole batch of records
+</p>
+<a name="index-eudc_002dbatch_002dexport_002drecords_002dto_002dbbdb"></a>
+<p>It is also possible to export to BBDB the whole batch of records
 contained in the directory query result with the command
 <kbd>M-x eudc-batch-export-records-to-bbdb</kbd>.
-
-   </p>
+</p>
 <p>Because directory systems may not enforce a strict record format, local
 server installations may use different attribute names and have
 different ways to organize the information.  Furthermore BBDB has its own
 record structure.  For these reasons converting a record from its
 external directory format to the BBDB format is a highly customizable
 process.
-
 </p>
-<div class="defun">
-— Variable: <b>eudc-bbdb-conversion-alist</b><var><a name="index-eudc_002dbbdb_002dconversion_002dalist-57"></a></var><br>
-<blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dbbdb_002dconversion_002dalist"></a>Variable: <strong>eudc-bbdb-conversion-alist</strong>
+</dt>
+<dd>
 <p>The value of this variable should be a symbol naming an alist defining a
-mapping between BBDB field names onto directory attribute names records. 
+mapping between BBDB field names onto directory attribute names records.
 This is a protocol-local variable and is initialized upon protocol
 switch (see <a href="#Server_002fProtocol-Locals">Server/Protocol Locals</a>).  The alist is made of cells of the
-form <code>(</code><var>bbdb-field</var><code> . </code><var>spec-or-list</var><code>)</code>. 
+form <code>(<var>bbdb-field</var> . <var>spec-or-list</var>)</code>.
 <var>bbdb-field</var> is the name of a field
 that must be defined in your BBDB environment (standard field names are
 <code>name</code>, <code>company</code>, <code>net</code>, <code>phone</code>, <code>address</code>
-and <code>notes</code>). 
+and <code>notes</code>).
 <var>spec-or-list</var> is either a single mapping specification or a list of
 mapping specifications.  Lists of mapping specifications are valid for
 the <code>phone</code> and <code>address</code> BBDB fields only. <var>spec</var>s are
 actually s-expressions which are evaluated as follows:
-
-          </p>
-<dl>
+</p>
+<dl compact>
 <dt>a string</dt>
-<dd>evaluates to itself
-<br>
-</dd>
+<dd><p>evaluates to itself
+</p></dd>
 <dt>a symbol</dt>
-<dd>evaluates to the symbol value.  Symbols corresponding to directory
+<dd><p>evaluates to the symbol value.  Symbols corresponding to directory
 attribute names present in the record evaluate to the value of the field
 in the record
-<br>
-</dd>
+</p></dd>
 <dt>a form</dt>
-<dd>is evaluated as a function.  The argument list may contain attribute
+<dd><p>is evaluated as a function.  The argument list may contain attribute
 names which evaluate to the corresponding values in the record.  The form
 evaluation should return something appropriate for the particular
-<var>bbdb-field</var> (see <code>bbdb-create-internal</code>). 
+<var>bbdb-field</var> (see <code>bbdb-create-internal</code>).
 <code>eudc-bbdbify-phone</code> and <code>eudc-bbdbify-address</code> are provided as
-convenience functions to parse phones and addresses. 
+convenience functions to parse phones and addresses.
+</p></dd>
+</dl>
 </dd>
 </dl>
-        </blockquote>
-</div>
 
-<div class="defun">
-— Function: <b>eudc-bbdbify-phone</b><var> phone location<a name="index-eudc_002dbbdbify_002dphone-58"></a></var><br>
-<blockquote><p>This is a convenience function provided for use in
+<dl>
+<dt>
+<a name="index-eudc_002dbbdbify_002dphone"></a>Function: <strong>eudc-bbdbify-phone</strong> <em>phone location</em>
+</dt>
+<dd><p>This is a convenience function provided for use in
 <code>eudc-bbdb-conversion-alist</code>.  It parses <var>phone</var> into a vector
 compatible with <code>bbdb-create-internal</code>.  <var>phone</var> is either a string
 supposedly containing a phone number or a list of such strings which are
-concatenated. <var>location</var> is used as the phone location for BBDB. 
-</p></blockquote>
-</div>
+concatenated. <var>location</var> is used as the phone location for BBDB.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-bbdbify-address</b><var> addr location<a name="index-eudc_002dbbdbify_002daddress-59"></a></var><br>
-<blockquote><p>This is a convenience function provided for use in
+<dl>
+<dt>
+<a name="index-eudc_002dbbdbify_002daddress"></a>Function: <strong>eudc-bbdbify-address</strong> <em>addr location</em>
+</dt>
+<dd><p>This is a convenience function provided for use in
 <code>eudc-bbdb-conversion-alist</code>.  It parses <var>addr</var> into a vector
 compatible with <code>bbdb-create-internal</code>.  <var>addr</var> should be an
 address string of no more than four lines or a list of lines.  The last
 line is searched for the zip code, city and state name.  <var>location</var>
-is used as the phone location for BBDB. 
-</p></blockquote>
-</div>
+is used as the phone location for BBDB.
+</p></dd>
+</dl>
 
-   <p>Note that only a subset of the attributes you selected with
+<p>Note that only a subset of the attributes you selected with
 <code>eudc-default-return-attributes</code> and that are actually displayed may
 actually be inserted as part of the newly created BBDB record.
-
 </p>
-<div class="node">
-<a name="Server%2fProtocol-Locals"></a><a name="Server_002fProtocol-Locals"></a>
-</div>
 
+<hr>
+<a name="Server_002fProtocol-Locals"></a>
+<div class="header">
+<p>
+Previous: <a href="#Creating-BBDB-Records" accesskey="p" rel="prev">Creating BBDB Records</a>, Up: <a href="#Usage" accesskey="u" rel="up">Usage</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Server_002fProtocol-Locals-1"></a>
 <h3 class="section">3.8 Server/Protocol Locals</h3>
 
 <p>EUDC can be customized independently for each server or directory
 protocol.  All variables can be given local bindings that are activated
 when a particular server and/or protocol becomes active.  This is much
 like buffer-local bindings but on a per server or per protocol basis.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Manipulating-local-bindings">Manipulating local bindings</a>:   Functions to set and query local bindings
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Manipulating-local-bindings" accesskey="1">Manipulating local bindings</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Functions to set and query local bindings
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Manipulating-local-bindings"></a></div>
-
+<hr>
+<a name="Manipulating-local-bindings"></a>
+<div class="header">
+<p>
+Up: <a href="#Server_002fProtocol-Locals" accesskey="u" rel="up">Server/Protocol Locals</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Manipulating-local-bindings-1"></a>
 <h4 class="subsection">3.8.1 Manipulating local bindings</h4>
 
 <p>EUDC offers functions that let you set and query variables on a per
 server or per protocol basis.
-
-   </p>
+</p>
 <p>The following predicates allow you to test the existence of
 server/protocol local bindings for a particular variable.
-
 </p>
-<div class="defun">
-— Function: <b>eudc-server-local-variable-p</b><var> var<a name="index-eudc_002dserver_002dlocal_002dvariable_002dp-60"></a></var><br>
-<blockquote><p>Return non-<code>nil</code> if <var>var</var> has server-local bindings
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dserver_002dlocal_002dvariable_002dp"></a>Function: <strong>eudc-server-local-variable-p</strong> <em>var</em>
+</dt>
+<dd><p>Return non-<code>nil</code> if <var>var</var> has server-local bindings
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-protocol-local-variable-p</b><var> var<a name="index-eudc_002dprotocol_002dlocal_002dvariable_002dp-61"></a></var><br>
-<blockquote><p>Return non-<code>nil</code> if <var>var</var> has protocol-local bindings
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dprotocol_002dlocal_002dvariable_002dp"></a>Function: <strong>eudc-protocol-local-variable-p</strong> <em>var</em>
+</dt>
+<dd><p>Return non-<code>nil</code> if <var>var</var> has protocol-local bindings
+</p></dd>
+</dl>
 
-   <p>The following functions allow you to set the value of a variable with
+<p>The following functions allow you to set the value of a variable with
 various degrees of locality.
-
 </p>
-<div class="defun">
-— Function: <b>eudc-default-set</b><var> var val<a name="index-eudc_002ddefault_002dset-62"></a></var><br>
-<blockquote><p>Set the EUDC default value of <var>var</var> to <var>val</var>. 
+<dl>
+<dt>
+<a name="index-eudc_002ddefault_002dset"></a>Function: <strong>eudc-default-set</strong> <em>var val</em>
+</dt>
+<dd><p>Set the EUDC default value of <var>var</var> to <var>val</var>.
 The current binding of <var>var</var> (if local to the current server or
-protocol) is not changed. 
-</p></blockquote>
-</div>
+protocol) is not changed.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-protocol-set</b><var> var val &amp;optional protocol<a name="index-eudc_002dprotocol_002dset-63"></a></var><br>
-<blockquote><p>Set the binding of <var>var</var> local to <var>protocol</var> to <var>val</var>.  If
+<dl>
+<dt>
+<a name="index-eudc_002dprotocol_002dset"></a>Function: <strong>eudc-protocol-set</strong> <em>var val &amp;optional protocol</em>
+</dt>
+<dd><p>Set the binding of <var>var</var> local to <var>protocol</var> to <var>val</var>.  If
 omitted, <var>protocol</var> defaults to the current value of
 <code>eudc-protocol</code>.  The current binding of <var>var</var> is changed only
-if <var>protocol</var> is omitted. 
-</p></blockquote>
-</div>
+if <var>protocol</var> is omitted.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-server-set</b><var> var val &amp;optional server<a name="index-eudc_002dserver_002dset-64"></a></var><br>
-<blockquote><p>Set the binding of <var>var</var> local to <var>server</var> to <var>val</var>.  If
+<dl>
+<dt>
+<a name="index-eudc_002dserver_002dset"></a>Function: <strong>eudc-server-set</strong> <em>var val &amp;optional server</em>
+</dt>
+<dd><p>Set the binding of <var>var</var> local to <var>server</var> to <var>val</var>.  If
 omitted, <var>server</var> defaults to the current value of
 <code>eudc-server</code>.  The current binding of <var>var</var> is changed only if
-<var>server</var> is omitted. 
-</p></blockquote>
-</div>
+<var>server</var> is omitted.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-set</b><var> var val<a name="index-eudc_002dset-65"></a></var><br>
-<blockquote><p>Set the most local (server, protocol or default) binding of <var>var</var> to
-<var>val</var>.  The current binding of <var>var</var> is also set to <var>val</var>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dset"></a>Function: <strong>eudc-set</strong> <em>var val</em>
+</dt>
+<dd><p>Set the most local (server, protocol or default) binding of <var>var</var> to
+<var>val</var>.  The current binding of <var>var</var> is also set to <var>val</var>.
+</p></dd>
+</dl>
 
-   <p>The following variables allow you to query the various bindings of a
+<p>The following variables allow you to query the various bindings of a
 variable (local or non-local).
-
 </p>
-<div class="defun">
-— Function: <b>eudc-variable-default-value</b><var> var<a name="index-eudc_002dvariable_002ddefault_002dvalue-66"></a></var><br>
-<blockquote><p>Return the default binding of <var>var</var> (outside of a particular server
-or protocol local binding). 
-Return <code>unbound</code> if <var>var</var> has no EUDC default value. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dvariable_002ddefault_002dvalue"></a>Function: <strong>eudc-variable-default-value</strong> <em>var</em>
+</dt>
+<dd><p>Return the default binding of <var>var</var> (outside of a particular server
+or protocol local binding).
+Return <code>unbound</code> if <var>var</var> has no EUDC default value.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-variable-protocol-value</b><var> var &amp;optional protocol<a name="index-eudc_002dvariable_002dprotocol_002dvalue-67"></a></var><br>
-<blockquote><p>Return the value of <var>var</var> local to <var>protocol</var>.  Return
-<code>unbound</code> if <var>var</var> has no value local to <var>protocol</var>. 
-<var>protocol</var> defaults to <code>eudc-protocol</code>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dvariable_002dprotocol_002dvalue"></a>Function: <strong>eudc-variable-protocol-value</strong> <em>var &amp;optional protocol</em>
+</dt>
+<dd><p>Return the value of <var>var</var> local to <var>protocol</var>.  Return
+<code>unbound</code> if <var>var</var> has no value local to <var>protocol</var>.
+<var>protocol</var> defaults to <code>eudc-protocol</code>.
+</p></dd>
+</dl>
 
-<div class="defun">
-— Function: <b>eudc-variable-server-value</b><var> var </var>[<var>server</var>]<var><a name="index-eudc_002dvariable_002dserver_002dvalue-68"></a></var><br>
-<blockquote><p>Return the value of <var>var</var> local to <var>server</var>. 
-Return <code>unbound</code> if <var>var</var> has no value local to <var>server</var>. 
-<var>server</var> defaults to <code>eudc-server</code>. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-eudc_002dvariable_002dserver_002dvalue"></a>Function: <strong>eudc-variable-server-value</strong> <em>var [server]</em>
+</dt>
+<dd><p>Return the value of <var>var</var> local to <var>server</var>.
+Return <code>unbound</code> if <var>var</var> has no value local to <var>server</var>.
+<var>server</var> defaults to <code>eudc-server</code>.
+</p></dd>
+</dl>
 
-   <p>Changing a protocol-local or server-local value of a variable has no
+<p>Changing a protocol-local or server-local value of a variable has no
 effect on its current value.  The following command is used to
 synchronize the current values of variables with their local values
 given the current <code>eudc-server</code> and <code>eudc-protocol</code>:
-
 </p>
-<div class="defun">
-— Function: <b>eudc-update-local-variables</b><var><a name="index-eudc_002dupdate_002dlocal_002dvariables-69"></a></var><br>
-<blockquote><p>Update all EUDC variables according to their local settings. 
-</p></blockquote>
+<dl>
+<dt>
+<a name="index-eudc_002dupdate_002dlocal_002dvariables"></a>Function: <strong>eudc-update-local-variables</strong>
+</dt>
+<dd><p>Update all EUDC variables according to their local settings.
+</p></dd>
+</dl>
+
+
+
+<hr>
+<a name="Credits"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Usage" accesskey="p" rel="prev">Usage</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Credits"></a></div>
-
+<a name="Credits-1"></a>
 <h2 class="chapter">4 Credits</h2>
 
-<p>EUDC was written by Oscar Figueiredo based on <samp><span class="file">ph.el</span></samp> by the
+<p>EUDC was written by Oscar Figueiredo based on <samp>ph.el</samp> by the
 same author.
-
-   </p>
-<p>Thanks to Soren Dayton for his suggestions, his enthusiasm and his help
-in testing and proofreading the code and docs of <samp><span class="file">ph.el</span></samp>.
-
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<p>Thanks to Soren Dayton for his suggestions, his enthusiasm and his help
+in testing and proofreading the code and docs of <samp>ph.el</samp>.
+</p>
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Credits" accesskey="p" rel="prev">Credits</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -1399,12 +1660,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -1413,16 +1673,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -1430,8 +1688,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -1439,14 +1696,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -1456,11 +1711,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -1473,20 +1727,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -1494,20 +1745,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -1516,104 +1765,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -1621,54 +1863,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -1678,84 +1918,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -1766,57 +1997,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1825,300 +2049,661 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Index"></a></div>
 
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="unnumbered">Index</h2>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-bind-distinguished-name-12">bind distinguished name</a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-binddn-13">binddn</a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dattribute_002ddisplay_002dmethod_002dalist-33"><code>eudc-attribute-display-method-alist</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002dbatch_002dexport_002drecords_002dto_002dbbdb-56"><code>eudc-batch-export-records-to-bbdb</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dbbdb_002dconversion_002dalist-57"><code>eudc-bbdb-conversion-alist</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dbbdbify_002daddress-59"><code>eudc-bbdbify-address</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dbbdbify_002dphone-58"><code>eudc-bbdbify-phone</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dbookmark_002dcurrent_002dserver-45"><code>eudc-bookmark-current-server</code></a>: <a href="#The-Server-Hotlist">The Server Hotlist</a>
-</li>
-<li>
-<a href="#index-eudc_002dbookmark_002dserver-44"><code>eudc-bookmark-server</code></a>: <a href="#The-Server-Hotlist">The Server Hotlist</a>
-</li>
-<li>
-<a href="#index-eudc_002ddefault_002dreturn_002dattributes-25"><code>eudc-default-return-attributes</code></a>: <a href="#Return-Attributes">Return Attributes</a>
-</li>
-<li>
-<a href="#index-eudc_002ddefault_002dset-62"><code>eudc-default-set</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002ddisplay_002dgeneric_002dbinary-34"><code>eudc-display-generic-binary</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002ddisplay_002djpeg_002das_002dbutton-38"><code>eudc-display-jpeg-as-button</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002ddisplay_002djpeg_002dinline-37"><code>eudc-display-jpeg-inline</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002ddisplay_002dsound-36"><code>eudc-display-sound</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002ddisplay_002durl-35"><code>eudc-display-url</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002dduplicate_002dattribute_002dhandling_002dmethod-27"><code>eudc-duplicate-attribute-handling-method</code></a>: <a href="#Duplicate-Attributes">Duplicate Attributes</a>
-</li>
-<li>
-<a href="#index-eudc_002dexpand_002dinline-4"><code>eudc-expand-inline</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dexpand_002dinline-15"><code>eudc-expand-inline</code></a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dexpand_002dinline-40"><code>eudc-expand-inline</code></a>: <a href="#Inline-Query-Expansion">Inline Query Expansion</a>
-</li>
-<li>
-<a href="#index-eudc_002dexternal_002dviewers-39"><code>eudc-external-viewers</code></a>: <a href="#Display-of-Query-Results">Display of Query Results</a>
-</li>
-<li>
-<a href="#index-eudc_002dget_002dattribute_002dlist-29"><code>eudc-get-attribute-list</code></a>: <a href="#Query-Form">Query Form</a>
-</li>
-<li>
-<a href="#index-eudc_002dhotlist_002dadd_002dserver-47"><code>eudc-hotlist-add-server</code></a>: <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>
-</li>
-<li>
-<a href="#index-eudc_002dhotlist_002ddelete_002dserver-48"><code>eudc-hotlist-delete-server</code></a>: <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>
-</li>
-<li>
-<a href="#index-eudc_002dhotlist_002dquit_002dedit-51"><code>eudc-hotlist-quit-edit</code></a>: <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>
-</li>
-<li>
-<a href="#index-eudc_002dhotlist_002dselect_002dserver-49"><code>eudc-hotlist-select-server</code></a>: <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>
-</li>
-<li>
-<a href="#index-eudc_002dhotlist_002dtranspose_002dservers-50"><code>eudc-hotlist-transpose-servers</code></a>: <a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a>
-</li>
-<li>
-<a href="#index-eudc_002dinline_002dexpansion_002dformat-42"><code>eudc-inline-expansion-format</code></a>: <a href="#Inline-Query-Expansion">Inline Query Expansion</a>
-</li>
-<li>
-<a href="#index-eudc_002dinline_002dexpansion_002dservers-52"><code>eudc-inline-expansion-servers</code></a>: <a href="#Multi_002dserver-Queries">Multi-server Queries</a>
-</li>
-<li>
-<a href="#index-eudc_002dinline_002dquery_002dformat-41"><code>eudc-inline-query-format</code></a>: <a href="#Inline-Query-Expansion">Inline Query Expansion</a>
-</li>
-<li>
-<a href="#index-eudc_002dinsert_002drecord_002dat_002dpoint_002dinto_002dbbdb-54"><code>eudc-insert-record-at-point-into-bbdb</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dmax_002dservers_002dto_002dquery-53"><code>eudc-max-servers-to-query</code></a>: <a href="#Multi_002dserver-Queries">Multi-server Queries</a>
-</li>
-<li>
-<a href="#index-eudc_002dmultiple_002dmatch_002dhandling_002dmethod-43"><code>eudc-multiple-match-handling-method</code></a>: <a href="#Inline-Query-Expansion">Inline Query Expansion</a>
-</li>
-<li>
-<a href="#index-eudc_002doptions_002dfile-46"><code>eudc-options-file</code></a>: <a href="#The-Server-Hotlist">The Server Hotlist</a>
-</li>
-<li>
-<a href="#index-eudc_002dprotocol-23"><code>eudc-protocol</code></a>: <a href="#Selecting-a-Server">Selecting a Server</a>
-</li>
-<li>
-<a href="#index-eudc_002dprotocol_002dlocal_002dvariable_002dp-61"><code>eudc-protocol-local-variable-p</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dprotocol_002dset-63"><code>eudc-protocol-set</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dquery_002dform-30"><code>eudc-query-form</code></a>: <a href="#Query-Form">Query Form</a>
-</li>
-<li>
-<a href="#index-eudc_002dquery_002dform_002dattributes-28"><code>eudc-query-form-attributes</code></a>: <a href="#Query-Form">Query Form</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver-22"><code>eudc-server</code></a>: <a href="#Selecting-a-Server">Selecting a Server</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver_002dhotlist-16"><code>eudc-server-hotlist</code></a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver_002dhotlist-5"><code>eudc-server-hotlist</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver_002dhotlist-20"><code>eudc-server-hotlist</code></a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver_002dlocal_002dvariable_002dp-60"><code>eudc-server-local-variable-p</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dserver_002dset-64"><code>eudc-server-set</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dset-65"><code>eudc-set</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dset_002dserver-24"><code>eudc-set-server</code></a>: <a href="#Selecting-a-Server">Selecting a Server</a>
-</li>
-<li>
-<a href="#index-eudc_002dstrict_002dreturn_002dmatches-26"><code>eudc-strict-return-matches</code></a>: <a href="#Return-Attributes">Return Attributes</a>
-</li>
-<li>
-<a href="#index-eudc_002dtry_002dbbdb_002dinsert-55"><code>eudc-try-bbdb-insert</code></a>: <a href="#Creating-BBDB-Records">Creating BBDB Records</a>
-</li>
-<li>
-<a href="#index-eudc_002dupdate_002dlocal_002dvariables-69"><code>eudc-update-local-variables</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002duse_002draw_002ddirectory_002dnames-32"><code>eudc-use-raw-directory-names</code></a>: <a href="#Query-Form">Query Form</a>
-</li>
-<li>
-<a href="#index-eudc_002duser_002dattribute_002dnames_002dalist-31"><code>eudc-user-attribute-names-alist</code></a>: <a href="#Query-Form">Query Form</a>
-</li>
-<li>
-<a href="#index-eudc_002dvariable_002ddefault_002dvalue-66"><code>eudc-variable-default-value</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dvariable_002dprotocol_002dvalue-67"><code>eudc-variable-protocol-value</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-eudc_002dvariable_002dserver_002dvalue-68"><code>eudc-variable-server-value</code></a>: <a href="#Manipulating-local-bindings">Manipulating local bindings</a>
-</li>
-<li>
-<a href="#index-ldap_002dhost_002dparameters_002dalist-21"><code>ldap-host-parameters-alist</code></a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-ldap_002dhost_002dparameters_002dalist-6"><code>ldap-host-parameters-alist</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-ldap_002dhost_002dparameters_002dalist-1"><code>ldap-host-parameters-alist</code></a>: <a href="#LDAP-Configuration">LDAP Configuration</a>
-</li>
-<li>
-<a href="#index-ldap_002dldapsearch_002dargs-2"><code>ldap-ldapsearch-args</code></a>: <a href="#LDAP-Configuration">LDAP Configuration</a>
-</li>
-<li>
-<a href="#index-ldap_002dpassword_002dread-7"><code>ldap-password-read</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-message_002dmode_002dmap-3"><code>message-mode-map</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-message_002dmode_002dmap-18"><code>message-mode-map</code></a>: <a href="#External-Configuration">External Configuration</a>
-</li>
-<li>
-<a href="#index-passwd-8"><code>passwd</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-password_002dcache-9"><code>password-cache</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-password_002dcache_002dexpiry-10"><code>password-cache-expiry</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-<li>
-<a href="#index-password_002dreset-11"><code>password-reset</code></a>: <a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a>
-</li>
-   </ul>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-bind-distinguished-name">bind distinguished name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-binddn">binddn</a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dattribute_002ddisplay_002dmethod_002dalist"><code>eudc-attribute-display-method-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbatch_002dexport_002drecords_002dto_002dbbdb"><code>eudc-batch-export-records-to-bbdb</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbbdb_002dconversion_002dalist"><code>eudc-bbdb-conversion-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbbdbify_002daddress"><code>eudc-bbdbify-address</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbbdbify_002dphone"><code>eudc-bbdbify-phone</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbookmark_002dcurrent_002dserver"><code>eudc-bookmark-current-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Server-Hotlist">The Server Hotlist</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dbookmark_002dserver"><code>eudc-bookmark-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Server-Hotlist">The Server Hotlist</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddefault_002dreturn_002dattributes"><code>eudc-default-return-attributes</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Return-Attributes">Return Attributes</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddefault_002dset"><code>eudc-default-set</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddisplay_002dgeneric_002dbinary"><code>eudc-display-generic-binary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddisplay_002djpeg_002das_002dbutton"><code>eudc-display-jpeg-as-button</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddisplay_002djpeg_002dinline"><code>eudc-display-jpeg-inline</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddisplay_002dsound"><code>eudc-display-sound</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002ddisplay_002durl"><code>eudc-display-url</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dduplicate_002dattribute_002dhandling_002dmethod"><code>eudc-duplicate-attribute-handling-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Duplicate-Attributes">Duplicate Attributes</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dexpand_002dinline"><code>eudc-expand-inline</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dexpand_002dinline-1"><code>eudc-expand-inline</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dexpand_002dinline-2"><code>eudc-expand-inline</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dexpand_002dinline-3"><code>eudc-expand-inline</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inline-Query-Expansion">Inline Query Expansion</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dexternal_002dviewers"><code>eudc-external-viewers</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Display-of-Query-Results">Display of Query Results</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dget_002dattribute_002dlist"><code>eudc-get-attribute-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Query-Form">Query Form</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dhotlist_002dadd_002dserver"><code>eudc-hotlist-add-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dhotlist_002ddelete_002dserver"><code>eudc-hotlist-delete-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dhotlist_002dquit_002dedit"><code>eudc-hotlist-quit-edit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dhotlist_002dselect_002dserver"><code>eudc-hotlist-select-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dhotlist_002dtranspose_002dservers"><code>eudc-hotlist-transpose-servers</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Hotlist-Edit-Buffer">The Hotlist Edit Buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dinline_002dexpansion_002dformat"><code>eudc-inline-expansion-format</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inline-Query-Expansion">Inline Query Expansion</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dinline_002dexpansion_002dservers"><code>eudc-inline-expansion-servers</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Multi_002dserver-Queries">Multi-server Queries</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dinline_002dquery_002dformat"><code>eudc-inline-query-format</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inline-Query-Expansion">Inline Query Expansion</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dinsert_002drecord_002dat_002dpoint_002dinto_002dbbdb"><code>eudc-insert-record-at-point-into-bbdb</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dmax_002dservers_002dto_002dquery"><code>eudc-max-servers-to-query</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Multi_002dserver-Queries">Multi-server Queries</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dmultiple_002dmatch_002dhandling_002dmethod"><code>eudc-multiple-match-handling-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inline-Query-Expansion">Inline Query Expansion</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002doptions_002dfile"><code>eudc-options-file</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Server-Hotlist">The Server Hotlist</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dprotocol"><code>eudc-protocol</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Selecting-a-Server">Selecting a Server</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dprotocol_002dlocal_002dvariable_002dp"><code>eudc-protocol-local-variable-p</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dprotocol_002dset"><code>eudc-protocol-set</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dquery_002dform"><code>eudc-query-form</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Query-Form">Query Form</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dquery_002dform_002dattributes"><code>eudc-query-form-attributes</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Query-Form">Query Form</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver"><code>eudc-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Selecting-a-Server">Selecting a Server</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver_002dhotlist"><code>eudc-server-hotlist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver_002dhotlist-1"><code>eudc-server-hotlist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver_002dhotlist-2"><code>eudc-server-hotlist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver_002dlocal_002dvariable_002dp"><code>eudc-server-local-variable-p</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dserver_002dset"><code>eudc-server-set</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dset"><code>eudc-set</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dset_002dserver"><code>eudc-set-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Selecting-a-Server">Selecting a Server</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dstrict_002dreturn_002dmatches"><code>eudc-strict-return-matches</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Return-Attributes">Return Attributes</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dtry_002dbbdb_002dinsert"><code>eudc-try-bbdb-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Creating-BBDB-Records">Creating BBDB Records</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dupdate_002dlocal_002dvariables"><code>eudc-update-local-variables</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002duse_002draw_002ddirectory_002dnames"><code>eudc-use-raw-directory-names</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Query-Form">Query Form</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002duser_002dattribute_002dnames_002dalist"><code>eudc-user-attribute-names-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Query-Form">Query Form</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dvariable_002ddefault_002dvalue"><code>eudc-variable-default-value</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dvariable_002dprotocol_002dvalue"><code>eudc-variable-protocol-value</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eudc_002dvariable_002dserver_002dvalue"><code>eudc-variable-server-value</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Manipulating-local-bindings">Manipulating local bindings</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dhost_002dparameters_002dalist"><code>ldap-host-parameters-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#LDAP-Configuration">LDAP Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dhost_002dparameters_002dalist-1"><code>ldap-host-parameters-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dhost_002dparameters_002dalist-2"><code>ldap-host-parameters-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dhost_002dparameters_002dalist-3"><code>ldap-host-parameters-alist</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dldapsearch_002dargs"><code>ldap-ldapsearch-args</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#LDAP-Configuration">LDAP Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ldap_002dpassword_002dread"><code>ldap-password-read</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-message_002dmode_002dmap"><code>message-mode-map</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-message_002dmode_002dmap-1"><code>message-mode-map</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-message_002dmode_002dmap-2"><code>message-mode-map</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#External-Configuration">External Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-passwd"><code>passwd</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-password_002dcache"><code>password-cache</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-password_002dcache_002dexpiry"><code>password-cache-expiry</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-password_002dreset"><code>password-reset</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs_002donly-Configuration">Emacs-only Configuration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+</td>
+</tr></table>
+
 <div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4>
-<p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> This key binding does not actually
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>This key binding does not actually
 call <code>eudc-insert-record-at-point-into-bbdb</code> but uses
 <code>eudc-try-bbdb-insert</code> instead.</p>
-
-   <p></p>
-<hr>
 </div>
+<hr>
+
+
 
 </body>
 </html>

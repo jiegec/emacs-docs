@@ -1,197 +1,207 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>Info</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Info">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-This file describes how to use Info, the menu-driven GNU
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file describes how to use Info, the menu-driven GNU
 documentation system.
 
 Copyright (C) 1989, 1992, 1996-2016 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual," and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Info</title>
+
+<meta name="description" content="Info">
+<meta name="keywords" content="Info">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">Info</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Info: An Introduction</a>
+
+<body lang="en">
+<h1 class="settitle" align="center">Info</h1>
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li>
+<a name="toc-Getting-Started-1" href="#Getting-Started">1 Getting Started</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Starting-Info-on-a-Small-Screen" href="#Help_002dSmall_002dScreen">1.1 Starting Info on a Small Screen</a></li>
+    <li><a name="toc-How-to-use-Info" href="#Help">1.2 How to use Info</a></li>
+    <li><a name="toc-Returning-to-the-Previous-node" href="#Help_002dP">1.3 Returning to the Previous node</a></li>
+    <li><a name="toc-The-Space_002c-DEL_002c-B-and-_005eL-commands" href="#Help_002d_005eL">1.4 The Space, DEL, B and ^L commands</a></li>
+    <li>
+<a name="toc-Invisible-text-in-Emacs-Info" href="#Help_002dInv">1.5 Invisible text in Emacs Info</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-_005d-and-_005b-commands" href="#Help_002d_005d">1.5.1 The <kbd>]</kbd> and <kbd>[</kbd> commands</a></li>
+    </ul>
 </li>
-<li>
-<a name="toc_Getting-Started" href="#Getting-Started">1 Getting Started</a>
-<ul>
-<li>
-<a href="#Help_002dSmall_002dScreen">1.1 Starting Info on a Small Screen</a>
+    <li>
+<a name="toc-Menus-and-the-m-command" href="#Help_002dM">1.6 Menus and the <kbd>m</kbd> command</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-u-command" href="#Help_002dFOO">1.6.1 The <kbd>u</kbd> command</a></li>
+    </ul>
 </li>
-<li>
-<a href="#Help">1.2 How to use Info</a>
+    <li>
+<a name="toc-Following-Cross_002dReferences" href="#Help_002dXref">1.7 Following Cross-References</a>
+    <ul class="no-bullet">
+      <li><a name="toc-The-node-reached-by-the-cross-reference-in-Info" href="#Help_002dCross">1.7.1 The node reached by the cross reference in Info</a></li>
+    </ul>
 </li>
-<li>
-<a href="#Help_002dP">1.3 Returning to the Previous node</a>
+    <li><a name="toc-Some-intermediate-Info-commands" href="#Help_002dInt">1.8 Some intermediate Info commands</a></li>
+    <li><a name="toc-Quitting-Info" href="#Help_002dQ">1.9 Quitting Info</a></li>
+  </ul>
 </li>
-<li>
-<a href="#Help_002d_005eL">1.4 The Space, DEL, B and ^L commands</a>
+  <li>
+<a name="toc-Advanced-Info-Commands" href="#Advanced">2 Advanced Info Commands</a>
+  <ul class="no-bullet">
+    <li><a name="toc-s-searches-Info-documents" href="#Search-Text">2.1 <kbd>s</kbd> searches Info documents</a></li>
+    <li><a name="toc-i-searches-the-indices-for-specific-subjects" href="#Search-Index">2.2 <kbd>i</kbd> searches the indices for specific subjects</a></li>
+    <li><a name="toc-g-goes-to-a-node-by-name" href="#Go-to-node">2.3 <kbd>g</kbd> goes to a node by name</a></li>
+    <li><a name="toc-1_002d_002d9-choose-a-menu-subtopic-by-its-number" href="#Choose-menu-subtopic">2.4 <kbd>1</kbd>–<kbd>9</kbd> choose a menu subtopic by its number</a></li>
+    <li><a name="toc-M_002dn-creates-a-new-independent-Info-buffer-in-Emacs" href="#Create-Info-buffer">2.5 <kbd>M-n</kbd> creates a new independent Info buffer in Emacs</a></li>
+    <li><a name="toc-Emacs-Info_002dmode-Variables" href="#Emacs-Info-Variables">2.6 Emacs Info-mode Variables</a></li>
+  </ul>
 </li>
-<li>
-<a href="#Help_002dInv">1.5 Invisible text in Emacs Info</a>
-<ul>
-<li>
-<a href="#Help_002d_005d">1.5.1 The <kbd>]</kbd> and <kbd>[</kbd> commands</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Help_002dM">1.6 Menus and the <kbd>m</kbd> command</a>
-<ul>
-<li>
-<a href="#Help_002dFOO">1.6.1 The <kbd>u</kbd> command</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Help_002dXref">1.7 Following Cross-References</a>
-<ul>
-<li>
-<a href="#Help_002dCross">1.7.1 The node reached by the cross reference in Info</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Help_002dInt">1.8 Some intermediate Info commands</a>
-</li>
-<li>
-<a href="#Help_002dQ">1.9 Quitting Info</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Advanced" href="#Advanced">2 Advanced Info Commands</a>
-<ul>
-<li>
-<a href="#Search-Text">2.1 <kbd>s</kbd> searches Info documents</a>
-</li>
-<li>
-<a href="#Search-Index">2.2 <kbd>i</kbd> searches the indices for specific subjects</a>
-</li>
-<li>
-<a href="#Go-to-node">2.3 <kbd>g</kbd> goes to a node by name</a>
-</li>
-<li>
-<a href="#Choose-menu-subtopic">2.4 <kbd>1</kbd>–<kbd>9</kbd> choose a menu subtopic by its number</a>
-</li>
-<li>
-<a href="#Create-Info-buffer">2.5 <kbd>M-n</kbd> creates a new independent Info buffer in Emacs</a>
-</li>
-<li>
-<a href="#Emacs-Info-Variables">2.6 Emacs Info-mode Variables</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Further-Reading" href="#Further-Reading">3 Further Reading</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Index" href="#Index">Index</a>
-</li>
+  <li><a name="toc-Further-Reading-1" href="#Further-Reading">3 Further Reading</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">Info: An Introduction</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Getting-Started" accesskey="n" rel="next">Getting Started</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Info_003a-An-Introduction"></a>
+<h1 class="top">Info: An Introduction</h1>
 
 <p>The GNU Project distributes most of its manuals in the
-<dfn>Info format</dfn>, which you read using an <dfn>Info reader</dfn>.  You are
+<em>Info format</em>, which you read using an <em>Info reader</em>.  You are
 probably using an Info reader to read this now.
-
-   </p>
+</p>
 <p>There are two primary Info readers: <code>info</code>, a stand-alone program
-designed just to read Info files (see <a href="info-stnd.html#Top">What is Info?</a>), and the <code>info</code> package in GNU Emacs, a
+designed just to read Info files (see <a href="http://www.gnu.org/software/texinfo/manual/info-stnd/info-stnd.html#Top">What is Info?</a> in <cite>GNU Info</cite>), and the <code>info</code> package in GNU Emacs, a
 general-purpose editor.  At present, only the Emacs reader supports
 using a mouse.
+</p>
 
-   </p>
 <p>This file describes how to use Info, the menu-driven GNU
 documentation system.
-
-   </p>
+</p>
 <p>Copyright © 1989, 1992, 1996–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Getting-Started">Getting Started</a>:              Getting started using an Info reader. 
-</li>
-<li>
-<a accesskey="2" href="#Advanced">Advanced</a>:                     Advanced Info commands. 
-</li>
-<li>
-<a accesskey="3" href="#Further-Reading">Further Reading</a>:              Where to learn more about Info files. 
-</li>
-<li>
-<a accesskey="4" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this documentation. 
-</li>
-<li>
-<a accesskey="5" href="#Index">Index</a>:                        An index of topics, commands, and variables. 
-</li>
-</ul>
 
-<div class="node"><a name="Getting-Started"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Getting-Started" accesskey="1">Getting Started</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Getting started using an Info reader.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Advanced" accesskey="2">Advanced</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Advanced Info commands.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Further-Reading" accesskey="3">Further Reading</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Where to learn more about Info files.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="4">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index" accesskey="5">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">An index of topics, commands, and variables.
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Getting-Started"></a>
+<div class="header">
+<p>
+Next: <a href="#Advanced" accesskey="n" rel="next">Advanced</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Getting-Started-1"></a>
 <h2 class="chapter">1 Getting Started</h2>
 
 <p>This first part of this Info manual describes how to get around inside
 of Info.  The second part of the manual describes various advanced
 Info commands.  The third part contains references to other sources,
 which explain how to generate Info files from Texinfo files.
-
-   </p>
+</p>
 <p>This manual is primarily designed for browsing with an Info reader
 program on a computer, so that you can try Info commands while reading
 about them.  Reading it on paper or with an HTML browser is less
@@ -199,330 +209,401 @@ effective, since you must take it on faith that the commands described
 really do what the manual says.  By all means go through this manual
 now that you have it; but please try going through the Info version
 as well.
-
-   </p>
-<p><a name="index-Info-reader_002c-how-to-invoke-1"></a><a name="index-entering-Info-2"></a>There are two ways of looking at the online version of this manual:
-
-     </p>
-<ol type="1" start="1">
-<li>Type <code>info</code> at your shell's command line.  This approach uses a
+</p>
+<a name="index-Info-reader_002c-how-to-invoke"></a>
+<a name="index-entering-Info"></a>
+<p>There are two ways of looking at the online version of this manual:
+</p>
+<ol>
+<li> Type <code>info</code> at your shell’s command line.  This approach uses a
 stand-alone program designed just to read Info files.
 
-     </li>
-<li>Type <code>emacs</code> at the command line; then type <kbd>C-h i</kbd>
+</li>
+<li> Type <code>emacs</code> at the command line; then type <kbd>C-h i</kbd>
 (<kbd>Control-h</kbd>, followed by <kbd>i</kbd>).  This approach uses the Info
 mode of the Emacs editor.
-        </li>
+</li>
 </ol>
 
-   <p>In either case, then type <kbd>mInfo</kbd> (just the letters), followed by
-&lt;RET&gt;—the “Return” or “Enter” key.  At this point, you should
+<p>In either case, then type <kbd>mInfo</kbd> (just the letters), followed by
+<tt class="key">RET</tt>—the “Return” or “Enter” key.  At this point, you should
 be ready to follow the instructions in this manual as you read them on
-the screen. 
-<!-- FIXME! (pesch@cygnus.com, 14 dec 1992) -->
-<!-- Is it worth worrying about what-if the beginner goes to somebody -->
-<!-- else's Emacs session, which already has an Info running in the middle -->
-<!-- of something-in which case these simple instructions won't work? -->
-
+the screen.
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Help_002dSmall_002dScreen">Help-Small-Screen</a>:    Starting Info on a Small Screen. 
-</li>
-<li>
-<a accesskey="2" href="#Help">Help</a>:                 How to use Info. 
-</li>
-<li>
-<a accesskey="3" href="#Help_002dP">Help-P</a>:               Returning to the Previous node. 
-</li>
-<li>
-<a accesskey="4" href="#Help_002d_005eL">Help-^L</a>:              The Space, DEL, B and ^L commands. 
-</li>
-<li>
-<a accesskey="5" href="#Help_002dInv">Help-Inv</a>:             Invisible text in Emacs Info. 
-</li>
-<li>
-<a accesskey="6" href="#Help_002dM">Help-M</a>:               Menus. 
-</li>
-<li>
-<a accesskey="7" href="#Help_002dXref">Help-Xref</a>:            Following cross-references. 
-</li>
-<li>
-<a accesskey="8" href="#Help_002dInt">Help-Int</a>:             Some intermediate Info commands. 
-</li>
-<li>
-<a accesskey="9" href="#Help_002dQ">Help-Q</a>:               Quitting Info. 
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dSmall_002dScreen" accesskey="1">Help-Small-Screen</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Starting Info on a Small Screen.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help" accesskey="2">Help</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to use Info.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dP" accesskey="3">Help-P</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Returning to the Previous node.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002d_005eL" accesskey="4">Help-^L</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The Space, DEL, B and ^L commands.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dInv" accesskey="5">Help-Inv</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Invisible text in Emacs Info.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dM" accesskey="6">Help-M</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Menus.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dXref" accesskey="7">Help-Xref</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Following cross-references.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dInt" accesskey="8">Help-Int</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Some intermediate Info commands.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dQ" accesskey="9">Help-Q</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Quitting Info.
+</td>
+</tr>
+</table>
 
-<div class="node">
-<a name="Help-Small-Screen"></a><a name="Help_002dSmall_002dScreen"></a>
+<hr>
+<a name="Help_002dSmall_002dScreen"></a>
+<div class="header">
+<p>
+Next: <a href="#Help" accesskey="n" rel="next">Help</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Starting-Info-on-a-Small-Screen"></a>
 <h3 class="section">1.1 Starting Info on a Small Screen</h3>
 
 <p>(In Info, you only see this section if your terminal has a small
 number of lines; most readers pass by it without seeing it.)
-
 </p>
-<p><a name="index-small-screen_002c-moving-around-3"></a>Since your terminal has a relatively small number of lines on its
+<a name="index-small-screen_002c-moving-around"></a>
+<p>Since your terminal has a relatively small number of lines on its
 screen, it is necessary to give you special advice at the beginning.
-
-   </p>
+</p>
 <p>If the entire text you are looking at fits on the screen, the text
-`<samp><span class="samp">All</span></samp>' will be displayed near the bottom of the screen, on the
+‘<samp>All</samp>’ will be displayed near the bottom of the screen, on the
 mode line (usually, the line in inverse video).  If you see the text
-`<samp><span class="samp">Top</span></samp>' instead, it means that there is more text below that does
+‘<samp>Top</samp>’ instead, it means that there is more text below that does
 not fit.  To move forward through the text and see another screenful,
-press &lt;SPC&gt;, the Space bar.  To move back up, press the key
-labeled `<samp><span class="samp">Backspace</span></samp>' or `<samp><span class="samp">DEL</span></samp>' (on some keyboards, this key
-might be labeled `<samp><span class="samp">Delete</span></samp>').  In a graphical Emacs, you can also use
-<kbd>S-&lt;SPC&gt;</kbd> (press and hold the &lt;Shift&gt; key and then press
-&lt;SPC&gt;) to move backwards, but this does not work in the
+press <tt class="key">SPC</tt>, the Space bar.  To move back up, press the key
+labeled ‘<samp>Backspace</samp>’ or ‘<samp>DEL</samp>’ (on some keyboards, this key
+might be labeled ‘<samp>Delete</samp>’).  In a graphical Emacs, you can also use
+<kbd>S-<span class="key">SPC</span></kbd> (press and hold the <tt class="key">Shift</tt> key and then press
+<tt class="key">SPC</tt>) to move backwards, but this does not work in the
 stand-alone Info reader (nor in Emacs, if you are using it in a
 text-mode terminal).
-
 </p>
-<div class="node"><a name="Help"></a></div>
 
+<hr>
+<a name="Help"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dP" accesskey="n" rel="next">Help-P</a>, Previous: <a href="#Help_002dSmall_002dScreen" accesskey="p" rel="prev">Help-Small-Screen</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-to-use-Info"></a>
 <h3 class="section">1.2 How to use Info</h3>
 
 <p>You are talking to the program Info, for reading documentation.
-
-   </p>
+</p>
 <p>There are two ways to use Info: from within Emacs or as a
 stand-alone reader that you can invoke from a shell using the command
-<samp><span class="command">info</span></samp>.
-
-   </p>
-<p><a name="index-node_002c-in-Info-documents-4"></a>  Right now you are looking at one <dfn>Node</dfn> of Information. 
+<code>info</code>.
+</p>
+<a name="index-node_002c-in-Info-documents"></a>
+<p>Right now you are looking at one <em>Node</em> of Information.
 A node contains text describing a specific topic at a specific
-level of detail.  This node's topic is “how to use Info”.  The mode
-line says that this is node `<samp><span class="samp">Help</span></samp>' in the file <samp><span class="file">info</span></samp>.
-
-   </p>
-<p><a name="index-header-of-Info-node-5"></a>  The top line of a node is its <dfn>header</dfn>.  This node's header
-(look at it now) says that the `<samp><span class="samp">Next</span></samp>' node after this one is the
-node called `<samp><span class="samp">Help-P</span></samp>'.  An advanced Info command lets you go to
+level of detail.  This node’s topic is “how to use Info”.  The mode
+line says that this is node ‘<samp>Help</samp>’ in the file <samp>info</samp>.
+</p>
+<a name="index-header-of-Info-node"></a>
+<p>The top line of a node is its <em>header</em>.  This node’s header
+(look at it now) says that the ‘<samp>Next</samp>’ node after this one is the
+node called ‘<samp>Help-P</samp>’.  An advanced Info command lets you go to
 any node whose name you know.  In the stand-alone Info reader program,
 the header line shows the names of this node and the Info file as
 well.  In Emacs, the header line is displayed with a special typeface,
 and remains at the top of the window all the time even if you scroll
 through the node.
-
-   </p>
-<p>Besides a `<samp><span class="samp">Next</span></samp>', a node can have a `<samp><span class="samp">Previous</span></samp>' link, or an
-`<samp><span class="samp">Up</span></samp>' link, or both.  As you can see, this node has all of these
+</p>
+<p>Besides a ‘<samp>Next</samp>’, a node can have a ‘<samp>Previous</samp>’ link, or an
+‘<samp>Up</samp>’ link, or both.  As you can see, this node has all of these
 links.
-
-   </p>
-<p><a name="index-n-_0040r_007b_0028Info-mode_0029_007d-6"></a>  Now it is time to move on to the `<samp><span class="samp">Next</span></samp>' node, named `<samp><span class="samp">Help-P</span></samp>'.
-
 </p>
+<a name="index-n-_0028Info-mode_0029"></a>
+<p>Now it is time to move on to the ‘<samp>Next</samp>’ node, named ‘<samp>Help-P</samp>’.
+</p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>n</kbd> to move there.  Type just one character;
-   do not type the quotes and do not type a &lt;RET&gt; afterward.
+   do not type the quotes and do not type a <tt class="key">RET</tt> afterward.
 </pre>
-   <p class="noindent">`<samp><span class="samp">&gt;&gt;</span></samp>' in the margin means it is really time to try a command.
-
-</p>
-<pre class="format">&gt;&gt; If you are in Emacs and have a mouse, and if you already practiced
-   typing <kbd>n</kbd> to get to the next node, click now with the left
-   mouse button on the `<samp><span class="samp">Next</span></samp>' link to do the same “the mouse way”.
-</pre>
-   <div class="node">
-<a name="Help-P"></a><a name="Help_002dP"></a>
 </div>
 
+<p>‘<samp>&gt;&gt;</samp>’ in the margin means it is really time to try a command.
+</p>
+<div class="format">
+<pre class="format">&gt;&gt; If you are in Emacs and have a mouse, and if you already practiced
+   typing <kbd>n</kbd> to get to the next node, click now with the left
+   mouse button on the ‘<samp>Next</samp>’ link to do the same “the mouse way”.
+</pre>
+</div>
+
+<hr>
+<a name="Help_002dP"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002d_005eL" accesskey="n" rel="next">Help-^L</a>, Previous: <a href="#Help" accesskey="p" rel="prev">Help</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Returning-to-the-Previous-node"></a>
 <h3 class="section">1.3 Returning to the Previous node</h3>
 
-<p><a name="index-p-_0040r_007b_0028Info-mode_0029_007d-7"></a>This node is called `<samp><span class="samp">Help-P</span></samp>'.  The `<samp><span class="samp">Previous</span></samp>' node, as you see,
-is `<samp><span class="samp">Help</span></samp>', which is the one you just came from using the <kbd>n</kbd>
+<a name="index-p-_0028Info-mode_0029"></a>
+<p>This node is called ‘<samp>Help-P</samp>’.  The ‘<samp>Previous</samp>’ node, as you see,
+is ‘<samp>Help</samp>’, which is the one you just came from using the <kbd>n</kbd>
 command.  Another <kbd>n</kbd> command now would take you to the next
-node, `<samp><span class="samp">Help-^L</span></samp>'.
-
+node, ‘<samp>Help-^L</samp>’.
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; But do not type <kbd>n</kbd> yet.  First, try the <kbd>p</kbd> command, or
-   (in Emacs) click on the `<samp><span class="samp">Prev</span></samp>' link.  That takes you to
-   the `<samp><span class="samp">Previous</span></samp>' node.  Then use <kbd>n</kbd> to return here.
+   (in Emacs) click on the ‘<samp>Prev</samp>’ link.  That takes you to
+   the ‘<samp>Previous</samp>’ node.  Then use <kbd>n</kbd> to return here.
 </pre>
-   <p>If you read this in Emacs, you will see an `<samp><span class="samp">Info</span></samp>' item in the
-menu bar, close to its right edge.  Clicking the mouse on the
-`<samp><span class="samp">Info</span></samp>' menu-bar item opens a menu of commands which include
-`<samp><span class="samp">Next</span></samp>' and `<samp><span class="samp">Previous</span></samp>' (and also some others which you didn't yet
-learn about).
+</div>
 
-   </p>
+<p>If you read this in Emacs, you will see an ‘<samp>Info</samp>’ item in the
+menu bar, close to its right edge.  Clicking the mouse on the
+‘<samp>Info</samp>’ menu-bar item opens a menu of commands which include
+‘<samp>Next</samp>’ and ‘<samp>Previous</samp>’ (and also some others which you didn’t yet
+learn about).
+</p>
 <p>This all probably seems insultingly simple so far, but <em>please
-don't</em> start skimming.  Things will get complicated soon enough! 
+don’t</em> start skimming.  Things will get complicated soon enough!
 Also, please do not try a new command until you are told it is time
 to.  You could make Info skip past an important warning that was
 coming up.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Now do an <kbd>n</kbd>, or (in Emacs) click the middle mouse button on
-   the `<samp><span class="samp">Next</span></samp>' link, to get to the node `<samp><span class="samp">Help-^L</span></samp>' and learn more.
+   the ‘<samp>Next</samp>’ link, to get to the node ‘<samp>Help-^L</samp>’ and learn more.
 </pre>
-   <div class="node">
-<a name="Help-%5eL"></a><a name="Help_002d_005eL"></a>
 </div>
 
+<hr>
+<a name="Help_002d_005eL"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dInv" accesskey="n" rel="next">Help-Inv</a>, Previous: <a href="#Help_002dP" accesskey="p" rel="prev">Help-P</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-Space_002c-DEL_002c-B-and-_005eL-commands"></a>
 <h3 class="section">1.4 The Space, DEL, B and ^L commands</h3>
 
-<p>This node's mode line tells you that you are now at node
-`<samp><span class="samp">Help-^L</span></samp>', and the header line tells you that <kbd>p</kbd> would get
-you back to `<samp><span class="samp">Help-P</span></samp>'.  The node's title is highlighted and may be
+<p>This node’s mode line tells you that you are now at node
+‘<samp>Help-^L</samp>’, and the header line tells you that <kbd>p</kbd> would get
+you back to ‘<samp>Help-P</samp>’.  The node’s title is highlighted and may be
 underlined as well; it says what the node is about.
-
-   </p>
-<p>This is a big node and it does not all fit on your display screen. 
+</p>
+<p>This is a big node and it does not all fit on your display screen.
 You can tell that there is more that is not visible because you
-can see the text `<samp><span class="samp">Top</span></samp>' rather than `<samp><span class="samp">All</span></samp>' near the bottom of
+can see the text ‘<samp>Top</samp>’ rather than ‘<samp>All</samp>’ near the bottom of
 the screen.
-
-   </p>
-<p><a name="index-SPC-_0040r_007b_0028Info-mode_0029_007d-8"></a><a name="index-DEL-_0040r_007b_0028Info-mode_0029_007d-9"></a><a name="index-BACKSPACE-_0040r_007b_0028Info-mode_0029_007d-10"></a><a name="index-Info_002dscroll_002dup-11"></a><a name="index-Info_002dscroll_002ddown-12"></a>  The &lt;SPC&gt;, &lt;BACKSPACE&gt; (or &lt;DEL&gt;)<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> and <kbd>b</kbd> commands exist to
+</p>
+<a name="index-SPC-_0028Info-mode_0029"></a>
+<a name="index-DEL-_0028Info-mode_0029"></a>
+<a name="index-BACKSPACE-_0028Info-mode_0029"></a>
+<a name="index-Info_002dscroll_002dup"></a>
+<a name="index-Info_002dscroll_002ddown"></a>
+<p>The <tt class="key">SPC</tt>, <tt class="key">BACKSPACE</tt> (or <tt class="key">DEL</tt>)<a name="DOCF1" href="#FOOT1"><sup>1</sup></a> and <kbd>b</kbd> commands exist to
 allow you to “move around” in a node that does not all fit on the
-screen at once.  &lt;SPC&gt; moves forward, to show what was below the
-bottom of the screen.  &lt;DEL&gt; or &lt;BACKSPACE&gt; moves backward, to
+screen at once.  <tt class="key">SPC</tt> moves forward, to show what was below the
+bottom of the screen.  <tt class="key">DEL</tt> or <tt class="key">BACKSPACE</tt> moves backward, to
 show what was above the top of the screen (there is not anything above
 the top until you have typed some spaces).
-
 </p>
-<pre class="format">&gt;&gt; Now try typing a &lt;SPC&gt; (afterward, type a &lt;BACKSPACE&gt; to
+<div class="format">
+<pre class="format">&gt;&gt; Now try typing a <tt class="key">SPC</tt> (afterward, type a <tt class="key">BACKSPACE</tt> to
    return here).
 </pre>
-   <p>When you type the &lt;SPC&gt;, the two lines that were at the bottom of
-the screen appear at the top, followed by more lines.  &lt;DEL&gt; or
-&lt;BACKSPACE&gt; takes the two lines from the top and moves them to the
-bottom, <em>usually</em>, but if there are not a full screen's worth of
-lines above them they may not make it all the way to the bottom.
+</div>
 
-   </p>
+<p>When you type the <tt class="key">SPC</tt>, the two lines that were at the bottom of
+the screen appear at the top, followed by more lines.  <tt class="key">DEL</tt> or
+<tt class="key">BACKSPACE</tt> takes the two lines from the top and moves them to the
+bottom, <em>usually</em>, but if there are not a full screen’s worth of
+lines above them they may not make it all the way to the bottom.
+</p>
 <p>If you are reading this in Emacs, note that the header line is
 always visible, never scrolling off the display.  That way, you can
-always see the `<samp><span class="samp">Next</span></samp>', `<samp><span class="samp">Prev</span></samp>', and `<samp><span class="samp">Up</span></samp>' links, and you
+always see the ‘<samp>Next</samp>’, ‘<samp>Prev</samp>’, and ‘<samp>Up</samp>’ links, and you
 can conveniently go to one of these links at any time by
 clicking the middle mouse button on the link.
-
-   </p>
-<p><a name="index-reading-Info-documents-top-to-bottom-13"></a><a name="index-Info-documents-as-tutorials-14"></a>  &lt;SPC&gt; and &lt;DEL&gt; not only move forward and backward through
-the current node.  They also move between nodes.  &lt;SPC&gt; at the end
-of a node moves to the next node; &lt;DEL&gt; (or &lt;BACKSPACE&gt;) at
+</p>
+<a name="index-reading-Info-documents-top-to-bottom"></a>
+<a name="index-Info-documents-as-tutorials"></a>
+<p><tt class="key">SPC</tt> and <tt class="key">DEL</tt> not only move forward and backward through
+the current node.  They also move between nodes.  <tt class="key">SPC</tt> at the end
+of a node moves to the next node; <tt class="key">DEL</tt> (or <tt class="key">BACKSPACE</tt>) at
 the beginning of a node moves to the previous node.  In effect, these
 commands scroll through all the nodes in an Info file as a single
 logical sequence.  You can read an entire manual top to bottom by just
-typing &lt;SPC&gt;, and move backward through the entire manual from
-bottom to top by typing &lt;DEL&gt; (or &lt;BACKSPACE&gt;).
-
-   </p>
-<p>In this sequence, a node's subnodes appear following their parent. 
-If a node has a menu, &lt;SPC&gt; takes you into the subnodes listed in
-the menu, one by one.  Once you reach the end of a node, and have seen
-all of its subnodes, &lt;SPC&gt; takes you to the next node or to the
-parent's next node.
-
-   </p>
-<p><a name="index-PAGEUP-_0040r_007b_0028Info-mode_0029_007d-15"></a><a name="index-PAGEDOWN-_0040r_007b_0028Info-mode_0029_007d-16"></a>  Many keyboards nowadays have two scroll keys labeled `<samp><span class="samp">PageUp</span></samp>'
-and `<samp><span class="samp">PageDown</span></samp>' (or maybe `<samp><span class="samp">Prior</span></samp>' and `<samp><span class="samp">Next</span></samp>').  If your
-keyboard has these keys, you can use them to move forward and backward
-through the text of one node, like &lt;SPC&gt; and &lt;BACKSPACE&gt; (or
-&lt;DEL&gt;).  However, &lt;PAGEUP&gt; and &lt;PAGEDOWN&gt; keys never
-scroll beyond the beginning or the end of the current node.
-
-   </p>
-<p><a name="index-C_002dl-_0040r_007b_0028Info-mode_0029_007d-17"></a>  If your screen is ever garbaged, you can tell Info to display it
-again by typing <kbd>C-l</kbd> (<kbd>Control-L</kbd>—that is, hold down
-&lt;CTRL&gt; and type <kbd>L</kbd> or <kbd>l</kbd>).
-
+typing <tt class="key">SPC</tt>, and move backward through the entire manual from
+bottom to top by typing <tt class="key">DEL</tt> (or <tt class="key">BACKSPACE</tt>).
 </p>
+<p>In this sequence, a node’s subnodes appear following their parent.
+If a node has a menu, <tt class="key">SPC</tt> takes you into the subnodes listed in
+the menu, one by one.  Once you reach the end of a node, and have seen
+all of its subnodes, <tt class="key">SPC</tt> takes you to the next node or to the
+parent’s next node.
+</p>
+<a name="index-PAGEUP-_0028Info-mode_0029"></a>
+<a name="index-PAGEDOWN-_0028Info-mode_0029"></a>
+<p>Many keyboards nowadays have two scroll keys labeled ‘<samp>PageUp</samp>’
+and ‘<samp>PageDown</samp>’ (or maybe ‘<samp>Prior</samp>’ and ‘<samp>Next</samp>’).  If your
+keyboard has these keys, you can use them to move forward and backward
+through the text of one node, like <tt class="key">SPC</tt> and <tt class="key">BACKSPACE</tt> (or
+<tt class="key">DEL</tt>).  However, <tt class="key">PAGEUP</tt> and <tt class="key">PAGEDOWN</tt> keys never
+scroll beyond the beginning or the end of the current node.
+</p>
+<a name="index-C_002dl-_0028Info-mode_0029"></a>
+<p>If your screen is ever garbaged, you can tell Info to display it
+again by typing <kbd>C-l</kbd> (<kbd>Control-L</kbd>—that is, hold down
+<tt class="key">CTRL</tt> and type <kbd>L</kbd> or <kbd>l</kbd>).
+</p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>C-l</kbd> now.
 </pre>
-   <p><a name="index-b-_0040r_007b_0028Info-mode_0029_007d-18"></a>  To move back to the beginning of the node you are on, you can type
-the &lt;BACKSPACE&gt; key (or &lt;DEL&gt;) many times.  You can also type
-<kbd>b</kbd> just once.  <kbd>b</kbd> stands for “beginning.”
+</div>
 
+<a name="index-b-_0028Info-mode_0029"></a>
+<p>To move back to the beginning of the node you are on, you can type
+the <tt class="key">BACKSPACE</tt> key (or <tt class="key">DEL</tt>) many times.  You can also type
+<kbd>b</kbd> just once.  <kbd>b</kbd> stands for “beginning.”
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Try that now.  (We have put in enough verbiage to push this past
    the first screenful, but screens are so big nowadays that perhaps it
-   isn't enough.  You may need to shrink your Emacs or Info window.)
-   Then come back, by typing &lt;SPC&gt; one or more times.
+   isn’t enough.  You may need to shrink your Emacs or Info window.)
+   Then come back, by typing <tt class="key">SPC</tt> one or more times.
 </pre>
-   <p><a name="index-g_t_003f-_0040r_007b_0028Info-mode_0029_007d-19"></a><a name="index-Info_002dsummary-20"></a>  You have just learned a considerable number of commands.  If you
-want to use one but have trouble remembering which, you should type
-<kbd>?</kbd>, which displays a brief list of commands.  When you are
-finished looking at the list, make it go away by typing &lt;SPC&gt;
-repeatedly.
+</div>
 
+<a name="index-_003f-_0028Info-mode_0029"></a>
+<a name="index-H-_0028stand_002dalone-Info-reader_0029"></a>
+<a name="index-Info_002dsummary"></a>
+<p>You have just learned a considerable number of commands.  If you
+want to use one but have trouble remembering which, you should type
+<kbd>?</kbd> (<kbd>H</kbd> in the stand-alone Info reader), which displays a
+brief list of commands.  When you are finished looking at the list,
+make it go away by typing <tt class="key">SPC</tt> repeatedly.
 </p>
-<pre class="format">&gt;&gt; Type a &lt;?&gt; now.  Press &lt;SPC&gt; to see consecutive screenfuls of
-   the list until finished.  Then type &lt;SPC&gt; several times.  If
+<div class="format">
+<pre class="format">&gt;&gt; Type a <tt class="key">?</tt> (or <tt class="key">H</tt> in the stand-alone Info reader) now.
+   Press <tt class="key">SPC</tt> to see consecutive screenfuls of the list
+   until finished.  Then type <tt class="key">SPC</tt> several times.  If
    you are using Emacs, the help will then go away automatically.
    If you are using the stand-alone Info reader, type <kbd>x</kbd> to
    return here.
 </pre>
-   <p>From now on, you will encounter large nodes without warning, and
-will be expected to know how to use &lt;SPC&gt; and &lt;BACKSPACE&gt; to
-move around in them without being told.  Since not all terminals have
-the same size screen, it would be impossible to warn you anyway.
-
-</p>
-<pre class="format">&gt;&gt; Now type <kbd>n</kbd>, or click the middle mouse button on the `<samp><span class="samp">Next</span></samp>' link,
-   to visit the next node.
-</pre>
-   <div class="node">
-<a name="Help-Inv"></a><a name="Help_002dInv"></a>
 </div>
 
+<p>From now on, you will encounter large nodes without warning, and
+will be expected to know how to use <tt class="key">SPC</tt> and <tt class="key">BACKSPACE</tt> to
+move around in them without being told.  Since not all terminals have
+the same size screen, it would be impossible to warn you anyway.
+</p>
+<div class="format">
+<pre class="format">&gt;&gt; Now type <kbd>n</kbd>, or click the middle mouse button on the ‘<samp>Next</samp>’ link,
+   to visit the next node.
+</pre>
+</div>
+
+<hr>
+<a name="Help_002dInv"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dM" accesskey="n" rel="next">Help-M</a>, Previous: <a href="#Help_002d_005eL" accesskey="p" rel="prev">Help-^L</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Invisible-text-in-Emacs-Info"></a>
 <h3 class="section">1.5 Invisible text in Emacs Info</h3>
 
 <p>Before discussing menus, we need to make some remarks that are only
 relevant to users reading Info using Emacs.  Users of the stand-alone
 version can skip this node by typing <kbd>]</kbd> now.
-
-   </p>
-<p><a name="index-invisible-text-in-Emacs-21"></a>  In Emacs, certain text that appears in the stand-alone version is
-normally hidden, technically because it has the `<samp><span class="samp">invisibility</span></samp>'
+</p>
+<a name="index-invisible-text-in-Emacs"></a>
+<p>In Emacs, certain text that appears in the stand-alone version is
+normally hidden, technically because it has the ‘<samp>invisibility</samp>’
 property.  Invisible text is really a part of the text.  It becomes
 visible (by default) after killing and yanking, it appears in printed
-output, it gets saved to file just like any other text, and so on. 
+output, it gets saved to file just like any other text, and so on.
 Thus it is useful to know it is there.
-
-   </p>
-<p><a name="index-visible_002dmode-22"></a>You can make invisible text visible by using the command <kbd>M-x
+</p>
+<a name="index-visible_002dmode"></a>
+<p>You can make invisible text visible by using the command <kbd>M-x
 visible-mode</kbd>.  Visible mode is a minor mode, so using the command a
 second time will make the text invisible again.  Watch the effects of
 the command on the “menu” below and the top line of this node.
-
-   </p>
+</p>
 <p>If you prefer to <em>always</em> see the invisible text, you can set
 <code>Info-hide-note-references</code> to <code>nil</code>.  Enabling Visible mode
 permanently is not a real alternative, because Emacs Info also uses
 (although less extensively) another text property that can change the
-text being displayed, the `<samp><span class="samp">display</span></samp>' property.  Only the
+text being displayed, the ‘<samp>display</samp>’ property.  Only the
 invisibility property is affected by Visible mode.  When, in this
-tutorial, we refer to the `<samp><span class="samp">Emacs</span></samp>' behavior, we mean the
+tutorial, we refer to the ‘<samp>Emacs</samp>’ behavior, we mean the
 <em>default</em> Emacs behavior.
-
-   </p>
-<p>Now type <kbd>]</kbd>, to learn about the <kbd>]</kbd> and <kbd>[</kbd> commands.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Help_002d_005d">]</a>:                Node telling about ]. 
-</li>
-<li>
-<a accesskey="2" href="#Help_002d_005d">stuff</a>:                Same node. 
-</li>
-<li>
-<a accesskey="3" href="#Help_002d_005d">Help-]</a>:                          Yet again, same node. 
-</li>
-</ul>
+<p>Now type <kbd>]</kbd>, to learn about the <kbd>]</kbd> and <kbd>[</kbd> commands.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Help_002d_005d" accesskey="1">]</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Node telling about ].
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002d_005d" accesskey="2">stuff</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Same node.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002d_005d" accesskey="3">Help-]</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Yet again, same node.
+</td>
+</tr>
+</table>
 
-<div class="node">
-<a name="Help-%5d"></a><a name="Help_002d_005d"></a>
+<hr>
+<a name="Help_002d_005d"></a>
+<div class="header">
+<p>
+Up: <a href="#Help_002dInv" accesskey="u" rel="up">Help-Inv</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="The-_005d-and-_005b-commands"></a>
 <h4 class="subsection">1.5.1 The <kbd>]</kbd> and <kbd>[</kbd> commands</h4>
 
 <p>If you type <kbd>n</kbd> now, you get an error message saying that this
@@ -531,137 +612,139 @@ message tells you that there is no previous node.  (The exact message
 depends on the Info reader you use.)  This is because <kbd>n</kbd> and
 <kbd>p</kbd> carry you to the next and previous node <em>at the same
 level</em>.  The present node is contained in a menu (see next) of the
-node you came from, and hence is considered to be at a lower level. 
-It is the only node in the previous node's menu (even though it was
+node you came from, and hence is considered to be at a lower level.
+It is the only node in the previous node’s menu (even though it was
 listed three times). Hence it has no next or previous node that
 <kbd>n</kbd> or <kbd>p</kbd> could move to.
-
-   </p>
+</p>
 <p>If you systematically move through a manual by typing <kbd>n</kbd>, you run
 the risk of skipping many nodes.  You do not run this risk if you
-systematically use <kbd>&lt;SPC&gt;</kbd>, because, when you scroll to the
-bottom of a node and type another <kbd>&lt;SPC&gt;</kbd>, then this carries
-you to the following node in the manual <em>regardless of level</em>. 
+systematically use <kbd><span class="key">SPC</span></kbd>, because, when you scroll to the
+bottom of a node and type another <kbd><span class="key">SPC</span></kbd>, then this carries
+you to the following node in the manual <em>regardless of level</em>.
 If you immediately want to go to that node, without having to scroll
 to the bottom of the screen first, you can type <kbd>]</kbd>.
-
-   </p>
-<p>Similarly, <kbd>&lt;BACKSPACE&gt;</kbd> carries you to the preceding node
+</p>
+<p>Similarly, <kbd><span class="key">BACKSPACE</span></kbd> carries you to the preceding node
 regardless of level, after you scrolled to the beginning of the
 present node.  If you want to go to the preceding node immediately,
 you can type <kbd>[</kbd>.
-
-   </p>
+</p>
 <p>For instance, typing this sequence will come back here in three steps:
 <kbd>[ n [</kbd>.  To do the same backward, type <kbd>] p ]</kbd>.
-
-   </p>
-<p>Now type <kbd>]</kbd> to go to the next node and learn about menus.
-
 </p>
-<div class="node">
-<a name="Help-M"></a><a name="Help_002dM"></a>
+<p>Now type <kbd>]</kbd> to go to the next node and learn about menus.
+</p>
+<hr>
+<a name="Help_002dM"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dXref" accesskey="n" rel="next">Help-Xref</a>, Previous: <a href="#Help_002dInv" accesskey="p" rel="prev">Help-Inv</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Menus-and-the-m-command"></a>
 <h3 class="section">1.6 Menus and the <kbd>m</kbd> command</h3>
 
-<p><a name="index-menus-in-an-Info-document-23"></a><a name="index-Info-menus-24"></a>  With only the <kbd>n</kbd> (next), <kbd>p</kbd> (previous), <kbd>&lt;SPC&gt;</kbd>,
-<kbd>&lt;BACKSPACE&gt;</kbd>, <kbd>]</kbd> and <kbd>[</kbd> commands for moving between
+<a name="index-menus-in-an-Info-document"></a>
+<a name="index-Info-menus"></a>
+<p>With only the <kbd>n</kbd> (next), <kbd>p</kbd> (previous), <kbd><span class="key">SPC</span></kbd>,
+<kbd><span class="key">BACKSPACE</span></kbd>, <kbd>]</kbd> and <kbd>[</kbd> commands for moving between
 nodes, nodes are restricted to a linear sequence.  Menus allow a
-branching structure.  A menu is a list of other nodes you can move to. 
+branching structure.  A menu is a list of other nodes you can move to.
 It is actually just part of the text of the node formatted specially
 so that Info can interpret it.  The beginning of a menu is always
-identified by a line which starts with `<samp><span class="samp">* Menu:</span></samp>'<!-- /@w -->.  A node
+identified by a line which starts with ‘<samp>* Menu:</samp>’<!-- /@w -->.  A node
 contains a menu if and only if it has a line in it which starts that
 way.  The only menu you can use at any moment is the one in the node
 you are in.  To use a menu in any other node, you must move to that
 node first.
-
-   </p>
-<p>After the start of the menu, each line that starts with a `<samp><span class="samp">*</span></samp>'
+</p>
+<p>After the start of the menu, each line that starts with a ‘<samp>*</samp>’
 identifies one subtopic.  The line usually contains a brief name for
-the subtopic (followed by a `<samp><span class="samp">:</span></samp>', normally hidden in Emacs), the
+the subtopic (followed by a ‘<samp>:</samp>’, normally hidden in Emacs), the
 name of the node that talks about that subtopic (again, normally
 hidden in Emacs), and optionally some further description of the
-subtopic.  Lines in the menu that do not start with a `<samp><span class="samp">*</span></samp>' have no
-special meaning—they are only for the human reader's benefit and do
+subtopic.  Lines in the menu that do not start with a ‘<samp>*</samp>’ have no
+special meaning—they are only for the human reader’s benefit and do
 not define additional subtopics.  Here is an example:
-
 </p>
-<pre class="example">     * Foo:  Node about FOO.      This tells about FOO.
+<div class="example">
+<pre class="example">* Foo:  Node about FOO.      This tells about FOO.
 </pre>
-   <p>The subtopic name is Foo, and the node describing it is `<samp><span class="samp">Node
-about FOO</span></samp>'.  The rest of the line is just for the reader's
-Information.  [[ But this line is not a real menu item, simply because
-there is no line above it which starts with `<samp><span class="samp">* Menu:</span></samp>'<!-- /@w -->.  Also,
-in a real menu item, the `<samp><span class="samp">*</span></samp>' would appear at the very start of
-the line.  This is why the “normally hidden” text in Emacs, namely
-`<samp><span class="samp">: Node about FOO.</span></samp>', is actually visible in this example, even
-when Visible mode is off.]]
+</div>
 
-   </p>
+<p>The subtopic name is Foo, and the node describing it is ‘<samp>Node
+about FOO</samp>’.  The rest of the line is just for the reader’s
+Information.  [[ But this line is not a real menu item, simply because
+there is no line above it which starts with ‘<samp>* Menu:</samp>’<!-- /@w -->.  Also,
+in a real menu item, the ‘<samp>*</samp>’ would appear at the very start of
+the line.  This is why the “normally hidden” text in Emacs, namely
+‘<samp>: Node about FOO.</samp>’, is actually visible in this example, even
+when Visible mode is off.]]
+</p>
 <p>When you use a menu to go to another node (in a way that will be
 described soon), what you specify is the subtopic name, the first
 thing in the menu line.  Info uses it to find the menu line, extracts
 the node name from it, and goes to that node.  The reason that there
 is both a subtopic name and a node name is that the node name must be
-meaningful to the computer and may therefore have to be ugly looking. 
+meaningful to the computer and may therefore have to be ugly looking.
 The subtopic name can be chosen just to be convenient for the user to
 specify.  Often the node name is convenient for the user to specify
 and so both it and the subtopic name are the same.  There is an
 abbreviation for this:
-
 </p>
-<pre class="example">     * Foo::   This tells about FOO.
+<div class="example">
+<pre class="example">* Foo::   This tells about FOO.
 </pre>
-   <p class="noindent">This means that the subtopic name and node name are the same; they are
-both `<samp><span class="samp">Foo</span></samp>'.  (The `<samp><span class="samp">::</span></samp>' is normally hidden in Emacs.)
+</div>
 
+<p>This means that the subtopic name and node name are the same; they are
+both ‘<samp>Foo</samp>’.  (The ‘<samp>::</samp>’ is normally hidden in Emacs.)
 </p>
-<pre class="format">&gt;&gt; Now use &lt;SPC&gt; to find the menu in this node, then come back to
-   the front with a <kbd>b</kbd> and some &lt;SPC&gt;s.  As you see, a menu is
+<div class="format">
+<pre class="format">&gt;&gt; Now use <tt class="key">SPC</tt> to find the menu in this node, then come back to
+   the front with a <kbd>b</kbd> and some <tt class="key">SPC</tt>s.  As you see, a menu is
    actually visible in its node.  If you cannot find a menu in a node
    by looking at it, then the node does not have a menu and the
    <kbd>m</kbd> command is not available.
 </pre>
-   <p>If you keep typing &lt;SPC&gt; once the menu appears on the screen, it
-will move to another node (the first one in the menu).  If that
-happens, type &lt;BACKSPACE&gt; to come back.
+</div>
 
-   </p>
-<p><a name="index-m-_0040r_007b_0028Info-mode_0029_007d-25"></a>  The command to go to one of the subnodes is <kbd>m</kbd>.  This is very
+<p>If you keep typing <tt class="key">SPC</tt> once the menu appears on the screen, it
+will move to another node (the first one in the menu).  If that
+happens, type <tt class="key">BACKSPACE</tt> to come back.
+</p>
+<a name="index-m-_0028Info-mode_0029"></a>
+<p>The command to go to one of the subnodes is <kbd>m</kbd>.  This is very
 different from the commands you have used: it is a command that
 prompts you for more input.
-
-   </p>
+</p>
 <p>The Info commands you know do not need additional input; when you
 type one of them, Info processes it instantly and then is ready for
 another command.  The <kbd>m</kbd> command is different: it needs to know
-the <dfn>name of the subtopic</dfn>.  Once you have typed <kbd>m</kbd>, Info
+the <em>name of the subtopic</em>.  Once you have typed <kbd>m</kbd>, Info
 tries to read the subtopic name.
-
-   </p>
+</p>
 <p>Now, in the stand-alone Info, look for the line containing many
 dashes near the bottom of the screen.  (This is the stand-alone
 equivalent for the mode line in Emacs.)  There is one more line
 beneath that one, but usually it is blank.  (In Emacs, this is the
 echo area.)  When it is blank, Info is ready for a command, such as
-<kbd>n</kbd> or <kbd>b</kbd> or &lt;SPC&gt; or <kbd>m</kbd>.  If that line contains
+<kbd>n</kbd> or <kbd>b</kbd> or <tt class="key">SPC</tt> or <kbd>m</kbd>.  If that line contains
 text ending in a colon, it means Info is reading more input for the
-last command.  You can't type an Info command then, because Info is
+last command.  You can’t type an Info command then, because Info is
 trying to read input, not commands.  You must either give the input
 and finish the command you started, or type <kbd>Control-g</kbd> to cancel
 the command.  When you have done one of those things, the input entry
 line becomes blank again.  Then you can type Info commands again.
-
-   </p>
-<p><a name="index-Info_002dmenu-26"></a>  The command to go to a subnode via a menu is <kbd>m</kbd>.  After you type
-the <kbd>m</kbd>, the line at the bottom of the screen says `<samp><span class="samp">Menu item: </span></samp>'. 
+</p>
+<a name="index-Info_002dmenu"></a>
+<p>The command to go to a subnode via a menu is <kbd>m</kbd>.  After you type
+the <kbd>m</kbd>, the line at the bottom of the screen says ‘<samp>Menu item: </samp>’.
 You must then type the name of the subtopic you want, and end it with
-a &lt;RET&gt;.
-
-   </p>
-<p><a name="index-abbreviating-Info-subnodes-27"></a>  You can abbreviate the subtopic name.  If the abbreviation is not
+a <tt class="key">RET</tt>.
+</p>
+<a name="index-abbreviating-Info-subnodes"></a>
+<p>You can abbreviate the subtopic name.  If the abbreviation is not
 unique, the first matching subtopic is chosen.  Some menus put
 the shortest possible abbreviation for each subtopic name in capital
 letters, so you can see how much you need to type.  It does not
@@ -669,755 +752,898 @@ matter whether you use upper case or lower case when you type the
 subtopic.  You should not put any spaces at the end, or inside of the
 item name, except for one space where a space appears in the item in
 the menu.
-
-   </p>
-<p><a name="index-completion-of-Info-node-names-28"></a>  You can also use the <dfn>completion</dfn> feature to help enter the
-subtopic name.  If you type the &lt;TAB&gt; key after entering part of a
+</p>
+<a name="index-completion-of-Info-node-names"></a>
+<p>You can also use the <em>completion</em> feature to help enter the
+subtopic name.  If you type the <tt class="key">TAB</tt> key after entering part of a
 name, it will fill in more of the name—as much as Info can deduce
 from the part you have entered.
-
-   </p>
+</p>
 <p>If you move the cursor to one of the menu subtopic lines, then you do
-not need to type the argument: you just type a &lt;RET&gt;, and it
+not need to type the argument: you just type a <tt class="key">RET</tt>, and it
 stands for the subtopic of the line you are on.  You can also click
 the middle mouse button directly on the subtopic line to go there.
-
-   </p>
+</p>
 <p>Here is a menu to give you a chance to practice.  This menu gives you
 three ways of going to one place, Help-FOO:
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Help_002dFOO">Foo</a>:        A node you can visit for fun. 
-</li>
-<li>
-<a accesskey="2" href="#Help_002dFOO">Bar</a>:        We have made two ways to get to the same place. 
-</li>
-<li>
-<a accesskey="3" href="#Help_002dFOO">Help-FOO</a>:             And yet another! 
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dFOO" accesskey="1">Foo</a>:</td>
+<td>  </td>
+<td align="left" valign="top">A node you can visit for fun.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dFOO" accesskey="2">Bar</a>:</td>
+<td>  </td>
+<td align="left" valign="top">We have made two ways to get to the same place.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dFOO" accesskey="3">Help-FOO</a>:</td>
+<td>  </td>
+<td align="left" valign="top">And yet another!
+</td>
+</tr>
+</table>
 
-   <p>(Turn Visible mode on if you are using Emacs.)
-
+<p>(Turn Visible mode on if you are using Emacs.)
 </p>
+<div class="format">
 <pre class="format">&gt;&gt;  Now type just an <kbd>m</kbd> and see what happens:
 </pre>
-   <p>Now you are “inside” an <kbd>m</kbd> command.  Commands cannot be used
-now; the next thing you will type must be the name of a subtopic.
+</div>
 
-   </p>
+<p>Now you are “inside” an <kbd>m</kbd> command.  Commands cannot be used
+now; the next thing you will type must be the name of a subtopic.
+</p>
 <p>You can change your mind about doing the <kbd>m</kbd> by typing
 <kbd>Control-g</kbd>.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Try that now;  notice the bottom line clear.
 </pre>
-   <pre class="format">&gt;&gt; Then type another <kbd>m</kbd>.
-</pre>
-   <pre class="format">&gt;&gt; Now type <kbd>BAR</kbd>, the item name.  Do not type &lt;RET&gt; yet.
-</pre>
-   <p>While you are typing the item name, you can use the &lt;DEL&gt; (or
-&lt;BACKSPACE&gt;) key to cancel one character at a time if you make a
-mistake.
+</div>
 
+<div class="format">
+<pre class="format">&gt;&gt; Then type another <kbd>m</kbd>.
+</pre>
+</div>
+
+<div class="format">
+<pre class="format">&gt;&gt; Now type <kbd>BAR</kbd>, the item name.  Do not type <tt class="key">RET</tt> yet.
+</pre>
+</div>
+
+<p>While you are typing the item name, you can use the <tt class="key">DEL</tt> (or
+<tt class="key">BACKSPACE</tt>) key to cancel one character at a time if you make a
+mistake.
 </p>
-<pre class="format">&gt;&gt; Press &lt;DEL&gt; to cancel the `<samp><span class="samp">R</span></samp>'.  You could type another <kbd>R</kbd>
-   to replace it.  But you do not have to, since `<samp><span class="samp">BA</span></samp>' is a valid
+<div class="format">
+<pre class="format">&gt;&gt; Press <tt class="key">DEL</tt> to cancel the ‘<samp>R</samp>’.  You could type another <kbd>R</kbd>
+   to replace it.  But you do not have to, since ‘<samp>BA</samp>’ is a valid
    abbreviation.
 </pre>
-   <pre class="format">&gt;&gt; Now you are ready to go.  Type a &lt;RET&gt;.
+</div>
+
+<div class="format">
+<pre class="format">&gt;&gt; Now you are ready to go.  Type a <tt class="key">RET</tt>.
 </pre>
-   <p>After visiting `<samp><span class="samp">Help-FOO</span></samp>', you should return here.
+</div>
 
-   </p>
+<p>After visiting ‘<samp>Help-FOO</samp>’, you should return here.
+</p>
 <p>Another way to move to the menu subtopic lines and between them is
-to type &lt;TAB&gt;.  Each time you type a &lt;TAB&gt;, you move to the
+to type <tt class="key">TAB</tt>.  Each time you type a <tt class="key">TAB</tt>, you move to the
 next subtopic line.  To move to a previous subtopic line in the
-stand-alone reader, type <kbd>M-&lt;TAB&gt;</kbd>—that is, press and hold
-the &lt;META&gt; key and then press &lt;TAB&gt;.  (On some keyboards, the
-&lt;META&gt; key might be labeled `<samp><span class="samp">Alt</span></samp>'.)  In Emacs Info, type
-<kbd>S-&lt;TAB&gt;</kbd> to move to a previous subtopic line (press and hold
-the &lt;Shift&gt; key and then press &lt;TAB&gt;).
-
-   </p>
-<p>Once you move cursor to a subtopic line, press &lt;RET&gt; to go to
-that subtopic's node.
-
-   </p>
-<p><a name="index-mouse-support-in-Info-mode-29"></a><a name="index-mouse_002d2-_0040r_007b_0028Info-mode_0029_007d-30"></a>  If your terminal supports a mouse, you have yet another way of going
+stand-alone reader, type <kbd>M-<span class="key">TAB</span></kbd>—that is, press and hold
+the <tt class="key">META</tt> key and then press <tt class="key">TAB</tt>.  (On some keyboards, the
+<tt class="key">META</tt> key might be labeled ‘<samp>Alt</samp>’.)  In Emacs Info, type
+<kbd>S-<span class="key">TAB</span></kbd> to move to a previous subtopic line (press and hold
+the <tt class="key">Shift</tt> key and then press <tt class="key">TAB</tt>).
+</p>
+<p>Once you move cursor to a subtopic line, press <tt class="key">RET</tt> to go to
+that subtopic’s node.
+</p>
+<a name="index-mouse-support-in-Info-mode"></a>
+<a name="index-mouse_002d2-_0028Info-mode_0029"></a>
+<p>If your terminal supports a mouse, you have yet another way of going
 to a subtopic.  Move your mouse pointer to the subtopic line,
-somewhere between the beginning `<samp><span class="samp">*</span></samp>' and the colon `<samp><span class="samp">:</span></samp>' which
-ends the subtopic's brief name.  You will see the subtopic's name
+somewhere between the beginning ‘<samp>*</samp>’ and the colon ‘<samp>:</samp>’ which
+ends the subtopic’s brief name.  You will see the subtopic’s name
 change its appearance (usually, its background color will change), and
 the shape of the mouse pointer will change if your platform supports
 that.  After a while, if you leave the mouse on that spot, a small
 window will pop up, saying “mouse-2: go to that node,” or the same
 message may appear at the bottom of the screen.
-
-   </p>
+</p>
 <p><kbd>mouse-2</kbd> is the second button of your mouse counting from the
 left—the middle button on a 3-button mouse.  (On a 2-button mouse,
 you may have to press both buttons together to “press the middle
 button”.)  The message tells you pressing <kbd>mouse-2</kbd> with the
 current position of the mouse pointer (on subtopic in the menu) will
 go to that subtopic.
-
-   </p>
-<p><a name="index-Info_002dmouse_002dfollow_002dnearest_002dnode-31"></a>  More generally, <kbd>mouse-2</kbd> in an Info buffer finds the nearest
+</p>
+<a name="index-Info_002dmouse_002dfollow_002dnearest_002dnode"></a>
+<p>More generally, <kbd>mouse-2</kbd> in an Info buffer finds the nearest
 link to another node and goes there.  For example, near a cross
 reference it acts like <kbd>f</kbd>, in a menu it acts like <kbd>m</kbd>, on the
-node's header line it acts like <kbd>n</kbd>, <kbd>p</kbd>, or <kbd>u</kbd>, etc.  At
-end of the node's text <kbd>mouse-2</kbd> moves to the next node, or up if
-there's no next node.
-
+node’s header line it acts like <kbd>n</kbd>, <kbd>p</kbd>, or <kbd>u</kbd>, etc.  At
+end of the node’s text <kbd>mouse-2</kbd> moves to the next node, or up if
+there’s no next node.
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>n</kbd> to see more commands.
 </pre>
-   <div class="node">
-<a name="Help-FOO"></a><a name="Help_002dFOO"></a>
 </div>
 
+<hr>
+<a name="Help_002dFOO"></a>
+<div class="header">
+<p>
+Up: <a href="#Help_002dM" accesskey="u" rel="up">Help-M</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-u-command"></a>
 <h4 class="subsection">1.6.1 The <kbd>u</kbd> command</h4>
 
-<p>Congratulations!  This is the node `<samp><span class="samp">Help-FOO</span></samp>'.  It has an `<samp><span class="samp">Up</span></samp>'
-pointer `<samp><span class="samp">Help-M</span></samp>', the node you just came from via the <kbd>m</kbd>
+<p>Congratulations!  This is the node ‘<samp>Help-FOO</samp>’.  It has an ‘<samp>Up</samp>’
+pointer ‘<samp>Help-M</samp>’, the node you just came from via the <kbd>m</kbd>
 command.  This is the usual convention—the nodes you reach from a menu
-have `<samp><span class="samp">Up</span></samp>' nodes that lead back to the menu.  Menus move Down in the
-tree, and `<samp><span class="samp">Up</span></samp>' moves Up.  `<samp><span class="samp">Previous</span></samp>', on the other hand, is
+have ‘<samp>Up</samp>’ nodes that lead back to the menu.  Menus move Down in the
+tree, and ‘<samp>Up</samp>’ moves Up.  ‘<samp>Previous</samp>’, on the other hand, is
 usually used to “stay on the same level but go backwards”.
-
-   </p>
-<p><a name="index-u-_0040r_007b_0028Info-mode_0029_007d-32"></a><a name="index-Info_002dup-33"></a>  You can go back to the node `<samp><span class="samp">Help-M</span></samp>' by typing the command
+</p>
+<a name="index-u-_0028Info-mode_0029"></a>
+<a name="index-Info_002dup"></a>
+<p>You can go back to the node ‘<samp>Help-M</samp>’ by typing the command
 <kbd>u</kbd> for “Up”.  This puts you at the menu subtopic line pointing
 to the subnode that the <kbd>u</kbd> command brought you from.  (Some Info
 readers may put you at the <em>front</em> of the node instead—to get
-back to where you were reading, you have to type some &lt;SPC&gt;s.)
-
-   </p>
-<p>Another way to go Up is to click <kbd>mouse-2</kbd> on the `<samp><span class="samp">Up</span></samp>'
-pointer shown in the header line (provided that you have a mouse).
-
+back to where you were reading, you have to type some <tt class="key">SPC</tt>s.)
 </p>
-<pre class="format">&gt;&gt; Now type <kbd>u</kbd> to move back up to `<samp><span class="samp">Help-M</span></samp>'.
+<p>Another way to go Up is to click <kbd>mouse-2</kbd> on the ‘<samp>Up</samp>’
+pointer shown in the header line (provided that you have a mouse).
+</p>
+<div class="format">
+<pre class="format">&gt;&gt; Now type <kbd>u</kbd> to move back up to ‘<samp>Help-M</samp>’.
 </pre>
-   <div class="node">
-<a name="Help-Xref"></a><a name="Help_002dXref"></a>
 </div>
 
+<hr>
+<a name="Help_002dXref"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dInt" accesskey="n" rel="next">Help-Int</a>, Previous: <a href="#Help_002dM" accesskey="p" rel="prev">Help-M</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Following-Cross_002dReferences"></a>
 <h3 class="section">1.7 Following Cross-References</h3>
 
-<p><a name="index-cross-references-in-Info-documents-34"></a>  In Info documentation, you will see many <dfn>cross references</dfn>. 
+<a name="index-cross-references-in-Info-documents"></a>
+<p>In Info documentation, you will see many <em>cross references</em>.
 Cross references look like this: See <a href="#Help_002dCross">Cross</a>.  That text
-is a real, live cross reference, whose name is `<samp><span class="samp">Cross</span></samp>' and which
-points to the node named `<samp><span class="samp">Help-Cross</span></samp>'.  (The node name is hidden
+is a real, live cross reference, whose name is ‘<samp>Cross</samp>’ and which
+points to the node named ‘<samp>Help-Cross</samp>’.  (The node name is hidden
 in Emacs.  Do <kbd>M-x visible-mode</kbd> to show or hide it.)
-
-   </p>
-<p><a name="index-f-_0040r_007b_0028Info-mode_0029_007d-35"></a><a name="index-Info_002dfollow_002dreference-36"></a>  You can follow a cross reference by moving the cursor to it and
-press &lt;RET&gt;, just as in a menu.  In Emacs, you can also click
+</p>
+<a name="index-f-_0028Info-mode_0029"></a>
+<a name="index-Info_002dfollow_002dreference"></a>
+<p>You can follow a cross reference by moving the cursor to it and
+press <tt class="key">RET</tt>, just as in a menu.  In Emacs, you can also click
 <kbd>mouse-1</kbd> on a cross reference to follow it; you can see that the
 cross reference is mouse-sensitive by moving the mouse pointer to the
 reference and watching how the underlying text and the mouse pointer
 change in response.
-
-   </p>
+</p>
 <p>Another way to follow a cross reference is to type <kbd>f</kbd> and then
-specify the name of the cross reference (in this case, `<samp><span class="samp">Cross</span></samp>')
+specify the name of the cross reference (in this case, ‘<samp>Cross</samp>’)
 as an argument.  For this command, it does not matter where the cursor
 was.  If the cursor is on or near a cross reference, <kbd>f</kbd> suggests
-that reference name in parentheses as the default; typing &lt;RET&gt;
+that reference name in parentheses as the default; typing <tt class="key">RET</tt>
 will follow that reference.  However, if you type a different
 reference name, <kbd>f</kbd> will follow the other reference which has that
 name.
-
 </p>
-<pre class="format">&gt;&gt; Type <kbd>f</kbd>, followed by <kbd>Cross</kbd>, and then &lt;RET&gt;.
+<div class="format">
+<pre class="format">&gt;&gt; Type <kbd>f</kbd>, followed by <kbd>Cross</kbd>, and then <tt class="key">RET</tt>.
 </pre>
-   <p>As you enter the reference name, you can use the &lt;DEL&gt; (or
-&lt;BACKSPACE&gt;) key to edit your input.  If you change your mind
+</div>
+
+<p>As you enter the reference name, you can use the <tt class="key">DEL</tt> (or
+<tt class="key">BACKSPACE</tt>) key to edit your input.  If you change your mind
 about following any reference, you can use <kbd>Control-g</kbd> to cancel
 the command.  Completion is available in the <kbd>f</kbd> command; you can
 complete among all the cross reference names in the current node by
-typing a &lt;TAB&gt;.
-
-   </p>
+typing a <tt class="key">TAB</tt>.
+</p>
 <p>To get a list of all the cross references in the current node, you
 can type <kbd>?</kbd> after an <kbd>f</kbd>.  The <kbd>f</kbd> continues to await a
-cross reference name even after displaying the list, so if you don't
+cross reference name even after displaying the list, so if you don’t
 actually want to follow a reference, you should type a <kbd>Control-g</kbd>
 to cancel the <kbd>f</kbd>.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>f?</kbd> to get a list of the cross references in this node.  Then
-   type a <kbd>Control-g</kbd> and see how the `<samp><span class="samp">f</span></samp>' gives up.
+   type a <kbd>Control-g</kbd> and see how the ‘<samp>f</samp>’ gives up.
 </pre>
-   <p>The &lt;TAB&gt;, <kbd>M-&lt;TAB&gt;</kbd> and <kbd>S-&lt;TAB&gt;</kbd> keys,
+</div>
+
+<p>The <tt class="key">TAB</tt>, <kbd>M-<span class="key">TAB</span></kbd> and <kbd>S-<span class="key">TAB</span></kbd> keys,
 which move between menu items in a menu, also move between cross
 references outside of menus.
-
-   </p>
+</p>
 <p>Sometimes a cross reference (or a node) can lead to another file (in
 other words another “manual”), or, on occasion, even a file on a
 remote machine (although Info files distributed with Emacs or the
 stand-alone Info avoid using remote links).  Such a cross reference
-looks like this: See <a href="texinfo.html#Top">Overview of Texinfo</a>.  (After following this link, type
-<kbd>l</kbd> to get back to this node.)  Here the name `<samp><span class="samp">texinfo</span></samp>'
+looks like this: See <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of Texinfo</a> in <cite>Texinfo:
+The GNU Documentation Format</cite>.  (After following this link, type
+<kbd>l</kbd> to get back to this node.)  Here the name ‘<samp>texinfo</samp>’
 between parentheses refers to the file name.  This file name appears
 in cross references and node names if it differs from the current
 file, so you can always know that you are going to be switching to
 another manual and which one.
-
-   </p>
-<p>However, Emacs normally hides some other text in cross-references. 
+</p>
+<p>However, Emacs normally hides some other text in cross-references.
 If you put your mouse over the cross reference, then the information
 appearing in a separate box (tool tip) or in the echo area will show
 the full cross-reference including the file name and the node name of
 the cross reference.  If you have a mouse, just leave it over the
-cross reference See <a href="texinfo.html#Top">Overview of Texinfo</a>, and watch what happens.  If you
+cross reference See <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of Texinfo</a> in <cite>Texinfo:
+The GNU Documentation Format</cite>, and watch what happens.  If you
 always like to have that information visible without having to move
 your mouse over the cross reference, use <kbd>M-x visible-mode</kbd>, or
 set <code>Info-hide-note-references</code> to a value other than <code>t</code>
 (see <a href="#Emacs-Info-Variables">Emacs Info Variables</a>).
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Now type <kbd>n</kbd> to learn more commands.
 </pre>
-   <ul class="menu">
-<li>
-<a accesskey="1" href="#Help_002dCross">Help-Cross</a>:                   Target of a cross-reference. 
-</li>
-</ul>
-
-<div class="node">
-<a name="Help-Cross"></a><a name="Help_002dCross"></a>
 </div>
 
+
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Help_002dCross" accesskey="1">Help-Cross</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Target of a cross-reference.
+</td>
+</tr>
+</table>
+
+
+<hr>
+<a name="Help_002dCross"></a>
+<div class="header">
+<p>
+Up: <a href="#Help_002dXref" accesskey="u" rel="up">Help-Xref</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-node-reached-by-the-cross-reference-in-Info"></a>
 <h4 class="subsection">1.7.1 The node reached by the cross reference in Info</h4>
 
-<p>This is the node reached by the cross reference named `<samp><span class="samp">Cross</span></samp>'.
-
-   </p>
+<p>This is the node reached by the cross reference named ‘<samp>Cross</samp>’.
+</p>
 <p>While this node is specifically intended to be reached by a cross
 reference, most cross references lead to nodes that “belong”
 someplace else far away in the structure of an Info document.  So you
-cannot expect this node to have a `<samp><span class="samp">Next</span></samp>', `<samp><span class="samp">Previous</span></samp>' or
-`<samp><span class="samp">Up</span></samp>' links pointing back to where you came from.  In general, the
+cannot expect this node to have a ‘<samp>Next</samp>’, ‘<samp>Previous</samp>’ or
+‘<samp>Up</samp>’ links pointing back to where you came from.  In general, the
 <kbd>l</kbd> (el) command is the only way to get back there.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>l</kbd> to return to the node where the cross reference was.
 </pre>
-   <div class="node">
-<a name="Help-Int"></a><a name="Help_002dInt"></a>
 </div>
 
+
+<hr>
+<a name="Help_002dInt"></a>
+<div class="header">
+<p>
+Next: <a href="#Help_002dQ" accesskey="n" rel="next">Help-Q</a>, Previous: <a href="#Help_002dXref" accesskey="p" rel="prev">Help-Xref</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Some-intermediate-Info-commands"></a>
 <h3 class="section">1.8 Some intermediate Info commands</h3>
 
 <p>The introductory course is almost over; please continue
 a little longer to learn some intermediate-level commands.
-
-   </p>
+</p>
 <p>Most Info files have an index, which is actually a large node
 containing little but a menu.  The menu has one menu item for each
 topic listed in the index.  (As a special feature, menus for indices
-may also include the line number within the node of the index entry. 
+may also include the line number within the node of the index entry.
 This allows Info readers to go to the exact line of an entry, not just
 the start of the containing node.)
-
-   </p>
+</p>
 <p>You can get to the index from the main menu of the file with the
 <kbd>m</kbd> command and the name of the index node; then you can use the
 <kbd>m</kbd> command again in the index node to go to the node that
 describes the topic you want.
-
-   </p>
+</p>
 <p>There is also a short-cut Info command, <kbd>i</kbd>, which does all of
 that for you.  It searches the index for a given topic (a string) and
-goes to the node which is listed in the index for that topic. 
+goes to the node which is listed in the index for that topic.
 See <a href="#Search-Index">Search Index</a>, for a full explanation.
-
-   </p>
-<p><a name="index-l-_0040r_007b_0028Info-mode_0029_007d-37"></a><a name="index-Info_002dhistory_002dback-38"></a><a name="index-going-back-in-Info-history-39"></a>  If you have been moving around to different nodes and wish to
-retrace your steps, the <kbd>l</kbd> command (<kbd>l</kbd> for <dfn>last</dfn>) will
+</p>
+<a name="index-l-_0028Info-mode_0029"></a>
+<a name="index-Info_002dhistory_002dback"></a>
+<a name="index-going-back-in-Info-history"></a>
+<p>If you have been moving around to different nodes and wish to
+retrace your steps, the <kbd>l</kbd> command (<kbd>l</kbd> for <em>last</em>) will
 do that, one node-step at a time.  As you move from node to node, Info
 records the nodes where you have been in a special history list.  The
 <kbd>l</kbd> command revisits nodes in the history list; each successive
 <kbd>l</kbd> command moves one step back through the history.
-
 </p>
-<pre class="format">&gt;&gt; Try typing <kbd>p p n</kbd> and then three <kbd>l</kbd>'s, pausing in between
+<div class="format">
+<pre class="format">&gt;&gt; Try typing <kbd>p p n</kbd> and then three <kbd>l</kbd>’s, pausing in between
 to see what each <kbd>l</kbd> does.  You should wind up right back here.
 </pre>
-   <p>Note the difference between <kbd>l</kbd> and <kbd>p</kbd>: <kbd>l</kbd> moves to
-where <em>you</em> last were, whereas <kbd>p</kbd> always moves to the node
-which the header says is the `<samp><span class="samp">Previous</span></samp>' node (from this node, the
-`<samp><span class="samp">Prev</span></samp>' link leads to `<samp><span class="samp">Help-Xref</span></samp>').
+</div>
 
-   </p>
-<p><a name="index-r-_0040r_007b_0028Info-mode_0029_007d-40"></a><a name="index-Info_002dhistory_002dforward-41"></a><a name="index-going-forward-in-Info-history-42"></a>  You can use the <kbd>r</kbd> command (<code>Info-history-forward</code> in Emacs)
+<p>Note the difference between <kbd>l</kbd> and <kbd>p</kbd>: <kbd>l</kbd> moves to
+where <em>you</em> last were, whereas <kbd>p</kbd> always moves to the node
+which the header says is the ‘<samp>Previous</samp>’ node (from this node, the
+‘<samp>Prev</samp>’ link leads to ‘<samp>Help-Xref</samp>’).
+</p>
+<a name="index-r-_0028Info-mode_0029"></a>
+<a name="index-Info_002dhistory_002dforward"></a>
+<a name="index-going-forward-in-Info-history"></a>
+<p>You can use the <kbd>r</kbd> command (<code>Info-history-forward</code> in Emacs)
 to revisit nodes in the history list in the forward direction, so that
 <kbd>r</kbd> will return you to the node you came from by typing <kbd>l</kbd>.
-
-   </p>
-<p><a name="index-L-_0040r_007b_0028Info-mode_0029_007d-43"></a><a name="index-Info_002dhistory-44"></a><a name="index-history-list-of-visited-nodes-45"></a>  The <kbd>L</kbd> command (<code>Info-history</code> in Emacs) creates a virtual
+</p>
+<a name="index-L-_0028Info-mode_0029"></a>
+<a name="index-Info_002dhistory"></a>
+<a name="index-history-list-of-visited-nodes"></a>
+<p>The <kbd>L</kbd> command (<code>Info-history</code> in Emacs) creates a virtual
 node that contains a list of all nodes you visited.  You can select
 a previously visited node from this menu to revisit it.
-
-   </p>
-<p><a name="index-d-_0040r_007b_0028Info-mode_0029_007d-46"></a><a name="index-Info_002ddirectory-47"></a><a name="index-go-to-Directory-node-48"></a>  The <kbd>d</kbd> command (<code>Info-directory</code> in Emacs) gets you
+</p>
+<a name="index-d-_0028Info-mode_0029"></a>
+<a name="index-Info_002ddirectory"></a>
+<a name="index-go-to-Directory-node"></a>
+<p>The <kbd>d</kbd> command (<code>Info-directory</code> in Emacs) gets you
 instantly to the Directory node.  This node, which is the first one
 you saw when you entered Info, has a menu which leads (directly or
 indirectly, through other menus), to all the nodes that exist.  The
 Directory node lists all the manuals and other Info documents that
 are, or could be, installed on your system.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Try doing a <kbd>d</kbd>, then do an <kbd>l</kbd> to return here (yes,
    <em>do</em> return).
 </pre>
-   <p><a name="index-t-_0040r_007b_0028Info-mode_0029_007d-49"></a><a name="index-Info_002dtop_002dnode-50"></a><a name="index-go-to-Top-node-51"></a>  The <kbd>t</kbd> command moves to the `<samp><span class="samp">Top</span></samp>' node of the manual. 
-This is useful if you want to browse the manual's main menu, or select
-some specific top-level menu item.  The Emacs command run by <kbd>t</kbd>
-is <code>Info-top-node</code>.
-
-</p>
-<pre class="format">&gt;&gt; Now type <kbd>n</kbd> to see the last node of the course.
-</pre>
-   <p>See <a href="#Advanced">Advanced</a>, for more advanced Info features.
-
-<!-- If a menu appears at the end of this node, remove it. -->
-<!-- It is an accident of the menu updating command. -->
-</p>
-<div class="node">
-<a name="Help-Q"></a><a name="Help_002dQ"></a>
 </div>
 
+<a name="index-t-_0028Info-mode_0029"></a>
+<a name="index-Info_002dtop_002dnode"></a>
+<a name="index-go-to-Top-node"></a>
+<p>The <kbd>t</kbd> command moves to the ‘<samp>Top</samp>’ node of the manual.
+This is useful if you want to browse the manual’s main menu, or select
+some specific top-level menu item.  The Emacs command run by <kbd>t</kbd>
+is <code>Info-top-node</code>.
+</p>
+<div class="format">
+<pre class="format">&gt;&gt; Now type <kbd>n</kbd> to see the last node of the course.
+</pre>
+</div>
+
+<p>See <a href="#Advanced">Advanced</a>, for more advanced Info features.
+</p>
+
+<hr>
+<a name="Help_002dQ"></a>
+<div class="header">
+<p>
+Previous: <a href="#Help_002dInt" accesskey="p" rel="prev">Help-Int</a>, Up: <a href="#Getting-Started" accesskey="u" rel="up">Getting Started</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quitting-Info"></a>
 <h3 class="section">1.9 Quitting Info</h3>
 
-<p><a name="index-q-_0040r_007b_0028Info-mode_0029_007d-52"></a><a name="index-Info_002dexit-53"></a><a name="index-quitting-Info-mode-54"></a>  To get out of Info, back to what you were doing before, type <kbd>q</kbd>
-for <dfn>Quit</dfn>.  This runs <code>Info-exit</code> in Emacs.
-
-   </p>
+<a name="index-q-_0028Info-mode_0029"></a>
+<a name="index-Info_002dexit"></a>
+<a name="index-quitting-Info-mode"></a>
+<p>To get out of Info, back to what you were doing before, type <kbd>q</kbd>
+for <em>Quit</em>.  This runs <code>Info-exit</code> in Emacs.
+</p>
 <p>This is the end of the basic course on using Info.  You have learned
 how to move in an Info document, and how to follow menus and cross
 references.  This makes you ready for reading manuals top to bottom,
 as new users should do when they learn a new package.
-
-   </p>
+</p>
 <p>Another set of Info commands is useful when you need to find
 something quickly in a manual—that is, when you need to use a manual
 as a reference rather than as a tutorial.  We urge you to learn
 these search commands as well.  If you want to do that now, follow this
 cross reference to <a href="#Advanced">Advanced</a>.
-
-   </p>
+</p>
 <p>Yet another set of commands are meant for experienced users; you can
-find them by looking in the Directory node for documentation on Info. 
+find them by looking in the Directory node for documentation on Info.
 Finding them will be a good exercise in using Info in the usual
 manner.
-
 </p>
+<div class="format">
 <pre class="format">&gt;&gt; Type <kbd>d</kbd> to go to the Info directory node; then type
    <kbd>mInfo</kbd> and Return, to get to the node about Info and
    see what other help is available.
 </pre>
-   <div class="node"><a name="Advanced"></a></div>
+</div>
 
+
+<hr>
+<a name="Advanced"></a>
+<div class="header">
+<p>
+Next: <a href="#Further-Reading" accesskey="n" rel="next">Further Reading</a>, Previous: <a href="#Getting-Started" accesskey="p" rel="prev">Getting Started</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Advanced-Info-Commands"></a>
 <h2 class="chapter">2 Advanced Info Commands</h2>
 
 <p>This chapter describes various advanced Info commands.  (If you
 are using a stand-alone Info reader, there are additional commands
-specific to it, which are documented in several chapters of <a href="info-stnd.html#Top">GNU Info</a>.)
-
-   </p>
-<p><a name="index-C_002dq-_0040r_007b_0028Info-mode_0029_007d-55"></a>  One advanced command useful with most of the others described here
-is <kbd>C-q</kbd>, which “quotes” the next character so that it is
-entered literally (see <a href="emacs.html#Inserting-Text">Inserting Text</a>).  For example, pressing <kbd>?</kbd> ordinarily brings up a list
-of completion possibilities.  If you want to (for example) search for
-an actual `<samp><span class="samp">?</span></samp>' character, the simplest way is to insert it using
-<kbd>C-q ?</kbd>.  This works the same in Emacs and stand-alone Info.
-
+specific to it, which are documented in several chapters of <a href="http://www.gnu.org/software/texinfo/manual/info-stnd/info-stnd.html#Top">GNU Info</a> in <cite>GNU Info</cite>.)
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Search-Text">Search Text</a>:           How to search Info documents. 
-</li>
-<li>
-<a accesskey="2" href="#Search-Index">Search Index</a>:          How to search the indices for specific subjects. 
-</li>
-<li>
-<a accesskey="3" href="#Go-to-node">Go to node</a>:            How to go to a node by name. 
-</li>
-<li>
-<a accesskey="4" href="#Choose-menu-subtopic">Choose menu subtopic</a>:  How to choose a menu subtopic by its number. 
-</li>
-<li>
-<a accesskey="5" href="#Create-Info-buffer">Create Info buffer</a>:    How to create a new Info buffer in Emacs. 
-</li>
-<li>
-<a accesskey="6" href="#Emacs-Info-Variables">Emacs Info Variables</a>:  Variables modifying the behavior of Emacs Info. 
-</li>
-</ul>
+<a name="index-C_002dq-_0028Info-mode_0029"></a>
+<p>One advanced command useful with most of the others described here
+is <kbd>C-q</kbd>, which “quotes” the next character so that it is
+entered literally (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Inserting-Text">Inserting Text</a> in <cite>The GNU Emacs
+Manual</cite>).  For example, pressing <kbd>?</kbd> ordinarily brings up a list
+of completion possibilities.  If you want to (for example) search for
+an actual ‘<samp>?</samp>’ character, the simplest way is to insert it using
+<kbd>C-q ?</kbd>.  This works the same in Emacs and stand-alone Info.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Search-Text" accesskey="1">Search Text</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to search Info documents.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Search-Index" accesskey="2">Search Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to search the indices for specific subjects.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Go-to-node" accesskey="3">Go to node</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to go to a node by name.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Choose-menu-subtopic" accesskey="4">Choose menu subtopic</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to choose a menu subtopic by its number.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Create-Info-buffer" accesskey="5">Create Info buffer</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to create a new Info buffer in Emacs.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Emacs-Info-Variables" accesskey="6">Emacs Info Variables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Variables modifying the behavior of Emacs Info.
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Search-Text"></a></div>
 
+<hr>
+<a name="Search-Text"></a>
+<div class="header">
+<p>
+Next: <a href="#Search-Index" accesskey="n" rel="next">Search Index</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="s-searches-Info-documents"></a>
 <h3 class="section">2.1 <kbd>s</kbd> searches Info documents</h3>
 
-<p><a name="index-searching-Info-documents-56"></a><a name="index-Info-document-as-a-reference-57"></a>  The commands which move between and inside nodes allow you to read
+<a name="index-searching-Info-documents"></a>
+<a name="index-Info-document-as-a-reference"></a>
+<p>The commands which move between and inside nodes allow you to read
 the entire manual or its large portions.  But what if you need to find
-some information in the manual as fast as you can, and you don't know
-or don't remember in what node to look for it?  This need arises when
-you use a manual as a <dfn>reference</dfn>, or when it is impractical to
+some information in the manual as fast as you can, and you don’t know
+or don’t remember in what node to look for it?  This need arises when
+you use a manual as a <em>reference</em>, or when it is impractical to
 read the entire manual before you start using the programs it
 describes.
-
-   </p>
+</p>
 <p>Info has powerful searching facilities that let you find things
 quickly.  You can search either the manual text or its indices.
-
-   </p>
-<p><a name="index-s-_0040r_007b_0028Info-mode_0029_007d-58"></a><a name="index-Info_002dsearch-59"></a>  The <kbd>s</kbd> command allows you to search a whole Info file for a string. 
+</p>
+<a name="index-s-_0028Info-mode_0029"></a>
+<a name="index-Info_002dsearch"></a>
+<p>The <kbd>s</kbd> command allows you to search a whole Info file for a string.
 It switches to the next node if and when that is necessary.  You
 type <kbd>s</kbd> followed by the string to search for, terminated by
-&lt;RET&gt;.  To search for the same string again, just <kbd>s</kbd> followed
-by &lt;RET&gt; will do.  The file's nodes are scanned in the order
+<tt class="key">RET</tt>.  To search for the same string again, just <kbd>s</kbd> followed
+by <tt class="key">RET</tt> will do.  The file’s nodes are scanned in the order
 they are in the file, which has no necessary relationship to the
-order that they may be in the tree structure of menus and `<samp><span class="samp">next</span></samp>'
+order that they may be in the tree structure of menus and ‘<samp>next</samp>’
 pointers.  But normally the two orders are not very different.  In any
 case, you can always look at the mode line to find out what node you have
 reached, if the header is not visible (this can happen, because <kbd>s</kbd>
 puts your cursor at the occurrence of the string, not at the beginning
 of the node).
-
-   </p>
-<p><a name="index-C_002ds-_0040r_007b_0028Info-mode_0029_007d-60"></a><a name="index-C_002dr-_0040r_007b_0028Info-mode_0029_007d-61"></a><a name="index-isearch-62"></a>  Instead of using <kbd>s</kbd> in Emacs Info and in the stand-alone Info,
-you can use an incremental search started with <kbd>C-s</kbd> or <kbd>C-r</kbd>. 
-It can search through multiple Info nodes.  See <a href="emacs.html#Incremental-Search">Incremental Search</a>.  In Emacs, you can disable this behavior
+</p>
+<a name="index-C_002ds-_0028Info-mode_0029"></a>
+<a name="index-C_002dr-_0028Info-mode_0029"></a>
+<a name="index-isearch"></a>
+<p>Instead of using <kbd>s</kbd> in Emacs Info and in the stand-alone Info,
+you can use an incremental search started with <kbd>C-s</kbd> or <kbd>C-r</kbd>.
+It can search through multiple Info nodes.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Incremental-Search">Incremental Search</a> in <cite>The GNU Emacs Manual</cite>.  In Emacs, you can disable this behavior
 by setting the variable <code>Info-isearch-search</code> to <code>nil</code>
 (see <a href="#Emacs-Info-Variables">Emacs Info Variables</a>).
-
 </p>
-<div class="node"><a name="Search-Index"></a></div>
-
+<hr>
+<a name="Search-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Go-to-node" accesskey="n" rel="next">Go to node</a>, Previous: <a href="#Search-Text" accesskey="p" rel="prev">Search Text</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="i-searches-the-indices-for-specific-subjects"></a>
 <h3 class="section">2.2 <kbd>i</kbd> searches the indices for specific subjects</h3>
 
-<p><a name="index-searching-Info-indices-63"></a><a name="index-i-_0040r_007b_0028Info-mode_0029_007d-64"></a><a name="index-Info_002dindex-65"></a>  Since most topics in the manual should be indexed, you should try
+<a name="index-searching-Info-indices"></a>
+<a name="index-i-_0028Info-mode_0029"></a>
+<a name="index-Info_002dindex"></a>
+<p>Since most topics in the manual should be indexed, you should try
 the index search first before the text search.  The <kbd>i</kbd> command
 prompts you for a subject and then looks up that subject in the
 indices.  If it finds an index entry with the subject you typed, it
 goes to the node to which that index entry points.  You should browse
 through that node to see whether the issue you are looking for is
-described there.  If it isn't, type <kbd>,</kbd> one or more times to go
+described there.  If it isn’t, type <kbd>,</kbd> one or more times to go
 through additional index entries which match your subject.
-
-   </p>
+</p>
 <p>The <kbd>i</kbd> command and subsequent <kbd>,</kbd> commands find all index
-entries which include the string you typed <em>as a substring</em>. 
+entries which include the string you typed <em>as a substring</em>.
 For each match, Info shows in the echo area the full index entry it
 found.  Often, the text of the full index entry already gives you
 enough information to decide whether it is relevant to what you are
 looking for, so we recommend that you read what Info shows in the echo
 area before looking at the node it displays.
-
-   </p>
+</p>
 <p>Since <kbd>i</kbd> looks for a substring, you can search for subjects even
 if you are not sure how they are spelled in the index.  For example,
 suppose you want to find something that is pertinent to commands which
-complete partial input (e.g., when you type &lt;TAB&gt;).  If you want
+complete partial input (e.g., when you type <tt class="key">TAB</tt>).  If you want
 to catch index entries that refer to “complete,” “completion,” and
-“completing,” you could type <kbd>icomplet&lt;RET&gt;</kbd>.
-
-   </p>
+“completing,” you could type <kbd>icomplet<span class="key">RET</span></kbd>.
+</p>
 <p>Info documents which describe programs should index the commands,
 options, and key sequences that the program provides.  If you are
 looking for a description of a command, an option, or a key, just type
 their names when <kbd>i</kbd> prompts you for a topic.  For example, if you
 want to read the description of what the <kbd>C-l</kbd> key does, type
-<kbd>iC-l&lt;RET&gt;</kbd> literally.
-
-   </p>
-<p><a name="index-Info_002dvirtual_002dindex-66"></a><a name="index-I-_0040r_007b_0028Info-mode_0029_007d-67"></a>Emacs provides the command <code>Info-virtual-index</code>, bound to the
+<kbd>iC-l<span class="key">RET</span></kbd> literally.
+</p>
+<a name="index-Info_002dvirtual_002dindex"></a>
+<a name="index-I-_0028Info-mode_0029"></a>
+<p>Emacs provides the command <code>Info-virtual-index</code>, bound to the
 <kbd>I</kbd> key.  This behaves like <kbd>i</kbd>, but constructs a virtual
 info node displaying the results of an index search, making it easier
 to select the one you want.
-
-   </p>
-<p><a name="index-info_002dapropos-68"></a><a name="index-index_002dapropos-69"></a>If you aren't sure which manual documents the topic you are looking
+</p>
+<a name="index-info_002dapropos"></a>
+<a name="index-index_002dapropos"></a>
+<p>If you aren’t sure which manual documents the topic you are looking
 for, try the <kbd>M-x info-apropos</kbd> command in Emacs, or the <kbd>M-x
 index-apropos</kbd> command in the stand-alone reader.  It prompts for
 a string and then looks up that string in all the indices of all the
 Info documents installed on your system.
-
 </p>
-<div class="node"><a name="Go-to-node"></a></div>
-
+<hr>
+<a name="Go-to-node"></a>
+<div class="header">
+<p>
+Next: <a href="#Choose-menu-subtopic" accesskey="n" rel="next">Choose menu subtopic</a>, Previous: <a href="#Search-Index" accesskey="p" rel="prev">Search Index</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g-goes-to-a-node-by-name"></a>
 <h3 class="section">2.3 <kbd>g</kbd> goes to a node by name</h3>
 
-<p><a name="index-g-_0040r_007b_0028Info-mode_0029_007d-70"></a><a name="index-Info_002dgoto_002dnode-71"></a><a name="index-go-to-a-node-by-name-72"></a>  If you know a node's name, you can go there by typing <kbd>g</kbd>, the
-name, and &lt;RET&gt;.  Thus, <kbd>gTop&lt;RET&gt;</kbd> would go to the node
-called `<samp><span class="samp">Top</span></samp>' in this file.  (This is equivalent to <kbd>t</kbd>, see
-<a href="#Help_002dInt">Help-Int</a>.)  <kbd>gGo to node&lt;RET&gt;</kbd> would come back here.
-
-   </p>
-<p>Unlike <kbd>m</kbd>, <kbd>g</kbd> does not allow the use of abbreviations. 
-But it does allow completion, so you can type &lt;TAB&gt; to complete a
-partial node name.
-
-   </p>
-<p><a name="index-go-to-another-Info-file-73"></a>  To go to a node in another file, you can include the file name in the
-node name by putting it at the front, in parentheses.  Thus,
-<kbd>g(dir)Top&lt;RET&gt;</kbd> would go to the Info Directory node, which is
-the node `<samp><span class="samp">Top</span></samp>' in the Info file <samp><span class="file">dir</span></samp>.  Likewise,
-<kbd>g(emacs)Top&lt;RET&gt;</kbd> (or just <kbd>g(emacs)&lt;RET&gt;</kbd>) goes to the
-top node of the Emacs manual.
-
-   </p>
-<p>The node name `<samp><span class="samp">*</span></samp>' specifies the whole file.  So you can look at
-all of the current file by typing <kbd>g*&lt;RET&gt;</kbd> or all of any
-other file with <kbd>g(</kbd><var>filename</var><kbd>)*&lt;RET&gt;</kbd>.
-
+<a name="index-g-_0028Info-mode_0029"></a>
+<a name="index-Info_002dgoto_002dnode"></a>
+<a name="index-go-to-a-node-by-name"></a>
+<p>If you know a node’s name, you can go there by typing <kbd>g</kbd>, the
+name, and <tt class="key">RET</tt>.  Thus, <kbd>gTop<span class="key">RET</span></kbd> would go to the node
+called ‘<samp>Top</samp>’ in this file.  (This is equivalent to <kbd>t</kbd>, see
+<a href="#Help_002dInt">Help-Int</a>.)  <kbd>gGo to node<span class="key">RET</span></kbd> would come back here.
 </p>
-<div class="node"><a name="Choose-menu-subtopic"></a></div>
-
+<p>Unlike <kbd>m</kbd>, <kbd>g</kbd> does not allow the use of abbreviations.
+But it does allow completion, so you can type <tt class="key">TAB</tt> to complete a
+partial node name.
+</p>
+<a name="index-go-to-another-Info-file"></a>
+<p>To go to a node in another file, you can include the file name in the
+node name by putting it at the front, in parentheses.  Thus,
+<kbd>g(dir)Top<span class="key">RET</span></kbd> would go to the Info Directory node, which is
+the node ‘<samp>Top</samp>’ in the Info file <samp>dir</samp>.  Likewise,
+<kbd>g(emacs)Top<span class="key">RET</span></kbd> (or just <kbd>g(emacs)<span class="key">RET</span></kbd>) goes to the
+top node of the Emacs manual.
+</p>
+<p>The node name ‘<samp>*</samp>’ specifies the whole file.  So you can look at
+all of the current file by typing <kbd>g*<span class="key">RET</span></kbd> or all of any
+other file with <kbd>g(<var>filename</var>)*<span class="key">RET</span></kbd>.
+</p>
+<hr>
+<a name="Choose-menu-subtopic"></a>
+<div class="header">
+<p>
+Next: <a href="#Create-Info-buffer" accesskey="n" rel="next">Create Info buffer</a>, Previous: <a href="#Go-to-node" accesskey="p" rel="prev">Go to node</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="g_t1_002d_002d9-choose-a-menu-subtopic-by-its-number"></a>
 <h3 class="section">2.4 <kbd>1</kbd>–<kbd>9</kbd> choose a menu subtopic by its number</h3>
 
-<p><a name="index-g_t1-_0040r_007bthrough_007d-9-_0040r_007b_0028Info-mode_0029_007d-74"></a><a name="index-Info_002dnth_002dmenu_002ditem-75"></a><a name="index-select-_0040var_007bn_007d_0027th-menu-item-76"></a>  If you begrudge each character of type-in which your system requires,
+<a name="index-1-through-9-_0028Info-mode_0029"></a>
+<a name="index-Info_002dnth_002dmenu_002ditem"></a>
+<a name="index-select-n_0027th-menu-item"></a>
+<p>If you begrudge each character of type-in which your system requires,
 you might like to use the commands <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>,
-<small class="dots">...</small>, <kbd>9</kbd>.  They are short for the <kbd>m</kbd> command together
+…, <kbd>9</kbd>.  They are short for the <kbd>m</kbd> command together
 with a name of a menu subtopic.  <kbd>1</kbd> goes through the first item
-in the current node's menu; <kbd>2</kbd> goes through the second item, etc. 
+in the current node’s menu; <kbd>2</kbd> goes through the second item, etc.
 In the stand-alone reader, <kbd>0</kbd> goes through the last menu item;
 this is so you need not count how many entries are there.
-
-   </p>
+</p>
 <p>If your display supports multiple fonts, colors or underlining, and
-you are using Emacs's Info mode to read Info files, the third, sixth
-and ninth menu items have a `<samp><span class="samp">*</span></samp>' that stands out, either in color
+you are using Emacs’s Info mode to read Info files, the third, sixth
+and ninth menu items have a ‘<samp>*</samp>’ that stands out, either in color
 or in some other attribute, such as underline; this makes it easy to
 see at a glance which number to use for an item.
-
-   </p>
-<p>Some terminals don't support either multiple fonts, colors or
-underlining.  If you need to actually count items, it is better to use
-<kbd>m</kbd> instead, and specify the name, or use &lt;TAB&gt; to quickly
-move between menu items.
-
 </p>
-<div class="node"><a name="Create-Info-buffer"></a></div>
-
+<p>Some terminals don’t support either multiple fonts, colors or
+underlining.  If you need to actually count items, it is better to use
+<kbd>m</kbd> instead, and specify the name, or use <tt class="key">TAB</tt> to quickly
+move between menu items.
+</p>
+<hr>
+<a name="Create-Info-buffer"></a>
+<div class="header">
+<p>
+Next: <a href="#Emacs-Info-Variables" accesskey="n" rel="next">Emacs Info Variables</a>, Previous: <a href="#Choose-menu-subtopic" accesskey="p" rel="prev">Choose menu subtopic</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="M_002dn-creates-a-new-independent-Info-buffer-in-Emacs"></a>
 <h3 class="section">2.5 <kbd>M-n</kbd> creates a new independent Info buffer in Emacs</h3>
 
-<p><a name="index-M_002dn-_0040r_007b_0028Info-mode_0029_007d-77"></a><a name="index-clone_002dbuffer-78"></a><a name="index-multiple-Info-buffers-79"></a>  If you are reading Info in Emacs, you can select a new independent
+<a name="index-M_002dn-_0028Info-mode_0029"></a>
+<a name="index-clone_002dbuffer"></a>
+<a name="index-multiple-Info-buffers"></a>
+<p>If you are reading Info in Emacs, you can select a new independent
 Info buffer in a new Emacs window by typing <kbd>M-n</kbd>.  The new buffer
 starts out as an exact copy of the old one, but you will be able to
 move independently between nodes in the two buffers.  (In Info mode,
 <kbd>M-n</kbd> runs the Emacs command <code>clone-buffer</code>.)
-
-   </p>
+</p>
 <p>In Emacs Info, you can also produce new Info buffers by giving a
 numeric prefix argument to the <kbd>m</kbd> and <kbd>g</kbd> commands.  <kbd>C-u
 m</kbd> and <kbd>C-u g</kbd> go to a new node in exactly the same way that
 <kbd>m</kbd> and <kbd>g</kbd> do, but they do so in a new Info buffer which they
 select in another window.
-
-   </p>
+</p>
 <p>Another way to produce new Info buffers in Emacs is to use a numeric
 prefix argument for the <kbd>C-h i</kbd> command (<code>info</code>) which
 switches to the Info buffer with that number.  Thus, <kbd>C-u 2 C-h i</kbd>
-switches to the buffer <samp><span class="file">*info*&lt;2&gt;</span></samp>, creating it if necessary.
-
-   </p>
-<p><a name="index-info_002ddisplay_002dmanual-80"></a>  If you have created many Info buffers in Emacs, you might find it
+switches to the buffer <samp>*info*&lt;2&gt;</samp>, creating it if necessary.
+</p>
+<a name="index-info_002ddisplay_002dmanual"></a>
+<p>If you have created many Info buffers in Emacs, you might find it
 difficult to remember which buffer is showing which manual.  You can
 use the command <kbd>M-x info-display-manual</kbd> to show an Info manual
 by name, reusing an existing buffer if there is one.  When given a
 prefix argument, this command limits the completion alternatives to
 currently visited info files, thus giving a convenient way to switch
 between several manuals.
-
 </p>
-<div class="node"><a name="Emacs-Info-Variables"></a></div>
-
+<hr>
+<a name="Emacs-Info-Variables"></a>
+<div class="header">
+<p>
+Previous: <a href="#Create-Info-buffer" accesskey="p" rel="prev">Create Info buffer</a>, Up: <a href="#Advanced" accesskey="u" rel="up">Advanced</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Emacs-Info_002dmode-Variables"></a>
 <h3 class="section">2.6 Emacs Info-mode Variables</h3>
 
 <p>The following variables may modify the behavior of Info-mode in Emacs;
 you may wish to set one or several of these variables interactively,
-or in your init file.  See <a href="emacs.html#Examining">Examining and Setting Variables</a>.  The stand-alone Info reader program has its own set of
-variables, described in <a href="info-stnd.html#Variables">Manipulating Variables</a>.
-
-     </p>
-<dl>
+or in your init file.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Examining">Examining and Setting Variables</a> in <cite>The GNU Emacs
+Manual</cite>.  The stand-alone Info reader program has its own set of
+variables, described in <a href="http://www.gnu.org/software/texinfo/manual/info-stnd/info-stnd.html#Variables">Manipulating Variables</a> in <cite>GNU Info</cite>.
+</p>
+<dl compact>
 <dt>
-<code>Info-directory-list</code><a name="index-Info_002ddirectory_002dlist-81"></a>
+<code>Info-directory-list</code>
+<a name="index-Info_002ddirectory_002dlist"></a>
 </dt>
-<dd>The list of directories to search for Info files.  Each element is a
+<dd>
+<p>The list of directories to search for Info files.  Each element is a
 string (directory name) or <code>nil</code> (try default directory).  If not
-initialized Info uses the environment variable <samp><span class="env">INFOPATH</span></samp> to
+initialized Info uses the environment variable <code>INFOPATH</code> to
 initialize it, or <code>Info-default-directory-list</code> if there is no
-<samp><span class="env">INFOPATH</span></samp> variable in the environment.
-
-     <p>If you wish to customize the Info directory search list for both Emacs
-Info and stand-alone Info, it is best to set the <samp><span class="env">INFOPATH</span></samp>
+<code>INFOPATH</code> variable in the environment.
+</p>
+<p>If you wish to customize the Info directory search list for both Emacs
+Info and stand-alone Info, it is best to set the <code>INFOPATH</code>
 environment variable, since that applies to both programs.
-
-     <br></p>
+</p>
 </dd>
 <dt>
-<code>Info-additional-directory-list</code><a name="index-Info_002dadditional_002ddirectory_002dlist-82"></a>
+<code>Info-additional-directory-list</code>
+<a name="index-Info_002dadditional_002ddirectory_002dlist"></a>
 </dt>
-<dd>A list of additional directories to search for Info documentation files. 
-These directories are not searched for merging the <samp><span class="file">dir</span></samp> file.
-
-     <br>
+<dd>
+<p>A list of additional directories to search for Info documentation files.
+These directories are not searched for merging the <samp>dir</samp> file.
+</p>
 </dd>
 <dt>
-<code>Info-mode-hook</code><a name="index-Info_002dmode_002dhook-83"></a>
+<code>Info-mode-hook</code>
+<a name="index-Info_002dmode_002dhook"></a>
 </dt>
-<dd>Hooks run when <code>Info-mode</code> is called.  By default, it contains
+<dd>
+<p>Hooks run when <code>Info-mode</code> is called.  By default, it contains
 the hook <code>turn-on-font-lock</code> which enables highlighting of Info
 files.  You can change how the highlighting looks by customizing the
 faces <code>info-node</code>, <code>info-xref</code>, <code>info-xref-visited</code>,
 <code>info-header-xref</code>, <code>info-header-node</code>, <code>info-menu-header</code>,
-<code>info-menu-star</code>, and <code>info-title-</code><var>n</var> (where <var>n</var>
+<code>info-menu-star</code>, and <code>info-title-<var>n</var></code> (where <var>n</var>
 is the level of the section, a number between 1 and 4).  To customize
-a face, type <kbd>M-x customize-face &lt;RET&gt; </kbd><var>face</var><kbd> &lt;RET&gt;</kbd>,
+a face, type <kbd>M-x customize-face <span class="key">RET</span> <var>face</var> <span class="key">RET</span></kbd>,
 where <var>face</var> is one of the face names listed here.
-
-     <br>
+</p>
 </dd>
 <dt>
-<code>Info-fontify-maximum-menu-size</code><a name="index-Info_002dfontify_002dmaximum_002dmenu_002dsize-84"></a>
+<code>Info-fontify-maximum-menu-size</code>
+<a name="index-Info_002dfontify_002dmaximum_002dmenu_002dsize"></a>
 </dt>
-<dd>Maximum size of menu to fontify if <code>font-lock-mode</code> is non-<code>nil</code>.
-
-     <br>
+<dd>
+<p>Maximum size of menu to fontify if <code>font-lock-mode</code> is non-<code>nil</code>.
+</p>
 </dd>
 <dt>
-<code>Info-fontify-visited-nodes</code><a name="index-Info_002dfontify_002dvisited_002dnodes-85"></a>
+<code>Info-fontify-visited-nodes</code>
+<a name="index-Info_002dfontify_002dvisited_002dnodes"></a>
 </dt>
-<dd>If non-<code>nil</code>, menu items and cross-references pointing to visited
+<dd>
+<p>If non-<code>nil</code>, menu items and cross-references pointing to visited
 nodes are displayed in the <code>info-xref-visited</code> face.
-
-     <br>
+</p>
 </dd>
 <dt>
-<code>Info-use-header-line</code><a name="index-Info_002duse_002dheader_002dline-86"></a>
+<code>Info-use-header-line</code>
+<a name="index-Info_002duse_002dheader_002dline"></a>
 </dt>
-<dd>If non-<code>nil</code>, Emacs puts in the Info buffer a header line showing
-the `<samp><span class="samp">Next</span></samp>', `<samp><span class="samp">Prev</span></samp>', and `<samp><span class="samp">Up</span></samp>' links.  A header line does
+<dd>
+<p>If non-<code>nil</code>, Emacs puts in the Info buffer a header line showing
+the ‘<samp>Next</samp>’, ‘<samp>Prev</samp>’, and ‘<samp>Up</samp>’ links.  A header line does
 not scroll with the rest of the buffer, making these links always
 visible.
-
-     <br>
+</p>
 </dd>
 <dt>
-<code>Info-hide-note-references</code><a name="index-Info_002dhide_002dnote_002dreferences-87"></a>
+<code>Info-hide-note-references</code>
+<a name="index-Info_002dhide_002dnote_002dreferences"></a>
 </dt>
-<dd>As explained in earlier nodes, the Emacs version of Info normally
+<dd>
+<p>As explained in earlier nodes, the Emacs version of Info normally
 hides some text in menus and cross-references.  You can completely
 disable this feature, by setting this option to <code>nil</code>.  Setting
 it to a value that is neither <code>nil</code> nor <code>t</code> produces an
 intermediate behavior, hiding a limited amount of text, but showing
 all text that could potentially be useful.
-
-     <br>
+</p>
 </dd>
 <dt>
-<code>Info-scroll-prefer-subnodes</code><a name="index-Info_002dscroll_002dprefer_002dsubnodes-88"></a>
+<code>Info-scroll-prefer-subnodes</code>
+<a name="index-Info_002dscroll_002dprefer_002dsubnodes"></a>
 </dt>
-<dd>If set to a non-<code>nil</code> value, &lt;SPC&gt; and &lt;BACKSPACE&gt; (or
-&lt;DEL&gt;, or <kbd>S-&lt;SPC&gt;</kbd>) keys in a menu visit subnodes of the
-current node before scrolling to its end or beginning, respectively. 
-For example, if the node's menu appears on the screen, the next
-&lt;SPC&gt; moves to a subnode indicated by the following menu item. 
+<dd>
+<p>If set to a non-<code>nil</code> value, <tt class="key">SPC</tt> and <tt class="key">BACKSPACE</tt> (or
+<tt class="key">DEL</tt>, or <kbd>S-<span class="key">SPC</span></kbd>) keys in a menu visit subnodes of the
+current node before scrolling to its end or beginning, respectively.
+For example, if the node’s menu appears on the screen, the next
+<tt class="key">SPC</tt> moves to a subnode indicated by the following menu item.
 Setting this option to <code>nil</code> results in behavior similar to the
 stand-alone Info reader program, which visits the first subnode from
 the menu only when you hit the end of the current node.  The default
 is <code>nil</code>.
-
-     <br>
+</p>
 </dd>
 <dt>
-<code>Info-isearch-search</code><a name="index-Info_002disearch_002dsearch-89"></a>
+<code>Info-isearch-search</code>
+<a name="index-Info_002disearch_002dsearch"></a>
 </dt>
-<dd>If non-<code>nil</code>, isearch in Info searches through multiple nodes.
-
-     <br>
+<dd>
+<p>If non-<code>nil</code>, isearch in Info searches through multiple nodes.
+</p>
 </dd>
 <dt>
-<code>Info-enable-active-nodes</code><a name="index-Info_002denable_002dactive_002dnodes-90"></a>
+<code>Info-enable-active-nodes</code>
+<a name="index-Info_002denable_002dactive_002dnodes"></a>
 </dt>
-<dd>When set to a non-<code>nil</code> value, allows Info to execute Lisp code
+<dd>
+<p>When set to a non-<code>nil</code> value, allows Info to execute Lisp code
 associated with nodes.  The Lisp code is executed when the node is
 selected.  The Lisp code to be executed should follow the node
-delimiter (the `<samp><span class="samp">DEL</span></samp>' character) and an `<samp><span class="samp">execute: </span></samp>' tag, like
+delimiter (the ‘<samp>DEL</samp>’ character) and an ‘<samp>execute: </samp>’ tag, like
 this:
-
-     <pre class="example">          ^_execute: (message "This is an active node!")
-     </pre>
-     </dd>
+</p>
+<div class="example">
+<pre class="example">^_execute: (message "This is an active node!")
+</pre>
+</div>
+</dd>
 </dl>
 
-<div class="node"><a name="Further-Reading"></a></div>
 
+<hr>
+<a name="Further-Reading"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Advanced" accesskey="p" rel="prev">Advanced</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Further-Reading-1"></a>
 <h2 class="chapter">3 Further Reading</h2>
+<a name="index-Texinfo"></a>
 
-<p><a name="index-Texinfo-91"></a>
-  Info files are created from Texinfo source files.  You can use the
+<p>Info files are created from Texinfo source files.  You can use the
 same source file to make a printed manual or produce other formats,
 such as HTML and DocBook.
-
-   </p>
+</p>
 <p>The <code>makeinfo</code> command converts a Texinfo file into an Info file;
 <code>texinfo-format-region</code> and <code>texinfo-format-buffer</code> are GNU
 Emacs functions that do the same.
-
-   </p>
-<p>See <a href="texinfo.html#Top">Overview of Texinfo</a>, for how to write a Texinfo file.
-
-   </p>
-<p>See <a href="texinfo.html#Creating-an-Info-File">Creating an Info File</a>, for how to create an Info file from a Texinfo file.
-
-   </p>
-<p>See <a href="texinfo.html#Installing-an-Info-File">Installing an Info File</a>, for how to install an Info file after you
-have created one.
-
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<p>See <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Top">Overview of Texinfo</a> in <cite>Texinfo: The GNU
+Documentation Format</cite>, for how to write a Texinfo file.
+</p>
+<p>See <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Creating-an-Info-File">Creating an Info File</a> in <cite>Texinfo: The GNU Documentation
+Format</cite>, for how to create an Info file from a Texinfo file.
+</p>
+<p>See <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Installing-an-Info-File">Installing an Info File</a> in <cite>Texinfo: The GNU
+Documentation Format</cite>, for how to install an Info file after you
+have created one.
+</p>
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Further-Reading" accesskey="p" rel="prev">Further Reading</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -1425,12 +1651,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -1439,16 +1664,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -1456,8 +1679,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -1465,14 +1687,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -1482,11 +1702,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -1499,20 +1718,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -1520,20 +1736,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -1542,104 +1756,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -1647,54 +1854,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -1704,84 +1909,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -1792,57 +1988,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1851,382 +2040,1007 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Index"></a></div>
 
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="unnumbered">Index</h2>
 
 <p>This is an alphabetical listing of all the commands, variables, and
 topics discussed in this document.
-
 </p>
-<ul class="index-cp" compact>
-<li>
-<a href="#index-g_t1-_0040r_007bthrough_007d-9-_0040r_007b_0028Info-mode_0029_007d-74"><code>1 </code><span class="roman">through</span><code> 9 </code><span class="roman">(Info mode)</span></a>: <a href="#Choose-menu-subtopic">Choose menu subtopic</a>
-</li>
-<li>
-<a href="#index-g_t_003f-_0040r_007b_0028Info-mode_0029_007d-19"><code>? </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-abbreviating-Info-subnodes-27">abbreviating Info subnodes</a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-b-_0040r_007b_0028Info-mode_0029_007d-18"><code>b </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-BACKSPACE-_0040r_007b_0028Info-mode_0029_007d-10"><code>BACKSPACE </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-C_002dl-_0040r_007b_0028Info-mode_0029_007d-17"><code>C-l </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-C_002dq-_0040r_007b_0028Info-mode_0029_007d-55"><code>C-q </code><span class="roman">(Info mode)</span></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-C_002dr-_0040r_007b_0028Info-mode_0029_007d-61"><code>C-r </code><span class="roman">(Info mode)</span></a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-C_002ds-_0040r_007b_0028Info-mode_0029_007d-60"><code>C-s </code><span class="roman">(Info mode)</span></a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-clone_002dbuffer-78"><code>clone-buffer</code></a>: <a href="#Create-Info-buffer">Create Info buffer</a>
-</li>
-<li>
-<a href="#index-completion-of-Info-node-names-28">completion of Info node names</a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-cross-references-in-Info-documents-34">cross references in Info documents</a>: <a href="#Help_002dXref">Help-Xref</a>
-</li>
-<li>
-<a href="#index-d-_0040r_007b_0028Info-mode_0029_007d-46"><code>d </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-DEL-_0040r_007b_0028Info-mode_0029_007d-9"><code>DEL </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-entering-Info-2">entering Info</a>: <a href="#Getting-Started">Getting Started</a>
-</li>
-<li>
-<a href="#index-f-_0040r_007b_0028Info-mode_0029_007d-35"><code>f </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dXref">Help-Xref</a>
-</li>
-<li>
-<a href="#index-g-_0040r_007b_0028Info-mode_0029_007d-70"><code>g </code><span class="roman">(Info mode)</span></a>: <a href="#Go-to-node">Go to node</a>
-</li>
-<li>
-<a href="#index-go-to-a-node-by-name-72">go to a node by name</a>: <a href="#Go-to-node">Go to node</a>
-</li>
-<li>
-<a href="#index-go-to-another-Info-file-73">go to another Info file</a>: <a href="#Go-to-node">Go to node</a>
-</li>
-<li>
-<a href="#index-go-to-Directory-node-48">go to Directory node</a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-go-to-Top-node-51">go to Top node</a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-going-back-in-Info-history-39">going back in Info history</a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-going-forward-in-Info-history-42">going forward in Info history</a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-header-of-Info-node-5">header of Info node</a>: <a href="#Help">Help</a>
-</li>
-<li>
-<a href="#index-history-list-of-visited-nodes-45">history list of visited nodes</a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-i-_0040r_007b_0028Info-mode_0029_007d-64"><code>i </code><span class="roman">(Info mode)</span></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-I-_0040r_007b_0028Info-mode_0029_007d-67"><code>I </code><span class="roman">(Info mode)</span></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-index_002dapropos-69"><code>index-apropos</code></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-Info-document-as-a-reference-57">Info document as a reference</a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-Info-documents-as-tutorials-14">Info documents as tutorials</a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-Info-menus-24">Info menus</a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-Info-reader_002c-how-to-invoke-1">Info reader, how to invoke</a>: <a href="#Getting-Started">Getting Started</a>
-</li>
-<li>
-<a href="#index-Info_002dadditional_002ddirectory_002dlist-82"><code>Info-additional-directory-list</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-info_002dapropos-68"><code>info-apropos</code></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-Info_002ddirectory-47"><code>Info-directory</code></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Info_002ddirectory_002dlist-81"><code>Info-directory-list</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-info_002ddisplay_002dmanual-80"><code>info-display-manual</code></a>: <a href="#Create-Info-buffer">Create Info buffer</a>
-</li>
-<li>
-<a href="#index-Info_002denable_002dactive_002dnodes-90"><code>Info-enable-active-nodes</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dexit-53"><code>Info-exit</code></a>: <a href="#Help_002dQ">Help-Q</a>
-</li>
-<li>
-<a href="#index-Info_002dfollow_002dreference-36"><code>Info-follow-reference</code></a>: <a href="#Help_002dXref">Help-Xref</a>
-</li>
-<li>
-<a href="#index-Info_002dfontify_002dmaximum_002dmenu_002dsize-84"><code>Info-fontify-maximum-menu-size</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dfontify_002dvisited_002dnodes-85"><code>Info-fontify-visited-nodes</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dgoto_002dnode-71"><code>Info-goto-node</code></a>: <a href="#Go-to-node">Go to node</a>
-</li>
-<li>
-<a href="#index-Info_002dhide_002dnote_002dreferences-87"><code>Info-hide-note-references</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dhistory-44"><code>Info-history</code></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Info_002dhistory_002dback-38"><code>Info-history-back</code></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Info_002dhistory_002dforward-41"><code>Info-history-forward</code></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Info_002dindex-65"><code>Info-index</code></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-Info_002disearch_002dsearch-89"><code>Info-isearch-search</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dmenu-26"><code>Info-menu</code></a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-Info_002dmode_002dhook-83"><code>Info-mode-hook</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dmouse_002dfollow_002dnearest_002dnode-31"><code>Info-mouse-follow-nearest-node</code></a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-Info_002dnth_002dmenu_002ditem-75"><code>Info-nth-menu-item</code></a>: <a href="#Choose-menu-subtopic">Choose menu subtopic</a>
-</li>
-<li>
-<a href="#index-Info_002dscroll_002ddown-12"><code>Info-scroll-down</code></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-Info_002dscroll_002dprefer_002dsubnodes-88"><code>Info-scroll-prefer-subnodes</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dscroll_002dup-11"><code>Info-scroll-up</code></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-Info_002dsearch-59"><code>Info-search</code></a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-Info_002dsummary-20"><code>Info-summary</code></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-Info_002dtop_002dnode-50"><code>Info-top-node</code></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Info_002dup-33"><code>Info-up</code></a>: <a href="#Help_002dFOO">Help-FOO</a>
-</li>
-<li>
-<a href="#index-Info_002duse_002dheader_002dline-86"><code>Info-use-header-line</code></a>: <a href="#Emacs-Info-Variables">Emacs Info Variables</a>
-</li>
-<li>
-<a href="#index-Info_002dvirtual_002dindex-66"><code>Info-virtual-index</code></a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-invisible-text-in-Emacs-21">invisible text in Emacs</a>: <a href="#Help_002dInv">Help-Inv</a>
-</li>
-<li>
-<a href="#index-isearch-62"><code>isearch</code></a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-l-_0040r_007b_0028Info-mode_0029_007d-37"><code>l </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-L-_0040r_007b_0028Info-mode_0029_007d-43"><code>L </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-m-_0040r_007b_0028Info-mode_0029_007d-25"><code>m </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-M_002dn-_0040r_007b_0028Info-mode_0029_007d-77"><code>M-n </code><span class="roman">(Info mode)</span></a>: <a href="#Create-Info-buffer">Create Info buffer</a>
-</li>
-<li>
-<a href="#index-menus-in-an-Info-document-23">menus in an Info document</a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-mouse-support-in-Info-mode-29">mouse support in Info mode</a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-mouse_002d2-_0040r_007b_0028Info-mode_0029_007d-30"><code>mouse-2 </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dM">Help-M</a>
-</li>
-<li>
-<a href="#index-multiple-Info-buffers-79">multiple Info buffers</a>: <a href="#Create-Info-buffer">Create Info buffer</a>
-</li>
-<li>
-<a href="#index-n-_0040r_007b_0028Info-mode_0029_007d-6"><code>n </code><span class="roman">(Info mode)</span></a>: <a href="#Help">Help</a>
-</li>
-<li>
-<a href="#index-node_002c-in-Info-documents-4">node, in Info documents</a>: <a href="#Help">Help</a>
-</li>
-<li>
-<a href="#index-p-_0040r_007b_0028Info-mode_0029_007d-7"><code>p </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dP">Help-P</a>
-</li>
-<li>
-<a href="#index-PAGEDOWN-_0040r_007b_0028Info-mode_0029_007d-16"><code>PAGEDOWN </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-PAGEUP-_0040r_007b_0028Info-mode_0029_007d-15"><code>PAGEUP </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-q-_0040r_007b_0028Info-mode_0029_007d-52"><code>q </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dQ">Help-Q</a>
-</li>
-<li>
-<a href="#index-quitting-Info-mode-54">quitting Info mode</a>: <a href="#Help_002dQ">Help-Q</a>
-</li>
-<li>
-<a href="#index-r-_0040r_007b_0028Info-mode_0029_007d-40"><code>r </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-reading-Info-documents-top-to-bottom-13">reading Info documents top to bottom</a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-s-_0040r_007b_0028Info-mode_0029_007d-58"><code>s </code><span class="roman">(Info mode)</span></a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-searching-Info-documents-56">searching Info documents</a>: <a href="#Search-Text">Search Text</a>
-</li>
-<li>
-<a href="#index-searching-Info-indices-63">searching Info indices</a>: <a href="#Search-Index">Search Index</a>
-</li>
-<li>
-<a href="#index-select-_0040var_007bn_007d_0027th-menu-item-76">select <var>n</var>'th menu item</a>: <a href="#Choose-menu-subtopic">Choose menu subtopic</a>
-</li>
-<li>
-<a href="#index-small-screen_002c-moving-around-3">small screen, moving around</a>: <a href="#Help_002dSmall_002dScreen">Help-Small-Screen</a>
-</li>
-<li>
-<a href="#index-SPC-_0040r_007b_0028Info-mode_0029_007d-8"><code>SPC </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002d_005eL">Help-^L</a>
-</li>
-<li>
-<a href="#index-t-_0040r_007b_0028Info-mode_0029_007d-49"><code>t </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dInt">Help-Int</a>
-</li>
-<li>
-<a href="#index-Texinfo-91">Texinfo</a>: <a href="#Further-Reading">Further Reading</a>
-</li>
-<li>
-<a href="#index-u-_0040r_007b_0028Info-mode_0029_007d-32"><code>u </code><span class="roman">(Info mode)</span></a>: <a href="#Help_002dFOO">Help-FOO</a>
-</li>
-<li>
-<a href="#index-visible_002dmode-22"><code>visible-mode</code></a>: <a href="#Help_002dInv">Help-Inv</a>
-</li>
-   </ul>   <div class="footnote">
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>1</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>?</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-1">1</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-1-through-9-_0028Info-mode_0029"><code>1 <span class="roman">through</span> 9 <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-2">?</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_003f-_0028Info-mode_0029"><code>? <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-abbreviating-Info-subnodes">abbreviating Info subnodes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-b-_0028Info-mode_0029"><code>b <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-BACKSPACE-_0028Info-mode_0029"><code>BACKSPACE <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dl-_0028Info-mode_0029"><code>C-l <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dq-_0028Info-mode_0029"><code>C-q <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dr-_0028Info-mode_0029"><code>C-r <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002ds-_0028Info-mode_0029"><code>C-s <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-clone_002dbuffer"><code>clone-buffer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Create-Info-buffer">Create Info buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-completion-of-Info-node-names">completion of Info node names</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cross-references-in-Info-documents">cross references in Info documents</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dXref">Help-Xref</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-d-_0028Info-mode_0029"><code>d <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-DEL-_0028Info-mode_0029"><code>DEL <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-entering-Info">entering Info</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-Started">Getting Started</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-f-_0028Info-mode_0029"><code>f <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dXref">Help-Xref</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-G">G</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-g-_0028Info-mode_0029"><code>g <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Go-to-node">Go to node</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-go-to-a-node-by-name">go to a node by name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Go-to-node">Go to node</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-go-to-another-Info-file">go to another Info file</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Go-to-node">Go to node</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-go-to-Directory-node">go to Directory node</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-go-to-Top-node">go to Top node</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-going-back-in-Info-history">going back in Info history</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-going-forward-in-Info-history">going forward in Info history</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-H-_0028stand_002dalone-Info-reader_0029"><code>H <span class="roman">(stand-alone Info reader)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-header-of-Info-node">header of Info node</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help">Help</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-history-list-of-visited-nodes">history list of visited nodes</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-i-_0028Info-mode_0029"><code>i <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-I-_0028Info-mode_0029"><code>I <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-index_002dapropos"><code>index-apropos</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info-document-as-a-reference">Info document as a reference</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info-documents-as-tutorials">Info documents as tutorials</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info-menus">Info menus</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info-reader_002c-how-to-invoke">Info reader, how to invoke</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Getting-Started">Getting Started</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dadditional_002ddirectory_002dlist"><code>Info-additional-directory-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-info_002dapropos"><code>info-apropos</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002ddirectory"><code>Info-directory</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002ddirectory_002dlist"><code>Info-directory-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-info_002ddisplay_002dmanual"><code>info-display-manual</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Create-Info-buffer">Create Info buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002denable_002dactive_002dnodes"><code>Info-enable-active-nodes</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dexit"><code>Info-exit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dQ">Help-Q</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dfollow_002dreference"><code>Info-follow-reference</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dXref">Help-Xref</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dfontify_002dmaximum_002dmenu_002dsize"><code>Info-fontify-maximum-menu-size</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dfontify_002dvisited_002dnodes"><code>Info-fontify-visited-nodes</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dgoto_002dnode"><code>Info-goto-node</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Go-to-node">Go to node</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dhide_002dnote_002dreferences"><code>Info-hide-note-references</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dhistory"><code>Info-history</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dhistory_002dback"><code>Info-history-back</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dhistory_002dforward"><code>Info-history-forward</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dindex"><code>Info-index</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002disearch_002dsearch"><code>Info-isearch-search</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dmenu"><code>Info-menu</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dmode_002dhook"><code>Info-mode-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dmouse_002dfollow_002dnearest_002dnode"><code>Info-mouse-follow-nearest-node</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dnth_002dmenu_002ditem"><code>Info-nth-menu-item</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dscroll_002ddown"><code>Info-scroll-down</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dscroll_002dprefer_002dsubnodes"><code>Info-scroll-prefer-subnodes</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dscroll_002dup"><code>Info-scroll-up</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dsearch"><code>Info-search</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dsummary"><code>Info-summary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dtop_002dnode"><code>Info-top-node</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dup"><code>Info-up</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dFOO">Help-FOO</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002duse_002dheader_002dline"><code>Info-use-header-line</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Info-Variables">Emacs Info Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Info_002dvirtual_002dindex"><code>Info-virtual-index</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-invisible-text-in-Emacs">invisible text in Emacs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInv">Help-Inv</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-isearch"><code>isearch</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-l-_0028Info-mode_0029"><code>l <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-L-_0028Info-mode_0029"><code>L <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-m-_0028Info-mode_0029"><code>m <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-M_002dn-_0028Info-mode_0029"><code>M-n <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Create-Info-buffer">Create Info buffer</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-menus-in-an-Info-document">menus in an Info document</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse-support-in-Info-mode">mouse support in Info mode</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse_002d2-_0028Info-mode_0029"><code>mouse-2 <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dM">Help-M</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-multiple-Info-buffers">multiple Info buffers</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Create-Info-buffer">Create Info buffer</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-N">N</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-n-_0028Info-mode_0029"><code>n <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help">Help</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-node_002c-in-Info-documents">node, in Info documents</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help">Help</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-p-_0028Info-mode_0029"><code>p <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dP">Help-P</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-PAGEDOWN-_0028Info-mode_0029"><code>PAGEDOWN <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-PAGEUP-_0028Info-mode_0029"><code>PAGEUP <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-Q">Q</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-q-_0028Info-mode_0029"><code>q <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dQ">Help-Q</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-quitting-Info-mode">quitting Info mode</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dQ">Help-Q</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-r-_0028Info-mode_0029"><code>r <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-reading-Info-documents-top-to-bottom">reading Info documents top to bottom</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-s-_0028Info-mode_0029"><code>s <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-searching-Info-documents">searching Info documents</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Text">Search Text</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-searching-Info-indices">searching Info indices</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Search-Index">Search Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-select-n_0027th-menu-item">select <var>n</var>’th menu item</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-small-screen_002c-moving-around">small screen, moving around</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dSmall_002dScreen">Help-Small-Screen</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-SPC-_0028Info-mode_0029"><code>SPC <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-t-_0028Info-mode_0029"><code>t <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInt">Help-Int</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Texinfo">Texinfo</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Further-Reading">Further Reading</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-u-_0028Info-mode_0029"><code>u <span class="roman">(Info mode)</span></code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dFOO">Help-FOO</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-V">V</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-visible_002dmode"><code>visible-mode</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Help_002dInv">Help-Inv</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>1</b></a>
+   
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>?</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+   
+</td>
+</tr></table>
+
+<div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4>
-<p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> The key which
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>The key which
 we call “Backspace or DEL” in this manual is labeled differently on
 different keyboards.  Look for a key which is a little ways above the
-&lt;ENTER&gt; or &lt;RET&gt; key and which you normally use outside Emacs
+<tt class="key">ENTER</tt> or <tt class="key">RET</tt> key and which you normally use outside Emacs
 to erase the character before the cursor, i.e., the character you
-typed last.  It might be labeled `<samp><span class="samp">Backspace</span></samp>' or `<samp><span class="samp">&lt;-</span></samp>' or
-`<samp><span class="samp">DEL</span></samp>', or sometimes `<samp><span class="samp">Delete</span></samp>'.</p>
-
-   <p></p>
-<hr>
+typed last.  It might be labeled ‘<samp>Backspace</samp>’ or ‘<samp>&lt;-</samp>’ or
+‘<samp>DEL</samp>’, or sometimes ‘<samp>Delete</samp>’.</p>
 </div>
+<hr>
+
+
 
 </body>
 </html>

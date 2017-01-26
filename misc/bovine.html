@@ -1,572 +1,657 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 1999-2004, 2012-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Bovine parser development</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="description" content="Bovine parser development">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta name="keywords" content="Bovine parser development">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="top">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
 <!--
-Copyright (C) 1999-2004, 2012-2016 Free Software Foundation, Inc.
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual," and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 </head>
-<body>
-<h1 class="settitle">Bovine parser development</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Bovine parser development</a>
+
+<body lang="en">
+<h1 class="settitle" align="center">Bovine parser development</h1>
+
+
+
+
+
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Starting-Rules-1" href="#Starting-Rules">1 Starting Rules</a></li>
+  <li>
+<a name="toc-Bovine-Grammar-Rules-1" href="#Bovine-Grammar-Rules">2 Bovine Grammar Rules</a>
+  <ul class="no-bullet">
+    <li><a name="toc-How-Lexical-Tokens-Match-1" href="#How-Lexical-Tokens-Match">2.1 How Lexical Tokens Match</a></li>
+    <li><a name="toc-Grammar_002dto_002dLisp-Details-1" href="#Grammar_002dto_002dLisp-Details">2.2 Grammar-to-Lisp Details</a></li>
+    <li><a name="toc-Order-of-components-in-rules-1" href="#Order-of-components-in-rules">2.3 Order of components in rules</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Starting-Rules" href="#Starting-Rules">1 Starting Rules</a>
-</li>
-<li>
-<a name="toc_Bovine-Grammar-Rules" href="#Bovine-Grammar-Rules">2 Bovine Grammar Rules</a>
-<ul>
-<li>
-<a href="#How-Lexical-Tokens-Match">2.1 How Lexical Tokens Match</a>
-</li>
-<li>
-<a href="#Grammar_002dto_002dLisp-Details">2.2 Grammar-to-Lisp Details</a>
-</li>
-<li>
-<a href="#Order-of-components-in-rules">2.3 Order of components in rules</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Optional-Lambda-Expression" href="#Optional-Lambda-Expression">3 Optional Lambda Expressions</a>
-</li>
-<li>
-<a name="toc_Bovine-Examples" href="#Bovine-Examples">4 Examples</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
+  <li><a name="toc-Optional-Lambda-Expressions" href="#Optional-Lambda-Expression">3 Optional Lambda Expressions</a></li>
+  <li><a name="toc-Examples" href="#Bovine-Examples">4 Examples</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
 </ul>
 </div>
 
 
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Starting-Rules" accesskey="n" rel="next">Starting Rules</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Bovine-parser-development"></a>
+<h1 class="top">Bovine parser development</h1>
 
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">Bovine parser development</h2>
-
-<p>The <dfn>bovine</dfn> parser is the original <i>Semantic</i> parser, and is an
+<p>The <em>bovine</em> parser is the original <i>Semantic</i> parser, and is an
 implementation of an <acronym>LL</acronym> parser.  It is good for simple
 languages.  It has many conveniences making grammar writing easy.  The
 conveniences make it less powerful than a Bison-like <acronym>LALR</acronym>
-parser.  For more information, see <a href="wisent.html#Top">The Wisent Parser Manual</a>.
-
-   </p>
-<p>Bovine <acronym>LL</acronym> grammars are stored in files with a <samp><span class="file">.by</span></samp>
+parser.  For more information, See <a href="wisent.html#Top">(wisent)The Wisent Parser Manual</a>.
+</p>
+<p>Bovine <acronym>LL</acronym> grammars are stored in files with a <samp>.by</samp>
 extension.  When compiled, the contents is converted into a file of
-the form <samp><span class="file">NAME-by.el</span></samp>.  This, in turn is byte compiled. 
-see <a href="grammar-fw.html#Top">Grammar Framework Manual</a>.
-
-   </p>
+the form <samp>NAME-by.el</samp>.  This, in turn is byte compiled.
+See <a href="grammar-fw.html#Top">(grammar-fw)Grammar Framework Manual</a>.
+</p>
 <p>Copyright © 1999–2004, 2012–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Starting-Rules">Starting Rules</a>:               The starting rules for the grammar. 
-</li>
-<li>
-<a accesskey="2" href="#Bovine-Grammar-Rules">Bovine Grammar Rules</a>:         Rules used to parse a language. 
-</li>
-<li>
-<a accesskey="3" href="#Optional-Lambda-Expression">Optional Lambda Expression</a>:   Actions to take when a rule is matched. 
-</li>
-<li>
-<a accesskey="4" href="#Bovine-Examples">Bovine Examples</a>:              Simple Samples. 
-</li>
-<li>
-<a accesskey="5" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this documentation. 
-<!-- * Index:: -->
-</li>
-</ul>
 
-<div class="node"><a name="Starting-Rules"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Starting-Rules" accesskey="1">Starting Rules</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The starting rules for the grammar.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Bovine-Grammar-Rules" accesskey="2">Bovine Grammar Rules</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Rules used to parse a language.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Optional-Lambda-Expression" accesskey="3">Optional Lambda Expression</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Actions to take when a rule is matched.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Bovine-Examples" accesskey="4">Bovine Examples</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Simple Samples.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="5">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Starting-Rules"></a>
+<div class="header">
+<p>
+Next: <a href="#Bovine-Grammar-Rules" accesskey="n" rel="next">Bovine Grammar Rules</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Starting-Rules-1"></a>
 <h2 class="chapter">1 Starting Rules</h2>
 
 <p>In Bison, one and only one nonterminal is designated as the “start”
 symbol.  In <i>Semantic</i>, one or more nonterminals can be designated as
 the “start” symbol.  They are declared following the <code>%start</code>
-keyword separated by spaces.  see <a href="grammar-fw.html#start-Decl">start Decl</a>.
-
-   </p>
+keyword separated by spaces.  See <a href="grammar-fw.html#start-Decl">(grammar-fw)start Decl</a>.
+</p>
 <p>If no <code>%start</code> keyword is used in a grammar, then the very first
 is used.  Internally the first start nonterminal is targeted by the
 reserved symbol <code>bovine-toplevel</code>, so it can be found by the
 parser harness.
-
-   </p>
+</p>
 <p>To find locally defined variables, the local context handler needs to
 parse the body of functional code.  The <code>scopestart</code> declaration
 specifies the name of a nonterminal used as the goal to parse a local
-context, see <a href="grammar-fw.html#scopestart-Decl">scopestart Decl</a>.  Internally the
+context, See <a href="grammar-fw.html#scopestart-Decl">(grammar-fw)scopestart Decl</a>.  Internally the
 scopestart nonterminal is targeted by the reserved symbol
 <code>bovine-inner-scope</code>, so it can be found by the parser harness.
-
 </p>
-<div class="node"><a name="Bovine-Grammar-Rules"></a></div>
-
+<hr>
+<a name="Bovine-Grammar-Rules"></a>
+<div class="header">
+<p>
+Next: <a href="#Optional-Lambda-Expression" accesskey="n" rel="next">Optional Lambda Expression</a>, Previous: <a href="#Starting-Rules" accesskey="p" rel="prev">Starting Rules</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Bovine-Grammar-Rules-1"></a>
 <h2 class="chapter">2 Bovine Grammar Rules</h2>
 
 <p>The rules are what allow the compiler to create tags from a language
 file.  Once the setup is done in the prologue, you can start writing
-rules.  see <a href="grammar-fw.html#Grammar-Rules">Grammar Rules</a>.
-
+rules.  See <a href="grammar-fw.html#Grammar-Rules">(grammar-fw)Grammar Rules</a>.
 </p>
-<pre class="example">     <var>result</var> : <var>components1</var> <var>optional-semantic-action1</var>)
-            | <var>components2</var> <var>optional-semantic-action2</var>
-            ;
+<div class="example">
+<pre class="example"><var>result</var> : <var>components1</var> <var>optional-semantic-action1</var>)
+       | <var>components2</var> <var>optional-semantic-action2</var>
+       ;
 </pre>
-   <p><var>result</var> is a nonterminal, that is a symbol synthesized in your grammar. 
+</div>
+
+<p><var>result</var> is a nonterminal, that is a symbol synthesized in your grammar.
 <var>components</var> is a list of elements that are to be matched if <var>result</var>
 is to be made.  <var>optional-semantic-action</var> is an optional sequence
 of simplified Emacs Lisp expressions for concocting the parse tree.
-
-   </p>
+</p>
 <p>In bison, each time an element of <var>components</var> is found, it is
-<dfn>shifted</dfn> onto the parser stack.  (The stack of matched elements.) 
-When all <var>components</var>' elements have been matched, it is
-<dfn>reduced</dfn> to <var>result</var>.  See <a href="bison.html#Algorithm">Algorithm</a>.
-
-   </p>
+<em>shifted</em> onto the parser stack.  (The stack of matched elements.)
+When all <var>components</var>’ elements have been matched, it is
+<em>reduced</em> to <var>result</var>.  See <a href="http://www.gnu.org/software/bison/manual/bison.html#Algorithm">Algorithm</a> in <cite>The GNU Bison Manual</cite>.
+</p>
 <p>A particular <var>result</var> written into your grammar becomes
-the parser's goal.  It is designated by a <code>%start</code> statement
+the parser’s goal.  It is designated by a <code>%start</code> statement
 (see <a href="#Starting-Rules">Starting Rules</a>).  The value returned by the associated
-<var>optional-semantic-action</var> is the parser's result.  It should be
-a tree of <i>Semantic</i> <dfn>tags</dfn>, see <a href="semantic-appdev.html#Semantic-Tags">Semantic Tags</a>.
-
-   </p>
+<var>optional-semantic-action</var> is the parser’s result.  It should be
+a tree of <i>Semantic</i> <em>tags</em>, See <a href="semantic-appdev.html#Semantic-Tags">(semantic-appdev)Semantic Tags</a>.
+</p>
 <p><var>components</var> is made up of symbols.  A symbol such as <code>FOO</code>
 means that a syntactic token of class <code>FOO</code> must be matched.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#How-Lexical-Tokens-Match">How Lexical Tokens Match</a>
-</li>
-<li>
-<a accesskey="2" href="#Grammar_002dto_002dLisp-Details">Grammar-to-Lisp Details</a>
-</li>
-<li>
-<a accesskey="3" href="#Order-of-components-in-rules">Order of components in rules</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#How-Lexical-Tokens-Match" accesskey="1">How Lexical Tokens Match</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Grammar_002dto_002dLisp-Details" accesskey="2">Grammar-to-Lisp Details</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Order-of-components-in-rules" accesskey="3">Order of components in rules</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="How-Lexical-Tokens-Match"></a></div>
-
+<hr>
+<a name="How-Lexical-Tokens-Match"></a>
+<div class="header">
+<p>
+Next: <a href="#Grammar_002dto_002dLisp-Details" accesskey="n" rel="next">Grammar-to-Lisp Details</a>, Up: <a href="#Bovine-Grammar-Rules" accesskey="u" rel="up">Bovine Grammar Rules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="How-Lexical-Tokens-Match-1"></a>
 <h3 class="section">2.1 How Lexical Tokens Match</h3>
 
 <p>A lexical rule must be used to define how to match a lexical token.
-
-   </p>
+</p>
 <p>For instance:
-
 </p>
-<pre class="example">     %keyword FOO "foo"
+<div class="example">
+<pre class="example">%keyword FOO "foo"
 </pre>
-   <p>Means that <code>FOO</code> is a reserved language keyword, matched as such
-by looking up into a keyword table, see <a href="grammar-fw.html#keyword-Decl">keyword Decl</a>.  This is because <code>"foo"</code> will be converted to
+</div>
+
+<p>Means that <code>FOO</code> is a reserved language keyword, matched as such
+by looking up into a keyword table, See <a href="grammar-fw.html#keyword-Decl">(grammar-fw)keyword Decl</a>.  This is because <code>"foo"</code> will be converted to
 <code>FOO</code> in the lexical analysis stage.  Thus the symbol <code>FOO</code>
-won't be available any other way.
-
-   </p>
-<p>If we specify our token in this way:
-
+won’t be available any other way.
 </p>
-<pre class="example">     %token &lt;symbol&gt; FOO "foo"
+<p>If we specify our token in this way:
+</p>
+<div class="example">
+<pre class="example">%token &lt;symbol&gt; FOO "foo"
 </pre>
-   <p>then <code>FOO</code> will match the string <code>"foo"</code> explicitly, but it
-won't do so at the lexical level, allowing use of the text
-<code>"foo"</code> in other forms of regular expressions.
+</div>
 
-   </p>
+<p>then <code>FOO</code> will match the string <code>"foo"</code> explicitly, but it
+won’t do so at the lexical level, allowing use of the text
+<code>"foo"</code> in other forms of regular expressions.
+</p>
 <p>In that case, <code>FOO</code> is a <code>symbol</code>-type token.  To match, a
 <code>symbol</code> must first be encountered, and then it must
 <code>string-match "foo"</code>.
-
-     </p>
-<dl>
-<dt><strong>Caution:</strong></dt>
-<dd>Be especially careful to remember that <code>"foo"</code>, and more
-generally the %token's match-value string, is a regular expression! 
-</dd>
-</dl>
-
-   <p>Non symbol tokens are also allowed.  For example:
-
 </p>
-<pre class="example">     %token &lt;punctuation&gt; PERIOD "[.]"
-     
-     filename : symbol PERIOD symbol
-              ;
-</pre>
-   <p><code>PERIOD</code> is a <code>punctuation</code>-type token that will explicitly
-match one period when used in the above rule.
-
-     </p>
-<dl>
-<dt><strong>Please Note:</strong></dt>
-<dd>
-<code>symbol</code>, <code>punctuation</code>, etc., are predefined lexical token
-types, based on the <dfn>syntax class</dfn>-character associations
-currently in effect. 
-</dd>
+<dl compact>
+<dt><strong>Caution:</strong></dt>
+<dd><p>Be especially careful to remember that <code>"foo"</code>, and more
+generally the %token’s match-value string, is a regular expression!
+</p></dd>
 </dl>
 
-<div class="node">
-<a name="Grammar-to-Lisp-Details"></a><a name="Grammar_002dto_002dLisp-Details"></a>
+<p>Non symbol tokens are also allowed.  For example:
+</p>
+<div class="example">
+<pre class="example">%token &lt;punctuation&gt; PERIOD "[.]"
+
+filename : symbol PERIOD symbol
+         ;
+</pre>
 </div>
 
+<p><code>PERIOD</code> is a <code>punctuation</code>-type token that will explicitly
+match one period when used in the above rule.
+</p>
+<dl compact>
+<dt><strong>Please Note:</strong></dt>
+<dd><p><code>symbol</code>, <code>punctuation</code>, etc., are predefined lexical token
+types, based on the <em>syntax class</em>-character associations
+currently in effect.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Grammar_002dto_002dLisp-Details"></a>
+<div class="header">
+<p>
+Next: <a href="#Order-of-components-in-rules" accesskey="n" rel="next">Order of components in rules</a>, Previous: <a href="#How-Lexical-Tokens-Match" accesskey="p" rel="prev">How Lexical Tokens Match</a>, Up: <a href="#Bovine-Grammar-Rules" accesskey="u" rel="up">Bovine Grammar Rules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Grammar_002dto_002dLisp-Details-1"></a>
 <h3 class="section">2.2 Grammar-to-Lisp Details</h3>
 
-<p>For the bovinator, lexical token matching patterns are <em>inlined</em>. 
+<p>For the bovinator, lexical token matching patterns are <em>inlined</em>.
 When the grammar-to-lisp converter encounters a lexical token
 declaration of the form:
-
 </p>
-<pre class="example">     %token &lt;<var>type</var>&gt; <var>token-name</var> <var>match-value</var>
+<div class="example">
+<pre class="example">%token &lt;<var>type</var>&gt; <var>token-name</var> <var>match-value</var>
 </pre>
-   <p>It substitutes every occurrences of <var>token-name</var> in rules, by its
+</div>
+
+<p>It substitutes every occurrences of <var>token-name</var> in rules, by its
 expanded form:
-
 </p>
-<pre class="example">     <var>type</var> <var>match-value</var>
+<div class="example">
+<pre class="example"><var>type</var> <var>match-value</var>
 </pre>
-   <p>For example:
+</div>
 
+<p>For example:
 </p>
-<pre class="example">     %token &lt;symbol&gt; MOOSE "moose"
-     
-     find_a_moose: MOOSE
-                 ;
-</pre>
-   <p>Will generate this pseudo equivalent-rule:
+<div class="example">
+<pre class="example">%token &lt;symbol&gt; MOOSE "moose"
 
-</p>
-<pre class="example">     find_a_moose: symbol "moose"   ;; invalid syntax!
-                 ;
+find_a_moose: MOOSE
+            ;
 </pre>
-   <p>Thus, from the bovinator point of view, the <var>components</var> part of a
+</div>
+
+<p>Will generate this pseudo equivalent-rule:
+</p>
+<div class="example">
+<pre class="example">find_a_moose: symbol "moose"   ;; invalid syntax!
+            ;
+</pre>
+</div>
+
+<p>Thus, from the bovinator point of view, the <var>components</var> part of a
 rule is made up of symbols and strings.  A string in the mix means
 that the previous symbol must have the additional constraint of
 exactly matching it, as described in <a href="#How-Lexical-Tokens-Match">How Lexical Tokens Match</a>.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><strong>Please Note:</strong></dt>
-<dd>For the bovinator, this task was mixed into the language definition to
-simplify implementation, though Bison's technique is more efficient. 
-</dd>
+<dd><p>For the bovinator, this task was mixed into the language definition to
+simplify implementation, though Bison’s technique is more efficient.
+</p></dd>
 </dl>
 
-<div class="node"><a name="Order-of-components-in-rules"></a></div>
-
+<hr>
+<a name="Order-of-components-in-rules"></a>
+<div class="header">
+<p>
+Previous: <a href="#Grammar_002dto_002dLisp-Details" accesskey="p" rel="prev">Grammar-to-Lisp Details</a>, Up: <a href="#Bovine-Grammar-Rules" accesskey="u" rel="up">Bovine Grammar Rules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Order-of-components-in-rules-1"></a>
 <h3 class="section">2.3 Order of components in rules</h3>
 
 <p>If a rule has multiple components, order is important, for example
-
 </p>
-<pre class="example">     headerfile : symbol PERIOD symbol
-                | symbol
-                ;
+<div class="example">
+<pre class="example">headerfile : symbol PERIOD symbol
+           | symbol
+           ;
 </pre>
-   <p>would match `<samp><span class="samp">foo.h</span></samp>' or the <acronym>C++</acronym> header `<samp><span class="samp">foo</span></samp>'. 
+</div>
+
+<p>would match ‘<samp>foo.h</samp>’ or the <acronym>C++</acronym> header ‘<samp>foo</samp>’.
 The bovine parser will first attempt to match the long form, and then
 the short form.  If they were in reverse order, then the long form
 would never be tested.
-
-<!-- @xref{Default syntactic tokens}. -->
 </p>
-<div class="node"><a name="Optional-Lambda-Expression"></a></div>
 
+<hr>
+<a name="Optional-Lambda-Expression"></a>
+<div class="header">
+<p>
+Next: <a href="#Bovine-Examples" accesskey="n" rel="next">Bovine Examples</a>, Previous: <a href="#Bovine-Grammar-Rules" accesskey="p" rel="prev">Bovine Grammar Rules</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Optional-Lambda-Expressions"></a>
 <h2 class="chapter">3 Optional Lambda Expressions</h2>
 
-<p>The <acronym>OLE</acronym> (<dfn>Optional Lambda Expression</dfn>) is converted into
+<p>The <acronym>OLE</acronym> (<em>Optional Lambda Expression</em>) is converted into
 a bovine lambda.  This lambda has special short-cuts to simplify
 reading the semantic action definition.  An <acronym>OLE</acronym> like this:
-
 </p>
-<pre class="example">     ( $1 )
+<div class="example">
+<pre class="example">( $1 )
 </pre>
-   <p>results in a lambda return which consists entirely of the string
-or object found by matching the first (zeroth) element of match. 
+</div>
+
+<p>results in a lambda return which consists entirely of the string
+or object found by matching the first (zeroth) element of match.
 An <acronym>OLE</acronym> like this:
-
 </p>
-<pre class="example">     ( ,(foo $1) )
+<div class="example">
+<pre class="example">( ,(foo $1) )
 </pre>
-   <p>executes <code>foo</code> on the first argument, and then splices its return
+</div>
+
+<p>executes <code>foo</code> on the first argument, and then splices its return
 into the return list whereas:
-
 </p>
-<pre class="example">     ( (foo $1) )
+<div class="example">
+<pre class="example">( (foo $1) )
 </pre>
-   <p>executes <code>foo</code>, and that is placed in the return list.
+</div>
 
-   </p>
+<p>executes <code>foo</code>, and that is placed in the return list.
+</p>
 <p>Here are other things that can appear inline:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>$1</code></dt>
-<dd>The first object matched.
-
-     <br>
+<dd>
+<p>The first object matched.
+</p>
 </dd>
 <dt><code>,$1</code></dt>
-<dd>The first object spliced into the list (assuming it is a list from a
+<dd>
+<p>The first object spliced into the list (assuming it is a list from a
 non-terminal).
-
-     <br>
+</p>
 </dd>
 <dt><code>'$1</code></dt>
-<dd>The first object matched, placed in a list.  I.e., <code>( $1 )</code>.
-
-     <br>
+<dd>
+<p>The first object matched, placed in a list.  I.e., <code>( $1 )</code>.
+</p>
 </dd>
 <dt><code>foo</code></dt>
-<dd>The symbol <code>foo</code> (exactly as displayed).
-
-     <br>
+<dd>
+<p>The symbol <code>foo</code> (exactly as displayed).
+</p>
 </dd>
 <dt><code>(foo)</code></dt>
-<dd>A function call to foo which is stuck into the return list.
-
-     <br>
+<dd>
+<p>A function call to foo which is stuck into the return list.
+</p>
 </dd>
 <dt><code>,(foo)</code></dt>
-<dd>A function call to foo which is spliced into the return list.
-
-     <br>
+<dd>
+<p>A function call to foo which is spliced into the return list.
+</p>
 </dd>
 <dt><code>'(foo)</code></dt>
-<dd>A function call to foo which is stuck into the return list in a list.
-
-     <br>
+<dd>
+<p>A function call to foo which is stuck into the return list in a list.
+</p>
 </dd>
-<dt>
-<code>(EXPAND </code><var>$1</var> <var>nonterminal</var> <var>depth</var><code>)</code>
-</dt>
-<dd>A list starting with <code>EXPAND</code> performs a recursive parse on the
-token passed to it (represented by `<samp><span class="samp">$1</span></samp>' above.)  The
-<dfn>semantic list</dfn> is a common token to expand, as there are often
+<dt><code>(EXPAND <var>$1</var> <var>nonterminal</var> <var>depth</var>)</code></dt>
+<dd>
+<p>A list starting with <code>EXPAND</code> performs a recursive parse on the
+token passed to it (represented by ‘<samp>$1</samp>’ above.)  The
+<em>semantic list</em> is a common token to expand, as there are often
 interesting things in the list.  The <var>nonterminal</var> is a symbol in
-your table which the bovinator will start with when parsing. 
-<var>nonterminal</var>'s definition is the same as any other nonterminal. 
-<var>depth</var> should be at least `<samp><span class="samp">1</span></samp>' when descending into a
+your table which the bovinator will start with when parsing.
+<var>nonterminal</var>’s definition is the same as any other nonterminal.
+<var>depth</var> should be at least ‘<samp>1</samp>’ when descending into a
 semantic list.
-
-     <br>
+</p>
 </dd>
-<dt>
-<code>(EXPANDFULL </code><var>$1</var> <var>nonterminal</var> <var>depth</var><code>)</code>
-</dt>
-<dd>Is like <code>EXPAND</code>, except that the parser will iterate over
+<dt><code>(EXPANDFULL <var>$1</var> <var>nonterminal</var> <var>depth</var>)</code></dt>
+<dd>
+<p>Is like <code>EXPAND</code>, except that the parser will iterate over
 <var>nonterminal</var> until there are no more matches.  (The same way the
 parser iterates over the starting rule (see <a href="#Starting-Rules">Starting Rules</a>). This
 lets you have much simpler rules in this specific case, and also lets
 you have positional information in the returned tokens, and error
 skipping.
-
-     <br>
+</p>
 </dd>
-<dt>
-<code>(ASSOC </code><var>symbol1</var> <var>value1</var> <var>symbol2</var> <var>value2</var><code> ...)</code>
-</dt>
-<dd>This is used for creating an association list.  Each <var>symbol</var> is
-included in the list if the associated <var>value</var> is non-<code>nil</code>. 
+<dt><code>(ASSOC <var>symbol1</var> <var>value1</var> <var>symbol2</var> <var>value2</var> …)</code></dt>
+<dd>
+<p>This is used for creating an association list.  Each <var>symbol</var> is
+included in the list if the associated <var>value</var> is non-<code>nil</code>.
 While the items are all listed explicitly, the created structure is an
 association list of the form:
+</p>
+<div class="example">
+<pre class="example">((<var>symbol1</var> . <var>value1</var>) (<var>symbol2</var> . <var>value2</var>) …)
+</pre>
+</div>
 
-     <pre class="example">          ((<var>symbol1</var> . <var>value1</var>) (<var>symbol2</var> . <var>value2</var>) ...)
-     </pre>
-     <br>
 </dd>
-<dt>
-<code>(TAG </code><var>name</var> <var>class</var><code> [</code><var>attributes</var><code>])</code>
-</dt>
-<dd>This creates one tag in the current buffer.
-
-          <dl>
+<dt><code>(TAG <var>name</var> <var>class</var> [<var>attributes</var>])</code></dt>
+<dd>
+<p>This creates one tag in the current buffer.
+</p>
+<dl compact>
 <dt><var>name</var></dt>
-<dd>Is a string that represents the tag in the language.
-
-          <br>
+<dd>
+<p>Is a string that represents the tag in the language.
+</p>
 </dd>
 <dt><var>class</var></dt>
-<dd>Is the kind of tag being create, such as <code>function</code>, or
+<dd>
+<p>Is the kind of tag being create, such as <code>function</code>, or
 <code>variable</code>, though any symbol will work.
-
-          <br>
+</p>
 </dd>
 <dt><var>attributes</var></dt>
-<dd>Is an optional set of labeled values such as <code>:constant-flag t :parent
-"parenttype"</code>. 
-</dd>
+<dd><p>Is an optional set of labeled values such as <code>:constant-flag t :parent
+"parenttype"</code>.
+</p></dd>
 </dl>
 
-     <br>
 </dd>
-<dt>
-<code>(TAG-VARIABLE </code><var>name</var> <var>type</var> <var>default-value</var><code> [</code><var>attributes</var><code>])</code><dt>
-<code>(TAG-FUNCTION </code><var>name</var> <var>type</var> <var>arg-list</var><code> [</code><var>attributes</var><code>])</code><dt>
-<code>(TAG-TYPE </code><var>name</var> <var>type</var> <var>members</var> <var>parents</var><code> [</code><var>attributes</var><code>])</code><dt>
-<code>(TAG-INCLUDE </code><var>name</var> <var>system-flag</var><code> [</code><var>attributes</var><code>])</code><dt>
-<code>(TAG-PACKAGE </code><var>name</var> <var>detail</var><code> [</code><var>attributes</var><code>])</code><dt>
-<code>(TAG-CODE </code><var>name</var> <var>detail</var><code> [</code><var>attributes</var><code>])</code>
-</dt>
-</dt>
-</dt>
-</dt>
-</dt>
-</dt>
-<dd>Create a tag with <var>name</var> of respectively the class
+<dt><code>(TAG-VARIABLE <var>name</var> <var>type</var> <var>default-value</var> [<var>attributes</var>])</code></dt>
+<dt><code>(TAG-FUNCTION <var>name</var> <var>type</var> <var>arg-list</var> [<var>attributes</var>])</code></dt>
+<dt><code>(TAG-TYPE <var>name</var> <var>type</var> <var>members</var> <var>parents</var> [<var>attributes</var>])</code></dt>
+<dt><code>(TAG-INCLUDE <var>name</var> <var>system-flag</var> [<var>attributes</var>])</code></dt>
+<dt><code>(TAG-PACKAGE <var>name</var> <var>detail</var> [<var>attributes</var>])</code></dt>
+<dt><code>(TAG-CODE <var>name</var> <var>detail</var> [<var>attributes</var>])</code></dt>
+<dd><p>Create a tag with <var>name</var> of respectively the class
 <code>variable</code>, <code>function</code>, <code>type</code>, <code>include</code>,
-<code>package</code>, and <code>code</code>. 
-See see <a href="semantic-appdev.html#Creating-Tags">Creating Tags</a> for the lisp
-functions these translate into. 
-</dd>
+<code>package</code>, and <code>code</code>.
+See See <a href="semantic-appdev.html#Creating-Tags">(semantic-appdev)Creating Tags</a> for the lisp
+functions these translate into.
+</p></dd>
 </dl>
 
-   <p>If the symbol <code>%quotemode backquote</code> is specified, then use
-<code>,@</code> to splice a list in, and <code>,</code> to evaluate the expression. 
+<p>If the symbol <code>%quotemode backquote</code> is specified, then use
+<code>,@</code> to splice a list in, and <code>,</code> to evaluate the expression.
 This lets you send <code>$1</code> as a symbol into a list instead of having
 it expanded inline.
-
 </p>
-<div class="node"><a name="Bovine-Examples"></a></div>
-
+<hr>
+<a name="Bovine-Examples"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Optional-Lambda-Expression" accesskey="p" rel="prev">Optional Lambda Expression</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Examples"></a>
 <h2 class="chapter">4 Examples</h2>
 
 <p>The rule:
-
 </p>
-<pre class="example">     any-symbol: symbol
-               ;
+<div class="example">
+<pre class="example">any-symbol: symbol
+          ;
 </pre>
-   <p>is equivalent to
+</div>
 
+<p>is equivalent to
 </p>
-<pre class="example">     any-symbol: symbol
-                 ( $1 )
-               ;
+<div class="example">
+<pre class="example">any-symbol: symbol
+            ( $1 )
+          ;
 </pre>
-   <p>which, if it matched the string `<samp><span class="samp">"A"</span></samp>', would return
+</div>
 
+<p>which, if it matched the string ‘<samp>"A"</samp>’, would return
 </p>
-<pre class="example">     ( "A" )
+<div class="example">
+<pre class="example">( "A" )
 </pre>
-   <p>If this rule were used like this:
+</div>
 
+<p>If this rule were used like this:
 </p>
-<pre class="example">     %token &lt;punctuation&gt; EQUAL "="
-     ...
-     assign: any-symbol EQUAL any-symbol
-             ( $1 $3 )
-           ;
+<div class="example">
+<pre class="example">%token &lt;punctuation&gt; EQUAL "="
+…
+assign: any-symbol EQUAL any-symbol
+        ( $1 $3 )
+      ;
 </pre>
-   <p>it would match `<samp><span class="samp">"A=B"</span></samp>', and return
+</div>
 
+<p>it would match ‘<samp>"A=B"</samp>’, and return
 </p>
-<pre class="example">     ( ("A") ("B") )
+<div class="example">
+<pre class="example">( ("A") ("B") )
 </pre>
-   <p>The letters `<samp><span class="samp">A</span></samp>' and `<samp><span class="samp">B</span></samp>' come back in lists because
-`<samp><span class="samp">any-symbol</span></samp>' is a nonterminal, not an actual lexical element.
+</div>
 
-   </p>
+<p>The letters ‘<samp>A</samp>’ and ‘<samp>B</samp>’ come back in lists because
+‘<samp>any-symbol</samp>’ is a nonterminal, not an actual lexical element.
+</p>
 <p>To get a better result with nonterminals, use , to splice lists
 in like this:
-
 </p>
-<pre class="example">     %token &lt;punctuation&gt; EQUAL "="
-     ...
-     assign: any-symbol EQUAL any-symbol
-             ( ,$1 ,$3 )
-           ;
+<div class="example">
+<pre class="example">%token &lt;punctuation&gt; EQUAL "="
+…
+assign: any-symbol EQUAL any-symbol
+        ( ,$1 ,$3 )
+      ;
 </pre>
-   <p>which would return
+</div>
 
+<p>which would return
 </p>
-<pre class="example">     ( "A" "B" )
+<div class="example">
+<pre class="example">( "A" "B" )
 </pre>
-   <div class="node"><a name="GNU-Free-Documentation-License"></a></div>
+</div>
 
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Previous: <a href="#Bovine-Examples" accesskey="p" rel="prev">Bovine Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -574,12 +659,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -588,16 +672,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -605,8 +687,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -614,14 +695,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -631,11 +710,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -648,20 +726,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -669,20 +744,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -691,104 +764,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -796,54 +862,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -853,84 +917,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -941,57 +996,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -1000,86 +1048,86 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
-<!-- There is nothing to index at the moment. -->
 </p>
+
+
+
+<hr>
+
+
+
 </body>
 </html>

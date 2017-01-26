@@ -1,267 +1,270 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>Eshell: The Emacs Shell</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Eshell: The Emacs Shell">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-This manual is for Eshell, the Emacs shell.
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for Eshell, the Emacs shell.
 
 Copyright (C) 1999-2016 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Eshell: The Emacs Shell</title>
+
+<meta name="description" content="Eshell: The Emacs Shell">
+<meta name="keywords" content="Eshell: The Emacs Shell">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Concept-Index" rel="index" title="Concept Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">Eshell: The Emacs Shell</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Eshell</a>
+
+<body lang="en">
+<h1 class="settitle" align="center">Eshell: The Emacs Shell</h1>
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li>
+<a name="toc-Introduction-1" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a name="toc-What-is-Eshell_003f" href="#What-is-Eshell_003f">1.1 What is Eshell?</a></li>
+    <li><a name="toc-What-Eshell-is-not" href="#What-Eshell-is-not">1.2 What Eshell is not</a></li>
+    <li><a name="toc-Contributors-to-Eshell-1" href="#Contributors-to-Eshell">1.3 Contributors to Eshell</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Introduction" href="#Introduction">1 Introduction</a>
-<ul>
-<li>
-<a href="#Introduction">1.1 What is Eshell?</a>
+  <li>
+<a name="toc-Commands-1" href="#Commands">2 Commands</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Invocation-1" href="#Invocation">2.1 Invocation</a></li>
+    <li><a name="toc-Arguments-1" href="#Arguments">2.2 Arguments</a></li>
+    <li>
+<a name="toc-Built_002din-commands" href="#Built_002dins">2.3 Built-in commands</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Built_002din-variables" href="#Built_002din-variables">2.3.1 Built-in variables</a></li>
+    </ul>
 </li>
-<li>
-<a href="#Introduction">1.2 What Eshell is not</a>
+    <li><a name="toc-Variables-1" href="#Variables">2.4 Variables</a></li>
+    <li><a name="toc-Aliases-1" href="#Aliases">2.5 Aliases</a></li>
+    <li><a name="toc-History-1" href="#History">2.6 History</a></li>
+    <li>
+<a name="toc-Completion-1" href="#Completion">2.7 Completion</a>
+    <ul class="no-bullet">
+      <li><a name="toc-pcomplete" href="#pcomplete">2.7.1 pcomplete</a></li>
+    </ul>
 </li>
-<li>
-<a href="#Contributors-to-Eshell">1.3 Contributors to Eshell</a>
+    <li><a name="toc-for-loop-1" href="#for-loop">2.8 <code>for</code> loop</a></li>
+    <li><a name="toc-Scripts-1" href="#Scripts">2.9 Scripts</a></li>
+  </ul>
 </li>
-</ul>
+  <li>
+<a name="toc-Expansion-1" href="#Expansion">3 Expansion</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Dollars-Expansion-1" href="#Dollars-Expansion">3.1 Dollars Expansion</a></li>
+    <li><a name="toc-Globbing-1" href="#Globbing">3.2 Globbing</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Commands" href="#Commands">2 Commands</a>
-<ul>
-<li>
-<a href="#Invocation">2.1 Invocation</a>
+  <li>
+<a name="toc-Input_002fOutput-1" href="#Input_002fOutput">4 Input/Output</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Visual-Commands" href="#Visual-Commands">4.1 Visual Commands</a></li>
+    <li><a name="toc-Redirection" href="#Redirection">4.2 Redirection</a></li>
+  </ul>
 </li>
-<li>
-<a href="#Arguments">2.2 Arguments</a>
+  <li>
+<a name="toc-Extension-modules-1" href="#Extension-modules">5 Extension modules</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Writing-a-module-1" href="#Writing-a-module">5.1 Writing a module</a></li>
+    <li><a name="toc-Module-testing-1" href="#Module-testing">5.2 Module testing</a></li>
+    <li><a name="toc-Directory-handling-1" href="#Directory-handling">5.3 Directory handling</a></li>
+    <li><a name="toc-Key-rebinding-1" href="#Key-rebinding">5.4 Key rebinding</a></li>
+    <li><a name="toc-Smart-scrolling-1" href="#Smart-scrolling">5.5 Smart scrolling</a></li>
+    <li><a name="toc-Terminal-emulation-1" href="#Terminal-emulation">5.6 Terminal emulation</a></li>
+  </ul>
 </li>
-<li>
-<a href="#Built_002dins">2.3 Built-in commands</a>
-<ul>
-<li>
-<a href="#Built_002dins">2.3.1 Built-in variables</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#Variables">2.4 Variables</a>
-</li>
-<li>
-<a href="#Aliases">2.5 Aliases</a>
-</li>
-<li>
-<a href="#History">2.6 History</a>
-</li>
-<li>
-<a href="#Completion">2.7 Completion</a>
-<ul>
-<li>
-<a href="#Completion">2.7.1 pcomplete</a>
-</li>
-</ul>
-</li>
-<li>
-<a href="#for-loop">2.8 <code>for</code> loop</a>
-</li>
-<li>
-<a href="#Scripts">2.9 Scripts</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Expansion" href="#Expansion">3 Expansion</a>
-<ul>
-<li>
-<a href="#Dollars-Expansion">3.1 Dollars Expansion</a>
-</li>
-<li>
-<a href="#Globbing">3.2 Globbing</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Input_002fOutput" href="#Input_002fOutput">4 Input/Output</a>
-<ul>
-<li>
-<a href="#Input_002fOutput">4.1 Visual Commands</a>
-</li>
-<li>
-<a href="#Input_002fOutput">4.2 Redirection</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Extension-modules" href="#Extension-modules">5 Extension modules</a>
-<ul>
-<li>
-<a href="#Writing-a-module">5.1 Writing a module</a>
-</li>
-<li>
-<a href="#Module-testing">5.2 Module testing</a>
-</li>
-<li>
-<a href="#Directory-handling">5.3 Directory handling</a>
-</li>
-<li>
-<a href="#Key-rebinding">5.4 Key rebinding</a>
-</li>
-<li>
-<a href="#Smart-scrolling">5.5 Smart scrolling</a>
-</li>
-<li>
-<a href="#Terminal-emulation">5.6 Terminal emulation</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Bugs-and-ideas" href="#Bugs-and-ideas">6 Bugs and ideas</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Concept-Index" href="#Concept-Index">Concept Index</a>
-</li>
-<li>
-<a name="toc_Function-and-Variable-Index" href="#Function-and-Variable-Index">Function and Variable Index</a>
-</li>
-<li>
-<a name="toc_Command-Index" href="#Command-Index">Command Index</a>
-</li>
+  <li><a name="toc-Bugs-and-ideas-1" href="#Bugs-and-ideas">6 Bugs and ideas</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
+  <li><a name="toc-Function-and-Variable-Index-1" href="#Function-and-Variable-Index">Function and Variable Index</a></li>
+  <li><a name="toc-Command-Index-1" href="#Command-Index">Command Index</a></li>
 </ul>
 </div>
 
 
 
-<!-- ================================================================ -->
-<!-- The real text starts here -->
-<!-- ================================================================ -->
-<div class="node"><a name="Top"></a></div>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Eshell"></a>
+<h1 class="top">Eshell</h1>
 
-<h2 class="unnumbered">Eshell</h2>
-
-<p>Eshell is a shell-like command interpreter implemented in Emacs Lisp. 
+<p>Eshell is a shell-like command interpreter implemented in Emacs Lisp.
 It invokes no external processes except for those requested by the
-user.  It is intended to be an alternative to the IELM (see <a href="emacs.html#Lisp-Interaction">Emacs Lisp Interaction</a>)
+user.  It is intended to be an alternative to the IELM (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Lisp-Interaction">Emacs Lisp Interaction</a> in <cite>The Emacs Editor</cite>)
 REPL for Emacs <em>and</em> with an interface similar to command shells
-such as <samp><span class="command">bash</span></samp>, <samp><span class="command">zsh</span></samp>, <samp><span class="command">rc</span></samp>, or
-<samp><span class="command">4dos</span></samp>. 
-<!-- This manual is updated to release 2.4 of Eshell. -->
-
-   </p>
+such as <code>bash</code>, <code>zsh</code>, <code>rc</code>, or
+<code>4dos</code>.
+</p>
 <p>This manual is for Eshell, the Emacs shell.
-
-   </p>
+</p>
 <p>Copyright © 1999–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Introduction">Introduction</a>:              A brief introduction to the Emacs Shell. 
-</li>
-<li>
-<a accesskey="2" href="#Commands">Commands</a>
-</li>
-<li>
-<a accesskey="3" href="#Expansion">Expansion</a>
-</li>
-<li>
-<a accesskey="4" href="#Input_002fOutput">Input/Output</a>
-</li>
-<li>
-<a accesskey="5" href="#Extension-modules">Extension modules</a>
-</li>
-<li>
-<a accesskey="6" href="#Bugs-and-ideas">Bugs and ideas</a>:               Known problems, and future ideas. 
-</li>
-<li>
-<a accesskey="7" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
-</li>
-<li>
-<a accesskey="8" href="#Concept-Index">Concept Index</a>
-</li>
-<li>
-<a accesskey="9" href="#Function-and-Variable-Index">Function and Variable Index</a>
-</li>
-<li>
-<a href="#Command-Index">Command Index</a>
-</li>
-</ul>
 
-<div class="node"><a name="Introduction"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Introduction" accesskey="1">Introduction</a>:</td>
+<td>  </td>
+<td align="left" valign="top">A brief introduction to the Emacs Shell.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Commands" accesskey="2">Commands</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Expansion" accesskey="3">Expansion</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Input_002fOutput" accesskey="4">Input/Output</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Extension-modules" accesskey="5">Extension modules</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Bugs-and-ideas" accesskey="6">Bugs and ideas</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Known problems, and future ideas.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="7">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Concept-Index" accesskey="8">Concept Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Function-and-Variable-Index" accesskey="9">Function and Variable Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Command-Index">Command Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Introduction"></a>
+<div class="header">
+<p>
+Next: <a href="#Commands" accesskey="n" rel="next">Commands</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Introduction-1"></a>
 <h2 class="chapter">1 Introduction</h2>
-
+<a name="What-is-Eshell_003f"></a>
 <h3 class="section">1.1 What is Eshell?</h3>
+<a name="index-what-is-Eshell_003f"></a>
+<a name="index-Eshell_002c-what-it-is"></a>
 
-<p><a name="index-what-is-Eshell_003f-1"></a><a name="index-Eshell_002c-what-it-is-2"></a>
-Eshell is a <dfn>command shell</dfn> written in Emacs Lisp.  Everything it
-does, it uses Emacs's facilities to do.  This means that Eshell is as
+<p>Eshell is a <em>command shell</em> written in Emacs Lisp.  Everything it
+does, it uses Emacs’s facilities to do.  This means that Eshell is as
 portable as Emacs itself.  It also means that cooperation with Lisp code
 is natural and seamless.
-
-   </p>
+</p>
 <p>What is a command shell?  To properly understand the role of a shell,
-it's necessary to visualize what a computer does for you.  Basically, a
+it’s necessary to visualize what a computer does for you.  Basically, a
 computer is a tool; in order to use that tool, you must tell it what to
 do—or give it “commands.”  These commands take many forms, such as
 clicking with a mouse on certain parts of the screen.  But that is only
 one form of command input.
-
-   </p>
+</p>
 <p>By far the most versatile way to express what you want the computer to
-do is by using an abbreviated language called <dfn>script</dfn>.  In
+do is by using an abbreviated language called <em>script</em>.  In
 script, instead of telling the computer, “list my files, please”,
-one writes a standard abbreviated command word—`<samp><span class="samp">ls</span></samp>'.  Typing
-`<samp><span class="samp">ls</span></samp>' in a command shell is a script way of telling the computer
-to list your files.<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a>
-
-   </p>
+one writes a standard abbreviated command word—‘<samp>ls</samp>’.  Typing
+‘<samp>ls</samp>’ in a command shell is a script way of telling the computer
+to list your files.<a name="DOCF1" href="#FOOT1"><sup>1</sup></a>
+</p>
 <p>The real flexibility of this approach is apparent only when you realize
 that there are many, many different ways to list files.  Perhaps you
 want them sorted by name, sorted by date, in reverse order, or grouped
@@ -270,149 +273,186 @@ what about showing only a few files, or only files that meet a certain
 criteria?  In very complex and specific situations, the request becomes
 too difficult to express using a mouse or pointing device.  It is just
 these kinds of requests that are easily solved using a command shell.
-
-   </p>
+</p>
 <p>For example, what if you want to list every Word file on your hard
-drive, larger than 100 kilobytes in size, and which hasn't been looked
+drive, larger than 100 kilobytes in size, and which hasn’t been looked
 at in over six months?  That is a good candidate list for deletion, when
 you go to clean up your hard drive.  But have you ever tried asking your
 computer for such a list?  There is no way to do it!  At least, not
 without using a command shell.
-
-   </p>
+</p>
 <p>The role of a command shell is to give you more control over what your
 computer does for you.  Not everyone needs this amount of control, and
 it does come at a cost: Learning the necessary script commands to
 express what you want done.  A complicated query, such as the example
 above, takes time to learn.  But if you find yourself using your
-computer frequently enough, it is more than worthwhile in the long run. 
-Any tool you use often deserves the time spent learning to master it. 
-<a rel="footnote" href="#fn-2" name="fnd-2"><sup>2</sup></a>
-
+computer frequently enough, it is more than worthwhile in the long run.
+Any tool you use often deserves the time spent learning to master it.
+<a name="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
+<a name="What-Eshell-is-not"></a>
 <h3 class="section">1.2 What Eshell is not</h3>
+<a name="index-Eshell_002c-what-it-is-not"></a>
+<a name="index-what-Eshell-is-not"></a>
+<a name="index-what-isn_0027t-Eshell_003f"></a>
 
-<p><a name="index-Eshell_002c-what-it-is-not-3"></a><a name="index-what-Eshell-is-not-4"></a><a name="index-what-isn_0027t-Eshell_003f-5"></a>
-Eshell is <em>not</em> a replacement for system shells such as
-<samp><span class="command">bash</span></samp> or <samp><span class="command">zsh</span></samp>.  Use Eshell when you want to move
+<p>Eshell is <em>not</em> a replacement for system shells such as
+<code>bash</code> or <code>zsh</code>.  Use Eshell when you want to move
 text between Emacs and external processes; if you only want to pipe
 output from one external process to another (and then another, and so
-on), use a system shell, because Emacs's IO system is buffer oriented,
+on), use a system shell, because Emacs’s IO system is buffer oriented,
 not stream oriented, and is very inefficient at such tasks.  If you
-want to write shell scripts in Eshell, don't; either write an elisp
+want to write shell scripts in Eshell, don’t; either write an elisp
 library or use a system shell.
-
-   </p>
-<p>Some things Eshell just doesn't do well.  It fills the niche between
+</p>
+<p>Some things Eshell just doesn’t do well.  It fills the niche between
 IELM and your system shell, where the peculiar use-cases lie, and it
 is less than ideal outside that niche.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Contributors-to-Eshell">Contributors to Eshell</a>:       People who have helped out! 
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Contributors-to-Eshell" accesskey="1">Contributors to Eshell</a>:</td>
+<td>  </td>
+<td align="left" valign="top">People who have helped out!
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Contributors-to-Eshell"></a></div>
-
+<hr>
+<a name="Contributors-to-Eshell"></a>
+<div class="header">
+<p>
+Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Contributors-to-Eshell-1"></a>
 <h3 class="section">1.3 Contributors to Eshell</h3>
+<a name="index-contributors"></a>
+<a name="index-authors"></a>
 
-<p><a name="index-contributors-6"></a><a name="index-authors-7"></a>
-Contributions to Eshell are welcome.  I have limited time to work on
+<p>Contributions to Eshell are welcome.  I have limited time to work on
 this project, but I will gladly add any code you contribute to me to
 this package.
-
-   </p>
+</p>
 <p>The following persons have made contributions to Eshell.
-
-     </p>
+</p>
 <ul>
-<li>Eli Zaretskii made it possible for Eshell to run without requiring
+<li> Eli Zaretskii made it possible for Eshell to run without requiring
 asynchronous subprocess support.  This is important for MS-DOS, which
 does not have such support.
 
-     </li>
-<li>Miles Bader contributed many fixes during the port to Emacs 21.
+</li>
+<li> Miles Bader contributed many fixes during the port to Emacs 21.
 
-     </li>
-<li>Stefan Monnier fixed the things which bothered him, which of course made
+</li>
+<li> Stefan Monnier fixed the things which bothered him, which of course made
 things better for all.
 
-     </li>
-<li>Gerd Moellmann also helped to contribute bug fixes during the initial
+</li>
+<li> Gerd Moellmann also helped to contribute bug fixes during the initial
 integration with Emacs 21.
 
-     </li>
-<li>Alex Schroeder contributed code for interactively querying the user
+</li>
+<li> Alex Schroeder contributed code for interactively querying the user
 before overwriting files.
 
-     </li>
-<li>Sudish Joseph helped with some XEmacs compatibility issues. 
+</li>
+<li> Sudish Joseph helped with some XEmacs compatibility issues.
 </li>
 </ul>
 
-   <p>Apart from these, a lot of people have sent suggestions, ideas,
+<p>Apart from these, a lot of people have sent suggestions, ideas,
 requests, bug reports and encouragement.  Thanks a lot!  Without you
 there would be no new releases of Eshell.
-
 </p>
-<div class="node"><a name="Commands"></a></div>
-
+<hr>
+<a name="Commands"></a>
+<div class="header">
+<p>
+Next: <a href="#Expansion" accesskey="n" rel="next">Expansion</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Commands-1"></a>
 <h2 class="chapter">2 Commands</h2>
 
 <p>In a command shell, everything is done by invoking commands.  This
 chapter covers command invocations in Eshell, including the command
 history and invoking commands in a script file.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Invocation">Invocation</a>
-</li>
-<li>
-<a accesskey="2" href="#Arguments">Arguments</a>
-</li>
-<li>
-<a accesskey="3" href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a accesskey="4" href="#Variables">Variables</a>
-</li>
-<li>
-<a accesskey="5" href="#Aliases">Aliases</a>
-</li>
-<li>
-<a accesskey="6" href="#History">History</a>
-</li>
-<li>
-<a accesskey="7" href="#Completion">Completion</a>
-</li>
-<li>
-<a accesskey="8" href="#for-loop">for loop</a>
-</li>
-<li>
-<a accesskey="9" href="#Scripts">Scripts</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Invocation" accesskey="1">Invocation</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Arguments" accesskey="2">Arguments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Built_002dins" accesskey="3">Built-ins</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Variables" accesskey="4">Variables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Aliases" accesskey="5">Aliases</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#History" accesskey="6">History</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Completion" accesskey="7">Completion</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#for-loop" accesskey="8">for loop</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Scripts" accesskey="9">Scripts</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Invocation"></a></div>
-
+<hr>
+<a name="Invocation"></a>
+<div class="header">
+<p>
+Next: <a href="#Arguments" accesskey="n" rel="next">Arguments</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Invocation-1"></a>
 <h3 class="section">2.1 Invocation</h3>
-
 <p>Unlike regular system shells, Eshell never invokes kernel functions
 directly, such as <code>exec(3)</code>.  Instead, it uses the Lisp functions
 available in the Emacs Lisp library.  It does this by transforming the
-input line into a callable Lisp form.<a rel="footnote" href="#fn-3" name="fnd-3"><sup>3</sup></a>
-
-   </p>
-<p>The command can be either an Elisp function or an external command. 
+input line into a callable Lisp form.<a name="DOCF3" href="#FOOT3"><sup>3</sup></a>
+</p>
+<p>The command can be either an Elisp function or an external command.
 Eshell looks first for an <a href="#Aliases">alias</a> with the same name as the
 command, then a <a href="#Built_002dins">built-in command</a> or a function with the
 same name; if there is no match, it then tries to execute it as an
 external command.
-
-   </p>
+</p>
 <p>The semicolon (<code>;</code>) can be used to separate multiple command
 invocations on a single line.  A command invocation followed by an
 ampersand (<code>&amp;</code>) will be run in the background.  Eshell has no job
@@ -420,12 +460,15 @@ control, so you can not suspend or background the current process, or
 bring a background process into the foreground.  That said, background
 processes invoked from Eshell can be controlled the same way as any
 other background process in Emacs.
-
 </p>
-<div class="node"><a name="Arguments"></a></div>
-
+<hr>
+<a name="Arguments"></a>
+<div class="header">
+<p>
+Next: <a href="#Built_002dins" accesskey="n" rel="next">Built-ins</a>, Previous: <a href="#Invocation" accesskey="p" rel="prev">Invocation</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Arguments-1"></a>
 <h3 class="section">2.2 Arguments</h3>
-
 <p>Command arguments are passed to the functions as either strings or
 numbers, depending on what the parser thinks they look like.  If you
 need to use a function that takes some other data type, you will need to
@@ -435,567 +478,604 @@ escape special characters and spaces with the backslash (<code>\</code>) and
 apostrophes (<code>''</code>) and double quotes (<code>""</code>).  This is needed
 especially for file names with special characters like pipe
 (<code>|</code>), which could be part of remote file names.
-
 </p>
-<div class="node">
-<a name="Built-ins"></a><a name="Built_002dins"></a>
+<hr>
+<a name="Built_002dins"></a>
+<div class="header">
+<p>
+Next: <a href="#Variables" accesskey="n" rel="next">Variables</a>, Previous: <a href="#Arguments" accesskey="p" rel="prev">Arguments</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
+<a name="Built_002din-commands"></a>
 <h3 class="section">2.3 Built-in commands</h3>
-
 <p>Several commands are built-in in Eshell.  In order to call the
 external variant of a built-in command <code>foo</code>, you could call
 <code>*foo</code>.  Usually, this should not be necessary.  You can check
 what will be applied by the <code>which</code> command:
-
 </p>
-<pre class="example">     ~ $ which ls
-     eshell/ls is a compiled Lisp function in `em-ls.el'
-     ~ $ which *ls
-     /bin/ls
+<div class="example">
+<pre class="example">~ $ which ls
+eshell/ls is a compiled Lisp function in `em-ls.el'
+~ $ which *ls
+/bin/ls
 </pre>
-   <p>If you want to discard a given built-in command, you could declare an
+</div>
+
+<p>If you want to discard a given built-in command, you could declare an
 alias, <a href="#Aliases">Aliases</a>.  Example:
-
 </p>
-<pre class="example">     ~ $ which sudo
-     eshell/sudo is a compiled Lisp function in `em-unix.el'
-     ~ $ alias sudo '*sudo $*'
-     ~ $ which sudo
-     sudo is an alias, defined as "*sudo $*"
+<div class="example">
+<pre class="example">~ $ which sudo
+eshell/sudo is a compiled Lisp function in `em-unix.el'
+~ $ alias sudo '*sudo $*'
+~ $ which sudo
+sudo is an alias, defined as "*sudo $*"
 </pre>
-   <p><a name="index-eshell_002dprefer_002dlisp_002dfunctions-8"></a>If you would prefer to use the built-in commands instead of the external
-commands, set <code>eshell-prefer-lisp-functions</code> to <code>t</code>.
+</div>
 
-   </p>
+<a name="index-eshell_002dprefer_002dlisp_002dfunctions"></a>
+<p>If you would prefer to use the built-in commands instead of the external
+commands, set <code>eshell-prefer-lisp-functions</code> to <code>t</code>.
+</p>
 <p>Some of the built-in commands have different behavior from their
 external counterparts, and some have no external counterpart.  Most of
 these will print a usage message when given the <code>--help</code> option.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>addpath</code></dt>
 <dd>
-<a name="index-addpath-9"></a>Adds a given path or set of paths to the PATH environment variable, or,
+<a name="index-addpath"></a>
+<p>Adds a given path or set of paths to the PATH environment variable, or,
 with no arguments, prints the current paths in this variable.
-
-     <br>
+</p>
 </dd>
 <dt><code>alias</code></dt>
 <dd>
-<a name="index-alias-10"></a>Define an alias (see <a href="#Aliases">Aliases</a>).  This does not add it to the aliases
+<a name="index-alias"></a>
+<p>Define an alias (see <a href="#Aliases">Aliases</a>).  This does not add it to the aliases
 file.
-
-     <br>
+</p>
 </dd>
 <dt><code>clear</code></dt>
 <dd>
-<a name="index-clear-11"></a>Scrolls the contents of the eshell window out of sight, leaving a blank window. 
+<a name="index-clear"></a>
+<p>Scrolls the contents of the eshell window out of sight, leaving a blank window.
 If provided with an optional non-nil argument, the scrollback contents are
 cleared instead.
-
-     <br>
+</p>
 </dd>
 <dt><code>date</code></dt>
 <dd>
-<a name="index-date-12"></a>Similar to, but slightly different from, the GNU Coreutils
-<samp><span class="command">date</span></samp> command.
-
-     <br>
+<a name="index-date"></a>
+<p>Similar to, but slightly different from, the GNU Coreutils
+<code>date</code> command.
+</p>
 </dd>
 <dt><code>define</code></dt>
 <dd>
-<a name="index-define-13"></a>Define a varalias. 
-See <a href="elisp.html#Variable-Aliases">Variable Aliases</a>.
-
-     <br>
+<a name="index-define"></a>
+<p>Define a varalias.
+See <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Variable-Aliases">Variable Aliases</a> in <cite>The Emacs Lisp Reference Manual</cite>.
+</p>
 </dd>
 <dt><code>diff</code></dt>
 <dd>
-<a name="index-diff-14"></a>Use Emacs's internal <code>diff</code> (not to be confused with
-<code>ediff</code>).  See <a href="emacs.html#Comparing-Files">Comparing Files</a>.
-
-     <br>
+<a name="index-diff"></a>
+<p>Use Emacs’s internal <code>diff</code> (not to be confused with
+<code>ediff</code>).  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Comparing-Files">Comparing Files</a> in <cite>The GNU Emacs Manual</cite>.
+</p>
 </dd>
 <dt><code>grep</code></dt>
-<dd><a name="index-grep-15"></a></dd>
+<dd>
+<a name="index-grep"></a>
+</dd>
 <dt><code>agrep</code></dt>
-<dd><a name="index-agrep-16"></a></dd>
+<dd>
+<a name="index-agrep"></a>
+</dd>
 <dt><code>egrep</code></dt>
-<dd><a name="index-egrep-17"></a></dd>
+<dd>
+<a name="index-egrep"></a>
+</dd>
 <dt><code>fgrep</code></dt>
-<dd><a name="index-fgrep-18"></a></dd>
+<dd>
+<a name="index-fgrep"></a>
+</dd>
 <dt><code>glimpse</code></dt>
 <dd>
-<a name="index-glimpse-19"></a>The <samp><span class="command">grep</span></samp> commands are compatible with GNU <samp><span class="command">grep</span></samp>, but
-use Emacs's internal <code>grep</code> instead.
-
-     <br>
+<a name="index-glimpse"></a>
+<p>The <code>grep</code> commands are compatible with GNU <code>grep</code>, but
+use Emacs’s internal <code>grep</code> instead.
+</p>
 </dd>
 <dt><code>info</code></dt>
 <dd>
-<a name="index-info-20"></a>Same as the external <samp><span class="command">info</span></samp> command, but uses Emacs's internal
+<a name="index-info"></a>
+<p>Same as the external <code>info</code> command, but uses Emacs’s internal
 Info reader.
-
-     <br>
+</p>
 </dd>
 <dt><code>jobs</code></dt>
 <dd>
-<a name="index-jobs-21"></a>List subprocesses of the Emacs process, if any, using the function
+<a name="index-jobs"></a>
+<p>List subprocesses of the Emacs process, if any, using the function
 <code>list-processes</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>kill</code></dt>
 <dd>
-<a name="index-kill-22"></a>Kill processes.  Takes a PID or a process object and an optional
+<a name="index-kill"></a>
+<p>Kill processes.  Takes a PID or a process object and an optional
 signal specifier.
-
-     <br>
+</p>
 </dd>
 <dt><code>listify</code></dt>
 <dd>
-<a name="index-listify-23"></a>Eshell version of <code>list</code>.  Allows you to create a list using Eshell
-syntax, rather than Elisp syntax.  For example, `<samp><span class="samp">listify foo bar</span></samp>'
+<a name="index-listify"></a>
+<p>Eshell version of <code>list</code>.  Allows you to create a list using Eshell
+syntax, rather than Elisp syntax.  For example, ‘<samp>listify foo bar</samp>’
 and <code>("foo" "bar")</code> both evaluate to <code>("foo" "bar")</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>locate</code></dt>
 <dd>
-<a name="index-locate-24"></a>Alias to Emacs's <code>locate</code> function, which simply runs the external
-<samp><span class="command">locate</span></samp> command and parses the results. 
-See <a href="emacs.html#Dired-and-Find">Dired and Find</a>.
-
-     <br>
+<a name="index-locate"></a>
+<p>Alias to Emacs’s <code>locate</code> function, which simply runs the external
+<code>locate</code> command and parses the results.
+See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Dired-and-Find">Dired and Find</a> in <cite>The GNU Emacs Manual</cite>.
+</p>
 </dd>
 <dt><code>make</code></dt>
 <dd>
-<a name="index-make-25"></a>Run <samp><span class="command">make</span></samp> through <code>compile</code>. 
-See <a href="emacs.html#Compilation">Compilation</a>.
-
-     <br>
+<a name="index-make"></a>
+<p>Run <code>make</code> through <code>compile</code>.
+See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Compilation">Compilation</a> in <cite>The GNU Emacs Manual</cite>.
+</p>
 </dd>
 <dt><code>occur</code></dt>
 <dd>
-<a name="index-occur-26"></a>Alias to Emacs's <code>occur</code>. 
-See <a href="emacs.html#Other-Repeating-Search">Other Repeating Search</a>.
-
-     <br>
+<a name="index-occur"></a>
+<p>Alias to Emacs’s <code>occur</code>.
+See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Other-Repeating-Search">Other Repeating Search</a> in <cite>The GNU Emacs Manual</cite>.
+</p>
 </dd>
 <dt><code>printnl</code></dt>
 <dd>
-<a name="index-printnl-27"></a>Print the arguments separated by newlines.
-
-     <br>
+<a name="index-printnl"></a>
+<p>Print the arguments separated by newlines.
+</p>
 </dd>
 <dt><code>cd</code></dt>
 <dd>
-<a name="index-cd-28"></a>This command changes the current working directory.  Usually, it is
-invoked as `<samp><span class="samp">cd foo</span></samp>' where <samp><span class="file">foo</span></samp> is the new working directory. 
-But <samp><span class="command">cd</span></samp> knows about a few special arguments:
-
-     <p>When it receives no argument at all, it changes to the home directory.
-
-     </p>
-<p>Giving the command `<samp><span class="samp">cd -</span></samp>' changes back to the previous working
-directory (this is the same as `<samp><span class="samp">cd $-</span></samp>').
-
-     </p>
-<p>The command `<samp><span class="samp">cd =</span></samp>' shows the directory stack.  Each line is
+<a name="index-cd"></a>
+<p>This command changes the current working directory.  Usually, it is
+invoked as ‘<samp>cd foo</samp>’ where <samp>foo</samp> is the new working directory.
+But <code>cd</code> knows about a few special arguments:
+</p>
+<p>When it receives no argument at all, it changes to the home directory.
+</p>
+<p>Giving the command ‘<samp>cd -</samp>’ changes back to the previous working
+directory (this is the same as ‘<samp>cd $-</samp>’).
+</p>
+<p>The command ‘<samp>cd =</samp>’ shows the directory stack.  Each line is
 numbered.
-
-     </p>
-<p>With `<samp><span class="samp">cd =foo</span></samp>', Eshell searches the directory stack for a directory
-matching the regular expression `<samp><span class="samp">foo</span></samp>' and changes to that
+</p>
+<p>With ‘<samp>cd =foo</samp>’, Eshell searches the directory stack for a directory
+matching the regular expression ‘<samp>foo</samp>’ and changes to that
 directory.
-
-     </p>
-<p>With `<samp><span class="samp">cd -42</span></samp>', you can access the directory stack by number.
-
-     <br></p>
+</p>
+<p>With ‘<samp>cd -42</samp>’, you can access the directory stack by number.
+</p>
 </dd>
 <dt><code>su</code></dt>
-<dd><a name="index-su-29"></a></dd>
+<dd>
+<a name="index-su"></a>
+</dd>
 <dt><code>sudo</code></dt>
 <dd>
-<a name="index-sudo-30"></a>Uses TRAMP's <samp><span class="command">su</span></samp> or <samp><span class="command">sudo</span></samp> method see <a href="tramp.html#Inline-methods">Inline methods</a>
-to run a command via <samp><span class="command">su</span></samp> or <samp><span class="command">sudo</span></samp>.  These commands
+<a name="index-sudo"></a>
+<p>Uses TRAMP’s <code>su</code> or <code>sudo</code> method see <a href="http://www.gnu.org/software/emacs/manual/html_mono/tramp.html#Inline-methods">(tramp)Inline methods</a>
+to run a command via <code>su</code> or <code>sudo</code>.  These commands
 are in the eshell-tramp module, which is disabled by default.
-
-   </dd>
+</p>
+</dd>
 </dl>
 
+<a name="Built_002din-variables"></a>
 <h4 class="subsection">2.3.1 Built-in variables</h4>
-
 <p>Eshell knows a few built-in variables:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>$+</code></dt>
 <dd>
-<a name="index-g_t_0024_002b-31"></a>This variable always contains the current working directory.
-
-     <br>
+<a name="index-_0024_002b"></a>
+<p>This variable always contains the current working directory.
+</p>
 </dd>
 <dt><code>$-</code></dt>
 <dd>
-<a name="index-g_t_0024_002d-32"></a>This variable always contains the previous working directory (the
+<a name="index-_0024_002d"></a>
+<p>This variable always contains the previous working directory (the
 current working directory from before the last <code>cd</code> command).
-
-     <br>
+</p>
 </dd>
 <dt><code>$_</code></dt>
 <dd>
-<a name="index-g_t_0024_005f-33"></a>It refers to the last argument of the last command.
-
-     <br>
+<a name="index-_0024_005f"></a>
+<p>It refers to the last argument of the last command.
+</p>
 </dd>
 <dt><code>$$</code></dt>
 <dd>
-<a name="index-g_t_0024_0024-34"></a>This is the result of the last command.  In case of an external
+<a name="index-_0024_0024"></a>
+<p>This is the result of the last command.  In case of an external
 command, it is <code>t</code> or <code>nil</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>$?</code></dt>
 <dd>
-<a name="index-g_t_0024_003f-35"></a>This variable contains the exit code of the last command (0 or 1 for
+<a name="index-_0024_003f"></a>
+<p>This variable contains the exit code of the last command (0 or 1 for
 Lisp functions, based on successful completion).
-
-   </dd>
+</p>
+</dd>
 </dl>
 
-<div class="node"><a name="Variables"></a></div>
-
+<hr>
+<a name="Variables"></a>
+<div class="header">
+<p>
+Next: <a href="#Aliases" accesskey="n" rel="next">Aliases</a>, Previous: <a href="#Built_002dins" accesskey="p" rel="prev">Built-ins</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variables-1"></a>
 <h3 class="section">2.4 Variables</h3>
-
-<p>Since Eshell is just an Emacs REPL<a rel="footnote" href="#fn-4" name="fnd-4"><sup>4</sup></a>, it
+<p>Since Eshell is just an Emacs REPL<a name="DOCF4" href="#FOOT4"><sup>4</sup></a>, it
 does not have its own scope, and simply stores variables the same you
 would in an Elisp program.  Eshell provides a command version of
 <code>setq</code> for convenience.
-
 </p>
-<div class="node"><a name="Aliases"></a></div>
-
+<hr>
+<a name="Aliases"></a>
+<div class="header">
+<p>
+Next: <a href="#History" accesskey="n" rel="next">History</a>, Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Aliases-1"></a>
 <h3 class="section">2.5 Aliases</h3>
 
 <p>Aliases are commands that expand to a longer input line.  For example,
-<samp><span class="command">ll</span></samp> is a common alias for <code>ls -l</code>, and would be defined
-with the command invocation `<samp><span class="samp">alias ll ls -l</span></samp>'; with this defined,
-running `<samp><span class="samp">ll foo</span></samp>' in Eshell will actually run `<samp><span class="samp">ls -l foo</span></samp>'. 
-Aliases defined (or deleted) by the <samp><span class="command">alias</span></samp> command are
+<code>ll</code> is a common alias for <code>ls -l</code>, and would be defined
+with the command invocation ‘<samp>alias ll ls -l</samp>’; with this defined,
+running ‘<samp>ll foo</samp>’ in Eshell will actually run ‘<samp>ls -l foo</samp>’.
+Aliases defined (or deleted) by the <code>alias</code> command are
 automatically written to the file named by <code>eshell-aliases-file</code>,
 which you can also edit directly (although you will have to manually
 reload it).
-
 </p>
-<div class="node"><a name="History"></a></div>
-
+<hr>
+<a name="History"></a>
+<div class="header">
+<p>
+Next: <a href="#Completion" accesskey="n" rel="next">Completion</a>, Previous: <a href="#Aliases" accesskey="p" rel="prev">Aliases</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="History-1"></a>
 <h3 class="section">2.6 History</h3>
-
-<p><a name="index-history-36"></a>The `<samp><span class="samp">history</span></samp>' command shows all commands kept in the history ring
+<a name="index-history"></a>
+<p>The ‘<samp>history</samp>’ command shows all commands kept in the history ring
 as numbered list.  If the history ring contains
 <code>eshell-history-size</code> commands, those numbers change after every
-command invocation, therefore the `<samp><span class="samp">history</span></samp>' command shall be
+command invocation, therefore the ‘<samp>history</samp>’ command shall be
 applied before using the expansion mechanism with history numbers.
-
-   </p>
-<p>The n-th entry of the history ring can be applied with the `<samp><span class="samp">!n</span></samp>'
+</p>
+<p>The n-th entry of the history ring can be applied with the ‘<samp>!n</samp>’
 command.  If <code>n</code> is negative, the entry is counted from the end
 of the history ring.
-
-   </p>
-<p>`<samp><span class="samp">!foo</span></samp>' expands to the last command beginning with <code>foo</code>, and
-`<samp><span class="samp">!?foo</span></samp>' to the last command containing <code>foo</code>.  The n-th
+</p>
+<p>‘<samp>!foo</samp>’ expands to the last command beginning with <code>foo</code>, and
+‘<samp>!?foo</samp>’ to the last command containing <code>foo</code>.  The n-th
 argument of the last command beginning with <code>foo</code> is accessible
 by <code>!foo:n</code>.
-
-   </p>
+</p>
 <p>The history ring is loaded from a file at the start of every session,
 and written back to the file at the end of every session.  The file path
 is specified in <code>eshell-history-file-name</code>.  Unlike other shells,
 such as Bash, Eshell can not be configured to keep a history ring of a
 different size than that of the history file.
-
-   </p>
+</p>
 <p>Since the default buffer navigation and searching key-bindings are
 still present in the Eshell buffer, the commands for history
 navigation and searching are bound to different keys:
-
-     </p>
-<dl>
-<dt>
-<kbd>M-r</kbd><dt><kbd>M-s</kbd></dt>
-</dt>
-<dd>History I-search.
-
-     <br>
+</p>
+<dl compact>
+<dt><kbd>M-r</kbd></dt>
+<dt><kbd>M-s</kbd></dt>
+<dd>
+<p>History I-search.
+</p>
 </dd>
-<dt>
-<kbd>M-p</kbd><dt><kbd>M-n</kbd></dt>
-</dt>
-<dd>Previous and next history line.  If there is anything on the input
+<dt><kbd>M-p</kbd></dt>
+<dt><kbd>M-n</kbd></dt>
+<dd><p>Previous and next history line.  If there is anything on the input
 line when you run these commands, they will instead jump to the
-precious or next line that begins with that string. 
-</dd>
+precious or next line that begins with that string.
+</p></dd>
 </dl>
 
-<div class="node"><a name="Completion"></a></div>
-
+<hr>
+<a name="Completion"></a>
+<div class="header">
+<p>
+Next: <a href="#for-loop" accesskey="n" rel="next">for loop</a>, Previous: <a href="#History" accesskey="p" rel="prev">History</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Completion-1"></a>
 <h3 class="section">2.7 Completion</h3>
-
 <p>Eshell uses the pcomplete package for programmable completion, similar
 to that of other command shells.  Argument completion differs depending
 on the preceding command: for example, possible completions for
-<samp><span class="command">rmdir</span></samp> are only directories, while <samp><span class="command">rm</span></samp> completions can
+<code>rmdir</code> are only directories, while <code>rm</code> completions can
 be directories <em>and</em> files.  Eshell provides predefined completions
 for the built-in functions and some common external commands, and you
 can define your own for any command.
-
-   </p>
+</p>
 <p>Eshell completion also works for lisp forms and glob patterns. If the
-point is on a lisp form, then &lt;TAB&gt; will behave similarly to completion
+point is on a lisp form, then <tt class="key">TAB</tt> will behave similarly to completion
 in <code>elisp-mode</code> and <code>lisp-interaction-mode</code>.  For glob
 patterns, If there are few enough possible completions of the patterns,
-they will be cycled when &lt;TAB&gt; is pressed, otherwise it will be removed
+they will be cycled when <tt class="key">TAB</tt> is pressed, otherwise it will be removed
 from the input line and the possible completions will be listed.
-
-   </p>
-<p>If you want to see the entire list of possible completions when it's
-below the cycling threshold, press <kbd>M-?</kbd>.
-
 </p>
+<p>If you want to see the entire list of possible completions when it’s
+below the cycling threshold, press <kbd>M-?</kbd>.
+</p>
+<a name="pcomplete"></a>
 <h4 class="subsection">2.7.1 pcomplete</h4>
-
 <p>Pcomplete, short for programmable completion, is the completion
 library originally written for Eshell, but usable for command
-completion<a rel="footnote" href="#fn-5" name="fnd-5"><sup>5</sup></a>  in other modes.
-
-   </p>
+completion<a name="DOCF5" href="#FOOT5"><sup>5</sup></a>  in other modes.
+</p>
 <p>Completions are defined as functions (with <code>defun</code>) named
 <code>pcomplete/COMMAND</code>, where <code>COMMAND</code> is the name of the
 command for which this function provides completions; you can also name
 the function <code>pcomplete/MAJOR-MODE/COMMAND</code> to define completions
 for a specific major mode.
-
 </p>
-<div class="node"><a name="for-loop"></a></div>
-
+<hr>
+<a name="for-loop"></a>
+<div class="header">
+<p>
+Next: <a href="#Scripts" accesskey="n" rel="next">Scripts</a>, Previous: <a href="#Completion" accesskey="p" rel="prev">Completion</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="for-loop-1"></a>
 <h3 class="section">2.8 <code>for</code> loop</h3>
-
 <p>Because Eshell commands can not (easily) be combined with lisp forms,
-Eshell provides a command-oriented <samp><span class="command">for</span></samp>-loop for convenience. 
+Eshell provides a command-oriented <code>for</code>-loop for convenience.
 The syntax is as follows:
-
 </p>
-<pre class="example">     <code>for VAR in TOKENS { command invocation(s) }</code>
+<div class="example">
+<pre class="example"><code>for VAR in TOKENS { command invocation(s) }</code>
 </pre>
-   <p>where `<samp><span class="samp">TOKENS</span></samp>' is a space-separated sequence of values of
+</div>
+
+<p>where ‘<samp>TOKENS</samp>’ is a space-separated sequence of values of
 <var>VAR</var> for each iteration.  This can even be the output of a
-command if `<samp><span class="samp">TOKENS</span></samp>' is replaced with `<samp><span class="samp">{ command invocation }</span></samp>'.
-
+command if ‘<samp>TOKENS</samp>’ is replaced with ‘<samp>{ command invocation }</samp>’.
 </p>
-<div class="node"><a name="Scripts"></a></div>
-
+<hr>
+<a name="Scripts"></a>
+<div class="header">
+<p>
+Previous: <a href="#for-loop" accesskey="p" rel="prev">for loop</a>, Up: <a href="#Commands" accesskey="u" rel="up">Commands</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Scripts-1"></a>
 <h3 class="section">2.9 Scripts</h3>
-
-<p><a name="index-source-37"></a><a name="index-eshell_002dsource_002dfile-38"></a>You can run Eshell scripts much like scripts for other shells; the main
+<a name="index-source"></a>
+<a name="index-eshell_002dsource_002dfile"></a>
+<p>You can run Eshell scripts much like scripts for other shells; the main
 difference is that since Eshell is not a system command, you have to run
 it from within Emacs.  An Eshell script is simply a file containing a
 sequence of commands, as with almost any other shell script.  Scripts
-are invoked from Eshell with <samp><span class="command">source</span></samp>, or from anywhere in Emacs
+are invoked from Eshell with <code>source</code>, or from anywhere in Emacs
 with <code>eshell-source-file</code>.
-
-   </p>
-<p><a name="index-g_t_002e-39"></a>If you wish to load a script into your <em>current</em> environment,
-rather than in a subshell, use the <code>.</code> command.
-
 </p>
-<div class="node"><a name="Expansion"></a></div>
-
+<a name="index-_002e"></a>
+<p>If you wish to load a script into your <em>current</em> environment,
+rather than in a subshell, use the <code>.</code> command.
+</p>
+<hr>
+<a name="Expansion"></a>
+<div class="header">
+<p>
+Next: <a href="#Input_002fOutput" accesskey="n" rel="next">Input/Output</a>, Previous: <a href="#Commands" accesskey="p" rel="prev">Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Expansion-1"></a>
 <h2 class="chapter">3 Expansion</h2>
-
 <p>Expansion in a command shell is somewhat like macro expansion in macro
-parsers (such as <samp><span class="command">cpp</span></samp> and <samp><span class="command">m4</span></samp>), but in a command
+parsers (such as <code>cpp</code> and <code>m4</code>), but in a command
 shell, they are less often used for constants, and usually for using
-variables and string manipulation.<a rel="footnote" href="#fn-6" name="fnd-6"><sup>6</sup></a>  For example, <code>$var</code> on a line
+variables and string manipulation.<a name="DOCF6" href="#FOOT6"><sup>6</sup></a>  For example, <code>$var</code> on a line
 expands to the value of the variable <code>var</code> when the line is
 executed.  Expansions are usually passed as arguments, but may also be
-used as commands.<a rel="footnote" href="#fn-7" name="fnd-7"><sup>7</sup></a>
-
+used as commands.<a name="DOCF7" href="#FOOT7"><sup>7</sup></a>
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Dollars-Expansion">Dollars Expansion</a>
-</li>
-<li>
-<a accesskey="2" href="#Globbing">Globbing</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Dollars-Expansion" accesskey="1">Dollars Expansion</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Globbing" accesskey="2">Globbing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Dollars-Expansion"></a></div>
-
+<hr>
+<a name="Dollars-Expansion"></a>
+<div class="header">
+<p>
+Next: <a href="#Globbing" accesskey="n" rel="next">Globbing</a>, Up: <a href="#Expansion" accesskey="u" rel="up">Expansion</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Dollars-Expansion-1"></a>
 <h3 class="section">3.1 Dollars Expansion</h3>
-
 <p>Eshell has different <code>$</code> expansion syntax from other shells.  There
-are some similarities, but don't let these lull you into a false sense
+are some similarities, but don’t let these lull you into a false sense
 of familiarity.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>$var</code></dt>
-<dd>Expands to the value bound to <code>var</code>.  This is the main way to use
+<dd>
+<p>Expands to the value bound to <code>var</code>.  This is the main way to use
 variables in command invocations.
-
-     <br>
+</p>
 </dd>
 <dt><code>$#var</code></dt>
-<dd>Expands to the length of the value bound to <code>var</code>.  Raises an error
+<dd>
+<p>Expands to the length of the value bound to <code>var</code>.  Raises an error
 if the value is not a sequence
-(see <a href="elisp.html#Sequences-Arrays-Vectors">Sequences</a>).
-
-     <br>
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Sequences-Arrays-Vectors">Sequences</a> in <cite>The Emacs Lisp Reference Manual</cite>).
+</p>
 </dd>
 <dt><code>$(lisp)</code></dt>
-<dd>Expands to the result of evaluating the S-expression <code>(lisp)</code>.  On
+<dd>
+<p>Expands to the result of evaluating the S-expression <code>(lisp)</code>.  On
 its own, this is identical to just <code>(lisp)</code>, but with the <code>$</code>,
-it can be used in a string, such as `<samp><span class="samp">/some/path/$(lisp).txt</span></samp>'.
-
-     <br>
+it can be used in a string, such as ‘<samp>/some/path/$(lisp).txt</samp>’.
+</p>
 </dd>
 <dt><code>${command}</code></dt>
-<dd>Returns the output of <samp><span class="command">command</span></samp>, which can be any valid Eshell
+<dd>
+<p>Returns the output of <code>command</code>, which can be any valid Eshell
 command invocation, and may even contain expansions.
-
-     <br>
+</p>
 </dd>
 <dt><code>$var[i]</code></dt>
-<dd>Expands to the <code>i</code>th element of the value bound to <code>var</code>.  If
-the value is a string, it will be split at whitespace to make it a list. 
+<dd>
+<p>Expands to the <code>i</code>th element of the value bound to <code>var</code>.  If
+the value is a string, it will be split at whitespace to make it a list.
 Again, raises an error if the value is not a sequence.
-
-     <br>
+</p>
 </dd>
 <dt><code>$var[: i]</code></dt>
-<dd>As above, but now splitting occurs at the colon character.
-
-     <br>
+<dd>
+<p>As above, but now splitting occurs at the colon character.
+</p>
 </dd>
 <dt><code>$var[: i j]</code></dt>
-<dd>As above, but instead of returning just a string, it now returns a list
+<dd>
+<p>As above, but instead of returning just a string, it now returns a list
 of two strings.  If the result is being interpolated into a larger
 string, this list will be flattened into one big string, with each
 element separated by a space.
-
-     <br>
+</p>
 </dd>
 <dt><code>$var["\\\\" i]</code></dt>
-<dd>Separate on backslash characters.  Actually, the first argument – if it
-doesn't have the form of a number, or a plain variable name – can be
-any regular expression.  So to split on numbers, use `<samp><span class="samp">$var["[0-9]+" 10 20]</span></samp>'.
-
-     <br>
+<dd>
+<p>Separate on backslash characters.  Actually, the first argument – if it
+doesn’t have the form of a number, or a plain variable name – can be
+any regular expression.  So to split on numbers, use ‘<samp>$var["[0-9]+" 10 20]</samp>’.
+</p>
 </dd>
 <dt><code>$var[hello]</code></dt>
-<dd>Calls <code>assoc</code> on <code>var</code> with <code>"hello"</code>, expecting it to be
-an alist (see <a href="elisp.html#Association-List-Type">Association Lists</a>).
-
-     <br>
+<dd>
+<p>Calls <code>assoc</code> on <code>var</code> with <code>"hello"</code>, expecting it to be
+an alist (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Association-List-Type">Association Lists</a> in <cite>The Emacs Lisp Reference Manual</cite>).
+</p>
 </dd>
 <dt><code>$#var[hello]</code></dt>
-<dd>Returns the length of the cdr of the element of <code>var</code> who car is equal
+<dd>
+<p>Returns the length of the cdr of the element of <code>var</code> who car is equal
 to <code>"hello"</code>.
-
-   </dd>
+</p>
+</dd>
 </dl>
 
-<div class="node"><a name="Globbing"></a></div>
-
+<hr>
+<a name="Globbing"></a>
+<div class="header">
+<p>
+Previous: <a href="#Dollars-Expansion" accesskey="p" rel="prev">Dollars Expansion</a>, Up: <a href="#Expansion" accesskey="u" rel="up">Expansion</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Globbing-1"></a>
 <h3 class="section">3.2 Globbing</h3>
-
-<p>Eshell's globbing syntax is very similar to that of Zsh.  Users coming
+<p>Eshell’s globbing syntax is very similar to that of Zsh.  Users coming
 from Bash can still use Bash-style globbing, as there are no
 incompatibilities.  Most globbing is pattern-based expansion, but there
 is also predicate-based expansion.  See
-<a href="zsh.html#Filename-Generation">Filename Generation</a>
+<a href="zsh.html#Filename-Generation">Filename Generation</a> in <cite>The Z Shell Manual</cite>
 for full syntax.  To customize the syntax and behavior of globbing in
-Eshell see the Customize<a rel="footnote" href="#fn-8" name="fnd-8"><sup>8</sup></a>
+Eshell see the Customize<a name="DOCF8" href="#FOOT8"><sup>8</sup></a>
 groups “eshell-glob” and “eshell-pred”.
-
 </p>
-<div class="node">
-<a name="Input%2fOutput"></a><a name="Input_002fOutput"></a>
+<hr>
+<a name="Input_002fOutput"></a>
+<div class="header">
+<p>
+Next: <a href="#Extension-modules" accesskey="n" rel="next">Extension modules</a>, Previous: <a href="#Expansion" accesskey="p" rel="prev">Expansion</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Input_002fOutput-1"></a>
 <h2 class="chapter">4 Input/Output</h2>
-
 <p>Since Eshell does not communicate with a terminal like most command
 shells, IO is a little different.
-
 </p>
+<a name="Visual-Commands"></a>
 <h3 class="section">4.1 Visual Commands</h3>
-
 <p>If you try to run programs from within Eshell that are not
 line-oriented, such as programs that use ncurses, you will just get
-garbage output, since the Eshell buffer is not a terminal emulator. 
-Eshell solves this problem by running such programs in Emacs's
+garbage output, since the Eshell buffer is not a terminal emulator.
+Eshell solves this problem by running such programs in Emacs’s
 terminal emulator.
-
-   </p>
+</p>
 <p>Programs that need a terminal to display output properly are referred
 to in this manual as “visual commands,” because they are not simply
 line-oriented.  You must tell Eshell which commands are visual, by
 adding them to <code>eshell-visual-commands</code>; for commands that are
-visual for only certain <em>sub</em>-commands – e.g., `<samp><span class="samp">git log</span></samp>' but
-not `<samp><span class="samp">git status</span></samp>' – use <code>eshell-visual-subcommands</code>; and for
+visual for only certain <em>sub</em>-commands – e.g., ‘<samp>git log</samp>’ but
+not ‘<samp>git status</samp>’ – use <code>eshell-visual-subcommands</code>; and for
 commands that are visual only when passed certain options, use
 <code>eshell-visual-options</code>.
-
-   </p>
-<p>Caution: Some tools such as Git use the pager `<samp><span class="samp">less</span></samp>' by default
-to paginate their output but call it with its `<samp><span class="samp">-F</span></samp>' option.  This
-option causes `<samp><span class="samp">less</span></samp>' to echo the output instead of paginating it
+</p>
+<p>Caution: Some tools such as Git use the pager ‘<samp>less</samp>’ by default
+to paginate their output but call it with its ‘<samp>-F</samp>’ option.  This
+option causes ‘<samp>less</samp>’ to echo the output instead of paginating it
 if the output is less than one page long.  This causes undesirable
-behavior if, e.g., `<samp><span class="samp">git diff</span></samp>', is defined as a visual subcommand. 
-It'll work if the output is big enough and fail if it is less than one
+behavior if, e.g., ‘<samp>git diff</samp>’, is defined as a visual subcommand.
+It’ll work if the output is big enough and fail if it is less than one
 page long.  If that occurs to you, search for configuration options
-for calling `<samp><span class="samp">less</span></samp>' without the `<samp><span class="samp">-F</span></samp>' option.  For Git, you
-can do that using `<samp><span class="samp">git config --global core.pager 'less -+F'</span></samp>'.
-
-   </p>
-<p><a name="index-eshell_002ddestroy_002dbuffer_002dwhen_002dprocess_002ddies-40"></a>If you want the buffers created by visual programs killed when the
+for calling ‘<samp>less</samp>’ without the ‘<samp>-F</samp>’ option.  For Git, you
+can do that using ‘<samp>git config --global core.pager 'less -+F'</samp>’.
+</p>
+<a name="index-eshell_002ddestroy_002dbuffer_002dwhen_002dprocess_002ddies"></a>
+<p>If you want the buffers created by visual programs killed when the
 program exits, customize the variable
 <code>eshell-destroy-buffer-when-process-dies</code> to a non-<code>nil</code>
 value; the default is <code>nil</code>.
-
 </p>
+<a name="Redirection"></a>
 <h3 class="section">4.2 Redirection</h3>
-
 <p>Redirection is mostly the same in Eshell as it is in other command
 shells.  The output redirection operators <code>&gt;</code> and <code>&gt;&gt;</code> as
 well as pipes are supported, but there is not yet any support for
 input redirection.  Output can also be redirected to buffers, using
 the <code>&gt;&gt;&gt;</code> redirection operator, and Elisp functions, using
 virtual devices.
-
-   </p>
+</p>
 <p>The buffer redirection operator, <code>&gt;&gt;&gt;</code>, expects a buffer object
 on the right-hand side, into which it inserts the output of the
-left-hand side.  e.g., `<samp><span class="samp">echo hello &gt;&gt;&gt; #&lt;buffer *scratch*&gt;</span></samp>'
-inserts the string <code>"hello"</code> into the <samp><span class="file">*scratch*</span></samp> buffer. 
-The convenience shorthand variant `<samp><span class="samp">#&lt;</span><var>buffer-name</var><span class="samp">&gt;</span></samp>', as in
-`<samp><span class="samp">#&lt;*scratch*&gt;</span></samp>', is also accepted.
-
-   </p>
+left-hand side.  e.g., ‘<samp>echo hello &gt;&gt;&gt; #&lt;buffer *scratch*&gt;</samp>’
+inserts the string <code>"hello"</code> into the <samp>*scratch*</samp> buffer.
+The convenience shorthand variant ‘<samp>#&lt;<var>buffer-name</var>&gt;</samp>’, as in
+‘<samp>#&lt;*scratch*&gt;</samp>’, is also accepted.
+</p>
 <p><code>eshell-virtual-targets</code> is a list of mappings of virtual device
 names to functions.  Eshell comes with two virtual devices:
-<samp><span class="file">/dev/kill</span></samp>, which sends the text to the kill ring, and
-<samp><span class="file">/dev/clip</span></samp>, which sends text to the clipboard.
-
-   </p>
+<samp>/dev/kill</samp>, which sends the text to the kill ring, and
+<samp>/dev/clip</samp>, which sends text to the clipboard.
+</p>
 <p>You can, of course, define your own virtual targets.  They are defined
-by adding a list of the form `<samp><span class="samp">("/dev/name" </span><var>function</var> <var>mode</var><span class="samp">)</span></samp>' to
+by adding a list of the form ‘<samp>("/dev/name" <var>function</var> <var>mode</var>)</samp>’ to
 <code>eshell-virtual-targets</code>.  The first element is the device name;
 <var>function</var> may be either a lambda or a function name.  If
 <var>mode</var> is <code>nil</code>, then the function is the output function; if it is
@@ -1003,356 +1083,385 @@ non-<code>nil</code>, then the function is passed the redirection mode as a
 symbol–<code>overwrite</code> for <code>&gt;</code>, <code>append</code> for <code>&gt;&gt;</code>, or
 <code>insert</code> for <code>&gt;&gt;&gt;</code>–and the function is expected to return
 the output function.
-
-   </p>
+</p>
 <p>The output function is called once on each line of output until
 <code>nil</code> is passed, indicating end of output.
-
 </p>
-<div class="node"><a name="Extension-modules"></a></div>
-
+<hr>
+<a name="Extension-modules"></a>
+<div class="header">
+<p>
+Next: <a href="#Bugs-and-ideas" accesskey="n" rel="next">Bugs and ideas</a>, Previous: <a href="#Input_002fOutput" accesskey="p" rel="prev">Input/Output</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Extension-modules-1"></a>
 <h2 class="chapter">5 Extension modules</h2>
-
 <p>Eshell provides a facility for defining extension modules so that they
 can be disabled and enabled without having to unload and reload them,
 and to provide a common parent Customize group for the
-modules.<a rel="footnote" href="#fn-9" name="fnd-9"><sup>9</sup></a>  An Eshell
+modules.<a name="DOCF9" href="#FOOT9"><sup>9</sup></a>  An Eshell
 module is defined the same as any other library but one requirement: the
-module must define a Customize<a rel="footnote" href="#fn-10" name="fnd-10"><sup>10</sup></a>
+module must define a Customize<a name="DOCF10" href="#FOOT10"><sup>10</sup></a>
 group using <code>eshell-defgroup</code> (in place of <code>defgroup</code>) with
-<code>eshell-module</code> as the parent group.<a rel="footnote" href="#fn-11" name="fnd-11"><sup>11</sup></a>  You also need to load the following as shown:
-
+<code>eshell-module</code> as the parent group.<a name="DOCF11" href="#FOOT11"><sup>11</sup></a>  You also need to load the following as shown:
 </p>
-<pre class="example">     (eval-when-compile
-       (require 'cl-lib)
-       (require 'esh-mode)
-       (require 'eshell))
-     
-     (require 'esh-util)
+<div class="example">
+<pre class="example">(eval-when-compile
+  (require 'cl-lib)
+  (require 'esh-mode)
+  (require 'eshell))
+
+(require 'esh-util)
 </pre>
-   <ul class="menu">
-<li>
-<a accesskey="1" href="#Writing-a-module">Writing a module</a>
-</li>
-<li>
-<a accesskey="2" href="#Module-testing">Module testing</a>
-</li>
-<li>
-<a accesskey="3" href="#Directory-handling">Directory handling</a>
-</li>
-<li>
-<a accesskey="4" href="#Key-rebinding">Key rebinding</a>
-</li>
-<li>
-<a accesskey="5" href="#Smart-scrolling">Smart scrolling</a>
-</li>
-<li>
-<a accesskey="6" href="#Terminal-emulation">Terminal emulation</a>
-</li>
-</ul>
+</div>
 
-<div class="node"><a name="Writing-a-module"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Writing-a-module" accesskey="1">Writing a module</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Module-testing" accesskey="2">Module testing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Directory-handling" accesskey="3">Directory handling</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Key-rebinding" accesskey="4">Key rebinding</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Smart-scrolling" accesskey="5">Smart scrolling</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Terminal-emulation" accesskey="6">Terminal emulation</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Writing-a-module"></a>
+<div class="header">
+<p>
+Next: <a href="#Module-testing" accesskey="n" rel="next">Module testing</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Writing-a-module-1"></a>
 <h3 class="section">5.1 Writing a module</h3>
 
-<div class="node"><a name="Module-testing"></a></div>
-
+<hr>
+<a name="Module-testing"></a>
+<div class="header">
+<p>
+Next: <a href="#Directory-handling" accesskey="n" rel="next">Directory handling</a>, Previous: <a href="#Writing-a-module" accesskey="p" rel="prev">Writing a module</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Module-testing-1"></a>
 <h3 class="section">5.2 Module testing</h3>
 
-<div class="node"><a name="Directory-handling"></a></div>
-
+<hr>
+<a name="Directory-handling"></a>
+<div class="header">
+<p>
+Next: <a href="#Key-rebinding" accesskey="n" rel="next">Key rebinding</a>, Previous: <a href="#Module-testing" accesskey="p" rel="prev">Module testing</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Directory-handling-1"></a>
 <h3 class="section">5.3 Directory handling</h3>
 
-<div class="node"><a name="Key-rebinding"></a></div>
-
+<hr>
+<a name="Key-rebinding"></a>
+<div class="header">
+<p>
+Next: <a href="#Smart-scrolling" accesskey="n" rel="next">Smart scrolling</a>, Previous: <a href="#Directory-handling" accesskey="p" rel="prev">Directory handling</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Key-rebinding-1"></a>
 <h3 class="section">5.4 Key rebinding</h3>
 
-<div class="node"><a name="Smart-scrolling"></a></div>
-
+<hr>
+<a name="Smart-scrolling"></a>
+<div class="header">
+<p>
+Next: <a href="#Terminal-emulation" accesskey="n" rel="next">Terminal emulation</a>, Previous: <a href="#Key-rebinding" accesskey="p" rel="prev">Key rebinding</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Smart-scrolling-1"></a>
 <h3 class="section">5.5 Smart scrolling</h3>
 
-<div class="node"><a name="Terminal-emulation"></a></div>
-
+<hr>
+<a name="Terminal-emulation"></a>
+<div class="header">
+<p>
+Previous: <a href="#Smart-scrolling" accesskey="p" rel="prev">Smart scrolling</a>, Up: <a href="#Extension-modules" accesskey="u" rel="up">Extension modules</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Terminal-emulation-1"></a>
 <h3 class="section">5.6 Terminal emulation</h3>
 
-<div class="node"><a name="Bugs-and-ideas"></a></div>
-
+<hr>
+<a name="Bugs-and-ideas"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Extension-modules" accesskey="p" rel="prev">Extension modules</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Bugs-and-ideas-1"></a>
 <h2 class="chapter">6 Bugs and ideas</h2>
+<a name="index-reporting-bugs-and-ideas"></a>
+<a name="index-bugs_002c-how-to-report-them"></a>
+<a name="index-author_002c-how-to-reach"></a>
+<a name="index-email-to-the-author"></a>
+<a name="index-FAQ"></a>
+<a name="index-problems_002c-list-of-common"></a>
+<a name="index-known-bugs"></a>
+<a name="index-bugs_002c-known"></a>
 
-<p><a name="index-reporting-bugs-and-ideas-41"></a><a name="index-bugs_002c-how-to-report-them-42"></a><a name="index-author_002c-how-to-reach-43"></a><a name="index-email-to-the-author-44"></a><a name="index-FAQ-45"></a><a name="index-problems_002c-list-of-common-46"></a><a name="index-known-bugs-47"></a><a name="index-bugs_002c-known-48"></a>
-If you find a bug or misfeature, don't hesitate to report it, by
-using <kbd>M-x report-emacs-bug</kbd>.  The same applies to feature requests. 
+<p>If you find a bug or misfeature, don’t hesitate to report it, by
+using <kbd>M-x report-emacs-bug</kbd>.  The same applies to feature requests.
 It is best to discuss one thing at a time.  If you find several
 unrelated bugs, please report them separately.
+</p>
 
-   </p>
 <p>Below is a list of some known problems with Eshell version 2.4.2,
 which is the version included with Emacs 22.
-
-     </p>
-<dl>
-<dt>Documentation incomplete
-<br><dt>Differentiate between aliases and functions</dt>
-</dt>
+</p>
+<dl compact>
+<dt>Documentation incomplete</dt>
+<dt>Differentiate between aliases and functions</dt>
 <dd>
-Allow for a Bash-compatible syntax, such as:
+<p>Allow for a Bash-compatible syntax, such as:
+</p>
+<div class="example">
+<pre class="example">alias arg=blah
+function arg () { blah $* }
+</pre>
+</div>
 
-     <pre class="example">          alias arg=blah
-          function arg () { blah $* }
-     </pre>
-     <br>
 </dd>
-<dt>`<samp><span class="samp">for i in 1 2 3 { grep -q a b &amp;&amp; *echo has it } | wc -l</span></samp>' outputs result after prompt</dt>
+<dt>‘<samp>for i in 1 2 3 { grep -q a b &amp;&amp; *echo has it } | wc -l</samp>’ outputs result after prompt</dt>
 <dd>
-In fact, piping to a process from a looping construct doesn't work in
+<p>In fact, piping to a process from a looping construct doesn’t work in
 general.  If I change the call to <code>eshell-copy-handles</code> in
 <code>eshell-rewrite-for-command</code> to use <code>eshell-protect</code>, it seems
 to work, but the output occurs after the prompt is displayed.  The whole
 structured command thing is too complicated at present.
-
-     <br>
+</p>
 </dd>
-<dt>Error with <samp><span class="command">bc</span></samp> in <code>eshell-test</code>
+<dt>Error with <code>bc</code> in <code>eshell-test</code>
 </dt>
 <dd>
-On some XEmacs system, the subprocess interaction test fails
-inexplicably, although <samp><span class="command">bc</span></samp> works fine at the command prompt.
-
-     <br>
+<p>On some XEmacs system, the subprocess interaction test fails
+inexplicably, although <code>bc</code> works fine at the command prompt.
+</p>
 </dd>
-<dt>Eshell does not delete <samp><span class="file">*Help*</span></samp> buffers in XEmacs 21.1.8+</dt>
+<dt>Eshell does not delete <samp>*Help*</samp> buffers in XEmacs 21.1.8+</dt>
 <dd>
-In XEmacs 21.1.8, the <samp><span class="file">*Help*</span></samp> buffer has been renamed such that
-multiple instances of the <samp><span class="file">*Help*</span></samp> buffer can exist.
-
-     <br>
+<p>In XEmacs 21.1.8, the <samp>*Help*</samp> buffer has been renamed such that
+multiple instances of the <samp>*Help*</samp> buffer can exist.
+</p>
 </dd>
 <dt>Pcomplete sometimes gets stuck</dt>
 <dd>
-You press &lt;TAB&gt;, but no completions appear, even though the
+<p>You press <tt class="key">TAB</tt>, but no completions appear, even though the
 directory has matching files.  This behavior is rare.
-
-     <br>
+</p>
 </dd>
-<dt>`<samp><span class="samp">grep python $&lt;rpm -qa&gt;</span></samp>' doesn't work, but using `<samp><span class="samp">*grep</span></samp>' does</dt>
+<dt>‘<samp>grep python $&lt;rpm -qa&gt;</samp>’ doesn’t work, but using ‘<samp>*grep</samp>’ does</dt>
 <dd>
-This happens because the <code>grep</code> Lisp function returns immediately,
-and then the asynchronous <samp><span class="command">grep</span></samp> process expects to examine the
+<p>This happens because the <code>grep</code> Lisp function returns immediately,
+and then the asynchronous <code>grep</code> process expects to examine the
 temporary file, which has since been deleted.
-
-     <br>
+</p>
 </dd>
 <dt>Problem with C-r repeating text</dt>
 <dd>
-If the text <em>before point</em> reads "./run", and you type <kbd>C-r r u
+<p>If the text <em>before point</em> reads "./run", and you type <kbd>C-r r u
 n</kbd>, it will repeat the line for every character typed.
-
-     <br>
+</p>
 </dd>
-<dt>Backspace doesn't scroll back after continuing (in smart mode)</dt>
+<dt>Backspace doesn’t scroll back after continuing (in smart mode)</dt>
 <dd>
-Hitting space during a process invocation, such as <samp><span class="command">make</span></samp>, will
+<p>Hitting space during a process invocation, such as <code>make</code>, will
 cause it to track the bottom of the output; but backspace no longer
 scrolls back.
-
-     <br>
+</p>
 </dd>
-<dt>It's not possible to fully <code>unload-feature</code> Eshell
-<br><dt>Menu support was removed, but never put back
-<br><dt>Using C-p and C-n with rebind gets into a locked state</dt>
-</dt>
-</dt>
+<dt>It’s not possible to fully <code>unload-feature</code> Eshell</dt>
+<dt>Menu support was removed, but never put back</dt>
+<dt>Using C-p and C-n with rebind gets into a locked state</dt>
 <dd>
-This happened a few times in Emacs 21, but has been irreproducible
+<p>This happened a few times in Emacs 21, but has been irreproducible
 since.
-
-     <br>
+</p>
 </dd>
-<dt>If an interactive process is currently running, <kbd>M-!</kbd> doesn't work
-<br><dt>Use a timer instead of <code>sleep-for</code> when killing child processes
-<br><dt>Piping to a Lisp function is not supported</dt>
-</dt>
-</dt>
+<dt>If an interactive process is currently running, <kbd>M-!</kbd> doesn’t work</dt>
+<dt>Use a timer instead of <code>sleep-for</code> when killing child processes</dt>
+<dt>Piping to a Lisp function is not supported</dt>
 <dd>
-Make it so that the Lisp command on the right of the pipe is repeatedly
+<p>Make it so that the Lisp command on the right of the pipe is repeatedly
 called with the input strings as arguments.  This will require changing
 <code>eshell-do-pipeline</code> to handle non-process targets.
-
-     <br>
+</p>
 </dd>
 <dt>Input redirection is not supported</dt>
 <dd>
-See the above entry.
-
-     <br>
+<p>See the above entry.
+</p>
 </dd>
-<dt>Problem running <samp><span class="command">less</span></samp> without arguments on Windows</dt>
+<dt>Problem running <code>less</code> without arguments on Windows</dt>
 <dd>
-The result in the Eshell buffer is:
+<p>The result in the Eshell buffer is:
+</p>
+<div class="example">
+<pre class="example">Spawning child process: invalid argument
+</pre>
+</div>
 
-     <pre class="example">          Spawning child process: invalid argument
-     </pre>
-     <p>Also a new <samp><span class="command">less</span></samp> buffer was created with nothing in it<small class="dots">...</small>
-(presumably this holds the output of <samp><span class="command">less</span></samp>).
-
-     </p>
-<p>If <samp><span class="command">less.exe</span></samp> is invoked from the Eshell command line, the
+<p>Also a new <code>less</code> buffer was created with nothing in it…
+(presumably this holds the output of <code>less</code>).
+</p>
+<p>If <code>less.exe</code> is invoked from the Eshell command line, the
 expected output is written to the buffer.
-
-     </p>
+</p>
 <p>Note that this happens on NT-Emacs 20.6.1 on Windows 2000. The term.el
-package and the supplied shell both use the <samp><span class="command">cmdproxy</span></samp> program
+package and the supplied shell both use the <code>cmdproxy</code> program
 for running shells.
-
-     <br></p>
+</p>
 </dd>
-<dt>Implement `<samp><span class="samp">-r</span></samp>', `<samp><span class="samp">-n</span></samp>' and `<samp><span class="samp">-s</span></samp>' switches for <samp><span class="command">cp</span></samp>
-<br><dt>Make <kbd>M-5 M-x eshell</kbd> switch to “*eshell&lt;5&gt;*”, creating if need be
-<br><dt>`<samp><span class="samp">mv </span><var>dir</var> <var>file</var><span class="samp">.tar</span></samp>' does not remove directories</dt>
+<dt>Implement ‘<samp>-r</samp>’, ‘<samp>-n</samp>’ and ‘<samp>-s</samp>’ switches for <code>cp</code>
 </dt>
-</dt>
+<dt>Make <kbd>M-5 M-x eshell</kbd> switch to “*eshell&lt;5&gt;*”, creating if need be</dt>
+<dt>‘<samp>mv <var>dir</var> <var>file</var>.tar</samp>’ does not remove directories</dt>
 <dd>
-This is because the tar option –remove-files doesn't do so.  Should it
-be Eshell's job?
-
-     <br>
+<p>This is because the tar option –remove-files doesn’t do so.  Should it
+be Eshell’s job?
+</p>
 </dd>
 <dt>Bind <code>standard-output</code> and <code>standard-error</code>
 </dt>
 <dd>
-This would be so that if a Lisp function calls <code>print</code>, everything
+<p>This would be so that if a Lisp function calls <code>print</code>, everything
 will happen as it should (albeit slowly).
-
-     <br>
+</p>
 </dd>
-<dt>When an extension module fails to load, `<samp><span class="samp">cd /</span></samp>' gives a Lisp error
-<br><dt>If a globbing pattern returns one match, should it be a list?
-<br><dt>Make sure syntax table is correct in Eshell mode</dt>
-</dt>
+<dt>When an extension module fails to load, ‘<samp>cd /</samp>’ gives a Lisp error</dt>
+<dt>If a globbing pattern returns one match, should it be a list?</dt>
+<dt>Make sure syntax table is correct in Eshell mode</dt>
+<dd>
+<p>So that <kbd>M-DEL</kbd> acts in a predictable manner, etc.
+</p>
+</dd>
+<dt>Allow all Eshell buffers to share the same history and list-dir</dt>
+<dt>There is a problem with script commands that output to <samp>/dev/null</samp>
 </dt>
 <dd>
-So that <kbd>M-DEL</kbd> acts in a predictable manner, etc.
-
-     <br>
-</dd>
-<dt>Allow all Eshell buffers to share the same history and list-dir
-<br><dt>There is a problem with script commands that output to <samp><span class="file">/dev/null</span></samp>
-</dt>
-</dt>
-<dd>
-If a script file, somewhere in the middle, uses `<samp><span class="samp">&gt; /dev/null</span></samp>',
+<p>If a script file, somewhere in the middle, uses ‘<samp>&gt; /dev/null</samp>’,
 output from all subsequent commands is swallowed.
-
-     <br>
+</p>
 </dd>
-<dt>Split up parsing of text after `<samp><span class="samp">$</span></samp>' in <samp><span class="file">esh-var.el</span></samp>
+<dt>Split up parsing of text after ‘<samp>$</samp>’ in <samp>esh-var.el</samp>
 </dt>
 <dd>
-Make it similar to the way that <samp><span class="file">esh-arg.el</span></samp> is structured. 
-Then add parsing of `<samp><span class="samp">$[?\n]</span></samp>'.
-
-     <br>
+<p>Make it similar to the way that <samp>esh-arg.el</samp> is structured.
+Then add parsing of ‘<samp>$[?\n]</samp>’.
+</p>
 </dd>
-<dt>After pressing <kbd>M-RET</kbd>, redisplay before running the next command
-<br><dt>Argument predicates and modifiers should work anywhere in a path</dt>
-</dt>
+<dt>After pressing <kbd>M-RET</kbd>, redisplay before running the next command</dt>
+<dt>Argument predicates and modifiers should work anywhere in a path</dt>
 <dd>
-     <pre class="example">          /usr/local/src/editors/vim $ vi **/CVS(/)/Root(.)
-          Invalid regexp: "Unmatched ( or \\("
-     </pre>
-     <p>With <samp><span class="command">zsh</span></samp>, the glob above expands to all files named
-<samp><span class="file">Root</span></samp> in directories named <samp><span class="file">CVS</span></samp>.
+<div class="example">
+<pre class="example">/usr/local/src/editors/vim $ vi **/CVS(/)/Root(.)
+Invalid regexp: "Unmatched ( or \\("
+</pre>
+</div>
 
-     <br></p>
+<p>With <code>zsh</code>, the glob above expands to all files named
+<samp>Root</samp> in directories named <samp>CVS</samp>.
+</p>
 </dd>
-<dt>Typing `<samp><span class="samp">echo ${locate locate}/bin&lt;TAB&gt;</span></samp>' results in a Lisp error</dt>
+<dt>Typing ‘<samp>echo ${locate locate}/bin&lt;TAB&gt;</samp>’ results in a Lisp error</dt>
 <dd>
-Perhaps it should interpolate all permutations, and make that the
+<p>Perhaps it should interpolate all permutations, and make that the
 globbing result, since otherwise hitting return here will result in
 “(list of filenames)/bin”, which is never valuable.  Thus, one could
-<samp><span class="command">cat</span></samp> only C backup files by using `<samp><span class="samp">ls ${identity *.c}~</span></samp>'. 
-In that case, having an alias command name <samp><span class="command">glob</span></samp> for
-<samp><span class="command">identity</span></samp> would be useful.
-
-     <br>
+<code>cat</code> only C backup files by using ‘<samp>ls ${identity *.c}~</samp>’.
+In that case, having an alias command name <code>glob</code> for
+<code>identity</code> would be useful.
+</p>
 </dd>
-<dt>Once symbolic mode is supported for <samp><span class="command">umask</span></samp>, implement <samp><span class="command">chmod</span></samp> in Lisp
-<br><dt>Create <code>eshell-expand-file-name</code>
-</dt>
+<dt>Once symbolic mode is supported for <code>umask</code>, implement <code>chmod</code> in Lisp</dt>
+<dt>Create <code>eshell-expand-file-name</code>
 </dt>
 <dd>
-This would use a data table to transform things such as `<samp><span class="samp">~+</span></samp>',
-`<samp><span class="samp">...</span></samp>', etc.
-
-     <br>
+<p>This would use a data table to transform things such as ‘<samp>~+</samp>’,
+‘<samp>...</samp>’, etc.
+</p>
 </dd>
-<dt>Abstract <samp><span class="file">em-smart.el</span></samp> into <samp><span class="file">smart-scroll.el</span></samp>
+<dt>Abstract <samp>em-smart.el</samp> into <samp>smart-scroll.el</samp>
 </dt>
 <dd>
-It only really needs: to be hooked onto the output filter and the
-pre-command hook, and to have the input-end and input-start markers. 
+<p>It only really needs: to be hooked onto the output filter and the
+pre-command hook, and to have the input-end and input-start markers.
 And to know whether the last output group was “successful.”
-
-     <br>
+</p>
 </dd>
 <dt>Allow for fully persisting the state of Eshell</dt>
 <dd>
-This would include: variables, history, buffer, input, dir stack, etc.
-
-     <br>
+<p>This would include: variables, history, buffer, input, dir stack, etc.
+</p>
 </dd>
 <dt>Implement D as an argument predicate</dt>
 <dd>
-It means that files beginning with a dot should be included in the
+<p>It means that files beginning with a dot should be included in the
 glob match.
-
-     <br>
+</p>
 </dd>
 <dt>A comma in a predicate list should mean OR</dt>
 <dd>
-At the moment, this is not supported.
-
-     <br>
+<p>At the moment, this is not supported.
+</p>
 </dd>
-<dt>Error if a glob doesn't expand due to a predicate</dt>
+<dt>Error if a glob doesn’t expand due to a predicate</dt>
 <dd>
-An error should be generated only if <code>eshell-error-if-no-glob</code> is
+<p>An error should be generated only if <code>eshell-error-if-no-glob</code> is
 non-<code>nil</code>.
-
-     <br>
+</p>
 </dd>
-<dt>`<samp><span class="samp">(+ RET SPC TAB</span></samp>' does not cause <code>indent-according-to-mode</code> to occur
-<br><dt>Create <code>eshell-auto-accumulate-list</code>
-</dt>
+<dt>‘<samp>(+ RET SPC TAB</samp>’ does not cause <code>indent-according-to-mode</code> to occur</dt>
+<dt>Create <code>eshell-auto-accumulate-list</code>
 </dt>
 <dd>
-This is a list of commands for which, if the user presses <kbd>RET</kbd>, the
+<p>This is a list of commands for which, if the user presses <kbd>RET</kbd>, the
 text is staged as the next Eshell command, rather than being sent to the
 current interactive process.
-
-     <br>
+</p>
 </dd>
-<dt>Display file and line number if an error occurs in a script
-<br><dt>
-<samp><span class="command">wait</span></samp> doesn't work with process ids at the moment
-<br><dt>Enable the direct-to-process input code in <samp><span class="file">em-term.el</span></samp>
-<br><dt>Problem with repeating `<samp><span class="samp">echo ${find /tmp}</span></samp>'</dt>
+<dt>Display file and line number if an error occurs in a script</dt>
+<dt>
+<code>wait</code> doesn’t work with process ids at the moment</dt>
+<dt>Enable the direct-to-process input code in <samp>em-term.el</samp>
 </dt>
-</dt>
-</dt>
+<dt>Problem with repeating ‘<samp>echo ${find /tmp}</samp>’</dt>
 <dd>
-With smart display active, if <kbd>RET</kbd> is held down, after a while it
-can't keep up anymore and starts outputting blank lines.  It only
-happens if an asynchronous process is involved<small class="dots">...</small>
-
-     <p>I think the problem is that <code>eshell-send-input</code> is resetting the
+<p>With smart display active, if <kbd>RET</kbd> is held down, after a while it
+can’t keep up anymore and starts outputting blank lines.  It only
+happens if an asynchronous process is involved…
+</p>
+<p>I think the problem is that <code>eshell-send-input</code> is resetting the
 input target location, so that if the asynchronous process is not done
 by the time the next <kbd>RET</kbd> is received, the input processor thinks
 that the input is meant for the process; which, when smart display is
 enabled, will be the text of the last command line!  That is a bug in
 itself.
-
-     </p>
+</p>
 <p>In holding down <kbd>RET</kbd> while an asynchronous process is running,
 there will be a point in between termination of the process, and the
 running of <code>eshell-post-command-hook</code>, which would cause
@@ -1360,349 +1469,300 @@ running of <code>eshell-post-command-hook</code>, which would cause
 process that text as a command to be run after the process.  Perhaps
 there should be a way of killing pending input between the death of the
 process, and the <code>post-command-hook</code>.
-
-     <br></p>
+</p>
 </dd>
 <dt>Allow for a more aggressive smart display mode</dt>
 <dd>
-Perhaps toggled by a command, that makes each output block a smart
+<p>Perhaps toggled by a command, that makes each output block a smart
 display block.
-
-     <br>
+</p>
 </dd>
 <dt>Create more meta variables</dt>
 <dd>
-          <dl>
-<dt>`<samp><span class="samp">$!</span></samp>'</dt>
-<dd>The reason for the failure of the last disk command, or the text of the
+<dl compact>
+<dt>‘<samp>$!</samp>’</dt>
+<dd>
+<p>The reason for the failure of the last disk command, or the text of the
 last Lisp error.
-
-          <br>
+</p>
 </dd>
-<dt>`<samp><span class="samp">$=</span></samp>'</dt>
-<dd>A special associate array, which can take references of the form
-`<samp><span class="samp">$=[REGEXP]</span></samp>'.  It indexes into the directory ring. 
-</dd>
+<dt>‘<samp>$=</samp>’</dt>
+<dd><p>A special associate array, which can take references of the form
+‘<samp>$=[REGEXP]</samp>’.  It indexes into the directory ring.
+</p></dd>
 </dl>
 
-     <br>
 </dd>
-<dt>Eshell scripts can't execute in the background
-<br><dt>Support zsh's “Parameter Expansion” syntax, i.e., `<samp><span class="samp">${</span><var>name</var><span class="samp">:-</span><var>val</var><span class="samp">}</span></samp>'
-<br><dt>Write an <samp><span class="command">info</span></samp> alias that can take arguments</dt>
-</dt>
-</dt>
+<dt>Eshell scripts can’t execute in the background</dt>
+<dt>Support zsh’s “Parameter Expansion” syntax, i.e., ‘<samp>${<var>name</var>:-<var>val</var>}</samp>’</dt>
+<dt>Write an <code>info</code> alias that can take arguments</dt>
 <dd>
-So that the user can enter `<samp><span class="samp">info chmod</span></samp>', for example.
-
-     <br>
+<p>So that the user can enter ‘<samp>info chmod</samp>’, for example.
+</p>
 </dd>
 <dt>Create a mode <code>eshell-browse</code>
 </dt>
 <dd>
-It would treat the Eshell buffer as a outline.  Collapsing the outline
+<p>It would treat the Eshell buffer as a outline.  Collapsing the outline
 hides all of the output text.  Collapsing again would show only the
 first command run in each directory
-
-     <br>
+</p>
 </dd>
-<dt>Allow other revisions of a file to be referenced using `<samp><span class="samp">file{rev}</span></samp>'</dt>
+<dt>Allow other revisions of a file to be referenced using ‘<samp>file{rev}</samp>’</dt>
 <dd>
-This would be expanded by <code>eshell-expand-file-name</code> (see above).
-
-     <br>
+<p>This would be expanded by <code>eshell-expand-file-name</code> (see above).
+</p>
 </dd>
-<dt>Print “You have new mail” when the “Mail” icon is turned on
-<br><dt>Implement <kbd>M-|</kbd> for Eshell
-<br><dt>Implement input redirection</dt>
-</dt>
-</dt>
+<dt>Print “You have new mail” when the “Mail” icon is turned on</dt>
+<dt>Implement <kbd>M-|</kbd> for Eshell</dt>
+<dt>Implement input redirection</dt>
 <dd>
-If it's a Lisp function, input redirection implies <samp><span class="command">xargs</span></samp> (in a
-way<small class="dots">...</small>).  If input redirection is added, also update the
+<p>If it’s a Lisp function, input redirection implies <code>xargs</code> (in a
+way…).  If input redirection is added, also update the
 <code>file-name-quote-list</code>, and the delimiter list.
-
-     <br>
+</p>
 </dd>
-<dt>Allow `<samp><span class="samp">#&lt;</span><var>word</var> <var>arg</var><span class="samp">&gt;</span></samp>' as a generic syntax</dt>
+<dt>Allow ‘<samp>#&lt;<var>word</var> <var>arg</var>&gt;</samp>’ as a generic syntax</dt>
 <dd>
-With the handling of <em>word</em> specified by an
+<p>With the handling of <em>word</em> specified by an
 <code>eshell-special-alist</code>.
-
-     <br>
+</p>
 </dd>
 <dt>In <code>eshell-eval-using-options</code>, allow a <code>:complete</code> tag</dt>
 <dd>
-It would be used to provide completion rules for that command.  Then the
+<p>It would be used to provide completion rules for that command.  Then the
 macro will automagically define the completion function.
-
-     <br>
+</p>
 </dd>
 <dt>For <code>eshell-command-on-region</code>, apply redirections to the result</dt>
 <dd>
-So that `<samp><span class="samp">+ &gt; 'blah</span></samp>' would cause the result of the <code>+</code> (using
+<p>So that ‘<samp>+ &gt; 'blah</samp>’ would cause the result of the <code>+</code> (using
 input from the current region) to be inserting into the symbol
 <code>blah</code>.
-
-     <p>If an external command is being invoked, the input is sent as standard
-input, as if a `<samp><span class="samp">cat &lt;region&gt; |</span></samp>' had been invoked.
-
-     </p>
+</p>
+<p>If an external command is being invoked, the input is sent as standard
+input, as if a ‘<samp>cat &lt;region&gt; |</samp>’ had been invoked.
+</p>
 <p>If a Lisp command, or an alias, is invoked, then if the line has no
 newline characters, it is divided by whitespace and passed as arguments
 to the Lisp function.  Otherwise, it is divided at the newline
 characters.  Thus, invoking <code>+</code> on a series of numbers will add
 them; <code>min</code> would display the smallest figure, etc.
-
-     <br></p>
+</p>
 </dd>
 <dt>Write <code>eshell-script-mode</code> as a minor mode</dt>
 <dd>
-It would provide syntax, abbrev, highlighting and indenting support like
+<p>It would provide syntax, abbrev, highlighting and indenting support like
 <code>emacs-lisp-mode</code> and <code>shell-mode</code>.
-
-     <br>
+</p>
 </dd>
 <dt>In the history mechanism, finish the Bash-style support</dt>
 <dd>
-This means `<samp><span class="samp">!n</span></samp>', `<samp><span class="samp">!#</span></samp>', `<samp><span class="samp">!:%</span></samp>', and `<samp><span class="samp">!:1-</span></samp>' as separate
-from `<samp><span class="samp">!:1*</span></samp>'.
-
-     <br>
+<p>This means ‘<samp>!n</samp>’, ‘<samp>!#</samp>’, ‘<samp>!:%</samp>’, and ‘<samp>!:1-</samp>’ as separate
+from ‘<samp>!:1*</samp>’.
+</p>
 </dd>
-<dt>Support the -n command line option for <samp><span class="command">history</span></samp>
-<br><dt>Implement <samp><span class="command">fc</span></samp> in Lisp
-<br><dt>Specifying a frame as a redirection target should imply the currently active window's buffer
-<br><dt>Implement `<samp><span class="samp">&gt;</span><var>func-or-func-list</var></samp>'</dt>
+<dt>Support the -n command line option for <code>history</code>
 </dt>
-</dt>
-</dt>
+<dt>Implement <code>fc</code> in Lisp</dt>
+<dt>Specifying a frame as a redirection target should imply the currently active window’s buffer</dt>
+<dt>Implement ‘<samp>&gt;<var>func-or-func-list</var></samp>’</dt>
 <dd>
-This would allow for an “output translators”, that take a function to
+<p>This would allow for an “output translators”, that take a function to
 modify output with, and a target.  Devise a syntax that works well with
-pipes, and can accommodate multiple functions (i.e., `<samp><span class="samp">&gt;'(upcase
-regexp-quote)</span></samp>' or `<samp><span class="samp">&gt;'upcase</span></samp>').
-
-     <br>
+pipes, and can accommodate multiple functions (i.e., ‘<samp>&gt;'(upcase
+regexp-quote)</samp>’ or ‘<samp>&gt;'upcase</samp>’).
+</p>
 </dd>
 <dt>Allow Eshell to read/write to/from standard input and output</dt>
 <dd>
-This would be optional, rather than always using the Eshell buffer. 
+<p>This would be optional, rather than always using the Eshell buffer.
 This would allow it to be run from the command line (perhaps).
-
-     <br>
+</p>
 </dd>
-<dt>Write a <samp><span class="command">help</span></samp> command</dt>
+<dt>Write a <code>help</code> command</dt>
 <dd>
-It would call subcommands with <samp><span class="option">--help</span></samp>, or <samp><span class="option">-h</span></samp> or
-<samp><span class="option">/?</span></samp>, as appropriate.
-
-     <br>
+<p>It would call subcommands with <samp>--help</samp>, or <samp>-h</samp> or
+<samp>/?</samp>, as appropriate.
+</p>
 </dd>
-<dt>Implement <samp><span class="command">stty</span></samp> in Lisp
-<br><dt>Support <samp><span class="command">rc</span></samp>'s matching operator, e.g., `<samp><span class="samp">~ (</span><var>list</var><span class="samp">) </span><var>regexp</var></samp>'
-<br><dt>Implement <samp><span class="command">bg</span></samp> and <samp><span class="command">fg</span></samp> as editors of <code>eshell-process-list</code>
-</dt>
-</dt>
+<dt>Implement <code>stty</code> in Lisp</dt>
+<dt>Support <code>rc</code>’s matching operator, e.g., ‘<samp>~ (<var>list</var>) <var>regexp</var></samp>’</dt>
+<dt>Implement <code>bg</code> and <code>fg</code> as editors of <code>eshell-process-list</code>
 </dt>
 <dd>
-Using <samp><span class="command">bg</span></samp> on a process that is already in the background does
+<p>Using <code>bg</code> on a process that is already in the background does
 nothing.  Specifying redirection targets replaces (or adds) to the list
 current being used.
-
-     <br>
+</p>
 </dd>
-<dt>Have <samp><span class="command">jobs</span></samp> print only the processes for the current shell
-<br><dt>How can Eshell learn if a background process has requested input?
-<br><dt>Support `<samp><span class="samp">2&gt;&amp;1</span></samp>' and `<samp><span class="samp">&gt;&amp;</span></samp>' and `<samp><span class="samp">2&gt;</span></samp>' and `<samp><span class="samp">|&amp;</span></samp>'</dt>
-</dt>
-</dt>
+<dt>Have <code>jobs</code> print only the processes for the current shell</dt>
+<dt>How can Eshell learn if a background process has requested input?</dt>
+<dt>Support ‘<samp>2&gt;&amp;1</samp>’ and ‘<samp>&gt;&amp;</samp>’ and ‘<samp>2&gt;</samp>’ and ‘<samp>|&amp;</samp>’</dt>
 <dd>
-The syntax table for parsing these should be customizable, such that the
-user could change it to use rc syntax: `<samp><span class="samp">&gt;[2=1]</span></samp>'.
-
-     <br>
+<p>The syntax table for parsing these should be customizable, such that the
+user could change it to use rc syntax: ‘<samp>&gt;[2=1]</samp>’.
+</p>
 </dd>
-<dt>Allow `<samp><span class="samp">$_[-1]</span></samp>', which would indicate the last element of the array
-<br><dt>Make `<samp><span class="samp">$x[*]</span></samp>' equal to listing out the full contents of `<samp><span class="samp">x</span></samp>'</dt>
-</dt>
+<dt>Allow ‘<samp>$_[-1]</samp>’, which would indicate the last element of the array</dt>
+<dt>Make ‘<samp>$x[*]</samp>’ equal to listing out the full contents of ‘<samp>x</samp>’</dt>
 <dd>
-Return them as a list, so that `<samp><span class="samp">$_[*]</span></samp>' is all the arguments of the
+<p>Return them as a list, so that ‘<samp>$_[*]</samp>’ is all the arguments of the
 last command.
-
-     <br>
+</p>
 </dd>
-<dt>Copy ANSI code handling from <samp><span class="file">term.el</span></samp> into <samp><span class="file">em-term.el</span></samp>
+<dt>Copy ANSI code handling from <samp>term.el</samp> into <samp>em-term.el</samp>
 </dt>
 <dd>
-Make it possible for the user to send char-by-char to the underlying
+<p>Make it possible for the user to send char-by-char to the underlying
 process.  Ultimately, I should be able to move away from using term.el
 altogether, since everything but the ANSI code handling is already part
 of Eshell.  Then, things would work correctly on MS-Windows as well
-(which doesn't have <samp><span class="file">/bin/sh</span></samp>, although <samp><span class="file">term.el</span></samp> tries to use
+(which doesn’t have <samp>/bin/sh</samp>, although <samp>term.el</samp> tries to use
 it).
-
-     <br>
+</p>
 </dd>
 <dt>Make the shell spawning commands be visual</dt>
 <dd>
-That is, make (<samp><span class="command">su</span></samp>, <samp><span class="command">bash</span></samp>, <samp><span class="command">telnet</span></samp>,
-<samp><span class="command">rlogin</span></samp>, <samp><span class="command">rsh</span></samp>, etc.) be part of
+<p>That is, make (<code>su</code>, <code>bash</code>, <code>telnet</code>,
+<code>rlogin</code>, <code>rsh</code>, etc.) be part of
 <code>eshell-visual-commands</code>.  The only exception is if the shell is
 being used to invoke a single command.  Then, the behavior should be
 based on what that command is.
-
-     <br>
+</p>
 </dd>
-<dt>Create a smart viewing command named <samp><span class="command">open</span></samp>
+<dt>Create a smart viewing command named <code>open</code>
 </dt>
 <dd>
-This would search for some way to open its argument (similar to opening
+<p>This would search for some way to open its argument (similar to opening
 a file in the Windows Explorer).
-
-     <br>
+</p>
 </dd>
-<dt>Alias <samp><span class="command">read</span></samp> to be the same as <samp><span class="command">open</span></samp>, only read-only
-<br><dt>Write a <samp><span class="command">tail</span></samp> command which uses <code>view-file</code>
-</dt>
+<dt>Alias <code>read</code> to be the same as <code>open</code>, only read-only</dt>
+<dt>Write a <code>tail</code> command which uses <code>view-file</code>
 </dt>
 <dd>
-It would move point to the end of the buffer, and then turns on
+<p>It would move point to the end of the buffer, and then turns on
 auto-revert mode in that buffer at frequent intervals—and a
-<samp><span class="command">head</span></samp> alias which assumes an upper limit of
+<code>head</code> alias which assumes an upper limit of
 <code>eshell-maximum-line-length</code> characters per line.
-
-     <br>
+</p>
 </dd>
-<dt>Make <samp><span class="command">dgrep</span></samp> load <code>dired</code>, mark everything, then invoke <code>dired-do-search</code>
-<br><dt>Write <samp><span class="file">mesh.c</span></samp>
+<dt>Make <code>dgrep</code> load <code>dired</code>, mark everything, then invoke <code>dired-do-search</code>
 </dt>
+<dt>Write <samp>mesh.c</samp>
 </dt>
 <dd>
-This would run Emacs with the appropriate arguments to invoke Eshell
+<p>This would run Emacs with the appropriate arguments to invoke Eshell
 only.  That way, it could be listed as a login shell.
-
-     <br>
+</p>
 </dd>
-<dt>Use an intangible <code>PS2</code> string for multi-line input prompts
-<br><dt>Auto-detect when a command is visual, by checking <code>TERMCAP</code> usage
-<br><dt>The first keypress after <kbd>M-x watson</kbd> triggers</dt>
-</dt>
-</dt>
+<dt>Use an intangible <code>PS2</code> string for multi-line input prompts</dt>
+<dt>Auto-detect when a command is visual, by checking <code>TERMCAP</code> usage</dt>
+<dt>The first keypress after <kbd>M-x watson</kbd> triggers</dt>
 <dd>
-<code>eshell-send-input</code>
-
-     <br>
+<p><code>eshell-send-input</code>
+</p>
 </dd>
 <dt>Make <kbd>/</kbd> electric</dt>
 <dd>
-So that it automatically expands and corrects pathnames.  Or make
-pathname completion for Pcomplete auto-expand `<samp><span class="samp">/u/i/std&lt;TAB&gt;</span></samp>' to
-`<samp><span class="samp">/usr/include/std&lt;TAB&gt;</span></samp>'.
-
-     <br>
+<p>So that it automatically expands and corrects pathnames.  Or make
+pathname completion for Pcomplete auto-expand ‘<samp>/u/i/std&lt;TAB&gt;</samp>’ to
+‘<samp>/usr/include/std&lt;TAB&gt;</samp>’.
+</p>
 </dd>
-<dt>Write the <samp><span class="command">pushd</span></samp> stack to disk along with <code>last-dir-ring</code>
-<br><dt>Add options to <code>eshell/cat</code> which would allow it to sort and uniq
-<br><dt>Implement <samp><span class="command">wc</span></samp> in Lisp</dt>
+<dt>Write the <code>pushd</code> stack to disk along with <code>last-dir-ring</code>
 </dt>
-</dt>
+<dt>Add options to <code>eshell/cat</code> which would allow it to sort and uniq</dt>
+<dt>Implement <code>wc</code> in Lisp</dt>
 <dd>
-Add support for counting sentences, paragraphs, pages, etc.
-
-     <br>
+<p>Add support for counting sentences, paragraphs, pages, etc.
+</p>
 </dd>
-<dt>Once piping is added, implement <samp><span class="command">sort</span></samp> and <samp><span class="command">uniq</span></samp> in Lisp
-<br><dt>Implement <samp><span class="command">touch</span></samp> in Lisp
-<br><dt>Implement <samp><span class="command">comm</span></samp> in Lisp
-<br><dt>Implement an <samp><span class="command">epatch</span></samp> command in Lisp</dt>
-</dt>
-</dt>
-</dt>
+<dt>Once piping is added, implement <code>sort</code> and <code>uniq</code> in Lisp</dt>
+<dt>Implement <code>touch</code> in Lisp</dt>
+<dt>Implement <code>comm</code> in Lisp</dt>
+<dt>Implement an <code>epatch</code> command in Lisp</dt>
 <dd>
-This would call <code>ediff-patch-file</code>, or <code>ediff-patch-buffer</code>,
+<p>This would call <code>ediff-patch-file</code>, or <code>ediff-patch-buffer</code>,
 depending on its argument.
-
-     <br>
+</p>
 </dd>
-<dt>Have an option such that `<samp><span class="samp">ls -l</span></samp>' generates a dired buffer
-<br><dt>Write a version of <samp><span class="command">xargs</span></samp> based on command rewriting</dt>
-</dt>
+<dt>Have an option such that ‘<samp>ls -l</samp>’ generates a dired buffer</dt>
+<dt>Write a version of <code>xargs</code> based on command rewriting</dt>
 <dd>
-That is, `<samp><span class="samp">find X | xargs Y</span></samp>' would be indicated using `<samp><span class="samp">Y
-${find X}</span></samp>'.  Maybe <code>eshell-do-pipelines</code> could be changed to
+<p>That is, ‘<samp>find X | xargs Y</samp>’ would be indicated using ‘<samp>Y
+${find X}</samp>’.  Maybe <code>eshell-do-pipelines</code> could be changed to
 perform this on-thy-fly rewriting.
-
-     <br>
+</p>
 </dd>
-<dt>Write an alias for <samp><span class="command">less</span></samp> that brings up a <code>view-mode</code> buffer</dt>
+<dt>Write an alias for <code>less</code> that brings up a <code>view-mode</code> buffer</dt>
 <dd>
-Such that the user can press &lt;SPC&gt; and &lt;DEL&gt;, and then &lt;q&gt;
+<p>Such that the user can press <tt class="key">SPC</tt> and <tt class="key">DEL</tt>, and then <tt class="key">q</tt>
 to return to Eshell.  It would be equivalent to:
-`<samp><span class="samp">X &gt; #&lt;buffer Y&gt;; view-buffer #&lt;buffer Y&gt;</span></samp>'.
-
-     <br>
+‘<samp>X &gt; #&lt;buffer Y&gt;; view-buffer #&lt;buffer Y&gt;</samp>’.
+</p>
 </dd>
 <dt>Make <code>eshell-mode</code> as much a full citizen as <code>shell-mode</code>
 </dt>
 <dd>
-Everywhere in Emacs where <code>shell-mode</code> is specially noticed, add
+<p>Everywhere in Emacs where <code>shell-mode</code> is specially noticed, add
 <code>eshell-mode</code> there.
-
-     <br>
+</p>
 </dd>
-<dt>Permit the umask to be selectively set on a <samp><span class="command">cp</span></samp> target
-<br><dt>Problem using <kbd>M-x eshell</kbd> after using <code>eshell-command</code>
-</dt>
+<dt>Permit the umask to be selectively set on a <code>cp</code> target</dt>
+<dt>Problem using <kbd>M-x eshell</kbd> after using <code>eshell-command</code>
 </dt>
 <dd>
-If the first thing that I do after entering Emacs is to run
-<code>eshell-command</code> and invoke <samp><span class="command">ls</span></samp>, and then use <kbd>M-x
-eshell</kbd>, it doesn't display anything.
-
-     <br>
+<p>If the first thing that I do after entering Emacs is to run
+<code>eshell-command</code> and invoke <code>ls</code>, and then use <kbd>M-x
+eshell</kbd>, it doesn’t display anything.
+</p>
 </dd>
 <dt>
-<kbd>M-RET</kbd> during a long command (using smart display) doesn't work</dt>
+<kbd>M-RET</kbd> during a long command (using smart display) doesn’t work</dt>
 <dd>
-Since it keeps the cursor up where the command was invoked.
-
-   </dd>
+<p>Since it keeps the cursor up where the command was invoked.
+</p>
+</dd>
 </dl>
 
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Bugs-and-ideas" accesskey="p" rel="prev">Bugs and ideas</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -1710,12 +1770,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -1724,16 +1783,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -1741,8 +1798,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -1750,14 +1806,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -1767,11 +1821,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -1784,20 +1837,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -1805,20 +1855,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -1827,104 +1875,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -1932,54 +1973,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -1989,84 +2028,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -2077,57 +2107,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -2136,291 +2159,848 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Concept-Index"></a></div>
 
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Function-and-Variable-Index" accesskey="n" rel="next">Function and Variable Index</a>, Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concept-Index-1"></a>
 <h2 class="unnumbered">Concept Index</h2>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-author_002c-how-to-reach-43">author, how to reach</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-authors-7">authors</a>: <a href="#Contributors-to-Eshell">Contributors to Eshell</a>
-</li>
-<li>
-<a href="#index-bugs_002c-how-to-report-them-42">bugs, how to report them</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-bugs_002c-known-48">bugs, known</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-contributors-6">contributors</a>: <a href="#Contributors-to-Eshell">Contributors to Eshell</a>
-</li>
-<li>
-<a href="#index-email-to-the-author-44">email to the author</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-Eshell_002c-what-it-is-2">Eshell, what it is</a>: <a href="#Introduction">Introduction</a>
-</li>
-<li>
-<a href="#index-Eshell_002c-what-it-is-not-3">Eshell, what it is not</a>: <a href="#Introduction">Introduction</a>
-</li>
-<li>
-<a href="#index-FAQ-45">FAQ</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-known-bugs-47">known bugs</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-problems_002c-list-of-common-46">problems, list of common</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-reporting-bugs-and-ideas-41">reporting bugs and ideas</a>: <a href="#Bugs-and-ideas">Bugs and ideas</a>
-</li>
-<li>
-<a href="#index-what-Eshell-is-not-4">what Eshell is not</a>: <a href="#Introduction">Introduction</a>
-</li>
-<li>
-<a href="#index-what-is-Eshell_003f-1">what is Eshell?</a>: <a href="#Introduction">Introduction</a>
-</li>
-<li>
-<a href="#index-what-isn_0027t-Eshell_003f-5">what isn't Eshell?</a>: <a href="#Introduction">Introduction</a>
-</li>
-   </ul>
-<div class="node"><a name="Function-and-Variable-Index"></a></div>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-author_002c-how-to-reach">author, how to reach</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-authors">authors</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Contributors-to-Eshell">Contributors to Eshell</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-bugs_002c-how-to-report-them">bugs, how to report them</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-bugs_002c-known">bugs, known</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-contributors">contributors</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Contributors-to-Eshell">Contributors to Eshell</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-email-to-the-author">email to the author</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Eshell_002c-what-it-is">Eshell, what it is</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Introduction">Introduction</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Eshell_002c-what-it-is-not">Eshell, what it is not</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Introduction">Introduction</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-FAQ">FAQ</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-K">K</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-known-bugs">known bugs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-problems_002c-list-of-common">problems, list of common</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-reporting-bugs-and-ideas">reporting bugs and ideas</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Bugs-and-ideas">Bugs and ideas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-what-Eshell-is-not">what Eshell is not</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Introduction">Introduction</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-what-is-Eshell_003f">what is Eshell?</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Introduction">Introduction</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-what-isn_0027t-Eshell_003f">what isn’t Eshell?</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Introduction">Introduction</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
 
+<hr>
+<a name="Function-and-Variable-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Command-Index" accesskey="n" rel="next">Command Index</a>, Previous: <a href="#Concept-Index" accesskey="p" rel="prev">Concept Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Function-and-Variable-Index-1"></a>
 <h2 class="unnumbered">Function and Variable Index</h2>
 
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Function-and-Variable-Index_fn_symbol-1"><b>$</b></a>
+   
+<br>
+<a class="summary-letter" href="#Function-and-Variable-Index_fn_letter-E"><b>E</b></a>
+   
+</td>
+</tr></table>
+<table class="index-fn" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Function-and-Variable-Index_fn_symbol-1">$</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0024_0024">$$</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0024_002b">$+</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0024_002d">$-</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0024_003f">$?</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0024_005f">$_</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Function-and-Variable-Index_fn_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eshell_002ddestroy_002dbuffer_002dwhen_002dprocess_002ddies">eshell-destroy-buffer-when-process-dies</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Input_002fOutput">Input/Output</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eshell_002dprefer_002dlisp_002dfunctions">eshell-prefer-lisp-functions</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eshell_002dsource_002dfile"><code>eshell-source-file</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scripts">Scripts</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Function-and-Variable-Index_fn_symbol-1"><b>$</b></a>
+   
+<br>
+<a class="summary-letter" href="#Function-and-Variable-Index_fn_letter-E"><b>E</b></a>
+   
+</td>
+</tr></table>
 
-
-<ul class="index-fn" compact>
-<li>
-<a href="#index-g_t_0024_0024-34"><code>$$</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-g_t_0024_002b-31"><code>$+</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-g_t_0024_002d-32"><code>$-</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-g_t_0024_003f-35"><code>$?</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-g_t_0024_005f-33"><code>$_</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-eshell_002ddestroy_002dbuffer_002dwhen_002dprocess_002ddies-40"><code>eshell-destroy-buffer-when-process-dies</code></a>: <a href="#Input_002fOutput">Input/Output</a>
-</li>
-<li>
-<a href="#index-eshell_002dprefer_002dlisp_002dfunctions-8"><code>eshell-prefer-lisp-functions</code></a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-eshell_002dsource_002dfile-38"><code>eshell-source-file</code></a>: <a href="#Scripts">Scripts</a>
-</li>
-   </ul>
-<div class="node"><a name="Command-Index"></a></div>
-
+<hr>
+<a name="Command-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Function-and-Variable-Index" accesskey="p" rel="prev">Function and Variable Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Command-Index-1"></a>
 <h2 class="unnumbered">Command Index</h2>
 
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Command-Index_cm_symbol-1"><b>.</b></a>
+   
+<br>
+<a class="summary-letter" href="#Command-Index_cm_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-J"><b>J</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-O"><b>O</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cm" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_symbol-1">.</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002e">.</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scripts">Scripts</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-addpath">addpath</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-agrep">agrep</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-alias">alias</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cd">cd</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-clear">clear</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-date">date</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-define">define</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-diff">diff</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-egrep">egrep</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-fgrep">fgrep</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-G">G</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-glimpse">glimpse</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-grep">grep</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-history">history</a>:</td>
+<td> </td>
+<td valign="top"><a href="#History">History</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-info">info</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-J">J</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-jobs">jobs</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-K">K</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-kill">kill</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-listify">listify</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-locate">locate</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-make">make</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-O">O</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-occur">occur</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-printnl">printnl</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Command-Index_cm_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-source">source</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Scripts">Scripts</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-su">su</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-sudo">sudo</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Built_002dins">Built-ins</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Command-Index_cm_symbol-1"><b>.</b></a>
+   
+<br>
+<a class="summary-letter" href="#Command-Index_cm_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-J"><b>J</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-O"><b>O</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Command-Index_cm_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
 
 
-<ul class="index-cm" compact>
-<li>
-<a href="#index-g_t_002e-39">.</a>: <a href="#Scripts">Scripts</a>
-</li>
-<li>
-<a href="#index-addpath-9">addpath</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-agrep-16">agrep</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-alias-10">alias</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-cd-28">cd</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-clear-11">clear</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-date-12">date</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-define-13">define</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-diff-14">diff</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-egrep-17">egrep</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-fgrep-18">fgrep</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-glimpse-19">glimpse</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-grep-15">grep</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-history-36">history</a>: <a href="#History">History</a>
-</li>
-<li>
-<a href="#index-info-20">info</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-jobs-21">jobs</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-kill-22">kill</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-listify-23">listify</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-locate-24">locate</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-make-25">make</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-occur-26">occur</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-printnl-27">printnl</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-source-37">source</a>: <a href="#Scripts">Scripts</a>
-</li>
-<li>
-<a href="#index-su-29">su</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-<li>
-<a href="#index-sudo-30">sudo</a>: <a href="#Built_002dins">Built-ins</a>
-</li>
-   </ul>
-<!-- There are no @kindex entries in this manual; avoid generating an -->
-<!-- empty menu. -->
 <div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4>
-<p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> This is comparable to viewing the
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>This is comparable to viewing the
 contents of a folder using a graphical display.</p>
-
-   <p class="footnote"><small>[<a name="fn-2" href="#fnd-2">2</a>]</small> For the understandably curious, here is what that command
-looks like: But don't let it fool you; once you know what's going on,
-it's easier than it looks: <code>ls -lt **/*.doc(Lk+50aM+5)</code>.</p>
-
-   <p class="footnote"><small>[<a name="fn-3" href="#fnd-3">3</a>]</small> To see the Lisp form that will be invoked, type: `<samp><span class="samp">eshell-parse-command "echo hello"</span></samp>'</p>
-
-   <p class="footnote"><small>[<a name="fn-4" href="#fnd-4">4</a>]</small> Read-Eval-Print Loop</p>
-
-   <p class="footnote"><small>[<a name="fn-5" href="#fnd-5">5</a>]</small> Command completion as opposed to code completion,
+<h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>For the understandably curious, here is what that command
+looks like: But don’t let it fool you; once you know what’s going on,
+it’s easier than it looks: <code>ls -lt **/*.doc(Lk+50aM+5)</code>.</p>
+<h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
+<p>To see the Lisp form that will be invoked, type: ‘<samp>eshell-parse-command "echo hello"</samp>’</p>
+<h3><a name="FOOT4" href="#DOCF4">(4)</a></h3>
+<p>Read-Eval-Print Loop</p>
+<h3><a name="FOOT5" href="#DOCF5">(5)</a></h3>
+<p>Command completion as opposed to code completion,
 which is a beyond the scope of pcomplete.</p>
-
-   <p class="footnote"><small>[<a name="fn-6" href="#fnd-6">6</a>]</small> Eshell has no
+<h3><a name="FOOT6" href="#DOCF6">(6)</a></h3>
+<p>Eshell has no
 string-manipulation expansions because the Elisp library already
 provides many functions for this.</p>
-
-   <p class="footnote"><small>[<a name="fn-7" href="#fnd-7">7</a>]</small> E.g., entering just `<samp><span class="samp">$var</span></samp>' at the prompt
+<h3><a name="FOOT7" href="#DOCF7">(7)</a></h3>
+<p>E.g., entering just ‘<samp>$var</samp>’ at the prompt
 is equivalent to entering the value of <code>var</code> at the prompt.</p>
-
-   <p class="footnote"><small>[<a name="fn-8" href="#fnd-8">8</a>]</small> See <a href="emacs.html#Easy-Customization">Easy Customization</a>.</p>
-
-   <p class="footnote"><small>[<a name="fn-9" href="#fnd-9">9</a>]</small> ERC provides a similar module facility.</p>
-
-   <p class="footnote"><small>[<a name="fn-10" href="#fnd-10">10</a>]</small> See <a href="elisp.html#Customization">Customization</a>.</p>
-
-   <p class="footnote"><small>[<a name="fn-11" href="#fnd-11">11</a>]</small> If the module has
+<h3><a name="FOOT8" href="#DOCF8">(8)</a></h3>
+<p>See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Easy-Customization">Easy Customization</a> in <cite>The GNU Emacs Manual</cite>.</p>
+<h3><a name="FOOT9" href="#DOCF9">(9)</a></h3>
+<p>ERC provides a similar module facility.</p>
+<h3><a name="FOOT10" href="#DOCF10">(10)</a></h3>
+<p>See <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Customization">Customization</a> in <cite>The Emacs Lisp Reference Manual</cite>.</p>
+<h3><a name="FOOT11" href="#DOCF11">(11)</a></h3>
+<p>If the module has
 no user-customizable options, then there is no need to define it as an
 Eshell module.</p>
-
-   <p></p>
-<hr>
 </div>
+<hr>
+
+
 
 </body>
 </html>

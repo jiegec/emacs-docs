@@ -1,548 +1,646 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2003-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual",
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Emacs SMTP Library</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="description" content="Emacs SMTP Library">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta name="keywords" content="Emacs SMTP Library">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
 <!--
-Copyright (C) 2003-2016 Free Software Foundation, Inc.
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual", and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License".
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 </head>
-<body>
-<h1 class="settitle">Emacs SMTP Library</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">Emacs SMTP Library</a>
-</li>
-<li>
-<a name="toc_How-Mail-Works" href="#How-Mail-Works">1 How Mail Works</a>
-</li>
-<li>
-<a name="toc_Emacs-Speaks-SMTP" href="#Emacs-Speaks-SMTP">2 Emacs Speaks SMTP</a>
-</li>
-<li>
-<a name="toc_Authentication" href="#Authentication">3 Authentication</a>
-</li>
-<li>
-<a name="toc_Encryption" href="#Encryption">4 Encryption</a>
-</li>
-<li>
-<a name="toc_Queued-delivery" href="#Queued-delivery">5 Queued delivery</a>
-</li>
-<li>
-<a name="toc_Server-workarounds" href="#Server-workarounds">6 Server workarounds</a>
-</li>
-<li>
-<a name="toc_Debugging" href="#Debugging">7 Debugging</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">8 GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Index" href="#Index">9 Index</a>
-<ul>
-<li>
-<a href="#Index">9.1 Concept Index</a>
-</li>
-<li>
-<a href="#Index">9.2 Function and Variable Index</a>
-</li>
-</ul>
+
+<body lang="en">
+<h1 class="settitle" align="center">Emacs SMTP Library</h1>
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-How-Mail-Works-1" href="#How-Mail-Works">1 How Mail Works</a></li>
+  <li><a name="toc-Emacs-Speaks-SMTP-1" href="#Emacs-Speaks-SMTP">2 Emacs Speaks SMTP</a></li>
+  <li><a name="toc-Authentication-1" href="#Authentication">3 Authentication</a></li>
+  <li><a name="toc-Encryption-1" href="#Encryption">4 Encryption</a></li>
+  <li><a name="toc-Queued-delivery-1" href="#Queued-delivery">5 Queued delivery</a></li>
+  <li><a name="toc-Server-workarounds-1" href="#Server-workarounds">6 Server workarounds</a></li>
+  <li><a name="toc-Debugging-1" href="#Debugging">7 Debugging</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">8 GNU Free Documentation License</a></li>
+  <li>
+<a name="toc-Index-1" href="#Index">9 Index</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Concept-Index" href="#Concept-Index">9.1 Concept Index</a></li>
+    <li><a name="toc-Function-and-Variable-Index" href="#Function-and-Variable-Index">9.2 Function and Variable Index</a></li>
+  </ul>
 </li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">Emacs SMTP Library</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#How-Mail-Works" accesskey="n" rel="next">How Mail Works</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Emacs-SMTP-Library"></a>
+<h1 class="top">Emacs SMTP Library</h1>
 
 <p>Copyright © 2003–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual”,
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#How-Mail-Works">How Mail Works</a>:       Brief introduction to mail concepts. 
-</li>
-<li>
-<a accesskey="2" href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>:    How to use the SMTP library in Emacs. 
-</li>
-<li>
-<a accesskey="3" href="#Authentication">Authentication</a>:       Authenticating yourself to the server. 
-</li>
-<li>
-<a accesskey="4" href="#Encryption">Encryption</a>:           Protecting your connection to the server. 
-</li>
-<li>
-<a accesskey="5" href="#Queued-delivery">Queued delivery</a>:      Sending mail without an internet connection. 
-</li>
-<li>
-<a accesskey="6" href="#Server-workarounds">Server workarounds</a>:   Mail servers with special requirements. 
-</li>
-<li>
-<a accesskey="7" href="#Debugging">Debugging</a>:            Tracking down problems. 
-</li>
-<li>
-<a accesskey="8" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation.
 
-</li>
-</ul>
-<p>Indices
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#How-Mail-Works" accesskey="1">How Mail Works</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Brief introduction to mail concepts.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Emacs-Speaks-SMTP" accesskey="2">Emacs Speaks SMTP</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to use the SMTP library in Emacs.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Authentication" accesskey="3">Authentication</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Authenticating yourself to the server.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Encryption" accesskey="4">Encryption</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Protecting your connection to the server.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Queued-delivery" accesskey="5">Queued delivery</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Sending mail without an internet connection.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Server-workarounds" accesskey="6">Server workarounds</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Mail servers with special requirements.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Debugging" accesskey="7">Debugging</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Tracking down problems.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="8">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</p>
-<ul class="menu">
-<li>
-<a accesskey="9" href="#Index">Index</a>:                Index over variables and functions. 
-</li>
-</ul>
+Indices
 
-<div class="node"><a name="How-Mail-Works"></a></div>
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index" accesskey="9">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Index over variables and functions.
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="How-Mail-Works"></a>
+<div class="header">
+<p>
+Next: <a href="#Emacs-Speaks-SMTP" accesskey="n" rel="next">Emacs Speaks SMTP</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="How-Mail-Works-1"></a>
 <h2 class="chapter">1 How Mail Works</h2>
 
-<p><a name="index-SMTP-1"></a><a name="index-MTA-2"></a>   On the internet, mail is sent from mail host to mail host using the
+<a name="index-SMTP"></a>
+<a name="index-MTA"></a>
+<p>On the internet, mail is sent from mail host to mail host using the
 simple mail transfer protocol (SMTP).  To send and receive mail, you
 must get it from and send it to a mail host.  Every mail host runs a
 mail transfer agent (MTA) such as Exim that accepts mails and passes
 them on.  The communication between a mail host and other clients does
 not necessarily involve SMTP, however.  Here is short overview of what
 is involved.
-
-   </p>
-<p><a name="index-MUA-3"></a>   The mail program—also called a mail user agent (MUA)—usually
+</p>
+<a name="index-MUA"></a>
+<p>The mail program—also called a mail user agent (MUA)—usually
 sends outgoing mail to a mail host.  When your computer is
 permanently connected to the internet, it might even be a mail host
 itself.  In this case, the MUA will pipe mail to the
-<samp><span class="file">/usr/lib/sendmail</span></samp> application.  It will take care of your mail
+<samp>/usr/lib/sendmail</samp> application.  It will take care of your mail
 and pass it on to the next mail host.
-
-   </p>
-<p><a name="index-ISP-4"></a>   When you are only connected to the internet from time to time, your
+</p>
+<a name="index-ISP"></a>
+<p>When you are only connected to the internet from time to time, your
 internet service provider (ISP) has probably told you which mail host
 to use.  You must configure your MUA to use that mail host.  Since you
 are reading this manual, you probably want to configure Emacs to use
 SMTP to send mail to that mail host.  More on that in the next
 section.
-
-   </p>
-<p><a name="index-MDA-5"></a>   Things are different when reading mail.  The mail host responsible
+</p>
+<a name="index-MDA"></a>
+<p>Things are different when reading mail.  The mail host responsible
 for your mail keeps it in a file somewhere.  The messages get into the
 file by way of a mail delivery agent (MDA) such as procmail.  These
 delivery agents often allow you to filter and munge your mails before
 you get to see it.  When your computer is that mail host, this file is
 called a spool, and sometimes located in the directory
-<samp><span class="file">/var/spool/mail/</span></samp>.  All your MUA has to do is read mail from the
+<samp>/var/spool/mail/</samp>.  All your MUA has to do is read mail from the
 spool, then.
-
-   </p>
-<p><a name="index-POP3-6"></a><a name="index-IMAP-7"></a>   When your computer is not always connected to the internet, you
+</p>
+<a name="index-POP3"></a>
+<a name="index-IMAP"></a>
+<p>When your computer is not always connected to the internet, you
 must get the mail from the remote mail host using a protocol such as
 POP3 or IMAP.  POP3 essentially downloads all your mail from the mail
 host to your computer.  The mail is stored in some file on your
 computer, and again, all your MUA has to do is read mail from the
 spool.
-
-   </p>
+</p>
 <p>When you read mail from various machines, downloading mail from the
 mail host to your current machine is not convenient.  In that case,
 you will probably want to use the IMAP protocol.  Your mail is kept on
 the mail host, and you can read it while you are connected via IMAP to
 the mail host.
-
-   </p>
-<p><a name="index-Webmail-8"></a>   So how does reading mail via the web work, you ask.  In that case,
+</p>
+<a name="index-Webmail"></a>
+<p>So how does reading mail via the web work, you ask.  In that case,
 the web interface just allows you to remote-control a MUA on the web
 host.  Whether the web host is also a mail host, and how all the
 pieces interact is completely irrelevant.  You usually cannot use
 Emacs to read mail via the web, unless you use software that parses
 the ever-changing HTML of the web interface.
-
 </p>
-<div class="node"><a name="Emacs-Speaks-SMTP"></a></div>
-
+<hr>
+<a name="Emacs-Speaks-SMTP"></a>
+<div class="header">
+<p>
+Next: <a href="#Authentication" accesskey="n" rel="next">Authentication</a>, Previous: <a href="#How-Mail-Works" accesskey="p" rel="prev">How Mail Works</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Emacs-Speaks-SMTP-1"></a>
 <h2 class="chapter">2 Emacs Speaks SMTP</h2>
 
 <p>Emacs includes a package for sending your mail to a SMTP server and
 have it take care of delivering it to the final destination, rather
 than letting the MTA on your local system take care of it.  This can
-be useful if you don't have a MTA set up on your host, or if your
+be useful if you don’t have a MTA set up on your host, or if your
 machine is often disconnected from the internet.
-
-   </p>
+</p>
 <p>Sending mail via SMTP requires configuring your mail user agent
-(see <a href="emacs.html#Mail-Methods">Mail Methods</a>) to use the SMTP library.  If you
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Mail-Methods">(emacs)Mail Methods</a>) to use the SMTP library.  If you
 have not configured anything, then in Emacs 24.1 and later the first
 time you try to send a mail Emacs will ask how you want to send
-mail.  To use this library, answer `<samp><span class="samp">smtp</span></samp>' when prompted.  Emacs
+mail.  To use this library, answer ‘<samp>smtp</samp>’ when prompted.  Emacs
 then asks for the name of the SMTP server.
-
-   </p>
+</p>
 <p>If you prefer, or if you are using a non-standard mail user agent,
 you can configure this yourself.  The normal way to do this is to set
-the variable <code>send-mail-function</code> (see <a href="emacs.html#Mail-Sending">Mail Sending</a>) to the value you want to use.  To use this library:
-
+the variable <code>send-mail-function</code> (see <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Mail-Sending">(emacs)Mail
+Sending</a>) to the value you want to use.  To use this library:
 </p>
-<pre class="smallexample">     (setq send-mail-function 'smtpmail-send-it)
+<div class="smallexample">
+<pre class="smallexample">(setq send-mail-function 'smtpmail-send-it)
 </pre>
-   <p class="noindent">The default value for this variable is <code>sendmail-query-once</code>,
-which interactively asks how you want to send mail.
+</div>
 
-   </p>
-<p>Your mail user agent might use a different variable for this purpose. 
+<p>The default value for this variable is <code>sendmail-query-once</code>,
+which interactively asks how you want to send mail.
+</p>
+<p>Your mail user agent might use a different variable for this purpose.
 It should inherit from <code>send-mail-function</code>, but if it does not,
 or if you prefer, you can set that variable directly.  Consult your
-mail user agent's documentation for more details.  For example,
-(see <a href="message.html#Mail-Variables">Mail Variables</a>).
-
-   </p>
+mail user agent’s documentation for more details.  For example,
+(see <a href="http://www.gnu.org/software/emacs/manual/html_mono/message.html#Mail-Variables">(message)Mail Variables</a>).
+</p>
 <p>Before using SMTP you must find out the hostname of the SMTP server
 to use.  Your system administrator or mail service provider should
 supply this information.  Often it is some variant of the server you
 receive mail from.  If your email address is
-`<samp><span class="samp">yourname@example.com</span></samp>', then the name of the SMTP server is
-may be something like `<samp><span class="samp">smtp.example.com</span></samp>'.
-
-     </p>
-<dl>
+‘<samp>yourname@example.com</samp>’, then the name of the SMTP server is
+may be something like ‘<samp>smtp.example.com</samp>’.
+</p>
+<dl compact>
 <dt><code>smtpmail-smtp-server</code></dt>
 <dd>
-<a name="index-smtpmail_002dsmtp_002dserver-9"></a><a name="index-SMTPSERVER-10"></a>  The variable <code>smtpmail-smtp-server</code> controls the hostname of
+<a name="index-smtpmail_002dsmtp_002dserver"></a>
+<a name="index-SMTPSERVER"></a>
+<p>The variable <code>smtpmail-smtp-server</code> controls the hostname of
 the server to use.  It is a string with an IP address or hostname.  It
-defaults to the contents of the <samp><span class="env">SMTPSERVER</span></samp> environment
+defaults to the contents of the <code>SMTPSERVER</code> environment
 variable, or, if empty, the contents of
 <code>smtpmail-default-smtp-server</code>.
-
-     <br>
+</p>
 </dd>
 <dt><code>smtpmail-default-smtp-server</code></dt>
 <dd>
-<a name="index-smtpmail_002ddefault_002dsmtp_002dserver-11"></a>  The variable <code>smtpmail-default-smtp-server</code> controls the
+<a name="index-smtpmail_002ddefault_002dsmtp_002dserver"></a>
+<p>The variable <code>smtpmail-default-smtp-server</code> controls the
 default hostname of the server to use.  It is a string with an IP
 address or hostname.  It must be set before the SMTP library is
 loaded.  It has no effect if set after the SMTP library has been
 loaded, or if <code>smtpmail-smtp-server</code> is defined.  It is usually
-set by system administrators in a site wide initialization file. 
+set by system administrators in a site wide initialization file.
+</p>
 </dd>
 </dl>
 
-   <p>The following example illustrates what you could put in
-<samp><span class="file">~/.emacs</span></samp> to set the SMTP server name.
-
+<p>The following example illustrates what you could put in
+<samp>~/.emacs</samp> to set the SMTP server name.
 </p>
-<pre class="example">     ;; Send mail using SMTP via mail.example.org.
-     (setq smtpmail-smtp-server "mail.example.org")
+<div class="example">
+<pre class="example">;; Send mail using SMTP via mail.example.org.
+(setq smtpmail-smtp-server "mail.example.org")
 </pre>
-   <p><a name="index-Mail-Submission-12"></a>SMTP is normally used on the registered “smtp” TCP service port 25. 
+</div>
+
+<a name="index-Mail-Submission"></a>
+<p>SMTP is normally used on the registered “smtp” TCP service port 25.
 Some environments use SMTP in “Mail Submission” mode, which uses
 port 587.  Using other ports is not uncommon, either for security by
 obscurity purposes, port forwarding, or otherwise.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>smtpmail-smtp-service</code></dt>
 <dd>
-<a name="index-smtpmail_002dsmtp_002dservice-13"></a>  The variable <code>smtpmail-smtp-service</code> controls the port on the
+<a name="index-smtpmail_002dsmtp_002dservice"></a>
+<p>The variable <code>smtpmail-smtp-service</code> controls the port on the
 server to contact.  It is either a string, in which case it will be
-translated into an integer using system calls, or an integer. 
+translated into an integer using system calls, or an integer.
+</p>
 </dd>
 </dl>
 
-   <p>The following example illustrates what you could put in
-<samp><span class="file">~/.emacs</span></samp> to set the SMTP service port.
-
+<p>The following example illustrates what you could put in
+<samp>~/.emacs</samp> to set the SMTP service port.
 </p>
-<pre class="example">     ;; Send mail using SMTP on the mail submission port 587.
-     (setq smtpmail-smtp-service 587)
+<div class="example">
+<pre class="example">;; Send mail using SMTP on the mail submission port 587.
+(setq smtpmail-smtp-service 587)
 </pre>
-   <div class="node"><a name="Authentication"></a></div>
+</div>
 
+<hr>
+<a name="Authentication"></a>
+<div class="header">
+<p>
+Next: <a href="#Encryption" accesskey="n" rel="next">Encryption</a>, Previous: <a href="#Emacs-Speaks-SMTP" accesskey="p" rel="prev">Emacs Speaks SMTP</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Authentication-1"></a>
 <h2 class="chapter">3 Authentication</h2>
 
-<p><a name="index-password-14"></a><a name="index-user-name-15"></a>Most SMTP servers require clients to authenticate themselves before
+<a name="index-password"></a>
+<a name="index-user-name"></a>
+<p>Most SMTP servers require clients to authenticate themselves before
 they are allowed to send mail.  Authentication usually involves
 supplying a user name and password.
-
-   </p>
+</p>
 <p>If you have not configured anything, then the first time you try to
 send mail via a server, Emacs (version 24.1 and later) prompts you
 for the user name and password to use, and then offers to save the
 information.  By default, Emacs stores authentication information in
-a file <samp><span class="file">~/.authinfo</span></samp>.
-
-   </p>
-<p><a name="index-authinfo-16"></a>The basic format of the <samp><span class="file">~/.authinfo</span></samp> file is one line for each
+a file <samp>~/.authinfo</samp>.
+</p>
+<a name="index-authinfo"></a>
+<p>The basic format of the <samp>~/.authinfo</samp> file is one line for each
 set of credentials.  Each line consists of pairs of variables and
 values.  A simple example would be:
-
 </p>
-<pre class="smallexample">     machine mail.example.org port 25 login myuser password mypassword
+<div class="smallexample">
+<pre class="smallexample">machine mail.example.org port 25 login myuser password mypassword
 </pre>
-   <p class="noindent">This specifies that when using the SMTP server called `<samp><span class="samp">mail.example.org</span></samp>'
-on port 25, Emacs should send the user name `<samp><span class="samp">myuser</span></samp>' and the
-password `<samp><span class="samp">mypassword</span></samp>'.  Either or both of the login and password
+</div>
+
+<p>This specifies that when using the SMTP server called ‘<samp>mail.example.org</samp>’
+on port 25, Emacs should send the user name ‘<samp>myuser</samp>’ and the
+password ‘<samp>mypassword</samp>’.  Either or both of the login and password
 fields may be absent, in which case Emacs prompts for the information
 when you try to send mail.  (This replaces the old
 <code>smtpmail-auth-credentials</code> variable used prior to Emacs 24.1.)
-
-   </p>
-<p><a name="index-smtpmail_002dsmtp_002duser-17"></a>  When the SMTP library connects to a host on a certain port, it
-searches the <samp><span class="file">~/.authinfo</span></samp> file for a matching entry.  If an
+</p>
+<a name="index-smtpmail_002dsmtp_002duser"></a>
+<p>When the SMTP library connects to a host on a certain port, it
+searches the <samp>~/.authinfo</samp> file for a matching entry.  If an
 entry is found, the authentication process is invoked and the
 credentials are used.  If the variable <code>smtpmail-smtp-user</code> is
 set to a non-<code>nil</code> value, then only entries for that user are
-considered.  For more information on the <samp><span class="file">~/.authinfo</span></samp>
-file, see <a href="auth.html#Top">auth-source</a>.
-
-   </p>
-<p><a name="index-SASL-18"></a><a name="index-CRAM_002dMD5-19"></a><a name="index-PLAIN-20"></a><a name="index-LOGIN-21"></a>The process by which the SMTP library authenticates you to the server
-is known as “Simple Authentication and Security Layer” (SASL). 
+considered.  For more information on the <samp>~/.authinfo</samp>
+file, see <a href="auth.html#Top">auth-source</a> in <cite>Emacs auth-source Library</cite>.
+</p>
+<a name="index-SASL"></a>
+<a name="index-CRAM_002dMD5"></a>
+<a name="index-PLAIN"></a>
+<a name="index-LOGIN"></a>
+<p>The process by which the SMTP library authenticates you to the server
+is known as “Simple Authentication and Security Layer” (SASL).
 There are various SASL mechanisms, and this library supports three of
 them: CRAM-MD5, PLAIN, and LOGIN.  It tries each of them, in that order,
 until one succeeds.  The first uses a form of encryption to obscure
 your password, while the other two do not.
-
 </p>
-<div class="node"><a name="Encryption"></a></div>
 
+<hr>
+<a name="Encryption"></a>
+<div class="header">
+<p>
+Next: <a href="#Queued-delivery" accesskey="n" rel="next">Queued delivery</a>, Previous: <a href="#Authentication" accesskey="p" rel="prev">Authentication</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Encryption-1"></a>
 <h2 class="chapter">4 Encryption</h2>
 
-<p><a name="index-STARTTLS-22"></a><a name="index-TLS-23"></a><a name="index-SSL-24"></a>For greater security, you can encrypt your connection to the SMTP
+<a name="index-STARTTLS"></a>
+<a name="index-TLS"></a>
+<a name="index-SSL"></a>
+<p>For greater security, you can encrypt your connection to the SMTP
 server.  If this is to work, both Emacs and the server must support it.
-
-   </p>
+</p>
 <p>The SMTP library supports the “Transport Layer Security” (TLS), and
-the older “Secure Sockets Layer” (SSL) encryption mechanisms. 
+the older “Secure Sockets Layer” (SSL) encryption mechanisms.
 It also supports STARTTLS, which is a variant of TLS in which the
 initial connection to the server is made in plain text, requesting a
 switch to an encrypted channel for the rest of the process.
-
-   </p>
-<p><a name="index-smtpmail_002dstream_002dtype-25"></a>The variable <code>smtpmail-stream-type</code> controls what form of
+</p>
+<a name="index-smtpmail_002dstream_002dtype"></a>
+<p>The variable <code>smtpmail-stream-type</code> controls what form of
 connection the SMTP library uses.  The default value is <code>nil</code>,
 which means to use a plain connection, but try to switch to a STARTTLS
 encrypted connection if the server supports it.  Other possible values
 are: <code>starttls</code> to insist on STARTTLS; <code>ssl</code> to use TLS/SSL;
 and <code>plain</code> for no encryption.
-
-   </p>
+</p>
 <p>Use of any form of TLS/SSL requires support in Emacs.  You can either
 use the built-in support (in Emacs 24.1 and later), or the
-<samp><span class="file">starttls.el</span></samp> Lisp library.  The built-in support uses the GnuTLS
-<a rel="footnote" href="#fn-1" name="fnd-1"><sup>1</sup></a> library. 
+<samp>starttls.el</samp> Lisp library.  The built-in support uses the GnuTLS
+<a name="DOCF1" href="#FOOT1"><sup>1</sup></a> library.
 If your Emacs has GnuTLS support built-in, the function
-<code>gnutls-available-p</code> is defined and returns non-<code>nil</code>. 
-Otherwise, you must use the <samp><span class="file">starttls.el</span></samp> library (see that file for
+<code>gnutls-available-p</code> is defined and returns non-<code>nil</code>.
+Otherwise, you must use the <samp>starttls.el</samp> library (see that file for
 more information on customization options, etc.).  The Lisp library
 requires one of the following external tools to be installed:
-
-     </p>
-<ol type="1" start="1">
-<li>The GnuTLS command line tool `<samp><span class="samp">gnutls-cli</span></samp>', which you can get from
+</p>
+<ol>
+<li> The GnuTLS command line tool ‘<samp>gnutls-cli</samp>’, which you can get from
 <a href="http://www.gnu.org/software/gnutls/">http://www.gnu.org/software/gnutls/</a>.  This is the recommended
 tool, mainly because it can verify server certificates.
 
-     </li>
-<li>The `<samp><span class="samp">starttls</span></samp>' external program, which you can get from
-<samp><span class="file">starttls-*.tar.gz</span></samp> from <a href="ftp://ftp.opaopa.org/pub/elisp/">ftp://ftp.opaopa.org/pub/elisp/</a>.
-        </li>
+</li>
+<li> The ‘<samp>starttls</samp>’ external program, which you can get from
+<samp>starttls-*.tar.gz</samp> from <a href="ftp://ftp.opaopa.org/pub/elisp/">ftp://ftp.opaopa.org/pub/elisp/</a>.
+</li>
 </ol>
 
-   <p><a name="index-certificates-26"></a><a name="index-keys-27"></a>The SMTP server may also request that you verify your identity by
-sending a certificate and the associated encryption key to the server. 
-If you need to do this, you can use an <samp><span class="file">~/.authinfo</span></samp> entry like this:
-
+<a name="index-certificates"></a>
+<a name="index-keys"></a>
+<p>The SMTP server may also request that you verify your identity by
+sending a certificate and the associated encryption key to the server.
+If you need to do this, you can use an <samp>~/.authinfo</samp> entry like this:
 </p>
-<pre class="smallexample">     machine mail.example.org port 25 key "~/.my_smtp_tls.key" cert "~/.my_smtp_tls.cert"
+<div class="smallexample">
+<pre class="smallexample">machine mail.example.org port 25 key "~/.my_smtp_tls.key" cert "~/.my_smtp_tls.cert"
 </pre>
-   <p class="noindent">(This replaces the old <code>smtpmail-starttls-credentials</code> variable used
+</div>
+
+<p>(This replaces the old <code>smtpmail-starttls-credentials</code> variable used
 prior to Emacs 24.1.)
-
 </p>
-<div class="node"><a name="Queued-delivery"></a></div>
 
+<hr>
+<a name="Queued-delivery"></a>
+<div class="header">
+<p>
+Next: <a href="#Server-workarounds" accesskey="n" rel="next">Server workarounds</a>, Previous: <a href="#Encryption" accesskey="p" rel="prev">Encryption</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Queued-delivery-1"></a>
 <h2 class="chapter">5 Queued delivery</h2>
 
-<p><a name="index-Dialup-connection-28"></a>If you connect to the internet via a dialup connection, or for some
-other reason don't have permanent internet connection, sending mail
+<a name="index-Dialup-connection"></a>
+<p>If you connect to the internet via a dialup connection, or for some
+other reason don’t have permanent internet connection, sending mail
 will fail when you are not connected.  The SMTP library implements
 queued delivery, and the following variable control its behavior.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>smtpmail-queue-mail</code></dt>
 <dd>
-<a name="index-smtpmail_002dqueue_002dmail-29"></a>  The variable <code>smtpmail-queue-mail</code> controls whether a simple
+<a name="index-smtpmail_002dqueue_002dmail"></a>
+<p>The variable <code>smtpmail-queue-mail</code> controls whether a simple
 off line mail sender is active.  This variable is a boolean, and
 defaults to <code>nil</code> (disabled).  If this is non-<code>nil</code>, mail is
 not sent immediately but rather queued in the directory
 <code>smtpmail-queue-dir</code> and can be later sent manually by invoking
 <code>smtpmail-send-queued-mail</code> (typically when you connect to the
 internet).
-
-     <br>
+</p>
 </dd>
 <dt><code>smtpmail-queue-dir</code></dt>
 <dd>
-<a name="index-smtpmail_002dqueue_002ddir-30"></a>  The variable <code>smtpmail-queue-dir</code> specifies the name of the
+<a name="index-smtpmail_002dqueue_002ddir"></a>
+<p>The variable <code>smtpmail-queue-dir</code> specifies the name of the
 directory to hold queued messages.  It defaults to
-<samp><span class="file">~/Mail/queued-mail/</span></samp>. 
+<samp>~/Mail/queued-mail/</samp>.
+</p>
 </dd>
 </dl>
 
-   <p><a name="index-smtpmail_002dsend_002dqueued_002dmail-31"></a>  The function <code>smtpmail-send-queued-mail</code> can be used to send
+<a name="index-smtpmail_002dsend_002dqueued_002dmail"></a>
+<p>The function <code>smtpmail-send-queued-mail</code> can be used to send
 any queued mail when <code>smtpmail-queue-mail</code> is enabled.  It is
 typically invoked interactively with <kbd>M-x
 smtpmail-send-queued-mail RET</kbd> when you are connected to the internet.
-
 </p>
-<div class="node"><a name="Server-workarounds"></a></div>
-
+<hr>
+<a name="Server-workarounds"></a>
+<div class="header">
+<p>
+Next: <a href="#Debugging" accesskey="n" rel="next">Debugging</a>, Previous: <a href="#Queued-delivery" accesskey="p" rel="prev">Queued delivery</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Server-workarounds-1"></a>
 <h2 class="chapter">6 Server workarounds</h2>
 
 <p>Some SMTP servers have special requirements.  The following variables
 implement support for common requirements.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>smtpmail-local-domain</code></dt>
 <dd>
-<a name="index-smtpmail_002dlocal_002ddomain-32"></a>  The variable <code>smtpmail-local-domain</code> controls the hostname sent
-in the first <code>EHLO</code> or <code>HELO</code> command sent to the server. 
+<a name="index-smtpmail_002dlocal_002ddomain"></a>
+<p>The variable <code>smtpmail-local-domain</code> controls the hostname sent
+in the first <code>EHLO</code> or <code>HELO</code> command sent to the server.
 It should be set only if the <code>system-name</code> function returns a
-name that isn't accepted by the server.  Do not set this variable
+name that isn’t accepted by the server.  Do not set this variable
 unless your server complains.
-
-     <br>
+</p>
 </dd>
 <dt><code>smtpmail-sendto-domain</code></dt>
 <dd>
-<a name="index-smtpmail_002dsendto_002ddomain-33"></a>  The variable <code>smtpmail-sendto-domain</code> makes the SMTP library
-add `<samp><span class="samp">@</span></samp>' and the specified value to recipients specified in the
+<a name="index-smtpmail_002dsendto_002ddomain"></a>
+<p>The variable <code>smtpmail-sendto-domain</code> makes the SMTP library
+add ‘<samp>@</samp>’ and the specified value to recipients specified in the
 message when they are sent using the <code>RCPT TO</code> command.  Some
-configurations of sendmail requires this behavior.  Don't bother to
+configurations of sendmail requires this behavior.  Don’t bother to
 set this unless you have get an error like:
+</p>
+<div class="example">
+<pre class="example">        Sending failed; SMTP protocol error
+</pre>
+</div>
 
-     <pre class="example">                  Sending failed; SMTP protocol error
-     </pre>
-     <p>when sending mail, and the debug buffer (see <a href="#Debugging">Debugging</a>)) contains
+<p>when sending mail, and the debug buffer (see <a href="#Debugging">Debugging</a>)) contains
 an error such as:
+</p>
+<div class="example">
+<pre class="example">        RCPT TO: <var>someone</var>
+        501 <var>someone</var>: recipient address must contain a domain
+</pre>
+</div>
 
-     </p>
-<pre class="example">                  RCPT TO: <var>someone</var>
-                  501 <var>someone</var>: recipient address must contain a domain
-     </pre>
-     </dd>
+</dd>
 </dl>
 
-<div class="node"><a name="Debugging"></a></div>
 
+<hr>
+<a name="Debugging"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Server-workarounds" accesskey="p" rel="prev">Server workarounds</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Debugging-1"></a>
 <h2 class="chapter">7 Debugging</h2>
 
 <p>Sometimes delivery fails, often with the generic error message
-`<samp><span class="samp">Sending failed; SMTP protocol error</span></samp>'.  Enabling one or both of
+‘<samp>Sending failed; SMTP protocol error</samp>’.  Enabling one or both of
 the following variables and inspecting a trace buffer will often give
 clues to the reason for the error.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>smtpmail-debug-info</code></dt>
 <dd>
-<a name="index-smtpmail_002ddebug_002dinfo-34"></a>  The variable <code>smtpmail-debug-info</code> controls whether to print
+<a name="index-smtpmail_002ddebug_002dinfo"></a>
+<p>The variable <code>smtpmail-debug-info</code> controls whether to print
 the SMTP protocol exchange in the minibuffer, and retain the entire
-exchange in a buffer <samp><span class="file">*trace of SMTP session to </span><var>server</var><span class="file">*</span></samp>,
+exchange in a buffer <samp>*trace of SMTP session to <var>server</var>*</samp>,
 where <var>server</var> is the name of the mail server to which you send
 mail.
-
-     <br>
+</p>
 </dd>
 <dt><code>smtpmail-debug-verb</code></dt>
 <dd>
-<a name="index-smtpmail_002ddebug_002dverb-35"></a>  The variable <code>smtpmail-debug-verb</code> controls whether to send the
+<a name="index-smtpmail_002ddebug_002dverb"></a>
+<p>The variable <code>smtpmail-debug-verb</code> controls whether to send the
 <code>VERB</code> token to the server.  The <code>VERB</code> server instructs the
 server to be more verbose, and often also to attempt final delivery
 while your SMTP session is still running.  It is usually only useful
 together with <code>smtpmail-debug-info</code>.  Note that this may cause
 mail delivery to take considerable time if the final destination
 cannot accept mail.
-
-   </dd>
+</p>
+</dd>
 </dl>
 
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Debugging" accesskey="p" rel="prev">Debugging</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="chapter">8 GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -550,12 +648,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -564,16 +661,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -581,8 +676,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -590,14 +684,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -607,11 +699,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -624,20 +715,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -645,20 +733,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -667,104 +753,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -772,54 +851,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -829,84 +906,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -917,57 +985,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -976,213 +1037,536 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Index"></a></div>
 
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="chapter">9 Index</h2>
 
+<a name="Concept-Index"></a>
 <h3 class="section">9.1 Concept Index</h3>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-authinfo-16">authinfo</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-certificates-26">certificates</a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-CRAM_002dMD5-19">CRAM-MD5</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-Dialup-connection-28">Dialup connection</a>: <a href="#Queued-delivery">Queued delivery</a>
-</li>
-<li>
-<a href="#index-IMAP-7">IMAP</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-ISP-4">ISP</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-keys-27">keys</a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-LOGIN-21">LOGIN</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-Mail-Submission-12">Mail Submission</a>: <a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>
-</li>
-<li>
-<a href="#index-MDA-5">MDA</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-MTA-2">MTA</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-MUA-3">MUA</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-password-14">password</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-PLAIN-20">PLAIN</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-POP3-6">POP3</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-SASL-18">SASL</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-SMTP-1">SMTP</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-<li>
-<a href="#index-SSL-24">SSL</a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-STARTTLS-22">STARTTLS</a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-TLS-23">TLS</a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-user-name-15">user name</a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-Webmail-8">Webmail</a>: <a href="#How-Mail-Works">How Mail Works</a>
-</li>
-   </ul>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-authinfo">authinfo</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-certificates">certificates</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-CRAM_002dMD5">CRAM-MD5</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Dialup-connection">Dialup connection</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Queued-delivery">Queued delivery</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-IMAP">IMAP</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ISP">ISP</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-K">K</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-keys">keys</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-LOGIN">LOGIN</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Mail-Submission">Mail Submission</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-MDA">MDA</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-MTA">MTA</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-MUA">MUA</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-password">password</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-PLAIN">PLAIN</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-POP3">POP3</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-SASL">SASL</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-SMTP">SMTP</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-SSL">SSL</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-STARTTLS">STARTTLS</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-TLS">TLS</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-user-name">user name</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Webmail">Webmail</a>:</td>
+<td> </td>
+<td valign="top"><a href="#How-Mail-Works">How Mail Works</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+
+<a name="Function-and-Variable-Index"></a>
 <h3 class="section">9.2 Function and Variable Index</h3>
 
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_fn_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
+<table class="index-fn" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_fn_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002ddebug_002dinfo"><code>smtpmail-debug-info</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Debugging">Debugging</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002ddebug_002dverb"><code>smtpmail-debug-verb</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Debugging">Debugging</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002ddefault_002dsmtp_002dserver"><code>smtpmail-default-smtp-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dlocal_002ddomain"><code>smtpmail-local-domain</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Server-workarounds">Server workarounds</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dqueue_002ddir"><code>smtpmail-queue-dir</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Queued-delivery">Queued delivery</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dqueue_002dmail"><code>smtpmail-queue-mail</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Queued-delivery">Queued delivery</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dsend_002dqueued_002dmail"><code>smtpmail-send-queued-mail</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Queued-delivery">Queued delivery</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dsendto_002ddomain"><code>smtpmail-sendto-domain</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Server-workarounds">Server workarounds</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dsmtp_002dserver"><code>smtpmail-smtp-server</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dsmtp_002dservice"><code>smtpmail-smtp-service</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dsmtp_002duser"><code>smtpmail-smtp-user</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Authentication">Authentication</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-smtpmail_002dstream_002dtype"><code>smtpmail-stream-type</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Encryption">Encryption</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-SMTPSERVER"><code>SMTPSERVER</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_fn_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
 
-
-<ul class="index-fn" compact>
-<li>
-<a href="#index-smtpmail_002ddebug_002dinfo-34"><code>smtpmail-debug-info</code></a>: <a href="#Debugging">Debugging</a>
-</li>
-<li>
-<a href="#index-smtpmail_002ddebug_002dverb-35"><code>smtpmail-debug-verb</code></a>: <a href="#Debugging">Debugging</a>
-</li>
-<li>
-<a href="#index-smtpmail_002ddefault_002dsmtp_002dserver-11"><code>smtpmail-default-smtp-server</code></a>: <a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dlocal_002ddomain-32"><code>smtpmail-local-domain</code></a>: <a href="#Server-workarounds">Server workarounds</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dqueue_002ddir-30"><code>smtpmail-queue-dir</code></a>: <a href="#Queued-delivery">Queued delivery</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dqueue_002dmail-29"><code>smtpmail-queue-mail</code></a>: <a href="#Queued-delivery">Queued delivery</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dsend_002dqueued_002dmail-31"><code>smtpmail-send-queued-mail</code></a>: <a href="#Queued-delivery">Queued delivery</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dsendto_002ddomain-33"><code>smtpmail-sendto-domain</code></a>: <a href="#Server-workarounds">Server workarounds</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dsmtp_002dserver-9"><code>smtpmail-smtp-server</code></a>: <a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dsmtp_002dservice-13"><code>smtpmail-smtp-service</code></a>: <a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dsmtp_002duser-17"><code>smtpmail-smtp-user</code></a>: <a href="#Authentication">Authentication</a>
-</li>
-<li>
-<a href="#index-smtpmail_002dstream_002dtype-25"><code>smtpmail-stream-type</code></a>: <a href="#Encryption">Encryption</a>
-</li>
-<li>
-<a href="#index-SMTPSERVER-10"><code>SMTPSERVER</code></a>: <a href="#Emacs-Speaks-SMTP">Emacs Speaks SMTP</a>
-</li>
-   </ul>
 <div class="footnote">
 <hr>
-<a name="texinfo-footnotes-in-document"></a><h4>Footnotes</h4>
-<p class="footnote"><small>[<a name="fn-1" href="#fnd-1">1</a>]</small> <a href="http://www.gnu.org/software/gnutls/">http://www.gnu.org/software/gnutls/</a></p>
+<h4 class="footnotes-heading">Footnotes</h4>
 
-   <p></p>
-<hr>
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p><a href="http://www.gnu.org/software/gnutls/">http://www.gnu.org/software/gnutls/</a></p>
 </div>
+<hr>
+
+
 
 </body>
 </html>

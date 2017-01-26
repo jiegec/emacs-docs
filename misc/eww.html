@@ -1,222 +1,298 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>Emacs Web Wowser</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="Emacs Web Wowser">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-This file documents the GNU Emacs Web Wowser (EWW) package.
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents the GNU Emacs Web Wowser (EWW) package.
 
 Copyright (C) 2014-2016 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual," and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License."
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License."
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Emacs Web Wowser</title>
+
+<meta name="description" content="Emacs Web Wowser">
+<meta name="keywords" content="Emacs Web Wowser">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Key-Index" rel="index" title="Key Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">Emacs Web Wowser</h1>
+
+<body lang="en">
+<h1 class="settitle" align="center">Emacs Web Wowser</h1>
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
 <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top">EWW</a>
-</li>
-<li>
-<a name="toc_Overview" href="#Overview">1 Overview</a>
-</li>
-<li>
-<a name="toc_Basics" href="#Basics">2 Basic Usage</a>
-</li>
-<li>
-<a name="toc_Advanced" href="#Advanced">3 Advanced</a>
-</li>
-<li>
-<a name="toc_History-and-Acknowledgments" href="#History-and-Acknowledgments">Appendix A History and Acknowledgments</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">2 GNU Free Documentation License</a>
-</li>
-<li>
-<a name="toc_Key-Index" href="#Key-Index">Key Index</a>
-</li>
-<li>
-<a name="toc_Variable-Index" href="#Variable-Index">Variable Index</a>
-</li>
-<li>
-<a name="toc_Lisp-Function-Index" href="#Lisp-Function-Index">Function Index</a>
-</li>
-<li>
-<a name="toc_Concept-Index" href="#Concept-Index">Concept Index</a>
-</li>
+
+<ul class="no-bullet">
+  <li><a name="toc-Overview-1" href="#Overview">1 Overview</a></li>
+  <li><a name="toc-Basic-Usage" href="#Basics">2 Basic Usage</a></li>
+  <li><a name="toc-Advanced-1" href="#Advanced">3 Advanced</a></li>
+  <li><a name="toc-History-and-Acknowledgments-1" href="#History-and-Acknowledgments">Appendix A History and Acknowledgments</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">B GNU Free Documentation License</a></li>
+  <li><a name="toc-Key-Index-1" href="#Key-Index">Key Index</a></li>
+  <li><a name="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
+  <li><a name="toc-Function-Index" href="#Lisp-Function-Index">Function Index</a></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
 </ul>
 </div>
 
 
-
-<div class="node"><a name="Top"></a></div>
-
-<h2 class="unnumbered">EWW</h2>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="EWW"></a>
+<h1 class="top">EWW</h1>
 
 <p>This file documents the GNU Emacs Web Wowser (EWW) package.
-
-   </p>
+</p>
 <p>Copyright © 2014–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License.”
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Overview">Overview</a>
-</li>
-<li>
-<a accesskey="2" href="#Basics">Basics</a>
-</li>
-<li>
-<a accesskey="3" href="#Advanced">Advanced</a>
 
-</li>
-</ul>
-<p>Appendices
-</p>
-<ul class="menu">
-<li>
-<a accesskey="4" href="#History-and-Acknowledgments">History and Acknowledgments</a>
-</li>
-<li>
-<a accesskey="5" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:   The license for this documentation.
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Overview" accesskey="1">Overview</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Basics" accesskey="2">Basics</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Advanced" accesskey="3">Advanced</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-</li>
-</ul>
-<p>Indices
-</p>
-<ul class="menu">
-<li>
-<a accesskey="6" href="#Key-Index">Key Index</a>
-</li>
-<li>
-<a accesskey="7" href="#Variable-Index">Variable Index</a>
-</li>
-<li>
-<a accesskey="8" href="#Lisp-Function-Index">Lisp Function Index</a>
-</li>
-<li>
-<a accesskey="9" href="#Concept-Index">Concept Index</a>
-</li>
-</ul>
+Appendices
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#History-and-Acknowledgments" accesskey="4">History and Acknowledgments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="5">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-<div class="node"><a name="Overview"></a></div>
+Indices
+</pre></th></tr>
+<tr>
+<td align="left" valign="top">• <a href="#Key-Index" accesskey="6">Key Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Variable-Index" accesskey="7">Variable Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Lisp-Function-Index" accesskey="8">Lisp Function Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Concept-Index" accesskey="9">Concept Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+<hr>
+<a name="Overview"></a>
+<div class="header">
+<p>
+Next: <a href="#Basics" accesskey="n" rel="next">Basics</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Overview-1"></a>
 <h2 class="chapter">1 Overview</h2>
-
-<p><dfn>EWW</dfn>, the Emacs Web Wowser, is a web browser for GNU Emacs.  It
-can load, parse, and display various web pages using <dfn>shr.el</dfn>. 
+<p><em>EWW</em>, the Emacs Web Wowser, is a web browser for GNU Emacs.  It
+can load, parse, and display various web pages using <em>shr.el</em>.
 However a GNU Emacs with <code>libxml2</code> support is required.
-
 </p>
-<div class="node"><a name="Basics"></a></div>
-
+<hr>
+<a name="Basics"></a>
+<div class="header">
+<p>
+Next: <a href="#Advanced" accesskey="n" rel="next">Advanced</a>, Previous: <a href="#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Basic-Usage"></a>
 <h2 class="chapter">2 Basic Usage</h2>
 
-<p><a name="index-eww-1"></a><a name="index-eww_002dopen_002dfile-2"></a><a name="index-eww_002dsearch_002dprefix-3"></a><a name="index-eww-4"></a><a name="index-Web-Browsing-5"></a>  You can open a URL or search the web with the command <kbd>M-x eww</kbd>. 
-If the input doesn't look like a URL or domain name the web will be
+<a name="index-eww-1"></a>
+<a name="index-eww_002dopen_002dfile"></a>
+<a name="index-eww_002dsearch_002dprefix"></a>
+<a name="index-eww"></a>
+<a name="index-Web-Browsing"></a>
+<p>You can open a URL or search the web with the command <kbd>M-x eww</kbd>.
+If the input doesn’t look like a URL or domain name the web will be
 searched via <code>eww-search-prefix</code>.  The default search engine is
 <a href="https://duckduckgo.com">DuckDuckGo</a>.  If you want to open a file
 either prefix the file name with <code>file://</code> or use the command
 <kbd>M-x eww-open-file</kbd>.
-
-   </p>
-<p><a name="index-eww_002dquit-6"></a><a name="index-eww_002dreload-7"></a><a name="index-eww_002dcopy_002dpage_002durl-8"></a><a name="index-q-9"></a><a name="index-w-10"></a><a name="index-g-11"></a>  If loading the URL was successful the buffer <samp><span class="file">*eww*</span></samp> is opened
+</p>
+<a name="index-eww_002dquit"></a>
+<a name="index-eww_002dreload"></a>
+<a name="index-eww_002dcopy_002dpage_002durl"></a>
+<a name="index-q"></a>
+<a name="index-w"></a>
+<a name="index-g"></a>
+<p>If loading the URL was successful the buffer <samp>*eww*</samp> is opened
 and the web page is rendered in it.  You can leave EWW by pressing
 <kbd>q</kbd> or exit the browser by calling <kbd>eww-quit</kbd>.  To reload the
 web page hit <kbd>g</kbd> (<code>eww-reload</code>).  Pressing <kbd>w</kbd>
 (<code>eww-copy-page-url</code>) will copy the current URL to the kill ring.
-
-   </p>
-<p><a name="index-eww_002dreadable-12"></a><a name="index-R-13"></a>  The <kbd>R</kbd> command (<code>eww-readable</code>) will attempt to determine
+</p>
+<a name="index-eww_002dreadable"></a>
+<a name="index-R"></a>
+<p>The <kbd>R</kbd> command (<code>eww-readable</code>) will attempt to determine
 which part of the document contains the “readable” text, and will
 only display this part.  This usually gets rid of menus and the like.
-
-   </p>
-<p><a name="index-eww_002dtoggle_002dfonts-14"></a><a name="index-shr_002duse_002dfonts-15"></a><a name="index-F-16"></a>  The <kbd>F</kbd> command (<code>eww-toggle-fonts</code>) toggles whether to use
+</p>
+<a name="index-eww_002dtoggle_002dfonts"></a>
+<a name="index-shr_002duse_002dfonts"></a>
+<a name="index-F"></a>
+<p>The <kbd>F</kbd> command (<code>eww-toggle-fonts</code>) toggles whether to use
 variable-pitch fonts or not.  This sets the <code>shr-use-fonts</code> variable.
-
-   </p>
-<p><a name="index-eww_002ddownload-17"></a><a name="index-eww_002ddownload_002ddirectory-18"></a><a name="index-d-19"></a><a name="index-Download-20"></a>  A URL under the point can be downloaded with <kbd>d</kbd>
+</p>
+<a name="index-eww_002ddownload"></a>
+<a name="index-eww_002ddownload_002ddirectory"></a>
+<a name="index-d"></a>
+<a name="index-Download"></a>
+<p>A URL under the point can be downloaded with <kbd>d</kbd>
 (<code>eww-download</code>).  The file will be written to the directory
-specified in <code>eww-download-directory</code> (Default: <samp><span class="file">~/Downloads/</span></samp>).
-
-   </p>
-<p><a name="index-eww_002dback_002durl-21"></a><a name="index-eww_002dforward_002durl-22"></a><a name="index-eww_002dlist_002dhistories-23"></a><a name="index-r-24"></a><a name="index-l-25"></a><a name="index-H-26"></a><a name="index-History-27"></a>  EWW remembers the URLs you have visited to allow you to go back and
+specified in <code>eww-download-directory</code> (Default: <samp>~/Downloads/</samp>).
+</p>
+<a name="index-eww_002dback_002durl"></a>
+<a name="index-eww_002dforward_002durl"></a>
+<a name="index-eww_002dlist_002dhistories"></a>
+<a name="index-r"></a>
+<a name="index-l"></a>
+<a name="index-H"></a>
+<a name="index-History"></a>
+<p>EWW remembers the URLs you have visited to allow you to go back and
 forth between them.  By pressing <kbd>l</kbd> (<code>eww-back-url</code>) you go
 to the previous URL.  You can go forward again with <kbd>r</kbd>
 (<code>eww-forward-url</code>).  If you want an overview of your browsing
 history press <kbd>H</kbd> (<code>eww-list-histories</code>) to open the history
-buffer <samp><span class="file">*eww history*</span></samp>.  The history is lost when EWW is quit. 
+buffer <samp>*eww history*</samp>.  The history is lost when EWW is quit.
 If you want to remember websites you can use bookmarks.
-
-   </p>
-<p><a name="index-eww_002dhistory_002dlimit-28"></a>  Along with the URLs visited, EWW also remembers both the rendered
+</p>
+<a name="index-eww_002dhistory_002dlimit"></a>
+<p>Along with the URLs visited, EWW also remembers both the rendered
 page (as it appears in the buffer) and its source.  This can take a
 considerable amount of memory, so EWW discards the history entries to
 keep their number within a set limit, as specified by
 <code>eww-history-limit</code>; the default being 50.  This variable could
 also be set to <code>nil</code> to allow for the history list to grow
 indefinitely.
-
-   </p>
-<p><a name="index-PDF-29"></a>  PDFs are viewed inline, by default, with <code>doc-view-mode</code>, but
-this can be customized by using the mailcap (see <a href="emacs-mime.html#mailcap">mailcap</a>)
+</p>
+<a name="index-PDF"></a>
+<p>PDFs are viewed inline, by default, with <code>doc-view-mode</code>, but
+this can be customized by using the mailcap (see <a href="emacs-mime.html#mailcap">mailcap</a> in <cite>Emacs MIME Manual</cite>)
 mechanism, in particular <code>mailcap-mime-data</code>.
-
-   </p>
-<p><a name="index-eww_002dadd_002dbookmark-30"></a><a name="index-eww_002dlist_002dbookmarks-31"></a><a name="index-b-32"></a><a name="index-B-33"></a><a name="index-Bookmarks-34"></a>  EWW allows you to <dfn>bookmark</dfn> URLs.  Simply hit <kbd>b</kbd>
-(<code>eww-add-bookmark</code>) to store a bookmark for the current website. 
+</p>
+<a name="index-eww_002dadd_002dbookmark"></a>
+<a name="index-eww_002dlist_002dbookmarks"></a>
+<a name="index-b"></a>
+<a name="index-B"></a>
+<a name="index-Bookmarks"></a>
+<p>EWW allows you to <em>bookmark</em> URLs.  Simply hit <kbd>b</kbd>
+(<code>eww-add-bookmark</code>) to store a bookmark for the current website.
 You can view stored bookmarks with <kbd>B</kbd>
 (<code>eww-list-bookmarks</code>).  This will open the bookmark buffer
-<samp><span class="file">*eww bookmarks*</span></samp>.
-
-   </p>
-<p><a name="index-eww_002dlist_002dbuffers-35"></a><a name="index-S-36"></a><a name="index-Multiple-Buffers-37"></a>  To get summary of currently opened EWW buffers, press <kbd>S</kbd>
-(<code>eww-list-buffers</code>).  The <samp><span class="file">*eww buffers*</span></samp> buffer allows you
+<samp>*eww bookmarks*</samp>.
+</p>
+<a name="index-eww_002dlist_002dbuffers"></a>
+<a name="index-S"></a>
+<a name="index-Multiple-Buffers"></a>
+<p>To get summary of currently opened EWW buffers, press <kbd>S</kbd>
+(<code>eww-list-buffers</code>).  The <samp>*eww buffers*</samp> buffer allows you
 to quickly kill, flip through and switch to specific EWW buffer.
-
-   </p>
-<p><a name="index-eww_002dbrowse_002dwith_002dexternal_002dbrowser-38"></a><a name="index-shr_002dexternal_002dbrowser-39"></a><a name="index-eww_002duse_002dexternal_002dbrowser_002dfor_002dcontent_002dtype-40"></a><a name="index-g_t_0026-41"></a><a name="index-External-Browser-42"></a>  Although EWW and shr.el do their best to render webpages in GNU
+</p>
+<a name="index-eww_002dbrowse_002dwith_002dexternal_002dbrowser"></a>
+<a name="index-shr_002dexternal_002dbrowser"></a>
+<a name="index-eww_002duse_002dexternal_002dbrowser_002dfor_002dcontent_002dtype"></a>
+<a name="index-_0026"></a>
+<a name="index-External-Browser"></a>
+<p>Although EWW and shr.el do their best to render webpages in GNU
 Emacs some websites use features which can not be properly represented
 or are not implemented (E.g., JavaScript).  If you have trouble
 viewing a website with EWW then hit <kbd>&amp;</kbd>
@@ -227,96 +303,107 @@ audio content, do not make sense to display in GNU Emacs at all.  You
 can tell EWW to open specific content automatically in an external
 browser by customizing
 <code>eww-use-external-browser-for-content-type</code>.
-
 </p>
-<div class="node"><a name="Advanced"></a></div>
-
+<hr>
+<a name="Advanced"></a>
+<div class="header">
+<p>
+Next: <a href="#History-and-Acknowledgments" accesskey="n" rel="next">History and Acknowledgments</a>, Previous: <a href="#Basics" accesskey="p" rel="prev">Basics</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Advanced-1"></a>
 <h2 class="chapter">3 Advanced</h2>
 
-<p><a name="index-eww_002dview_002dsource-43"></a><a name="index-v-44"></a><a name="index-Viewing-Source-45"></a>  You can view the source of a website with <kbd>v</kbd>
+<a name="index-eww_002dview_002dsource"></a>
+<a name="index-v"></a>
+<a name="index-Viewing-Source"></a>
+<p>You can view the source of a website with <kbd>v</kbd>
 (<code>eww-view-source</code>).  This will open a new buffer
-<samp><span class="file">*eww-source*</span></samp> and insert the source.  The buffer will be set to
+<samp>*eww-source*</samp> and insert the source.  The buffer will be set to
 <code>html-mode</code> if available.
-
-   </p>
-<p><a name="index-url_002dcookie_002dlist-46"></a><a name="index-C-47"></a><a name="index-Cookies-48"></a>  EWW handles cookies through the <a href="url.html#Top">url package</a>. 
-You can list existing cookies with <kbd>C</kbd> (<code>url-cookie-list</code>). 
-For details about the Cookie handling See <a href="url.html#Cookies">Cookies</a>.
-
-   </p>
-<p><a name="index-eww_002dheader_002dline_002dformat-49"></a><a name="index-Header-50"></a>  The header line of the EWW buffer can be changed by customizing
+</p>
+<a name="index-url_002dcookie_002dlist"></a>
+<a name="index-C"></a>
+<a name="index-Cookies"></a>
+<p>EWW handles cookies through the <a href="url.html#Top">(url)url package</a>.
+You can list existing cookies with <kbd>C</kbd> (<code>url-cookie-list</code>).
+For details about the Cookie handling See <a href="url.html#Cookies">(url)Cookies</a>.
+</p>
+<a name="index-eww_002dheader_002dline_002dformat"></a>
+<a name="index-Header"></a>
+<p>The header line of the EWW buffer can be changed by customizing
 <code>eww-header-line-format</code>.  The format replaces <code>%t</code> with the
 title of the website and <code>%u</code> with the URL.
-
-   </p>
-<p><a name="index-eww_002dtoggle_002dparagraph_002ddirection-51"></a><a name="index-paragraph-direction-52"></a>  The <kbd>D</kbd> command (<code>eww-toggle-paragraph-direction</code>) toggles
+</p>
+<a name="index-eww_002dtoggle_002dparagraph_002ddirection"></a>
+<a name="index-paragraph-direction"></a>
+<p>The <kbd>D</kbd> command (<code>eww-toggle-paragraph-direction</code>) toggles
 the paragraphs direction between left-to-right and right-to-left
 text.  This can be useful on web pages that display right-to-left test
-(like Arabic and Hebrew), but where the web pages don't explicitly
+(like Arabic and Hebrew), but where the web pages don’t explicitly
 state the directionality.
-
-<!-- @vindex shr-bullet -->
-<!-- @vindex shr-hr-line -->
-<!-- @vindex eww-form-checkbox-selected-symbol -->
-<!-- @vindex eww-form-checkbox-symbol -->
-<!-- EWW and the rendering engine shr.el use ASCII characters to -->
-<!-- represent some graphical elements, such as bullet points -->
-<!-- (@code{shr-bullet}), check boxes -->
-<!-- (@code{eww-form-checkbox-selected-symbol} and -->
-<!-- @code{eww-form-checkbox-symbol}), and horizontal rules -->
-<!-- @code{shr-hr-line}).  Depending on your fonts these characters can be -->
-<!-- replaced by Unicode glyphs to achieve better looking results. -->
 </p>
-<p><a name="index-shr_002dmax_002dimage_002dproportion-53"></a><a name="index-shr_002dblocked_002dimages-54"></a><a name="index-Image-Display-55"></a>  Loading random images from the web can be problematic due to their
+
+<a name="index-shr_002dmax_002dimage_002dproportion"></a>
+<a name="index-shr_002dblocked_002dimages"></a>
+<a name="index-Image-Display"></a>
+<p>Loading random images from the web can be problematic due to their
 size or content.  By customizing <code>shr-max-image-proportion</code> you
 can set the maximal image proportion in relation to the window they
 are displayed in.  E.g., 0.7 means an image is allowed to take up 70%
 of the width and height.  If Emacs supports image scaling (ImageMagick
 support required) then larger images are scaled down.  You can block
 specific images completely by customizing <code>shr-blocked-images</code>.
-
-   </p>
-<p><a name="index-shr_002dcolor_002dvisible_002ddistance_002dmin-56"></a><a name="index-shr_002dcolor_002dvisible_002dluminance_002dmin-57"></a><a name="index-Contrast-58"></a>  EWW (or rather its HTML renderer <code>shr</code>) uses the colors declared
+</p>
+<a name="index-shr_002dcolor_002dvisible_002ddistance_002dmin"></a>
+<a name="index-shr_002dcolor_002dvisible_002dluminance_002dmin"></a>
+<a name="index-Contrast"></a>
+<p>EWW (or rather its HTML renderer <code>shr</code>) uses the colors declared
 in the HTML page, but adjusts them if needed to keep a certain minimum
 contrast.  If that is still too low for you, you can customize the
 variables <code>shr-color-visible-distance-min</code> and
 <code>shr-color-visible-luminance-min</code> to get a better contrast.
-
-   </p>
-<p><a name="index-Desktop-Support-59"></a><a name="index-Saving-Sessions-60"></a>  In addition to maintaining the history at run-time, EWW will also
+</p>
+<a name="index-Desktop-Support"></a>
+<a name="index-Saving-Sessions"></a>
+<p>In addition to maintaining the history at run-time, EWW will also
 save the partial state of its buffers (the URIs and the titles of the
-pages visited) in the desktop file if one is used.  See <a href="emacs.html#Saving-Emacs-Sessions">Saving Emacs Sessions</a>.
-
-   </p>
-<p><a name="index-eww_002ddesktop_002dremove_002dduplicates-61"></a>  EWW history may sensibly contain multiple entries for the same page
+pages visited) in the desktop file if one is used.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Saving-Emacs-Sessions">Saving Emacs
+Sessions</a> in <cite>The GNU Emacs Manual</cite>.
+</p>
+<a name="index-eww_002ddesktop_002dremove_002dduplicates"></a>
+<p>EWW history may sensibly contain multiple entries for the same page
 URI.  At run-time, these entries may still have different associated
-point positions or the actual Web page contents. 
+point positions or the actual Web page contents.
 The latter, however, tend to be overly large to preserve in the
 desktop file, so they get omitted, thus rendering the respective
 entries entirely equivalent.  By default, such duplicate entries are
 not saved.  Setting <code>eww-desktop-remove-duplicates</code> to nil will
 force EWW to save them anyway.
-
-   </p>
-<p><a name="index-eww_002drestore_002ddesktop-62"></a>  Restoring EWW buffers' contents may prove to take too long to
+</p>
+<a name="index-eww_002drestore_002ddesktop"></a>
+<p>Restoring EWW buffers’ contents may prove to take too long to
 finish.  When the <code>eww-restore-desktop</code> variable is set to
 <code>nil</code> (the default), EWW will not try to reload the last visited
 Web page when the buffer is restored from the desktop file, thus
 allowing for faster Emacs start-up times.  When set to <code>t</code>,
 restoring the buffers will also initiate the reloading of such pages.
-
-   </p>
-<p><a name="index-eww_002drestore_002dreload_002dprompt-63"></a>  The EWW buffer restored from the desktop file but not yet reloaded
+</p>
+<a name="index-eww_002drestore_002dreload_002dprompt"></a>
+<p>The EWW buffer restored from the desktop file but not yet reloaded
 will contain a prompt, as specified by the
 <code>eww-restore-reload-prompt</code> variable.  The value of this variable
 will be passed through <code>substitute-command-keys</code> upon each use,
 thus allowing for the use of the usual substitutions, such as
 <code>\[eww-reload]</code> for the current key binding of the
 <code>eww-reload</code> command.
-
 </p>
-<div class="node"><a name="History-and-Acknowledgments"></a></div>
-
+<hr>
+<a name="History-and-Acknowledgments"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Advanced" accesskey="p" rel="prev">Advanced</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="History-and-Acknowledgments-1"></a>
 <h2 class="appendix">Appendix A History and Acknowledgments</h2>
 
 <p>EWW was originally written by Lars Ingebrigtsen, known for his work on
@@ -325,45 +412,46 @@ Gnus.  He started writing an Emacs HTML rendering library,
 browser front end and HTML form support.  Which resulted in EWW, the
 Emacs Web Wowser.  EWW was announced on 16 June 2013:
 <a href="http://lars.ingebrigtsen.no/2013/06/16/eww/">http://lars.ingebrigtsen.no/2013/06/16/eww/</a>.
-
-   </p>
+</p>
 <p>EWW was then moved from the Gnus repository to GNU Emacs and several
 developers started contributing to it as well.
-
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a href="#History-and-Acknowledgments" accesskey="p" rel="prev">History and Acknowledgments</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
+<h2 class="chapter">B GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<h2 class="chapter">2 GNU Free Documentation License</h2>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
-
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -371,12 +459,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -385,16 +472,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -402,8 +487,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -411,14 +495,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -428,11 +510,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -445,20 +526,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -466,20 +544,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -488,104 +564,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -593,54 +662,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -650,84 +717,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -738,57 +796,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -797,312 +848,979 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Key-Index"></a></div>
 
+<hr>
+<a name="Key-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Key-Index-1"></a>
 <h2 class="unnumbered">Key Index</h2>
 
-<ul class="index-ky" compact>
-<li>
-<a href="#index-g_t_0026-41"><code>&amp;</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-B-33"><code>B</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-b-32"><code>b</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-C-47"><code>C</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-d-19"><code>d</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-F-16"><code>F</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-g-11"><code>g</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-H-26"><code>H</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-l-25"><code>l</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-q-9"><code>q</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-r-24"><code>r</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-R-13"><code>R</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-S-36"><code>S</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-v-44"><code>v</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-w-10"><code>w</code></a>: <a href="#Basics">Basics</a>
-</li>
-   </ul>
-<div class="node"><a name="Variable-Index"></a></div>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Key-Index_ky_symbol-1"><b>&amp;</b></a>
+   
+<br>
+<a class="summary-letter" href="#Key-Index_ky_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+<table class="index-ky" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_symbol-1">&amp;</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0026"><code>&amp;</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-b"><code>b</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-B"><code>B</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C"><code>C</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-d"><code>d</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-F"><code>F</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-G">G</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-g"><code>g</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-H"><code>H</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-l"><code>l</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-Q">Q</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-q"><code>q</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-R"><code>R</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-r"><code>r</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-S"><code>S</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-V">V</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-v"><code>v</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Key-Index_ky_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-w"><code>w</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Key-Index_ky_symbol-1"><b>&amp;</b></a>
+   
+<br>
+<a class="summary-letter" href="#Key-Index_ky_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-Q"><b>Q</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Key-Index_ky_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
 
+<hr>
+<a name="Variable-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Lisp-Function-Index" accesskey="n" rel="next">Lisp Function Index</a>, Previous: <a href="#Key-Index" accesskey="p" rel="prev">Key Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variable-Index-1"></a>
 <h2 class="unnumbered">Variable Index</h2>
 
-<p><a name="index-eww_002dafter_002drender_002dhook-64"></a>After eww has rendered the data in the buffer,
+<a name="index-eww_002dafter_002drender_002dhook"></a>
+<p>After eww has rendered the data in the buffer,
 <code>eww-after-render-hook</code> is called.  It can be used to alter the
 contents, for instance.
-
-
-
 </p>
-<ul class="index-vr" compact>
-<li>
-<a href="#index-eww_002dafter_002drender_002dhook-64"><code>eww-after-render-hook</code></a>: <a href="#Variable-Index">Variable Index</a>
-</li>
-<li>
-<a href="#index-eww_002ddesktop_002dremove_002dduplicates-61"><code>eww-desktop-remove-duplicates</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-eww_002ddownload_002ddirectory-18"><code>eww-download-directory</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dheader_002dline_002dformat-49"><code>eww-header-line-format</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-eww_002dhistory_002dlimit-28"><code>eww-history-limit</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002drestore_002ddesktop-62"><code>eww-restore-desktop</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-eww_002drestore_002dreload_002dprompt-63"><code>eww-restore-reload-prompt</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-eww_002dsearch_002dprefix-3"><code>eww-search-prefix</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002duse_002dexternal_002dbrowser_002dfor_002dcontent_002dtype-40"><code>eww-use-external-browser-for-content-type</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-shr_002dblocked_002dimages-54"><code>shr-blocked-images</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-shr_002dcolor_002dvisible_002ddistance_002dmin-56"><code>shr-color-visible-distance-min</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-shr_002dcolor_002dvisible_002dluminance_002dmin-57"><code>shr-color-visible-luminance-min</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-shr_002dexternal_002dbrowser-39"><code>shr-external-browser</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-shr_002dmax_002dimage_002dproportion-53"><code>shr-max-image-proportion</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-   </ul>
-<div class="node"><a name="Lisp-Function-Index"></a></div>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
+<table class="index-vr" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dafter_002drender_002dhook"><code>eww-after-render-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Variable-Index">Variable Index</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002ddesktop_002dremove_002dduplicates"><code>eww-desktop-remove-duplicates</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002ddownload_002ddirectory"><code>eww-download-directory</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dheader_002dline_002dformat"><code>eww-header-line-format</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dhistory_002dlimit"><code>eww-history-limit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002drestore_002ddesktop"><code>eww-restore-desktop</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002drestore_002dreload_002dprompt"><code>eww-restore-reload-prompt</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dsearch_002dprefix"><code>eww-search-prefix</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002duse_002dexternal_002dbrowser_002dfor_002dcontent_002dtype"><code>eww-use-external-browser-for-content-type</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Variable-Index_vr_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002dblocked_002dimages"><code>shr-blocked-images</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002dcolor_002dvisible_002ddistance_002dmin"><code>shr-color-visible-distance-min</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002dcolor_002dvisible_002dluminance_002dmin"><code>shr-color-visible-luminance-min</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002dexternal_002dbrowser"><code>shr-external-browser</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002dmax_002dimage_002dproportion"><code>shr-max-image-proportion</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Variable-Index_vr_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Variable-Index_vr_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
 
+<hr>
+<a name="Lisp-Function-Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Function-Index"></a>
 <h2 class="unnumbered">Function Index</h2>
 
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-U"><b>U</b></a>
+   
+</td>
+</tr></table>
+<table class="index-fn" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Lisp-Function-Index_fn_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww-1"><code>eww</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dadd_002dbookmark"><code>eww-add-bookmark</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dback_002durl"><code>eww-back-url</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dbrowse_002dwith_002dexternal_002dbrowser"><code>eww-browse-with-external-browser</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dcopy_002dpage_002durl"><code>eww-copy-page-url</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002ddownload"><code>eww-download</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dforward_002durl"><code>eww-forward-url</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dlist_002dbookmarks"><code>eww-list-bookmarks</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dlist_002dbuffers"><code>eww-list-buffers</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dlist_002dhistories"><code>eww-list-histories</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dopen_002dfile"><code>eww-open-file</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dquit"><code>eww-quit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dreadable"><code>eww-readable</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dreload"><code>eww-reload</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dtoggle_002dfonts"><code>eww-toggle-fonts</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dtoggle_002dparagraph_002ddirection"><code>eww-toggle-paragraph-direction</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww_002dview_002dsource"><code>eww-view-source</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Lisp-Function-Index_fn_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-shr_002duse_002dfonts"><code>shr-use-fonts</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Lisp-Function-Index_fn_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-url_002dcookie_002dlist"><code>url-cookie-list</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Lisp-Function-Index_fn_letter-U"><b>U</b></a>
+   
+</td>
+</tr></table>
 
-
-<ul class="index-fn" compact>
-<li>
-<a href="#index-eww-1"><code>eww</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dadd_002dbookmark-30"><code>eww-add-bookmark</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dback_002durl-21"><code>eww-back-url</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dbrowse_002dwith_002dexternal_002dbrowser-38"><code>eww-browse-with-external-browser</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dcopy_002dpage_002durl-8"><code>eww-copy-page-url</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002ddownload-17"><code>eww-download</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dforward_002durl-22"><code>eww-forward-url</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dlist_002dbookmarks-31"><code>eww-list-bookmarks</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dlist_002dbuffers-35"><code>eww-list-buffers</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dlist_002dhistories-23"><code>eww-list-histories</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dopen_002dfile-2"><code>eww-open-file</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dquit-6"><code>eww-quit</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dreadable-12"><code>eww-readable</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dreload-7"><code>eww-reload</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dtoggle_002dfonts-14"><code>eww-toggle-fonts</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww_002dtoggle_002dparagraph_002ddirection-51"><code>eww-toggle-paragraph-direction</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-eww_002dview_002dsource-43"><code>eww-view-source</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-shr_002duse_002dfonts-15"><code>shr-use-fonts</code></a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-url_002dcookie_002dlist-46"><code>url-cookie-list</code></a>: <a href="#Advanced">Advanced</a>
-</li>
-   </ul>
-<div class="node"><a name="Concept-Index"></a></div>
-
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Lisp-Function-Index" accesskey="p" rel="prev">Lisp Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Key-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concept-Index-1"></a>
 <h2 class="unnumbered">Concept Index</h2>
 
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Bookmarks">Bookmarks</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Contrast">Contrast</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Cookies">Cookies</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Desktop-Support">Desktop Support</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Download">Download</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-eww">eww</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-External-Browser">External Browser</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-H">H</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Header">Header</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-History">History</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Image-Display">Image Display</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Multiple-Buffers">Multiple Buffers</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-paragraph-direction">paragraph direction</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-PDF">PDF</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Saving-Sessions">Saving Sessions</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-V">V</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Viewing-Source">Viewing Source</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced">Advanced</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-Web-Browsing">Web Browsing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Basics">Basics</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-H"><b>H</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-W"><b>W</b></a>
+   
+</td>
+</tr></table>
 
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-Bookmarks-34">Bookmarks</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-Contrast-58">Contrast</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Cookies-48">Cookies</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Desktop-Support-59">Desktop Support</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Download-20">Download</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-eww-4">eww</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-External-Browser-42">External Browser</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-Header-50">Header</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-History-27">History</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-Image-Display-55">Image Display</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Multiple-Buffers-37">Multiple Buffers</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-paragraph-direction-52">paragraph direction</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-PDF-29">PDF</a>: <a href="#Basics">Basics</a>
-</li>
-<li>
-<a href="#index-Saving-Sessions-60">Saving Sessions</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Viewing-Source-45">Viewing Source</a>: <a href="#Advanced">Advanced</a>
-</li>
-<li>
-<a href="#index-Web-Browsing-5">Web Browsing</a>: <a href="#Basics">Basics</a>
-</li>
-   </ul>
+<hr>
+
+
+
 </body>
 </html>

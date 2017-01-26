@@ -1,1262 +1,1445 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
-<head>
-<title>SES: Simple Emacs Spreadsheet</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="description" content="SES: Simple Emacs Spreadsheet">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
-<!--
-This file documents SES: the Simple Emacs Spreadsheet.
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This file documents SES: the Simple Emacs Spreadsheet.
 
 Copyright (C) 2002-2016 Free Software Foundation, Inc.
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being "A GNU Manual," and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     "GNU Free Documentation License."
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License."
 
-     (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
-     modify this GNU manual."
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>SES: Simple Emacs Spreadsheet</title>
+
+<meta name="description" content="SES: Simple Emacs Spreadsheet">
+<meta name="keywords" content="SES: Simple Emacs Spreadsheet">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
 </head>
-<body>
-<h1 class="settitle">SES: Simple Emacs Spreadsheet</h1>
-   <div class="contents">
-<h2>Table of Contents</h2>
-<ul>
-<li>
-<a name="toc_Top" href="#Top"><acronym>SES</acronym>: Simple Emacs Spreadsheet</a>
+
+<body lang="en">
+<h1 class="settitle" align="center">
+<acronym>SES</acronym>: Simple Emacs Spreadsheet</h1>
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Sales-Pitch-1" href="#Sales-Pitch">1 Sales Pitch</a></li>
+  <li><a name="toc-Quick-Tutorial-1" href="#Quick-Tutorial">2 Quick Tutorial</a></li>
+  <li>
+<a name="toc-The-Basics-1" href="#The-Basics">3 The Basics</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Cell-formulas" href="#Formulas">3.1 Cell formulas</a></li>
+    <li><a name="toc-Resizing-the-spreadsheet" href="#Resizing">3.2 Resizing the spreadsheet</a></li>
+    <li><a name="toc-Printer-functions-1" href="#Printer-functions">3.3 Printer functions</a></li>
+    <li><a name="toc-Clearing-cells-1" href="#Clearing-cells">3.4 Clearing cells</a></li>
+    <li><a name="toc-Copy_002c-cut_002c-and-paste" href="#Copy_002fcut_002fpaste">3.5 Copy, cut, and paste</a></li>
+    <li><a name="toc-Customizing-SES-1" href="#Customizing-SES">3.6 Customizing <acronym>SES</acronym></a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Sales-Pitch" href="#Sales-Pitch">1 Sales Pitch</a>
+  <li>
+<a name="toc-Advanced-Features-1" href="#Advanced-Features">4 Advanced Features</a>
+  <ul class="no-bullet">
+    <li><a name="toc-The-print-area-1" href="#The-print-area">4.1 The print area</a></li>
+    <li><a name="toc-Ranges-in-formulas-1" href="#Ranges-in-formulas">4.2 Ranges in formulas</a></li>
+    <li><a name="toc-Sorting-by-column-1" href="#Sorting-by-column">4.3 Sorting by column</a></li>
+    <li><a name="toc-Standard-formula-functions-1" href="#Standard-formula-functions">4.4 Standard formula functions</a></li>
+    <li><a name="toc-More-on-cell-printing-1" href="#More-on-cell-printing">4.5 More on cell printing</a></li>
+    <li><a name="toc-Import-and-export-1" href="#Import-and-export">4.6 Import and export</a></li>
+    <li><a name="toc-Virus-protection-1" href="#Virus-protection">4.7 Virus protection</a></li>
+    <li><a name="toc-Spreadsheets-with-details-and-summary-1" href="#Spreadsheets-with-details-and-summary">4.8 Spreadsheets with details and summary</a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_Quick-Tutorial" href="#Quick-Tutorial">2 Quick Tutorial</a>
+  <li>
+<a name="toc-For-Gurus-1" href="#For-Gurus">5 For Gurus</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Deferred-updates-1" href="#Deferred-updates">5.1 Deferred updates</a></li>
+    <li><a name="toc-Nonrelocatable-references-1" href="#Nonrelocatable-references">5.2 Nonrelocatable references</a></li>
+    <li><a name="toc-The-data-area-1" href="#The-data-area">5.3 The data area</a></li>
+    <li><a name="toc-Buffer_002dlocal-variables-in-spreadsheets-1" href="#Buffer_002dlocal-variables-in-spreadsheets">5.4 Buffer-local variables in spreadsheets</a></li>
+    <li><a name="toc-Uses-of-defadvice-in-SES-1" href="#Uses-of-defadvice-in-SES">5.5 Uses of defadvice in <acronym>SES</acronym></a></li>
+  </ul>
 </li>
-<li>
-<a name="toc_The-Basics" href="#The-Basics">3 The Basics</a>
-<ul>
-<li>
-<a href="#Formulas">3.1 Cell formulas</a>
-</li>
-<li>
-<a href="#Resizing">3.2 Resizing the spreadsheet</a>
-</li>
-<li>
-<a href="#Printer-functions">3.3 Printer functions</a>
-</li>
-<li>
-<a href="#Clearing-cells">3.4 Clearing cells</a>
-</li>
-<li>
-<a href="#Copy_002fcut_002fpaste">3.5 Copy, cut, and paste</a>
-</li>
-<li>
-<a href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">3.6 Customizing <acronym>SES</acronym></a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Advanced-Features" href="#Advanced-Features">4 Advanced Features</a>
-<ul>
-<li>
-<a href="#The-print-area">4.1 The print area</a>
-</li>
-<li>
-<a href="#Ranges-in-formulas">4.2 Ranges in formulas</a>
-</li>
-<li>
-<a href="#Sorting-by-column">4.3 Sorting by column</a>
-</li>
-<li>
-<a href="#Standard-formula-functions">4.4 Standard formula functions</a>
-</li>
-<li>
-<a href="#More-on-cell-printing">4.5 More on cell printing</a>
-</li>
-<li>
-<a href="#Import-and-export">4.6 Import and export</a>
-</li>
-<li>
-<a href="#Virus-protection">4.7 Virus protection</a>
-</li>
-<li>
-<a href="#Spreadsheets-with-details-and-summary">4.8 Spreadsheets with details and summary</a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_For-Gurus" href="#For-Gurus">5 For Gurus</a>
-<ul>
-<li>
-<a href="#Deferred-updates">5.1 Deferred updates</a>
-</li>
-<li>
-<a href="#Nonrelocatable-references">5.2 Nonrelocatable references</a>
-</li>
-<li>
-<a href="#The-data-area">5.3 The data area</a>
-</li>
-<li>
-<a href="#Buffer_002dlocal-variables-in-spreadsheets">5.4 Buffer-local variables in spreadsheets</a>
-</li>
-<li>
-<a href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">5.5 Uses of defadvice in <acronym>SES</acronym></a>
-</li>
-</ul>
-</li>
-<li>
-<a name="toc_Index" href="#Index">Index</a>
-</li>
-<li>
-<a name="toc_Acknowledgments" href="#Acknowledgments">Acknowledgments</a>
-</li>
-<li>
-<a name="toc_GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-</li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
+  <li><a name="toc-Acknowledgments-1" href="#Acknowledgments">Acknowledgments</a></li>
+  <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
 </ul>
 </div>
 
 
 
-<!-- =================================================================== -->
-<div class="node"><a name="Top"></a></div>
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Sales-Pitch" accesskey="n" rel="next">Sales Pitch</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="SES_003a-Simple-Emacs-Spreadsheet"></a>
+<h1 class="top">
+<acronym>SES</acronym>: Simple Emacs Spreadsheet</h1>
 
-<!-- node-name,  next,  previous,  up -->
-<h2 class="unnumbered">
-<acronym>SES</acronym>: Simple Emacs Spreadsheet</h2>
-
-<pre class="display">     <acronym>SES</acronym> is a major mode for GNU Emacs to edit spreadsheet files, which
-     contain a rectangular grid of cells.  The cells' values are specified
-     by formulas that can refer to the values of other cells.
+<div class="display">
+<pre class="display"><acronym>SES</acronym> is a major mode for GNU Emacs to edit spreadsheet files, which
+contain a rectangular grid of cells.  The cells’ values are specified
+by formulas that can refer to the values of other cells.
 </pre>
-   <p>To report bugs, use <kbd>M-x report-emacs-bug</kbd>.
+</div>
 
-   </p>
+<p>To report bugs, use <kbd>M-x report-emacs-bug</kbd>.
+</p>
 <p>This file documents <acronym>SES</acronym>: the Simple Emacs Spreadsheet.
-
-   </p>
+</p>
 <p>Copyright © 2002–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License.”
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Sales-Pitch">Sales Pitch</a>:                  Why use <acronym>SES</acronym>? 
-</li>
-<li>
-<a accesskey="2" href="#Quick-Tutorial">Quick Tutorial</a>:               A quick introduction
-</li>
-<li>
-<a accesskey="3" href="#The-Basics">The Basics</a>:                   Basic spreadsheet commands
-</li>
-<li>
-<a accesskey="4" href="#Advanced-Features">Advanced Features</a>:            Want to know more? 
-</li>
-<li>
-<a accesskey="5" href="#For-Gurus">For Gurus</a>:                    Want to know <em>even more</em>? 
-</li>
-<li>
-<a accesskey="6" href="#Index">Index</a>:                        Concept, Function and Variable Index
-</li>
-<li>
-<a accesskey="7" href="#Acknowledgments">Acknowledgments</a>:              Acknowledgments
-</li>
-<li>
-<a accesskey="8" href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
-</li>
-</ul>
 
-<!-- =================================================================== -->
-<div class="node"><a name="Sales-Pitch"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Sales-Pitch" accesskey="1">Sales Pitch</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Why use <acronym>SES</acronym>?
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Quick-Tutorial" accesskey="2">Quick Tutorial</a>:</td>
+<td>  </td>
+<td align="left" valign="top">A quick introduction
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#The-Basics" accesskey="3">The Basics</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Basic spreadsheet commands
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Advanced-Features" accesskey="4">Advanced Features</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Want to know more?
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#For-Gurus" accesskey="5">For Gurus</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Want to know <em>even more</em>?
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index" accesskey="6">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Concept, Function and Variable Index
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Acknowledgments" accesskey="7">Acknowledgments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Acknowledgments
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License" accesskey="8">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+</table>
 
-<!-- node-name,  next,  previous,  up -->
+
+<hr>
+<a name="Sales-Pitch"></a>
+<div class="header">
+<p>
+Next: <a href="#Quick-Tutorial" accesskey="n" rel="next">Quick Tutorial</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Sales-Pitch-1"></a>
 <h2 class="chapter">1 Sales Pitch</h2>
+<a name="index-features"></a>
 
-<p><a name="index-features-1"></a>
-     </p>
 <ul>
-<li>Create and edit simple spreadsheets with a minimum of fuss. 
+<li> Create and edit simple spreadsheets with a minimum of fuss.
 </li>
-<li>Full undo/redo/autosave. 
+<li> Full undo/redo/autosave.
 </li>
-<li>Immune to viruses in spreadsheet files. 
+<li> Immune to viruses in spreadsheet files.
 </li>
-<li>Cell formulas are straight Emacs Lisp. 
+<li> Cell formulas are straight Emacs Lisp.
 </li>
-<li>Printer functions for control of cell appearance. 
+<li> Printer functions for control of cell appearance.
 </li>
-<li>Intuitive keystroke commands: C-o = insert row, M-o = insert column, etc. 
+<li> Intuitive keystroke commands: C-o = insert row, M-o = insert column, etc.
 </li>
-<li>“Spillover” of lengthy cell values into following blank cells. 
+<li> “Spillover” of lengthy cell values into following blank cells.
 </li>
-<li>Header line shows column letters or a selected row. 
+<li> Header line shows column letters or a selected row.
 </li>
-<li>Completing-read for entering symbols as cell values. 
+<li> Completing-read for entering symbols as cell values.
 </li>
-<li>Cut, copy, and paste can transfer formulas and printer functions. 
+<li> Cut, copy, and paste can transfer formulas and printer functions.
 </li>
-<li>Import and export of tab-separated values or tab-separated formulas. 
+<li> Import and export of tab-separated values or tab-separated formulas.
 </li>
-<li>Plaintext, easily-hacked file format. 
+<li> Plaintext, easily-hacked file format.
 </li>
 </ul>
 
-<!-- =================================================================== -->
-<div class="node"><a name="Quick-Tutorial"></a></div>
 
+<hr>
+<a name="Quick-Tutorial"></a>
+<div class="header">
+<p>
+Next: <a href="#The-Basics" accesskey="n" rel="next">The Basics</a>, Previous: <a href="#Sales-Pitch" accesskey="p" rel="prev">Sales Pitch</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quick-Tutorial-1"></a>
 <h2 class="chapter">2 Quick Tutorial</h2>
+<a name="index-introduction"></a>
+<a name="index-tutorial"></a>
 
-<p><a name="index-introduction-2"></a><a name="index-tutorial-3"></a>
-If you want to get started quickly and think that you know what to
+<p>If you want to get started quickly and think that you know what to
 expect from a simple spreadsheet, this chapter may be all that you
 need.
-
-   </p>
-<p>First, visit a new file with the <samp><span class="file">.ses</span></samp> extension. 
+</p>
+<p>First, visit a new file with the <samp>.ses</samp> extension.
 Emacs presents you with an empty spreadsheet containing a single cell.
-
-   </p>
-<p>Begin by inserting a headline: <kbd>"Income"&lt;RET&gt;</kbd>.  The double
+</p>
+<p>Begin by inserting a headline: <kbd>"Income"<span class="key">RET</span></kbd>.  The double
 quotes indicate that this is a text cell.  (Notice that Emacs
 automatically inserts the closing quotation mark.)
-
-   </p>
+</p>
 <p>To insert your first income value, you must first resize the
-spreadsheet.  Press &lt;TAB&gt; to add a new cell and navigate back up
-to it.  Enter a number, such as `<samp><span class="samp">2.23</span></samp>'.  Then proceed to add a
+spreadsheet.  Press <tt class="key">TAB</tt> to add a new cell and navigate back up
+to it.  Enter a number, such as ‘<samp>2.23</samp>’.  Then proceed to add a
 few more income entries, e.g.:
-
 </p>
-<pre class="example">     A
-      Income
-        2.23
-        0.02
-       15.76
-       -4.00
+<div class="example">
+<pre class="example">A
+ Income
+   2.23
+   0.02
+  15.76
+  -4.00
 </pre>
-   <p>To add up the values, enter a Lisp expression:
+</div>
 
+<p>To add up the values, enter a Lisp expression:
 </p>
-<pre class="example">     (+ A2 A3 A4 A5)
+<div class="example">
+<pre class="example">(+ A2 A3 A4 A5)
 </pre>
-   <p>Perhaps you want to add a cell to the right of cell A4 to explain
+</div>
+
+<p>Perhaps you want to add a cell to the right of cell A4 to explain
 why you have a negative entry.  Pressing <kbd>TAB</kbd> in that cell
-adds an entire new column `<samp><span class="samp">B</span></samp>', where you can add such a note.
-
-   </p>
+adds an entire new column ‘<samp>B</samp>’, where you can add such a note.
+</p>
 <p>The column is fairly narrow by default, but pressing <kbd>w</kbd> allows
 you to resize it as needed.  Make it 20 characters wide.  You can
 now add descriptive legends for all the entries, e.g.:
-
 </p>
-<pre class="example">     A       B
-      Income
-        2.23       Consulting fee
-        0.02     Informed opinion
-       15.76       Lemonade stand
-          -4          Loan to Joe
-       14.01                Total
+<div class="example">
+<pre class="example">A       B
+ Income
+   2.23       Consulting fee
+   0.02     Informed opinion
+  15.76       Lemonade stand
+     -4          Loan to Joe
+  14.01                Total
 </pre>
-   <p>By default, the labels in column B are right-justified.  To change
-that, you can enter a printer function for the whole column, using
-e.g., <kbd>M-p ("%s")</kbd>.  You can override a column's printer function
-in any individual cell using <kbd>p</kbd>.
+</div>
 
-   </p>
+<p>By default, the labels in column B are right-justified.  To change
+that, you can enter a printer function for the whole column, using
+e.g., <kbd>M-p ("%s")</kbd>.  You can override a column’s printer function
+in any individual cell using <kbd>p</kbd>.
+</p>
 <p>If Joe pays back his loan, you might blank that entry; e.g., by
-positioning the cursor in cell A5 and pressing <kbd>C-d</kbd> twice. 
-If you do that, the total cell will display `<samp><span class="samp">######</span></samp>'.  That is
+positioning the cursor in cell A5 and pressing <kbd>C-d</kbd> twice.
+If you do that, the total cell will display ‘<samp>######</samp>’.  That is
 because the regular <code>+</code> operator does not handle a range that
 contains some empty cells.  Instead of emptying the cell, you could
-enter a literal `<samp><span class="samp">0</span></samp>', or delete the entire row using <kbd>C-k</kbd>. 
+enter a literal ‘<samp>0</samp>’, or delete the entire row using <kbd>C-k</kbd>.
 An alternative is to use the special function <code>ses+</code> instead of
 the regular <code>+</code>:
-
 </p>
-<pre class="example">     (ses+ A2 A3 A4 A5)
+<div class="example">
+<pre class="example">(ses+ A2 A3 A4 A5)
 </pre>
-   <p>To make a formula robust against changes in the spreadsheet geometry,
+</div>
+
+<p>To make a formula robust against changes in the spreadsheet geometry,
 you can use the <code>ses-range</code> macro to refer to a range of cells by
 the end-points, e.g.:
-
 </p>
-<pre class="example">     (apply 'ses+ (ses-range A2 A5))
+<div class="example">
+<pre class="example">(apply 'ses+ (ses-range A2 A5))
 </pre>
-   <p>(The <code>apply</code> is necessary because <code>ses-range</code> produces a
+</div>
+
+<p>(The <code>apply</code> is necessary because <code>ses-range</code> produces a
 <em>list</em> of values.  This allows for more complex possibilities.)
-
-<!-- =================================================================== -->
 </p>
-<div class="node"><a name="The-Basics"></a></div>
 
-<!-- node-name,  next,  previous,  up -->
+<hr>
+<a name="The-Basics"></a>
+<div class="header">
+<p>
+Next: <a href="#Advanced-Features" accesskey="n" rel="next">Advanced Features</a>, Previous: <a href="#Quick-Tutorial" accesskey="p" rel="prev">Quick Tutorial</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-Basics-1"></a>
 <h2 class="chapter">3 The Basics</h2>
+<a name="index-basic-commands"></a>
+<a name="index-ses_002djump"></a>
+<a name="index-ses_002dmark_002drow"></a>
+<a name="index-ses_002dmark_002dcolumn"></a>
+<a name="index-ses_002dmark_002dwhole_002dbuffer"></a>
+<a name="index-set_002dmark_002dcommand"></a>
+<a name="index-keyboard_002dquit"></a>
 
-<p><a name="index-basic-commands-4"></a><a name="index-ses_002djump-5"></a><a name="index-ses_002dmark_002drow-6"></a><a name="index-ses_002dmark_002dcolumn-7"></a><a name="index-ses_002dmark_002dwhole_002dbuffer-8"></a><a name="index-set_002dmark_002dcommand-9"></a><a name="index-keyboard_002dquit-10"></a>
-To create a new spreadsheet, visit a nonexistent file whose name ends
+<p>To create a new spreadsheet, visit a nonexistent file whose name ends
   with ".ses".  For example, <kbd>C-x C-f test.ses RET</kbd>.
+</p>
 
-   </p>
-<p>A <dfn>cell identifier</dfn> is a symbol with a column letter and a row
+<p>A <em>cell identifier</em> is a symbol with a column letter and a row
 number.  Cell B7 is the 2nd column of the 7th row.  For very wide
 spreadsheets, there are two column letters: cell AB7 is the 28th
-column of the 7th row. Super wide spreadsheets get AAA1, etc. 
+column of the 7th row. Super wide spreadsheets get AAA1, etc.
 You move around with the regular Emacs movement commands.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>j</kbd></dt>
-<dd>Moves point to cell, specified by identifier (<code>ses-jump</code>). 
-</dd>
+<dd><p>Moves point to cell, specified by identifier (<code>ses-jump</code>).
+</p></dd>
 </dl>
 
-   <p>Point is always at the left edge of a cell, or at the empty endline. 
+<p>Point is always at the left edge of a cell, or at the empty endline.
 When mark is inactive, the current cell is underlined.  When mark is
 active, the range is the highlighted rectangle of cells (<acronym>SES</acronym> always
 uses transient mark mode).  Drag the mouse from A1 to A3 to create the
 range A1-A2.  Many <acronym>SES</acronym> commands operate only on single cells, not
 ranges.
-
-     </p>
-<dl>
-<dt>
-<kbd>C-&lt;SPC&gt;</kbd><dt><kbd>C-@</kbd></dt>
-</dt>
-<dd>Set mark at point (<code>set-mark-command</code>).
-
-     <br>
+</p>
+<dl compact>
+<dt><kbd>C-<span class="key">SPC</span></kbd></dt>
+<dt><kbd>C-@</kbd></dt>
+<dd>
+<p>Set mark at point (<code>set-mark-command</code>).
+</p>
 </dd>
 <dt><kbd>C-g</kbd></dt>
-<dd>Turn off the mark (<code>keyboard-quit</code>).
-
-     <br>
+<dd>
+<p>Turn off the mark (<code>keyboard-quit</code>).
+</p>
 </dd>
 <dt><kbd>M-h</kbd></dt>
-<dd>Highlight current row (<code>ses-mark-row</code>).
-
-     <br>
+<dd>
+<p>Highlight current row (<code>ses-mark-row</code>).
+</p>
 </dd>
 <dt><kbd>S-M-h</kbd></dt>
-<dd>Highlight current column (<code>ses-mark-column</code>).
-
-     <br>
+<dd>
+<p>Highlight current column (<code>ses-mark-column</code>).
+</p>
 </dd>
 <dt><kbd>C-x h</kbd></dt>
-<dd>Highlight all cells (<code>mark-whole-buffer</code>). 
-</dd>
+<dd><p>Highlight all cells (<code>mark-whole-buffer</code>).
+</p></dd>
 </dl>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Formulas">Formulas</a>
-</li>
-<li>
-<a accesskey="2" href="#Resizing">Resizing</a>
-</li>
-<li>
-<a accesskey="3" href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a accesskey="4" href="#Clearing-cells">Clearing cells</a>
-</li>
-<li>
-<a accesskey="5" href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a accesskey="6" href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">Customizing <acronym>SES</acronym></a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Formulas" accesskey="1">Formulas</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Resizing" accesskey="2">Resizing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Printer-functions" accesskey="3">Printer functions</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Clearing-cells" accesskey="4">Clearing cells</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Copy_002fcut_002fpaste" accesskey="5">Copy/cut/paste</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Customizing-SES" accesskey="6">Customizing <acronym>SES</acronym></a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Formulas"></a></div>
-
+<hr>
+<a name="Formulas"></a>
+<div class="header">
+<p>
+Next: <a href="#Resizing" accesskey="n" rel="next">Resizing</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Cell-formulas"></a>
 <h3 class="section">3.1 Cell formulas</h3>
+<a name="index-formulas"></a>
+<a name="index-formulas_002c-entering"></a>
+<a name="index-values"></a>
+<a name="index-cell-values"></a>
+<a name="index-editing-cells"></a>
+<a name="index-ses_002dread_002dcell"></a>
+<a name="index-ses_002dread_002dsymbol"></a>
+<a name="index-ses_002dedit_002dcell"></a>
+<a name="index-ses_002drecalculate_002dcell"></a>
+<a name="index-ses_002drecalculate_002dall"></a>
 
-<p><a name="index-formulas-11"></a><a name="index-formulas_002c-entering-12"></a><a name="index-values-13"></a><a name="index-cell-values-14"></a><a name="index-editing-cells-15"></a><a name="index-ses_002dread_002dcell-16"></a><a name="index-ses_002dread_002dsymbol-17"></a><a name="index-ses_002dedit_002dcell-18"></a><a name="index-ses_002drecalculate_002dcell-19"></a><a name="index-ses_002drecalculate_002dall-20"></a>
-To insert a value into a cell, simply type a numeric expression,
-`<samp><span class="samp">"double-quoted text"</span></samp>', or a Lisp expression.
-
-     </p>
-<dl>
+<p>To insert a value into a cell, simply type a numeric expression,
+‘<samp>"double-quoted text"</samp>’, or a Lisp expression.
+</p>
+<dl compact>
 <dt><kbd>0..9</kbd></dt>
-<dd>Self-insert a digit (<code>ses-read-cell</code>).
-
-     <br>
+<dd>
+<p>Self-insert a digit (<code>ses-read-cell</code>).
+</p>
 </dd>
 <dt><kbd>-</kbd></dt>
-<dd>Self-insert a negative number (<code>ses-read-cell</code>).
-
-     <br>
+<dd>
+<p>Self-insert a negative number (<code>ses-read-cell</code>).
+</p>
 </dd>
 <dt><kbd>.</kbd></dt>
-<dd>Self-insert a fractional number (<code>ses-read-cell</code>).
-
-     <br>
+<dd>
+<p>Self-insert a fractional number (<code>ses-read-cell</code>).
+</p>
 </dd>
 <dt><kbd>"</kbd></dt>
-<dd>Self-insert a quoted string.  The ending double-quote
+<dd>
+<p>Self-insert a quoted string.  The ending double-quote
 is inserted for you (<code>ses-read-cell</code>).
-
-     <br>
+</p>
 </dd>
 <dt><kbd>(</kbd></dt>
-<dd>Self-insert an expression.  The right-parenthesis is inserted for you
-(<code>ses-read-cell</code>).  To access another cell's value, just use its
+<dd>
+<p>Self-insert an expression.  The right-parenthesis is inserted for you
+(<code>ses-read-cell</code>).  To access another cell’s value, just use its
 identifier in your expression.  Whenever the other cell is changed,
-this cell's formula will be reevaluated.  While typing in the
-expression, you can use <kbd>M-&lt;TAB&gt;</kbd> to complete symbol names.
-
-     <br>
+this cell’s formula will be reevaluated.  While typing in the
+expression, you can use <kbd>M-<span class="key">TAB</span></kbd> to complete symbol names.
+</p>
 </dd>
-<dt>
-<kbd>' </kbd><span class="roman">(apostrophe)</span>
-</dt>
-<dd>Enter a symbol (ses-read-symbol).  <acronym>SES</acronym> remembers all symbols that have
+<dt><kbd>' <span class="roman">(apostrophe)</span></kbd></dt>
+<dd><p>Enter a symbol (ses-read-symbol).  <acronym>SES</acronym> remembers all symbols that have
 been used as formulas, so you can type just the beginning of a symbol
-and use <kbd>&lt;SPC&gt;</kbd>, <kbd>&lt;TAB&gt;</kbd>, and <kbd>?</kbd> to complete it. 
-</dd>
+and use <kbd><span class="key">SPC</span></kbd>, <kbd><span class="key">TAB</span></kbd>, and <kbd>?</kbd> to complete it.
+</p></dd>
 </dl>
 
-   <p>To enter something else (e.g., a vector), begin with a digit, then
+<p>To enter something else (e.g., a vector), begin with a digit, then
 erase the digit and type whatever you want.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>RET</kbd></dt>
-<dd>Edit the existing formula in the current cell (<code>ses-edit-cell</code>).
-
-     <br>
+<dd>
+<p>Edit the existing formula in the current cell (<code>ses-edit-cell</code>).
+</p>
 </dd>
 <dt><kbd>C-c C-c</kbd></dt>
-<dd>Force recalculation of the current cell or range (<code>ses-recalculate-cell</code>).
-
-     <br>
+<dd>
+<p>Force recalculation of the current cell or range (<code>ses-recalculate-cell</code>).
+</p>
 </dd>
 <dt><kbd>C-c C-l</kbd></dt>
-<dd>Recalculate the entire spreadsheet (<code>ses-recalculate-all</code>). 
-</dd>
+<dd><p>Recalculate the entire spreadsheet (<code>ses-recalculate-all</code>).
+</p></dd>
 </dl>
 
-<div class="node"><a name="Resizing"></a></div>
-
+<hr>
+<a name="Resizing"></a>
+<div class="header">
+<p>
+Next: <a href="#Printer-functions" accesskey="n" rel="next">Printer functions</a>, Previous: <a href="#Formulas" accesskey="p" rel="prev">Formulas</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Resizing-the-spreadsheet"></a>
 <h3 class="section">3.2 Resizing the spreadsheet</h3>
+<a name="index-resizing-spreadsheets"></a>
+<a name="index-dimensions"></a>
+<a name="index-row_002c-adding-or-removing"></a>
+<a name="index-column_002c-adding-or-removing"></a>
+<a name="index-adding-rows-or-columns"></a>
+<a name="index-inserting-rows-or-columns"></a>
+<a name="index-removing-rows-or-columns"></a>
+<a name="index-deleting-rows-or-columns"></a>
+<a name="index-ses_002dinsert_002drow"></a>
+<a name="index-ses_002dinsert_002dcolumn"></a>
+<a name="index-ses_002ddelete_002drow"></a>
+<a name="index-ses_002ddelete_002dcolumn"></a>
+<a name="index-ses_002dset_002dcolumn_002dwidth"></a>
+<a name="index-ses_002dforward_002dor_002dinsert"></a>
+<a name="index-ses_002dappend_002drow_002djump_002dfirst_002dcolumn"></a>
 
-<p><a name="index-resizing-spreadsheets-21"></a><a name="index-dimensions-22"></a><a name="index-row_002c-adding-or-removing-23"></a><a name="index-column_002c-adding-or-removing-24"></a><a name="index-adding-rows-or-columns-25"></a><a name="index-inserting-rows-or-columns-26"></a><a name="index-removing-rows-or-columns-27"></a><a name="index-deleting-rows-or-columns-28"></a><a name="index-ses_002dinsert_002drow-29"></a><a name="index-ses_002dinsert_002dcolumn-30"></a><a name="index-ses_002ddelete_002drow-31"></a><a name="index-ses_002ddelete_002dcolumn-32"></a><a name="index-ses_002dset_002dcolumn_002dwidth-33"></a><a name="index-ses_002dforward_002dor_002dinsert-34"></a><a name="index-ses_002dappend_002drow_002djump_002dfirst_002dcolumn-35"></a>
 
-   </p>
 <p>Basic commands:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>C-o</kbd></dt>
-<dd>(<code>ses-insert-row</code>)
-
-     <br>
+<dd>
+<p>(<code>ses-insert-row</code>)
+</p>
 </dd>
 <dt><kbd>M-o</kbd></dt>
-<dd>(<code>ses-insert-column</code>)
-
-     <br>
+<dd>
+<p>(<code>ses-insert-column</code>)
+</p>
 </dd>
 <dt><kbd>C-k</kbd></dt>
-<dd>(<code>ses-delete-row</code>)
-
-     <br>
+<dd>
+<p>(<code>ses-delete-row</code>)
+</p>
 </dd>
 <dt><kbd>M-k</kbd></dt>
-<dd>(<code>ses-delete-column</code>)
-
-     <br>
+<dd>
+<p>(<code>ses-delete-column</code>)
+</p>
 </dd>
 <dt><kbd>w</kbd></dt>
-<dd>(<code>ses-set-column-width</code>)
-
-     <br>
+<dd>
+<p>(<code>ses-set-column-width</code>)
+</p>
 </dd>
 <dt><kbd>TAB</kbd></dt>
-<dd>Moves point to the next rightward cell, or inserts a new column if
+<dd>
+<p>Moves point to the next rightward cell, or inserts a new column if
 already at last cell on line, or inserts a new row if at endline
 (<code>ses-forward-or-insert</code>).
-
-     <br>
+</p>
 </dd>
 <dt><kbd>C-j</kbd></dt>
-<dd>Linefeed inserts below the current row and moves to column A
-(<code>ses-append-row-jump-first-column</code>). 
-</dd>
+<dd><p>Linefeed inserts below the current row and moves to column A
+(<code>ses-append-row-jump-first-column</code>).
+</p></dd>
 </dl>
 
-   <p>Resizing the spreadsheet (unless you're just changing a column width)
+<p>Resizing the spreadsheet (unless you’re just changing a column width)
 relocates all the cell-references in formulas so they still refer to
 the same cells.  If a formula mentioned B1 and you insert a new first
 row, the formula will now mention B2.
-
-   </p>
+</p>
 <p>If you delete a cell that a formula refers to, the cell-symbol is
 deleted from the formula, so <code>(+ A1 B1 C1)</code> after deleting the third
 column becomes <code>(+ A1 B1)</code>.  In case this is not what you wanted:
-
-     </p>
-<dl>
-<dt>
-<kbd>C-_</kbd><dt><kbd>C-x u</kbd></dt>
-</dt>
-<dd>Undo previous action (<code>(undo)</code>). 
-</dd>
+</p>
+<dl compact>
+<dt><kbd>C-_</kbd></dt>
+<dt><kbd>C-x u</kbd></dt>
+<dd><p>Undo previous action (<code>(undo)</code>).
+</p></dd>
 </dl>
 
-<div class="node"><a name="Printer-functions"></a></div>
 
+<hr>
+<a name="Printer-functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Clearing-cells" accesskey="n" rel="next">Clearing cells</a>, Previous: <a href="#Resizing" accesskey="p" rel="prev">Resizing</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Printer-functions-1"></a>
 <h3 class="section">3.3 Printer functions</h3>
+<a name="index-printer-functions"></a>
+<a name="index-cell-formatting"></a>
+<a name="index-formatting-cells"></a>
+<a name="index-ses_002dread_002dcell_002dprinter"></a>
+<a name="index-ses_002dread_002dcolumn_002dprinter"></a>
+<a name="index-ses_002dread_002ddefault_002dprinter"></a>
+<a name="index-ses_002ddefine_002dlocal_002dprinter"></a>
+<a name="index-ses_002dcenter"></a>
+<a name="index-ses_002dcenter_002dspan"></a>
+<a name="index-ses_002ddashfill"></a>
+<a name="index-ses_002ddashfill_002dspan"></a>
+<a name="index-ses_002dtildefill_002dspan"></a>
 
-<p><a name="index-printer-functions-36"></a><a name="index-cell-formatting-37"></a><a name="index-formatting-cells-38"></a><a name="index-ses_002dread_002dcell_002dprinter-39"></a><a name="index-ses_002dread_002dcolumn_002dprinter-40"></a><a name="index-ses_002dread_002ddefault_002dprinter-41"></a><a name="index-ses_002ddefine_002dlocal_002dprinter-42"></a><a name="index-ses_002dcenter-43"></a><a name="index-ses_002dcenter_002dspan-44"></a><a name="index-ses_002ddashfill-45"></a><a name="index-ses_002ddashfill_002dspan-46"></a><a name="index-ses_002dtildefill_002dspan-47"></a>
 
-   </p>
 <p>Printer functions convert binary cell values into the print forms that
 Emacs will display on the screen.
-
-   </p>
-<p>A printer can be a format string, like `<samp><span class="samp">"$%.2f"</span></samp>'.  The result
+</p>
+<p>A printer can be a format string, like ‘<samp>"$%.2f"</samp>’.  The result
 string is right-aligned within the print cell.  To get left-alignment,
-use parentheses: `<samp><span class="samp">("$%.2f")</span></samp>'.  A printer can also be a
+use parentheses: ‘<samp>("$%.2f")</samp>’.  A printer can also be a
 one-argument function (a symbol or a lambda), whose result is a string
 (right-aligned) or list of one string (left-aligned).  While typing in
-a lambda, you can use <kbd>M-&lt;TAB&gt;</kbd> to complete the names of symbols.
-
-   </p>
-<p>Each cell has a printer.  If <code>nil</code>, the column-printer for the cell's
+a lambda, you can use <kbd>M-<span class="key">TAB</span></kbd> to complete the names of symbols.
+</p>
+<p>Each cell has a printer.  If <code>nil</code>, the column-printer for the cell’s
 column is used.  If that is also <code>nil</code>, the default-printer for the
 spreadsheet is used.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>p</kbd></dt>
-<dd>Enter a printer for current cell or range (<code>ses-read-cell-printer</code>).
-
-     <br>
+<dd>
+<p>Enter a printer for current cell or range (<code>ses-read-cell-printer</code>).
+</p>
 </dd>
 <dt><kbd>M-p</kbd></dt>
-<dd>Enter a printer for the current column (<code>ses-read-column-printer</code>).
-
-     <br>
+<dd>
+<p>Enter a printer for the current column (<code>ses-read-column-printer</code>).
+</p>
 </dd>
 <dt><kbd>C-c C-p</kbd></dt>
-<dd>Enter the default printer for the spreadsheet
-(<code>ses-read-default-printer</code>). 
-</dd>
+<dd><p>Enter the default printer for the spreadsheet
+(<code>ses-read-default-printer</code>).
+</p></dd>
 </dl>
 
-   <p>The <code>ses-read-</code><span class="roman">XXX</span><code>-printer</code> commands have their own minibuffer
+<p>The <code>ses-read-<span class="roman">XXX</span>-printer</code> commands have their own minibuffer
 history, which is preloaded with the set of all printers used in this
 spreadsheet, plus the standard printers.
-
-   </p>
+</p>
 <p>The standard printers are suitable only for cells, not columns or
 default, because they format the value using the column-printer (or
 default-printer if <code>nil</code>) and then center the result:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>ses-center</code></dt>
-<dd>Just centering.
-
-     <br>
+<dd>
+<p>Just centering.
+</p>
 </dd>
 <dt><code>ses-center-span</code></dt>
-<dd>Centering with spill-over to following blank cells.
-
-     <br>
+<dd>
+<p>Centering with spill-over to following blank cells.
+</p>
 </dd>
 <dt><code>ses-dashfill</code></dt>
-<dd>Centering using dashes (-) instead of spaces.
-
-     <br>
+<dd>
+<p>Centering using dashes (-) instead of spaces.
+</p>
 </dd>
 <dt><code>ses-dashfill-span</code></dt>
-<dd>Centering with dashes and spill-over.
-
-     <br>
+<dd>
+<p>Centering with dashes and spill-over.
+</p>
 </dd>
 <dt><code>ses-tildefill-span</code></dt>
-<dd>Centering with tildes (~) and spill-over. 
-</dd>
+<dd><p>Centering with tildes (~) and spill-over.
+</p></dd>
 </dl>
 
-   <p>You can define printer function local to a sheet with the command
+<p>You can define printer function local to a sheet with the command
 <code>ses-define-local-printer</code>.  For instance, define a printer
-`<samp><span class="samp">foo</span></samp>' to <code>"%.2f"</code>, and then use symbol `<samp><span class="samp">foo</span></samp>' as a
+‘<samp>foo</samp>’ to <code>"%.2f"</code>, and then use symbol ‘<samp>foo</samp>’ as a
 printer function.  Then, if you call again
-<code>ses-define-local-printer</code> on `<samp><span class="samp">foo</span></samp>' to redefine it as
-<code>"%.3f"</code>, all the cells using printer `<samp><span class="samp">foo</span></samp>' will be
+<code>ses-define-local-printer</code> on ‘<samp>foo</samp>’ to redefine it as
+<code>"%.3f"</code>, all the cells using printer ‘<samp>foo</samp>’ will be
 reprinted accordingly.
-
 </p>
-<div class="node"><a name="Clearing-cells"></a></div>
-
+<hr>
+<a name="Clearing-cells"></a>
+<div class="header">
+<p>
+Next: <a href="#Copy_002fcut_002fpaste" accesskey="n" rel="next">Copy/cut/paste</a>, Previous: <a href="#Printer-functions" accesskey="p" rel="prev">Printer functions</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Clearing-cells-1"></a>
 <h3 class="section">3.4 Clearing cells</h3>
+<a name="index-clearing-commands"></a>
+<a name="index-ses_002dclear_002dcell_002dbackward"></a>
+<a name="index-ses_002dclear_002dcell_002dforward"></a>
 
-<p><a name="index-clearing-commands-48"></a><a name="index-ses_002dclear_002dcell_002dbackward-49"></a><a name="index-ses_002dclear_002dcell_002dforward-50"></a>
-These commands set both formula and printer to <code>nil</code>:
-
-     </p>
-<dl>
+<p>These commands set both formula and printer to <code>nil</code>:
+</p>
+<dl compact>
 <dt><kbd>DEL</kbd></dt>
-<dd>Clear cell and move left (<code>ses-clear-cell-backward</code>).
-
-     <br>
+<dd>
+<p>Clear cell and move left (<code>ses-clear-cell-backward</code>).
+</p>
 </dd>
 <dt><kbd>C-d</kbd></dt>
-<dd>Clear cell and move right (<code>ses-clear-cell-forward</code>). 
-</dd>
+<dd><p>Clear cell and move right (<code>ses-clear-cell-forward</code>).
+</p></dd>
 </dl>
 
-<div class="node">
-<a name="Copy%2fcut%2fpaste"></a><a name="Copy_002fcut_002fpaste"></a>
+
+<hr>
+<a name="Copy_002fcut_002fpaste"></a>
+<div class="header">
+<p>
+Next: <a href="#Customizing-SES" accesskey="n" rel="next">Customizing <acronym>SES</acronym></a>, Previous: <a href="#Clearing-cells" accesskey="p" rel="prev">Clearing cells</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Copy_002c-cut_002c-and-paste"></a>
 <h3 class="section">3.5 Copy, cut, and paste</h3>
+<a name="index-copy"></a>
+<a name="index-cut"></a>
+<a name="index-paste"></a>
+<a name="index-kill_002dring_002dsave"></a>
+<a name="index-mouse_002dset_002dregion"></a>
+<a name="index-mouse_002dset_002dsecondary"></a>
+<a name="index-ses_002dkill_002doverride"></a>
+<a name="index-yank-1"></a>
+<a name="index-clipboard_002dyank"></a>
+<a name="index-mouse_002dyank_002dat_002dclick"></a>
+<a name="index-mouse_002dyank_002dat_002dsecondary"></a>
+<a name="index-ses_002dyank_002dpop"></a>
 
-<p><a name="index-copy-51"></a><a name="index-cut-52"></a><a name="index-paste-53"></a><a name="index-kill_002dring_002dsave-54"></a><a name="index-mouse_002dset_002dregion-55"></a><a name="index-mouse_002dset_002dsecondary-56"></a><a name="index-ses_002dkill_002doverride-57"></a><a name="index-yank-58"></a><a name="index-clipboard_002dyank-59"></a><a name="index-mouse_002dyank_002dat_002dclick-60"></a><a name="index-mouse_002dyank_002dat_002dsecondary-61"></a><a name="index-ses_002dyank_002dpop-62"></a>
-The copy functions work on rectangular regions of cells.  You can paste the
+<p>The copy functions work on rectangular regions of cells.  You can paste the
 copies into non-<acronym>SES</acronym> buffers to export the print text.
-
-     </p>
-<dl>
-<dt>
-<kbd>M-w</kbd><dt>
-<kbd>[copy]</kbd><dt><kbd>[C-insert]</kbd></dt>
-</dt>
-</dt>
-<dd>Copy the highlighted cells to kill ring and primary clipboard
+</p>
+<dl compact>
+<dt><kbd>M-w</kbd></dt>
+<dt><kbd>[copy]</kbd></dt>
+<dt><kbd>[C-insert]</kbd></dt>
+<dd>
+<p>Copy the highlighted cells to kill ring and primary clipboard
 (<code>kill-ring-save</code>).
-
-     <br>
+</p>
 </dd>
 <dt><kbd>[drag-mouse-1]</kbd></dt>
-<dd>Mark a region and copy it to kill ring and primary clipboard
+<dd>
+<p>Mark a region and copy it to kill ring and primary clipboard
 (<code>mouse-set-region</code>).
-
-     <br>
+</p>
 </dd>
 <dt><kbd>[M-drag-mouse-1]</kbd></dt>
-<dd>Mark a region and copy it to kill ring and secondary clipboard
+<dd>
+<p>Mark a region and copy it to kill ring and secondary clipboard
 (<code>mouse-set-secondary</code>).
-
-     <br>
+</p>
 </dd>
-<dt>
-<kbd>C-w</kbd><dt>
-<kbd>[cut]</kbd><dt><kbd>[S-delete]</kbd></dt>
-</dt>
-</dt>
-<dd>The cut functions do not actually delete rows or columns—they copy
+<dt><kbd>C-w</kbd></dt>
+<dt><kbd>[cut]</kbd></dt>
+<dt><kbd>[S-delete]</kbd></dt>
+<dd>
+<p>The cut functions do not actually delete rows or columns—they copy
 and then clear (<code>ses-kill-override</code>).
-
-     <br>
+</p>
 </dd>
-<dt>
-<kbd>C-y</kbd><dt><kbd>[S-insert]</kbd></dt>
-</dt>
-<dd>Paste from kill ring (<code>yank</code>).  The paste functions behave
+<dt><kbd>C-y</kbd></dt>
+<dt><kbd>[S-insert]</kbd></dt>
+<dd>
+<p>Paste from kill ring (<code>yank</code>).  The paste functions behave
 differently depending on the format of the text being inserted:
-          <ul>
-<li>When pasting cells that were cut from a <acronym>SES</acronym> buffer, the print text is
+</p>
+<ul>
+<li> When pasting cells that were cut from a <acronym>SES</acronym> buffer, the print text is
 ignored and only the attached formula and printer are inserted; cell
-references in the formula are relocated unless you use <kbd>C-u</kbd>. 
+references in the formula are relocated unless you use <kbd>C-u</kbd>.
 </li>
-<li>The pasted text overwrites a rectangle of cells whose top left corner
+<li> The pasted text overwrites a rectangle of cells whose top left corner
 is the current cell.  If part of the rectangle is beyond the edges of
-the spreadsheet, you must confirm the increase in spreadsheet size. 
+the spreadsheet, you must confirm the increase in spreadsheet size.
 </li>
-<li>Non-<acronym>SES</acronym> text is usually inserted as a replacement formula for the
-current cell.  If the formula would be a symbol, it's treated as a
+<li> Non-<acronym>SES</acronym> text is usually inserted as a replacement formula for the
+current cell.  If the formula would be a symbol, it’s treated as a
 string unless you use <kbd>C-u</kbd>.  Pasted formulas with syntax errors
-are always treated as strings. 
+are always treated as strings.
 </li>
 </ul>
 
-     <br>
 </dd>
 <dt><kbd>[paste]</kbd></dt>
-<dd>Paste from primary clipboard or kill ring (<code>clipboard-yank</code>).
-
-     <br>
+<dd>
+<p>Paste from primary clipboard or kill ring (<code>clipboard-yank</code>).
+</p>
 </dd>
 <dt><kbd>[mouse-2]</kbd></dt>
-<dd>Set point and paste from primary clipboard (<code>mouse-yank-at-click</code>).
-
-     <br>
+<dd>
+<p>Set point and paste from primary clipboard (<code>mouse-yank-at-click</code>).
+</p>
 </dd>
 <dt><kbd>[M-mouse-2]</kbd></dt>
-<dd>Set point and paste from secondary clipboard (<code>mouse-yank-secondary</code>).
-
-     <br>
+<dd>
+<p>Set point and paste from secondary clipboard (<code>mouse-yank-secondary</code>).
+</p>
 </dd>
 <dt><kbd>M-y</kbd></dt>
-<dd>Immediately after a paste, you can replace the text with a preceding
+<dd><p>Immediately after a paste, you can replace the text with a preceding
 element from the kill ring (<code>ses-yank-pop</code>).  Unlike the standard
 Emacs yank-pop, the <acronym>SES</acronym> version uses <code>undo</code> to delete the old
-yank.  This doesn't make any difference? 
-</dd>
+yank.  This doesn’t make any difference?
+</p></dd>
 </dl>
 
-<div class="node">
-<a name="Customizing-%3cacronym%3eSES%3c%2facronym%3e"></a><a name="Customizing-_003cacronym_003eSES_003c_002facronym_003e"></a>
+<hr>
+<a name="Customizing-SES"></a>
+<div class="header">
+<p>
+Previous: <a href="#Copy_002fcut_002fpaste" accesskey="p" rel="prev">Copy/cut/paste</a>, Up: <a href="#The-Basics" accesskey="u" rel="up">The Basics</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Customizing-SES-1"></a>
 <h3 class="section">3.6 Customizing <acronym>SES</acronym>
 </h3>
+<a name="index-customizing"></a>
+<a name="index-enable_002dlocal_002deval"></a>
+<a name="index-ses_002dmode_002dhook"></a>
+<a name="index-safe_002dfunctions"></a>
+<a name="index-enable_002dlocal_002deval-1"></a>
 
-<p><a name="index-customizing-63"></a><a name="index-enable_002dlocal_002deval-64"></a><a name="index-ses_002dmode_002dhook-65"></a><a name="index-safe_002dfunctions-66"></a><a name="index-enable_002dlocal_002deval-67"></a>
 
-   </p>
 <p>By default, a newly-created spreadsheet has 1 row and 1 column.  The
-column width is 7 and the default printer is `<samp><span class="samp">"%.7g"</span></samp>'.  Each of these
+column width is 7 and the default printer is ‘<samp>"%.7g"</samp>’.  Each of these
 can be customized.  Look in group “ses”.
-
-   </p>
+</p>
 <p>After entering a cell value, point normally moves right to the next
 cell.  You can customize <code>ses-after-entry-functions</code> to move left or
 up or down.  For diagonal movement, select two functions from the
 list.
-
-   </p>
+</p>
 <p><code>ses-mode-hook</code> is a normal mode hook (list of functions to
 execute when starting <acronym>SES</acronym> mode for a buffer).
-
-   </p>
+</p>
 <p>The variable <code>safe-functions</code> is a list of possibly-unsafe
-functions to be treated as safe when analyzing formulas and printers. 
+functions to be treated as safe when analyzing formulas and printers.
 See <a href="#Virus-protection">Virus protection</a>.  Before customizing <code>safe-functions</code>,
-think about how much you trust the person who's suggesting this
+think about how much you trust the person who’s suggesting this
 change.  The value <code>t</code> turns off all anti-virus protection.  A
 list-of-functions value might enable a “gee whiz” spreadsheet, but it
 also creates trapdoors in your anti-virus armor.  In order for virus
 protection to work, you must always press <kbd>n</kbd> when presented with
 a virus warning, unless you understand what the questionable code is
 trying to do.  Do not listen to those who tell you to customize
-<code>enable-local-eval</code>—this variable is for people who don't wear
+<code>enable-local-eval</code>—this variable is for people who don’t wear
 safety belts!
-
-<!-- =================================================================== -->
 </p>
-<div class="node"><a name="Advanced-Features"></a></div>
 
+
+<hr>
+<a name="Advanced-Features"></a>
+<div class="header">
+<p>
+Next: <a href="#For-Gurus" accesskey="n" rel="next">For Gurus</a>, Previous: <a href="#The-Basics" accesskey="p" rel="prev">The Basics</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Advanced-Features-1"></a>
 <h2 class="chapter">4 Advanced Features</h2>
+<a name="index-advanced-features"></a>
+<a name="index-ses_002dread_002dheader_002drow"></a>
 
-<p><a name="index-advanced-features-68"></a><a name="index-ses_002dread_002dheader_002drow-69"></a>
 
-     </p>
-<dl>
+<dl compact>
 <dt><kbd>C-c M-C-h</kbd></dt>
-<dd>(<code>ses-set-header-row</code>). 
-<a name="index-ses_002dset_002dheader_002drow-70"></a><a name="index-C_002dc-M_002dC_002dh-71"></a>The header line at the top of the <acronym>SES</acronym>
+<dd><p>(<code>ses-set-header-row</code>).
+<a name="index-ses_002dset_002dheader_002drow"></a>
+<a name="index-C_002dc-M_002dC_002dh"></a>
+The header line at the top of the <acronym>SES</acronym>
 window normally shows the column letter for each column.  You can set
 it to show a copy of some row, such as a row of column titles, so that
 row will always be visible.  Default is to set the current row as the
 header; use C-u to prompt for header row.  Set the header to row 0 to
-show column letters again. 
-<br>
-</dd>
+show column letters again.
+</p></dd>
 <dt><kbd>[header-line mouse-3]</kbd></dt>
-<dd>Pops up a menu to set the current row as the header, or revert to
-column letters. 
-<br>
-</dd>
+<dd><p>Pops up a menu to set the current row as the header, or revert to
+column letters.
+</p></dd>
 <dt><kbd>M-x ses-rename-cell</kbd></dt>
 <dd>
-<a name="index-ses_002drename_002dcell-72"></a>Rename a cell from a standard A1-like name to any
-string. 
-<br>
+<a name="index-ses_002drename_002dcell"></a>
+<p>Rename a cell from a standard A1-like name to any
+string.
+</p>
 </dd>
 <dt><kbd>M-x ses-repair-cell-reference-all</kbd></dt>
 <dd>
-<a name="index-ses_002drepair_002dcell_002dreference_002dall-73"></a>When you interrupt a cell formula update by clicking <kbd>C-g</kbd>, then
+<a name="index-ses_002drepair_002dcell_002dreference_002dall"></a>
+<p>When you interrupt a cell formula update by clicking <kbd>C-g</kbd>, then
 the cell reference link may be broken, which will jeopardize automatic
 cell update when any other cell on which it depends is changed. To
 repair that use function <code>ses-repair-cell-reference-all</code>
+</p>
 </dd>
 </dl>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#The-print-area">The print area</a>
-</li>
-<li>
-<a accesskey="2" href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a accesskey="3" href="#Sorting-by-column">Sorting by column</a>
-</li>
-<li>
-<a accesskey="4" href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a accesskey="5" href="#More-on-cell-printing">More on cell printing</a>
-</li>
-<li>
-<a accesskey="6" href="#Import-and-export">Import and export</a>
-</li>
-<li>
-<a accesskey="7" href="#Virus-protection">Virus protection</a>
-</li>
-<li>
-<a accesskey="8" href="#Spreadsheets-with-details-and-summary">Spreadsheets with details and summary</a>
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#The-print-area" accesskey="1">The print area</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Ranges-in-formulas" accesskey="2">Ranges in formulas</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Sorting-by-column" accesskey="3">Sorting by column</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Standard-formula-functions" accesskey="4">Standard formula functions</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#More-on-cell-printing" accesskey="5">More on cell printing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Import-and-export" accesskey="6">Import and export</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Virus-protection" accesskey="7">Virus protection</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Spreadsheets-with-details-and-summary" accesskey="8">Spreadsheets with details and summary</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="The-print-area"></a></div>
-
+<hr>
+<a name="The-print-area"></a>
+<div class="header">
+<p>
+Next: <a href="#Ranges-in-formulas" accesskey="n" rel="next">Ranges in formulas</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-print-area-1"></a>
 <h3 class="section">4.1 The print area</h3>
+<a name="index-print-area"></a>
+<a name="index-widen"></a>
+<a name="index-ses_002drenarrow_002dbuffer"></a>
+<a name="index-ses_002dreprint_002dall"></a>
 
-<p><a name="index-print-area-74"></a><a name="index-widen-75"></a><a name="index-ses_002drenarrow_002dbuffer-76"></a><a name="index-ses_002dreprint_002dall-77"></a>
-A <acronym>SES</acronym> file consists of a print area and a data area.  Normally the
+<p>A <acronym>SES</acronym> file consists of a print area and a data area.  Normally the
 buffer is narrowed to show only the print area.  The print area is
 read-only except for special <acronym>SES</acronym> commands; it contains cell values
 formatted by printer functions.  The data area records the formula and
 printer functions, etc.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>C-x n w</kbd></dt>
-<dd>Show print and data areas (<code>widen</code>).
-
-     <br>
+<dd>
+<p>Show print and data areas (<code>widen</code>).
+</p>
 </dd>
 <dt><kbd>C-c C-n</kbd></dt>
-<dd>Show only print area (<code>ses-renarrow-buffer</code>).
-
-     <br>
+<dd>
+<p>Show only print area (<code>ses-renarrow-buffer</code>).
+</p>
 </dd>
-<dt>
-<kbd>S-C-l</kbd><dt><kbd>M-C-l</kbd></dt>
-</dt>
-<dd>Recreate print area by reevaluating printer functions for all cells
-(<code>ses-reprint-all</code>). 
-</dd>
+<dt><kbd>S-C-l</kbd></dt>
+<dt><kbd>M-C-l</kbd></dt>
+<dd><p>Recreate print area by reevaluating printer functions for all cells
+(<code>ses-reprint-all</code>).
+</p></dd>
 </dl>
 
-<div class="node"><a name="Ranges-in-formulas"></a></div>
-
+<hr>
+<a name="Ranges-in-formulas"></a>
+<div class="header">
+<p>
+Next: <a href="#Sorting-by-column" accesskey="n" rel="next">Sorting by column</a>, Previous: <a href="#The-print-area" accesskey="p" rel="prev">The print area</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Ranges-in-formulas-1"></a>
 <h3 class="section">4.2 Ranges in formulas</h3>
+<a name="index-ranges"></a>
+<a name="index-ses_002dinsert_002drange_002dclick"></a>
+<a name="index-ses_002dinsert_002drange"></a>
+<a name="index-ses_002dinsert_002dses_002drange_002dclick"></a>
+<a name="index-ses_002dinsert_002dses_002drange"></a>
+<a name="index-from"></a>
+<a name="index-to"></a>
 
-<p><a name="index-ranges-78"></a><a name="index-ses_002dinsert_002drange_002dclick-79"></a><a name="index-ses_002dinsert_002drange-80"></a><a name="index-ses_002dinsert_002dses_002drange_002dclick-81"></a><a name="index-ses_002dinsert_002dses_002drange-82"></a><a name="index-from-83"></a><a name="index-to-84"></a>
-A formula like
+<p>A formula like
 </p>
-<pre class="lisp">     (+ A1 A2 A3)
+<div class="lisp">
+<pre class="lisp">(+ A1 A2 A3)
 </pre>
-   <p>is the sum of three specific cells.  If you insert a new second row,
+</div>
+<p>is the sum of three specific cells.  If you insert a new second row,
 the formula becomes
 </p>
-<pre class="lisp">     (+ A1 A3 A4)
+<div class="lisp">
+<pre class="lisp">(+ A1 A3 A4)
 </pre>
-   <p>and the new row is not included in the sum.
-
-   </p>
-<p>The macro <code>(ses-range </code><var>from</var> <var>to</var><code>)</code> evaluates to a list of
+</div>
+<p>and the new row is not included in the sum.
+</p>
+<p>The macro <code>(ses-range <var>from</var> <var>to</var>)</code> evaluates to a list of
 the values in a rectangle of cells.  If your formula is
 </p>
-<pre class="lisp">     (apply '+ (ses-range A1 A3))
+<div class="lisp">
+<pre class="lisp">(apply '+ (ses-range A1 A3))
 </pre>
-   <p>and you insert a new second row, it becomes
+</div>
+<p>and you insert a new second row, it becomes
 </p>
-<pre class="lisp">     (apply '+ (ses-range A1 A4))
+<div class="lisp">
+<pre class="lisp">(apply '+ (ses-range A1 A4))
 </pre>
-   <p>and the new row is included in the sum.
-
-   </p>
+</div>
+<p>and the new row is included in the sum.
+</p>
 <p>While entering or editing a formula in the minibuffer, you can select
 a range in the spreadsheet (using mouse or keyboard), then paste a
 representation of that range into your formula.  Suppose you select
 A1-C1:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>[S-mouse-3]</kbd></dt>
-<dd>Inserts "A1 B1 C1" <code>(ses-insert-range-click</code>)
-
-     <br>
+<dd>
+<p>Inserts "A1 B1 C1" <code>(ses-insert-range-click</code>)
+</p>
 </dd>
 <dt><kbd>C-c C-r</kbd></dt>
-<dd>Keyboard version (<code>ses-insert-range</code>).
-
-     <br>
+<dd>
+<p>Keyboard version (<code>ses-insert-range</code>).
+</p>
 </dd>
 <dt><kbd>[C-S-mouse-3]</kbd></dt>
-<dd>Inserts "(ses-range A1 C1)" (<code>ses-insert-ses-range-click</code>).
-
-     <br>
+<dd>
+<p>Inserts "(ses-range A1 C1)" (<code>ses-insert-ses-range-click</code>).
+</p>
 </dd>
 <dt><kbd>C-c C-s</kbd></dt>
-<dd>Keyboard version (<code>ses-insert-ses-range</code>). 
-</dd>
+<dd><p>Keyboard version (<code>ses-insert-ses-range</code>).
+</p></dd>
 </dl>
 
-   <p>If you delete the <var>from</var> or <var>to</var> cell for a range, the nearest
+<p>If you delete the <var>from</var> or <var>to</var> cell for a range, the nearest
 still-existing cell is used instead.  If you delete the entire range,
 the formula relocator will delete the ses-range from the formula.
-
-   </p>
+</p>
 <p>If you insert a new row just beyond the end of a one-column range, or
 a new column just beyond a one-row range, the new cell is included in
 the range.  New cells inserted just before a range are not included.
-
-   </p>
+</p>
 <p>Flags can be added to <code>ses-range</code> immediately after the <var>to</var>
 cell.
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>!</code></dt>
-<dd>Empty cells in range can be removed by adding the <code>!</code> flag. An
+<dd><p>Empty cells in range can be removed by adding the <code>!</code> flag. An
 empty cell is a cell the value of which is one of symbols <code>nil</code>
 or <code>*skip*</code>. For instance <code>(ses-range A1 A4 !)</code> will do the
 same as <code>(list A1 A3)</code> when cells <code>A2</code> and <code>A4</code> are
-empty. 
-<br>
-</dd>
+empty.
+</p></dd>
 <dt><code>_</code></dt>
-<dd>Empty cell values are replaced by the argument following flag
+<dd><p>Empty cell values are replaced by the argument following flag
 <code>_</code>, or <code>0</code> when flag <code>_</code> is last in argument list. For
 instance <code>(ses-range A1 A4 _ "empty")</code> will do the same as
 <code>(list A1 "empty" A3 "empty")</code> when cells <code>A2</code> and <code>A4</code>
 are empty. Similarly, <code>(ses-range A1 A4 _ )</code> will do the same as
-<code>(list A1 0 A3 0)</code>. 
-<br>
-</dd>
+<code>(list A1 0 A3 0)</code>.
+</p></dd>
 <dt><code>&gt;v</code></dt>
-<dd>When order matters, list cells by reading cells row-wise from top left
+<dd><p>When order matters, list cells by reading cells row-wise from top left
 to bottom right. This flag is provided for completeness only as it is
-the default reading order. 
-<br>
-</dd>
+the default reading order.
+</p></dd>
 <dt><code>&lt;v</code></dt>
-<dd>List cells by reading cells row-wise from top right to bottom left. 
-<br>
-</dd>
+<dd><p>List cells by reading cells row-wise from top right to bottom left.
+</p></dd>
 <dt><code>v&gt;</code></dt>
-<dd>List cells by reading cells column-wise from top left to bottom right. 
-<br>
-</dd>
+<dd><p>List cells by reading cells column-wise from top left to bottom right.
+</p></dd>
 <dt><code>v&lt;</code></dt>
-<dd>List cells by reading cells column-wise from top right to bottom left. 
-<br>
-</dd>
+<dd><p>List cells by reading cells column-wise from top right to bottom left.
+</p></dd>
 <dt><code>v</code></dt>
-<dd>A short hand for <code>v&gt;</code>. 
-<br>
-</dd>
+<dd><p>A short hand for <code>v&gt;</code>.
+</p></dd>
 <dt><code>^</code></dt>
-<dd>A short hand for <code>^&gt;</code>. 
-<br>
-</dd>
+<dd><p>A short hand for <code>^&gt;</code>.
+</p></dd>
 <dt><code>&gt;</code></dt>
-<dd>A short hand for <code>&gt;v</code>. 
-<br>
-</dd>
+<dd><p>A short hand for <code>&gt;v</code>.
+</p></dd>
 <dt><code>&lt;</code></dt>
-<dd>A short hand for <code>&gt;^</code>. 
-<br>
-</dd>
+<dd><p>A short hand for <code>&gt;^</code>.
+</p></dd>
 <dt><code>*</code></dt>
-<dd>Instead of listing cells, it makes a Calc vector or matrix of it
-(see <a href="calc.html#Top">Top</a>). If the range contains only
-one row or one column a vector is made, otherwise a matrix is made. 
-<br>
-</dd>
+<dd><p>Instead of listing cells, it makes a Calc vector or matrix of it
+(see <cite><a href="calc.html#Top">GNU Emacs Calc Manual</a></cite>). If the range contains only
+one row or one column a vector is made, otherwise a matrix is made.
+</p></dd>
 <dt><code>*2</code></dt>
-<dd>Same as <code>*</code> except that a matrix is always made even when there
-is only one row or column in the range. 
-<br>
-</dd>
+<dd><p>Same as <code>*</code> except that a matrix is always made even when there
+is only one row or column in the range.
+</p></dd>
 <dt><code>*1</code></dt>
-<dd>Same as <code>*</code> except that a vector is always made even when there
+<dd><p>Same as <code>*</code> except that a vector is always made even when there
 is only one row or column in the range, that is to say the
-corresponding matrix is flattened. 
-</dd>
+corresponding matrix is flattened.
+</p></dd>
 </dl>
 
-<div class="node"><a name="Sorting-by-column"></a></div>
-
+<hr>
+<a name="Sorting-by-column"></a>
+<div class="header">
+<p>
+Next: <a href="#Standard-formula-functions" accesskey="n" rel="next">Standard formula functions</a>, Previous: <a href="#Ranges-in-formulas" accesskey="p" rel="prev">Ranges in formulas</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Sorting-by-column-1"></a>
 <h3 class="section">4.3 Sorting by column</h3>
+<a name="index-sorting"></a>
+<a name="index-ses_002dsort_002dcolumn"></a>
+<a name="index-ses_002dsort_002dcolumn_002dclick"></a>
 
-<p><a name="index-sorting-85"></a><a name="index-ses_002dsort_002dcolumn-86"></a><a name="index-ses_002dsort_002dcolumn_002dclick-87"></a>
-     </p>
-<dl>
+<dl compact>
 <dt><kbd>C-c M-C-s</kbd></dt>
-<dd>Sort the cells of a range using one of the columns
+<dd>
+<p>Sort the cells of a range using one of the columns
 (<code>ses-sort-column</code>).  The rows (or partial rows if the range
-doesn't include all columns) are rearranged so the chosen column will
+doesn’t include all columns) are rearranged so the chosen column will
 be in order.
-
-     <br>
+</p>
 </dd>
 <dt><kbd>[header-line mouse-2]</kbd></dt>
-<dd>The easiest way to sort is to click mouse-2 on the chosen column's header row
-(<code>ses-sort-column-click</code>). 
-</dd>
+<dd><p>The easiest way to sort is to click mouse-2 on the chosen column’s header row
+(<code>ses-sort-column-click</code>).
+</p></dd>
 </dl>
 
-   <p>The sort comparison uses <code>string&lt;</code>, which works well for
+<p>The sort comparison uses <code>string&lt;</code>, which works well for
 right-justified numbers and left-justified strings.
-
-   </p>
+</p>
 <p>With prefix arg, sort is in descending order.
-
-   </p>
+</p>
 <p>Rows are moved one at a time, with relocation of formulas.  This works
 well if formulas refer to other cells in their row, not so well for
 formulas that refer to other rows in the range or to cells outside the
 range.
-
 </p>
-<div class="node"><a name="Standard-formula-functions"></a></div>
 
+<hr>
+<a name="Standard-formula-functions"></a>
+<div class="header">
+<p>
+Next: <a href="#More-on-cell-printing" accesskey="n" rel="next">More on cell printing</a>, Previous: <a href="#Sorting-by-column" accesskey="p" rel="prev">Sorting by column</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Standard-formula-functions-1"></a>
 <h3 class="section">4.4 Standard formula functions</h3>
+<a name="index-standard-formula-functions"></a>
+<a name="index-_002askip_002a"></a>
+<a name="index-_002aerror_002a"></a>
+<a name="index-ses_002ddelete_002dblanks"></a>
+<a name="index-ses_002daverage"></a>
+<a name="index-ses_002b"></a>
 
-<p><a name="index-standard-formula-functions-88"></a><a name="index-g_t_002askip_002a-89"></a><a name="index-g_t_002aerror_002a-90"></a><a name="index-ses_002ddelete_002dblanks-91"></a><a name="index-ses_002daverage-92"></a><a name="index-ses_002b-93"></a>
-Oftentimes you want a calculation to exclude the blank cells.  Here
+<p>Oftentimes you want a calculation to exclude the blank cells.  Here
 are some useful functions to call from your formulas:
-
-     </p>
-<dl>
-<dt>
-<code>(ses-delete-blanks &amp;rest </code><var>args</var><code>)</code>
-</dt>
-<dd>Returns a list from which all blank cells (value is either <code>nil</code> or
-'*skip*) have been deleted.
-
-     <br>
+</p>
+<dl compact>
+<dt><code>(ses-delete-blanks &amp;rest <var>args</var>)</code></dt>
+<dd>
+<p>Returns a list from which all blank cells (value is either <code>nil</code> or
+’*skip*) have been deleted.
+</p>
 </dd>
-<dt>
-<code>(ses+ &amp;rest </code><var>args</var><code>)</code>
-</dt>
-<dd>Sum of non-blank arguments.
-
-     <br>
+<dt><code>(ses+ &amp;rest <var>args</var>)</code></dt>
+<dd>
+<p>Sum of non-blank arguments.
+</p>
 </dd>
-<dt>
-<code>(ses-average </code><var>list</var><code>)</code>
-</dt>
-<dd>Average of non-blank elements in <var>list</var>.  Here the list is passed
-as a single argument, since you'll probably use it with <code>ses-range</code>. 
-</dd>
+<dt><code>(ses-average <var>list</var>)</code></dt>
+<dd><p>Average of non-blank elements in <var>list</var>.  Here the list is passed
+as a single argument, since you’ll probably use it with <code>ses-range</code>.
+</p></dd>
 </dl>
 
-<div class="node"><a name="More-on-cell-printing"></a></div>
-
+<hr>
+<a name="More-on-cell-printing"></a>
+<div class="header">
+<p>
+Next: <a href="#Import-and-export" accesskey="n" rel="next">Import and export</a>, Previous: <a href="#Standard-formula-functions" accesskey="p" rel="prev">Standard formula functions</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="More-on-cell-printing-1"></a>
 <h3 class="section">4.5 More on cell printing</h3>
+<a name="index-cell-printing_002c-more"></a>
+<a name="index-ses_002dtruncate_002dcell"></a>
+<a name="index-ses_002drecalculate_002dcell-1"></a>
 
-<p><a name="index-cell-printing_002c-more-94"></a><a name="index-ses_002dtruncate_002dcell-95"></a><a name="index-ses_002drecalculate_002dcell-96"></a>
-Special cell values:
-     </p>
+<p>Special cell values:
+</p>
 <ul>
-<li>nil prints the same as "", but allows previous cell to spill over. 
+<li> nil prints the same as "", but allows previous cell to spill over.
 </li>
-<li>'*skip* replaces nil when the previous cell actually does spill over;
-nothing is printed for it. 
+<li> ’*skip* replaces nil when the previous cell actually does spill over;
+nothing is printed for it.
 </li>
-<li>'*error* indicates that the formula signaled an error instead of
-producing a value: the print cell is filled with hash marks (#). 
+<li> ’*error* indicates that the formula signaled an error instead of
+producing a value: the print cell is filled with hash marks (#).
 </li>
 </ul>
 
-   <p>If the result from the printer function is too wide for the cell and
+<p>If the result from the printer function is too wide for the cell and
 the following cell is <code>nil</code>, the result will spill over into the
 following cell.  Very wide results can spill over several cells.  If
 the result is too wide for the available space (up to the end of the
-row or the next non-<code>nil</code> cell), the result is truncated if the cell's
+row or the next non-<code>nil</code> cell), the result is truncated if the cell’s
 value is a string, or replaced with hash marks otherwise.
-
-   </p>
+</p>
 <p><acronym>SES</acronym> could get confused by printer results that contain newlines or
 tabs, so these are replaced with question marks.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>t</kbd></dt>
-<dd>Confine a cell to its own column (<code>ses-truncate-cell</code>).  This
+<dd>
+<p>Confine a cell to its own column (<code>ses-truncate-cell</code>).  This
 allows you to move point to a rightward cell that would otherwise be
-covered by a spill-over.  If you don't change the rightward cell, the
+covered by a spill-over.  If you don’t change the rightward cell, the
 confined cell will spill over again the next time it is reprinted.
-
-     <br>
+</p>
 </dd>
 <dt><kbd>c</kbd></dt>
-<dd>When applied to a single cell, this command displays in the echo area
+<dd><p>When applied to a single cell, this command displays in the echo area
 any formula error or printer error that occurred during
 recalculation/reprinting (<code>ses-recalculate-cell</code>).  You can use
-this to undo the effect of <kbd>t</kbd>. 
-</dd>
+this to undo the effect of <kbd>t</kbd>.
+</p></dd>
 </dl>
 
-   <p>When a printer function signals an error, the fallback printer
-`<samp><span class="samp">"%s"</span></samp>' is substituted.  This is useful when your column printer
+<p>When a printer function signals an error, the fallback printer
+‘<samp>"%s"</samp>’ is substituted.  This is useful when your column printer
 is numeric-only and you use a string as a cell value.  Note that the
 standard default printer is “%.7g” which is numeric-only, so cells
-that are empty of contain strings will use the fallback printer. 
-<kbd>c</kbd> on such cells will display “Format specifier doesn't match
+that are empty of contain strings will use the fallback printer.
+<kbd>c</kbd> on such cells will display “Format specifier doesn’t match
 argument type”.
-
 </p>
-<div class="node"><a name="Import-and-export"></a></div>
 
+<hr>
+<a name="Import-and-export"></a>
+<div class="header">
+<p>
+Next: <a href="#Virus-protection" accesskey="n" rel="next">Virus protection</a>, Previous: <a href="#More-on-cell-printing" accesskey="p" rel="prev">More on cell printing</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Import-and-export-1"></a>
 <h3 class="section">4.6 Import and export</h3>
+<a name="index-import-and-export"></a>
+<a name="index-export_002c-and-import"></a>
+<a name="index-ses_002dexport_002dtsv"></a>
+<a name="index-ses_002dexport_002dtsf"></a>
 
-<p><a name="index-import-and-export-97"></a><a name="index-export_002c-and-import-98"></a><a name="index-ses_002dexport_002dtsv-99"></a><a name="index-ses_002dexport_002dtsf-100"></a>
-     </p>
-<dl>
+<dl compact>
 <dt><kbd>x t</kbd></dt>
-<dd>Export a range of cells as tab-separated values (<code>ses-export-tsv</code>). 
-<br>
-</dd>
+<dd><p>Export a range of cells as tab-separated values (<code>ses-export-tsv</code>).
+</p></dd>
 <dt><kbd>x T</kbd></dt>
-<dd>Export a range of cells as tab-separated formulas (<code>ses-export-tsf</code>). 
-</dd>
+<dd><p>Export a range of cells as tab-separated formulas (<code>ses-export-tsf</code>).
+</p></dd>
 </dl>
 
-   <p>The exported text goes to the kill ring; you can paste it into
+<p>The exported text goes to the kill ring; you can paste it into
 another buffer.  Columns are separated by tabs, rows by newlines.
-
-   </p>
+</p>
 <p>To import text, use any of the yank commands where the text to paste
 contains tabs and/or newlines.  Imported formulas are not relocated.
-
 </p>
-<div class="node"><a name="Virus-protection"></a></div>
-
+<hr>
+<a name="Virus-protection"></a>
+<div class="header">
+<p>
+Next: <a href="#Spreadsheets-with-details-and-summary" accesskey="n" rel="next">Spreadsheets with details and summary</a>, Previous: <a href="#Import-and-export" accesskey="p" rel="prev">Import and export</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Virus-protection-1"></a>
 <h3 class="section">4.7 Virus protection</h3>
+<a name="index-virus-protection"></a>
 
-<p><a name="index-virus-protection-101"></a>
-Whenever a formula or printer is read from a file or is pasted into
+<p>Whenever a formula or printer is read from a file or is pasted into
 the spreadsheet, it receives a “needs safety check” marking.  Later,
 when the formula or printer is evaluated for the first time, it is
 checked for safety using the <code>unsafep</code> predicate; if found to be
 “possibly unsafe”, the questionable formula or printer is displayed
 and you must press Y to approve it or N to use a substitute.  The
 substitute always signals an error.
-
-   </p>
+</p>
 <p>Formulas or printers that you type in are checked immediately for
 safety.  If found to be possibly unsafe and you press N to disapprove,
 the action is canceled and the old formula or printer will remain.
-
-   </p>
+</p>
 <p>Besides viruses (which try to copy themselves to other files),
 <code>unsafep</code> can also detect all other kinds of Trojan horses, such as
 spreadsheets that delete files, send email, flood Web sites, alter
 your Emacs settings, etc.
-
-   </p>
-<p>Generally, spreadsheet formulas and printers are simple things that
-don't need to do any fancy computing, so all potentially-dangerous
-parts of the Emacs Lisp environment can be excluded without cramping
-your style as a formula-writer.  See the documentation in <samp><span class="file">unsafep.el</span></samp>
-for more info on how Lisp forms are classified as safe or unsafe.
-
 </p>
-<div class="node"><a name="Spreadsheets-with-details-and-summary"></a></div>
-
+<p>Generally, spreadsheet formulas and printers are simple things that
+don’t need to do any fancy computing, so all potentially-dangerous
+parts of the Emacs Lisp environment can be excluded without cramping
+your style as a formula-writer.  See the documentation in <samp>unsafep.el</samp>
+for more info on how Lisp forms are classified as safe or unsafe.
+</p>
+<hr>
+<a name="Spreadsheets-with-details-and-summary"></a>
+<div class="header">
+<p>
+Previous: <a href="#Virus-protection" accesskey="p" rel="prev">Virus protection</a>, Up: <a href="#Advanced-Features" accesskey="u" rel="up">Advanced Features</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Spreadsheets-with-details-and-summary-1"></a>
 <h3 class="section">4.8 Spreadsheets with details and summary</h3>
+<a name="index-details-and-summary"></a>
+<a name="index-summary_002c-and-details"></a>
 
-<p><a name="index-details-and-summary-102"></a><a name="index-summary_002c-and-details-103"></a>
-A common organization for spreadsheets is to have a bunch of “detail”
+<p>A common organization for spreadsheets is to have a bunch of “detail”
 rows, each perhaps describing a transaction, and then a set of
 “summary” rows that each show reduced data for some subset of the
 details.  <acronym>SES</acronym> supports this organization via the <code>ses-select</code>
 function.
-
-     </p>
-<dl>
-<dt>
-<code>(ses-select </code><var>fromrange</var> <var>test</var> <var>torange</var><code>)</code>
-</dt>
-<dd>Returns a subset of <var>torange</var>.  For each member in <var>fromrange</var>
+</p>
+<dl compact>
+<dt><code>(ses-select <var>fromrange</var> <var>test</var> <var>torange</var>)</code></dt>
+<dd><p>Returns a subset of <var>torange</var>.  For each member in <var>fromrange</var>
 that is equal to <var>test</var>, the corresponding member of <var>torange</var>
-is included in the result. 
-</dd>
+is included in the result.
+</p></dd>
 </dl>
 
-   <p>Example of use:
+<p>Example of use:
 </p>
-<pre class="lisp">     (ses-average (ses-select (ses-range A1 A5) 'Smith (ses-range B1 B5)))
+<div class="lisp">
+<pre class="lisp">(ses-average (ses-select (ses-range A1 A5) 'Smith (ses-range B1 B5)))
 </pre>
-   <p>This computes the average of the B column values for those rows whose
-A column value is the symbol 'Smith.
-
-   </p>
+</div>
+<p>This computes the average of the B column values for those rows whose
+A column value is the symbol ’Smith.
+</p>
 <p>Arguably one could specify only <var>fromrange</var> plus
 <var>to-row-offset</var> and <var>to-column-offset</var>.  The <var>torange</var> is
 stated explicitly to ensure that the formula will be recalculated if
 any cell in either range is changed.
-
-   </p>
-<p>File <samp><span class="file">etc/ses-example.el</span></samp> in the Emacs distribution is an example of a
+</p>
+<p>File <samp>etc/ses-example.el</samp> in the Emacs distribution is an example of a
 details-and-summary spreadsheet.
-
-<!-- =================================================================== -->
 </p>
-<div class="node"><a name="For-Gurus"></a></div>
 
+
+<hr>
+<a name="For-Gurus"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Advanced-Features" accesskey="p" rel="prev">Advanced Features</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="For-Gurus-1"></a>
 <h2 class="chapter">5 For Gurus</h2>
+<a name="index-advanced-features-1"></a>
 
-<p><a name="index-advanced-features-104"></a>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Deferred-updates" accesskey="1">Deferred updates</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Nonrelocatable-references" accesskey="2">Nonrelocatable references</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#The-data-area" accesskey="3">The data area</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Buffer_002dlocal-variables-in-spreadsheets" accesskey="4">Buffer-local variables in spreadsheets</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Uses-of-defadvice-in-SES" accesskey="5">Uses of defadvice in <acronym>SES</acronym></a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-</p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Deferred-updates">Deferred updates</a>
-</li>
-<li>
-<a accesskey="2" href="#Nonrelocatable-references">Nonrelocatable references</a>
-</li>
-<li>
-<a accesskey="3" href="#The-data-area">The data area</a>
-</li>
-<li>
-<a accesskey="4" href="#Buffer_002dlocal-variables-in-spreadsheets">Buffer-local variables in spreadsheets</a>
-</li>
-<li>
-<a accesskey="5" href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">Uses of defadvice in <acronym>SES</acronym></a>
-</li>
-</ul>
-
-<div class="node"><a name="Deferred-updates"></a></div>
-
+<hr>
+<a name="Deferred-updates"></a>
+<div class="header">
+<p>
+Next: <a href="#Nonrelocatable-references" accesskey="n" rel="next">Nonrelocatable references</a>, Up: <a href="#For-Gurus" accesskey="u" rel="up">For Gurus</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Deferred-updates-1"></a>
 <h3 class="section">5.1 Deferred updates</h3>
+<a name="index-deferred-updates"></a>
+<a name="index-updates_002c-deferred"></a>
+<a name="index-run_002dwith_002didle_002dtimer"></a>
 
-<p><a name="index-deferred-updates-105"></a><a name="index-updates_002c-deferred-106"></a><a name="index-run_002dwith_002didle_002dtimer-107"></a>
-To save time by avoiding redundant computations, cells that need
+<p>To save time by avoiding redundant computations, cells that need
 recalculation due to changes in other cells are added to a set.  At
-the end of the command, each cell in the set is recalculated once. 
+the end of the command, each cell in the set is recalculated once.
 This can create a new set of cells that need recalculation.  The
 process is repeated until either the set is empty or it stops changing
 (due to circular references among the cells).  In extreme cases, you
@@ -1264,618 +1447,1327 @@ might see progress messages of the form “Recalculating... (<var>nnn</var>
 cells left)”.  If you interrupt the calculation using <kbd>C-g</kbd>, the
 spreadsheet will be left in an inconsistent state, so use <kbd>C-_</kbd> or
 <kbd>C-c C-l</kbd> to fix it.
-
-   </p>
+</p>
 <p>To save even more time by avoiding redundant writes, cells that have
 changes are added to a set instead of being written immediately to the
 data area.  Each cell in the set is written once, at the end of the
 command.  If you change vast quantities of cells, you might see a
-progress message of the form “Writing... (<var>nnn</var> cells left)”. 
+progress message of the form “Writing... (<var>nnn</var> cells left)”.
 These deferred cell-writes cannot be interrupted by <kbd>C-g</kbd>, so
-you'll just have to wait.
-
-   </p>
+you’ll just have to wait.
+</p>
 <p><acronym>SES</acronym> uses <code>run-with-idle-timer</code> to move the cell underline when
 Emacs will be scrolling the buffer after the end of a command, and
 also to narrow and underline after <kbd>C-x C-v</kbd>.  This is visible as
 a momentary glitch after C-x C-v and certain scrolling commands.  You
 can type ahead without worrying about the glitch.
-
 </p>
-<div class="node"><a name="Nonrelocatable-references"></a></div>
 
+<hr>
+<a name="Nonrelocatable-references"></a>
+<div class="header">
+<p>
+Next: <a href="#The-data-area" accesskey="n" rel="next">The data area</a>, Previous: <a href="#Deferred-updates" accesskey="p" rel="prev">Deferred updates</a>, Up: <a href="#For-Gurus" accesskey="u" rel="up">For Gurus</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Nonrelocatable-references-1"></a>
 <h3 class="section">5.2 Nonrelocatable references</h3>
+<a name="index-nonrelocatable-references"></a>
+<a name="index-references_002c-nonrelocatable"></a>
 
-<p><a name="index-nonrelocatable-references-108"></a><a name="index-references_002c-nonrelocatable-109"></a>
-<kbd>C-y</kbd> relocates all cell-references in a pasted formula, while
+<p><kbd>C-y</kbd> relocates all cell-references in a pasted formula, while
 <kbd>C-u C-y</kbd> relocates none of the cell-references.  What about mixed
 cases?
-
-   </p>
+</p>
 <p>You can use
 </p>
-<pre class="lisp">     (symbol-value 'B3)
+<div class="lisp">
+<pre class="lisp">(symbol-value 'B3)
 </pre>
-   <p>to make an <dfn>absolute reference</dfn>.  The formula relocator skips over
+</div>
+<p>to make an <em>absolute reference</em>.  The formula relocator skips over
 quoted things, so this will not be relocated when pasted or when
 rows/columns are inserted/deleted.  However, B3 will not be recorded
 as a dependency of this cell, so this cell will not be updated
 automatically when B3 is changed.
-
-   </p>
+</p>
 <p>The variables <code>row</code> and <code>col</code> are dynamically bound while a
 cell formula is being evaluated.  You can use
 </p>
-<pre class="lisp">     (ses-cell-value row 0)
+<div class="lisp">
+<pre class="lisp">(ses-cell-value row 0)
 </pre>
-   <p>to get the value from the leftmost column in the current row.  This
+</div>
+<p>to get the value from the leftmost column in the current row.  This
 kind of dependency is also not recorded.
-
 </p>
-<div class="node"><a name="The-data-area"></a></div>
 
+<hr>
+<a name="The-data-area"></a>
+<div class="header">
+<p>
+Next: <a href="#Buffer_002dlocal-variables-in-spreadsheets" accesskey="n" rel="next">Buffer-local variables in spreadsheets</a>, Previous: <a href="#Nonrelocatable-references" accesskey="p" rel="prev">Nonrelocatable references</a>, Up: <a href="#For-Gurus" accesskey="u" rel="up">For Gurus</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-data-area-1"></a>
 <h3 class="section">5.3 The data area</h3>
+<a name="index-data-area"></a>
+<a name="index-ses_002dreconstruct_002dall"></a>
 
-<p><a name="index-data-area-110"></a><a name="index-ses_002dreconstruct_002dall-111"></a>
-Begins with an 014 character, followed by sets of cell-definition
+<p>Begins with an 014 character, followed by sets of cell-definition
 macros for each row, followed by column-widths, column-printers,
-default-printer, and header-row.  Then there's the global parameters
+default-printer, and header-row.  Then there’s the global parameters
 (file-format ID, numrows, numcols) and the local variables (specifying
 <acronym>SES</acronym> mode for the buffer, etc.).
-
-   </p>
+</p>
 <p>When a <acronym>SES</acronym> file is loaded, first the numrows and numcols values are
 loaded, then the entire data area is <code>eval</code>ed, and finally the local
 variables are processed.
-
-   </p>
-<p>You can edit the data area, but don't insert or delete any newlines
+</p>
+<p>You can edit the data area, but don’t insert or delete any newlines
 except in the local-variables part, since <acronym>SES</acronym> locates things by
 counting newlines.  Use <kbd>C-x C-e</kbd> at the end of a line to install
 your edits into the spreadsheet data structures (this does not update
 the print area, use, e.g., <kbd>C-c C-l</kbd> for that).
-
-   </p>
+</p>
 <p>The data area is maintained as an image of spreadsheet data
 structures that area stored in buffer-local variables.  If the data
 area gets messed up, you can try reconstructing the data area from the
 data structures:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><kbd>C-c M-C-l</kbd></dt>
-<dd>(<code>ses-reconstruct-all</code>). 
-</dd>
+<dd><p>(<code>ses-reconstruct-all</code>).
+</p></dd>
 </dl>
 
-<div class="node">
-<a name="Buffer-local-variables-in-spreadsheets"></a><a name="Buffer_002dlocal-variables-in-spreadsheets"></a>
+
+<hr>
+<a name="Buffer_002dlocal-variables-in-spreadsheets"></a>
+<div class="header">
+<p>
+Next: <a href="#Uses-of-defadvice-in-SES" accesskey="n" rel="next">Uses of defadvice in <acronym>SES</acronym></a>, Previous: <a href="#The-data-area" accesskey="p" rel="prev">The data area</a>, Up: <a href="#For-Gurus" accesskey="u" rel="up">For Gurus</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Buffer_002dlocal-variables-in-spreadsheets-1"></a>
 <h3 class="section">5.4 Buffer-local variables in spreadsheets</h3>
+<a name="index-buffer_002dlocal-variables"></a>
+<a name="index-variables_002c-buffer_002dlocal"></a>
 
-<p><a name="index-buffer_002dlocal-variables-112"></a><a name="index-variables_002c-buffer_002dlocal-113"></a>
-You can add additional local variables to the list at the bottom of
+<p>You can add additional local variables to the list at the bottom of
 the data area, such as hidden constants you want to refer to in your
 formulas.
-
-   </p>
+</p>
 <p>You can override the variable <code>ses--symbolic-formulas</code> to be a list of
 symbols (as parenthesized strings) to show as completions for the <kbd>'</kbd>
 command.  This initial completions list is used instead of the actual
 set of symbols-as-formulas in the spreadsheet.
-
-   </p>
-<p>For an example of this, see file <samp><span class="file">etc/ses-example.ses</span></samp>.
-
-   </p>
+</p>
+<p>For an example of this, see file <samp>etc/ses-example.ses</samp>.
+</p>
 <p>If (for some reason) you want your formulas or printers to save data
 into variables, you must declare these variables as buffer-locals in
 order to avoid a virus warning.
-
-   </p>
+</p>
 <p>You can define functions by making them values for the fake local
 variable <code>eval</code>.  Such functions can then be used in your
 formulas and printers, but usually each <code>eval</code> is presented to
 the user during file loading as a potential virus.  This can get
 annoying.
-
-   </p>
-<p>You can define functions in your <samp><span class="file">.emacs</span></samp> file.  Other people can
-still read the print area of your spreadsheet, but they won't be able
+</p>
+<p>You can define functions in your <samp>.emacs</samp> file.  Other people can
+still read the print area of your spreadsheet, but they won’t be able
 to recalculate or reprint anything that depends on your functions.  To
 avoid virus warnings, each function used in a formula needs
 </p>
-<pre class="lisp">     (put 'your-function-name 'safe-function t)
+<div class="lisp">
+<pre class="lisp">(put 'your-function-name 'safe-function t)
 </pre>
-   <div class="node">
-<a name="Uses-of-defadvice-in-%3cacronym%3eSES%3c%2facronym%3e"></a><a name="Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e"></a>
 </div>
 
+<hr>
+<a name="Uses-of-defadvice-in-SES"></a>
+<div class="header">
+<p>
+Previous: <a href="#Buffer_002dlocal-variables-in-spreadsheets" accesskey="p" rel="prev">Buffer-local variables in spreadsheets</a>, Up: <a href="#For-Gurus" accesskey="u" rel="up">For Gurus</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Uses-of-defadvice-in-SES-1"></a>
 <h3 class="section">5.5 Uses of defadvice in <acronym>SES</acronym>
 </h3>
+<a name="index-defadvice"></a>
+<a name="index-undo_002dmore"></a>
+<a name="index-copy_002dregion_002das_002dkill"></a>
+<a name="index-yank"></a>
 
-<p><a name="index-defadvice-114"></a><a name="index-undo_002dmore-115"></a><a name="index-copy_002dregion_002das_002dkill-116"></a><a name="index-yank-117"></a>
-     </p>
-<dl>
+<dl compact>
 <dt><code>undo-more</code></dt>
-<dd>Defines a new undo element format (<var>fun</var> . <var>args</var>), which
+<dd>
+<p>Defines a new undo element format (<var>fun</var> . <var>args</var>), which
 means “undo by applying <var>fun</var> to <var>args</var>”.  For spreadsheet
-buffers, it allows undos in the data area even though that's outside
+buffers, it allows undos in the data area even though that’s outside
 the narrowing.
-
-     <br>
+</p>
 </dd>
 <dt><code>copy-region-as-kill</code></dt>
-<dd>When copying from the print area of a spreadsheet, treat the region as
-a rectangle and attach each cell's formula and printer as 'ses
+<dd>
+<p>When copying from the print area of a spreadsheet, treat the region as
+a rectangle and attach each cell’s formula and printer as ’ses
 properties.
-
-     <br>
+</p>
 </dd>
 <dt><code>yank</code></dt>
-<dd>When yanking into the print area of a spreadsheet, first try to yank
-as cells (if the yank text has 'ses properties), then as tab-separated
+<dd><p>When yanking into the print area of a spreadsheet, first try to yank
+as cells (if the yank text has ’ses properties), then as tab-separated
 formulas, then (if all else fails) as a single formula for the current
-cell. 
-</dd>
+cell.
+</p></dd>
 </dl>
 
-<!-- =================================================================== -->
-<div class="node"><a name="Index"></a></div>
-
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Next: <a href="#Acknowledgments" accesskey="n" rel="next">Acknowledgments</a>, Previous: <a href="#For-Gurus" accesskey="p" rel="prev">For Gurus</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="unnumbered">Index</h2>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-g_t_002aerror_002a-90">*error*</a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-g_t_002askip_002a-89">*skip*</a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-adding-rows-or-columns-25">adding rows or columns</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-advanced-features-104">advanced features</a>: <a href="#For-Gurus">For Gurus</a>
-</li>
-<li>
-<a href="#index-advanced-features-68">advanced features</a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-basic-commands-4">basic commands</a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-buffer_002dlocal-variables-112">buffer-local variables</a>: <a href="#Buffer_002dlocal-variables-in-spreadsheets">Buffer-local variables in spreadsheets</a>
-</li>
-<li>
-<a href="#index-C_002dc-M_002dC_002dh-71"><code>C-c M-C-h</code></a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-cell-formatting-37">cell formatting</a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-cell-printing_002c-more-94">cell printing, more</a>: <a href="#More-on-cell-printing">More on cell printing</a>
-</li>
-<li>
-<a href="#index-cell-values-14">cell values</a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-clearing-commands-48">clearing commands</a>: <a href="#Clearing-cells">Clearing cells</a>
-</li>
-<li>
-<a href="#index-clipboard_002dyank-59"><code>clipboard-yank</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-column_002c-adding-or-removing-24">column, adding or removing</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-copy-51">copy</a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-copy_002dregion_002das_002dkill-116">copy-region-as-kill</a>: <a href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">Uses of defadvice in &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-customizing-63">customizing</a>: <a href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">Customizing &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-cut-52">cut</a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-data-area-110">data area</a>: <a href="#The-data-area">The data area</a>
-</li>
-<li>
-<a href="#index-defadvice-114">defadvice</a>: <a href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">Uses of defadvice in &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-deferred-updates-105">deferred updates</a>: <a href="#Deferred-updates">Deferred updates</a>
-</li>
-<li>
-<a href="#index-deleting-rows-or-columns-28">deleting rows or columns</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-details-and-summary-102">details and summary</a>: <a href="#Spreadsheets-with-details-and-summary">Spreadsheets with details and summary</a>
-</li>
-<li>
-<a href="#index-dimensions-22">dimensions</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-editing-cells-15">editing cells</a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-enable_002dlocal_002deval-67"><code>enable-local-eval</code></a>: <a href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">Customizing &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-export_002c-and-import-98">export, and import</a>: <a href="#Import-and-export">Import and export</a>
-</li>
-<li>
-<a href="#index-features-1">features</a>: <a href="#Sales-Pitch">Sales Pitch</a>
-</li>
-<li>
-<a href="#index-formatting-cells-38">formatting cells</a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-formulas-11">formulas</a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-formulas_002c-entering-12">formulas, entering</a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-from-83"><code>from</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-import-and-export-97">import and export</a>: <a href="#Import-and-export">Import and export</a>
-</li>
-<li>
-<a href="#index-inserting-rows-or-columns-26">inserting rows or columns</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-introduction-2">introduction</a>: <a href="#Quick-Tutorial">Quick Tutorial</a>
-</li>
-<li>
-<a href="#index-keyboard_002dquit-10"><code>keyboard-quit</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-kill_002dring_002dsave-54"><code>kill-ring-save</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-mouse_002dset_002dregion-55"><code>mouse-set-region</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-mouse_002dset_002dsecondary-56"><code>mouse-set-secondary</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-mouse_002dyank_002dat_002dclick-60"><code>mouse-yank-at-click</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-mouse_002dyank_002dat_002dsecondary-61"><code>mouse-yank-at-secondary</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-nonrelocatable-references-108">nonrelocatable references</a>: <a href="#Nonrelocatable-references">Nonrelocatable references</a>
-</li>
-<li>
-<a href="#index-paste-53">paste</a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-print-area-74">print area</a>: <a href="#The-print-area">The print area</a>
-</li>
-<li>
-<a href="#index-printer-functions-36">printer functions</a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ranges-78">ranges</a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-references_002c-nonrelocatable-109">references, nonrelocatable</a>: <a href="#Nonrelocatable-references">Nonrelocatable references</a>
-</li>
-<li>
-<a href="#index-removing-rows-or-columns-27">removing rows or columns</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-resizing-spreadsheets-21">resizing spreadsheets</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-row_002c-adding-or-removing-23">row, adding or removing</a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-run_002dwith_002didle_002dtimer-107"><code>run-with-idle-timer</code></a>: <a href="#Deferred-updates">Deferred updates</a>
-</li>
-<li>
-<a href="#index-safe_002dfunctions-66"><code>safe-functions</code></a>: <a href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">Customizing &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-ses_002b-93"><code>ses+</code></a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-ses_002dappend_002drow_002djump_002dfirst_002dcolumn-35"><code>ses-append-row-jump-first-column</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002daverage-92"><code>ses-average</code></a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-ses_002dcenter-43"><code>ses-center</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dcenter_002dspan-44"><code>ses-center-span</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dclear_002dcell_002dbackward-49"><code>ses-clear-cell-backward</code></a>: <a href="#Clearing-cells">Clearing cells</a>
-</li>
-<li>
-<a href="#index-ses_002dclear_002dcell_002dforward-50"><code>ses-clear-cell-forward</code></a>: <a href="#Clearing-cells">Clearing cells</a>
-</li>
-<li>
-<a href="#index-ses_002ddashfill-45"><code>ses-dashfill</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002ddashfill_002dspan-46"><code>ses-dashfill-span</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002ddefine_002dlocal_002dprinter-42"><code>ses-define-local-printer</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002ddelete_002dblanks-91"><code>ses-delete-blanks</code></a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-ses_002ddelete_002dcolumn-32"><code>ses-delete-column</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002ddelete_002drow-31"><code>ses-delete-row</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002dedit_002dcell-18"><code>ses-edit-cell</code></a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-ses_002dexport_002dtsf-100"><code>ses-export-tsf</code></a>: <a href="#Import-and-export">Import and export</a>
-</li>
-<li>
-<a href="#index-ses_002dexport_002dtsv-99"><code>ses-export-tsv</code></a>: <a href="#Import-and-export">Import and export</a>
-</li>
-<li>
-<a href="#index-ses_002dforward_002dor_002dinsert-34"><code>ses-forward-or-insert</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002dcolumn-30"><code>ses-insert-column</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002drange-80"><code>ses-insert-range</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002drange_002dclick-79"><code>ses-insert-range-click</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002drow-29"><code>ses-insert-row</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002dses_002drange-82"><code>ses-insert-ses-range</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-ses_002dinsert_002dses_002drange_002dclick-81"><code>ses-insert-ses-range-click</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-ses_002djump-5"><code>ses-jump</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-ses_002dkill_002doverride-57"><code>ses-kill-override</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-ses_002dmark_002dcolumn-7"><code>ses-mark-column</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-ses_002dmark_002drow-6"><code>ses-mark-row</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-ses_002dmark_002dwhole_002dbuffer-8"><code>ses-mark-whole-buffer</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-ses_002dmode_002dhook-65"><code>ses-mode-hook</code></a>: <a href="#Customizing-_003cacronym_003eSES_003c_002facronym_003e">Customizing &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002dcell-16"><code>ses-read-cell</code></a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002dcell_002dprinter-39"><code>ses-read-cell-printer</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002dcolumn_002dprinter-40"><code>ses-read-column-printer</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002ddefault_002dprinter-41"><code>ses-read-default-printer</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002dheader_002drow-69"><code>ses-read-header-row</code></a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-ses_002dread_002dsymbol-17"><code>ses-read-symbol</code></a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-ses_002drecalculate_002dall-20"><code>ses-recalculate-all</code></a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-ses_002drecalculate_002dcell-19"><code>ses-recalculate-cell</code></a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-ses_002drecalculate_002dcell-96"><code>ses-recalculate-cell</code></a>: <a href="#More-on-cell-printing">More on cell printing</a>
-</li>
-<li>
-<a href="#index-ses_002dreconstruct_002dall-111"><code>ses-reconstruct-all</code></a>: <a href="#The-data-area">The data area</a>
-</li>
-<li>
-<a href="#index-ses_002drename_002dcell-72"><code>ses-rename-cell</code></a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-ses_002drenarrow_002dbuffer-76"><code>ses-renarrow-buffer</code></a>: <a href="#The-print-area">The print area</a>
-</li>
-<li>
-<a href="#index-ses_002drepair_002dcell_002dreference_002dall-73"><code>ses-repair-cell-reference-all</code></a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-ses_002dreprint_002dall-77"><code>ses-reprint-all</code></a>: <a href="#The-print-area">The print area</a>
-</li>
-<li>
-<a href="#index-ses_002dset_002dcolumn_002dwidth-33"><code>ses-set-column-width</code></a>: <a href="#Resizing">Resizing</a>
-</li>
-<li>
-<a href="#index-ses_002dset_002dheader_002drow-70"><code>ses-set-header-row</code></a>: <a href="#Advanced-Features">Advanced Features</a>
-</li>
-<li>
-<a href="#index-ses_002dsort_002dcolumn-86"><code>ses-sort-column</code></a>: <a href="#Sorting-by-column">Sorting by column</a>
-</li>
-<li>
-<a href="#index-ses_002dsort_002dcolumn_002dclick-87"><code>ses-sort-column-click</code></a>: <a href="#Sorting-by-column">Sorting by column</a>
-</li>
-<li>
-<a href="#index-ses_002dtildefill_002dspan-47"><code>ses-tildefill-span</code></a>: <a href="#Printer-functions">Printer functions</a>
-</li>
-<li>
-<a href="#index-ses_002dtruncate_002dcell-95"><code>ses-truncate-cell</code></a>: <a href="#More-on-cell-printing">More on cell printing</a>
-</li>
-<li>
-<a href="#index-ses_002dyank_002dpop-62"><code>ses-yank-pop</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-set_002dmark_002dcommand-9"><code>set-mark-command</code></a>: <a href="#The-Basics">The Basics</a>
-</li>
-<li>
-<a href="#index-sorting-85">sorting</a>: <a href="#Sorting-by-column">Sorting by column</a>
-</li>
-<li>
-<a href="#index-standard-formula-functions-88">standard formula functions</a>: <a href="#Standard-formula-functions">Standard formula functions</a>
-</li>
-<li>
-<a href="#index-summary_002c-and-details-103">summary, and details</a>: <a href="#Spreadsheets-with-details-and-summary">Spreadsheets with details and summary</a>
-</li>
-<li>
-<a href="#index-to-84"><code>to</code></a>: <a href="#Ranges-in-formulas">Ranges in formulas</a>
-</li>
-<li>
-<a href="#index-tutorial-3">tutorial</a>: <a href="#Quick-Tutorial">Quick Tutorial</a>
-</li>
-<li>
-<a href="#index-undo_002dmore-115">undo-more</a>: <a href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">Uses of defadvice in &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-<li>
-<a href="#index-updates_002c-deferred-106">updates, deferred</a>: <a href="#Deferred-updates">Deferred updates</a>
-</li>
-<li>
-<a href="#index-values-13">values</a>: <a href="#Formulas">Formulas</a>
-</li>
-<li>
-<a href="#index-variables_002c-buffer_002dlocal-113">variables, buffer-local</a>: <a href="#Buffer_002dlocal-variables-in-spreadsheets">Buffer-local variables in spreadsheets</a>
-</li>
-<li>
-<a href="#index-virus-protection-101">virus protection</a>: <a href="#Virus-protection">Virus protection</a>
-</li>
-<li>
-<a href="#index-widen-75"><code>widen</code></a>: <a href="#The-print-area">The print area</a>
-</li>
-<li>
-<a href="#index-yank-58"><code>yank</code></a>: <a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a>
-</li>
-<li>
-<a href="#index-yank-117">yank</a>: <a href="#Uses-of-defadvice-in-_003cacronym_003eSES_003c_002facronym_003e">Uses of defadvice in &lt;acronym&gt;SES&lt;/acronym&gt;</a>
-</li>
-   </ul>
-<!-- =================================================================== -->
-<div class="node"><a name="Acknowledgments"></a></div>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>*</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Y"><b>Y</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_symbol-1">*</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002aerror_002a">*error*</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_002askip_002a">*skip*</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-A">A</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-adding-rows-or-columns">adding rows or columns</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-advanced-features">advanced features</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-advanced-features-1">advanced features</a>:</td>
+<td> </td>
+<td valign="top"><a href="#For-Gurus">For Gurus</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-basic-commands">basic commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-buffer_002dlocal-variables">buffer-local variables</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Buffer_002dlocal-variables-in-spreadsheets">Buffer-local variables in spreadsheets</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-C_002dc-M_002dC_002dh"><code>C-c M-C-h</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cell-formatting">cell formatting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cell-printing_002c-more">cell printing, more</a>:</td>
+<td> </td>
+<td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cell-values">cell values</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-clearing-commands">clearing commands</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Clearing-cells">Clearing cells</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-clipboard_002dyank"><code>clipboard-yank</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-column_002c-adding-or-removing">column, adding or removing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copy">copy</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-copy_002dregion_002das_002dkill">copy-region-as-kill</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Uses-of-defadvice-in-SES">Uses of defadvice in <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-customizing">customizing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cut">cut</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-data-area">data area</a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-data-area">The data area</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-defadvice">defadvice</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Uses-of-defadvice-in-SES">Uses of defadvice in <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-deferred-updates">deferred updates</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Deferred-updates">Deferred updates</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-deleting-rows-or-columns">deleting rows or columns</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-details-and-summary">details and summary</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Spreadsheets-with-details-and-summary">Spreadsheets with details and summary</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-dimensions">dimensions</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-editing-cells">editing cells</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-enable_002dlocal_002deval"><code>enable-local-eval</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-enable_002dlocal_002deval-1"><code>enable-local-eval</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-export_002c-and-import">export, and import</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Import-and-export">Import and export</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-features">features</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Sales-Pitch">Sales Pitch</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-formatting-cells">formatting cells</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-formulas">formulas</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-formulas_002c-entering">formulas, entering</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-from"><code>from</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-import-and-export">import and export</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Import-and-export">Import and export</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-inserting-rows-or-columns">inserting rows or columns</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-introduction">introduction</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Quick-Tutorial">Quick Tutorial</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-K">K</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-keyboard_002dquit"><code>keyboard-quit</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-kill_002dring_002dsave"><code>kill-ring-save</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse_002dset_002dregion"><code>mouse-set-region</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse_002dset_002dsecondary"><code>mouse-set-secondary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse_002dyank_002dat_002dclick"><code>mouse-yank-at-click</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-mouse_002dyank_002dat_002dsecondary"><code>mouse-yank-at-secondary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-N">N</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-nonrelocatable-references">nonrelocatable references</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Nonrelocatable-references">Nonrelocatable references</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-P">P</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-paste">paste</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-print-area">print area</a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-print-area">The print area</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-printer-functions">printer functions</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-R">R</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ranges">ranges</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-references_002c-nonrelocatable">references, nonrelocatable</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Nonrelocatable-references">Nonrelocatable references</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-removing-rows-or-columns">removing rows or columns</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-resizing-spreadsheets">resizing spreadsheets</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-row_002c-adding-or-removing">row, adding or removing</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-run_002dwith_002didle_002dtimer"><code>run-with-idle-timer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Deferred-updates">Deferred updates</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-safe_002dfunctions"><code>safe-functions</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002b"><code>ses+</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dappend_002drow_002djump_002dfirst_002dcolumn"><code>ses-append-row-jump-first-column</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002daverage"><code>ses-average</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dcenter"><code>ses-center</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dcenter_002dspan"><code>ses-center-span</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dclear_002dcell_002dbackward"><code>ses-clear-cell-backward</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Clearing-cells">Clearing cells</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dclear_002dcell_002dforward"><code>ses-clear-cell-forward</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Clearing-cells">Clearing cells</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddashfill"><code>ses-dashfill</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddashfill_002dspan"><code>ses-dashfill-span</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddefine_002dlocal_002dprinter"><code>ses-define-local-printer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddelete_002dblanks"><code>ses-delete-blanks</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddelete_002dcolumn"><code>ses-delete-column</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002ddelete_002drow"><code>ses-delete-row</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dedit_002dcell"><code>ses-edit-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dexport_002dtsf"><code>ses-export-tsf</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Import-and-export">Import and export</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dexport_002dtsv"><code>ses-export-tsv</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Import-and-export">Import and export</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dforward_002dor_002dinsert"><code>ses-forward-or-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002dcolumn"><code>ses-insert-column</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002drange"><code>ses-insert-range</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002drange_002dclick"><code>ses-insert-range-click</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002drow"><code>ses-insert-row</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002dses_002drange"><code>ses-insert-ses-range</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dinsert_002dses_002drange_002dclick"><code>ses-insert-ses-range-click</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002djump"><code>ses-jump</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dkill_002doverride"><code>ses-kill-override</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dmark_002dcolumn"><code>ses-mark-column</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dmark_002drow"><code>ses-mark-row</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dmark_002dwhole_002dbuffer"><code>ses-mark-whole-buffer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dmode_002dhook"><code>ses-mode-hook</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002dcell"><code>ses-read-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002dcell_002dprinter"><code>ses-read-cell-printer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002dcolumn_002dprinter"><code>ses-read-column-printer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002ddefault_002dprinter"><code>ses-read-default-printer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002dheader_002drow"><code>ses-read-header-row</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dread_002dsymbol"><code>ses-read-symbol</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drecalculate_002dall"><code>ses-recalculate-all</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drecalculate_002dcell"><code>ses-recalculate-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drecalculate_002dcell-1"><code>ses-recalculate-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dreconstruct_002dall"><code>ses-reconstruct-all</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-data-area">The data area</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drename_002dcell"><code>ses-rename-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drenarrow_002dbuffer"><code>ses-renarrow-buffer</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-print-area">The print area</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002drepair_002dcell_002dreference_002dall"><code>ses-repair-cell-reference-all</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dreprint_002dall"><code>ses-reprint-all</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-print-area">The print area</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dset_002dcolumn_002dwidth"><code>ses-set-column-width</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Resizing">Resizing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dset_002dheader_002drow"><code>ses-set-header-row</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Features">Advanced Features</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dsort_002dcolumn"><code>ses-sort-column</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Sorting-by-column">Sorting by column</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dsort_002dcolumn_002dclick"><code>ses-sort-column-click</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Sorting-by-column">Sorting by column</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dtildefill_002dspan"><code>ses-tildefill-span</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Printer-functions">Printer functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dtruncate_002dcell"><code>ses-truncate-cell</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-ses_002dyank_002dpop"><code>ses-yank-pop</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-set_002dmark_002dcommand"><code>set-mark-command</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-Basics">The Basics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-sorting">sorting</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Sorting-by-column">Sorting by column</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-standard-formula-functions">standard formula functions</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-summary_002c-and-details">summary, and details</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Spreadsheets-with-details-and-summary">Spreadsheets with details and summary</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-T">T</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-to"><code>to</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Ranges-in-formulas">Ranges in formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-tutorial">tutorial</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Quick-Tutorial">Quick Tutorial</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-U">U</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-undo_002dmore">undo-more</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Uses-of-defadvice-in-SES">Uses of defadvice in <acronym>SES</acronym></a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-updates_002c-deferred">updates, deferred</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Deferred-updates">Deferred updates</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-V">V</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-values">values</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Formulas">Formulas</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-variables_002c-buffer_002dlocal">variables, buffer-local</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Buffer_002dlocal-variables-in-spreadsheets">Buffer-local variables in spreadsheets</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-virus-protection">virus protection</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Virus-protection">Virus protection</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-W">W</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-widen"><code>widen</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#The-print-area">The print area</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-Y">Y</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-yank-1"><code>yank</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-yank">yank</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Uses-of-defadvice-in-SES">Uses of defadvice in <acronym>SES</acronym></a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_symbol-1"><b>*</b></a>
+   
+<br>
+<a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-N"><b>N</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-V"><b>V</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-W"><b>W</b></a>
+   
+<a class="summary-letter" href="#Index_cp_letter-Y"><b>Y</b></a>
+   
+</td>
+</tr></table>
 
+
+<hr>
+<a name="Acknowledgments"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Acknowledgments-1"></a>
 <h2 class="unnumbered">Acknowledgments</h2>
 
 <p>Coding by:
 </p>
 <blockquote>
-<!-- jyavner@@member.fsf.org -->
-Jonathan Yavner,
-<!-- monnier@@gnu.org -->
+<p>Jonathan Yavner,
 Stefan Monnier,
-<!-- shigeru.fukaya@@gmail.com -->
 Shigeru Fukaya
+</p>
 </blockquote>
 
-<p class="noindent">Texinfo manual by:
+<p>Texinfo manual by:
 </p>
 <blockquote>
-<!-- jyavner@@member.fsf.org -->
-Jonathan Yavner,
-<!-- brad@@chenla.org -->
+<p>Jonathan Yavner,
 Brad Collins
+</p>
 </blockquote>
 
-<p class="noindent">Ideas from:
+<p>Ideas from:
 </p>
 <blockquote>
-<!-- christoph.conrad@@gmx.de -->
-Christoph Conrad,
-<!-- cyberbob@@redneck.gacracker.org -->
+<p>Christoph Conrad,
 CyberBob,
-<!-- syver-en@@online.no -->
 Syver Enstad,
-<!-- fischman@@zion.bpnetworks.com -->
 Ami Fischman,
-<!-- Thomas.Gehrlein@@t-online.de -->
 Thomas Gehrlein,
-<!-- c.f.a.johnson@@rogers.com -->
 Chris F.A. Johnson,
-<!-- lyusong@@hotmail.com -->
 Yusong Li,
-<!-- juri@@jurta.org -->
 Juri Linkov,
-<!-- maierh@@myself.com -->
 Harald Maier,
-<!-- anash@@san.rr.com -->
 Alan Nash,
-<!-- pinard@@iro.umontreal.ca -->
 François Pinard,
-<!-- ppinto@@cs.cmu.edu -->
 Pedro Pinto,
-<!-- xsteve@@riic.at -->
 Stefan Reichör,
-<!-- epameinondas@@gmx.de -->
 Oliver Scholz,
-<!-- rms@@gnu.org -->
 Richard M. Stallman,
-<!-- teirllm@@dms.auburn.edu -->
 Luc Teirlinck,
-<!-- jotto@@pobox.com -->
 J. Otto Tennant,
-<!-- jphil@@acs.pagesjaunes.fr -->
 Jean-Philippe Theberge
+</p>
 </blockquote>
 
-<!-- =================================================================== -->
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
 
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Previous: <a href="#Acknowledgments" accesskey="p" rel="prev">Acknowledgments</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
 
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
 
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -1883,12 +2775,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -1897,16 +2788,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -1914,8 +2803,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -1923,14 +2811,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -1940,11 +2826,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -1957,20 +2842,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -1978,20 +2860,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -2000,104 +2880,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -2105,54 +2978,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -2162,84 +3033,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -2250,57 +3112,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -2309,85 +3164,84 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
+
+<hr>
+
+
+
 </body>
 </html>

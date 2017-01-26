@@ -1,281 +1,362 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Copyright (C) 2007-2016 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being "A GNU Manual,"
+and with the Back-Cover Texts as in (a) below.  A copy of the license
+is included in the section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to copy and
+modify this GNU manual." -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>SRecoder Manual</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="description" content="SRecoder Manual">
-<meta name="generator" content="makeinfo 4.8">
-<link title="Top" rel="top" href="#Top">
-<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<meta name="keywords" content="SRecoder Manual">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
 <!--
-Copyright (C) 2007--2016 Free Software Foundation, Inc.
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
 
-     Permission is granted to copy, distribute and/or modify this
-     document under the terms of the GNU Free Documentation License,
-     Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with the Front-Cover Texts
-     being ``A GNU Manual,'' and with the Back-Cover Texts as in (a)
-     below.  A copy of the license is included in the section entitled
-     ``GNU Free Documentation License''.
 
-     (a) The FSF's Back-Cover Text is: ``You have the freedom to copy
-     and modify this GNU manual.''
-   -->
-<meta http-equiv="Content-Style-Type" content="text/css">
-<style type="text/css"><!--
-  pre.display { font-family:inherit }
-  pre.format  { font-family:inherit }
-  pre.smalldisplay { font-family:inherit; font-size:smaller }
-  pre.smallformat  { font-family:inherit; font-size:smaller }
-  pre.smallexample { font-size:smaller }
-  pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
---></style>
 </head>
-<body>
-<h1 class="settitle">SRecoder Manual</h1>
-<div class="node"><a name="Top"></a></div>
 
-<h2 class="unnumbered">SRecoder Manual</h2>
+<body lang="en">
+<h1 class="settitle" align="center">SRecoder Manual</h1>
+
+
+
+
+
+
+
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Quick-Start" accesskey="n" rel="next">Quick Start</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="SRecoder-Manual"></a>
+<h1 class="top">SRecoder Manual</h1>
 
 <p><i>SRecode</i> is the <i>Semantic Recoder</i>.  Where <i>Semantic</i> will parse
 source files into lists of tags, the <i>Semantic Recoder</i> will aid in
 converting <i>Semantic</i> tags and various other information back into
 various types of code.
-
-   </p>
+</p>
 <p>While the <i>SRecode</i> tool provides a template language, templates for
 several languages, and even a sequence of heuristics that aid the user
 in choosing a template to insert, this is not the main goal of
 <i>SRecode</i>.
-
-   </p>
+</p>
 <p>The goal of <i>SRecode</i> is to provide an application framework where
 someone can write a complex code generator, and the underlying
 template commonality allows it to work in multiple languages with
 ease.
-
-   </p>
+</p>
 <p>Copyright © 2007–2016 Free Software Foundation, Inc.
-
-   </p>
+</p>
 <blockquote>
-Permission is granted to copy, distribute and/or modify this document
+<p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with no
 Invariant Sections, with the Front-Cover Texts being “A GNU Manual,”
 and with the Back-Cover Texts as in (a) below.  A copy of the license
 is included in the section entitled “GNU Free Documentation License”.
-
-        <p>(a) The FSF's Back-Cover Text is: “You have the freedom to copy and
+</p>
+<p>(a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
 modify this GNU manual.”
 </p>
 </blockquote>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Quick-Start">Quick Start</a>:                  Basic Setup for template insertion. 
-</li>
-<li>
-<a accesskey="2" href="#User-Templates">User Templates</a>:               Custom User Templates
-</li>
-<li>
-<a accesskey="3" href="#Parts-of-SRecode">Parts of SRecode</a>:             Parts of the system
-</li>
-<li>
-<a accesskey="4" href="#SRecode-Minor-Mode">SRecode Minor Mode</a>:           A minor mode for using templates
-</li>
-<li>
-<a accesskey="5" href="#Template-Writing">Template Writing</a>:             How to write a template
-</li>
-<li>
-<a accesskey="6" href="#Dictionaries">Dictionaries</a>:                 How dictionaries work
-</li>
-<li>
-<a accesskey="7" href="#Developing-Template-Functions">Developing Template Functions</a>:  How to write your own template insert functions. 
-</li>
-<li>
-<a accesskey="8" href="#Template-Naming-Conventions">Template Naming Conventions</a>:  Creating a set of core templates
-</li>
-<li>
-<a accesskey="9" href="#Inserting-Tag-Lists">Inserting Tag Lists</a>:          Inserting Semantic tags via templates
-</li>
-<li>
-<a href="#Application-Writing">Application Writing</a>:          Writing an <i>SRecode</i>r application
-</li>
-<li>
-<a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:  The license for this documentation. 
-</li>
-<li>
-<a href="#Index">Index</a>
-</li>
-</ul>
 
-<div class="node"><a name="Quick-Start"></a></div>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Quick-Start" accesskey="1">Quick Start</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Basic Setup for template insertion.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#User-Templates" accesskey="2">User Templates</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Custom User Templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Parts-of-SRecode" accesskey="3">Parts of SRecode</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Parts of the system
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#SRecode-Minor-Mode" accesskey="4">SRecode Minor Mode</a>:</td>
+<td>  </td>
+<td align="left" valign="top">A minor mode for using templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Template-Writing" accesskey="5">Template Writing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to write a template
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Dictionaries" accesskey="6">Dictionaries</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How dictionaries work
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Developing-Template-Functions" accesskey="7">Developing Template Functions</a>:</td>
+<td>  </td>
+<td align="left" valign="top">How to write your own template insert functions.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Template-Naming-Conventions" accesskey="8">Template Naming Conventions</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Creating a set of core templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Inserting-Tag-Lists" accesskey="9">Inserting Tag Lists</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Inserting Semantic tags via templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Application-Writing">Application Writing</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Writing an <i>SRecode</i>r application
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:</td>
+<td>  </td>
+<td align="left" valign="top">The license for this documentation.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Index">Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
+
+<hr>
+<a name="Quick-Start"></a>
+<div class="header">
+<p>
+Next: <a href="#User-Templates" accesskey="n" rel="next">User Templates</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Quick-Start-1"></a>
 <h2 class="chapter">1 Quick Start</h2>
 
 <p>When you install CEDET and enable <i>SRecode</i>, an <code>SRecoder</code> menu
 item should appear.
-
-   </p>
+</p>
 <p>To toggle <i>SRecode</i> minor mode on and off use:
+</p>
+<div class="example">
+<pre class="example">M-x srecode-minor-mode RET
+</pre>
+</div>
+<p>or
+</p>
+<div class="example">
+<pre class="example">M-x global-srecode-minor-mode RET
+</pre>
+</div>
 
+<p>or add
 </p>
-<pre class="example">     M-x srecode-minor-mode RET
+<div class="example">
+<pre class="example">(srecode-minor-mode 1)
 </pre>
-   <p>or
-</p>
-<pre class="example">     M-x global-srecode-minor-mode RET
-</pre>
-   <p>or add
+</div>
 
-</p>
-<pre class="example">     (srecode-minor-mode 1)
-</pre>
-   <p>into a language hook function to force it on (which is the default) or
+<p>into a language hook function to force it on (which is the default) or
 pass in <code>-1</code> to force it off.
-
-   </p>
+</p>
 <p>See <a href="#SRecode-Minor-Mode">SRecode Minor Mode</a> for more on using the minor mode.
-
-   </p>
+</p>
 <p>Use the menu to insert templates into the current file.
-
-   </p>
-<p>You can add your own templates in <samp><span class="file">~/.srecode</span></samp>, or update the
+</p>
+<p>You can add your own templates in <samp>~/.srecode</samp>, or update the
 template map path:
-
 </p>
-<div class="defun">
-— Option: <b>srecode-map-load-path</b><var><a name="index-srecode_002dmap_002dload_002dpath-1"></a></var><br>
-<blockquote><p><a name="srecode_002dmap_002dload_002dpath"></a>
-Global load path for SRecode template files. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-srecode_002dmap_002dload_002dpath"></a>Option: <strong>srecode-map-load-path</strong>
+</dt>
+<dd>
+<a name="srecode_002dmap_002dload_002dpath"></a><p>Global load path for SRecode template files.
+</p>
+</dd>
+</dl>
 
-   <p>Once installed, you can start inserting templates using the menu, or
+
+<p>Once installed, you can start inserting templates using the menu, or
 the command:
-
 </p>
-<div class="defun">
-— Command: <b>srecode-insert</b><var> template-name &amp;rest dict-entries<a name="index-srecode_002dinsert-2"></a></var><br>
-<blockquote><p><a name="srecode_002dinsert"></a>
-Insert the template <var>template-name</var> into the current buffer at point. 
-<var>dict-entries</var> are additional dictionary values to add. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-srecode_002dinsert"></a>Command: <strong>srecode-insert</strong> <em>template-name &amp;rest dict-entries</em>
+</dt>
+<dd>
+<a name="srecode_002dinsert"></a><p>Insert the template <var>template-name</var> into the current buffer at point.
+<var>dict-entries</var> are additional dictionary values to add.
+</p>
+</dd>
+</dl>
 
-   <p>SRecode Insert will prompt for a template name.  Template names are
+<p>SRecode Insert will prompt for a template name.  Template names are
 specific to each major mode.  A typical name is of the form:
 <code>CONTEXT:NAME</code> where a <var>CONTEXT</var> might be something like
 <code>file</code> or <code>declaration</code>.  The same <var>NAME</var> can occur in
 multiple contexts.
-
 </p>
-<div class="node"><a name="User-Templates"></a></div>
-
+<hr>
+<a name="User-Templates"></a>
+<div class="header">
+<p>
+Next: <a href="#Parts-of-SRecode" accesskey="n" rel="next">Parts of SRecode</a>, Previous: <a href="#Quick-Start" accesskey="p" rel="prev">Quick Start</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="User-Templates-1"></a>
 <h2 class="chapter">2 User Templates</h2>
 
 <p><i>SRecode</i> builds and maintains a map of all template files.  The root
 template files resides in the <i>SRecode</i> distribution.  User written
-templates files are saved in <samp><span class="file">~/.srecode</span></samp>, along with the
+templates files are saved in <samp>~/.srecode</samp>, along with the
 <i>SRecode</i> map file.
-
 </p>
-<div class="defun">
-— Variable: <b>srecode-map-save-file</b><var><a name="index-srecode_002dmap_002dsave_002dfile-3"></a></var><br>
-<blockquote><p><a name="srecode_002dmap_002dsave_002dfile"></a>
-The save location for SRecode's map file. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-srecode_002dmap_002dsave_002dfile"></a>Variable: <strong>srecode-map-save-file</strong>
+</dt>
+<dd>
+<a name="srecode_002dmap_002dsave_002dfile"></a><p>The save location for SRecode’s map file.
+</p>
+</dd>
+</dl>
 
-   <p>Template files end with a <samp><span class="file">.srt</span></samp> extension.  Details on how to
+<p>Template files end with a <samp>.srt</samp> extension.  Details on how to
 write templates are in <a href="#Template-Writing">Template Writing</a>.
-
-   </p>
+</p>
 <p>Each template file you write is dedicated to a single major mode.  In
 it, you can write templates within the same context and with the same
 name as core templates.  You can force your templates to override the
 core templates for a particular major mode by setting the
 priority.  See <a href="#Special-Variables">Special Variables</a>.
-
-   </p>
-<p>To get going quickly, open a new <samp><span class="file">.srt</span></samp> file.  It will start in
+</p>
+<p>To get going quickly, open a new <samp>.srt</samp> file.  It will start in
 the <i>SRecode</i> template writing mode.  Use the <i>SRecode</i> minor mode
 menu to insert the <code>empty</code> file template.
-
-   </p>
+</p>
 <p>When using templates in other modes (such as C++ or Emacs Lisp
 templates), use the “Edit Template” menu to find a template you
 would like to update.  Copy it into your user template file, and
 change it.
-
-   </p>
+</p>
 <p>If you were to update <code>declaration:function</code> in your user
 template file, then you would get this new template instead of the one
 that comes with <i>SRecode</i>.  Higher level applications should always
 use <code>declaration:function</code> when generating their own code, so
 higher level templates will then adopt your changes to
 <code>declaration:function</code> into themselves.
-
-   </p>
+</p>
 <p>You can also override variables.  Core variables are stored in the
-<i>SRecode</i> root template file <samp><span class="file">default.srt</span></samp>, and that contains
-the copyright usually used, and some basic file setup formats. 
+<i>SRecode</i> root template file <samp>default.srt</samp>, and that contains
+the copyright usually used, and some basic file setup formats.
 Override variables like this by specifying a <code>mode</code> of
 <code>default</code> like this:
-
 </p>
-<pre class="example">     set mode "default"
+<div class="example">
+<pre class="example">set mode "default"
 </pre>
-   <div class="node"><a name="Parts-of-SRecode"></a></div>
+</div>
 
+<hr>
+<a name="Parts-of-SRecode"></a>
+<div class="header">
+<p>
+Next: <a href="#SRecode-Minor-Mode" accesskey="n" rel="next">SRecode Minor Mode</a>, Previous: <a href="#User-Templates" accesskey="p" rel="prev">User Templates</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Parts-of-SRecode-1"></a>
 <h2 class="chapter">3 Parts of SRecode</h2>
 
 <p>The <i>SRecode</i> system is made up of several layers which work together
 to generate code.
-
 </p>
+<a name="Template-Layer"></a>
 <h3 class="section">3.1 Template Layer</h3>
-
 <p>The template layer provides a way to write, and compile templates.  The
 template layer is the scheme used to insert text into an Emacs buffer.
-
-   </p>
+</p>
 <p>The <i>SRecode</i> template layer is more advanced than other modes like the
 Emacs packages <code>skeleton</code> or <code>tempo</code> in that it allows
 multiple layers of templates to be created with the same names.  This
 means that <i>SRecode</i> can provide a wide range of templates, and users
 can override only the small sections they want, instead of either
-accepting someone else's template, or writing large new templates of
+accepting someone else’s template, or writing large new templates of
 their own.
-
-   </p>
-<p>Templates are written in <samp><span class="file">.srt</span></samp> files.  You can learn how to
-author new <samp><span class="file">.srt</span></samp> files <a href="#Template-Writing">Template Writing</a>.
-
-   </p>
+</p>
+<p>Templates are written in <samp>.srt</samp> files.  You can learn how to
+author new <samp>.srt</samp> files <a href="#Template-Writing">Template Writing</a>.
+</p>
 <p>While the template system was designed for <i>SRecode</i> based
 applications it can also be used independently for simple template
 insertion during typical coding.
-
 </p>
+<a name="Template-Manager"></a>
 <h3 class="section">3.2 Template Manager</h3>
-
 <p>Once templates have been written, a scheme for loading and selecting
 templates is needed.  The template manager has a loader for finding
 template files, and determining which templates are relevant to the
 current buffer.  Template files are sorted by priority, with user
-templates being found first, and system level default templates last. 
+templates being found first, and system level default templates last.
 Templates are also sorted by application.  Each application has its
 own templates, and are kept separate from the generic templates.
-
 </p>
+<a name="Dictionary"></a>
 <h3 class="section">3.3 Dictionary</h3>
-
 <p>Dictionaries contain values associated with variable.  Variables are
 used in macros in a template.  Variables are what allows a generic
 template such as a function to be made specific, such as a function
@@ -283,38 +364,32 @@ named foo.  The value of a variable can be one of three things; a
 string, a list of more dictionaries, or a special
 <code>srecode-dictionary-compound-value</code> object subclass.  See
 <a href="#Variables">Variables</a> for more.
-
 </p>
+<a name="Template-Insertion"></a>
 <h3 class="section">3.4 Template Insertion</h3>
-
 <p>The template insertion layer involves extensions to the basic template
 layer.  A wide range of custom variables are available for mixing derived
 data as macros into the plain text of a template.
-
-   </p>
+</p>
 <p>In addition, templates can be declared with arguments.  These
 arguments represent predetermined sets of dictionary values, such as
 features of the current file name, user name, time, etc.
-
-   </p>
+</p>
 <p>Some arguments are major-mode specific, such as the <code>:el</code> or
 <code>:cpp</code> arguments.
-
 </p>
+<a name="Template-Insertion-Context"></a>
 <h3 class="section">3.5 Template Insertion Context</h3>
-
 <p>A context can be provided for templates in a file.  This helps
 auto-selection of templates by name, or allows templates in different
 contexts to have the same name.  Some standard contexts are
 <code>file</code>, <code>declaration</code>, and <code>classdecl</code>.
-
-   </p>
-<p>A context can be automatically derived as well based on the parsing
-state from <i>Semantic</i>.  see <a href="semantic.html#Top">Semantic Manual</a>.
-
 </p>
+<p>A context can be automatically derived as well based on the parsing
+state from <i>Semantic</i>.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/semantic.html#Top">(semantic)Semantic Manual</a>.
+</p>
+<a name="Applications"></a>
 <h3 class="section">3.6 Applications</h3>
-
 <p>Commands that do a particular user task which involves also writing
 Emacs Lisp code.  Applications are at the top layer.  These
 applications have their own template files and logic needed to fill in
@@ -322,1660 +397,1822 @@ dictionaries or position a cursor.  SRecode comes with an example
 <code>srecode-document</code> application for creating comments for Semantic
 tags.  The CEDET application <i>EDE</i> has a project type that is an
 <i>SRecode</i> application.
-
 </p>
+<a name="Field-Editing"></a>
 <h3 class="section">3.7 Field Editing</h3>
-
 <p>If the variable <code>srecode-insert-ask-variable-method</code> is set to
-'field, then variables that would normally ask a question, will
+’field, then variables that would normally ask a question, will
 instead create “fields” in the buffer.  A field-editing layer
 provides simple interaction through the fields.  Typing in a field
 will cause all variable locations that are the same to edit at the
 same time.  Pressing TAB on a field will move you to the next field.
-
 </p>
-<div class="node"><a name="SRecode-Minor-Mode"></a></div>
-
+<hr>
+<a name="SRecode-Minor-Mode"></a>
+<div class="header">
+<p>
+Next: <a href="#Template-Writing" accesskey="n" rel="next">Template Writing</a>, Previous: <a href="#Parts-of-SRecode" accesskey="p" rel="prev">Parts of SRecode</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="SRecode-Minor-Mode-1"></a>
 <h2 class="chapter">4 SRecode Minor Mode</h2>
 
 <p>The Semantic Recode minor mode enables a keymap and menu that provides
 simple access to different templates or template applications.
-
-   </p>
-<p>The key prefix is &lt;C-c /&gt;.
-
-   </p>
+</p>
+<p>The key prefix is <tt class="key">C-c /</tt>.
+</p>
 <p>If the variable <code>srecode-takeover-INS-key</code> is set, then the key
-&lt;&lt;insert&gt;&gt; can also be used.
-
-   </p>
+<tt class="key">&lt;insert&gt;</tt> can also be used.
+</p>
 <p>The most important key is bound to <code>srecode-insert</code> which is
-&lt;C-c / /&gt;, or &lt;insert insert&gt;.  <a href="#Quick-Start">Quick Start</a>.
-
-   </p>
+<tt class="key">C-c / /</tt>, or <tt class="key">insert insert</tt>.  <a href="#Quick-Start">Quick Start</a>.
+</p>
 <p>Major keybindings are:
-
-     </p>
-<dl>
-<dt>&lt;C-c / /&gt;</dt>
-<dd>Insert a template whose name is typed into the minibuffer. 
-<br>
-</dd>
-<dt>&lt;C-c / &lt;lower case letter&gt;&gt;</dt>
-<dd>Reserved for direct binding of simple templates to keys using a
-keybinding command in the template file. 
-<br>
-</dd>
-<dt>&lt;C-c / &lt;upper case letter&gt;&gt;</dt>
-<dd>Reserved for template applications (Such as comment or get/set inserter.) 
-<br>
-</dd>
-<dt>&lt;C-c / E&gt;</dt>
-<dd>Edit the code of a template. 
-<br>
-</dd>
-<dt>&lt;C-c / .&gt;</dt>
-<dd>Insert template again.  This will cause the previously inserted
-template to be inserted again. 
-</dd>
+</p>
+<dl compact>
+<dt><tt class="key">C-c / /</tt></dt>
+<dd><p>Insert a template whose name is typed into the minibuffer.
+</p></dd>
+<dt><tt class="key">C-c / &lt;lower case letter&gt;</tt></dt>
+<dd><p>Reserved for direct binding of simple templates to keys using a
+keybinding command in the template file.
+</p></dd>
+<dt><tt class="key">C-c / &lt;upper case letter&gt;</tt></dt>
+<dd><p>Reserved for template applications (Such as comment or get/set inserter.)
+</p></dd>
+<dt><tt class="key">C-c / E</tt></dt>
+<dd><p>Edit the code of a template.
+</p></dd>
+<dt><tt class="key">C-c / .</tt></dt>
+<dd><p>Insert template again.  This will cause the previously inserted
+template to be inserted again.
+</p></dd>
 </dl>
 
+<a name="Field-Editing-1"></a>
 <h3 class="section">4.1 Field Editing</h3>
 
 <p>By default, when inserting a template, if the user needs to enter text
 to fill in a part of the template, then the minibuffer is used to
 query for that information.  SRecode also supports a field-editing mode
 that can be used instead.  To enable it set:
-
 </p>
-<div class="defun">
-— Function: <b>srecode-insert-ask-variable-method</b><var><a name="index-srecode_002dinsert_002dask_002dvariable_002dmethod-4"></a></var><br>
-<blockquote>
-<p><a name="srecode_002dinsert_002dask_002dvariable_002dmethod"></a>
-Determine how to ask for a dictionary value when inserting a template. 
-Only the <var>ASK</var> style inserter will query the user for a value. 
-Dictionary value references that ask begin with the ? character. 
-Possible values are:
-          </p>
 <dl>
+<dt>
+<a name="index-srecode_002dinsert_002dask_002dvariable_002dmethod"></a>Function: <strong>srecode-insert-ask-variable-method</strong>
+</dt>
+<dd>
+<a name="srecode_002dinsert_002dask_002dvariable_002dmethod"></a><p>Determine how to ask for a dictionary value when inserting a template.
+Only the <var>ASK</var> style inserter will query the user for a value.
+Dictionary value references that ask begin with the ? character.
+Possible values are:
+</p>
+<dl compact>
 <dt><code>ask</code></dt>
-<dd>Prompt in the minibuffer as the value is inserted. 
-<br>
-</dd>
+<dd><p>Prompt in the minibuffer as the value is inserted.
+</p></dd>
 <dt><code>field</code></dt>
-<dd>Use the dictionary macro name as the inserted value,
-and place a field there.  Matched fields change together. 
+<dd><p>Use the dictionary macro name as the inserted value,
+and place a field there.  Matched fields change together.
+</p></dd>
+</dl>
+
+<p><b>NOTE</b>: The field feature does not yet work with XEmacs.
+</p>
 </dd>
 </dl>
 
-        <p><b>NOTE</b>: The field feature does not yet work with XEmacs. 
-</p>
-</blockquote>
-</div>
-
-   <p>Field editing mode is supported in newer versions of Emacs.  You
+<p>Field editing mode is supported in newer versions of Emacs.  You
 will not be prompted to fill in values while the template is
 inserted.  Instead, short regions will be highlighted, and the cursor
-placed in a field.  Typing in the field will then fill in the value. 
+placed in a field.  Typing in the field will then fill in the value.
 Several fields might be linked together.  In that case, typing in one
 area will modify the other linked areas.  Pressing TAB will move
 between editable fields in the template.
-
-   </p>
+</p>
 <p>Once the cursor moves out of the are inserted by the template, all the
 fields are canceled.
-
-   </p>
+</p>
 <p><b>NOTE</b>: Some conveniences in templates, such as completion, or
 character restrictions are lost when using field editing mode.
-
 </p>
-<div class="node"><a name="Template-Writing"></a></div>
-
+<hr>
+<a name="Template-Writing"></a>
+<div class="header">
+<p>
+Next: <a href="#Dictionaries" accesskey="n" rel="next">Dictionaries</a>, Previous: <a href="#SRecode-Minor-Mode" accesskey="p" rel="prev">SRecode Minor Mode</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Template-Writing-1"></a>
 <h2 class="chapter">5 Template Writing</h2>
-
-<p><a name="g_t_0040code_007bSRecode_002dtemplate_002dmode_007d"></a>
-
-   </p>
+<a name="SRecode_002dtemplate_002dmode"></a>
 <p><code>srecode-template-mode</code> is the major mode used for designing new
-templates.  <i>SRecode</i> files (Extension <samp><span class="file">.srt</span></samp>) are made up of
+templates.  <i>SRecode</i> files (Extension <samp>.srt</samp>) are made up of
 variable settings and template declarations.
-
-   </p>
+</p>
 <p>Here is an overview of the terminology you will need for the next few
 sections:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt>template file</dt>
-<dd>A file with a <samp><span class="file">.srt</span></samp> extension which contains settings,
-variables, and templates. 
-<br>
-</dd>
+<dd><p>A file with a <samp>.srt</samp> extension which contains settings,
+variables, and templates.
+</p></dd>
 <dt>template</dt>
-<dd>One named entity which represents a block of text that will be
+<dd><p>One named entity which represents a block of text that will be
 inserted.  The text is compiled into a sequence of insertable
-entities.  The entities are string constants, and macros. 
-<br>
-</dd>
+entities.  The entities are string constants, and macros.
+</p></dd>
 <dt>macro</dt>
-<dd>A macro is a text sequence within template text that is replaced with
-some other value. 
-<br>
-</dd>
+<dd><p>A macro is a text sequence within template text that is replaced with
+some other value.
+</p></dd>
 <dt>dictionary</dt>
-<dd>A table of variable names and values. 
-<br>
-</dd>
+<dd><p>A table of variable names and values.
+</p></dd>
 <dt>subdictionary</dt>
-<dd>A dictionary that is subordinate under another dictionary as a value
-to some variable. 
-<br>
-</dd>
+<dd><p>A dictionary that is subordinate under another dictionary as a value
+to some variable.
+</p></dd>
 <dt>variable</dt>
-<dd>A variable is an entry in a dictionary which has a value. 
-</dd>
+<dd><p>A variable is an entry in a dictionary which has a value.
+</p></dd>
 </dl>
 
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Variables">Variables</a>:  Creating special and regular variables. 
-</li>
-<li>
-<a accesskey="2" href="#Templates">Templates</a>:  Creating templates
-</li>
-<li>
-<a accesskey="3" href="#Contexts">Contexts</a>:   Templates are grouped by context
-</li>
-<li>
-<a accesskey="4" href="#Prompts">Prompts</a>:    Setting prompts for interactive insert macros
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Variables" accesskey="1">Variables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Creating special and regular variables.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Templates" accesskey="2">Templates</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Creating templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Contexts" accesskey="3">Contexts</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Templates are grouped by context
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Prompts" accesskey="4">Prompts</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Setting prompts for interactive insert macros
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Variables"></a></div>
-
+<hr>
+<a name="Variables"></a>
+<div class="header">
+<p>
+Next: <a href="#Templates" accesskey="n" rel="next">Templates</a>, Up: <a href="#Template-Writing" accesskey="u" rel="up">Template Writing</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Variables-1"></a>
 <h3 class="section">5.1 Variables</h3>
 
 <p>Variables can be set up and used in templates.  Many variables you may
 use are set up via template arguments, but some may be preferences a
 user can set up that are used in system templates.
-
-   </p>
-<p>When expanding a template, variables are stored in a <dfn>dictionary</dfn>. 
+</p>
+<p>When expanding a template, variables are stored in a <em>dictionary</em>.
 Dictionary entries are variables.  Variables defined in templates can
 have string like values.
-
-   </p>
+</p>
 <p>A variable can be set like this:
 </p>
-<pre class="example">     set VARNAME "some value"
+<div class="example">
+<pre class="example">set VARNAME "some value"
 </pre>
-   <p>Note that a VARIABLE is a name in a dictionary that can be used in a
+</div>
+
+<p>Note that a VARIABLE is a name in a dictionary that can be used in a
 MACRO in a template.  The macro references some variable by name.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#String-Values">String Values</a>:        Basic Variable values
-</li>
-<li>
-<a accesskey="2" href="#Multi_002dstring-Values">Multi-string Values</a>:  Complex variable values
-</li>
-<li>
-<a accesskey="3" href="#Section-Show">Section Show</a>:         Enabling the display of a named section. 
-</li>
-<li>
-<a accesskey="4" href="#Special-Variables">Special Variables</a>:    Variables with special names
-</li>
-<li>
-<a accesskey="5" href="#Automatic-Loop-Variables">Automatic Loop Variables</a>:  Variables automatically set in section loops. 
-</li>
-<li>
-<a accesskey="6" href="#Compound-Variable-Values">Compound Variable Values</a>:  Compound Variable Values
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#String-Values" accesskey="1">String Values</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Basic Variable values
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Multi_002dstring-Values" accesskey="2">Multi-string Values</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Complex variable values
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Section-Show" accesskey="3">Section Show</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Enabling the display of a named section.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Special-Variables" accesskey="4">Special Variables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Variables with special names
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Automatic-Loop-Variables" accesskey="5">Automatic Loop Variables</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Variables automatically set in section loops.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Compound-Variable-Values" accesskey="6">Compound Variable Values</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Compound Variable Values
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="String-Values"></a></div>
-
+<hr>
+<a name="String-Values"></a>
+<div class="header">
+<p>
+Next: <a href="#Multi_002dstring-Values" accesskey="n" rel="next">Multi-string Values</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="String-Values-1"></a>
 <h4 class="subsection">5.1.1 String Values</h4>
 
 <p>Variables can be set to strings.  Strings may contain newlines or any
 other characters.  Strings are interpreted by the Emacs Lisp reader so
 <code>\n</code>, <code>\t</code>, and <code>\"</code> work.
-
-   </p>
+</p>
 <p>When a string is inserted as part of a template, nothing within the
 string is interpreted, such as template escape characters.
-
 </p>
-<div class="node">
-<a name="Multi-string-Values"></a><a name="Multi_002dstring-Values"></a>
+<hr>
+<a name="Multi_002dstring-Values"></a>
+<div class="header">
+<p>
+Next: <a href="#Section-Show" accesskey="n" rel="next">Section Show</a>, Previous: <a href="#String-Values" accesskey="p" rel="prev">String Values</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
+<a name="Multi_002dstring-Values-1"></a>
 <h4 class="subsection">5.1.2 Multi-string Values</h4>
 
 <p>A variable can be set to multiple strings.  A compound value is
 usually used when you want to use dictionary entries as part of a
 variable later on.
-
-   </p>
+</p>
 <p>Multi-string variable values are set like string values except there
 are more than one.  For example
-
 </p>
-<pre class="example">     set NAME "this" "-mode"
+<div class="example">
+<pre class="example">set NAME "this" "-mode"
 </pre>
-   <p>These two strings will be concatenated together.
+</div>
 
-   </p>
+<p>These two strings will be concatenated together.
+</p>
 <p>A more useful thing is to include dictionary variables and concatenate
 those into the string.  Use the “macro” keyword to include the name
 of a variable.  This is like macros in a template.  For example:
-
 </p>
-<pre class="example">     set NAME macro "MODE" "-mode"
+<div class="example">
+<pre class="example">set NAME macro "MODE" "-mode"
 </pre>
-   <p>will extract the value of the dictionary variable MODE and append
+</div>
+
+<p>will extract the value of the dictionary variable MODE and append
 “-mode” to the end.
-
 </p>
-<div class="node"><a name="Section-Show"></a></div>
-
+<hr>
+<a name="Section-Show"></a>
+<div class="header">
+<p>
+Next: <a href="#Special-Variables" accesskey="n" rel="next">Special Variables</a>, Previous: <a href="#Multi_002dstring-Values" accesskey="p" rel="prev">Multi-string Values</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Section-Show-1"></a>
 <h4 class="subsection">5.1.3 Section Show</h4>
 
 <p>To set a variable to show a template section, use the <code>show</code>
-command.  Sections are blocks of a template wrapped in section macros. 
+command.  Sections are blocks of a template wrapped in section macros.
 If there is a section macro using <var>NAME</var> it will be shown for each
 dictionary associated with the <var>NAME</var> macro.
-
 </p>
-<pre class="example">     show NAME
+<div class="example">
+<pre class="example">show NAME
 </pre>
-   <p>This will enable that section.
+</div>
 
-   </p>
-<p>NOTE: May 11, 2008: I haven't used this yet, so I don't know if it works.
-
+<p>This will enable that section.
 </p>
-<div class="node"><a name="Special-Variables"></a></div>
 
+<p>NOTE: May 11, 2008: I haven’t used this yet, so I don’t know if it works.
+</p>
+
+<hr>
+<a name="Special-Variables"></a>
+<div class="header">
+<p>
+Next: <a href="#Automatic-Loop-Variables" accesskey="n" rel="next">Automatic Loop Variables</a>, Previous: <a href="#Section-Show" accesskey="p" rel="prev">Section Show</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Special-Variables-1"></a>
 <h4 class="subsection">5.1.4 Special Variables</h4>
 
 <p>Some variables have special meaning that changes attributes when
 templates are compiled, including:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>escape-start</code></dt>
-<dd>This is the character sequence that escapes from raw text to template
+<dd><p>This is the character sequence that escapes from raw text to template
 macro names.  The ability to change the escape characters are key for
-enabling <i>SRecode</i> templates to work across many kinds of languages. 
-<br>
-</dd>
+enabling <i>SRecode</i> templates to work across many kinds of languages.
+</p></dd>
 <dt><code>escape-end</code></dt>
-<dd>This is the character sequence that escapes the end of a template
+<dd>
+<p>This is the character sequence that escapes the end of a template
 macro name.
-
-     <p>Example:
-     </p>
-<pre class="example">          set escape_start "$"
-          set escape_end "$"
-     </pre>
-     <br>
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">set escape_start "$"
+set escape_end "$"
+</pre>
+</div>
 </dd>
 <dt><code>mode</code></dt>
-<dd>This is the major mode, as a string with the full Emacs Lisp symbol in
+<dd>
+<p>This is the major mode, as a string with the full Emacs Lisp symbol in
 it.  All templates in this file will be installed into the template
 table for this major mode.
-
-     <p>Multiple template files can use the same mode, and all those templates
+</p>
+<p>Multiple template files can use the same mode, and all those templates
 will be available in buffers of that mode.
-
-     </p>
+</p>
 <p>Example:
-     </p>
-<pre class="example">          set mode "emacs-lisp-mode"
-     </pre>
-     <br>
+</p>
+<div class="example">
+<pre class="example">set mode "emacs-lisp-mode"
+</pre>
+</div>
+
 </dd>
 <dt><code>priority</code></dt>
-<dd>The priority of a file is a number in a string constant that
+<dd>
+<p>The priority of a file is a number in a string constant that
 indicates where it lies in the template search order.  System
 templates default to low priority numbers.  User templates default to
 high priority numbers.  You can specify the priority of your template
 to insert it anywhere in the template search list.
-
-     <p>If there are multiple templates with the same context and name, the
+</p>
+<p>If there are multiple templates with the same context and name, the
 template with the highest priority number will be used.
-
-     </p>
+</p>
 <p>If multiple files have the same priority, then then sort order is
-unpredictable.  If no template names match, then it doesn't matter.
-
-     </p>
+unpredictable.  If no template names match, then it doesn’t matter.
+</p>
 <p>Example:
-     </p>
-<pre class="example">          set priority "35"
-     </pre>
-     <br>
+</p>
+<div class="example">
+<pre class="example">set priority "35"
+</pre>
+</div>
+
 </dd>
 <dt><code>application</code></dt>
-<dd>If a template file contains templates only needed for a particular
+<dd>
+<p>If a template file contains templates only needed for a particular
 application, then specify an application.  Template files for an
 application are stored in the template repository, but are not used in
 the generic template insertion case.
-
-     <p>The application with a particular name will access these templates
+</p>
+<p>The application with a particular name will access these templates
 from Lisp code.
-
-     </p>
+</p>
 <p>Example:
-     </p>
-<pre class="example">          set application "document"
-     </pre>
-     <br>
+</p>
+<div class="example">
+<pre class="example">set application "document"
+</pre>
+</div>
+
 </dd>
 <dt><code>project</code></dt>
-<dd>If a template file contains templates, or template overrides specific
+<dd>
+<p>If a template file contains templates, or template overrides specific
 to a set of files under a particular directory, then that template
 file can specify a “project” that it belongs to.
-
-     <p>Set the “project” special variable to a directory name.  Only files
+</p>
+<p>Set the “project” special variable to a directory name.  Only files
 under that directory will be able to access the templates in that
 file.
-
-     </p>
+</p>
 <p>Any template file that has a project specified will get have a
 priority that is set between SRecode base templates, and user defined
 templates.
-
-     </p>
+</p>
 <p>Templates can be compiled via a project system, such as EDE.  EDE
 loaded templates will get a <var>project</var> set automatically.
-
-     </p>
+</p>
 <p>Example:
-     </p>
-<pre class="example">          set project "/tmp/testproject"
-     </pre>
-     </dd>
+</p>
+<div class="example">
+<pre class="example">set project "/tmp/testproject"
+</pre>
+</div>
+
+</dd>
 </dl>
 
-   <p>If you need to insert the characters that belong to the variables
+<p>If you need to insert the characters that belong to the variables
 <code>escape_start</code> or <code>escape_end</code>, then place those into
 a variable.  For example
-
 </p>
-<pre class="example">     set escape_start "$"
-     set escape_end "$"
-     set DOLLAR "$"
+<div class="example">
+<pre class="example">set escape_start "$"
+set escape_end "$"
+set DOLLAR "$"
 </pre>
-   <div class="node"><a name="Automatic-Loop-Variables"></a></div>
+</div>
 
+<hr>
+<a name="Automatic-Loop-Variables"></a>
+<div class="header">
+<p>
+Next: <a href="#Compound-Variable-Values" accesskey="n" rel="next">Compound Variable Values</a>, Previous: <a href="#Special-Variables" accesskey="p" rel="prev">Special Variables</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Automatic-Loop-Variables-1"></a>
 <h4 class="subsection">5.1.5 Automatic Loop Variables</h4>
 
 <p>When section macros are used, that section is repeated for each
 subdictionary bound to the loop variable.
-
-   </p>
+</p>
 <p>Each dictionary added will automatically get values for positional
 macros which will enable different <var>sections</var>.  The automatic
 section variables are.
-
-     </p>
+</p>
 <ul>
-<li>
-<var>first</var>—The first entry in the table. 
+<li> <var>first</var>—The first entry in the table.
 </li>
-<li>
-<var>notfirst</var>—Not the first entry in the table. 
+<li> <var>notfirst</var>—Not the first entry in the table.
 </li>
-<li>
-<var>last</var>—The last entry in the table
+<li> <var>last</var>—The last entry in the table
 </li>
-<li>
-<var>notlast</var>—Not the last entry in the table. 
+<li> <var>notlast</var>—Not the last entry in the table.
 </li>
 </ul>
 
-<div class="node"><a name="Compound-Variable-Values"></a></div>
-
+<hr>
+<a name="Compound-Variable-Values"></a>
+<div class="header">
+<p>
+Previous: <a href="#Automatic-Loop-Variables" accesskey="p" rel="prev">Automatic Loop Variables</a>, Up: <a href="#Variables" accesskey="u" rel="up">Variables</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Compound-Variable-Values-1"></a>
 <h4 class="subsection">5.1.6 Compound Variable Values</h4>
 
 <p>A variable can also have a compound value.  This means the value of
 the variable is an <i>EIEIO</i> object, which is a subclass of
 <code>srecode-dictionary-compound-value</code>.
-
-   </p>
+</p>
 <p>New compound variables can only be setup from Lisp code.  See
 <a href="#Compound-Dictionary-Values">Compound Dictionary Values</a> for details on setting up compound
 variables from Lisp.
-
 </p>
-<div class="node"><a name="Templates"></a></div>
-
+<hr>
+<a name="Templates"></a>
+<div class="header">
+<p>
+Next: <a href="#Contexts" accesskey="n" rel="next">Contexts</a>, Previous: <a href="#Variables" accesskey="p" rel="prev">Variables</a>, Up: <a href="#Template-Writing" accesskey="u" rel="up">Template Writing</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Templates-1"></a>
 <h3 class="section">5.2 Templates</h3>
 
 <p>A template represents a text pattern that can be inserted into
 a buffer.
-
-   </p>
-<p>A basic template is declared like this:
-
 </p>
-<pre class="example">     template TEMPLATENAME :arg1 :arg2
-     "Optional documentation string"
-     ----
-     The text to your template goes here.
-     ----
-     bind "a"
+<p>A basic template is declared like this:
+</p>
+<div class="example">
+<pre class="example">template TEMPLATENAME :arg1 :arg2
+"Optional documentation string"
+----
+The text to your template goes here.
+----
+bind "a"
 </pre>
-   <p>Templates are stored in a template table by name, and are inserted by
-the <var>templatename</var> provided.
+</div>
 
-   </p>
+<p>Templates are stored in a template table by name, and are inserted by
+the <var>templatename</var> provided.
+</p>
 <p>The documentation string is optional.  This documentation string will
 be used to aid users in selecting which template they want to use.
-
-   </p>
-<p>The code that makes up the raw template occurs between the lines that
-contain the text "——".
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Template-Section-Dictionaries">Template Section Dictionaries</a>:   Template Scoped Macro values
-</li>
-<li>
-<a accesskey="2" href="#Template-Macros">Template Macros</a>:      Macros occurring in template patterns
-</li>
-</ul>
+<p>The code that makes up the raw template occurs between the lines that
+contain the text "—–".
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Template-Section-Dictionaries" accesskey="1">Template Section Dictionaries</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Template Scoped Macro values
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Template-Macros" accesskey="2">Template Macros</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Macros occurring in template patterns
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Template-Section-Dictionaries"></a></div>
-
+<hr>
+<a name="Template-Section-Dictionaries"></a>
+<div class="header">
+<p>
+Next: <a href="#Template-Macros" accesskey="n" rel="next">Template Macros</a>, Up: <a href="#Templates" accesskey="u" rel="up">Templates</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Template-Section-Dictionaries-1"></a>
 <h4 class="subsection">5.2.1 Template Section Dictionaries</h4>
 
 <p>To add variable values to section dictionaries used within a specific
 template, you can add them to the beginning of the template
 declaration like this:
-
 </p>
-<pre class="example">     template TEMPLATENAME :arg1 :arg2
-     "Optional documentation string"
-     sectiondictionary "A"
-     set NAME "foo"
-     ----
-     A beginning line {{NAME}}
-     {{#A}}Optional string {{NAME}} here{{/A}}
-     An end line
-     ----
+<div class="example">
+<pre class="example">template TEMPLATENAME :arg1 :arg2
+"Optional documentation string"
+sectiondictionary "A"
+set NAME "foo"
+----
+A beginning line {{NAME}}
+{{#A}}Optional string {{NAME}} here{{/A}}
+An end line
+----
 </pre>
-   <p>In this example, the <var>NAME</var> variable gets the value “foo”, but
+</div>
+
+<p>In this example, the <var>NAME</var> variable gets the value “foo”, but
 only while it is inside section macro A.  The outer scoped NAME will
 be empty.
-
-   </p>
+</p>
 <p>This is particularly useful while using an include macro to pull in a
 second template.  In this way, you can pass values known from one
 template to a subordinate template where some value is not known.
-
-   </p>
+</p>
 <p>From the Emacs Lisp default template file, a syntax table is just a
 variable with a specialized value.
-
-   </p>
-<p>If a variable is declared like this (where $ is the escape character):
-
 </p>
-<pre class="example">     template variable :el
-     "Insert a variable.
-     DOC is optional."
-     ----
-     (defvar $?NAME$ $^$
-       "$DOC$")
-     ----
+<p>If a variable is declared like this (where $ is the escape character):
+</p>
+<div class="example">
+<pre class="example">template variable :el
+"Insert a variable.
+DOC is optional."
+----
+(defvar $?NAME$ $^$
+  "$DOC$")
+----
 </pre>
-   <p>then you can see that there is a NAME and DOC that is needed. 
-The <code>^</code> point inserter is also a handy key here.
+</div>
 
-   </p>
+<p>then you can see that there is a NAME and DOC that is needed.
+The <code>^</code> point inserter is also a handy key here.
+</p>
 <p>The syntax table wants a variable, but knows the values of some of
 these variables, and can recast the problem like this by using
 template specific <code>sectiondictionary</code> macro declarations.
-
 </p>
-<pre class="example">     template syntax-table
-     "Create a syntax table."
-     sectiondictionary "A"
-     set NAME macro "?MODESYM" "-mode-syntax-table"
-     set DOC "Syntax table used in " macro "?MODESYM" " buffers."
-     ----
-     $&lt;A:variable$
-       (let ((table (make-syntax-table (standard-syntax-table))))
-         (modify-syntax-entry ?\; ". 12"  table) ;; SEMI, Comment start ;;
-         ;; ...
-         table)
-     $/A$
-     ----
+<div class="example">
+<pre class="example">template syntax-table
+"Create a syntax table."
+sectiondictionary "A"
+set NAME macro "?MODESYM" "-mode-syntax-table"
+set DOC "Syntax table used in " macro "?MODESYM" " buffers."
+----
+$&lt;A:variable$
+  (let ((table (make-syntax-table (standard-syntax-table))))
+    (modify-syntax-entry ?\; ". 12"  table) ;; SEMI, Comment start ;;
+    ;; ...
+    table)
+$/A$
+----
 </pre>
-   <p>In this way, <var>NAME</var> can be set as a user posed question for
+</div>
+
+<p>In this way, <var>NAME</var> can be set as a user posed question for
 <var>MODESYM</var> with “-mode-syntax-table” appended.  A simplified doc
 string will also be inserted.
-
-   </p>
+</p>
 <p>Lastly, the <var>A</var> section contains more macro text which is inserted
 at the <code>^</code> point marker.
-
-   </p>
+</p>
 <p>By creating useful base templates for things like function or variable
 declarations, and recycling them in higher-order templates, an end
 user can override the basic declarator, and the higher order templates
 will then obey the new format, or perhaps even work in more than one
 major mode.
-
 </p>
-<div class="node"><a name="Template-Macros"></a></div>
-
+<hr>
+<a name="Template-Macros"></a>
+<div class="header">
+<p>
+Previous: <a href="#Template-Section-Dictionaries" accesskey="p" rel="prev">Template Section Dictionaries</a>, Up: <a href="#Templates" accesskey="u" rel="up">Templates</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Template-Macros-1"></a>
 <h4 class="subsection">5.2.2 Template Macros</h4>
 
 <p>Template macros occur in the template text.  The default escape
 characters are “{{“ and “}}”, though they can be changed
 in the top-level variables.  See <a href="#Variables">Variables</a>.
-
-   </p>
-<p>Thus, if you have the template code that looks like this:
-
 </p>
-<pre class="example">     ;; Author: {{AUTHOR}}
+<p>Thus, if you have the template code that looks like this:
+</p>
+<div class="example">
+<pre class="example">;; Author: {{AUTHOR}}
 </pre>
-   <p>Then the text between {{ and }} are a macro, and substituted by
-the value of the variable <var>AUTHOR</var>.
+</div>
 
-   </p>
+<p>Then the text between {{ and }} are a macro, and substituted by
+the value of the variable <var>AUTHOR</var>.
+</p>
 <p>Macros can be specialized to be more than just a text string.  For
 example, the macro above could be augmented with an Emacs Lisp
 function.
-
 </p>
-<pre class="example">     ;; Author: {{AUTHOR:upcase}}
+<div class="example">
+<pre class="example">;; Author: {{AUTHOR:upcase}}
 </pre>
-   <p>In this case, the Emacs Lisp function <code>upcase</code> will be called on
-the text value of the <var>AUTHOR</var> variable.
+</div>
 
-   </p>
+<p>In this case, the Emacs Lisp function <code>upcase</code> will be called on
+the text value of the <var>AUTHOR</var> variable.
+</p>
 <p>Macros can also be specialized to have different behaviors by using a
 prefix, non-alpha character or symbol.  For example:
-
 </p>
-<pre class="example">     {{! This is a comment inside macro escape characters }}
+<div class="example">
+<pre class="example">{{! This is a comment inside macro escape characters }}
 </pre>
-   <p>shows that the “!” symbol is for comments.
+</div>
 
-   </p>
+<p>shows that the “!” symbol is for comments.
+</p>
 <p>Alternately, a macro could query the user during insertion:
-
 </p>
-<pre class="example">     (defun {{?NAME}} ()
-        {{^}}
-        ) ;; End of {{NAME}}
+<div class="example">
+<pre class="example">(defun {{?NAME}} ()
+   {{^}}
+   ) ;; End of {{NAME}}
 </pre>
-   <p>the “?” symbol indicates that if the symbol <var>NAME</var> isn't in the
+</div>
+
+<p>the “?” symbol indicates that if the symbol <var>NAME</var> isn’t in the
 dictionary, then the user should be queried for the <var>NAME</var>
 variable.  If <var>NAME</var> appears again in the template, the original
 value specified by the user will be inserted again.
-
-   </p>
+</p>
 <p>If the text from a dictionary value is to be placed in column format,
 you can use the “|” symbol to indicate you want column control.  For
 example:
-
 </p>
-<pre class="example">        | this | that |{{#A}}
-        | {{|THIS:4}} | {{|THAT:4}} |{{/A}}
+<div class="example">
+<pre class="example">   | this | that |{{#A}}
+   | {{|THIS:4}} | {{|THAT:4}} |{{/A}}
 </pre>
-   <p>For each repeated section “#A” the dictionary values for <var>THIS</var>
+</div>
+
+<p>For each repeated section “#A” the dictionary values for <var>THIS</var>
 and <var>THAT</var> will be inserted and either trimmed to, or expanded to
 4 characters in width.
-
-   </p>
+</p>
 <p>Macros that are prefixed with the “#” symbol denote a section.  A
 macro of the same name with a “/” prefix denotes the end of that
 section.
-
 </p>
-<pre class="example">     {{#MOOSE}}
-     Here is some text describing moose.
-     {{/MOOSE}}
+<div class="example">
+<pre class="example">{{#MOOSE}}
+Here is some text describing moose.
+{{/MOOSE}}
 </pre>
-   <p>In this example if the section MOOSE was “shown” in the active
+</div>
+
+<p>In this example if the section MOOSE was “shown” in the active
 dictionary, then the text between the # and / macros will also be
 inserted.
-
-   </p>
+</p>
 <p>All the text and macros within a section are either not shown at all
-(if that section is not 'visible') or the section is shown one time
-for each dictionary added to that symbol. 
+(if that section is not ’visible’) or the section is shown one time
+for each dictionary added to that symbol.
 See <a href="#Developing-Template-Functions">Developing Template Functions</a>.
-
-   </p>
+</p>
 <p>Macros prefixed with “&gt;” will include another template.  Include
 macros would look like this:
-
 </p>
-<pre class="example">     {{&gt;FOO:defun}}
+<div class="example">
+<pre class="example">{{&gt;FOO:defun}}
 </pre>
-   <p>where <code>FOO</code> is the dictionary variable for the sub-dictionary used for
+</div>
+
+<p>where <code>FOO</code> is the dictionary variable for the sub-dictionary used for
 expanding the template <code>defun</code>.  The <code>defun</code> template will
 be looked up in the template repository for the current mode, or in
 any inherited modes.
-
-   </p>
+</p>
 <p>Another way to include another template is with an include macro that
 will also wrap section text.  The includewrap insertion method looks
 like this:
-
 </p>
-<pre class="example">     {{&lt;FOO:defun}}Handy Text goes here{{/FOO}}
+<div class="example">
+<pre class="example">{{&lt;FOO:defun}}Handy Text goes here{{/FOO}}
 </pre>
-   <p>In this case, <code>defun</code> is included just as above.  If the
+</div>
+
+<p>In this case, <code>defun</code> is included just as above.  If the
 <code>defun</code> template has a {{^}} macro in it, then the
 section text “Handy Text goes here” will be inserted at that point,
 and that location will not be saved as the cursor location.
-
-   </p>
+</p>
 <p>If there is no {{^}}, then the text will not be inserted.
-
-   </p>
+</p>
 <p>For both kinds of include macros, you may need to include a template
 from a different context.  You can use <code>:</code> separate the context
 from the name, like this:
-
 </p>
-<pre class="example">     {{&gt;FOO:declaration:function}}
+<div class="example">
+<pre class="example">{{&gt;FOO:declaration:function}}
 </pre>
-   <div class="node"><a name="Contexts"></a></div>
+</div>
 
+<hr>
+<a name="Contexts"></a>
+<div class="header">
+<p>
+Next: <a href="#Prompts" accesskey="n" rel="next">Prompts</a>, Previous: <a href="#Templates" accesskey="p" rel="prev">Templates</a>, Up: <a href="#Template-Writing" accesskey="u" rel="up">Template Writing</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Context"></a>
 <h3 class="section">5.3 Context</h3>
 
 <p>Each template belongs to a context.  When prompting for a template by
 name, such as with <kbd>C-c / /</kbd>, the name is prefixed by the current
 context.  If there is no context, it defaults to <code>declaration</code>.
-
-   </p>
-<p>You can change context like this:
-
 </p>
-<pre class="example">     context NAME
+<p>You can change context like this:
+</p>
+<div class="example">
+<pre class="example">context NAME
 </pre>
-   <p>where <var>name</var> is some symbol that represents any context.
+</div>
 
-   </p>
+<p>where <var>name</var> is some symbol that represents any context.
+</p>
 <p>A context resides over all templates that come after it until the next
 context statement.  Thus:
-
 </p>
-<pre class="example">     context C1
-     
-     template foo
-     "Foo template in C1"
-     ----
-     ----
-     
-     context C2
-     
-     template foo
-     "Foo template in C2"
-     ----
-     ----
-</pre>
-   <p>creates two <code>foo</code> templates.  The first one is when in context
-C1.  The second is available in context C2.
+<div class="example">
+<pre class="example">context C1
 
-   </p>
+template foo
+"Foo template in C1"
+----
+----
+
+context C2
+
+template foo
+"Foo template in C2"
+----
+----
+</pre>
+</div>
+
+<p>creates two <code>foo</code> templates.  The first one is when in context
+C1.  The second is available in context C2.
+</p>
 <p>This is useful if there are multiple ways to declare something like a
 function or variable that differ only by where it is in the syntax of
 the language.  The name <code>foo</code> is not ambiguous because each is in
 a different context.
-
 </p>
-<div class="node"><a name="Prompts"></a></div>
-
+<hr>
+<a name="Prompts"></a>
+<div class="header">
+<p>
+Previous: <a href="#Contexts" accesskey="p" rel="prev">Contexts</a>, Up: <a href="#Template-Writing" accesskey="u" rel="up">Template Writing</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Prompt"></a>
 <h3 class="section">5.4 Prompt</h3>
 
 <p>Some templates use prompting macro insertion.  A macro that needs a
 prompt looks like this:
-
 </p>
-<pre class="example">     {{?NAME}}
+<div class="example">
+<pre class="example">{{?NAME}}
 </pre>
-   <p>where ? comes after the first escape character.
+</div>
 
-   </p>
+<p>where ? comes after the first escape character.
+</p>
 <p>by default, it will use a prompt like this when it is encountered:
-
 </p>
-<pre class="example">     Specify NAME:
+<div class="example">
+<pre class="example">Specify NAME:
 </pre>
-   <p>For such macros, you can pre-define prompts for any dictionary entry. 
+</div>
+
+<p>For such macros, you can pre-define prompts for any dictionary entry.
 When that dictionary entry is first encountered, the user is prompted,
 and subsequent occurrences of that dictionary entry use the same value.
-
-   </p>
+</p>
 <p>To get a different prompt, use a prompt command like this:
-
 </p>
-<pre class="example">     prompt VARNAME "Nice Way to ask for VARNAME: "
+<div class="example">
+<pre class="example">prompt VARNAME "Nice Way to ask for VARNAME: "
 </pre>
-   <p>Now, if you put this in a template:
+</div>
 
+<p>Now, if you put this in a template:
 </p>
-<pre class="example">     template variable
-     ----
-     (defvar {{?VARNAME}} nil
-        "")
-     ----
+<div class="example">
+<pre class="example">template variable
+----
+(defvar {{?VARNAME}} nil
+   "")
+----
 </pre>
-   <p>when VARNAME is encountered, it will use the nice prompt.
+</div>
 
-   </p>
+<p>when VARNAME is encountered, it will use the nice prompt.
+</p>
 <p>Prompts can be extended as well.  For example:
-
 </p>
-<pre class="example">     prompt VARNAME "VARNAME: " default "srecode" read y-or-n-p
+<div class="example">
+<pre class="example">prompt VARNAME "VARNAME: " default "srecode" read y-or-n-p
 </pre>
-   <p>In this case, the <code>default</code> keyword indicates that
+</div>
+
+<p>In this case, the <code>default</code> keyword indicates that
 <code>"srecode"</code> is the default string to use, and <code>y-or-n-p</code> is
 the function to use to ask the question.
-
-   </p>
+</p>
 <p>For <code>y-or-n-p</code> if you type “y” it inserts the default string,
 otherwise it inserts empty.
-
-   </p>
+</p>
 <p>For any other symbol that occurs after the <code>read</code> token, it is
 expected to take the same argument list as <code>read-string</code>.  As
 such, you can create your own prompts that do completing reads on
 deterministic values.
-
-   </p>
+</p>
 <p>To have the default be calculated later from a dictionary entry, you
 need to use the <code>defaultmacro</code> keyword instead.
-
 </p>
-<pre class="example">     prompt VARNAME "Varname: " defaultmacro "PREFIX"
+<div class="example">
+<pre class="example">prompt VARNAME "Varname: " defaultmacro "PREFIX"
 </pre>
-   <p>now, when it attempts to read in VARNAME, it will pre-populate the text
+</div>
+
+<p>now, when it attempts to read in VARNAME, it will pre-populate the text
 editing section with whatever the value of PREFIX is.
-
-   </p>
-<p>Some language arguments may supply possible prefixes for prompts. 
-Look for these when creating your prompts.
-
 </p>
-<div class="node"><a name="Dictionaries"></a></div>
-
+<p>Some language arguments may supply possible prefixes for prompts.
+Look for these when creating your prompts.
+</p>
+<hr>
+<a name="Dictionaries"></a>
+<div class="header">
+<p>
+Next: <a href="#Developing-Template-Functions" accesskey="n" rel="next">Developing Template Functions</a>, Previous: <a href="#Template-Writing" accesskey="p" rel="prev">Template Writing</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Dictionaries-1"></a>
 <h2 class="chapter">6 Dictionaries</h2>
 
 <p>Dictionaries are a set of variables.  The values associated with the
 variable names could be anything, but how it is handled is dependent
 on the type of macro being inserted.
-
-   </p>
-<p>Most of this chapter is for writing Lisp programs that use <i>SRecode</i>. 
+</p>
+<p>Most of this chapter is for writing Lisp programs that use <i>SRecode</i>.
 If you only want to write template files, then you only need to read
 the <a href="#Template-Argument-Dictionary-Entries">Template Argument Dictionary Entries</a> section.
-
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Create-a-Dictionary">Create a Dictionary</a>
-</li>
-<li>
-<a accesskey="2" href="#Setting-Dictionary-Values">Setting Dictionary Values</a>:    Basic dictionary values
-</li>
-<li>
-<a accesskey="3" href="#Compound-Dictionary-Values">Compound Dictionary Values</a>:   Complex dictionary values
-</li>
-<li>
-<a accesskey="4" href="#Argument-Resolution">Argument Resolution</a>:          Automatic template argument resolution
-</li>
-<li>
-<a accesskey="5" href="#Creating-new-Arguments">Creating new Arguments</a>:       Create new arguments for use in templates
-</li>
-<li>
-<a accesskey="6" href="#Querying-a-Dictionary">Querying a Dictionary</a>:        Querying a dictionary for values. 
-</li>
-<li>
-<a accesskey="7" href="#Template-Argument-Dictionary-Entries">Template Argument Dictionary Entries</a>:  Catalog of arguments
-</li>
-</ul>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Create-a-Dictionary" accesskey="1">Create a Dictionary</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Setting-Dictionary-Values" accesskey="2">Setting Dictionary Values</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Basic dictionary values
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Compound-Dictionary-Values" accesskey="3">Compound Dictionary Values</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Complex dictionary values
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Argument-Resolution" accesskey="4">Argument Resolution</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Automatic template argument resolution
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Creating-new-Arguments" accesskey="5">Creating new Arguments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Create new arguments for use in templates
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Querying-a-Dictionary" accesskey="6">Querying a Dictionary</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Querying a dictionary for values.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Template-Argument-Dictionary-Entries" accesskey="7">Template Argument Dictionary Entries</a>:</td>
+<td>  </td>
+<td align="left" valign="top">Catalog of arguments
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Create-a-Dictionary"></a></div>
-
+<hr>
+<a name="Create-a-Dictionary"></a>
+<div class="header">
+<p>
+Next: <a href="#Setting-Dictionary-Values" accesskey="n" rel="next">Setting Dictionary Values</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Create-a-Dictionary-1"></a>
 <h3 class="section">6.1 Create a Dictionary</h3>
 
-<div class="defun">
-— Function: <b>srecode-create-dictionary</b><var> &amp;optional buffer<a name="index-srecode_002dcreate_002ddictionary-5"></a></var><br>
-<blockquote><p><a name="srecode_002dcreate_002ddictionary"></a>
-Create a dictionary for <var>buffer</var>. 
-If <var>buffer</var> is not specified, use the current buffer. 
-The dictionary is initialized with no variables or enabled sections. 
+<dl>
+<dt>
+<a name="index-srecode_002dcreate_002ddictionary"></a>Function: <strong>srecode-create-dictionary</strong> <em>&amp;optional buffer</em>
+</dt>
+<dd>
+<a name="srecode_002dcreate_002ddictionary"></a><p>Create a dictionary for <var>buffer</var>.
+If <var>buffer</var> is not specified, use the current buffer.
+The dictionary is initialized with no variables or enabled sections.
 Any variables defined with <code>set</code> in the template, however,
-becomes a name in the dictionary. 
-</p></blockquote>
+becomes a name in the dictionary.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Setting-Dictionary-Values"></a>
+<div class="header">
+<p>
+Next: <a href="#Compound-Dictionary-Values" accesskey="n" rel="next">Compound Dictionary Values</a>, Previous: <a href="#Create-a-Dictionary" accesskey="p" rel="prev">Create a Dictionary</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Setting-Dictionary-Values"></a></div>
-
+<a name="Setting-Dictionary-Values-1"></a>
 <h3 class="section">6.2 Setting Dictionary Values</h3>
 
 <p>When building an <i>SRecode</i> based application, you will need to setup
 your dictionary values yourself.  There are several utility functions
 for this.
-
-   </p>
+</p>
 <p>In the simplest form, you can associate a string with a variable.
-
 </p>
-<div class="defun">
-— Function: <b>srecode-dictionary-set-value</b><var> dict name value<a name="index-srecode_002ddictionary_002dset_002dvalue-6"></a></var><br>
-<blockquote><p><a name="srecode_002ddictionary_002dset_002dvalue"></a>
-In dictionary <var>dict</var>, set <var>name</var> to have <var>value</var>. 
-</p></blockquote>
-</div>
-
-   <p>For section macros, you can have alternate values.  A section can
-either be toggled as visible, or it can act as a loop.
-
-</p>
-<div class="defun">
-— Function: <b>srecode-dictionary-show-section</b><var> dict name<a name="index-srecode_002ddictionary_002dshow_002dsection-7"></a></var><br>
-<blockquote><p><a name="srecode_002ddictionary_002dshow_002dsection"></a>
-In dictionary <var>dict</var>, indicate that the section <var>name</var> should be exposed. 
-</p></blockquote>
-</div>
-
-<div class="defun">
-— Function: <b>srecode-dictionary-add-section-dictionary</b><var> dict name show-only<a name="index-srecode_002ddictionary_002dadd_002dsection_002ddictionary-8"></a></var><br>
-<blockquote>
-<p><a name="srecode_002ddictionary_002dadd_002dsection_002ddictionary"></a>
-In dictionary <var>DICT</var>, add a section dictionary for section macro <var>NAME</var>. 
-Return the new dictionary.
-
-        </p>
-<p>You can add several dictionaries to the same section entry. 
-For each dictionary added to a variable, the block of codes in
-the template will be repeated.
-
-        </p>
-<p>If optional argument <var>SHOW-ONLY</var> is non-<code>nil</code>, then don't add
-a new dictionary if there is already one in place.  Also, don't add
-<var>FIRST</var>/<var>LAST</var> entries. 
-These entries are not needed when we are just showing a section.
-
-        </p>
-<p>Each dictionary added will automatically get values for positional macros
-which will enable <var>SECTIONS</var> to be enabled.
-
-          </p>
 <dl>
-<dt><var>first</var></dt>
-<dd>The first entry in the table. 
-<br>
-</dd>
-<dt><var>notfirst</var></dt>
-<dd>Not the first entry in the table. 
-<br>
-</dd>
-<dt><var>last</var></dt>
-<dd>The last entry in the table
-<br>
-</dd>
-<dt><var>notlast</var></dt>
-<dd>Not the last entry in the table. 
+<dt>
+<a name="index-srecode_002ddictionary_002dset_002dvalue"></a>Function: <strong>srecode-dictionary-set-value</strong> <em>dict name value</em>
+</dt>
+<dd>
+<a name="srecode_002ddictionary_002dset_002dvalue"></a><p>In dictionary <var>dict</var>, set <var>name</var> to have <var>value</var>.
+</p>
 </dd>
 </dl>
 
-        <p>Adding a new dictionary will alter these values in previously
-inserted dictionaries. 
+<p>For section macros, you can have alternate values.  A section can
+either be toggled as visible, or it can act as a loop.
 </p>
-</blockquote>
+<dl>
+<dt>
+<a name="index-srecode_002ddictionary_002dshow_002dsection"></a>Function: <strong>srecode-dictionary-show-section</strong> <em>dict name</em>
+</dt>
+<dd>
+<a name="srecode_002ddictionary_002dshow_002dsection"></a><p>In dictionary <var>dict</var>, indicate that the section <var>name</var> should be exposed.
+</p>
+</dd>
+</dl>
+
+
+<dl>
+<dt>
+<a name="index-srecode_002ddictionary_002dadd_002dsection_002ddictionary"></a>Function: <strong>srecode-dictionary-add-section-dictionary</strong> <em>dict name show-only</em>
+</dt>
+<dd>
+<a name="srecode_002ddictionary_002dadd_002dsection_002ddictionary"></a><p>In dictionary <var>DICT</var>, add a section dictionary for section macro <var>NAME</var>.
+Return the new dictionary.
+</p>
+<p>You can add several dictionaries to the same section entry.
+For each dictionary added to a variable, the block of codes in
+the template will be repeated.
+</p>
+<p>If optional argument <var>SHOW-ONLY</var> is non-<code>nil</code>, then don’t add
+a new dictionary if there is already one in place.  Also, don’t add
+<var>FIRST</var>/<var>LAST</var> entries.
+These entries are not needed when we are just showing a section.
+</p>
+<p>Each dictionary added will automatically get values for positional macros
+which will enable <var>SECTIONS</var> to be enabled.
+</p>
+<dl compact>
+<dt><var>first</var></dt>
+<dd><p>The first entry in the table.
+</p></dd>
+<dt><var>notfirst</var></dt>
+<dd><p>Not the first entry in the table.
+</p></dd>
+<dt><var>last</var></dt>
+<dd><p>The last entry in the table
+</p></dd>
+<dt><var>notlast</var></dt>
+<dd><p>Not the last entry in the table.
+</p></dd>
+</dl>
+
+<p>Adding a new dictionary will alter these values in previously
+inserted dictionaries.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Compound-Dictionary-Values"></a>
+<div class="header">
+<p>
+Next: <a href="#Argument-Resolution" accesskey="n" rel="next">Argument Resolution</a>, Previous: <a href="#Setting-Dictionary-Values" accesskey="p" rel="prev">Setting Dictionary Values</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Compound-Dictionary-Values"></a></div>
-
+<a name="Compound-Dictionary-Values-1"></a>
 <h3 class="section">6.3 Compound Dictionary Values</h3>
 
 <p>If you want to associate a non-string value with a dictionary
 variable, then you will need to use a compound value.  Compound
 dictionary values are derived using <i>EIEIO</i> from a base class for
 handling arbitrary data in a macro.
-
 </p>
-<div class="defun">
-— Type: <b>srecode-dictionary-compound-value</b><var><a name="index-srecode_002ddictionary_002dcompound_002dvalue-9"></a></var><br>
-<blockquote>
-<p><a name="srecode_002ddictionary_002dcompound_002dvalue"></a>
-A compound dictionary value. 
+<dl>
+<dt>
+<a name="index-srecode_002ddictionary_002dcompound_002dvalue"></a>Type: <strong>srecode-dictionary-compound-value</strong>
+</dt>
+<dd>
+<a name="srecode_002ddictionary_002dcompound_002dvalue"></a><p>A compound dictionary value.
 Values stored in a dictionary must be a <var>string</var>,
 a dictionary for showing sections, or an instance of a subclass
 of this class.
-
-        </p>
+</p>
 <p>Compound dictionary values derive from this class, and must
 provide a sequence of method implementations to convert into
-a string. 
+a string.
 </p>
-</blockquote>
-</div>
+</dd>
+</dl>
 
-   <p>Your new subclass of the compound value needs to implement these
+<p>Your new subclass of the compound value needs to implement these
 methods:
-
 </p>
-<div class="defun">
-— Function: <b>srecode-compound-toString</b><var> cp function dictionary<a name="index-srecode_002dcompound_002dtoString-10"></a></var><br>
-<blockquote><p><a name="srecode_002dcompound_002dtoString"></a>
-Convert the compound dictionary value <var>cp</var> to a string. 
+<dl>
+<dt>
+<a name="index-srecode_002dcompound_002dtoString"></a>Function: <strong>srecode-compound-toString</strong> <em>cp function dictionary</em>
+</dt>
+<dd>
+<a name="srecode_002dcompound_002dtoString"></a><p>Convert the compound dictionary value <var>cp</var> to a string.
 If <var>function</var> is non-<code>nil</code>, then <var>function</var> is somehow applied to an aspect
 of the compound value.  The <var>function</var> could be a fraction
-of some function symbol with a logical prefix excluded. 
-</p></blockquote>
-</div>
-
-   <p>The next method is for dumping out tables during debugging.
-
+of some function symbol with a logical prefix excluded.
 </p>
-<div class="defun">
-— Function: <b>srecode-dump</b><var> cp &amp;optional indent<a name="index-srecode_002ddump-11"></a></var><br>
-<blockquote><p><a name="srecode_002ddump"></a>
-Display information about this compound value. 
-</p></blockquote>
-</div>
+</dd>
+</dl>
 
-   <p>Here is an example of wrapping a semantic tag in a compound value:
-
+<p>The next method is for dumping out tables during debugging.
 </p>
-<pre class="example">     (defclass srecode-semantic-tag (srecode-dictionary-compound-value)
-       ((prime :initarg :prime
-               :type semantic-tag
-               :documentation
-               "This is the primary insertion tag.")
-        )
-       "Wrap up a collection of semantic tag information.
-     This class will be used to derive dictionary values.")
-     
-     (defmethod srecode-compound-toString((cp srecode-semantic-tag)
-                                          function
-                                          dictionary)
-       "Convert the compound dictionary value CP to a string.
-     If FUNCTION is non-nil, then FUNCTION is somehow applied to an
-     aspect of the compound value."
-       (if (not function)
-           ;; Just format it in some handy dandy way.
-           (semantic-format-tag-prototype (oref cp :prime))
-         ;; Otherwise, apply the function to the tag itself.
-         (funcall function (oref cp :prime))
-         ))
+<dl>
+<dt>
+<a name="index-srecode_002ddump"></a>Function: <strong>srecode-dump</strong> <em>cp &amp;optional indent</em>
+</dt>
+<dd>
+<a name="srecode_002ddump"></a><p>Display information about this compound value.
+</p>
+</dd>
+</dl>
+
+
+<p>Here is an example of wrapping a semantic tag in a compound value:
+</p>
+<div class="example">
+<pre class="example">(defclass srecode-semantic-tag (srecode-dictionary-compound-value)
+  ((prime :initarg :prime
+          :type semantic-tag
+          :documentation
+          "This is the primary insertion tag.")
+   )
+  "Wrap up a collection of semantic tag information.
+This class will be used to derive dictionary values.")
+
+(defmethod srecode-compound-toString((cp srecode-semantic-tag)
+                                     function
+                                     dictionary)
+  "Convert the compound dictionary value CP to a string.
+If FUNCTION is non-nil, then FUNCTION is somehow applied to an
+aspect of the compound value."
+  (if (not function)
+      ;; Just format it in some handy dandy way.
+      (semantic-format-tag-prototype (oref cp :prime))
+    ;; Otherwise, apply the function to the tag itself.
+    (funcall function (oref cp :prime))
+    ))
 </pre>
-   <div class="node"><a name="Argument-Resolution"></a></div>
+</div>
 
+<hr>
+<a name="Argument-Resolution"></a>
+<div class="header">
+<p>
+Next: <a href="#Creating-new-Arguments" accesskey="n" rel="next">Creating new Arguments</a>, Previous: <a href="#Compound-Dictionary-Values" accesskey="p" rel="prev">Compound Dictionary Values</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Argument-Resolution-1"></a>
 <h3 class="section">6.4 Argument Resolution</h3>
 
 <p>Some dictionary entries can be set via template arguments in the
 template declaration.  For examples of template arguments, see
 <a href="#Template-Argument-Dictionary-Entries">Template Argument Dictionary Entries</a>.
-
-   </p>
-<p>You can resolve an argument list into a dictionary with:
-
 </p>
-<div class="defun">
-— Function: <b>srecode-resolve-arguments</b><var> temp dict<a name="index-srecode_002dresolve_002darguments-12"></a></var><br>
-<blockquote><p><a name="srecode_002dresolve_002darguments"></a>
-Resolve all the arguments needed by the template <var>temp</var>. 
-Apply anything learned to the dictionary <var>dict</var>. 
-</p></blockquote>
+<p>You can resolve an argument list into a dictionary with:
+</p>
+<dl>
+<dt>
+<a name="index-srecode_002dresolve_002darguments"></a>Function: <strong>srecode-resolve-arguments</strong> <em>temp dict</em>
+</dt>
+<dd>
+<a name="srecode_002dresolve_002darguments"></a><p>Resolve all the arguments needed by the template <var>temp</var>.
+Apply anything learned to the dictionary <var>dict</var>.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Creating-new-Arguments"></a>
+<div class="header">
+<p>
+Next: <a href="#Querying-a-Dictionary" accesskey="n" rel="next">Querying a Dictionary</a>, Previous: <a href="#Argument-Resolution" accesskey="p" rel="prev">Argument Resolution</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Creating-new-Arguments"></a></div>
-
+<a name="Creating-new-Arguments-1"></a>
 <h3 class="section">6.5 Creating new Arguments</h3>
 
 <p>You can create new arguments for use in template files by writing new
 Emacs Lisp functions.  Doing so is easy.  Here is an example for the
 <code>:user</code> argument:
-
 </p>
-<pre class="example">     (defun srecode-semantic-handle-:user (dict)
-       "Add macros into the dictionary DICT based on the current :user."
-       (srecode-dictionary-set-value dict "AUTHOR" (user-full-name))
-       (srecode-dictionary-set-value dict "LOGIN" (user-login-name))
-        ;; ...
-       )
+<div class="example">
+<pre class="example">(defun srecode-semantic-handle-:user (dict)
+  "Add macros into the dictionary DICT based on the current :user."
+  (srecode-dictionary-set-value dict "AUTHOR" (user-full-name))
+  (srecode-dictionary-set-value dict "LOGIN" (user-login-name))
+   ;; ...
+  )
 </pre>
-   <p>In this case, a function with the name prefix
+</div>
+
+<p>In this case, a function with the name prefix
 <code>srecode-semantic-handle-</code> that ends in <code>:user</code> creates a
 new argument <code>:user</code> that can be used in a template.
-
-   </p>
+</p>
 <p>Your argument handler must take one argument <var>dict</var>, which is the
 dictionary to fill in.  Inside your function, you can do whatever you
 want, but adding dictionary values is the right thing.
-
 </p>
-<div class="node"><a name="Querying-a-Dictionary"></a></div>
-
+<hr>
+<a name="Querying-a-Dictionary"></a>
+<div class="header">
+<p>
+Next: <a href="#Template-Argument-Dictionary-Entries" accesskey="n" rel="next">Template Argument Dictionary Entries</a>, Previous: <a href="#Creating-new-Arguments" accesskey="p" rel="prev">Creating new Arguments</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Querying-a-Dictionary-1"></a>
 <h3 class="section">6.6 Querying a Dictionary</h3>
 
 <p>When creating a new argument, it may be useful to ask the dictionary
 what entries are already set there, and conditionally create new
 entries based on those.
-
-   </p>
+</p>
 <p>In this way, a template author can get additional logic through more
 advanced arguments.
-
 </p>
-<div class="defun">
-— Function: <b>srecode-dictionary-lookup-name</b><var> dict name<a name="index-srecode_002ddictionary_002dlookup_002dname-13"></a></var><br>
-<blockquote><p><a name="srecode_002ddictionary_002dlookup_002dname"></a>
-Return information about the current <var>DICT</var>'s value for <var>NAME</var>. 
+<dl>
+<dt>
+<a name="index-srecode_002ddictionary_002dlookup_002dname"></a>Function: <strong>srecode-dictionary-lookup-name</strong> <em>dict name</em>
+</dt>
+<dd>
+<a name="srecode_002ddictionary_002dlookup_002dname"></a><p>Return information about the current <var>DICT</var>’s value for <var>NAME</var>.
 <var>DICT</var> is a dictionary, and <var>NAME</var> is a string that is the name of
-a symbol in the dictionary. 
+a symbol in the dictionary.
 This function derives values for some special NAMEs, such as <var>FIRST</var>
-and '<var>LAST</var>'. 
-</p></blockquote>
+and ’<var>LAST</var>’.
+</p>
+</dd>
+</dl>
+
+
+
+<hr>
+<a name="Template-Argument-Dictionary-Entries"></a>
+<div class="header">
+<p>
+Previous: <a href="#Querying-a-Dictionary" accesskey="p" rel="prev">Querying a Dictionary</a>, Up: <a href="#Dictionaries" accesskey="u" rel="up">Dictionaries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Template-Argument-Dictionary-Entries"></a></div>
-
+<a name="Template-Argument-Dictionary-Entries-1"></a>
 <h3 class="section">6.7 Template Argument Dictionary Entries</h3>
 
 <p>When a dictionary is initialized for a template, then the dictionary
 will be initialized with a predefined set of macro values.
-
-   </p>
+</p>
 <p>A template of the form:
-
 </p>
-<pre class="example">     template template-name :arg1 :arg2
-     ----
-     Your template goes here
-     ----
+<div class="example">
+<pre class="example">template template-name :arg1 :arg2
+----
+Your template goes here
+----
 </pre>
-   <p>specifies two arguments :arg1, and :arg2.
+</div>
 
-   </p>
-<p>The following built-in simple arguments are available:
-
+<p>specifies two arguments :arg1, and :arg2.
 </p>
-<ul class="menu">
-<li>
-<a accesskey="1" href="#Base-Arguments">Base Arguments</a>
-</li>
-<li>
-<a accesskey="2" href="#Semantic-Arguments">Semantic Arguments</a>
-</li>
-<li>
-<a accesskey="3" href="#Language-Arguments">Language Arguments</a>
-</li>
-</ul>
+<p>The following built-in simple arguments are available:
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr>
+<td align="left" valign="top">• <a href="#Base-Arguments" accesskey="1">Base Arguments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Semantic-Arguments" accesskey="2">Semantic Arguments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Language-Arguments" accesskey="3">Language Arguments</a>:</td>
+<td>  </td>
+<td align="left" valign="top">
+</td>
+</tr>
+</table>
 
-<div class="node"><a name="Base-Arguments"></a></div>
-
+<hr>
+<a name="Base-Arguments"></a>
+<div class="header">
+<p>
+Next: <a href="#Semantic-Arguments" accesskey="n" rel="next">Semantic Arguments</a>, Up: <a href="#Template-Argument-Dictionary-Entries" accesskey="u" rel="up">Template Argument Dictionary Entries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Base-Arguments-1"></a>
 <h4 class="subsection">6.7.1 Base Arguments</h4>
 
-<h5 class="subsubsection">6.7.1.1 Argument :indent</h5>
+<a name="Argument-_003aindent"></a>
+<h4 class="subsubsection">6.7.1.1 Argument :indent</h4>
 
 <p>Supplies the <code>INDENT</code> macro.  When <code>INDENT</code> is non-<code>nil</code>, then
 each line is individually indented with
 <code>indent-according-to-mode</code> during macro processing.
-
 </p>
-<h5 class="subsubsection">6.7.1.2 Argument :blank</h5>
+<a name="Argument-_003ablank"></a>
+<h4 class="subsubsection">6.7.1.2 Argument :blank</h4>
 
 <p>Specifying this argument adds a special <code>:blank</code> handler at the
 beginning and end of the template.  This handler will insert <code>\n</code>
 if the insertion point is not on a line by itself.
-
 </p>
-<h5 class="subsubsection">6.7.1.3 Argument :region</h5>
+<a name="Argument-_003aregion"></a>
+<h4 class="subsubsection">6.7.1.3 Argument :region</h4>
 
 <p>If there is an active region via <code>transient-mark-mode</code>, or
 <code>mouse-drag-region</code>, then the <code>REGION</code> section will be
 enabled.
-
-   </p>
+</p>
 <p>In addition, <code>REGIONTEXT</code> will be set to the text in the region,
 and that region of text will be “killed” from the current buffer.
-
-   </p>
+</p>
 <p>If standard-output is NOT the current buffer, then the region will not
 be deleted.  In this way, you can safely use <code>:region</code> using
 templates in arbitrary output streams.
-
 </p>
-<h5 class="subsubsection">6.7.1.4 Argument :user</h5>
+<a name="Argument-_003auser"></a>
+<h4 class="subsubsection">6.7.1.4 Argument :user</h4>
 
 <p>Sets up variables about the current user.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>AUTHOR</code></dt>
-<dd>Value of the Emacs function <code>user-full-name</code>
-<br>
-</dd>
+<dd><p>Value of the Emacs function <code>user-full-name</code>
+</p></dd>
 <dt><code>EMAIL</code></dt>
-<dd>Current Emacs user's email address. 
-<br>
-</dd>
+<dd><p>Current Emacs user’s email address.
+</p></dd>
 <dt><code>LOGIN</code></dt>
-<dd>Current Emacs user's login name. 
-<br>
-</dd>
+<dd><p>Current Emacs user’s login name.
+</p></dd>
 <dt><code>UID</code></dt>
-<dd>Current Emacs user's login ID. 
-<br>
-</dd>
+<dd><p>Current Emacs user’s login ID.
+</p></dd>
 <dt><code>EMACSINITFILE</code></dt>
-<dd>This Emacs sessions' init file. 
-</dd>
+<dd><p>This Emacs sessions’ init file.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.1.5 Argument :time</h5>
+<a name="Argument-_003atime"></a>
+<h4 class="subsubsection">6.7.1.5 Argument :time</h4>
 
 <p>Sets up variables with the current date and time.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>YEAR</code></dt>
-<dd>The current year. 
-<br>
-</dd>
+<dd><p>The current year.
+</p></dd>
 <dt><code>MONTH</code></dt>
-<dd>The current month as a number. 
-<br>
-</dd>
+<dd><p>The current month as a number.
+</p></dd>
 <dt><code>MONTHNAME</code></dt>
-<dd>The current month name, unabbreviated. 
-<br>
-</dd>
+<dd><p>The current month name, unabbreviated.
+</p></dd>
 <dt><code>DAY</code></dt>
-<dd>The current day as a number. 
-<br>
-</dd>
+<dd><p>The current day as a number.
+</p></dd>
 <dt><code>WEEKDAY</code></dt>
-<dd>The current day of the week as an abbreviated name
-<br>
-</dd>
+<dd><p>The current day of the week as an abbreviated name
+</p></dd>
 <dt><code>HOUR</code></dt>
-<dd>The current hour in 24 hour format. 
-<br>
-</dd>
+<dd><p>The current hour in 24 hour format.
+</p></dd>
 <dt><code>HOUR12</code></dt>
-<dd>The current hour in 12 hour format. 
-<br>
-</dd>
+<dd><p>The current hour in 12 hour format.
+</p></dd>
 <dt><code>AMPM</code></dt>
-<dd>Locale equivalent of AM or PM.  Useful with HOUR12. 
-<br>
-</dd>
+<dd><p>Locale equivalent of AM or PM.  Useful with HOUR12.
+</p></dd>
 <dt><code>MINUTE</code></dt>
-<dd>The current minute. 
-<br>
-</dd>
+<dd><p>The current minute.
+</p></dd>
 <dt><code>SECOND</code></dt>
-<dd>The current second. 
-<br>
-</dd>
+<dd><p>The current second.
+</p></dd>
 <dt><code>TIMEZONE</code></dt>
-<dd>The timezone string. 
-<br>
-</dd>
+<dd><p>The timezone string.
+</p></dd>
 <dt><code>DATE</code></dt>
-<dd>The Locale supported date (%D). 
-<br>
-</dd>
+<dd><p>The Locale supported date (%D).
+</p></dd>
 <dt><code>TIME</code></dt>
-<dd>The Locale supported time format (%X). 
-</dd>
+<dd><p>The Locale supported time format (%X).
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.1.6 Argument :file</h5>
+<a name="Argument-_003afile"></a>
+<h4 class="subsubsection">6.7.1.6 Argument :file</h4>
 
 <p>Sets up variables with details about the current file.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>FILENAME</code></dt>
-<dd>The filename without the directory part of the current buffer. 
-<br>
-</dd>
+<dd><p>The filename without the directory part of the current buffer.
+</p></dd>
 <dt><code>FILE</code></dt>
-<dd>The filename without the directory or extension
-<br>
-</dd>
+<dd><p>The filename without the directory or extension
+</p></dd>
 <dt><code>EXTENSION</code></dt>
-<dd>The filename extension. 
-<br>
-</dd>
+<dd><p>The filename extension.
+</p></dd>
 <dt><code>DIRECTORY</code></dt>
-<dd>The directory in which the current buffer resides. 
-<br>
-</dd>
+<dd><p>The directory in which the current buffer resides.
+</p></dd>
 <dt><code>MODE</code></dt>
-<dd>Major mode of this buffer. 
-<br>
-</dd>
+<dd><p>Major mode of this buffer.
+</p></dd>
 <dt><code>SHORTMODE</code></dt>
-<dd>Major mode of this buffer without “-mode”. 
-Useful for inserting the Emacs mode specifier. 
-<br>
-</dd>
+<dd><p>Major mode of this buffer without “-mode”.
+Useful for inserting the Emacs mode specifier.
+</p></dd>
 <dt><code>section RCS</code></dt>
-<dd>Show the section RCS if there is a CVS or RCS directory here. 
-</dd>
+<dd><p>Show the section RCS if there is a CVS or RCS directory here.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.1.7 Argument :system</h5>
+<a name="Argument-_003asystem"></a>
+<h4 class="subsubsection">6.7.1.7 Argument :system</h4>
 
 <p>Sets up variables with computer system information.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>SYSTEMCONF</code></dt>
-<dd>The “system-configuration”. 
-<br>
-</dd>
+<dd><p>The “system-configuration”.
+</p></dd>
 <dt><code>SYSTEMTYPE</code></dt>
-<dd>The “system-type”. 
-<br>
-</dd>
+<dd><p>The “system-type”.
+</p></dd>
 <dt><code>SYSTEMNAME</code></dt>
-<dd>The “system-name”. 
-<br>
-</dd>
+<dd><p>The “system-name”.
+</p></dd>
 <dt><code>MAILHOST</code></dt>
-<dd>The name of the machine Emacs derived mail “comes from”. 
-</dd>
+<dd><p>The name of the machine Emacs derived mail “comes from”.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.1.8 Argument :kill</h5>
+<a name="Argument-_003akill"></a>
+<h4 class="subsubsection">6.7.1.8 Argument :kill</h4>
 
-     <dl>
+<dl compact>
 <dt><code>KILL</code></dt>
-<dd>The top-most item from the kill ring. 
-<br>
-</dd>
+<dd><p>The top-most item from the kill ring.
+</p></dd>
 <dt><code>KILL2</code></dt>
-<dd>The second item in the kill ring. 
-<br>
-</dd>
+<dd><p>The second item in the kill ring.
+</p></dd>
 <dt><code>KILL3</code></dt>
-<dd>The third item in the kill ring. 
-<br>
-</dd>
+<dd><p>The third item in the kill ring.
+</p></dd>
 <dt><code>KILL4</code></dt>
-<dd>The fourth item in the kill ring. 
-</dd>
+<dd><p>The fourth item in the kill ring.
+</p></dd>
 </dl>
 
-<div class="node"><a name="Semantic-Arguments"></a></div>
-
+<hr>
+<a name="Semantic-Arguments"></a>
+<div class="header">
+<p>
+Next: <a href="#Language-Arguments" accesskey="n" rel="next">Language Arguments</a>, Previous: <a href="#Base-Arguments" accesskey="p" rel="prev">Base Arguments</a>, Up: <a href="#Template-Argument-Dictionary-Entries" accesskey="u" rel="up">Template Argument Dictionary Entries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Semantic-Arguments-1"></a>
 <h4 class="subsection">6.7.2 Semantic Arguments</h4>
 
-<h5 class="subsubsection">6.7.2.1 Argument :tag</h5>
+<a name="Argument-_003atag"></a>
+<h4 class="subsubsection">6.7.2.1 Argument :tag</h4>
 
-<p>The :tag argument is filled in with information from Semantic. 
+<p>The :tag argument is filled in with information from Semantic.
 The tag in question is queried from the senator tag ring, or passed
 in from <i>SRecode</i> utilities that use tags in templates.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>TAG</code></dt>
-<dd>This is a compound value for the tag in the current senator kill ring,
+<dd>
+<p>This is a compound value for the tag in the current senator kill ring,
 or something handled via the variable
 <code>srecode-semantic-selected-tag</code>.
+</p>
+<dl>
+<dt>
+<a name="index-srecode_002dsemantic_002dselected_002dtag"></a>Variable: <strong>srecode-semantic-selected-tag</strong>
+</dt>
+<dd>
+<a name="srecode_002dsemantic_002dselected_002dtag"></a><p>The tag selected by a <code>:tag</code> template argument.
+If this is <code>nil</code>, then <code>senator-tag-ring</code> is used.
+</p>
+</dd>
+</dl>
 
-     <div class="defun">
-— Variable: <b>srecode-semantic-selected-tag</b><var><a name="index-srecode_002dsemantic_002dselected_002dtag-14"></a></var><br>
-<blockquote><p><a name="srecode_002dsemantic_002dselected_002dtag"></a>
-The tag selected by a <code>:tag</code> template argument. 
-If this is <code>nil</code>, then <code>senator-tag-ring</code> is used. 
-</p></blockquote>
-</div>
-
-     <p>Use the function part of a macro insert to extract obscure parts
-of the tag. 
-<br></p>
+<p>Use the function part of a macro insert to extract obscure parts
+of the tag.
+</p>
 </dd>
 <dt><code>NAME</code></dt>
-<dd>The name of the tag as a string. 
-<br>
-</dd>
+<dd><p>The name of the tag as a string.
+</p></dd>
 <dt><code>TYPE</code></dt>
-<dd>The data type of the tag as a string. 
-</dd>
+<dd><p>The data type of the tag as a string.
+</p></dd>
 </dl>
 
-   <p>If <var>tag</var> is a function, you will get these additional dictionary
+<p>If <var>tag</var> is a function, you will get these additional dictionary
 entries.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>ARGS</code></dt>
-<dd>A Loop macro value.  Each argument is inserted in ARGS.  To create a
+<dd>
+<p>A Loop macro value.  Each argument is inserted in ARGS.  To create a
 comma separated list of arguments, you might do this:
+</p>
+<div class="example">
+<pre class="example">{{#ARGS}}{{TYPE}} {{NAME}}{{#NOTLAST}},{{/NOTLAST}}{{/ARGS}}
+</pre>
+</div>
 
-     <pre class="example">          {{#ARGS}}{{TYPE}} {{NAME}}{{#NOTLAST}},{{/NOTLAST}}{{/ARGS}}
-     </pre>
-     <p>Within the section dictionaries for each argument, you will find both
+<p>Within the section dictionaries for each argument, you will find both
 <var>NAME</var> and <var>TYPE</var>, in addition to the automatic section values
-for <var>FIRST</var>, <var>LAST</var>, <var>NOTFIRST</var>, and <var>NOTLAST</var>. 
-<br></p>
+for <var>FIRST</var>, <var>LAST</var>, <var>NOTFIRST</var>, and <var>NOTLAST</var>.
+</p>
 </dd>
 <dt><code>PARENT</code></dt>
-<dd>The string name of the parent of this function, if the function is a
-method of some class. 
-<br>
-</dd>
+<dd><p>The string name of the parent of this function, if the function is a
+method of some class.
+</p></dd>
 <dt><code>THROWS</code></dt>
-<dd>In each <var>THROWS</var> entry, the <var>NAME</var> of the signal thrown is specified. 
-</dd>
+<dd><p>In each <var>THROWS</var> entry, the <var>NAME</var> of the signal thrown is specified.
+</p></dd>
 </dl>
 
-   <p>If <var>tag</var> is a variable, you will get these dictionary entries.
-
-     </p>
-<dl>
-<dt><code>DEFAULTVALUE</code></dt>
-<dd>Enabled if there is a <var>VALUE</var>. 
-<br>
-</dd>
-<dt><code>VALUE</code></dt>
-<dd>An entry in the <var>HAVEDEFAULT</var> subdictionary that represents the
-textual representation of the default value of this variable. 
-</dd>
-</dl>
-
-   <p>If <var>tag</var> is a datatype, you will get these dictionary entries.
-
-     </p>
-<dl>
-<dt><code>PARENTS</code></dt>
-<dd>Section dictionaries for the parents of this class.  Each parent will
-have a <var>NAME</var>. 
-<br>
-</dd>
-<dt><code>INTERFACES</code></dt>
-<dd>Section dictionaries for all the implemented interfaces of this
-class.  Each interface will have a <var>NAME</var>. 
-</dd>
-</dl>
-
-   <p>Note that data type templates should always have a <code>{{^}}</code>
-macro in it where the core contents of that type will go.  This is why
-data types don't have subdictionaries full of the slots in the classes
-or structs.
-
+<p>If <var>tag</var> is a variable, you will get these dictionary entries.
 </p>
-<div class="node"><a name="Language-Arguments"></a></div>
+<dl compact>
+<dt><code>DEFAULTVALUE</code></dt>
+<dd><p>Enabled if there is a <var>VALUE</var>.
+</p></dd>
+<dt><code>VALUE</code></dt>
+<dd><p>An entry in the <var>HAVEDEFAULT</var> subdictionary that represents the
+textual representation of the default value of this variable.
+</p></dd>
+</dl>
 
+<p>If <var>tag</var> is a datatype, you will get these dictionary entries.
+</p>
+<dl compact>
+<dt><code>PARENTS</code></dt>
+<dd><p>Section dictionaries for the parents of this class.  Each parent will
+have a <var>NAME</var>.
+</p></dd>
+<dt><code>INTERFACES</code></dt>
+<dd><p>Section dictionaries for all the implemented interfaces of this
+class.  Each interface will have a <var>NAME</var>.
+</p></dd>
+</dl>
+
+<p>Note that data type templates should always have a <code>{{^}}</code>
+macro in it where the core contents of that type will go.  This is why
+data types don’t have subdictionaries full of the slots in the classes
+or structs.
+</p>
+<hr>
+<a name="Language-Arguments"></a>
+<div class="header">
+<p>
+Previous: <a href="#Semantic-Arguments" accesskey="p" rel="prev">Semantic Arguments</a>, Up: <a href="#Template-Argument-Dictionary-Entries" accesskey="u" rel="up">Template Argument Dictionary Entries</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="language-Arguments"></a>
 <h4 class="subsection">6.7.3 language Arguments</h4>
 
 <p>Each language typically has its own argument.  These arguments can be
 used to fill in language specific values that will be useful.
-
 </p>
-<h5 class="subsubsection">6.7.3.1 Argument :srt</h5>
+<a name="Argument-_003asrt"></a>
+<h4 class="subsubsection">6.7.3.1 Argument :srt</h4>
 
 <p>Used for SRecoder template files.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>ESCAPE_START</code></dt>
-<dd>The characters used for an escape start
-<br>
-</dd>
+<dd><p>The characters used for an escape start
+</p></dd>
 <dt><code>ESCAPE_END</code></dt>
-<dd>The characters used for an escape end
-</dd>
+<dd><p>The characters used for an escape end
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.3.2 Argument :cpp</h5>
+<a name="Argument-_003acpp"></a>
+<h4 class="subsubsection">6.7.3.2 Argument :cpp</h4>
 
-     <dl>
+<dl compact>
 <dt><code>HEADER</code></dt>
-<dd>Shows this section if the current file is a header file. 
-<br>
-</dd>
+<dd><p>Shows this section if the current file is a header file.
+</p></dd>
 <dt><code>NOTHEADER</code></dt>
-<dd>The opposite of <code>HEADER</code>. 
-<br>
-</dd>
+<dd><p>The opposite of <code>HEADER</code>.
+</p></dd>
 <dt><code>FILENAME_SYMBOL</code></dt>
-<dd>The current filename reformatted as a C friendly symbol. 
-</dd>
+<dd><p>The current filename reformatted as a C friendly symbol.
+</p></dd>
 </dl>
 
+<a name="Argument-_003ajava"></a>
 <h4 class="subsection">6.7.4 Argument :java</h4>
 
-     <dl>
+<dl compact>
 <dt><code>FILENAME_AS_PACKAGE</code></dt>
-<dd>Converts the filename into text that would be suitable as a package
-name. 
-<br>
-</dd>
+<dd><p>Converts the filename into text that would be suitable as a package
+name.
+</p></dd>
 <dt><code>FILENAME_AS_CLASS</code></dt>
-<dd>Converts the filename into text that would be suitable as a class-name
-for the main class in the file. 
-<br>
-</dd>
+<dd><p>Converts the filename into text that would be suitable as a class-name
+for the main class in the file.
+</p></dd>
 <dt><code>CURRENT_PACKAGE</code></dt>
-<dd>Finds the occurrence of “package” and gets its value. 
-</dd>
+<dd><p>Finds the occurrence of “package” and gets its value.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.4.1 Argument :el</h5>
+<a name="Argument-_003ael"></a>
+<h4 class="subsubsection">6.7.4.1 Argument :el</h4>
 
 <p>Sets <code>PRENAME</code>.  This would be a common prefix from all the
 tags in the current buffer.
-
-   </p>
+</p>
 <p>Most Emacs Lisp packages have some common prefix used in a way similar
 to namespaces in other languages.
-
 </p>
-<h5 class="subsubsection">6.7.4.2 Argument :el-custom</h5>
+<a name="Argument-_003ael_002dcustom"></a>
+<h4 class="subsubsection">6.7.4.2 Argument :el-custom</h4>
 
-     <dl>
+<dl compact>
 <dt><code>GROUP</code></dt>
-<dd>The name of the Emacs Custom group that instances of <code>defcustom</code>
-ought to use. 
-<br>
-</dd>
+<dd><p>The name of the Emacs Custom group that instances of <code>defcustom</code>
+ought to use.
+</p></dd>
 <dt><code>FACEGROUP</code></dt>
-<dd>The name of the Emacs Custom group that faces declared with
-<code>defface</code> ought to use. 
-</dd>
+<dd><p>The name of the Emacs Custom group that faces declared with
+<code>defface</code> ought to use.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.4.3 Argument :texi</h5>
+<a name="Argument-_003atexi"></a>
+<h4 class="subsubsection">6.7.4.3 Argument :texi</h4>
 
-     <dl>
+<dl compact>
 <dt><code>LEVEL</code></dt>
-<dd>The current section level, such as <code>chapter</code> or <code>section</code>. 
-<br>
-</dd>
+<dd><p>The current section level, such as <code>chapter</code> or <code>section</code>.
+</p></dd>
 <dt><code>NEXTLEVEL</code></dt>
-<dd>The next level down, so if <code>LEVEL</code> is <code>chapter</code>, then
-<code>NEXTLEVEL</code> would be <code>section</code>. 
-</dd>
+<dd><p>The next level down, so if <code>LEVEL</code> is <code>chapter</code>, then
+<code>NEXTLEVEL</code> would be <code>section</code>.
+</p></dd>
 </dl>
 
-<h5 class="subsubsection">6.7.4.4 Argument :texitag</h5>
+<a name="Argument-_003atexitag"></a>
+<h4 class="subsubsection">6.7.4.4 Argument :texitag</h4>
 
 <p>The <code>:texitag</code> argument is like the <code>:tag</code> argument, except that
 additional variable <code>TAGDOC</code> is provided for each tag.
-
-   </p>
+</p>
 <p>The <code>TAGDOC</code> is filled with derived documentation from the tag in
 question, and that documentation is also reformatted to be mostly
 texinfo compatible.
-
 </p>
+<a name="Argument-_003aandroid"></a>
 <h4 class="subsection">6.7.5 Argument :android</h4>
 
 <p>The <code>:android</code> argument pulls in information from your current
 project.
-
-   </p>
-<p>@TODO - add more here.
-
 </p>
-<div class="node"><a name="Developing-Template-Functions"></a></div>
-
+<p>@TODO - add more here.
+</p>
+<hr>
+<a name="Developing-Template-Functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Template-Naming-Conventions" accesskey="n" rel="next">Template Naming Conventions</a>, Previous: <a href="#Dictionaries" accesskey="p" rel="prev">Dictionaries</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Developing-Template-Functions-1"></a>
 <h2 class="chapter">7 Developing Template Functions</h2>
 
-<p>You can develop your own custom template insertion functions. 
+<p>You can develop your own custom template insertion functions.
 Doing so is relatively simple, and requires that you write an Emacs
 Lisp command.
-
-   </p>
-<p>If the built in commands don't provide enough options, you will need
+</p>
+<p>If the built in commands don’t provide enough options, you will need
 to write your own function in order to provide your dictionaries with
 the values needed for custom templates.
-
-   </p>
+</p>
 <p>In this way, you can build your own code generator for any language
 based on a set of predefined macros whos values you need to derive
 from Emacs Lisp code yourself.
-
-   </p>
+</p>
 <p>For example:
-
 </p>
-<pre class="example">     (defun my-srecode-insert (template-name)
-       "Insert the template TEMPLATE-NAME into the current buffer at point."
-     
-       ;; Read in a template name.
-       (interactive (list (srecode-read-template-name "Template Name: ")))
-       (if (not (srecode-table))
-           (error "No template table found for mode %s" major-mode))
-       (let ((temp (srecode-template-get-table (srecode-table) template-name))
-     
-            ;; Create a new dictionary
-     	(newdict (srecode-create-dictionary)))
-     
-         (if (not temp)
-             (error "No Template named %s" template-name))
-     
-         ;; Add some values into the dictionary!
-         (srecode-dictionary-set-value newdict "FOO" (my-get-value-of-foo))
-         ;; Optionally show a section
-         (srecode-dictionary-show-section newdict "BLARG")
-     
-         ;; Add in several items over a loop
-         (let ((my-stuff (get-my-stuff-list)))
-            (while my-stuff
-               (let ((subdict (srecode-dictionary-add-section-dictionary
-                                  newdict "LOOP")))
-                  (srecode-dictionary-set-value subdict "NAME" (nth 0 my-stuff))
-                  (srecode-dictionary-set-value subdict "ARG" (nth 1 my-stuff))
-                  (srecode-dictionary-set-value subdict "MOOSE" (nth 2 my-stuff))
-                  )
-               (setq my-stuff (cdr my-stuff)))
-     
-         ;; Some templates have arguments that need to be resolved.
-         (srecode-resolve-arguments temp newdict)
-     
-         ;; Do the expansion
-         (srecode-insert-fcn temp newdict)
-         ))
+<div class="example">
+<pre class="example">(defun my-srecode-insert (template-name)
+  "Insert the template TEMPLATE-NAME into the current buffer at point."
+
+  ;; Read in a template name.
+  (interactive (list (srecode-read-template-name "Template Name: ")))
+  (if (not (srecode-table))
+      (error "No template table found for mode %s" major-mode))
+  (let ((temp (srecode-template-get-table (srecode-table) template-name))
+
+       ;; Create a new dictionary
+	(newdict (srecode-create-dictionary)))
+
+    (if (not temp)
+        (error "No Template named %s" template-name))
+
+    ;; Add some values into the dictionary!
+    (srecode-dictionary-set-value newdict "FOO" (my-get-value-of-foo))
+    ;; Optionally show a section
+    (srecode-dictionary-show-section newdict "BLARG")
+
+    ;; Add in several items over a loop
+    (let ((my-stuff (get-my-stuff-list)))
+       (while my-stuff
+          (let ((subdict (srecode-dictionary-add-section-dictionary
+                             newdict "LOOP")))
+             (srecode-dictionary-set-value subdict "NAME" (nth 0 my-stuff))
+             (srecode-dictionary-set-value subdict "ARG" (nth 1 my-stuff))
+             (srecode-dictionary-set-value subdict "MOOSE" (nth 2 my-stuff))
+             )
+          (setq my-stuff (cdr my-stuff)))
+
+    ;; Some templates have arguments that need to be resolved.
+    (srecode-resolve-arguments temp newdict)
+
+    ;; Do the expansion
+    (srecode-insert-fcn temp newdict)
+    ))
 </pre>
-   <p>Lets look at the key functions involved above:
-
-</p>
-<h3 class="section">7.1 Interactive Completion:</h3>
-
-<div class="defun">
-— Function: <b>srecode-read-template-name</b><var> prompt<a name="index-srecode_002dread_002dtemplate_002dname-15"></a></var><br>
-<blockquote><p><a name="srecode_002dread_002dtemplate_002dname"></a>
-Completing read for Semantic Recoder template names. 
-<var>prompt</var> is used to query for the name of the template desired. 
-</p></blockquote>
 </div>
 
+<p>Lets look at the key functions involved above:
+</p>
+<a name="Interactive-Completion_003a"></a>
+<h3 class="section">7.1 Interactive Completion:</h3>
+
+<dl>
+<dt>
+<a name="index-srecode_002dread_002dtemplate_002dname"></a>Function: <strong>srecode-read-template-name</strong> <em>prompt</em>
+</dt>
+<dd>
+<a name="srecode_002dread_002dtemplate_002dname"></a><p>Completing read for Semantic Recoder template names.
+<var>prompt</var> is used to query for the name of the template desired.
+</p>
+</dd>
+</dl>
+
+<a name="Template-Lookup"></a>
 <h3 class="section">7.2 Template Lookup</h3>
 
 <p>Even if your program does not query the user for a template name, you
 will need to locate a template.  First, you need to locate the table
 to look the template up in.
-
 </p>
-<div class="defun">
-— Function: <b>srecode-table</b><var> &amp;optional mode<a name="index-srecode_002dtable-16"></a></var><br>
-<blockquote><p><a name="srecode_002dtable"></a>
-Return the currently active Semantic Recoder table for this buffer. 
-Optional argument <var>MODE</var> specifies the mode table to use. 
-</p></blockquote>
-</div>
+<dl>
+<dt>
+<a name="index-srecode_002dtable"></a>Function: <strong>srecode-table</strong> <em>&amp;optional mode</em>
+</dt>
+<dd>
+<a name="srecode_002dtable"></a><p>Return the currently active Semantic Recoder table for this buffer.
+Optional argument <var>MODE</var> specifies the mode table to use.
+</p>
+</dd>
+</dl>
 
-<div class="defun">
-— Function: <b>srecode-template-get-table</b><var> tab template-name &amp;optional context application<a name="index-srecode_002dtemplate_002dget_002dtable-17"></a></var><br>
-<blockquote><p><a name="srecode_002dtemplate_002dget_002dtable"></a>
-Find in the template in mode table <var>TAB</var>, the template with <var>TEMPLATE-NAME</var>. 
+
+<dl>
+<dt>
+<a name="index-srecode_002dtemplate_002dget_002dtable"></a>Function: <strong>srecode-template-get-table</strong> <em>tab template-name &amp;optional context application</em>
+</dt>
+<dd>
+<a name="srecode_002dtemplate_002dget_002dtable"></a><p>Find in the template in mode table <var>TAB</var>, the template with <var>TEMPLATE-NAME</var>.
 Optional argument <var>CONTEXT</var> specifies a context a particular template
-would belong to. 
+would belong to.
 Optional argument <var>APPLICATION</var> restricts searches to only template tables
 belonging to a specific application.  If <var>APPLICATION</var> is <code>nil</code>, then only
-tables that do not belong to an application will be searched. 
-</p></blockquote>
-</div>
-
-   <p>For purposes of an <i>SRecode</i> application, it is important to decide
-what to call your application, and use that with this method call.
-
+tables that do not belong to an application will be searched.
 </p>
+</dd>
+</dl>
+
+<p>For purposes of an <i>SRecode</i> application, it is important to decide
+what to call your application, and use that with this method call.
+</p>
+<a name="Creating-dictionaries"></a>
 <h3 class="section">7.3 Creating dictionaries</h3>
 
 <p>Several dictionary calls are made in this example, including:
-     </p>
-<dl>
-<dt>
-<code>srecode-create-dictionary</code><br><dt>
-<code>srecode-dictionary-set-value</code><br><dt>
-<code>srecode-dictionary-show-section</code><br><dt><code>srecode-dictionary-add-section-dictionary</code></dt>
-</dt>
-</dt>
-</dt>
-<dd></dd>
+</p>
+<dl compact>
+<dt><code>srecode-create-dictionary</code></dt>
+<dt><code>srecode-dictionary-set-value</code></dt>
+<dt><code>srecode-dictionary-show-section</code></dt>
+<dt><code>srecode-dictionary-add-section-dictionary</code></dt>
 </dl>
 
-   <p>These are documented more fully <a href="#Dictionaries">Dictionaries</a>.
-
-   </p>
+<p>These are documented more fully <a href="#Dictionaries">Dictionaries</a>.
+</p>
 <p>Also used is <code>srecode-resolve-arguments</code>.  To learn more about
 that, see <a href="#Argument-Resolution">Argument Resolution</a>.
-
 </p>
+<a name="Template-Insertion-Commands"></a>
 <h3 class="section">7.4 Template Insertion Commands</h3>
 
 <p>There are several ways to insert a template.  It is easiest to just
 start with the main entry point.
-
 </p>
-<div class="defun">
-— Function: <b>srecode-insert-fcn</b><var> template dictionary &amp;optional stream<a name="index-srecode_002dinsert_002dfcn-18"></a></var><br>
-<blockquote><p><a name="srecode_002dinsert_002dfcn"></a>
-Insert <var>template</var> using <var>dictionary</var> into <var>stream</var>. 
-If <var>stream</var> is <code>nil</code>, then use the current buffer. 
-</p></blockquote>
+<dl>
+<dt>
+<a name="index-srecode_002dinsert_002dfcn"></a>Function: <strong>srecode-insert-fcn</strong> <em>template dictionary &amp;optional stream</em>
+</dt>
+<dd>
+<a name="srecode_002dinsert_002dfcn"></a><p>Insert <var>template</var> using <var>dictionary</var> into <var>stream</var>.
+If <var>stream</var> is <code>nil</code>, then use the current buffer.
+</p>
+</dd>
+</dl>
+
+<hr>
+<a name="Template-Naming-Conventions"></a>
+<div class="header">
+<p>
+Next: <a href="#Inserting-Tag-Lists" accesskey="n" rel="next">Inserting Tag Lists</a>, Previous: <a href="#Developing-Template-Functions" accesskey="p" rel="prev">Developing Template Functions</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Template-Naming-Conventions"></a></div>
-
+<a name="Template-Naming-Conventions-1"></a>
 <h2 class="chapter">8 Template Naming Conventions</h2>
 
 <p>For <i>SRecode</i> to work across languages reliably, templates need to
@@ -1983,292 +2220,283 @@ follow a predictable pattern.  For every language of similar nature
 (OO, functional, doc based) if they all provide the same base
 templates, then an application can be written against the base
 templates, and it will work in each of the supported language.
-
-   </p>
+</p>
 <p>Having consistent templates also makes it easy to use those templates
 from a user perspective during basic interactive insertion via
 <code>srecode-minor-mode</code>.
+</p>
 
-   </p>
 <p>NOTES ON THIS CHAPTER:
-
-   </p>
+</p>
 <p>These conventions are being worked on.  Check w/ CEDET-DEVEL mailing
 list if you want to support a language, or write an application and
 provide your opinions on this topic.  Any help is appreciated.
-
 </p>
+
+<a name="Context_003a-File"></a>
 <h3 class="section">8.1 Context: File</h3>
 
 <p>Each language should support the <code>file:empty</code> template.  This
 will generally use the default copyright insertion mechanism.
-
 </p>
+<a name="Context_003a-Declaration"></a>
 <h3 class="section">8.2 Context: Declaration</h3>
 
 <p>Functional languages should attempt to support the following:
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>function</code></dt>
-<dd>A standalone function.  Not a method, external method, or other. 
-<br>
-</dd>
+<dd><p>A standalone function.  Not a method, external method, or other.
+</p></dd>
 <dt><code>method</code></dt>
-<dd>A method belonging to some class declared outside the textual bounds
-of that class' declaration. 
-<br>
-</dd>
+<dd><p>A method belonging to some class declared outside the textual bounds
+of that class’ declaration.
+</p></dd>
 <dt><code>variable</code></dt>
-<dd>A global variable. 
-<br>
-</dd>
+<dd><p>A global variable.
+</p></dd>
 <dt><code>type</code></dt>
-<dd>A data type.  If the language supports several types of datatypes
-then do not use this, use more specific ones instead. 
-<br>
-</dd>
+<dd><p>A data type.  If the language supports several types of datatypes
+then do not use this, use more specific ones instead.
+</p></dd>
 <dt><code>class</code></dt>
-<dd>For OO languages, use this instead of <code>type</code>. 
-<br>
-</dd>
+<dd><p>For OO languages, use this instead of <code>type</code>.
+</p></dd>
 <dt><code>include</code></dt>
-<dd>Include files. 
-</dd>
+<dd><p>Include files.
+</p></dd>
 </dl>
 
-   <p>For any <i>Semantic</i> tag class in your language, you will likely want
+<p>For any <i>Semantic</i> tag class in your language, you will likely want
 to have a corresponding template.
-
-   </p>
+</p>
 <p>In order for the <i>SRecode</i> function
 <code>srecode-semantic-insert-tag</code> to work, you can create templates
 similar to those mentioned above, except with <code>-tag</code> appended to
 the end.  This lets a template like <code>function</code> have user
 conveniences when referencing <code>function-tag</code>, while also
 allowing the tag inserter to do its job with a simpler template.
-
 </p>
+<a name="Context_003a-Classdef"></a>
 <h3 class="section">8.3 Context: Classdef</h3>
 
 <p>Inside a class definition.  These are to be inserted inside the
 textual bounds of a class declaration.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><code>function</code></dt>
-<dd>This would be a method of the class being inserted into. 
-<br>
-</dd>
-<dt>
-<code>constructor</code><dt><code>destructor</code></dt>
-</dt>
-<dd>Like <code>function</code> but specific to alloc/delete of an object. 
-<br>
-</dd>
+<dd><p>This would be a method of the class being inserted into.
+</p></dd>
+<dt><code>constructor</code></dt>
+<dt><code>destructor</code></dt>
+<dd><p>Like <code>function</code> but specific to alloc/delete of an object.
+</p></dd>
 <dt><code>variable</code></dt>
-<dd>This would be a field of the class being inserted into. 
-</dd>
+<dd><p>This would be a field of the class being inserted into.
+</p></dd>
 </dl>
 
+<a name="Context_003a-Code"></a>
 <h3 class="section">8.4 Context: Code</h3>
 
 <p>Inside a body of code, such as a function or method body.
-
-   </p>
-<p>—no conventions yet.
-
 </p>
+<p>—no conventions yet.
+</p>
+<a name="Standard-Dictionary-Values"></a>
 <h3 class="section">8.5 Standard Dictionary Values</h3>
 
-<p>For these variables to be useful, standard names should be used. 
+<p>For these variables to be useful, standard names should be used.
 These values could be provided directly from a Semantic tag, or by an
 application.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><var>NAME</var></dt>
-<dd>The name of the declaration being created. 
-<br>
-</dd>
+<dd><p>The name of the declaration being created.
+</p></dd>
 <dt><var>PARENT</var></dt>
-<dd>If the item belongs to some parent type, it would be the full name of
-that type, including namespaces. 
-<br>
-</dd>
+<dd><p>If the item belongs to some parent type, it would be the full name of
+that type, including namespaces.
+</p></dd>
 <dt><var>TYPE</var></dt>
-<dd>A datatype name for a variable, or the return value of a function. 
-<br>
-</dd>
+<dd><p>A datatype name for a variable, or the return value of a function.
+</p></dd>
 <dt><var>DOC</var></dt>
-<dd>If there is some documentation associated with the item, then DOC
+<dd><p>If there is some documentation associated with the item, then DOC
 should contain the value.  (Optional)
-<br>
-</dd>
+</p></dd>
 <dt><var>ARGS</var></dt>
-<dd>The ARGS variable defines a section for 0 or more arguments to a function
+<dd><p>The ARGS variable defines a section for 0 or more arguments to a function
 or method.  Each entry in ARGS will follow the rest of these naming
-conventions, such as for NAME and TYPE. 
-</dd>
+conventions, such as for NAME and TYPE.
+</p></dd>
 </dl>
 
-   <p>For templates used by <code>srecode-semantic-insert-tag</code>, there is
+<p>For templates used by <code>srecode-semantic-insert-tag</code>, there is
 also the following useful dictionary values.
-
-     </p>
-<dl>
+</p>
+<dl compact>
 <dt><var>TAG</var></dt>
-<dd>A special insertion value TAG.  You can use semantic functions to turn
-the tag into a string. 
-<br>
-</dd>
-<dt>
-<var>HAVEDEFAULT</var><dt><var>DEFAULT</var></dt>
-</dt>
-<dd>Default value for a variable. 
-</dd>
+<dd><p>A special insertion value TAG.  You can use semantic functions to turn
+the tag into a string.
+</p></dd>
+<dt><var>HAVEDEFAULT</var></dt>
+<dt><var>DEFAULT</var></dt>
+<dd><p>Default value for a variable.
+</p></dd>
 </dl>
 
-<div class="node"><a name="Inserting-Tag-Lists"></a></div>
-
+<hr>
+<a name="Inserting-Tag-Lists"></a>
+<div class="header">
+<p>
+Next: <a href="#Application-Writing" accesskey="n" rel="next">Application Writing</a>, Previous: <a href="#Template-Naming-Conventions" accesskey="p" rel="prev">Template Naming Conventions</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Inserting-Tag-Lists-1"></a>
 <h2 class="chapter">9 Inserting Tag Lists</h2>
 
 <p>Since <i>SRecode</i> is the <i>Semantic Recoder</i>, the ultimate goal for
 <i>SRecode</i> is to convert lists of tags, as produced by <i>Semantic</i>
 back into code.
-
-   </p>
+</p>
 <p>A single function provides the interface for programs to do this, but
 it requires any particular language to have provided the correct
 templates to make it work.
-
 </p>
-<div class="defun">
-— Function: <b>srecode-semantic-insert-tag</b><var> tag &amp;optional style-option point-insert-fcn &amp;rest dict-entries<a name="index-srecode_002dsemantic_002dinsert_002dtag-19"></a></var><br>
-<blockquote>
-<p><a name="srecode_002dsemantic_002dinsert_002dtag"></a>
-Insert <var>tag</var> into a buffer using srecode templates at point.
-
-        </p>
+<dl>
+<dt>
+<a name="index-srecode_002dsemantic_002dinsert_002dtag"></a>Function: <strong>srecode-semantic-insert-tag</strong> <em>tag &amp;optional style-option point-insert-fcn &amp;rest dict-entries</em>
+</dt>
+<dd>
+<a name="srecode_002dsemantic_002dinsert_002dtag"></a><p>Insert <var>tag</var> into a buffer using srecode templates at point.
+</p>
 <p>Optional <var>style-option</var> is a list of minor configuration of styles,
 such as the symbol <code>'prototype</code> for prototype functions, or
 <code>'system</code> for system includes, and <code>'doxygen</code>, for a doxygen style
 comment.
-
-        </p>
+</p>
 <p>Optional third argument <var>point-insert-fcn</var> is a hook that is run after
 <var>tag</var> is inserted that allows an opportunity to fill in the body of
 some thing.  This hook function is called with one argument, the <var>tag</var>
 being inserted.
-
-        </p>
+</p>
 <p>The rest of the arguments are <var>dict-entries</var>.  <var>dict-entries</var>
-is of the form ( <var>name1</var> <var>value1</var> <var>name2</var> <var>value2</var> <small class="dots">...</small> NAMEn VALUEn).
-
-        </p>
-<p>The exact template used is based on the current context. 
+is of the form ( <var>name1</var> <var>value1</var> <var>name2</var> <var>value2</var> … NAMEn VALUEn).
+</p>
+<p>The exact template used is based on the current context.
 The template used is found within the toplevel context as calculated
-by <dfn>srecode-calculate-context</dfn>, such as <code>declaration</code>, <code>classdecl</code>,
+by <em>srecode-calculate-context</em>, such as <code>declaration</code>, <code>classdecl</code>,
 or <code>code</code>.
-
-        </p>
+</p>
 <p>For various conditions, this function looks for a template with
 the name <var>class</var>-tag, where <var>class</var> is the tag class.  If it cannot
 find that, it will look for that template in the
 <code>declaration</code>context (if the current context was not <code>declaration</code>).
-
-        </p>
+</p>
 <p>If <var>prototype</var> is specified, it will first look for templates with
 the name <var>class</var>-tag-prototype, or <var>class</var>-prototype as above.
-
-        </p>
-<p>See <dfn>srecode-semantic-apply-tag-to-dict</dfn> for details on what is in
+</p>
+<p>See <em>srecode-semantic-apply-tag-to-dict</em> for details on what is in
 the dictionary when the templates are called.
-
-        </p>
+</p>
 <p>This function returns to location in the buffer where the
 inserted tag <var>ends</var>, and will leave point inside the inserted
 text based on any occurrence of a point-inserter.  Templates such
-as <dfn>function</dfn> will leave point where code might be inserted. 
+as <em>function</em> will leave point where code might be inserted.
 </p>
-</blockquote>
+</dd>
+</dl>
+
+
+<hr>
+<a name="Application-Writing"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Inserting-Tag-Lists" accesskey="p" rel="prev">Inserting Tag Lists</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
-
-<div class="node"><a name="Application-Writing"></a></div>
-
+<a name="Application-Writing-1"></a>
 <h2 class="chapter">10 Application Writing</h2>
 
 <p>The main goal of <i>SRecode</i> is to provide a strong platform for
 writing code generating applications.
-
-   </p>
+</p>
 <p>Any templates that are application specific should make an application
 declaration for each template file they use.  This prevents those
 templates from being used outside of that application.
-
-   </p>
+</p>
 <p>For example, add this to a file:
 </p>
-<pre class="example">     set application "getset"
+<div class="example">
+<pre class="example">set application "getset"
 </pre>
-   <p>In your application Emacs Lisp code, you would then load those
-templates.  A typical initialization would look like this:
-
-</p>
-<pre class="example">       (srecode-load-tables-for-mode major-mode)
-       (srecode-load-tables-for-mode major-mode 'getset)
-</pre>
-   <p>These two lines will load in the base templates for the major mode,
-and then the application specific templates.
-
-</p>
-<div class="defun">
-— Function: <b>srecode-load-tables-for-mode</b><var> mmode &amp;optional appname<a name="index-srecode_002dload_002dtables_002dfor_002dmode-20"></a></var><br>
-<blockquote><p><a name="srecode_002dload_002dtables_002dfor_002dmode"></a>
-Load all the template files for <var>mmode</var>. 
-Templates are found in the SRecode Template Map. 
-See <dfn>srecode-get-maps</dfn> for more. 
-<var>appname</var> is the name of an application.  In this case,
-all template files for that application will be loaded. 
-</p></blockquote>
 </div>
 
-   <p>todo: Add examples.  Most core stuff is already described above.
-
+<p>In your application Emacs Lisp code, you would then load those
+templates.  A typical initialization would look like this:
 </p>
-<div class="node"><a name="GNU-Free-Documentation-License"></a></div>
-
-<h2 class="appendix">Appendix A GNU Free Documentation License</h2>
-
-<!-- The GNU Free Documentation License. -->
-<div align="center">Version 1.3, 3 November 2008</div>
-
-<!-- This file is intended to be included within another document, -->
-<!-- hence no sectioning command or @node. -->
-<pre class="display">     Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-     <a href="http://fsf.org/">http://fsf.org/</a>
-     
-     Everyone is permitted to copy and distribute verbatim copies
-     of this license document, but changing it is not allowed.
+<div class="example">
+<pre class="example">  (srecode-load-tables-for-mode major-mode)
+  (srecode-load-tables-for-mode major-mode 'getset)
 </pre>
-     <ol type="1" start="0">
-<li>PREAMBLE
+</div>
 
-     <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <dfn>free</dfn> in the sense of freedom: to
+<p>These two lines will load in the base templates for the major mode,
+and then the application specific templates.
+</p>
+<dl>
+<dt>
+<a name="index-srecode_002dload_002dtables_002dfor_002dmode"></a>Function: <strong>srecode-load-tables-for-mode</strong> <em>mmode &amp;optional appname</em>
+</dt>
+<dd>
+<a name="srecode_002dload_002dtables_002dfor_002dmode"></a><p>Load all the template files for <var>mmode</var>.
+Templates are found in the SRecode Template Map.
+See <em>srecode-get-maps</em> for more.
+<var>appname</var> is the name of an application.  In this case,
+all template files for that application will be loaded.
+</p>
+</dd>
+</dl>
+
+
+<p>todo: Add examples.  Most core stuff is already described above.
+</p>
+
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Application-Writing" accesskey="p" rel="prev">Application Writing</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="GNU-Free-Documentation-License-1"></a>
+<h2 class="appendix">Appendix A GNU Free Documentation License</h2>
+<div align="center">Version 1.3, 3 November 2008
+</div>
+
+<div class="display">
+<pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="http://fsf.org/">http://fsf.org/</a>
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</pre>
+</div>
+
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
-with or without modifying it, either commercially or noncommercially. 
+with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
 to get credit for their work, while not being considered responsible
 for modifications made by others.
-
-     </p>
+</p>
 <p>This License is a kind of “copyleft”, which means that derivative
 works of the document must themselves be free in the same sense.  It
 complements the GNU General Public License, which is a copyleft
 license designed for free software.
-
-     </p>
+</p>
 <p>We have designed this License in order to use it for manuals for free
 software, because free software needs free documentation: a free
 program should come with manuals providing the same freedoms that the
@@ -2276,12 +2504,11 @@ software does.  But this License is not limited to software manuals;
 it can be used for any textual work, regardless of subject matter or
 whether it is published as a printed book.  We recommend this License
 principally for works whose purpose is instruction or reference.
-
-     </p>
+</p>
 </li>
-<li>APPLICABILITY AND DEFINITIONS
+<li> APPLICABILITY AND DEFINITIONS
 
-     <p>This License applies to any manual or other work, in any medium, that
+<p>This License applies to any manual or other work, in any medium, that
 contains a notice placed by the copyright holder saying it can be
 distributed under the terms of this License.  Such a notice grants a
 world-wide, royalty-free license, unlimited in duration, to use that
@@ -2290,16 +2517,14 @@ refers to any such manual or work.  Any member of the public is a
 licensee, and is addressed as “you”.  You accept the license if you
 copy, modify or distribute the work in a way requiring permission
 under copyright law.
-
-     </p>
+</p>
 <p>A “Modified Version” of the Document means any work containing the
 Document or a portion of it, either copied verbatim, or with
 modifications and/or translated into another language.
-
-     </p>
+</p>
 <p>A “Secondary Section” is a named appendix or a front-matter section
 of the Document that deals exclusively with the relationship of the
-publishers or authors of the Document to the Document's overall
+publishers or authors of the Document to the Document’s overall
 subject (or to related matters) and contains nothing that could fall
 directly within that overall subject.  (Thus, if the Document is in
 part a textbook of mathematics, a Secondary Section may not explain
@@ -2307,8 +2532,7 @@ any mathematics.)  The relationship could be a matter of historical
 connection with the subject or with related matters, or of legal,
 commercial, philosophical, ethical or political position regarding
 them.
-
-     </p>
+</p>
 <p>The “Invariant Sections” are certain Secondary Sections whose titles
 are designated, as being those of Invariant Sections, in the notice
 that says that the Document is released under this License.  If a
@@ -2316,14 +2540,12 @@ section does not fit the above definition of Secondary then it is not
 allowed to be designated as Invariant.  The Document may contain zero
 Invariant Sections.  If the Document does not identify any Invariant
 Sections then there are none.
-
-     </p>
+</p>
 <p>The “Cover Texts” are certain short passages of text that are listed,
 as Front-Cover Texts or Back-Cover Texts, in the notice that says that
 the Document is released under this License.  A Front-Cover Text may
 be at most 5 words, and a Back-Cover Text may be at most 25 words.
-
-     </p>
+</p>
 <p>A “Transparent” copy of the Document means a machine-readable copy,
 represented in a format whose specification is available to the
 general public, that is suitable for revising the document
@@ -2333,11 +2555,10 @@ drawing editor, and that is suitable for input to text formatters or
 for automatic translation to a variety of formats suitable for input
 to text formatters.  A copy made in an otherwise Transparent file
 format whose markup, or absence of markup, has been arranged to thwart
-or discourage subsequent modification by readers is not Transparent. 
+or discourage subsequent modification by readers is not Transparent.
 An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not “Transparent” is called “Opaque”.
-
-     </p>
+</p>
 <p>Examples of suitable formats for Transparent copies include plain
 ASCII without markup, Texinfo input format, LaTeX input
 format, SGML or XML using a publicly available
@@ -2350,20 +2571,17 @@ XML for which the DTD and/or processing tools are
 not generally available, and the machine-generated HTML,
 PostScript or PDF produced by some word processors for
 output purposes only.
-
-     </p>
+</p>
 <p>The “Title Page” means, for a printed book, the title page itself,
 plus such following pages as are needed to hold, legibly, the material
 this License requires to appear in the title page.  For works in
 formats which do not have any title page as such, “Title Page” means
-the text near the most prominent appearance of the work's title,
+the text near the most prominent appearance of the work’s title,
 preceding the beginning of the body of the text.
-
-     </p>
+</p>
 <p>The “publisher” means any person or entity that distributes copies
 of the Document to the public.
-
-     </p>
+</p>
 <p>A section “Entitled XYZ” means a named subunit of the Document whose
 title either is precisely XYZ or contains XYZ in parentheses following
 text that translates XYZ in another language.  (Here XYZ stands for a
@@ -2371,20 +2589,18 @@ specific section name mentioned below, such as “Acknowledgements”,
 “Dedications”, “Endorsements”, or “History”.)  To “Preserve the Title”
 of such a section when you modify the Document means that it remains a
 section “Entitled XYZ” according to this definition.
-
-     </p>
+</p>
 <p>The Document may include Warranty Disclaimers next to the notice which
 states that this License applies to the Document.  These Warranty
 Disclaimers are considered to be included by reference in this
 License, but only as regards disclaiming warranties: any other
 implication that these Warranty Disclaimers may have is void and has
 no effect on the meaning of this License.
-
-     </p>
+</p>
 </li>
-<li>VERBATIM COPYING
+<li> VERBATIM COPYING
 
-     <p>You may copy and distribute the Document in any medium, either
+<p>You may copy and distribute the Document in any medium, either
 commercially or noncommercially, provided that this License, the
 copyright notices, and the license notice saying this License applies
 to the Document are reproduced in all copies, and that you add no other
@@ -2393,104 +2609,97 @@ technical measures to obstruct or control the reading or further
 copying of the copies you make or distribute.  However, you may accept
 compensation in exchange for copies.  If you distribute a large enough
 number of copies you must also follow the conditions in section 3.
-
-     </p>
+</p>
 <p>You may also lend copies, under the same conditions stated above, and
 you may publicly display copies.
-
-     </p>
+</p>
 </li>
-<li>COPYING IN QUANTITY
+<li> COPYING IN QUANTITY
 
-     <p>If you publish printed copies (or copies in media that commonly have
+<p>If you publish printed copies (or copies in media that commonly have
 printed covers) of the Document, numbering more than 100, and the
-Document's license notice requires Cover Texts, you must enclose the
+Document’s license notice requires Cover Texts, you must enclose the
 copies in covers that carry, clearly and legibly, all these Cover
 Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
 the back cover.  Both covers must also clearly and legibly identify
 you as the publisher of these copies.  The front cover must present
 the full title with all words of the title equally prominent and
-visible.  You may add other material on the covers in addition. 
+visible.  You may add other material on the covers in addition.
 Copying with changes limited to the covers, as long as they preserve
 the title of the Document and satisfy these conditions, can be treated
 as verbatim copying in other respects.
-
-     </p>
+</p>
 <p>If the required texts for either cover are too voluminous to fit
 legibly, you should put the first ones listed (as many as fit
 reasonably) on the actual cover, and continue the rest onto adjacent
 pages.
-
-     </p>
+</p>
 <p>If you publish or distribute Opaque copies of the Document numbering
 more than 100, you must either include a machine-readable Transparent
 copy along with each Opaque copy, or state in or with each Opaque copy
 a computer-network location from which the general network-using
 public has access to download using public-standard network protocols
-a complete Transparent copy of the Document, free of added material. 
+a complete Transparent copy of the Document, free of added material.
 If you use the latter option, you must take reasonably prudent steps,
 when you begin distribution of Opaque copies in quantity, to ensure
 that this Transparent copy will remain thus accessible at the stated
 location until at least one year after the last time you distribute an
 Opaque copy (directly or through your agents or retailers) of that
 edition to the public.
-
-     </p>
+</p>
 <p>It is requested, but not required, that you contact the authors of the
 Document well before redistributing any large number of copies, to give
 them a chance to provide you with an updated version of the Document.
-
-     </p>
+</p>
 </li>
-<li>MODIFICATIONS
+<li> MODIFICATIONS
 
-     <p>You may copy and distribute a Modified Version of the Document under
+<p>You may copy and distribute a Modified Version of the Document under
 the conditions of sections 2 and 3 above, provided that you release
 the Modified Version under precisely this License, with the Modified
 Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
-
-          </p>
-<ol type="A" start="1">
-<li>Use in the Title Page (and on the covers, if any) a title distinct
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
 of the Document).  You may use the same title as a previous version
 if the original publisher of that version gives permission.
 
-          </li>
-<li>List on the Title Page, as authors, one or more persons or entities
+</li>
+<li> List on the Title Page, as authors, one or more persons or entities
 responsible for authorship of the modifications in the Modified
 Version, together with at least five of the principal authors of the
 Document (all of its principal authors, if it has fewer than five),
 unless they release you from this requirement.
 
-          </li>
-<li>State on the Title page the name of the publisher of the
+</li>
+<li> State on the Title page the name of the publisher of the
 Modified Version, as the publisher.
 
-          </li>
-<li>Preserve all the copyright notices of the Document.
+</li>
+<li> Preserve all the copyright notices of the Document.
 
-          </li>
-<li>Add an appropriate copyright notice for your modifications
+</li>
+<li> Add an appropriate copyright notice for your modifications
 adjacent to the other copyright notices.
 
-          </li>
-<li>Include, immediately after the copyright notices, a license notice
+</li>
+<li> Include, immediately after the copyright notices, a license notice
 giving the public permission to use the Modified Version under the
 terms of this License, in the form shown in the Addendum below.
 
-          </li>
-<li>Preserve in that license notice the full lists of Invariant Sections
-and required Cover Texts given in the Document's license notice.
+</li>
+<li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document’s license notice.
 
-          </li>
-<li>Include an unaltered copy of this License.
+</li>
+<li> Include an unaltered copy of this License.
 
-          </li>
-<li>Preserve the section Entitled “History”, Preserve its Title, and add
+</li>
+<li> Preserve the section Entitled “History”, Preserve its Title, and add
 to it an item stating at least the title, year, new authors, and
 publisher of the Modified Version as given on the Title Page.  If
 there is no section Entitled “History” in the Document, create one
@@ -2498,54 +2707,52 @@ stating the title, year, authors, and publisher of the Document as
 given on its Title Page, then add an item describing the Modified
 Version as stated in the previous sentence.
 
-          </li>
-<li>Preserve the network location, if any, given in the Document for
+</li>
+<li> Preserve the network location, if any, given in the Document for
 public access to a Transparent copy of the Document, and likewise
 the network locations given in the Document for previous versions
-it was based on.  These may be placed in the “History” section. 
+it was based on.  These may be placed in the “History” section.
 You may omit a network location for a work that was published at
 least four years before the Document itself, or if the original
 publisher of the version it refers to gives permission.
 
-          </li>
-<li>For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+</li>
+<li> For any section Entitled “Acknowledgements” or “Dedications”, Preserve
 the Title of the section, and preserve in the section all the
 substance and tone of each of the contributor acknowledgements and/or
 dedications given therein.
 
-          </li>
-<li>Preserve all the Invariant Sections of the Document,
+</li>
+<li> Preserve all the Invariant Sections of the Document,
 unaltered in their text and in their titles.  Section numbers
 or the equivalent are not considered part of the section titles.
 
-          </li>
-<li>Delete any section Entitled “Endorsements”.  Such a section
+</li>
+<li> Delete any section Entitled “Endorsements”.  Such a section
 may not be included in the Modified Version.
 
-          </li>
-<li>Do not retitle any existing section to be Entitled “Endorsements” or
+</li>
+<li> Do not retitle any existing section to be Entitled “Endorsements” or
 to conflict in title with any Invariant Section.
 
-          </li>
-<li>Preserve any Warranty Disclaimers.
-          </li>
+</li>
+<li> Preserve any Warranty Disclaimers.
+</li>
 </ol>
 
-     <p>If the Modified Version includes new front-matter sections or
+<p>If the Modified Version includes new front-matter sections or
 appendices that qualify as Secondary Sections and contain no material
 copied from the Document, you may at your option designate some or all
 of these sections as invariant.  To do this, add their titles to the
-list of Invariant Sections in the Modified Version's license notice. 
+list of Invariant Sections in the Modified Version’s license notice.
 These titles must be distinct from any other section titles.
-
-     </p>
+</p>
 <p>You may add a section Entitled “Endorsements”, provided it contains
 nothing but endorsements of your Modified Version by various
 parties—for example, statements of peer review or that the text has
 been approved by an organization as the authoritative definition of a
 standard.
-
-     </p>
+</p>
 <p>You may add a passage of up to five words as a Front-Cover Text, and a
 passage of up to 25 words as a Back-Cover Text, to the end of the list
 of Cover Texts in the Modified Version.  Only one passage of
@@ -2555,84 +2762,75 @@ includes a cover text for the same cover, previously added by you or
 by arrangement made by the same entity you are acting on behalf of,
 you may not add another; but you may replace the old one, on explicit
 permission from the previous publisher that added the old one.
-
-     </p>
+</p>
 <p>The author(s) and publisher(s) of the Document do not by this License
 give permission to use their names for publicity for or to assert or
 imply endorsement of any Modified Version.
-
-     </p>
+</p>
 </li>
-<li>COMBINING DOCUMENTS
+<li> COMBINING DOCUMENTS
 
-     <p>You may combine the Document with other documents released under this
+<p>You may combine the Document with other documents released under this
 License, under the terms defined in section 4 above for modified
 versions, provided that you include in the combination all of the
 Invariant Sections of all of the original documents, unmodified, and
 list them all as Invariant Sections of your combined work in its
 license notice, and that you preserve all their Warranty Disclaimers.
-
-     </p>
+</p>
 <p>The combined work need only contain one copy of this License, and
 multiple identical Invariant Sections may be replaced with a single
 copy.  If there are multiple Invariant Sections with the same name but
 different contents, make the title of each such section unique by
 adding at the end of it, in parentheses, the name of the original
-author or publisher of that section if known, or else a unique number. 
+author or publisher of that section if known, or else a unique number.
 Make the same adjustment to the section titles in the list of
 Invariant Sections in the license notice of the combined work.
-
-     </p>
+</p>
 <p>In the combination, you must combine any sections Entitled “History”
 in the various original documents, forming one section Entitled
 “History”; likewise combine any sections Entitled “Acknowledgements”,
 and any sections Entitled “Dedications”.  You must delete all
 sections Entitled “Endorsements.”
-
-     </p>
+</p>
 </li>
-<li>COLLECTIONS OF DOCUMENTS
+<li> COLLECTIONS OF DOCUMENTS
 
-     <p>You may make a collection consisting of the Document and other documents
+<p>You may make a collection consisting of the Document and other documents
 released under this License, and replace the individual copies of this
 License in the various documents with a single copy that is included in
 the collection, provided that you follow the rules of this License for
 verbatim copying of each of the documents in all other respects.
-
-     </p>
+</p>
 <p>You may extract a single document from such a collection, and distribute
 it individually under this License, provided you insert a copy of this
 License into the extracted document, and follow this License in all
 other respects regarding verbatim copying of that document.
-
-     </p>
+</p>
 </li>
-<li>AGGREGATION WITH INDEPENDENT WORKS
+<li> AGGREGATION WITH INDEPENDENT WORKS
 
-     <p>A compilation of the Document or its derivatives with other separate
+<p>A compilation of the Document or its derivatives with other separate
 and independent documents or works, in or on a volume of a storage or
 distribution medium, is called an “aggregate” if the copyright
 resulting from the compilation is not used to limit the legal rights
-of the compilation's users beyond what the individual works permit. 
+of the compilation’s users beyond what the individual works permit.
 When the Document is included in an aggregate, this License does not
 apply to the other works in the aggregate which are not themselves
 derivative works of the Document.
-
-     </p>
+</p>
 <p>If the Cover Text requirement of section 3 is applicable to these
 copies of the Document, then if the Document is less than one half of
-the entire aggregate, the Document's Cover Texts may be placed on
+the entire aggregate, the Document’s Cover Texts may be placed on
 covers that bracket the Document within the aggregate, or the
-electronic equivalent of covers if the Document is in electronic form. 
+electronic equivalent of covers if the Document is in electronic form.
 Otherwise they must appear on printed covers that bracket the whole
 aggregate.
-
-     </p>
+</p>
 </li>
-<li>TRANSLATION
+<li> TRANSLATION
 
-     <p>Translation is considered a kind of modification, so you may
-distribute translations of the Document under the terms of section 4. 
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
 Replacing Invariant Sections with translations requires special
 permission from their copyright holders, but you may include
 translations of some or all Invariant Sections in addition to the
@@ -2643,57 +2841,50 @@ the original English version of this License and the original versions
 of those notices and disclaimers.  In case of a disagreement between
 the translation and the original version of this License or a notice
 or disclaimer, the original version will prevail.
-
-     </p>
+</p>
 <p>If a section in the Document is Entitled “Acknowledgements”,
 “Dedications”, or “History”, the requirement (section 4) to Preserve
 its Title (section 1) will typically require changing the actual
 title.
-
-     </p>
+</p>
 </li>
-<li>TERMINATION
+<li> TERMINATION
 
-     <p>You may not copy, modify, sublicense, or distribute the Document
+<p>You may not copy, modify, sublicense, or distribute the Document
 except as expressly provided under this License.  Any attempt
 otherwise to copy, modify, sublicense, or distribute it is void, and
 will automatically terminate your rights under this License.
-
-     </p>
+</p>
 <p>However, if you cease all violation of this License, then your license
 from a particular copyright holder is reinstated (a) provisionally,
 unless and until the copyright holder explicitly and finally
 terminates your license, and (b) permanently, if the copyright holder
 fails to notify you of the violation by some reasonable means prior to
 60 days after the cessation.
-
-     </p>
+</p>
 <p>Moreover, your license from a particular copyright holder is
 reinstated permanently if the copyright holder notifies you of the
 violation by some reasonable means, this is the first time you have
 received notice of violation of this License (for any work) from that
 copyright holder, and you cure the violation prior to 30 days after
 your receipt of the notice.
-
-     </p>
+</p>
 <p>Termination of your rights under this section does not terminate the
 licenses of parties who have received copies or rights from you under
 this License.  If your rights have been terminated and not permanently
 reinstated, receipt of a copy of some or all of the same material does
 not give you any rights to use it.
-
-     </p>
+</p>
 </li>
-<li>FUTURE REVISIONS OF THIS LICENSE
+<li> FUTURE REVISIONS OF THIS LICENSE
 
-     <p>The Free Software Foundation may publish new, revised versions
+<p>The Free Software Foundation may publish new, revised versions
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
 <a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
-
-     </p>
-<p>Each version of the License is given a distinguishing version number. 
+</p>
+<p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
 License “or any later version” applies to it, you have the option of
 following the terms and conditions either of that specified version or
@@ -2702,151 +2893,266 @@ Free Software Foundation.  If the Document does not specify a version
 number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.  If the Document
 specifies that a proxy can decide which future versions of this
-License can be used, that proxy's public statement of acceptance of a
+License can be used, that proxy’s public statement of acceptance of a
 version permanently authorizes you to choose that version for the
 Document.
-
-     </p>
+</p>
 </li>
-<li>RELICENSING
+<li> RELICENSING
 
-     <p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+<p>“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
 World Wide Web server that publishes copyrightable works and also
 provides prominent facilities for anybody to edit those works.  A
 public wiki that anybody can edit is an example of such a server.  A
 “Massive Multiauthor Collaboration” (or “MMC”) contained in the
 site means any set of copyrightable works thus published on the MMC
 site.
-
-     </p>
+</p>
 <p>“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
 license published by Creative Commons Corporation, a not-for-profit
 corporation with a principal place of business in San Francisco,
 California, as well as future copyleft versions of that license
 published by that same organization.
-
-     </p>
+</p>
 <p>“Incorporate” means to publish or republish a Document, in whole or
 in part, as part of another Document.
-
-     </p>
+</p>
 <p>An MMC is “eligible for relicensing” if it is licensed under this
 License, and if all works that were first published under this License
 somewhere other than this MMC, and subsequently incorporated in whole
 or in part into the MMC, (1) had no cover texts or invariant sections,
 and (2) were thus incorporated prior to November 1, 2008.
-
-     </p>
+</p>
 <p>The operator of an MMC Site may republish an MMC contained in the site
 under CC-BY-SA on the same site at any time before August 1, 2009,
 provided the MMC is eligible for relicensing.
-
-        </p>
+</p>
 </li>
 </ol>
 
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
 <h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
-
 </p>
-<pre class="smallexample">       Copyright (C)  <var>year</var>  <var>your name</var>.
-       Permission is granted to copy, distribute and/or modify this document
-       under the terms of the GNU Free Documentation License, Version 1.3
-       or any later version published by the Free Software Foundation;
-       with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
-       Texts.  A copy of the license is included in the section entitled ``GNU
-       Free Documentation License''.
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
 </pre>
-   <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
-replace the “with<small class="dots">...</small>Texts.” line with this:
+</div>
 
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the “with…Texts.” line with this:
 </p>
-<pre class="smallexample">         with the Invariant Sections being <var>list their titles</var>, with
-         the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-         being <var>list</var>.
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
 </pre>
-   <p>If you have Invariant Sections without Cover Texts, or some other
+</div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
 situation.
-
-   </p>
+</p>
 <p>If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-
-<!-- Local Variables: -->
-<!-- ispell-local-pdict: "ispell-dict" -->
-<!-- End: -->
 </p>
-<div class="node"><a name="Index"></a></div>
 
+
+<hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
 <h2 class="unnumbered">Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Index_cp_letter-S">S</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dcompound_002dtoString"><code>srecode-compound-toString</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Compound-Dictionary-Values">Compound Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dcreate_002ddictionary"><code>srecode-create-dictionary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Create-a-Dictionary">Create a Dictionary</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddictionary_002dadd_002dsection_002ddictionary"><code>srecode-dictionary-add-section-dictionary</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Setting-Dictionary-Values">Setting Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddictionary_002dcompound_002dvalue"><code>srecode-dictionary-compound-value</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Compound-Dictionary-Values">Compound Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddictionary_002dlookup_002dname"><code>srecode-dictionary-lookup-name</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Querying-a-Dictionary">Querying a Dictionary</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddictionary_002dset_002dvalue"><code>srecode-dictionary-set-value</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Setting-Dictionary-Values">Setting Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddictionary_002dshow_002dsection"><code>srecode-dictionary-show-section</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Setting-Dictionary-Values">Setting Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002ddump"><code>srecode-dump</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Compound-Dictionary-Values">Compound Dictionary Values</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dinsert"><code>srecode-insert</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Quick-Start">Quick Start</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dinsert_002dask_002dvariable_002dmethod"><code>srecode-insert-ask-variable-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#SRecode-Minor-Mode">SRecode Minor Mode</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dinsert_002dfcn"><code>srecode-insert-fcn</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Developing-Template-Functions">Developing Template Functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dload_002dtables_002dfor_002dmode"><code>srecode-load-tables-for-mode</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Application-Writing">Application Writing</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dmap_002dload_002dpath"><code>srecode-map-load-path</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Quick-Start">Quick Start</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dmap_002dsave_002dfile"><code>srecode-map-save-file</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#User-Templates">User Templates</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dread_002dtemplate_002dname"><code>srecode-read-template-name</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Developing-Template-Functions">Developing Template Functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dresolve_002darguments"><code>srecode-resolve-arguments</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Argument-Resolution">Argument Resolution</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dsemantic_002dinsert_002dtag"><code>srecode-semantic-insert-tag</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Inserting-Tag-Lists">Inserting Tag Lists</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dsemantic_002dselected_002dtag"><code>srecode-semantic-selected-tag</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Semantic-Arguments">Semantic Arguments</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dtable"><code>srecode-table</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Developing-Template-Functions">Developing Template Functions</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-srecode_002dtemplate_002dget_002dtable"><code>srecode-template-get-table</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Developing-Template-Functions">Developing Template Functions</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+   
+</td>
+</tr></table>
 
-<ul class="index-cp" compact>
-<li>
-<a href="#index-srecode_002dcompound_002dtoString-10"><code>srecode-compound-toString</code></a>: <a href="#Compound-Dictionary-Values">Compound Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002dcreate_002ddictionary-5"><code>srecode-create-dictionary</code></a>: <a href="#Create-a-Dictionary">Create a Dictionary</a>
-</li>
-<li>
-<a href="#index-srecode_002ddictionary_002dadd_002dsection_002ddictionary-8"><code>srecode-dictionary-add-section-dictionary</code></a>: <a href="#Setting-Dictionary-Values">Setting Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002ddictionary_002dcompound_002dvalue-9"><code>srecode-dictionary-compound-value</code></a>: <a href="#Compound-Dictionary-Values">Compound Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002ddictionary_002dlookup_002dname-13"><code>srecode-dictionary-lookup-name</code></a>: <a href="#Querying-a-Dictionary">Querying a Dictionary</a>
-</li>
-<li>
-<a href="#index-srecode_002ddictionary_002dset_002dvalue-6"><code>srecode-dictionary-set-value</code></a>: <a href="#Setting-Dictionary-Values">Setting Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002ddictionary_002dshow_002dsection-7"><code>srecode-dictionary-show-section</code></a>: <a href="#Setting-Dictionary-Values">Setting Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002ddump-11"><code>srecode-dump</code></a>: <a href="#Compound-Dictionary-Values">Compound Dictionary Values</a>
-</li>
-<li>
-<a href="#index-srecode_002dinsert-2"><code>srecode-insert</code></a>: <a href="#Quick-Start">Quick Start</a>
-</li>
-<li>
-<a href="#index-srecode_002dinsert_002dask_002dvariable_002dmethod-4"><code>srecode-insert-ask-variable-method</code></a>: <a href="#SRecode-Minor-Mode">SRecode Minor Mode</a>
-</li>
-<li>
-<a href="#index-srecode_002dinsert_002dfcn-18"><code>srecode-insert-fcn</code></a>: <a href="#Developing-Template-Functions">Developing Template Functions</a>
-</li>
-<li>
-<a href="#index-srecode_002dload_002dtables_002dfor_002dmode-20"><code>srecode-load-tables-for-mode</code></a>: <a href="#Application-Writing">Application Writing</a>
-</li>
-<li>
-<a href="#index-srecode_002dmap_002dload_002dpath-1"><code>srecode-map-load-path</code></a>: <a href="#Quick-Start">Quick Start</a>
-</li>
-<li>
-<a href="#index-srecode_002dmap_002dsave_002dfile-3"><code>srecode-map-save-file</code></a>: <a href="#User-Templates">User Templates</a>
-</li>
-<li>
-<a href="#index-srecode_002dread_002dtemplate_002dname-15"><code>srecode-read-template-name</code></a>: <a href="#Developing-Template-Functions">Developing Template Functions</a>
-</li>
-<li>
-<a href="#index-srecode_002dresolve_002darguments-12"><code>srecode-resolve-arguments</code></a>: <a href="#Argument-Resolution">Argument Resolution</a>
-</li>
-<li>
-<a href="#index-srecode_002dsemantic_002dinsert_002dtag-19"><code>srecode-semantic-insert-tag</code></a>: <a href="#Inserting-Tag-Lists">Inserting Tag Lists</a>
-</li>
-<li>
-<a href="#index-srecode_002dsemantic_002dselected_002dtag-14"><code>srecode-semantic-selected-tag</code></a>: <a href="#Semantic-Arguments">Semantic Arguments</a>
-</li>
-<li>
-<a href="#index-srecode_002dtable-16"><code>srecode-table</code></a>: <a href="#Developing-Template-Functions">Developing Template Functions</a>
-</li>
-<li>
-<a href="#index-srecode_002dtemplate_002dget_002dtable-17"><code>srecode-template-get-table</code></a>: <a href="#Developing-Template-Functions">Developing Template Functions</a>
-</li>
-</ul>
+
+<hr>
+
+
+
 </body>
 </html>
