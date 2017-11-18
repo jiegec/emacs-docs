@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents SES: the Simple Emacs Spreadsheet.
 
-Copyright (C) 2002-2016 Free Software Foundation, Inc.
+Copyright (C) 2002-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -13,8 +13,9 @@ is included in the section entitled "GNU Free Documentation License."
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>SES: Simple Emacs Spreadsheet</title>
 
 <meta name="description" content="SES: Simple Emacs Spreadsheet">
@@ -22,7 +23,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -77,7 +77,14 @@ ul.no-bullet {list-style: none}
   <ul class="no-bullet">
     <li><a name="toc-Cell-formulas" href="#Formulas">3.1 Cell formulas</a></li>
     <li><a name="toc-Resizing-the-spreadsheet" href="#Resizing">3.2 Resizing the spreadsheet</a></li>
-    <li><a name="toc-Printer-functions-1" href="#Printer-functions">3.3 Printer functions</a></li>
+    <li><a name="toc-Printer-functions-1" href="#Printer-functions">3.3 Printer functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Various-kinds-of-printer-functions-1" href="#Various-kinds-of-printer-functions">3.3.1 Various kinds of printer functions</a></li>
+      <li><a name="toc-Configuring-what-printer-function-applies-1" href="#Configuring-what-printer-function-applies">3.3.2 Configuring what printer function applies</a></li>
+      <li><a name="toc-Standard-printer-functions-1" href="#Standard-printer-functions">3.3.3 Standard printer functions</a></li>
+      <li><a name="toc-Local-printer-functions-1" href="#Local-printer-functions">3.3.4 Local printer functions</a></li>
+      <li><a name="toc-Writing-a-lambda-printer-function-1" href="#Writing-a-lambda-printer-function">3.3.5 Writing a lambda printer function</a></li>
+    </ul></li>
     <li><a name="toc-Clearing-cells-1" href="#Clearing-cells">3.4 Clearing cells</a></li>
     <li><a name="toc-Copy_002c-cut_002c-and-paste" href="#Copy_002fcut_002fpaste">3.5 Copy, cut, and paste</a></li>
     <li><a name="toc-Customizing-SES-1" href="#Customizing-SES">3.6 Customizing <acronym>SES</acronym></a></li>
@@ -127,7 +134,7 @@ by formulas that can refer to the values of other cells.
 </p>
 <p>This file documents <acronym>SES</acronym>: the Simple Emacs Spreadsheet.
 </p>
-<p>Copyright &copy; 2002&ndash;2016 Free Software Foundation, Inc.
+<p>Copyright &copy; 2002&ndash;2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -277,6 +284,14 @@ the end-points, e.g.:
 <p>(The <code>apply</code> is necessary because <code>ses-range</code> produces a
 <em>list</em> of values.  This allows for more complex possibilities.)
 </p>
+<p>Alternatively you can use the <code>!</code> modifier of <code>ses-range</code> to
+remove blank cells from the returned list, which allows to use
+<code>+</code> instead of <code>ses+</code>:
+</p>
+<div class="lisp">
+<pre class="lisp">(apply '+ (ses-range A2 A5 !))
+</pre></div>
+
 
 <hr>
 <a name="The-Basics"></a>
@@ -400,8 +415,16 @@ is inserted for you (<code>ses-read-cell</code>).
 (<code>ses-read-cell</code>).  To access another cell&rsquo;s value, just use its
 identifier in your expression.  Whenever the other cell is changed,
 this cell&rsquo;s formula will be reevaluated.  While typing in the
-expression, you can use <kbd>M-<span class="key">TAB</span></kbd> to complete symbol names.
-</p>
+expression, you can use the following keys:
+</p><dl compact="compact">
+<dt><kbd>M-<span class="key">TAB</span></kbd></dt>
+<dd><p>to complete symbol names, and
+</p></dd>
+<dt><kbd>C-h C-n</kbd></dt>
+<dd><p>to list the named cells symbols in a help buffer.
+</p></dd>
+</dl>
+
 </dd>
 <dt><kbd>' <span class="roman">(apostrophe)</span></kbd></dt>
 <dd><p>Enter a symbol (ses-read-symbol).  <acronym>SES</acronym> remembers all symbols that have
@@ -515,76 +538,178 @@ Next: <a href="#Clearing-cells" accesskey="n" rel="next">Clearing cells</a>, Pre
 <a name="index-printer-functions"></a>
 <a name="index-cell-formatting"></a>
 <a name="index-formatting-cells"></a>
-<a name="index-ses_002dread_002dcell_002dprinter"></a>
-<a name="index-ses_002dread_002dcolumn_002dprinter"></a>
-<a name="index-ses_002dread_002ddefault_002dprinter"></a>
-<a name="index-ses_002ddefine_002dlocal_002dprinter"></a>
-<a name="index-ses_002dcenter"></a>
-<a name="index-ses_002dcenter_002dspan"></a>
-<a name="index-ses_002ddashfill"></a>
-<a name="index-ses_002ddashfill_002dspan"></a>
-<a name="index-ses_002dtildefill_002dspan"></a>
-
 
 <p>Printer functions convert binary cell values into the print forms that
 Emacs will display on the screen.
 </p>
-<p>A printer can be a format string, like &lsquo;<samp>&quot;$%.2f&quot;</samp>&rsquo;.  The result
-string is right-aligned within the print cell.  To get left-alignment,
-use parentheses: &lsquo;<samp>(&quot;$%.2f&quot;)</samp>&rsquo;.  A printer can also be a
-one-argument function (a symbol or a lambda), whose result is a string
-(right-aligned) or list of one string (left-aligned).  While typing in
-a lambda, you can use <kbd>M-<span class="key">TAB</span></kbd> to complete the names of symbols.
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Various-kinds-of-printer-functions" accesskey="1">Various kinds of printer functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Configuring-what-printer-function-applies" accesskey="2">Configuring what printer function applies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Standard-printer-functions" accesskey="3">Standard printer functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Local-printer-functions" accesskey="4">Local printer functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Writing-a-lambda-printer-function" accesskey="5">Writing a lambda printer function</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="Various-kinds-of-printer-functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Configuring-what-printer-function-applies" accesskey="n" rel="next">Configuring what printer function applies</a>, Up: <a href="#Printer-functions" accesskey="u" rel="up">Printer functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Various-kinds-of-printer-functions-1"></a>
+<h4 class="subsection">3.3.1 Various kinds of printer functions</h4>
+
+<p>When configuring what printer function applies (see <a href="#Configuring-what-printer-function-applies">Configuring what printer function applies</a>), you can enter a printer function as
+one of the following:
 </p>
+<ul>
+<li> A format string, like &lsquo;<samp>&quot;$%.2f&quot;</samp>&rsquo;.  The result
+string is right-aligned within the print cell.  To get left-alignment,
+use parentheses: &lsquo;<samp>(&quot;$%.2f&quot;)</samp>&rsquo;.
+</li><li> A printer can also be a one-argument function, the result of which is
+a string (right-aligned) or list of one string (left-aligned). Such a
+function can be in turn configured as:
+<ul>
+<li> A lambda expression, for instance:
+
+<div class="lisp">
+<pre class="lisp">(lambda (x)
+  (cond
+     ((null x) &quot;&quot;)
+     ((numberp x) (format &quot;%.2f&quot; x))
+     (t (ses-center-span x ?# 'ses-prin1))))
+</pre></div>
+
+<p>While typing in a lambda, you can use <kbd>M-<span class="key">TAB</span></kbd> to complete
+the names of symbols.
+</p></li><li> A symbol referring to a standard printer function (see <a href="#Standard-printer-functions">Standard printer functions</a>).
+</li><li> A symbol referring to a local printer function (see <a href="#Local-printer-functions">Local printer functions</a>).
+</li></ul>
+
+
+</li></ul>
+
+
+<hr>
+<a name="Configuring-what-printer-function-applies"></a>
+<div class="header">
+<p>
+Next: <a href="#Standard-printer-functions" accesskey="n" rel="next">Standard printer functions</a>, Previous: <a href="#Various-kinds-of-printer-functions" accesskey="p" rel="prev">Various kinds of printer functions</a>, Up: <a href="#Printer-functions" accesskey="u" rel="up">Printer functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Configuring-what-printer-function-applies-1"></a>
+<h4 class="subsection">3.3.2 Configuring what printer function applies</h4>
+
 <p>Each cell has a printer.  If <code>nil</code>, the column-printer for the cell&rsquo;s
 column is used.  If that is also <code>nil</code>, the default-printer for the
 spreadsheet is used.
 </p>
 <dl compact="compact">
 <dt><kbd>p</kbd></dt>
-<dd><p>Enter a printer for current cell or range (<code>ses-read-cell-printer</code>).
+<dd><a name="index-ses_002dread_002dcell_002dprinter"></a>
+<p>Enter a printer for current cell or range (<code>ses-read-cell-printer</code>).
 </p>
 </dd>
 <dt><kbd>M-p</kbd></dt>
-<dd><p>Enter a printer for the current column (<code>ses-read-column-printer</code>).
+<dd><a name="index-ses_002dread_002dcolumn_002dprinter"></a>
+<p>Enter a printer for the current column (<code>ses-read-column-printer</code>).
 </p>
 </dd>
 <dt><kbd>C-c C-p</kbd></dt>
-<dd><p>Enter the default printer for the spreadsheet
+<dd><a name="index-ses_002dread_002ddefault_002dprinter"></a>
+<p>Enter the default printer for the spreadsheet
 (<code>ses-read-default-printer</code>).
 </p></dd>
 </dl>
 
-<p>The <code>ses-read-<span class="roman">XXX</span>-printer</code> commands have their own minibuffer
-history, which is preloaded with the set of all printers used in this
-spreadsheet, plus the standard printers.
-</p>
-<p>The standard printers are suitable only for cells, not columns or
-default, because they format the value using the column-printer (or
-default-printer if <code>nil</code>) and then center the result:
+<p>The <code>ses-read-<var>xxx</var>-printer</code> allows the following commands during editing:
 </p>
 <dl compact="compact">
-<dt><code>ses-center</code></dt>
-<dd><p>Just centering.
-</p>
-</dd>
-<dt><code>ses-center-span</code></dt>
-<dd><p>Centering with spill-over to following blank cells.
-</p>
-</dd>
-<dt><code>ses-dashfill</code></dt>
-<dd><p>Centering using dashes (-) instead of spaces.
-</p>
-</dd>
-<dt><code>ses-dashfill-span</code></dt>
-<dd><p>Centering with dashes and spill-over.
-</p>
-</dd>
-<dt><code>ses-tildefill-span</code></dt>
-<dd><p>Centering with tildes (~) and spill-over.
+<dt><kbd><span class="key">arrow-up</span></kbd></dt>
+<dt><kbd><span class="key">arrow-down</span></kbd></dt>
+<dd><p>To browse history: the <code>ses-read-<var>xxx</var>-printer</code> commands have
+their own minibuffer history, which is preloaded with the set of all
+printers used in this spreadsheet, plus the standard printers
+(see <a href="#Standard-printer-functions">Standard printer functions</a>) and the local printers
+(see <a href="#Local-printer-functions">Local printer functions</a>).
+</p></dd>
+<dt><kbd><span class="key">TAB</span></kbd></dt>
+<dd><p>To complete the local printer symbols, and
+</p></dd>
+<dt><kbd>C-h C-p</kbd></dt>
+<dd><p>To list the local printers in a help buffer.
 </p></dd>
 </dl>
 
+
+<hr>
+<a name="Standard-printer-functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Local-printer-functions" accesskey="n" rel="next">Local printer functions</a>, Previous: <a href="#Configuring-what-printer-function-applies" accesskey="p" rel="prev">Configuring what printer function applies</a>, Up: <a href="#Printer-functions" accesskey="u" rel="up">Printer functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Standard-printer-functions-1"></a>
+<h4 class="subsection">3.3.3 Standard printer functions</h4>
+
+
+<p>Except for <code>ses-prin1</code>, the other standard printers are suitable
+only for cells, not columns or default, because they format the value
+using the column-printer (or default-printer if <code>nil</code>) and then
+center the result:
+</p>
+<dl compact="compact">
+<dt><code>ses-center</code>
+<a name="index-ses_002dcenter"></a>
+</dt>
+<dd><p>Just centering.
+</p>
+</dd>
+<dt><code>ses-center-span</code>
+<a name="index-ses_002dcenter_002dspan"></a>
+</dt>
+<dd><p>Centering with spill-over to following blank cells.
+</p>
+</dd>
+<dt><code>ses-dashfill</code>
+<a name="index-ses_002ddashfill"></a>
+</dt>
+<dd><p>Centering using dashes (-) instead of spaces.
+</p>
+</dd>
+<dt><code>ses-dashfill-span</code>
+<a name="index-ses_002ddashfill_002dspan"></a>
+</dt>
+<dd><p>Centering with dashes and spill-over.
+</p>
+</dd>
+<dt><code>ses-tildefill-span</code>
+<a name="index-ses_002dtildefill_002dspan"></a>
+</dt>
+<dd><p>Centering with tildes (~) and spill-over.
+</p>
+</dd>
+<dt><code>ses-prin1</code>
+<a name="index-ses_002dprin1"></a>
+</dt>
+<dd><p>This is the fallback printer, used when calling the configured printer
+throws some error.
+</p></dd>
+</dl>
+
+<hr>
+<a name="Local-printer-functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Writing-a-lambda-printer-function" accesskey="n" rel="next">Writing a lambda printer function</a>, Previous: <a href="#Standard-printer-functions" accesskey="p" rel="prev">Standard printer functions</a>, Up: <a href="#Printer-functions" accesskey="u" rel="up">Printer functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Local-printer-functions-1"></a>
+<h4 class="subsection">3.3.4 Local printer functions</h4>
+
+<a name="index-ses_002ddefine_002dlocal_002dprinter"></a>
 <p>You can define printer function local to a sheet with the command
 <code>ses-define-local-printer</code>.  For instance, define a printer
 &lsquo;<samp>foo</samp>&rsquo; to <code>&quot;%.2f&quot;</code>, and then use symbol &lsquo;<samp>foo</samp>&rsquo; as a
@@ -592,6 +717,113 @@ printer function.  Then, if you call again
 <code>ses-define-local-printer</code> on &lsquo;<samp>foo</samp>&rsquo; to redefine it as
 <code>&quot;%.3f&quot;</code>, all the cells using printer &lsquo;<samp>foo</samp>&rsquo; will be
 reprinted accordingly.
+</p>
+<p>Sometimes there are local printers that you want to define or
+re-define automatically every time you open a sheet. For instance
+imagine that you want to define/re-define automatically a local
+printer <code>euro</code> to display a number like an amount of euros, that
+is to say number <code>3.1</code> would be displayed as
+<code>3.10&euro;</code>. To do so in any non read-only SES buffer,
+you can add some code like this to your <samp>.emacs</samp> init file:
+</p>
+<div class="lisp">
+<pre class="lisp">(defun my-ses-mode-hook ()
+  (unless buffer-read-only
+    (ses-define-local-printer
+     'euro
+     (lambda (x)
+       (cond
+	((null x) &quot;&quot;)
+	((numberp x) (format &quot;%.2f€&quot; x))
+	(t (ses-center-span x ?# 'ses-prin1)))))))
+(add-hook 'ses-mode-hook 'my-ses-mode-hook)
+</pre></div>
+
+<p>If you replace command <code>ses-define-local-printer</code> by function
+<code>ses-define-if-new-local-printer</code>
+<a name="index-ses_002ddefine_002dif_002dnew_002dlocal_002dprinter"></a>
+the definition will occur only if a local printer with the same name
+in not already defined.
+</p>
+
+<hr>
+<a name="Writing-a-lambda-printer-function"></a>
+<div class="header">
+<p>
+Previous: <a href="#Local-printer-functions" accesskey="p" rel="prev">Local printer functions</a>, Up: <a href="#Printer-functions" accesskey="u" rel="up">Printer functions</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Writing-a-lambda-printer-function-1"></a>
+<h4 class="subsection">3.3.5 Writing a lambda printer function</h4>
+
+<p>You can write a printer function with a lambda expression taking one
+argument in two cases:
+</p>
+<ul>
+<li> when you configure the printer function applying to a cell or column, or
+</li><li> when you define a local printer function with command
+<code>ses-define-local-printer</code>.
+</li></ul>
+
+<p>When doing so, please take care that the returned value is a string,
+or a list containing a string, even when the input argument has an
+unexpected value. Here is an example:
+</p>
+<div class="example">
+<pre class="example">(lambda (val)
+   (cond
+      ((null val) &quot;&quot;)
+      ((and (numberp val) (&gt;= val 0)) (format &quot;%.1f&quot; val))
+      (t (ses-center-span val ?# 'ses-prin1))))
+</pre></div>
+
+<p>This example will:
+</p>
+<ul>
+<li> When the cell is empty (ie. when <code>val</code> is <code>nil</code>), print an
+empty string <code>&quot;&quot;</code>
+</li><li> When the cell value is a non negative number, format the value in
+fixed-point notation with one decimal after point
+</li><li> Otherwise, handle the value as erroneous by printing it as an
+s-expression (using <code>ses-prin1</code>), centered and surrounded by
+<code>#</code> filling.
+</li></ul>
+
+<p>Another precaution to take is to avoid stack overflow due to a
+printer function calling itself indefinitely.  This mistake can
+happen when you use a local printer as a column printer,
+and this local printer implicitly calls the current column printer, so it
+will call itself recursively.  Imagine for instance that you want to
+create some local printer <code>=fill</code> that would center the content
+of a cell and surround it by equal signs <code>=</code>, and you do it this
+way:
+</p>
+<div class="lisp">
+<pre class="lisp">(lambda (x)
+  (cond
+   ((null x) &quot;&quot;)
+   (t (ses-center x 0 ?=))))
+</pre></div>
+
+<p>Because <code>=fill</code> uses the standard printer <code>ses-center</code> without
+explicitly passing any printer to it, <code>ses-center</code> will call the
+current column printer if any, or the spreadsheet default printer
+otherwise.  So using <code>=fill</code> as a column printer will result in a
+stack overflow in this column.  SES does not check for that;
+you just have to be careful.  For instance, re-write <code>=fill</code> like
+this:
+</p>
+<div class="lisp">
+<pre class="lisp">(lambda (x)
+  (cond
+   ((null x) &quot;&quot;)
+   ((stringp x) (ses-center x 0 ?= &quot; %s &quot;))
+   (t (ses-center-span x ?# 'ses-prin1))))
+</pre></div>
+
+<p>The code above applies the <code>=</code> filling only to strings; it also
+surrounds the string by one space on each side before filling with
+<code>=</code> signs.  So the string &lsquo;<samp>Foo</samp>&rsquo; will be displayed like &lsquo;<samp>===&nbsp;Foo&nbsp;===<!-- /@w --></samp>&rsquo; in an 11 character wide column.  Anything other than an empty cell
+or a non-string is displayed as an error by using <code>#</code> filling.
 </p>
 <hr>
 <a name="Clearing-cells"></a>
@@ -777,8 +1009,8 @@ column letters.
 </p></dd>
 <dt><kbd>M-x ses-rename-cell</kbd></dt>
 <dd><a name="index-ses_002drename_002dcell"></a>
-<p>Rename a cell from a standard A1-like name to any
-string.
+<p>Rename a cell from a standard A1-like name to any string that can be a
+valid local variable name (See also <a href="#Nonrelocatable-references">Nonrelocatable references</a>).
 </p></dd>
 <dt><kbd>M-x ses-repair-cell-reference-all</kbd></dt>
 <dd><a name="index-ses_002drepair_002dcell_002dreference_002dall"></a>
@@ -1029,9 +1261,18 @@ are some useful functions to call from your formulas:
 </p>
 <dl compact="compact">
 <dt><code>(ses-delete-blanks &amp;rest <var>args</var>)</code></dt>
-<dd><p>Returns a list from which all blank cells (value is either <code>nil</code> or
-&rsquo;*skip*) have been deleted.
-</p>
+<dd><p>Returns a list from which all blank cells (value is either <code>nil</code>
+or &rsquo;*skip*) have been deleted. Order of args is reverted. Please note
+that <code>ses-range</code> has a <code>!</code> modifier that allows to remove
+blanks, so it is possible to write:
+</p><div class="lisp">
+<pre class="lisp">(ses-range A1 A5 !)
+</pre></div>
+<p>instead of
+</p><div class="lisp">
+<pre class="lisp">(apply 'ses-delete-blanks (ses-range A1 A5 &lt;))
+</pre></div>
+
 </dd>
 <dt><code>(ses+ &amp;rest <var>args</var>)</code></dt>
 <dd><p>Sum of non-blank arguments.
@@ -1091,9 +1332,10 @@ this to undo the effect of <kbd>t</kbd>.
 </dl>
 
 <p>When a printer function signals an error, the fallback printer
-&lsquo;<samp>&quot;%s&quot;</samp>&rsquo; is substituted.  This is useful when your column printer
+<a name="index-ses_002dprin1-1"></a>
+<code>ses-prin1</code> is substituted.  This is useful when your column printer
 is numeric-only and you use a string as a cell value.  Note that the
-standard default printer is &ldquo;%.7g&rdquo; which is numeric-only, so cells
+standard default printer is &lsquo;<samp>&quot;%.7g&quot;</samp>&rsquo; which is numeric-only, so cells
 that are empty of contain strings will use the fallback printer.
 <kbd>c</kbd> on such cells will display &ldquo;Format specifier doesn&rsquo;t match
 argument type&rdquo;.
@@ -1278,7 +1520,18 @@ Next: <a href="#The-data-area" accesskey="n" rel="next">The data area</a>, Previ
 <kbd>C-u C-y</kbd> relocates none of the cell-references.  What about mixed
 cases?
 </p>
-<p>You can use
+<p>The best way is to rename cells that you do not want to be relocatable
+by using <code>ses-rename-cell</code>.
+<a name="index-ses_002drename_002dcell-1"></a>
+Cells that do not have an A1-like name style are not relocated on
+yank. Using this method, the concerned cells won&rsquo;t be relocated
+whatever formula they appear in. Please note however that when a
+formula contains some range <code>(ses-range <var>cell1</var> <var>cell2</var>)</code>
+then in the yanked formula each range bound <var>cell1</var> and
+<var>cell2</var> are relocated, or not, independently, depending on whether
+they are A1-like or renamed.
+</p>
+<p>An alternative method is to use
 </p><div class="lisp">
 <pre class="lisp">(symbol-value 'B3)
 </pre></div>
@@ -1286,7 +1539,8 @@ cases?
 quoted things, so this will not be relocated when pasted or when
 rows/columns are inserted/deleted.  However, B3 will not be recorded
 as a dependency of this cell, so this cell will not be updated
-automatically when B3 is changed.
+automatically when B3 is changed, this is why using
+<code>ses-rename-cell</code> is most of the time preferable.
 </p>
 <p>The variables <code>row</code> and <code>col</code> are dynamically bound while a
 cell formula is being evaluated.  You can use
@@ -1309,12 +1563,13 @@ Next: <a href="#Buffer_002dlocal-variables-in-spreadsheets" accesskey="n" rel="n
 <a name="index-ses_002dreconstruct_002dall"></a>
 
 <p>Begins with an 014 character, followed by sets of cell-definition
-macros for each row, followed by column-widths, column-printers,
+macros for each row, followed by the set of local printer
+definitions, followed by column-widths, column-printers,
 default-printer, and header-row.  Then there&rsquo;s the global parameters
-(file-format ID, numrows, numcols) and the local variables (specifying
-<acronym>SES</acronym> mode for the buffer, etc.).
+(file-format ID, row count, column count, local printer count) and the
+local variables (specifying <acronym>SES</acronym> mode for the buffer, etc.).
 </p>
-<p>When a <acronym>SES</acronym> file is loaded, first the numrows and numcols values are
+<p>When a <acronym>SES</acronym> file is loaded, first the global parameters are
 loaded, then the entire data area is <code>eval</code>ed, and finally the local
 variables are processed.
 </p>
@@ -1546,13 +1801,14 @@ Next: <a href="#Acknowledgments" accesskey="n" rel="next">Acknowledgments</a>, P
 <tr><td></td><td valign="top"><a href="#index-ses_002b"><code>ses+</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dappend_002drow_002djump_002dfirst_002dcolumn"><code>ses-append-row-jump-first-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Resizing">Resizing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002daverage"><code>ses-average</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dcenter"><code>ses-center</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dcenter_002dspan"><code>ses-center-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dcenter"><code>ses-center</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dcenter_002dspan"><code>ses-center-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dclear_002dcell_002dbackward"><code>ses-clear-cell-backward</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clearing-cells">Clearing cells</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dclear_002dcell_002dforward"><code>ses-clear-cell-forward</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clearing-cells">Clearing cells</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002ddashfill"><code>ses-dashfill</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002ddashfill_002dspan"><code>ses-dashfill-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002ddefine_002dlocal_002dprinter"><code>ses-define-local-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002ddashfill"><code>ses-dashfill</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002ddashfill_002dspan"><code>ses-dashfill-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002ddefine_002dif_002dnew_002dlocal_002dprinter"><code>ses-define-if-new-local-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Local-printer-functions">Local printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002ddefine_002dlocal_002dprinter"><code>ses-define-local-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Local-printer-functions">Local printer functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002ddelete_002dblanks"><code>ses-delete-blanks</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-formula-functions">Standard formula functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002ddelete_002dcolumn"><code>ses-delete-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Resizing">Resizing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002ddelete_002drow"><code>ses-delete-row</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Resizing">Resizing</a></td></tr>
@@ -1572,10 +1828,12 @@ Next: <a href="#Acknowledgments" accesskey="n" rel="next">Acknowledgments</a>, P
 <tr><td></td><td valign="top"><a href="#index-ses_002dmark_002drow"><code>ses-mark-row</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Basics">The Basics</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dmark_002dwhole_002dbuffer"><code>ses-mark-whole-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Basics">The Basics</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dmode_002dhook"><code>ses-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Customizing-SES">Customizing <acronym>SES</acronym></a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dprin1"><code>ses-prin1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dprin1-1"><code>ses-prin1</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dread_002dcell"><code>ses-read-cell</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Formulas">Formulas</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dread_002dcell_002dprinter"><code>ses-read-cell-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dread_002dcolumn_002dprinter"><code>ses-read-column-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dread_002ddefault_002dprinter"><code>ses-read-default-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dread_002dcell_002dprinter"><code>ses-read-cell-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuring-what-printer-function-applies">Configuring what printer function applies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dread_002dcolumn_002dprinter"><code>ses-read-column-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuring-what-printer-function-applies">Configuring what printer function applies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dread_002ddefault_002dprinter"><code>ses-read-default-printer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuring-what-printer-function-applies">Configuring what printer function applies</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dread_002dheader_002drow"><code>ses-read-header-row</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Advanced-Features">Advanced Features</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dread_002dsymbol"><code>ses-read-symbol</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Formulas">Formulas</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002drecalculate_002dall"><code>ses-recalculate-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Formulas">Formulas</a></td></tr>
@@ -1583,6 +1841,7 @@ Next: <a href="#Acknowledgments" accesskey="n" rel="next">Acknowledgments</a>, P
 <tr><td></td><td valign="top"><a href="#index-ses_002drecalculate_002dcell-1"><code>ses-recalculate-cell</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dreconstruct_002dall"><code>ses-reconstruct-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-data-area">The data area</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002drename_002dcell"><code>ses-rename-cell</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Advanced-Features">Advanced Features</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002drename_002dcell-1"><code>ses-rename-cell</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Nonrelocatable-references">Nonrelocatable references</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002drenarrow_002dbuffer"><code>ses-renarrow-buffer</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-print-area">The print area</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002drepair_002dcell_002dreference_002dall"><code>ses-repair-cell-reference-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Advanced-Features">Advanced Features</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dreprint_002dall"><code>ses-reprint-all</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-print-area">The print area</a></td></tr>
@@ -1590,7 +1849,7 @@ Next: <a href="#Acknowledgments" accesskey="n" rel="next">Acknowledgments</a>, P
 <tr><td></td><td valign="top"><a href="#index-ses_002dset_002dheader_002drow"><code>ses-set-header-row</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Advanced-Features">Advanced Features</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dsort_002dcolumn"><code>ses-sort-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sorting-by-column">Sorting by column</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dsort_002dcolumn_002dclick"><code>ses-sort-column-click</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sorting-by-column">Sorting by column</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-ses_002dtildefill_002dspan"><code>ses-tildefill-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Printer-functions">Printer functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ses_002dtildefill_002dspan"><code>ses-tildefill-span</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Standard-printer-functions">Standard printer functions</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dtruncate_002dcell"><code>ses-truncate-cell</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#More-on-cell-printing">More on cell printing</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ses_002dyank_002dpop"><code>ses-yank-pop</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Copy_002fcut_002fpaste">Copy/cut/paste</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-set_002dmark_002dcommand"><code>set-mark-command</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Basics">The Basics</a></td></tr>
@@ -1719,13 +1978,13 @@ Previous: <a href="#Acknowledgments" accesskey="p" rel="prev">Acknowledgments</a
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1901,7 +2160,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -2101,7 +2360,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this

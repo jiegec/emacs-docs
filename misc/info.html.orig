@@ -3,7 +3,7 @@
 <!-- This file describes how to use Info, the menu-driven GNU
 documentation system.
 
-Copyright (C) 1989, 1992, 1996-2016 Free Software Foundation, Inc.
+Copyright (C) 1989, 1992, 1996-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -14,8 +14,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Info</title>
 
 <meta name="description" content="Info">
@@ -23,7 +24,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -129,7 +129,7 @@ using a mouse.
 <p>This file describes how to use Info, the menu-driven GNU
 documentation system.
 </p>
-<p>Copyright &copy; 1989, 1992, 1996&ndash;2016 Free Software Foundation, Inc.
+<p>Copyright &copy; 1989, 1992, 1996&ndash;2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -1233,6 +1233,7 @@ Next: <a href="#Create-Info-buffer" accesskey="n" rel="next">Create Info buffer<
 <a name="index-1-through-9-_0028Info-mode_0029"></a>
 <a name="index-Info_002dnth_002dmenu_002ditem"></a>
 <a name="index-select-n_0027th-menu-item"></a>
+<a name="index-menu-items_002c-select-by-their-numbers"></a>
 <p>If you begrudge each character of type-in which your system requires,
 you might like to use the commands <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd>,
 &hellip;, <kbd>9</kbd>.  They are short for the <kbd>m</kbd> command together
@@ -1241,6 +1242,11 @@ in the current node&rsquo;s menu; <kbd>2</kbd> goes through the second item, etc
 In the stand-alone reader, <kbd>0</kbd> goes through the last menu item;
 this is so you need not count how many entries are there.
 </p>
+<a name="index-3rd-menu-item"></a>
+<a name="index-third-menu-item"></a>
+<a name="index-6th-menu-item"></a>
+<a name="index-sixth-menu-item"></a>
+<a name="index-star-_002a-before-menu-item"></a>
 <p>If your display supports multiple fonts, colors or underlining, and
 you are using Emacs&rsquo;s Info mode to read Info files, the third, sixth
 and ninth menu items have a &lsquo;<samp>*</samp>&rsquo; that stands out, either in color
@@ -1451,13 +1457,13 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#F
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1633,7 +1639,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -1833,7 +1839,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -1929,7 +1935,11 @@ topics discussed in this document.
 </p>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>1</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>3</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-3"><b>6</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-4"><b>?</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>
@@ -1977,7 +1987,13 @@ topics discussed in this document.
 <tr><th><a name="Index_cp_symbol-1">1</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-1-through-9-_0028Info-mode_0029"><code>1 <span class="roman">through</span> 9 <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Index_cp_symbol-2">?</a></th><td></td><td></td></tr>
+<tr><th><a name="Index_cp_symbol-2">3</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-3rd-menu-item">3rd menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-3">6</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-6th-menu-item">6th menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-4">?</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_003f-_0028Info-mode_0029"><code>? <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index_cp_letter-A">A</a></th><td></td><td></td></tr>
@@ -2068,6 +2084,7 @@ topics discussed in this document.
 <tr><th><a name="Index_cp_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-m-_0028Info-mode_0029"><code>m <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dM">Help-M</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-M_002dn-_0028Info-mode_0029"><code>M-n <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Create-Info-buffer">Create Info buffer</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-menu-items_002c-select-by-their-numbers">menu items, select by their numbers</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-menus-in-an-Info-document">menus in an Info document</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dM">Help-M</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mouse-support-in-Info-mode">mouse support in Info mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dM">Help-M</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mouse_002d2-_0028Info-mode_0029"><code>mouse-2 <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dM">Help-M</a></td></tr>
@@ -2095,12 +2112,15 @@ topics discussed in this document.
 <tr><td></td><td valign="top"><a href="#index-searching-Info-documents">searching Info documents</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Search-Text">Search Text</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-searching-Info-indices">searching Info indices</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Search-Index">Search Index</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-select-n_0027th-menu-item">select <var>n</var>&rsquo;th menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-sixth-menu-item">sixth menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-small-screen_002c-moving-around">small screen, moving around</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dSmall_002dScreen">Help-Small-Screen</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-SPC-_0028Info-mode_0029"><code>SPC <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002d_005eL">Help-^L</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-star-_002a-before-menu-item">star &lsquo;<samp>*</samp>&rsquo; before menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index_cp_letter-T">T</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-t-_0028Info-mode_0029"><code>t <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dInt">Help-Int</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-Texinfo">Texinfo</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Further-Reading">Further Reading</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-third-menu-item">third menu item</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choose-menu-subtopic">Choose menu subtopic</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index_cp_letter-U">U</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-u-_0028Info-mode_0029"><code>u <span class="roman">(Info mode)</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Help_002dFOO">Help-FOO</a></td></tr>
@@ -2111,7 +2131,11 @@ topics discussed in this document.
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>1</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index_cp_symbol-2"><b>?</b></a>
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>3</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-3"><b>6</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-4"><b>?</b></a>
  &nbsp; 
 <br>
 <a class="summary-letter" href="#Index_cp_letter-A"><b>A</b></a>

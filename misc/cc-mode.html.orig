@@ -2,7 +2,7 @@
 <html>
 <!-- This manual is for CC Mode in Emacs.
 
-Copyright (C) 1995-2016 Free Software Foundation, Inc.
+Copyright (C) 1995-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -13,8 +13,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>CC Mode Manual</title>
 
 <meta name="description" content="CC Mode Manual">
@@ -22,7 +23,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Command-and-Function-Index" rel="index" title="Command and Function Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -133,7 +133,8 @@ ul.no-bullet {list-style: none}
     <li><a name="toc-Font-Locking-Preliminaries-1" href="#Font-Locking-Preliminaries">5.1 Font Locking Preliminaries</a></li>
     <li><a name="toc-Faces-1" href="#Faces">5.2 Faces</a></li>
     <li><a name="toc-Documentation-Comments" href="#Doc-Comments">5.3 Documentation Comments</a></li>
-    <li><a name="toc-AWK-Mode-Font-Locking-1" href="#AWK-Mode-Font-Locking">5.4 AWK Mode Font Locking</a></li>
+    <li><a name="toc-Miscellaneous-Font-Locking" href="#Misc-Font-Locking">5.4 Miscellaneous Font Locking</a></li>
+    <li><a name="toc-AWK-Mode-Font-Locking-1" href="#AWK-Mode-Font-Locking">5.5 AWK Mode Font Locking</a></li>
   </ul></li>
   <li><a name="toc-Configuration-Basics" href="#Config-Basics">6 Configuration Basics</a>
   <ul class="no-bullet">
@@ -199,6 +200,7 @@ ul.no-bullet {list-style: none}
   <ul class="no-bullet">
     <li><a name="toc-Customizing-Macro-Backslashes" href="#Macro-Backslashes">12.1 Customizing Macro Backslashes</a></li>
     <li><a name="toc-Macros-with-semicolons" href="#Macros-with-_003b">12.2 Macros with semicolons</a></li>
+    <li><a name="toc-Noise-Macros-1" href="#Noise-Macros">12.3 Noise Macros</a></li>
   </ul></li>
   <li><a name="toc-Odds-and-Ends-1" href="#Odds-and-Ends">13 Odds and Ends</a></li>
   <li><a name="toc-Sample-Init-File-1" href="#Sample-Init-File">Appendix A Sample Init File</a></li>
@@ -233,7 +235,7 @@ functions, classes, etc.; there are other packages for that.
 </p>
 <p>This manual is for CC Mode in Emacs.
 </p>
-<p>Copyright &copy; 1995&ndash;2016 Free Software Foundation, Inc.
+<p>Copyright &copy; 1995&ndash;2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -331,6 +333,8 @@ Font Locking
 <tr><td align="left" valign="top">&bull; <a href="#Faces">Faces</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Doc-Comments">Doc Comments</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Misc-Font-Locking">Misc Font Locking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#AWK-Mode-Font-Locking">AWK Mode Font Locking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -444,16 +448,18 @@ Line-Up Functions
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+
 Customizing Macros
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Macro-Backslashes">Macro Backslashes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Macros-with-_003b">Macros with ;</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Noise-Macros">Noise Macros</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
 </pre></th></tr></table>
-
 <hr>
 <a name="Introduction"></a>
 <div class="header">
@@ -922,6 +928,10 @@ Next: <a href="#Movement-Commands" accesskey="n" rel="next">Movement Commands</a
 <h3 class="section">4.2 Comment Commands</h3>
 <a name="index-comments-_0028insertion-of_0029"></a>
 
+<p>When the commands in this section add comment delimiters, they use
+either line comments or block comments depending on the setting of the
+comment style (see <a href="#Minor-Modes">Minor Modes</a>).
+</p>
 <dl compact="compact">
 <dt><kbd>C-c C-c</kbd> (<code>comment-region</code>)</dt>
 <dd><a name="index-C_002dc-C_002dc"></a>
@@ -1257,6 +1267,10 @@ Next: <a href="#Electric-Keys" accesskey="n" rel="next">Electric Keys</a>, Previ
 find useful while writing new code or editing old code:
 </p>
 <dl compact="compact">
+<dt>comment style</dt>
+<dd><p>This specifies whether comment commands (such as <kbd>M-;</kbd>) insert
+block comments or line comments.
+</p></dd>
 <dt>electric mode</dt>
 <dd><p>When this is enabled, certain visible characters cause reformatting as
 they are typed.  This is normally helpful, but can be a nuisance when
@@ -1297,19 +1311,31 @@ and <a href="#Indentation-Engine-Basics">Indentation Engine Basics</a>.
 <p>You can toggle each of these minor modes on and off, and you can
 configure CC Mode so that it starts up with your favorite
 combination of them (see <a href="#Sample-Init-File">Sample Init File</a>).  By default, when
-you initialize a buffer, electric mode and syntactic-indentation mode
-are enabled but the other three modes are disabled.
+you initialize a buffer, the comment style is set to the default for
+the major mode, electric mode and syntactic-indentation mode are
+enabled, but the other three modes are disabled.
 </p>
-<p>CC Mode displays the current state of the first four of these minor
-modes on the modeline by appending letters to the major mode&rsquo;s name,
-one letter for each enabled minor mode: &lsquo;<samp>l</samp>&rsquo; for electric mode,
-&lsquo;<samp>a</samp>&rsquo; for auto-newline mode, &lsquo;<samp>h</samp>&rsquo; for hungry delete mode, and
-&lsquo;<samp>w</samp>&rsquo; for subword mode.  If all these modes were enabled, you&rsquo;d see
-&lsquo;<samp>C/lahw</samp>&rsquo;<a name="DOCF8" href="#FOOT8"><sup>8</sup></a>.
+<p>CC Mode displays the current state of the first five of these minor
+modes on the mode line by appending characters to the major mode&rsquo;s
+name: &lsquo;<samp>/</samp>&rsquo; or &lsquo;<samp>*</samp>&rsquo; to indicate the comment style (respectively
+line or block), and one letter for each of the other minor modes which
+is enabled - &lsquo;<samp>l</samp>&rsquo; for electric mode, &lsquo;<samp>a</samp>&rsquo; for auto-newline
+mode, &lsquo;<samp>h</samp>&rsquo; for hungry delete mode, and &lsquo;<samp>w</samp>&rsquo; for subword mode.
+If the comment style was block and all the other modes were enabled,
+you&rsquo;d see &lsquo;<samp>C/*lahw</samp>&rsquo;<a name="DOCF8" href="#FOOT8"><sup>8</sup></a>.
 </p>
 <p>Here are the commands to toggle these modes:
 </p>
 <dl compact="compact">
+<dt><kbd>C-c C-k</kbd> (<code>c-toggle-comment-style</code>)</dt>
+<dd><a name="index-C_002dc-C_002dk"></a>
+<a name="index-c_002dtoggle_002dcomment_002dstyle"></a>
+<a name="index-toggle_002dcomment_002dstyle-_0028c_002d_0029"></a>
+<p>Toggle the comment style between line style and block style.  In modes
+(such as AWK Mode) which only have one of these styles, this function
+does nothing.
+</p>
+</dd>
 <dt><kbd>C-c C-l</kbd> (<code>c-toggle-electric-state</code>)</dt>
 <dd><a name="index-C_002dc-C_002dl"></a>
 <a name="index-c_002dtoggle_002delectric_002dstate"></a>
@@ -1352,10 +1378,12 @@ it also enables electric minor mode.
 </dl>
 
 <p>Common to all the toggle functions above is that if they are called
-programmatically, they take an optional numerical argument.  A
-positive value will turn on the minor mode (or both of them in the
-case of <code>c-toggle-auto-hungry-state</code>) and a negative value will
-turn it (or them) off.
+programmatically, they take an optional numerical argument.  For
+<code>c-toggle-comment style</code>, a positive value will select block
+comments, a negative value will select line comments.  For the other
+functions, a positive value will turn on the minor mode (or both of
+them in the case of <code>c-toggle-auto-hungry-state</code>) and a negative
+value will turn it (or them) off.
 </p>
 
 <hr>
@@ -1873,7 +1901,8 @@ file.  For commands that you can use to view the effect of your changes,
 see <a href="#Indentation-Commands">Indentation Commands</a> and <a href="#Filling-and-Breaking">Filling and Breaking</a>.
 </p>
 <p>For details of the CC Mode style system, see <a href="#Styles">Styles</a>.
-</p></dd>
+</p>
+</dd>
 <dt><kbd>C-c :</kbd> (<code>c-scope-operator</code>)</dt>
 <dd><a name="index-C_002dc-_003a"></a>
 <a name="index-c_002dscope_002doperator"></a>
@@ -1881,6 +1910,19 @@ see <a href="#Indentation-Commands">Indentation Commands</a> and <a href="#Filli
 <p>In C++, it is also sometimes desirable to insert the double-colon scope
 operator without performing the electric behavior of colon insertion.
 <kbd>C-c :</kbd> does just this.
+</p>
+</dd>
+<dt><kbd>C-c C-z</kbd> (<code>c-display-defun-name</code>)</dt>
+<dd><a name="index-C_002dc-C_002dz"></a>
+<a name="index-c_002ddisplay_002ddefun_002dname"></a>
+<a name="index-display_002ddefun_002dname-_0028c_002d_0029"></a>
+<p>Display the current function name, if any, in the minibuffer.
+Additionally, if a prefix argument is given, push the function name to
+the kill ring.  If there is no current function,
+<code>c-display-defun-name</code> does nothing.  In Emacs, you can use this
+command in the middle of an interactive search if you set the
+customizable option <code>isearch-allow-scroll</code> to non-<code>nil</code>.
+See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Not-Exiting-Isearch">Not Exiting Isearch</a> in <cite>GNU Emacs Manual</cite>.
 </p>
 </dd>
 <dt><kbd>C-c C-\</kbd> (<code>c-backslash-region</code>)</dt>
@@ -1965,7 +2007,9 @@ sections apply to the other languages.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Doc-Comments" accesskey="3">Doc Comments</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#AWK-Mode-Font-Locking" accesskey="4">AWK Mode Font Locking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Misc-Font-Locking" accesskey="4">Misc Font Locking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#AWK-Mode-Font-Locking" accesskey="5">AWK Mode Font Locking</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -2158,7 +2202,7 @@ since those aren&rsquo;t syntactic errors in themselves.
 <a name="Doc-Comments"></a>
 <div class="header">
 <p>
-Next: <a href="#AWK-Mode-Font-Locking" accesskey="n" rel="next">AWK Mode Font Locking</a>, Previous: <a href="#Faces" accesskey="p" rel="prev">Faces</a>, Up: <a href="#Font-Locking" accesskey="u" rel="up">Font Locking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Misc-Font-Locking" accesskey="n" rel="next">Misc Font Locking</a>, Previous: <a href="#Faces" accesskey="p" rel="prev">Faces</a>, Up: <a href="#Font-Locking" accesskey="u" rel="up">Font Locking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Documentation-Comments"></a>
 <h3 class="section">5.3 Documentation Comments</h3>
@@ -2237,15 +2281,73 @@ initialization and the result is prepended.  For an example, see
 <p>If you add support for another doc comment style, please consider
 contributing it: send a note to <a href="mailto:bug-cc-mode@gnu.org">bug-cc-mode@gnu.org</a>.
 </p>
+<hr>
+<a name="Misc-Font-Locking"></a>
+<div class="header">
+<p>
+Next: <a href="#AWK-Mode-Font-Locking" accesskey="n" rel="next">AWK Mode Font Locking</a>, Previous: <a href="#Doc-Comments" accesskey="p" rel="prev">Doc Comments</a>, Up: <a href="#Font-Locking" accesskey="u" rel="up">Font Locking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Miscellaneous-Font-Locking"></a>
+<h3 class="section">5.4 Miscellaneous Font Locking</h3>
 
+<p>In some languages, particularly in C++, there are constructs which are
+syntactically ambiguous&mdash;they could be either declarations or
+expressions, and CC Mode cannot tell for sure which.  Often such a
+construct is one of the operators &lsquo;<samp>*</samp>&rsquo; or &lsquo;<samp>&amp;</samp>&rsquo; surrounded by
+two identifiers.
+</p>
+<p>Experience shows that very often when such a construct is a
+declaration it will be written with the operator touching exactly one
+of the identifiers, like:
+</p>
+<div class="example">
+<pre class="example">foo *bar
+</pre></div>
+<p>or
+</p><div class="example">
+<pre class="example">foo&amp; bar
+</pre></div>
+
+<p>.  Whether such code is fontified depends on the setting of
+<code>c-asymmetry-fontification-flag</code>.
+</p>
+<dl>
+<dt><a name="index-c_002dasymmetry_002dfontification_002dflag"></a>Variable: <strong>c-asymmetry-fontification-flag</strong></dt>
+<dd><a name="index-asymmetry_002dfontification_002dflag-_0028c_002d_0029"></a>
+<p>When <code>c-asymmetry-fontification-flag</code> is non-nil (which it is by
+default), code like the above, with white space either before or after
+the operator, but not both, is fontified as a declaration.  When the
+variable is nil, such a construct gets the default face.
+</p></dd></dl>
+
+<p>When the construct is an expression there will often be white space
+both before and after the operator or there will be no white space
+around it at all, like:
+</p>
+<div class="example">
+<pre class="example">foo * bar
+</pre></div>
+<p>or
+</p><div class="example">
+<pre class="example">foo&amp;bar
+</pre></div>
+<p>.
+</p>
+<p>Such code is not fontified as a declaration.  (Typically, the
+identifiers don&rsquo;t get a non-default face.)
+</p>
+<p>For clarity&rsquo;s sake, we emphasize that the &ldquo;asymmetry&rdquo; rule in this
+section only applies when CC Mode cannot disambiguate a construct in
+any other way.
+</p>
 <hr>
 <a name="AWK-Mode-Font-Locking"></a>
 <div class="header">
 <p>
-Previous: <a href="#Doc-Comments" accesskey="p" rel="prev">Doc Comments</a>, Up: <a href="#Font-Locking" accesskey="u" rel="up">Font Locking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Misc-Font-Locking" accesskey="p" rel="prev">Misc Font Locking</a>, Up: <a href="#Font-Locking" accesskey="u" rel="up">Font Locking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="AWK-Mode-Font-Locking-1"></a>
-<h3 class="section">5.4 AWK Mode Font Locking</h3>
+<h3 class="section">5.5 AWK Mode Font Locking</h3>
 
 <p>The general appearance of font-locking in AWK mode is much like in any
 other programming mode.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/elisp.html#Faces-for-Font-Lock">Faces for Font Lock</a> in <cite>GNU Emacs
@@ -4306,7 +4408,8 @@ annotations.  <a href="#Java-Symbols">Java Symbols</a>.
 <dd><p>Close brace of an enum or static array list.  <a href="#Brace-List-Symbols">Brace List Symbols</a>.
 </p></dd>
 <dt><code>brace-list-intro</code></dt>
-<dd><p>First line in an enum or static array list.  <a href="#Brace-List-Symbols">Brace List Symbols</a>.
+<dd><p>First line after the opening &lsquo;<samp>{</samp>&rsquo; in an enum or static array
+list.  <a href="#Brace-List-Symbols">Brace List Symbols</a>.
 </p></dd>
 <dt><code>brace-list-entry</code></dt>
 <dd><p>Subsequent lines in an enum or static array list.  <a href="#Brace-List-Symbols">Brace List Symbols</a>.
@@ -4446,7 +4549,8 @@ are returned for C++ namespace blocks.  <a href="#External-Scope-Symbols">Extern
 </p></dd>
 <dt><code>inlambda</code></dt>
 <dd><p>Analogous to <code>inclass</code> syntactic symbol, but used inside lambda
-(i.e., anonymous) functions.  Only used in Pike mode.  <a href="#Statement-Block-Symbols">Statement Block Symbols</a>.
+(i.e., anonymous) functions.  Used in C++ and Pike modes.
+<a href="#Statement-Block-Symbols">Statement Block Symbols</a>.
 </p></dd>
 <dt><code>lambda-intro-cont</code></dt>
 <dd><p>Lines continuing the header of a lambda function, i.e., between the
@@ -4851,11 +4955,13 @@ example:
 
 <p>Here, you&rsquo;ve already seen the analysis of lines 1, 2, 3, and 11.  On
 line 4, things get interesting; this line is assigned
-<code>brace-entry-open</code> syntactic symbol because it&rsquo;s a bracelist entry
-line that starts with an open brace.  Lines 5 and 6 (and line 9) are
-pretty standard, and line 7 is a <code>brace-list-close</code> as you&rsquo;d
-expect.  Once again, line 8 is assigned as <code>brace-entry-open</code> as is
-line 10.
+<code>brace-entry-open</code> syntactic symbol because it&rsquo;s a bracelist
+entry line that starts with an open brace.  Lines 5 and 6 are pretty
+standard, and line 7 is a <code>brace-list-close</code> as you&rsquo;d expect.
+Once again, line 8 is assigned as <code>brace-entry-open</code> as is line
+10.  Line 9 is assigned two syntactic elements, <code>brace-list-intro</code>
+with anchor point at the &lsquo;<samp>{</samp>&rsquo; of line 8<a name="DOCF38" href="#FOOT38"><sup>38</sup></a>, and
+<code>brace-list-entry</code> anchored on the &lsquo;<samp>1</samp>&rsquo; of line 8.
 </p>
 <hr>
 <a name="External-Scope-Symbols"></a>
@@ -4899,7 +5005,7 @@ the three symbols <code>namespace-open</code>, <code>namespace-close</code> and
 </p>
 <dl compact="compact">
 <dt><code>extern-lang-open</code>, <code>extern-lang-close</code>, <code>inextern-lang</code></dt>
-<dd><p><code>extern</code> blocks in C and C++.<a name="DOCF38" href="#FOOT38"><sup>38</sup></a>
+<dd><p><code>extern</code> blocks in C and C++.<a name="DOCF39" href="#FOOT39"><sup>39</sup></a>
 </p>
 </dd>
 <dt><code>namespace-open</code>, <code>namespace-close</code>, <code>innamespace</code></dt>
@@ -5107,7 +5213,7 @@ on line 5.
 <code>c-syntactic-indentation-in-macros</code> (see <a href="#Custom-Macros">Custom Macros</a>).  In
 that case, lines 2 through 5 would all be given <code>cpp-macro-cont</code>
 with an anchor position pointing to the <code>#</code> which starts the cpp
-directive<a name="DOCF39" href="#FOOT39"><sup>39</sup></a>.
+directive<a name="DOCF40" href="#FOOT40"><sup>40</sup></a>.
 </p>
 <p>See <a href="#Custom-Macros">Custom Macros</a>, for more info about the treatment of macros.
 </p>
@@ -5210,6 +5316,21 @@ symbols they&rsquo;d get in a normal block.  Therefore, the indentation put on
 indentation.  An <code>inexpr-statement</code> syntactic element doesn&rsquo;t
 contain an anchor position.
 </p>
+<p>C++11&rsquo;s lambda expressions involve a block inside a statement.  For
+example:
+</p>
+<div class="example">
+<pre class="example"> 1:  std::for_each(someList.begin(), someList.end(), [&amp;total](int x) {
+ 2:                                                     total += x;
+ 3:                                                 });
+</pre></div>
+
+<p>Here a lambda expressions begins at the open bracket on line 1 and
+ends at the closing brace on line 3.  Line 2, in addition to the
+familiar <code>defun-block-intro</code> syntactic element, is also prefixed
+by an <code>inlambda</code> element, which is typically used to indent the
+entire lambda expression to under the opening bracket.
+</p>
 <p>In Pike code, there are a few other situations where blocks occur inside
 statements, as illustrated here:
 </p>
@@ -5236,7 +5357,7 @@ on a line of its own, as in line 5, it gets the <code>lambda-intro-cont</code>
 syntax.  The function body is handled as an inline method body, with the
 addition of the <code>inlambda</code> syntactic symbol.  This means that line
 6 gets <code>inlambda</code> and <code>inline-open</code>, and line 8 gets
-<code>inline-close</code><a name="DOCF40" href="#FOOT40"><sup>40</sup></a>.
+<code>inline-close</code><a name="DOCF41" href="#FOOT41"><sup>41</sup></a>.
 </p>
 <a name="index-inexpr_002dstatement-1"></a>
 <p>On line 9, <code>catch</code> is a special function taking a statement block
@@ -5257,7 +5378,7 @@ Previous: <a href="#Statement-Block-Symbols" accesskey="p" rel="prev">Statement 
 <a name="index-knr_002dargdecl_002dintro"></a>
 <a name="index-knr_002dargdecl"></a>
 <p>Two other syntactic symbols can appear in old style, non-prototyped C
-code <a name="DOCF41" href="#FOOT41"><sup>41</sup></a>:
+code <a name="DOCF42" href="#FOOT42"><sup>42</sup></a>:
 </p>
 <div class="example">
 <pre class="example"> 1: int add_three_integers(a, b, c)
@@ -5510,7 +5631,7 @@ the following:
 <dl compact="compact">
 <dt>An integer</dt>
 <dd><p>The integer specifies a relative offset.  All relative
-offsets<a name="DOCF42" href="#FOOT42"><sup>42</sup></a> will
+offsets<a name="DOCF43" href="#FOOT43"><sup>43</sup></a> will
 be added together and used to calculate the indentation relative to an
 anchor position earlier in the buffer.  See <a href="#Indentation-Calculation">Indentation Calculation</a>, for details.  Most of the time, it&rsquo;s probably better to
 use one of the special symbols like <code>+</code> than an integer (apart
@@ -5613,7 +5734,7 @@ will be combined according to the method <code>first</code>.
 <a name="index-c_002dstrict_002dsyntax_002dp"></a>
 <a name="index-strict_002dsyntax_002dp-_0028c_002d_0029"></a>
 <p>If an offset specification evaluates to <code>nil</code>, then a relative
-offset of 0 (zero) is used<a name="DOCF43" href="#FOOT43"><sup>43</sup></a>.
+offset of 0 (zero) is used<a name="DOCF44" href="#FOOT44"><sup>44</sup></a>.
 </p>
 <hr>
 <a name="Interactive-Customization"></a>
@@ -5627,7 +5748,7 @@ Next: <a href="#Line_002dUp-Functions" accesskey="n" rel="next">Line-Up Function
 <a name="index-interactive-customization"></a>
 
 <p>As an example of how to customize indentation, let&rsquo;s change the
-style of this example<a name="DOCF44" href="#FOOT44"><sup>44</sup></a>:
+style of this example<a name="DOCF45" href="#FOOT45"><sup>45</sup></a>:
 </p>
 <div class="example">
 <pre class="example"> 1: int add( int val, int incr, int doit )
@@ -5890,7 +6011,7 @@ block, which makes the function usable in list expressions.
 <dt><a name="index-c_002dlineup_002drunin_002dstatements"></a>Function: <strong>c-lineup-runin-statements</strong></dt>
 <dd><a name="index-lineup_002drunin_002dstatements-_0028c_002d_0029"></a>
 <p>Line up statements for coding standards which place the first statement
-in a block on the same line as the block opening brace<a name="DOCF45" href="#FOOT45"><sup>45</sup></a>.  E.g.:
+in a block on the same line as the block opening brace<a name="DOCF46" href="#FOOT46"><sup>46</sup></a>.  E.g.:
 </p>
 <div class="example">
 <pre class="example">int main()
@@ -6432,6 +6553,17 @@ already has; think of it as an identity function for lineups.
 
 
 <dl>
+<dt><a name="index-c_002dlineup_002dunder_002danchor"></a>Function: <strong>c-lineup-under-anchor</strong></dt>
+<dd>
+<p>Line up a line directly underneath its anchor point.  This is like
+&lsquo;<samp>0</samp>&rsquo;, except any previously calculated offset contributions are
+disregarded.
+</p>
+<p><em>Works with:&nbsp;</em> Any syntactic symbol which has an anchor point.
+</p></dd></dl>
+
+
+<dl>
 <dt><a name="index-c_002dlineup_002dcpp_002ddefine"></a>Function: <strong>c-lineup-cpp-define</strong></dt>
 <dd><a name="index-lineup_002dcpp_002ddefine-_0028c_002d_0029"></a>
 <p>Line up macro continuation lines according to the indentation of the
@@ -6536,7 +6668,7 @@ arglist lineups, e.g.:
 <dt><a name="index-c_002dlineup_002dtopmost_002dintro_002dcont"></a>Function: <strong>c-lineup-topmost-intro-cont</strong></dt>
 <dd><a name="index-lineup_002dtopmost_002dintro_002dcont-_0028c_002d_0029"></a>
 <p>Line up declaration continuation lines zero or one indentation
-step<a name="DOCF46" href="#FOOT46"><sup>46</sup></a>.  For lines preceding a
+step<a name="DOCF47" href="#FOOT47"><sup>47</sup></a>.  For lines preceding a
 definition, zero is used.  For other lines, <code>c-basic-offset</code> is
 added to the indentation.  E.g.:
 </p>
@@ -6594,7 +6726,7 @@ please contact <a href="mailto:bug-cc-mode@gnu.org">bug-cc-mode@gnu.org</a>.
 element (see below).  At the time of the call, point will be somewhere
 on the line being indented.  The return value is a
 <code>c-offsets-alist</code> offset specification: for example, an integer,
-a symbol such as <code>+</code>, a vector, <code>nil</code><a name="DOCF47" href="#FOOT47"><sup>47</sup></a>, or even another line-up function.  Full
+a symbol such as <code>+</code>, a vector, <code>nil</code><a name="DOCF48" href="#FOOT48"><sup>48</sup></a>, or even another line-up function.  Full
 details of these are in <a href="#c_002doffsets_002dalist">c-offsets-alist</a>.
 </p>
 <p>Line-up functions must not move point or change the content of the
@@ -6725,7 +6857,7 @@ is better to write a custom Line-up Function instead (see <a href="#Custom-Line_
 (i.e., what you would get by typing <kbd>C-c C-s</kbd> on the source line.
 See <a href="#Custom-Braces">Custom Braces</a>.).  Note that you should not change point or mark
 inside a <code>c-special-indent-hook</code> function, i.e., you&rsquo;ll probably
-want to wrap your function in a <code>save-excursion</code><a name="DOCF48" href="#FOOT48"><sup>48</sup></a>.
+want to wrap your function in a <code>save-excursion</code><a name="DOCF49" href="#FOOT49"><sup>49</sup></a>.
 </p>
 <p>Setting <code>c-special-indent-hook</code> in style definitions is handled
 slightly differently from other variables&mdash;A style can only add
@@ -6767,15 +6899,18 @@ is <code>nil</code>, all lines inside macro definitions are analyzed as
 invoked CC Mode can only indent and fontify code heuristically.
 Sometimes it gets it wrong.  Usually you should try to design your
 macros so that they &rdquo;look like ordinary code&rdquo; when you invoke them.
-However, one situation is so common that CC Mode handles it
+However, two situations are so common that CC Mode handles them
 specially: that is when certain macros needn&rsquo;t (or mustn&rsquo;t) be
-followed by a &lsquo;<samp>;</samp>&rsquo;.  You need to configure CC Mode to handle
-these macros properly, see <a href="#Macros-with-_003b">Macros with ;</a>.
+followed by a &lsquo;<samp>;</samp>&rsquo;, and when certain macros (or compiler
+directives) expand to nothing.  You need to configure CC Mode to
+handle these macros properly, see <a href="#Macros-with-_003b">Macros with ;</a> and <a href="#Noise-Macros">Noise Macros</a>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Macro-Backslashes" accesskey="1">Macro Backslashes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Macros-with-_003b" accesskey="2">Macros with ;</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Noise-Macros" accesskey="3">Noise Macros</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -6836,7 +6971,7 @@ get aligned only when you explicitly invoke the command
 <a name="Macros-with-_003b"></a>
 <div class="header">
 <p>
-Previous: <a href="#Macro-Backslashes" accesskey="p" rel="prev">Macro Backslashes</a>, Up: <a href="#Custom-Macros" accesskey="u" rel="up">Custom Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Noise-Macros" accesskey="n" rel="next">Noise Macros</a>, Previous: <a href="#Macro-Backslashes" accesskey="p" rel="prev">Macro Backslashes</a>, Up: <a href="#Custom-Macros" accesskey="u" rel="up">Custom Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Macros-with-semicolons"></a>
 <h3 class="section">12.2 Macros with semicolons</h3>
@@ -6845,9 +6980,11 @@ Previous: <a href="#Macro-Backslashes" accesskey="p" rel="prev">Macro Backslashe
 invoke them, <em>macros with semicolons</em>, are very common.  These can
 cause CC Mode to parse the next line wrongly as a
 <code>statement-cont</code> (see <a href="#Function-Symbols">Function Symbols</a>) and thus mis-indent
-it.
+it.  At the top level, a macro invocation before a defun start can
+cause, for example, <code>c-beginning-of-defun</code> (<kbd>C-M-a</kbd>) not to
+find the correct start of the current function.
 </p>
-<p>You can prevent this by specifying which macros have semicolons.  It
+<p>You can prevent these by specifying which macros have semicolons.  It
 doesn&rsquo;t matter whether or not such a macro has a parameter list:
 </p>
 <dl>
@@ -6890,10 +7027,70 @@ example:
 <dt><a name="index-c_002dmake_002dmacro_002dwith_002dsemi_002dre"></a>Function: <strong>c-make-macro-with-semi-re</strong></dt>
 <dd><a name="index-make_002dmacro_002dwith_002dsemi_002dre-_0028c_002d_0029"></a>
 <p>Call this (non-interactive) function, which sets internal variables,
-each time you change the value of
-<code>c-macro-names-with-semicolon</code>.  It takes no arguments, and its
+each time you change the value of <code>c-macro-names-with-semicolon</code>
+after the major mode function has run.  It takes no arguments, and its
 return value has no meaning.  This function is called by CC Mode&rsquo;s
-initialization code.
+initialization code, after the mode hooks have run.
+</p></dd></dl>
+
+<hr>
+<a name="Noise-Macros"></a>
+<div class="header">
+<p>
+Previous: <a href="#Macros-with-_003b" accesskey="p" rel="prev">Macros with ;</a>, Up: <a href="#Custom-Macros" accesskey="u" rel="up">Custom Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Command-and-Function-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Noise-Macros-1"></a>
+<h3 class="section">12.3 Noise Macros</h3>
+<a name="index-noise-macros"></a>
+
+<p>In CC Mode, <em>noise macros</em> are macros which expand to nothing,
+or compiler directives (such as GCC&rsquo;s <code>__attribute__</code>) which play
+no part in the syntax of the C (etc.) language.  Some noise macros are
+followed by arguments in parentheses (possibly optionally), others
+are not.
+</p>
+<p>Noise macros can easily confuse CC Mode&rsquo;s analysis of function
+headers, causing them to be mis-fontified, or even mis-indented.  You
+can prevent this confusion by specifying the identifiers which
+constitute noise macros.
+</p>
+<dl>
+<dt><a name="index-c_002dnoise_002dmacro_002dnames"></a>User Option: <strong>c-noise-macro-names</strong></dt>
+<dd><a name="index-noise_002dmacro_002dnames-_0028c_002d_0029"></a>
+<p>This variable is a list of names of noise macros which never have
+parenthesized arguments.  Each element is a string, and must be a
+valid identifier.  An element in <code>c-noise-macro-names</code> must not
+also be in <code>c-noise-macro-with-parens-names</code>.  Such an element is
+treated as whitespace by CC Mode.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-c_002dnoise_002dmacro_002dwith_002dparens_002dnames"></a>User Option: <strong>c-noise-macro-with-parens-names</strong></dt>
+<dd><a name="index-noise_002dmacro_002dwith_002dparens_002dnames-_0028c_002d_0029"></a>
+<p>This variable is a list of names of noise macros which optionally have
+arguments in parentheses.  Each element of the list is a string, and
+must be a valid identifier.  An element in
+<code>c-noise-macro-with-parens-names</code> must not also be in
+<code>c-noise-macro-names</code>.  For performance reasons, such an element,
+together with the optional parenthesized arguments, is specially
+handled, but it is only handled when used in declaration
+contexts<a name="DOCF50" href="#FOOT50"><sup>50</sup></a>.
+</p>
+<p>The two compiler directives <code>__attribute__</code> and <code>__declspec</code>
+have traditionally been handled specially in CC Mode; for example
+they are fontified with font-lock-keyword-face.  You don&rsquo;t need to
+include these directives in <code>c-noise-macro-with-parens-names</code>,
+but doing so is OK.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-c_002dmake_002dnoise_002dmacro_002dregexps"></a>Function: <strong>c-make-noise-macro-regexps</strong></dt>
+<dd><a name="index-make_002dnoise_002dmacro_002dregexps-_0028c_002d_0029"></a>
+<p>Call this (non-interactive) function, which sets internal variables,
+on changing the value of <code>c-noise-macro-names</code> or
+<code>c-noise-macro-with-parens-names</code> after the major mode&rsquo;s function
+has run.  This function is called by CC Mode&rsquo;s initialization code,
+after the mode hooks have run.
 </p></dd></dl>
 
 <hr>
@@ -7044,7 +7241,7 @@ gets.
 </p>
 <a name="index-beginning_002dof_002ddefun"></a>
 <p>In earlier versions of CC Mode, we used to recommend putting the
-opening brace of a top-level construct<a name="DOCF49" href="#FOOT49"><sup>49</sup></a> into the leftmost
+opening brace of a top-level construct<a name="DOCF51" href="#FOOT51"><sup>51</sup></a> into the leftmost
 column.  Earlier still, this used to be a rigid Emacs constraint, as
 embodied in the <code>beginning-of-defun</code> function.  CC Mode now
 caches syntactic information much better, so that the delay caused by
@@ -7060,7 +7257,7 @@ right side of the line, and that doesn&rsquo;t work well with the Emacs
 approach.  CC Mode comes with a constant
 <code>c-Java-defun-prompt-regexp</code> which tries to define a regular
 expression usable for this style, but there are problems with it.  In
-some cases it can cause <code>beginning-of-defun</code> to hang<a name="DOCF50" href="#FOOT50"><sup>50</sup></a>.  For this reason,
+some cases it can cause <code>beginning-of-defun</code> to hang<a name="DOCF52" href="#FOOT52"><sup>52</sup></a>.  For this reason,
 it is not used by default, but if you feel adventurous, you can set
 <code>defun-prompt-regexp</code> to it in your mode hook.  In any event,
 setting and relying on <code>defun-prompt-regexp</code> will definitely slow
@@ -7210,6 +7407,36 @@ too, add this to your <code>c-initialization-hook</code>:
 
 <p>See <a href="#Getting-Started">Getting Started</a>.  This was a very common question.
 </p>
+</li><li> <em>How do I get block comments in my C++ files?</em>
+
+<p>Interactively, change the comment style with <kbd>C-c C-k</kbd>.
+See <a href="#Minor-Modes">Minor Modes</a>.
+</p>
+<p>To configure this setting, say, for files within the gdb project, you
+could amend your C++ Mode hook like this:
+</p>
+<div class="example">
+<pre class="example">(defun my-c++-mode-hook ()
+  (if (string-match &quot;/gdb/&quot; (buffer-file-name))
+      (c-toggle-comment-style 1)))
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+</pre></div>
+
+</li><li> <em>How do I stop my C++ lambda expressions being indented way over
+to the right?</em>
+
+<p>Change the offset associated with <code>inlambda</code> from its default,
+the function <code>c-lineup-inexpr-block</code>, to 0.  For example, if you
+are setting offsets in a hook function you might include the following
+line:
+</p>
+<div class="example">
+<pre class="example">(c-set-offset 'inlambda 0)
+</pre></div>
+
+<p>For details of the different ways you can make this setting,
+<a href="#Config-Basics">Config Basics</a>.
+</p>
 </li><li> <em>How do I stop my code jumping all over the place when I type?</em>
 
 <p>Deactivate &ldquo;electric minor mode&rdquo; with <kbd>C-c C-l</kbd>.  See <a href="#Getting-Started">Getting Started</a>.
@@ -7256,7 +7483,7 @@ See <a href="http://www.gnu.org/software/emacs/manual/html_mono/emacs.html#Left-
 </p>
 <p>This heuristic is built into the core syntax analysis routines in
 (X)Emacs, so it&rsquo;s not really a CC Mode issue.  However, in Emacs
-21.1 it became possible to turn it off<a name="DOCF51" href="#FOOT51"><sup>51</sup></a> and CC Mode does so
+21.1 it became possible to turn it off<a name="DOCF53" href="#FOOT53"><sup>53</sup></a> and CC Mode does so
 there since it&rsquo;s got its own system to keep track of blocks.
 </p>
 </li></ul>
@@ -7315,7 +7542,7 @@ Emacs Lisp code that triggers the bug and include it in your report.
 </p>
 <a name="index-bug-report-mailing-list"></a>
 <p>Reporting a bug using <code>c-submit-bug-report</code> files it in
-the GNU Bug Tracker at <a href="http://debbugs.gnu.org">http://debbugs.gnu.org</a>, then sends it on
+the GNU Bug Tracker at <a href="https://debbugs.gnu.org">https://debbugs.gnu.org</a>, then sends it on
 to <a href="mailto:bug-cc-mode@gnu.org">bug-cc-mode@gnu.org</a>.  You can also send reports, other
 questions, and suggestions (kudos? <tt>;-)</tt> to that address.  It&rsquo;s a
 mailing list which you can join or browse an archive of; see the web site at
@@ -7345,13 +7572,13 @@ Next: <a href="#Command-and-Function-Index" accesskey="n" rel="next">Command and
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -7527,7 +7754,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -7727,7 +7954,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -7899,6 +8126,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-c_002dcapitalize_002dsubword"><code>c-capitalize-subword</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dcontext_002dline_002dbreak"><code>c-context-line-break</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-and-Breaking">Filling and Breaking</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dcontext_002dopen_002dline"><code>c-context-open-line</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-and-Breaking">Filling and Breaking</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002ddisplay_002ddefun_002dname"><code>c-display-defun-name</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002ddown_002dconditional"><code>c-down-conditional</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002ddown_002dconditional_002dwith_002delse"><code>c-down-conditional-with-else</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002ddowncase_002dsubword"><code>c-downcase-subword</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
@@ -7972,9 +8200,11 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-c_002dlineup_002dstring_002dcont"><code>c-lineup-string-cont</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Operator-Line_002dUp">Operator Line-Up</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dlineup_002dtemplate_002dargs"><code>c-lineup-template-args</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#List-Line_002dUp">List Line-Up</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dlineup_002dtopmost_002dintro_002dcont"><code>c-lineup-topmost-intro-cont</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc-Line_002dUp">Misc Line-Up</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dlineup_002dunder_002danchor"><code>c-lineup-under-anchor</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc-Line_002dUp">Misc Line-Up</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dlineup_002dwhitesmith_002din_002dblock"><code>c-lineup-whitesmith-in-block</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Brace_002fParen-Line_002dUp">Brace/Paren Line-Up</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmacro_002dexpand"><code>c-macro-expand</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmake_002dmacro_002dwith_002dsemi_002dre"><code>c-make-macro-with-semi-re</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macros-with-_003b">Macros with ;</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dmake_002dnoise_002dmacro_002dregexps"><code>c-make-noise-macro-regexps</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmark_002dfunction"><code>c-mark-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indentation-Commands">Indentation Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmark_002dsubword"><code>c-mark-subword</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmode"><code>c-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
@@ -7993,6 +8223,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-c_002dsubmit_002dbug_002dreport"><code>c-submit-bug-report</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mailing-Lists-and-Bug-Reports">Mailing Lists and Bug Reports</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002dauto_002dhungry_002dstate"><code>c-toggle-auto-hungry-state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002dauto_002dnewline"><code>c-toggle-auto-newline</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002dcomment_002dstyle"><code>c-toggle-comment-style</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002delectric_002dstate"><code>c-toggle-electric-state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002dhungry_002dstate"><code>c-toggle-hungry-state</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dtoggle_002dsyntactic_002dindentation"><code>c-toggle-syntactic-indentation</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
@@ -8010,6 +8241,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><th><a name="Command-and-Function-Index_fn_letter-D">D</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-defun_002dprompt_002dregexp"><code>defun-prompt-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Performance-Issues">Performance Issues</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-delete_002dchar"><code>delete-char</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hungry-WS-Deletion">Hungry WS Deletion</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-display_002ddefun_002dname-_0028c_002d_0029"><code>display-defun-name (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-down_002dconditional-_0028c_002d_0029"><code>down-conditional (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-down_002dconditional_002dwith_002delse-_0028c_002d_0029"><code>down-conditional-with-else (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-downcase_002dsubword-_0028c_002d_0029"><code>downcase-subword (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
@@ -8108,6 +8340,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><th><a name="Command-and-Function-Index_fn_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-macro_002dexpand-_0028c_002d_0029"><code>macro-expand (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-make_002dmacro_002dwith_002dsemi_002dre-_0028c_002d_0029"><code>make-macro-with-semi-re (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macros-with-_003b">Macros with ;</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-make_002dnoise_002dmacro_002dregexps-_0028c_002d_0029"><code>make-noise-macro-regexps (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mark_002dfunction-_0028c_002d_0029"><code>mark-function (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indentation-Commands">Indentation Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mark_002dsubword-_0028c_002d_0029"><code>mark-subword (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -8140,6 +8373,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-tab_002dto_002dtab_002dstop"><code>tab-to-tab-stop</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Indentation-Commands">Indentation Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-toggle_002dauto_002dhungry_002dstate-_0028c_002d_0029"><code>toggle-auto-hungry-state (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-toggle_002dauto_002dnewline-_0028c_002d_0029"><code>toggle-auto-newline (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-toggle_002dcomment_002dstyle-_0028c_002d_0029"><code>toggle-comment-style (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-toggle_002delectric_002dstate-_0028c_002d_0029"><code>toggle-electric-state (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-toggle_002dhungry_002dstate-_0028c_002d_0029"><code>toggle-hungry-state (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-toggle_002dsyntactic_002dindentation-_0028c_002d_0029"><code>toggle-syntactic-indentation (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
@@ -8233,6 +8467,8 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-N"><b>N</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-O"><b>O</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-P"><b>P</b></a>
@@ -8253,6 +8489,7 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
 <tr><td></td><td valign="top"><a href="#index-adaptive_002dfill_002dmode"><code>adaptive-fill-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Custom-Filling-and-Breaking">Custom Filling and Breaking</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-adaptive_002dfill_002dmode-1"><code>adaptive-fill-mode</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Custom-Filling-and-Breaking">Custom Filling and Breaking</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-adaptive_002dfill_002dregexp"><code>adaptive-fill-regexp</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Custom-Filling-and-Breaking">Custom Filling and Breaking</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-asymmetry_002dfontification_002dflag-_0028c_002d_0029"><code>asymmetry-fontification-flag (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc-Font-Locking">Misc Font Locking</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-auto_002dalign_002dbackslashes-_0028c_002d_0029"><code>auto-align-backslashes (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macro-Backslashes">Macro Backslashes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-awk_002dmode_002dhook"><code>awk-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
@@ -8266,6 +8503,7 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
 <tr><th><a name="Variable-Index_vr_letter-C">C</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002b_002b_002dfont_002dlock_002dextra_002dtypes"><code>c++-font-lock-extra-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-Locking-Preliminaries">Font Locking Preliminaries</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002b_002b_002dmode_002dhook"><code>c++-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dasymmetry_002dfontification_002dflag"><code>c-asymmetry-fontification-flag</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Misc-Font-Locking">Misc Font Locking</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dauto_002dalign_002dbackslashes"><code>c-auto-align-backslashes</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macro-Backslashes">Macro Backslashes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dbackslash_002dcolumn"><code>c-backslash-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macro-Backslashes">Macro Backslashes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dbackslash_002dmax_002dcolumn"><code>c-backslash-max-column</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Macro-Backslashes">Macro Backslashes</a></td></tr>
@@ -8307,6 +8545,8 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
 <tr><td></td><td valign="top"><a href="#index-c_002dmax_002done_002dliner_002dlength"><code>c-max-one-liner-length</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean_002dups">Clean-ups</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmode_002dcommon_002dhook"><code>c-mode-common-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dmode_002dhook"><code>c-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dnoise_002dmacro_002dnames"><code>c-noise-macro-names</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-c_002dnoise_002dmacro_002dwith_002dparens_002dnames"><code>c-noise-macro-with-parens-names</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002doffsets_002dalist"><code>c-offsets-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Syntactic-Symbols">Syntactic Symbols</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002doffsets_002dalist-1"><code>c-offsets-alist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#c_002doffsets_002dalist">c-offsets-alist</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-c_002dold_002dstyle_002dvariable_002dbehavior"><code>c-old-style-variable-behavior</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Style-Variables">Style Variables</a></td></tr>
@@ -8405,6 +8645,10 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
 <tr><td></td><td valign="top"><a href="#index-max_002done_002dliner_002dlength-_0028c_002d_0029"><code>max-one-liner-length (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Clean_002dups">Clean-ups</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mode_002dcommon_002dhook-_0028c_002d_0029"><code>mode-common-hook (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Variable-Index_vr_letter-N">N</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-noise_002dmacro_002dnames-_0028c_002d_0029"><code>noise-macro-names (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-noise_002dmacro_002dwith_002dparens_002dnames-_0028c_002d_0029"><code>noise-macro-with-parens-names (c-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Variable-Index_vr_letter-O">O</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-objc_002dfont_002dlock_002dextra_002dtypes"><code>objc-font-lock-extra-types</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Font-Locking-Preliminaries">Font Locking Preliminaries</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-objc_002dmode_002dhook"><code>objc-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#CC-Hooks">CC Hooks</a></td></tr>
@@ -8461,6 +8705,8 @@ Next: <a href="#Concept-and-Key-Index" accesskey="n" rel="next">Concept and Key 
 <a class="summary-letter" href="#Variable-Index_vr_letter-L"><b>L</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Variable-Index_vr_letter-N"><b>N</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-O"><b>O</b></a>
  &nbsp; 
@@ -8651,6 +8897,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dd"><code>C-c C-d</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hungry-WS-Deletion">Hungry WS Deletion</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dDEL"><code>C-c C-DEL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hungry-WS-Deletion">Hungry WS Deletion</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002de"><code>C-c C-e</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dk"><code>C-c C-k</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dl"><code>C-c C-l</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dn"><code>C-c C-n</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002do"><code>C-c C-o</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#c_002doffsets_002dalist">c-offsets-alist</a></td></tr>
@@ -8660,6 +8907,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds"><code>C-c C-s</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Syntactic-Analysis">Syntactic Analysis</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002du"><code>C-c C-u</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Movement-Commands">Movement Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dw"><code>C-c C-w</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Minor-Modes">Minor Modes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002dz"><code>C-c C-z</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002d_005c"><code>C-c C-\</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Other-Commands">Other Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-DEL"><code>C-c DEL</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hungry-WS-Deletion">Hungry WS Deletion</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dd"><code>C-d</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hungry-WS-Deletion">Hungry WS Deletion</a></td></tr>
@@ -8802,6 +9050,7 @@ Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>,
 <tr><th><a name="Concept-and-Key-Index_cp_letter-N">N</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-namespace_002dclose"><code>namespace-close</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Scope-Symbols">External Scope Symbols</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-namespace_002dopen"><code>namespace-open</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#External-Scope-Symbols">External Scope Symbols</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-noise-macros">noise macros</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Noise-Macros">Noise Macros</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-nomenclature">nomenclature</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Subword-Movement">Subword Movement</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Concept-and-Key-Index_cp_letter-O">O</a></th><td></td><td></td></tr>
@@ -8971,8 +9220,9 @@ and see <a href="#Customizing-Indentation">Customizing Indentation</a>)</p>
 <p>In GCC, unescaped line breaks within strings are
 valid.</p>
 <h3><a name="FOOT8" href="#DOCF8">(8)</a></h3>
-<p>The &lsquo;<samp>C</samp>&rsquo; would be replaced with the name of
-the language in question for the other languages CC Mode supports.</p>
+<p>The &lsquo;<samp>C</samp>&rsquo; would be replaced with
+the name of the language in question for the other languages CC Mode
+supports.</p>
 <h3><a name="FOOT9" href="#DOCF9">(9)</a></h3>
 <p>Prior to CC Mode 5.31, this command was bound to <kbd>C-c C-d</kbd>.</p>
 <h3><a name="FOOT10" href="#DOCF10">(10)</a></h3>
@@ -9097,60 +9347,70 @@ the keyword <code>class</code> is meaningless in C and Objective-C.</p>
 <p><code>block-open</code> is used only for
 &ldquo;free-standing&rdquo; blocks, and is somewhat rare (see <a href="#Literal-Symbols">Literal Symbols</a> for an example.)</p>
 <h3><a name="FOOT38" href="#DOCF38">(38)</a></h3>
+<p>This extra
+syntactic element was introduced in CC Mode 5.33.1 to allow extra
+flexibility in indenting the second line of such a construct.  You can
+preserve the behaviour resulting from the former syntactic analysis by
+giving <code>brace-list-entry</code> an offset of
+<code>c-lineup-under-anchor</code> (see <a href="#Misc-Line_002dUp">Misc Line-Up</a>).</p>
+<h3><a name="FOOT39" href="#DOCF39">(39)</a></h3>
 <p>These should logically be
 named <code>extern-open</code>, <code>extern-close</code> and <code>inextern</code>, but
 that isn&rsquo;t the case for historical reasons.</p>
-<h3><a name="FOOT39" href="#DOCF39">(39)</a></h3>
+<h3><a name="FOOT40" href="#DOCF40">(40)</a></h3>
 <p>This is how CC Mode 5.28 and earlier analyzed
 macros.</p>
-<h3><a name="FOOT40" href="#DOCF40">(40)</a></h3>
+<h3><a name="FOOT41" href="#DOCF41">(41)</a></h3>
 <p>You might wonder why it doesn&rsquo;t get
 <code>inlambda</code> too.  It&rsquo;s because the closing brace is relative to the
 opening brace, which stands on its own line in this example.  If the
 opening brace was hanging on the previous line, then the closing brace
 would get the <code>inlambda</code> syntax too to be indented correctly.</p>
-<h3><a name="FOOT41" href="#DOCF41">(41)</a></h3>
-<p>a.k.a. K&amp;R C, or Kernighan &amp; Ritchie C</p>
 <h3><a name="FOOT42" href="#DOCF42">(42)</a></h3>
-<p>The syntactic context <code><span class="nolinebreak">((defun-block-intro</span>&nbsp;2724)&nbsp;<span class="nolinebreak">(comment-intro))</span><!-- /@w --></code> would likely have two relative offsets.</p>
+<p>a.k.a. K&amp;R C, or Kernighan &amp; Ritchie C</p>
 <h3><a name="FOOT43" href="#DOCF43">(43)</a></h3>
+<p>The syntactic context <code><span class="nolinebreak">((defun-block-intro</span>&nbsp;2724)&nbsp;<span class="nolinebreak">(comment-intro))</span><!-- /@w --></code> would likely have two relative offsets.</p>
+<h3><a name="FOOT44" href="#DOCF44">(44)</a></h3>
 <p>There is however a variable
 <code>c-strict-syntax-p</code> that when set to non-<code>nil</code> will cause an
 error to be signaled in that case.  It&rsquo;s now considered obsolete since
 it doesn&rsquo;t work well with some of the alignment functions that return
 <code>nil</code> instead of zero.  You should therefore leave
 <code>c-strict-syntax-p</code> set to <code>nil</code>.</p>
-<h3><a name="FOOT44" href="#DOCF44">(44)</a></h3>
+<h3><a name="FOOT45" href="#DOCF45">(45)</a></h3>
 <p>In this and subsequent examples, the
 original code is formatted using the &lsquo;<samp>gnu</samp>&rsquo; style unless otherwise
 indicated.  See <a href="#Styles">Styles</a>.</p>
-<h3><a name="FOOT45" href="#DOCF45">(45)</a></h3>
+<h3><a name="FOOT46" href="#DOCF46">(46)</a></h3>
 <p>Run-in
 style doesn&rsquo;t really work too well.  You might need to write your own
 custom line-up functions to better support this style.</p>
-<h3><a name="FOOT46" href="#DOCF46">(46)</a></h3>
+<h3><a name="FOOT47" href="#DOCF47">(47)</a></h3>
 <p>This function is mainly provided to mimic the behavior of
 CC Mode 5.28 and earlier where this case wasn&rsquo;t handled consistently so
 that those lines could be analyzed as either topmost-intro-cont or
 statement-cont.  It&rsquo;s used for <code>topmost-intro-cont</code> by default, but
 you might consider using <code>+</code> instead.</p>
-<h3><a name="FOOT47" href="#DOCF47">(47)</a></h3>
+<h3><a name="FOOT48" href="#DOCF48">(48)</a></h3>
 <p>Returning
 <code>nil</code> is useful when the offset specification for a syntactic
 element is a list containing the line-up function
 (see <a href="#c_002doffsets_002dalist">c-offsets-alist</a>).</p>
-<h3><a name="FOOT48" href="#DOCF48">(48)</a></h3>
+<h3><a name="FOOT49" href="#DOCF49">(49)</a></h3>
 <p>The
 numerical value returned by <code>point</code> will change if you change the
 indentation of the line within a <code>save-excursion</code> form, but point
 itself will still be over the same piece of text.</p>
-<h3><a name="FOOT49" href="#DOCF49">(49)</a></h3>
+<h3><a name="FOOT50" href="#DOCF50">(50)</a></h3>
+<p>If this restriction causes your project
+difficulties, please get in touch with <a href="mailto:bug-cc-mode@gnu.org">bug-cc-mode@gnu.org</a>.</p>
+<h3><a name="FOOT51" href="#DOCF51">(51)</a></h3>
 <p>E.g., a function in C,
 or outermost class definition in C++ or Java.</p>
-<h3><a name="FOOT50" href="#DOCF50">(50)</a></h3>
+<h3><a name="FOOT52" href="#DOCF52">(52)</a></h3>
 <p>This
 has been observed in Emacs 19.34 and XEmacs 19.15.</p>
-<h3><a name="FOOT51" href="#DOCF51">(51)</a></h3>
+<h3><a name="FOOT53" href="#DOCF53">(53)</a></h3>
 <p>Using the variable
 <code>open-paren-in-column-0-is-defun-start</code>.</p>
 </div>

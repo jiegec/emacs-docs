@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the GNU Emacs Common Lisp emulation package.
 
-Copyright (C) 1993, 2001-2016 Free Software Foundation, Inc.
+Copyright (C) 1993, 2001-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -13,8 +13,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Common Lisp Extensions</title>
 
 <meta name="description" content="Common Lisp Extensions">
@@ -22,7 +23,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Function-Index" rel="index" title="Function Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -189,6 +189,7 @@ ul.no-bullet {list-style: none}
   <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix E GNU Free Documentation License</a></li>
   <li><a name="toc-Function-Index-1" href="#Function-Index">Function Index</a></li>
   <li><a name="toc-Variable-Index-1" href="#Variable-Index">Variable Index</a></li>
+  <li><a name="toc-Concept-Index-1" href="#Concept-Index">Concept Index</a></li>
 </ul>
 </div>
 
@@ -203,7 +204,7 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 
 <p>This file documents the GNU Emacs Common Lisp emulation package.
 </p>
-<p>Copyright © 1993, 2001–2016 Free Software Foundation, Inc.
+<p>Copyright © 1993, 2001–2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -342,6 +343,12 @@ Indexes
 <td align="left" valign="top">• <a href="#Variable-Index">Variable Index</a>:</td>
 <td>  </td>
 <td align="left" valign="top">An entry for each documented variable.
+</td>
+</tr>
+<tr>
+<td align="left" valign="top">• <a href="#Concept-Index">Concept Index</a>:</td>
+<td>  </td>
+<td align="left" valign="top">An entry for each concept.
 </td>
 </tr>
 </table>
@@ -1378,6 +1385,7 @@ Next: <a href="#Variable-Bindings" accesskey="n" rel="next">Variable Bindings</a
 </div>
 <a name="Generalized-Variables-1"></a>
 <h3 class="section">4.2 Generalized Variables</h3>
+<a name="index-generalized-variable"></a>
 
 <p>A <em>generalized variable</em> or <em>place form</em> is one of the many
 places in Lisp memory where values can be stored.  The simplest place
@@ -1792,6 +1800,7 @@ Next: <a href="#Conditionals" accesskey="n" rel="next">Conditionals</a>, Previou
 </div>
 <a name="Variable-Bindings-1"></a>
 <h3 class="section">4.3 Variable Bindings</h3>
+<a name="index-variable-binding"></a>
 
 <p>These Lisp forms make bindings to variables and function names,
 analogous to Lisp’s built-in <code>let</code> form.
@@ -1830,6 +1839,7 @@ Next: <a href="#Function-Bindings" accesskey="n" rel="next">Function Bindings</a
 </div>
 <a name="Dynamic-Bindings-1"></a>
 <h4 class="subsection">4.3.1 Dynamic Bindings</h4>
+<a name="index-dynamic-binding"></a>
 
 <p>The standard <code>let</code> form binds variables whose names are known
 at compile-time.  The <code>cl-progv</code> form provides an easy way to
@@ -1859,6 +1869,7 @@ Next: <a href="#Macro-Bindings" accesskey="n" rel="next">Macro Bindings</a>, Pre
 </div>
 <a name="Function-Bindings-1"></a>
 <h4 class="subsection">4.3.2 Function Bindings</h4>
+<a name="index-function-binding"></a>
 
 <p>These forms make <code>let</code>-like bindings to functions instead
 of variables.
@@ -1929,6 +1940,7 @@ Previous: <a href="#Function-Bindings" accesskey="p" rel="prev">Function Binding
 </div>
 <a name="Macro-Bindings-1"></a>
 <h4 class="subsection">4.3.3 Macro Bindings</h4>
+<a name="index-macro-binding"></a>
 
 <p>These forms create local macros and “symbol macros”.
 </p>
@@ -2039,6 +2051,7 @@ Next: <a href="#Blocks-and-Exits" accesskey="n" rel="next">Blocks and Exits</a>,
 </div>
 <a name="Conditionals-1"></a>
 <h3 class="section">4.4 Conditionals</h3>
+<a name="index-conditionals"></a>
 
 <p>These conditional forms augment Emacs Lisp’s simple <code>if</code>,
 <code>and</code>, <code>or</code>, and <code>cond</code> forms.
@@ -2109,7 +2122,7 @@ for a description of type specifiers.  For example,
 <pre class="example">(cl-typecase x
   (integer (munch-integer x))
   (float (munch-float x))
-  (string (munch-integer (string-to-int x)))
+  (string (munch-integer (string-to-number x)))
   (t (munch-anything x)))
 </pre>
 </div>
@@ -2140,6 +2153,7 @@ Next: <a href="#Iteration" accesskey="n" rel="next">Iteration</a>, Previous: <a 
 <a name="Blocks-and-Exits-1"></a>
 <h3 class="section">4.5 Blocks and Exits</h3>
 <a name="index-block"></a>
+<a name="index-exit"></a>
 
 <p>Common Lisp <em>blocks</em> provide a non-local exit mechanism very
 similar to <code>catch</code> and <code>throw</code>, with lexical scoping.
@@ -2241,6 +2255,7 @@ Next: <a href="#Loop-Facility" accesskey="n" rel="next">Loop Facility</a>, Previ
 </div>
 <a name="Iteration-1"></a>
 <h3 class="section">4.6 Iteration</h3>
+<a name="index-iteration"></a>
 
 <p>The macros described here provide more sophisticated, high-level
 looping constructs to complement Emacs Lisp’s basic loop forms
@@ -2421,6 +2436,7 @@ Next: <a href="#Multiple-Values" accesskey="n" rel="next">Multiple Values</a>, P
 </div>
 <a name="Loop-Facility-1"></a>
 <h3 class="section">4.7 Loop Facility</h3>
+<a name="index-loop-facility"></a>
 
 <p>A common complaint with Lisp’s traditional looping constructs was
 that they were either too simple and limited, such as <code>dotimes</code>
@@ -2722,18 +2738,6 @@ function taking one argument.  For example:
 </pre>
 </div>
 
-<p>With <code>by</code>, there is no real reason that the <code>on</code> expression
-must be a list.  For example:
-</p>
-<div class="example">
-<pre class="example">(cl-loop for x on first-animal by 'next-animal collect x)
-</pre>
-</div>
-
-<p>where <code>(next-animal x)</code> takes an “animal” <var>x</var> and returns
-the next in the (assumed) sequence of animals, or <code>nil</code> if
-<var>x</var> was the last animal in the sequence.
-</p>
 </dd>
 <dt><code>for <var>var</var> in-ref <var>list</var> by <var>function</var></code></dt>
 <dd>
@@ -3049,8 +3053,8 @@ were non-<code>nil</code>, the loop returns <code>t</code>:
 </p>
 <div class="example">
 <pre class="example">(if (cl-loop for size in size-list always (&gt; size 10))
-    (some-big-sizes)
-  (no-big-sizes))
+    (only-big-sizes)
+  (some-small-sizes))
 </pre>
 </div>
 
@@ -3354,6 +3358,7 @@ Previous: <a href="#Loop-Facility" accesskey="p" rel="prev">Loop Facility</a>, U
 </div>
 <a name="Multiple-Values-1"></a>
 <h3 class="section">4.8 Multiple Values</h3>
+<a name="index-multiple-values"></a>
 
 <p>Common Lisp functions can return zero or more results.  Emacs Lisp
 functions, by contrast, always return exactly one result.  This
@@ -5074,7 +5079,7 @@ i.e., chains of cons cells.
 <a name="index-cl_002dcaddr"></a>Function: <strong>cl-caddr</strong> <em>x</em>
 </dt>
 <dd><p>This function is equivalent to <code>(car (cdr (cdr <var>x</var>)))</code>.
-Likewise, this package defines all 24 <code>c<var>xxx</var>r</code> functions
+Likewise, this package aliases all 24 <code>c<var>xxx</var>r</code> functions
 where <var>xxx</var> is up to four ‘<samp>a</samp>’s and/or ‘<samp>d</samp>’s.
 All of these functions are <code>setf</code>-able, and calls to them
 are expanded inline by the byte-compiler for maximum efficiency.
@@ -5521,10 +5526,7 @@ Lisp, such uninitialized slots are filled with <code>nil</code>.)
 object of the same type whose slots are <code>eq</code> to those of <var>p</var>.
 </p>
 <p>Given any Lisp object <var>x</var>, <code>(person-p <var>x</var>)</code> returns
-true if <var>x</var> looks like a <code>person</code>, and false otherwise.  (Again,
-in Common Lisp this predicate would be exact; in Emacs Lisp the
-best it can do is verify that <var>x</var> is a vector of the correct
-length that starts with the correct tag symbol.)
+true if <var>x</var> is a <code>person</code>, and false otherwise.
 </p>
 <p>Accessors like <code>person-name</code> normally check their arguments
 (effectively using <code>person-p</code>) and signal an error if the
@@ -5748,16 +5750,16 @@ allow for such a feature, so this package simply ignores
 </dd>
 <dt><code>:type</code></dt>
 <dd>
-<p>The argument should be one of the symbols <code>vector</code> or <code>list</code>.
-This tells which underlying Lisp data type should be used to implement
-the new structure type.  Vectors are used by default, but
-<code>(:type list)</code> will cause structure objects to be stored as
-lists instead.
+<p>The argument should be one of the symbols <code>vector</code> or
+<code>list</code>.  This tells which underlying Lisp data type should be
+used to implement the new structure type.  Records are used by
+default, but <code>(:type vector)</code> will cause structure objects to be
+stored as vectors and <code>(:type list)</code> lists instead.
 </p>
-<p>The vector representation for structure objects has the advantage
-that all structure slots can be accessed quickly, although creating
-vectors is a bit slower in Emacs Lisp.  Lists are easier to create,
-but take a relatively long time accessing the later slots.
+<p>The record and vector representations for structure objects have the
+advantage that all structure slots can be accessed quickly, although
+creating them are a bit slower in Emacs Lisp.  Lists are easier to
+create, but take a relatively long time accessing the later slots.
 </p>
 </dd>
 <dt><code>:named</code></dt>
@@ -5768,21 +5770,24 @@ symbol to be stored at the front of the structure object.  Using
 structure type stored as plain vectors or lists with no identifying
 features.
 </p>
-<p>The default, if you don’t specify <code>:type</code> explicitly, is to
-use named vectors.  Therefore, <code>:named</code> is only useful in
-conjunction with <code>:type</code>.
+<p>The default, if you don’t specify <code>:type</code> explicitly, is to use
+records, which are always tagged.  Therefore, <code>:named</code> is only
+useful in conjunction with <code>:type</code>.
 </p>
 <div class="example">
 <pre class="example">(cl-defstruct (person1) name age sex)
 (cl-defstruct (person2 (:type list) :named) name age sex)
 (cl-defstruct (person3 (:type list)) name age sex)
+(cl-defstruct (person4 (:type vector)) name age sex)
 
 (setq p1 (make-person1))
-     ⇒ [cl-struct-person1 nil nil nil]
+     ⇒ #s(person1 nil nil nil)
 (setq p2 (make-person2))
      ⇒ (person2 nil nil nil)
 (setq p3 (make-person3))
      ⇒ (nil nil nil)
+(setq p4 (make-person4))
+     ⇒ [nil nil nil]
 
 (person1-p p1)
      ⇒ t
@@ -5829,9 +5834,9 @@ introspection functions.
 <a name="index-cl_002dstruct_002dsequence_002dtype"></a>Function: <strong>cl-struct-sequence-type</strong> <em>struct-type</em>
 </dt>
 <dd><p>This function returns the underlying data structure for
-<code>struct-type</code>, which is a symbol.  It returns <code>vector</code> or
-<code>list</code>, or <code>nil</code> if <code>struct-type</code> is not actually a
-structure.
+<code>struct-type</code>, which is a symbol.  It returns <code>record</code>,
+<code>vector</code> or <code>list</code>, or <code>nil</code> if <code>struct-type</code> is
+not actually a structure.
 </p></dd>
 </dl>
 
@@ -6134,9 +6139,8 @@ set down in Steele’s book.
 </p>
 <p>The variable <code>cl--gensym-counter</code> starts out with zero.
 </p>
-<p>The <code>cl-defstruct</code> facility is compatible, except that structures
-are of type <code>:type vector :named</code> by default rather than some
-special, distinct type.  Also, the <code>:type</code> slot option is ignored.
+<p>The <code>cl-defstruct</code> facility is compatible, except that the
+<code>:type</code> slot option is ignored.
 </p>
 <p>The second argument of <code>cl-check-type</code> is treated differently.
 </p>
@@ -6289,9 +6293,9 @@ Lisp.  Rational numbers and complex numbers are not present,
 nor are large integers (all integers are “fixnums”).  All
 arrays are one-dimensional.  There are no readtables or pathnames;
 streams are a set of existing data types rather than a new data
-type of their own.  Hash tables, random-states, structures, and
-packages (obarrays) are built from Lisp vectors or lists rather
-than being distinct types.
+type of their own.  Hash tables, random-states, and packages
+(obarrays) are built from Lisp vectors or lists rather than being
+distinct types.
 
 </li>
 <li> The Common Lisp Object System (CLOS) is not implemented,
@@ -6859,14 +6863,14 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 
 <div class="display">
 <pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre>
 </div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -7046,7 +7050,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -7267,7 +7271,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -7361,7 +7365,6 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 </div>
 <a name="Function-Index-1"></a>
 <h2 class="unnumbered">Function Index</h2>
-
 <table><tr>
 <th valign="top">Jump to:   </th>
 <td>
@@ -8688,11 +8691,10 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <a name="Variable-Index"></a>
 <div class="header">
 <p>
-Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Function-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Function-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Variable-Index-1"></a>
 <h2 class="unnumbered">Variable Index</h2>
-
 <table><tr>
 <th valign="top">Jump to:   </th>
 <td>
@@ -8777,6 +8779,277 @@ Previous: <a href="#Function-Index" accesskey="p" rel="prev">Function Index</a>,
 <th valign="top">Jump to:   </th>
 <td>
 <a class="summary-letter" href="#Variable-Index_vr_letter-C"><b>C</b></a>
+   
+</td>
+</tr></table>
+
+<hr>
+<a name="Concept-Index"></a>
+<div class="header">
+<p>
+Previous: <a href="#Variable-Index" accesskey="p" rel="prev">Variable Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a>   [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Function-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concept-Index-1"></a>
+<h2 class="unnumbered">Concept Index</h2>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_symbol-1"><b>&amp;</b></a>
+   
+<br>
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
+   
+</td>
+</tr></table>
+<table class="index-cp" border="0">
+<tr>
+<td></td>
+<th align="left">Index Entry</th>
+<td> </td>
+<th align="left"> Section</th>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_symbol-1">&amp;</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0026aux">&amp;aux</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Argument-Lists">Argument Lists</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-_0026key">&amp;key</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Argument-Lists">Argument Lists</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-B">B</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-block">block</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Blocks-and-Exits">Blocks and Exits</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-C">C</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-compiler-macros">compiler macros</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Macros">Macros</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-conditionals">conditionals</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Conditionals">Conditionals</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-D">D</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-define-compiler-macros">define compiler macros</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Macros">Macros</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-destructuring_002c-in-argument-list">destructuring, in argument list</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Argument-Lists">Argument Lists</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-destructuring_002c-in-cl_002dloop">destructuring, in cl-loop</a>:</td>
+<td> </td>
+<td valign="top"><a href="#For-Clauses">For Clauses</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-dynamic-binding">dynamic binding</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Dynamic-Bindings">Dynamic Bindings</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-E">E</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-exit">exit</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Blocks-and-Exits">Blocks and Exits</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-F">F</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-function-binding">function binding</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Function-Bindings">Function Bindings</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-G">G</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-generalized-variable">generalized variable</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Generalized-Variables">Generalized Variables</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-I">I</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-iteration">iteration</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Iteration">Iteration</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-L">L</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-loop-facility">loop facility</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Loop-Facility">Loop Facility</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-M">M</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-macro-binding">macro binding</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Macro-Bindings">Macro Bindings</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-multiple-values">multiple values</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Multiple-Values">Multiple Values</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+<tr>
+<th><a name="Concept-Index_cp_letter-V">V</a></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-variable-binding">variable binding</a>:</td>
+<td> </td>
+<td valign="top"><a href="#Variable-Bindings">Variable Bindings</a></td>
+</tr>
+<tr><td colspan="4"> <hr>
+</td></tr>
+</table>
+<table><tr>
+<th valign="top">Jump to:   </th>
+<td>
+<a class="summary-letter" href="#Concept-Index_cp_symbol-1"><b>&amp;</b></a>
+   
+<br>
+<a class="summary-letter" href="#Concept-Index_cp_letter-B"><b>B</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-C"><b>C</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-D"><b>D</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-E"><b>E</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-F"><b>F</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-G"><b>G</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-I"><b>I</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-L"><b>L</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-M"><b>M</b></a>
+   
+<a class="summary-letter" href="#Concept-Index_cp_letter-V"><b>V</b></a>
    
 </td>
 </tr></table>

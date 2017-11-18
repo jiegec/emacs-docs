@@ -2,7 +2,7 @@
 <html>
 <!-- This manual documents EIEIO, an object framework for Emacs Lisp.
 
-Copyright (C) 2007-2016 Free Software Foundation, Inc.
+Copyright (C) 2007-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -13,8 +13,9 @@ is included in the section entitled "GNU Free Documentation License."
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Enhanced Implementation of Emacs Interpreted Objects</title>
 
 <meta name="description" content="Enhanced Implementation of Emacs Interpreted Objects">
@@ -22,7 +23,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Function-Index" rel="index" title="Function Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -81,7 +81,7 @@ framework for writing object-oriented applications in Emacs.
 </p>
 <p>This manual documents EIEIO, an object framework for Emacs Lisp.
 </p>
-<p>Copyright © 2007–2016 Free Software Foundation, Inc.
+<p>Copyright © 2007–2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -264,7 +264,7 @@ three slots named <code>name</code>, <code>birthday</code>, and <code>phone</cod
 <p>Each class can have methods, which are defined like this:
 </p>
 <div class="example">
-<pre class="example">(defmethod call-record ((rec record) &amp;optional scriptname)
+<pre class="example">(cl-defmethod call-record ((rec record) &amp;optional scriptname)
   "Dial the phone for the record REC.
 Execute the program SCRIPTNAME to dial the phone."
   (message "Dialing the phone for %s"  (oref rec name))
@@ -323,7 +323,7 @@ method defined for it.  In this example it would look like this:
 <p>In these examples, <i>EIEIO</i> automatically examines the class of
 <code>rec</code>, and ensures that the method defined above is called.  If
 <code>rec</code> is some other class lacking a <code>call-record</code> method, or
-some other data type, Emacs signals a <code>no-method-definition</code>
+some other data type, Emacs signals a <code>cl-no-applicable-method</code>
 error.  <a href="#Signals">Signals</a>.
 </p>
 <hr>
@@ -720,21 +720,21 @@ object.
 You can call this function later on your object and retrieve the value
 of the slot.
 </p>
-<p>This options is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
+<p>This option is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
 </p>
 </dd>
 <dt><code>:writer</code></dt>
 <dd>
 <p>Name of a generic function which will write this slot.
 </p>
-<p>This options is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
+<p>This option is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
 </p>
 </dd>
 <dt><code>:reader</code></dt>
 <dd>
 <p>Name of a generic function which will read this slot.
 </p>
-<p>This options is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
+<p>This option is in the CLOS spec, but is not fully compliant in <i>EIEIO</i>.
 </p>
 </dd>
 <dt><code>:custom</code></dt>
@@ -743,7 +743,7 @@ of the slot.
 See documentation for <code>defcustom</code> for details.  This specifier is
 equivalent to the :type spec of a <code>defcustom</code> call.
 </p>
-<p>This options is specific to Emacs, and is not in the CLOS spec.
+<p>This option is specific to Emacs, and is not in the CLOS spec.
 </p>
 </dd>
 <dt><code>:label</code></dt>
@@ -752,7 +752,7 @@ equivalent to the :type spec of a <code>defcustom</code> call.
 of the slot name.  This enables better descriptions of the data than
 would usually be afforded.
 </p>
-<p>This options is specific to Emacs, and is not in the CLOS spec.
+<p>This option is specific to Emacs, and is not in the CLOS spec.
 </p>
 </dd>
 <dt><code>:group</code></dt>
@@ -762,7 +762,7 @@ slots in an object into groups.  When customizing an object, only the
 slots belonging to a specific group need be worked with, simplifying the
 size of the display.
 </p>
-<p>This options is specific to Emacs, and is not in the CLOS spec.
+<p>This option is specific to Emacs, and is not in the CLOS spec.
 </p>
 </dd>
 <dt><code>:printer</code></dt>
@@ -804,7 +804,7 @@ as documentation.
 </p></dd>
 </dl>
 
-<p>This options is specific to Emacs, and is not in the CLOS spec.
+<p>This option is specific to Emacs, and is not in the CLOS spec.
 </p>
 </dd>
 </dl>
@@ -839,7 +839,7 @@ the <code>:type</code> is specifies something such as <code>string</code> then a
 this to pass.  The default is to have this option be off.  This is
 implemented as an alternative to unbound slots.
 </p>
-<p>This options is specific to Emacs, and is not in the CLOS spec.
+<p>This option is specific to Emacs, and is not in the CLOS spec.
 </p>
 </dd>
 <dt><code>:abstract</code></dt>
@@ -863,9 +863,9 @@ however, to see what groups are available.
 <dt><code>:method-invocation-order</code></dt>
 <dd>
 <p>This controls the order in which method resolution occurs for
-<code>:primary</code> methods in cases of multiple inheritance.  The order
+methods in cases of multiple inheritance.  The order
 affects which method is called first in a tree, and if
-<code>call-next-method</code> is used, it controls the order in which the
+<code>cl-call-next-method</code> is used, it controls the order in which the
 stack of methods are run.
 </p>
 <p>Valid values are:
@@ -1199,7 +1199,7 @@ Manual</cite>).
 </p>
 <dl>
 <dt>
-<a name="index-defgeneric"></a>Macro: <strong>defgeneric</strong> <em>method arglist [doc-string]</em>
+<a name="index-cl_002ddefgeneric"></a>Macro: <strong>cl-defgeneric</strong> <em>method arglist [doc-string]</em>
 </dt>
 <dd>
 <p>This macro turns the (unquoted) symbol <var>method</var> into a function.
@@ -1207,13 +1207,13 @@ Manual</cite>).
 yet).  <var>doc-string</var> is the documentation used for this symbol.
 </p>
 <p>A generic function acts as a placeholder for methods.  There is no
-need to call <code>defgeneric</code> yourself, as <code>defmethod</code> will call
+need to call <code>cl-defgeneric</code> yourself, as <code>cl-defmethod</code> will call
 it if necessary.  Currently the argument list is unused.
 </p>
-<p><code>defgeneric</code> signals an error if you attempt to turn an existing
+<p><code>cl-defgeneric</code> signals an error if you attempt to turn an existing
 Emacs Lisp function into a generic function.
 </p>
-<p>You can also create a generic method with <code>defmethod</code>
+<p>You can also create a generic method with <code>cl-defmethod</code>
 (see <a href="#Methods">Methods</a>).  When a method is created and there is no generic
 method in place with that name, then a new generic will be created,
 and the new method will use it.
@@ -1234,34 +1234,29 @@ Next: <a href="#Static-Methods" accesskey="n" rel="next">Static Methods</a>, Pre
 <a name="Methods-1"></a>
 <h3 class="section">6.2 Methods</h3>
 
-<p>A method is a function that is executed if the first argument passed
-to it matches the method’s class.  Different <i>EIEIO</i> classes may
+<p>A method is a function that is executed if the arguments passed
+to it matches the method’s specializers.  Different <i>EIEIO</i> classes may
 share the same method names.
 </p>
-<p>Methods are created with the <code>defmethod</code> macro, which is similar
+<p>Methods are created with the <code>cl-defmethod</code> macro, which is similar
 to <code>defun</code>.
 </p>
 <dl>
 <dt>
-<a name="index-defmethod"></a>Macro: <strong>defmethod</strong> <em>method [:before | :primary | :after | :static ] arglist [doc-string] forms</em>
+<a name="index-cl_002ddefmethod"></a>Macro: <strong>cl-defmethod</strong> <em>method [:before | :around | :after ] arglist [doc-string] forms</em>
 </dt>
 <dd>
 <p><var>method</var> is the name of the function to create.
 </p>
-<p><code>:before</code> and <code>:after</code> specify execution order (i.e., when
-this form is called).  If neither of these symbols are present, the
-default priority is used (before <code>:after</code> and after
-<code>:before</code>); this default priority is represented in CLOS as
-<code>:primary</code>.
+<p><code>:before</code>, <code>:around</code>, and <code>:after</code> specify execution order
+(i.e., when this form is called).  If none of these symbols are present, the
+method is said to be a <em>primary</em>.
 </p>
-<p><b>Note:</b> The <code>:BEFORE</code>, <code>:PRIMARY</code>, <code>:AFTER</code>, and
-<code>:STATIC</code> method tags were in all capital letters in previous
-versions of <i>EIEIO</i>.
-</p>
-<p><var>arglist</var> is the list of arguments to this method.  The first
-argument in this list—and <em>only</em> the first argument—may have
-a type specifier (see the example below).  If no type specifier is
-supplied, the method applies to any object.
+<p><var>arglist</var> is the list of arguments to this method.  The mandatory arguments
+in this list may have a type specializer (see the example below) which means
+that the method will only apply when those arguments match the given type
+specializer.  An argument with no type specializer means that the method
+applies regardless of its value.
 </p>
 <p><var>doc-string</var> is the documentation attached to the implementation.
 All method doc-strings are incorporated into the generic method’s
@@ -1276,7 +1271,7 @@ function documentation.
 <code>classname</code> class:
 </p>
 <div class="example">
-<pre class="example">(defmethod mymethod ((obj classname) secondarg)
+<pre class="example">(cl-defmethod mymethod ((obj classname) secondarg)
   "Doc string" )
 </pre>
 </div>
@@ -1284,84 +1279,77 @@ function documentation.
 <p>This method only executes if the <var>obj</var> argument passed to it is an
 <i>EIEIO</i> object of class <code>classname</code>.
 </p>
-<p>A method with no type specifier is a <em>default method</em>.  If a given
+<p>A method with no type specializer is a <em>default method</em>.  If a given
 class has no implementation, then the default method is called when
 that method is used on a given object of that class.
 </p>
-<p>Only one default method per execution specifier (<code>:before</code>,
-<code>:primary</code>, or <code>:after</code>) is allowed.  If two
-<code>defmethod</code>s appear with <var>arglist</var>s lacking a type specifier,
-and having the same execution specifier, then the first implementation
-is replaced.
+<p>Only one method per combination of specializers and qualifiers (<code>:before</code>,
+<code>:around</code>, or <code>:after</code>) is kept.  If two <code>cl-defmethod</code>s appear
+with the same specializers and the same qualifiers, then the second
+implementation replaces the first.
 </p>
 <p>When a method is called on an object, but there is no method specified
 for that object, but there is a method specified for object’s parent
-class, the parent class’ method is called.  If there is a method
+class, the parent class’s method is called.  If there is a method
 defined for both, only the child’s method is called.  A child method
-may call a parent’s method using <code>call-next-method</code>, described
+may call a parent’s method using <code>cl-call-next-method</code>, described
 below.
 </p>
 <p>If multiple methods and default methods are defined for the same
 method and class, they are executed in this order:
 </p>
 <ol>
-<li> method :before
+<li> :around methods
+The most specific <code>:around</code> method is called first, which may invoke the
+less specific ones via <code>cl-call-next-method</code>.  If it doesn’t invoke
+<code>cl-call-next-method</code>, then no other methods will be executed.  When there
+are no more <code>:around</code> methods to call, falls through to run the other
+(non-<code>:around</code>) methods.
 </li>
-<li> default :before
+<li> :before methods
+Called in sequence from most specific to least specific.
 </li>
-<li> method :primary
+<li> primary methods
+The most specific method is called, which may invoke the less specific
+ones via <code>cl-call-next-method</code>.
 </li>
-<li> default :primary
-</li>
-<li> method :after
-</li>
-<li> default :after
+<li> :after methods
+Called in sequence from least specific to most specific.
 </li>
 </ol>
 
-<p>If no methods exist, Emacs signals a <code>no-method-definition</code>
-error.  See <a href="#Signals">Signals</a>.
+<p>If no methods exist, Emacs signals a <code>cl-no-applicable-method</code> error.
+See <a href="#Signals">Signals</a>.  If methods exist but none of them are primary, Emacs
+signals a <code>cl-no-primary-method</code> error.  See <a href="#Signals">Signals</a>.
 </p>
 <dl>
 <dt>
-<a name="index-call_002dnext_002dmethod"></a>Function: <strong>call-next-method</strong> <em>&amp;rest replacement-args</em>
+<a name="index-cl_002dcall_002dnext_002dmethod"></a>Function: <strong>cl-call-next-method</strong> <em>&amp;rest replacement-args</em>
 </dt>
 <dd>
-<a name="call_002dnext_002dmethod"></a>
+<a name="cl_002dcall_002dnext_002dmethod"></a>
 <p>This function calls the superclass method from a subclass method.
 This is the “next method” specified in the current method list.
 </p>
-<p>If <var>replacement-args</var> is non-<code>nil</code>, then use them instead of
-<code>eieio-generic-call-arglst</code>.  At the top level, the generic
-argument list is passed in.
+<p>If <var>replacement-args</var> is non-<code>nil</code>, then use them instead of the
+arguments originally provided to the method.
 </p>
-<p>Use <code>next-method-p</code> to find out if there is a next method to
-call.
+<p>Can only be used from within the lexical body of a primary or around method.
 </p>
 </dd>
 </dl>
 
 <dl>
 <dt>
-<a name="index-next_002dmethod_002dp"></a>Function: <strong>next-method-p</strong>
+<a name="index-cl_002dnext_002dmethod_002dp"></a>Function: <strong>cl-next-method-p</strong>
 </dt>
 <dd>
-<a name="next_002dmethod_002dp"></a><p>Non-<code>nil</code> if there is a next method.
-Returns a list of lambda expressions which is the <code>next-method</code>
-order.
+<a name="cl_002dnext_002dmethod_002dp"></a><p>Non-<code>nil</code> if there is a next method.
+</p>
+<p>Can only be used from within the lexical body of a primary or around method.
 </p>
 </dd>
 </dl>
-
-<p>At present, <i>EIEIO</i> does not implement all the features of CLOS:
-</p>
-<ol>
-<li> There is currently no <code>:around</code> tag.
-</li>
-<li> CLOS allows multiple sets of type-cast arguments, but <i>EIEIO</i> only
-allows the first argument to be cast.
-</li>
-</ol>
 
 <hr>
 <a name="Static-Methods"></a>
@@ -1374,16 +1362,24 @@ Previous: <a href="#Methods" accesskey="p" rel="prev">Methods</a>, Up: <a href="
 
 <p>Static methods do not depend on an object instance, but instead
 operate on a class.  You can create a static method by using
-the <code>:static</code> key with <code>defmethod</code>.
+the <code>subclass</code> specializer with <code>cl-defmethod</code>:
 </p>
-<p>The first argument of a <code>:static</code> method will be a class rather than an
+<div class="example">
+<pre class="example">(cl-defmethod make-instance ((class (subclass mychild)) &amp;rest args)
+  (let ((new (cl-call-next-method)))
+    (push new all-my-children)
+    new))
+</pre>
+</div>
+
+<p>The first argument of a static method will be a class rather than an
 object.  Use the functions <code>oref-default</code> or <code>oset-default</code> which
 will work on a class.
 </p>
-<p>A class’s <code>make-instance</code> method is defined as a <code>:static</code>
+<p>A class’s <code>make-instance</code> method is defined as a static
 method.
 </p>
-<p><b>Note:</b> The <code>:static</code> keyword is unique to <i>EIEIO</i>.
+<p><b>Note:</b> The <code>subclass</code> specializer is unique to <i>EIEIO</i>.
 </p>
 
 <hr>
@@ -1399,9 +1395,9 @@ Next: <a href="#Predicates" accesskey="n" rel="next">Predicates</a>, Previous: <
 <code>:method-invocation-order</code>.  This is a feature specific to EIEIO.
 </p>
 <p>This controls the order in which method resolution occurs for
-<code>:primary</code> methods in cases of multiple inheritance.  The order
+methods in cases of multiple inheritance.  The order
 affects which method is called first in a tree, and if
-<code>call-next-method</code> is used, it controls the order in which the
+<code>cl-call-next-method</code> is used, it controls the order in which the
 stack of methods are run.
 </p>
 <p>The original EIEIO order turned out to be broken for multiple
@@ -1461,7 +1457,7 @@ If <var>errorp</var> is non-<code>nil</code>, <code>wrong-argument-type</code> i
 <a name="index-class_002dp"></a>Function: <strong>class-p</strong> <em>class</em>
 </dt>
 <dd>
-<a name="class_002dp"></a><p>Return <code>t</code> if <var>class</var> is a valid class vector.
+<a name="class_002dp"></a><p>Return <code>t</code> if <var>class</var> is a valid class object.
 <var>class</var> is a symbol.
 </p>
 </dd>
@@ -1525,7 +1521,7 @@ For example:
 <dd><p>Return a string of the form ‘<samp>#&lt;object-class myobjname&gt;</samp>’ for <var>obj</var>.
 This should look like Lisp symbols from other parts of Emacs such as
 buffers and processes, and is shorter and cleaner than printing the
-object’s vector.  It is more useful to use <code>object-print</code> to get
+object’s record.  It is more useful to use <code>object-print</code> to get
 and object’s print form, as this allows the object to add extra display
 information into the symbol.
 </p></dd>
@@ -1773,7 +1769,7 @@ Next: <a href="#Base-Classes" accesskey="n" rel="next">Base Classes</a>, Previou
 
 <p>Introspection permits a programmer to peek at the contents of a class
 without any previous knowledge of that class.  While <i>EIEIO</i> implements
-objects on top of vectors, and thus everything is technically visible,
+objects on top of records, and thus everything is technically visible,
 some functions have been provided.  None of these functions are a part
 of CLOS.
 </p>
@@ -1924,8 +1920,7 @@ class.
 <a name="index-initialize_002dinstance-on-eieio_002dinstance_002dtracker"></a>Method on eieio-instance-tracker: <strong>initialize-instance</strong> <em>obj slot</em>
 </dt>
 <dd><p>This method is defined as an <code>:after</code> method.
-It adds new instances to the master list.  Do not overload this method
-unless you use <code>call-next-method.</code>
+It adds new instances to the master list.
 </p></dd>
 </dl>
 
@@ -2284,7 +2279,7 @@ symbol is an alias to <code>eieio-default-superclass</code>.
   nil
   "Default parent class for classes with no specified parent class.
 Its slots are automatically adopted by classes with no specified
-parents.  This class is not stored in the `parent' slot of a class vector."
+parents.  This class is not stored in the `parent' slot of a class object."
   :abstract t)
 </pre>
 </div>
@@ -2378,7 +2373,7 @@ Next: <a href="#Signal-Handling" accesskey="n" rel="next">Signal Handling</a>, P
 <a name="clone"></a><p>Make a copy of <var>obj</var>, and then apply <var>params</var>.
 <var>params</var> is a parameter list of the same form as <var>initialize-instance</var>
 which are applied to change the object.  When overloading <em>clone</em>, be
-sure to call <em>call-next-method</em> first and modify the returned object.
+sure to call <em>cl-call-next-method</em> first and modify the returned object.
 </p>
 </dd>
 </dl>
@@ -2396,7 +2391,7 @@ function <em>eieio-object-name</em>.
 default #&lt;notation&gt; string when using eieio browsing tools.
 </p>
 <p>Implement this function and specify <var>strings</var> in a call to
-<em>call-next-method</em> to provide additional summary information.
+<em>cl-call-next-method</em> to provide additional summary information.
 When passing in extra strings from child classes, always remember
 to prepend a space.
 </p>
@@ -2405,10 +2400,11 @@ to prepend a space.
    (value)
    "Object containing one data slot.")
 
-(defmethod object-print ((this data-object) &amp;optional strings)
+(cl-defmethod object-print ((this data-object) &amp;optional strings)
   "Return a string with a summary of the data object as part of the name."
-  (apply 'call-next-method this
-         (cons (format " value: %s" (render this)) strings)))
+  (apply #'cl-call-next-method this
+         (format " value: %s" (render this))
+         strings))
 </pre>
 </div>
 
@@ -2494,12 +2490,12 @@ Use <em>slot-boundp</em> to determine if a slot is bound or not.
 
 <dl>
 <dt>
-<a name="index-no_002dapplicable_002dmethod"></a>Function: <strong>no-applicable-method</strong> <em>object method &amp;rest args</em>
+<a name="index-cl_002dno_002dapplicable_002dmethod"></a>Function: <strong>cl-no-applicable-method</strong> <em>generic &amp;rest args</em>
 </dt>
 <dd>
-<a name="no_002dapplicable_002dmethod"></a><p>Called if there are no implementations for <var>object</var> in <var>method</var>.
-<var>object</var> is the object which has no method implementation.
-<var>args</var> are the arguments that were passed to <var>method</var>.
+<a name="cl_002dno_002dapplicable_002dmethod"></a><p>Called if there are no methods applicable for <var>args</var> in the generic
+function <var>generic</var>.
+<var>args</var> are the arguments that were passed to <var>generic</var>.
 </p>
 <p>Implement this for a class to block this signal.  The return
 value becomes the return value of the original method call.
@@ -2509,15 +2505,32 @@ value becomes the return value of the original method call.
 
 <dl>
 <dt>
-<a name="index-no_002dnext_002dmethod"></a>Function: <strong>no-next-method</strong> <em>object &amp;rest args</em>
+<a name="index-cl_002dno_002dprimary_002dmethod"></a>Function: <strong>cl-no-primary-method</strong> <em>generic &amp;rest args</em>
 </dt>
 <dd>
-<a name="no_002dnext_002dmethod"></a><p>Called from <em>call-next-method</em> when no additional methods are available.
-<var>object</var> is othe object being called on <em>call-next-method</em>.
+<a name="cl_002dno_002dprimary_002dmethod"></a><p>Called if there are methods applicable for <var>args</var> in the generic
+function <var>generic</var> but they are all qualified.
+<var>args</var> are the arguments that were passed to <var>generic</var>.
+</p>
+<p>Implement this for a class to block this signal.  The return
+value becomes the return value of the original method call.
+</p>
+</dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-cl_002dno_002dnext_002dmethod"></a>Function: <strong>cl-no-next-method</strong> <em>generic method &amp;rest args</em>
+</dt>
+<dd>
+<a name="cl_002dno_002dnext_002dmethod"></a><p>Called from <em>cl-call-next-method</em> when no additional methods are available.
+<var>generic</var> is the generic function being called on
+<em>cl-call-next-method</em>, <var>method</var> is the method where
+<em>cl-call-next-method</em> was called, and
 <var>args</var> are the arguments it is called by.
-This method signals <em>no-next-method</em> by default.  Override this
+This method signals <em>cl-no-next-method</em> by default.  Override this
 method to not throw an error, and its return value becomes the
-return value of <em>call-next-method</em>.
+return value of <em>cl-call-next-method</em>.
 </p>
 </dd>
 </dl>
@@ -2546,16 +2559,16 @@ it.
 
 <dl>
 <dt>
-<a name="index-no_002dmethod_002ddefinition"></a>Signal: <strong>no-method-definition</strong> <em>method arguments</em>
+<a name="index-cl_002dno_002dapplicable_002dmethod-1"></a>Signal: <strong>cl-no-applicable-method</strong> <em>generic arguments</em>
 </dt>
 <dd>
-<p>This signal is called when <var>method</var> is called, with <var>arguments</var>
-and nothing is resolved.  This occurs when <var>method</var> has been
+<p>This signal is called when <var>generic</var> is called, with <var>arguments</var>
+and nothing is resolved.  This occurs when <var>generic</var> has been
 defined, but the arguments make it impossible for <i>EIEIO</i> to determine
 which method body to run.
 </p>
 <p>To prevent this signal from occurring in your class, implement the
-method <code>no-applicable-method</code> for your class.  This method is
+method <code>cl-no-applicable-method</code> for your class.  This method is
 called when to throw this signal, so implementing this for your class
 allows you block the signal, and perform some work.
 </p>
@@ -2564,13 +2577,23 @@ allows you block the signal, and perform some work.
 
 <dl>
 <dt>
-<a name="index-no_002dnext_002dmethod-1"></a>Signal: <strong>no-next-method</strong> <em>class arguments</em>
+<a name="index-cl_002dno_002dprimary_002dmethod-1"></a>Signal: <strong>cl-no-primary-method</strong> <em>generic arguments</em>
+</dt>
+<dd><p>Like <code>cl-no-applicable-method</code> but applies when there are some applicable
+methods, but none of them are primary.  You can similarly block it by
+implementing a <code>cl-no-primary-method</code> method.
+</p></dd>
+</dl>
+
+<dl>
+<dt>
+<a name="index-cl_002dno_002dnext_002dmethod-1"></a>Signal: <strong>cl-no-next-method</strong> <em>class arguments</em>
 </dt>
 <dd>
-<p>This signal is called if the function <code>call-next-method</code> is called
+<p>This signal is called if the function <code>cl-call-next-method</code> is called
 and there is no next method to be called.
 </p>
-<p>Overload the method <code>no-next-method</code> to protect against this signal.
+<p>Overload the method <code>cl-no-next-method</code> to protect against this signal.
 </p>
 </dd>
 </dl>
@@ -2685,26 +2708,21 @@ creator automatically generated when a new class is created.
 See <a href="#Making-New-Objects">Making New Objects</a>.
 </p>
 </dd>
-<dt><code>defgeneric</code></dt>
+<dt><code>cl-defgeneric</code></dt>
 <dd>
-<p>Creates the desired symbol, and accepts all of the expected arguments
-except <code>:around</code>.
+<p>Creates the desired symbol, and accepts most of the expected arguments of
+CLOS’s <code>defgeneric</code>.
 </p>
 </dd>
-<dt><code>defmethod</code></dt>
+<dt><code>cl-defmethod</code></dt>
 <dd>
-<p>Calls defgeneric, and accepts most of the expected arguments.  Only
-the first argument to the created method may have a type specifier.
-To type cast against a class, the class must exist before defmethod is
-called.  In addition, the <code>:around</code> tag is not supported.
+<p>Accepts most of the expected arguments of CLOS’s <code>defmethod</code>.  To type
+cast against a class, the class must exist before <code>cl-defmethod</code>
+is called.
 </p>
 </dd>
-<dt><code>call-next-method</code></dt>
-<dd><p>Inside a method, calls the next available method up the inheritance tree
-for the given object.  This is different than that found in CLOS because
-in <i>EIEIO</i> this function accepts replacement arguments.  This permits
-subclasses to modify arguments as they are passed up the tree.  If no
-arguments are given, the expected CLOS behavior is used.
+<dt><code>cl-call-next-method</code></dt>
+<dd><p>Works just like CLOS’s <code>call-next-method</code>.
 </p></dd>
 </dl>
 
@@ -2733,13 +2751,7 @@ better in Emacs.
 <p>Some important compatibility features that would be good to add are:
 </p>
 <ol>
-<li> Support for metaclasses and EQL specialization.
-</li>
-<li> <code>:around</code> method key.
-</li>
-<li> Method dispatch for built-in types.
-</li>
-<li> Method dispatch for multiple argument typing.
+<li> Support for metaclasses.
 </li>
 <li> Improve integration with the <samp>cl</samp> package.
 </li>
@@ -2769,14 +2781,14 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 
 <div class="display">
 <pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre>
 </div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -2956,7 +2968,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -3177,7 +3189,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -3291,8 +3303,6 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
    
 <a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
    
-<a class="summary-letter" href="#Function-Index_fn_letter-N"><b>N</b></a>
-   
 <a class="summary-letter" href="#Function-Index_fn_letter-O"><b>O</b></a>
    
 <a class="summary-letter" href="#Function-Index_fn_letter-R"><b>R</b></a>
@@ -3322,16 +3332,79 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr>
 <td></td>
 <td valign="top">
-<a href="#index-call_002dnext_002dmethod"><code>call-next-method</code></a>:</td>
+<a href="#index-child_002dof_002dclass_002dp"><code>child-of-class-p</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Predicates">Predicates</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dcall_002dnext_002dmethod"><code>cl-call-next-method</code></a>:</td>
 <td> </td>
 <td valign="top"><a href="#Methods">Methods</a></td>
 </tr>
 <tr>
 <td></td>
 <td valign="top">
-<a href="#index-child_002dof_002dclass_002dp"><code>child-of-class-p</code></a>:</td>
+<a href="#index-cl_002ddefgeneric"><code>cl-defgeneric</code></a>:</td>
 <td> </td>
-<td valign="top"><a href="#Predicates">Predicates</a></td>
+<td valign="top"><a href="#Generics">Generics</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002ddefmethod"><code>cl-defmethod</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Methods">Methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dnext_002dmethod_002dp"><code>cl-next-method-p</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Methods">Methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dapplicable_002dmethod"><code>cl-no-applicable-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signal-Handling">Signal Handling</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dapplicable_002dmethod-1"><code>cl-no-applicable-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signals">Signals</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dnext_002dmethod"><code>cl-no-next-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signal-Handling">Signal Handling</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dnext_002dmethod-1"><code>cl-no-next-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signals">Signals</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dprimary_002dmethod"><code>cl-no-primary-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signal-Handling">Signal Handling</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-cl_002dno_002dprimary_002dmethod-1"><code>cl-no-primary-method</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Signals">Signals</a></td>
 </tr>
 <tr>
 <td></td>
@@ -3381,20 +3454,6 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <a href="#index-defclass"><code>defclass</code></a>:</td>
 <td> </td>
 <td valign="top"><a href="#Building-Classes">Building Classes</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-defgeneric"><code>defgeneric</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Generics">Generics</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-defmethod"><code>defmethod</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Methods">Methods</a></td>
 </tr>
 <tr>
 <td></td>
@@ -3658,48 +3717,6 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td colspan="4"> <hr>
 </td></tr>
 <tr>
-<th><a name="Function-Index_fn_letter-N">N</a></th>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-next_002dmethod_002dp"><code>next-method-p</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Methods">Methods</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-no_002dapplicable_002dmethod"><code>no-applicable-method</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Signal-Handling">Signal Handling</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-no_002dmethod_002ddefinition"><code>no-method-definition</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Signals">Signals</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-no_002dnext_002dmethod"><code>no-next-method</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Signal-Handling">Signal Handling</a></td>
-</tr>
-<tr>
-<td></td>
-<td valign="top">
-<a href="#index-no_002dnext_002dmethod-1"><code>no-next-method</code></a>:</td>
-<td> </td>
-<td valign="top"><a href="#Signals">Signals</a></td>
-</tr>
-<tr><td colspan="4"> <hr>
-</td></tr>
-<tr>
 <th><a name="Function-Index_fn_letter-O">O</a></th>
 <td></td>
 <td></td>
@@ -3935,8 +3952,6 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <a class="summary-letter" href="#Function-Index_fn_letter-K"><b>K</b></a>
    
 <a class="summary-letter" href="#Function-Index_fn_letter-M"><b>M</b></a>
-   
-<a class="summary-letter" href="#Function-Index_fn_letter-N"><b>N</b></a>
    
 <a class="summary-letter" href="#Function-Index_fn_letter-O"><b>O</b></a>
    

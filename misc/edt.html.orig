@@ -2,7 +2,7 @@
 <html>
 <!-- This file documents the EDT emulation package for Emacs.
 
-Copyright (C) 1986, 1992, 1994-1995, 1999-2016
+Copyright (C) 1986, 1992, 1994-1995, 1999-2017
 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
@@ -14,8 +14,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>EDT Emulation for Emacs</title>
 
 <meta name="description" content="EDT Emulation for Emacs">
@@ -23,7 +24,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
@@ -111,7 +111,7 @@ of DEC&rsquo;s EDT editor.
 </p>
 <p>This file documents the EDT emulation package for Emacs.
 </p>
-<p>Copyright &copy; 1986, 1992, 1994&ndash;1995, 1999&ndash;2016
+<p>Copyright &copy; 1986, 1992, 1994&ndash;1995, 1999&ndash;2017
 Free Software Foundation, Inc.
 </p>
 <blockquote>
@@ -1094,13 +1094,13 @@ Previous: <a href="#Customizing" accesskey="p" rel="prev">Customizing</a>, Up: <
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1276,7 +1276,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -1476,7 +1476,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this

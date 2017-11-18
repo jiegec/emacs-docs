@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1995-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 1995-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -11,8 +11,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Gnus Manual</title>
 
 <meta name="description" content="Gnus Manual">
@@ -20,7 +21,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -551,11 +551,16 @@ ul.no-bullet {list-style: none}
       <li><a name="toc-Store-custom-flags-and-keywords-1" href="#Store-custom-flags-and-keywords">9.18.4 Store custom flags and keywords</a></li>
       <li><a name="toc-Store-arbitrary-data-1" href="#Store-arbitrary-data">9.18.5 Store arbitrary data</a></li>
     </ul></li>
-    <li><a name="toc-Interaction-with-other-modes" href="#Other-modes">9.19 Interaction with other modes</a>
+    <li><a name="toc-The-Gnus-Cloud-1" href="#The-Gnus-Cloud">9.19 The Gnus Cloud</a>
     <ul class="no-bullet">
-      <li><a name="toc-Dired" href="#Dired">9.19.1 Dired</a></li>
+      <li><a name="toc-Gnus-Cloud-Setup-1" href="#Gnus-Cloud-Setup">9.19.1 Gnus Cloud Setup</a></li>
+      <li><a name="toc-Gnus-Cloud-Usage-1" href="#Gnus-Cloud-Usage">9.19.2 Gnus Cloud Usage</a></li>
     </ul></li>
-    <li><a name="toc-Various-Various-1" href="#Various-Various">9.20 Various Various</a></li>
+    <li><a name="toc-Interaction-with-other-modes" href="#Other-modes">9.20 Interaction with other modes</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Dired" href="#Dired">9.20.1 Dired</a></li>
+    </ul></li>
+    <li><a name="toc-Various-Various-1" href="#Various-Various">9.21 Various Various</a></li>
   </ul></li>
   <li><a name="toc-The-End-1" href="#The-End">10 The End</a></li>
   <li><a name="toc-Appendices-1" href="#Appendices">11 Appendices</a>
@@ -1388,6 +1393,8 @@ Various
 <tr><td align="left" valign="top">&bull; <a href="#Spam-Package">Spam Package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for filtering and processing spam.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-Gnus-Registry">The Gnus Registry</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for tracking messages by Message-ID.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#The-Gnus-Cloud">The Gnus Cloud</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for synchronizing Gnus marks.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Other-modes">Other modes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Interaction with other modes.
 </td></tr>
@@ -3486,7 +3493,7 @@ group (<code>gnus-group-edit-group-method</code>).
 <a name="index-gnus_002dgroup_002dmake_002ddirectory_002dgroup"></a>
 <a name="index-nndir"></a>
 <p>Make a directory group (see <a href="#Directory-Groups">Directory Groups</a>).  You will be prompted
-for a directory name (<code>gnus-group-make-directory-group</code>).
+for the directory&rsquo;s name (<code>gnus-group-make-directory-group</code>).
 </p>
 </dd>
 <dt><kbd>G h</kbd></dt>
@@ -5431,10 +5438,10 @@ does not necessarily need to be the same value that is determined by
 <code>gnus-group-name-charset-group-alist</code>.
 </p>
 <p>If <code>default-file-name-coding-system</code> or this variable is
-initialized by default to <code>iso-latin-1</code> for example, although you
+initialized by default to <code>iso-latin-1-unix</code> for example, although you
 want to subscribe to the groups spelled in Chinese, that is the most
 typical case where you have to customize
-<code>nnmail-pathname-coding-system</code>.  The <code>utf-8</code> coding system is
+<code>nnmail-pathname-coding-system</code>.  The <code>utf-8-unix</code> coding system is
 a good candidate for it.  Otherwise, you may change the locale in your
 system so that <code>default-file-name-coding-system</code> or this variable
 may be initialized to an appropriate value.
@@ -6276,11 +6283,12 @@ access the <code>X-Newsreader</code> header:
 </pre></div>
 
 </li><li> <a name="index-gnus_002dignored_002dfrom_002daddresses"></a>
-The <code>gnus-ignored-from-addresses</code> variable says when the &lsquo;<samp>%f</samp>&rsquo;
-summary line spec returns the <code>To</code>, <code>Newsreader</code> or
-<code>From</code> header.  If this regexp matches the contents of the
-<code>From</code> header, the value of the <code>To</code> or <code>Newsreader</code>
-headers are used instead.
+The <code>gnus-ignored-from-addresses</code> variable says when the
+&lsquo;<samp>%f</samp>&rsquo; summary line spec returns the <code>To</code>, <code>Newsreader</code>
+or <code>From</code> header.  The variable may be a regexp or a predicate
+function.  If this matches the contents of the <code>From</code>
+header, the value of the <code>To</code> or <code>Newsreader</code> headers are
+used instead.
 
 <p>To distinguish regular articles from those where the <code>From</code> field
 has been swapped, a string is prefixed to the <code>To</code> or
@@ -9382,7 +9390,9 @@ processing of the article is done before it is saved).  For a different
 approach (uudecoding, unsharing) you should use <code>gnus-uu</code>
 (see <a href="#Decoding-Articles">Decoding Articles</a>).
 </p>
-<p>For the commands listed here, the target is a file.  If you want to
+<p>For the commands listed here, the target is a file.
+A directory name (ending in &lsquo;<samp>/</samp>&rsquo;) causes the target
+to be a file under that directory.  If you want to
 save to a group, see the <kbd>B c</kbd> (<code>gnus-summary-copy-article</code>)
 command (see <a href="#Mail-Group-Commands">Mail Group Commands</a>).
 </p>
@@ -10785,7 +10795,7 @@ is rumored to have employed this form of, uh, somewhat weak encryption.
 encoded domain names looks like &lsquo;<samp>xn--bar</samp>&rsquo;.  If a string remain
 unencoded after running invoking this, it is likely an invalid IDNA
 string (&lsquo;<samp>xn--bar</samp>&rsquo; is invalid).  You must have GNU Libidn
-(<a href="http://www.gnu.org/software/libidn/">http://www.gnu.org/software/libidn/</a>) installed for this command
+(<a href="https://www.gnu.org/software/libidn/">https://www.gnu.org/software/libidn/</a>) installed for this command
 to work.
 </p>
 </dd>
@@ -12182,6 +12192,12 @@ can&rsquo;t really see why you&rsquo;d want that.
 <dd><a name="index-C_002dc-C_002ds-C_002dc-_0028Summary_0029"></a>
 <a name="index-gnus_002dsummary_002dsort_002dby_002dchars"></a>
 <p>Sort by article length (<code>gnus-summary-sort-by-chars</code>).
+</p>
+</dd>
+<dt><kbd>C-c C-s C-m C-m</kbd></dt>
+<dd><a name="index-C_002dc-C_002ds-C_002dm-C_002dm-_0028Summary_0029"></a>
+<a name="index-gnus_002dsummary_002dsort_002dby_002dmarks"></a>
+<p>Sort by article &ldquo;readedness&rdquo; marks (<code>gnus-summary-sort-by-marks</code>).
 </p>
 </dd>
 <dt><kbd>C-c C-s C-i</kbd></dt>
@@ -14556,7 +14572,7 @@ paging will not be done.
 internationalized domain names inside &lsquo;<samp>From</samp>&rsquo;, &lsquo;<samp>To</samp>&rsquo; and
 &lsquo;<samp>Cc</samp>&rsquo; headers.  See <a href="http://www.gnu.org/software/emacs/manual/html_mono/message.html#IDNA">IDNA</a> in <cite>The Message Manual</cite>,
 for how to compose such messages.  This requires
-<a href="http://www.gnu.org/software/libidn/">GNU Libidn</a>, and this
+<a href="https://www.gnu.org/software/libidn/">GNU Libidn</a>, and this
 variable is only enabled if you have installed it.
 </p>
 <a name="index-gnus_002dinhibit_002dimages"></a>
@@ -15912,7 +15928,8 @@ with the following commands:
 <dd><a name="index-D-_0028Server_0029"></a>
 <a name="index-gnus_002dserver_002ddeny_002dserver"></a>
 <p>Mark the current server as unreachable
-(<code>gnus-server-deny-server</code>).
+(<code>gnus-server-deny-server</code>).  This will effectively disable the
+server.
 </p>
 </dd>
 <dt><kbd>M-o</kbd></dt>
@@ -16294,7 +16311,7 @@ connection automatically.
 </dd>
 <dt><code>nntp-open-tls-stream</code></dt>
 <dd><p>Opens a connection to a server over a <em>secure</em> channel.  To use
-this you must have <a href="http://www.gnu.org/software/gnutls/">GnuTLS</a>
+this you must have <a href="https://www.gnu.org/software/gnutls/">GnuTLS</a>
 installed.  You then define a server as follows:
 </p>
 <div class="lisp">
@@ -17247,7 +17264,7 @@ an additional mail source for a particular group by including the
 <code>group</code> mail specifier in <code>mail-sources</code>, and setting a
 <code>mail-source</code> group parameter (see <a href="#Group-Parameters">Group Parameters</a>) specifying
 a single mail source.  When this is used, <code>mail-sources</code> is
-typically just <code>(group)</code>; the <code>mail-source</code> parameter for a
+typically just <code>((group))</code>; the <code>mail-source</code> parameter for a
 group might look like this:
 </p>
 <div class="lisp">
@@ -24903,7 +24920,7 @@ correct group name &lsquo;<samp>mail.misc</samp>&rsquo;.
 </p>
 <p>Extra switches may be passed to the namazu search command by setting the
 variable <code>nnir-namazu-additional-switches</code>.  It is particularly
-important not to pass any any switches to namazu that will change the
+important not to pass any switches to namazu that will change the
 output format.  Good switches to use include <samp>--sort</samp>,
 <samp>--ascending</samp>, <samp>--early</samp> and <samp>--late</samp>.
 Refer to the Namazu documentation for further
@@ -25459,24 +25476,24 @@ entering the group which is not yet in the mairix database.
 <p>In summary mode:
 </p>
 <dl compact="compact">
-<dt><kbd>$ m</kbd></dt>
-<dd><a name="index-_0024-m-_0028Summary_0029"></a>
+<dt><kbd>G G m</kbd></dt>
+<dd><a name="index-G-G-m-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dwidget_002dsearch_002dfrom_002dthis_002darticle"></a>
 <p>Allows you to create a mairix query or group based on the current
 message using graphical widgets (same as <code>nnmairix-widget-search</code>)
 (<code>nnmairix-widget-search-from-this-article</code>).
 </p>
 </dd>
-<dt><kbd>$ g</kbd></dt>
-<dd><a name="index-_0024-g-_0028Summary_0029"></a>
+<dt><kbd>G G g</kbd></dt>
+<dd><a name="index-G-G-g-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dcreate_002dsearch_002dgroup_002dfrom_002dmessage"></a>
 <p>Interactively creates a new search group with query based on the current
 message, but uses the minibuffer instead of graphical widgets
 (<code>nnmairix-create-search-group-from-message</code>).
 </p>
 </dd>
-<dt><kbd>$ t</kbd></dt>
-<dd><a name="index-_0024-t-_0028Summary_0029"></a>
+<dt><kbd>G G t</kbd></dt>
+<dd><a name="index-G-G-t-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dsearch_002dthread_002dthis_002darticle"></a>
 <p>Searches thread for the current article
 (<code>nnmairix-search-thread-this-article</code>).  This is effectively a
@@ -25484,16 +25501,16 @@ shortcut for calling <code>nnmairix-search</code> with &lsquo;<samp>m:msgid</sam
 current article and enabled threads.
 </p>
 </dd>
-<dt><kbd>$ f</kbd></dt>
-<dd><a name="index-_0024-f-_0028Summary_0029"></a>
+<dt><kbd>G G f</kbd></dt>
+<dd><a name="index-G-G-f-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dsearch_002dfrom_002dthis_002darticle"></a>
 <p>Searches all messages from sender of the current article
 (<code>nnmairix-search-from-this-article</code>).  This is a shortcut for
 calling <code>nnmairix-search</code> with &lsquo;<samp>f:From</samp>&rsquo;.
 </p>
 </dd>
-<dt><kbd>$ o</kbd></dt>
-<dd><a name="index-_0024-o-_0028Summary_0029"></a>
+<dt><kbd>G G o</kbd></dt>
+<dd><a name="index-G-G-o-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dgoto_002doriginal_002darticle"></a>
 <p>(Only in <code>nnmairix</code> groups!) Tries determine the group this article
 originally came from and displays the article in this group, so that,
@@ -25503,8 +25520,8 @@ function will use the registry if available, but can also parse the
 article file name as a fallback method.
 </p>
 </dd>
-<dt><kbd>$ u</kbd></dt>
-<dd><a name="index-_0024-u-_0028Summary_0029"></a>
+<dt><kbd>G G u</kbd></dt>
+<dd><a name="index-G-G-u-_0028Summary_0029"></a>
 <a name="index-nnmairix_002dremove_002dtick_002dmark_002doriginal_002darticle"></a>
 <p>Remove possibly existing tick mark from original article
 (<code>nnmairix-remove-tick-mark-original-article</code>).  (see <a href="#nnmairix-tips-and-tricks">nnmairix tips and tricks</a>).
@@ -25666,7 +25683,7 @@ activate the always-unread feature by using <kbd>G b r</kbd> twice.
 </p>
 <p>So far so good&mdash;but how do you remove the tick marks in the <code>nnmairix</code>
 group?  There are two options: You may simply use
-<code>nnmairix-remove-tick-mark-original-article</code> (bound to <kbd>$ u</kbd>) to remove
+<code>nnmairix-remove-tick-mark-original-article</code> (bound to <kbd>G G u</kbd>) to remove
 tick marks from the original article.  The other possibility is to set
 <code>nnmairix-propagate-marks-to-nnmairix-groups</code> to <code>t</code>, but see the above
 comments about this option.  If it works for you, the tick marks should
@@ -25828,6 +25845,8 @@ Next: <a href="#The-End" accesskey="n" rel="next">The End</a>, Previous: <a href
 <tr><td align="left" valign="top">&bull; <a href="#Spam-Package">Spam Package</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for filtering and processing spam.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#The-Gnus-Registry">The Gnus Registry</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for tracking messages by Message-ID.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#The-Gnus-Cloud">The Gnus Cloud</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">A package for synchronizing Gnus marks.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Other-modes">Other modes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Interaction with other modes.
 </td></tr>
@@ -29924,7 +29943,7 @@ Save table: (spam-stat-save)
 <a name="The-Gnus-Registry"></a>
 <div class="header">
 <p>
-Next: <a href="#Other-modes" accesskey="n" rel="next">Other modes</a>, Previous: <a href="#Spam-Package" accesskey="p" rel="prev">Spam Package</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-Gnus-Cloud" accesskey="n" rel="next">The Gnus Cloud</a>, Previous: <a href="#Spam-Package" accesskey="p" rel="prev">Spam Package</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="The-Gnus-Registry-1"></a>
 <h3 class="section">9.18 The Gnus Registry</h3>
@@ -30256,16 +30275,136 @@ precious.
 </p></dd></dl>
 
 <hr>
+<a name="The-Gnus-Cloud"></a>
+<div class="header">
+<p>
+Next: <a href="#Other-modes" accesskey="n" rel="next">Other modes</a>, Previous: <a href="#The-Gnus-Registry" accesskey="p" rel="prev">The Gnus Registry</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-Gnus-Cloud-1"></a>
+<h3 class="section">9.19 The Gnus Cloud</h3>
+<a name="index-cloud"></a>
+<a name="index-gnus_002dcloud"></a>
+<a name="index-synchronization"></a>
+<a name="index-sync"></a>
+<a name="index-synch"></a>
+
+<p>The Gnus Cloud is a way to synchronize marks and general files and
+data across multiple machines.
+</p>
+<p>Very often, you want all your marks (what articles you&rsquo;ve read, which
+ones were important, and so on) to be synchronized between several
+machines. With IMAP, that&rsquo;s built into the protocol, so you can read
+nnimap groups from many machines and they are automatically
+synchronized. But NNTP, nnrss, and many other backends do not store
+marks, so you have to do it locally.
+</p>
+<p>The Gnus Cloud package stores the marks, plus any files you choose, on
+an IMAP server in a special folder. It&rsquo;s like a
+DropTorrentSyncBoxOakTree(TM).
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Gnus-Cloud-Setup" accesskey="1">Gnus Cloud Setup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Gnus-Cloud-Usage" accesskey="2">Gnus Cloud Usage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="Gnus-Cloud-Setup"></a>
+<div class="header">
+<p>
+Next: <a href="#Gnus-Cloud-Usage" accesskey="n" rel="next">Gnus Cloud Usage</a>, Up: <a href="#The-Gnus-Cloud" accesskey="u" rel="up">The Gnus Cloud</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Gnus-Cloud-Setup-1"></a>
+<h4 class="subsection">9.19.1 Gnus Cloud Setup</h4>
+
+<p>Setting up the Gnus Cloud takes less than a minute. From the Group
+buffer:
+</p>
+<p>Press <kbd>^</kbd> to go to the Server buffer. Here you&rsquo;ll see all the
+servers that Gnus knows. See <a href="#Server-Buffer">Server Buffer</a>.
+</p>
+<p>Then press <kbd>i</kbd> to mark any servers as cloud-synchronized (their marks are synchronized).
+</p>
+<p>Then press <kbd>I</kbd> to mark a single server as the cloud host (it must
+be an IMAP server, and will host a special IMAP folder with all the
+synchronization data). This will set the variable
+<code>gnus-cloud-method</code> (using the Customize facilities), then ask
+you to optionally upload your first CloudSynchronizationDataPack(TM).
+</p>
+<hr>
+<a name="Gnus-Cloud-Usage"></a>
+<div class="header">
+<p>
+Previous: <a href="#Gnus-Cloud-Setup" accesskey="p" rel="prev">Gnus Cloud Setup</a>, Up: <a href="#The-Gnus-Cloud" accesskey="u" rel="up">The Gnus Cloud</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Gnus-Cloud-Usage-1"></a>
+<h4 class="subsection">9.19.2 Gnus Cloud Usage</h4>
+
+<p>After setting up, you can use these shortcuts from the Group buffer:
+</p>
+<dl compact="compact">
+<dt><kbd>~ RET</kbd></dt>
+<dt><kbd>~ d</kbd></dt>
+<dd><a name="index-gnus_002dcloud_002ddownload_002dall_002ddata"></a>
+<a name="index-cloud_002c-download"></a>
+<p>Download the latest Gnus Cloud data.
+</p>
+</dd>
+<dt><kbd>~ u</kbd></dt>
+<dt><kbd>~ ~</kbd></dt>
+<dd><a name="index-gnus_002dcloud_002dupload_002dall_002ddata"></a>
+<a name="index-cloud_002c-download-1"></a>
+<p>Upload the local Gnus Cloud data. Creates a new
+CloudSynchronizationDataPack(TM).
+</p>
+</dd>
+</dl>
+
+<p>But wait, there&rsquo;s more. Of course there&rsquo;s more. So much more. You can
+customize all of the following.
+</p>
+<dl>
+<dt><a name="index-gnus_002dcloud_002dsynced_002dfiles"></a>Variable: <strong>gnus-cloud-synced-files</strong></dt>
+<dd><p>These are the files that will be part of every
+CloudSynchronizationDataPack(TM). They are included in every upload,
+so don&rsquo;t synchronize a lot of large files. Files under 100Kb are best.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gnus_002dcloud_002dstorage_002dmethod"></a>Variable: <strong>gnus-cloud-storage-method</strong></dt>
+<dd><p>This is a choice from several storage methods. It&rsquo;s highly recommended
+to use the EPG facilities. It will be automatic if have GnuPG
+installed and EPG loaded. Otherwise, you could use Base64+gzip,
+Base64, or no encoding.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-gnus_002dcloud_002dinteractive"></a>Variable: <strong>gnus-cloud-interactive</strong></dt>
+<dd><p>When this is set, and by default it is, the Gnus Cloud package will
+ask you for confirmation here and there. Leave it on until you&rsquo;re
+comfortable with the package.
+</p></dd></dl>
+
+
+<dl>
+<dt><a name="index-gnus_002dcloud_002dmethod"></a>Variable: <strong>gnus-cloud-method</strong></dt>
+<dd><p>The name of the IMAP server to store the
+CloudSynchronizationDataPack(TM)s. It&rsquo;s easiest to set this from the
+Server buffer (see <a href="#Gnus-Cloud-Setup">Gnus Cloud Setup</a>).
+</p></dd></dl>
+
+<hr>
 <a name="Other-modes"></a>
 <div class="header">
 <p>
-Next: <a href="#Various-Various" accesskey="n" rel="next">Various Various</a>, Previous: <a href="#The-Gnus-Registry" accesskey="p" rel="prev">The Gnus Registry</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Various-Various" accesskey="n" rel="next">Various Various</a>, Previous: <a href="#The-Gnus-Cloud" accesskey="p" rel="prev">The Gnus Cloud</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Interaction-with-other-modes"></a>
-<h3 class="section">9.19 Interaction with other modes</h3>
+<h3 class="section">9.20 Interaction with other modes</h3>
 
 <a name="Dired"></a>
-<h4 class="subsection">9.19.1 Dired</h4>
+<h4 class="subsection">9.20.1 Dired</h4>
 <a name="index-dired"></a>
 
 <p><code>gnus-dired-minor-mode</code> provides some useful functions for dired
@@ -30303,7 +30442,7 @@ there is no print command, print in a PostScript image.
 Previous: <a href="#Other-modes" accesskey="p" rel="prev">Other modes</a>, Up: <a href="#Various" accesskey="u" rel="up">Various</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Various-Various-1"></a>
-<h3 class="section">9.20 Various Various</h3>
+<h3 class="section">9.21 Various Various</h3>
 <a name="index-mode-lines-1"></a>
 <a name="index-highlights"></a>
 
@@ -30388,14 +30527,14 @@ read when doing the operation described above.
 <a name="index-characters-in-file-names"></a>
 <p>This is an alist that says how to translate characters in file names.
 For instance, if &lsquo;<samp>:</samp>&rsquo; is invalid as a file character in file names
-on your system (you OS/2 user you), you could say something like:
+on your system (you MS Windows user you), you could say something like:
 </p>
 <div class="lisp">
 <pre class="lisp">(setq nnheader-file-name-translation-alist
       '((?: . ?_)))
 </pre></div>
 
-<p>In fact, this is the default value for this variable on OS/2 and MS
+<p>In fact, this is (part of) the default value for this variable on MS
 Windows (phooey) systems.
 </p>
 </dd>
@@ -32402,7 +32541,7 @@ file, where this release will store flags for nntp.  See a later entry
 for more information about nntp marks.  Note that downgrading isn&rsquo;t
 safe in general.
 </p>
-</li><li> Incompatibility when switching from Emacs 23 to Emacs 22 
+</li><li> Incompatibility when switching from Emacs 23 to Emacs 22
 In Emacs 23, Gnus uses Emacs&rsquo;s new internal coding system <code>utf-8-emacs</code>
 for saving articles drafts and <samp>~/.newsrc.eld</samp>.  These files may not
 be read correctly in Emacs 22 and below.  If you want to use Gnus across
@@ -32416,7 +32555,7 @@ will shadow the latest one are detected.  You can then remove those
 shadows manually or remove them using <code>make
 remove-installed-shadows</code>.
 
-</li><li> The installation directory name is allowed to have spaces and/or tabs.
+</li><li> The installation directory&rsquo;s name is allowed to have spaces and/or tabs.
 </li></ul>
 
 </li><li> New packages and libraries within Gnus
@@ -32486,7 +32625,7 @@ with a WWW browser with <kbd>K H</kbd>.  See <a href="#MIME-Commands">MIME Comma
 </li><li> International host names (<acronym>IDNA</acronym>) can now be decoded
 inside article bodies using <kbd>W i</kbd>
 (<code>gnus-summary-idna-message</code>).  This requires that GNU Libidn
-(<a href="http://www.gnu.org/software/libidn/">http://www.gnu.org/software/libidn/</a>) has been installed.
+(<a href="https://www.gnu.org/software/libidn/">https://www.gnu.org/software/libidn/</a>) has been installed.
 
 </li><li> The non-<acronym>ASCII</acronym> group names handling has been much
 improved.  The back ends that fully support non-<acronym>ASCII</acronym> group
@@ -35380,8 +35519,8 @@ package system might not be up to date (e.g., Gnus 5.9 bundled with Emacs
 21 is outdated).
 You can get the latest released version of Gnus from
 <a href="http://www.gnus.org/dist/gnus.tar.gz">http://www.gnus.org/dist/gnus.tar.gz</a>
-or via anonymous FTP from
-<a href="ftp://ftp.gnus.org/pub/gnus/gnus.tar.gz">ftp://ftp.gnus.org/pub/gnus/gnus.tar.gz</a>.
+or from
+<a href="https://ftp.gnus.org/pub/gnus/gnus.tar.gz">https://ftp.gnus.org/pub/gnus/gnus.tar.gz</a>.
 </p>
 <hr>
 <a name="FAQ-1_002d4"></a>
@@ -35731,7 +35870,7 @@ However, I&rsquo;d discourage you from doing so, since the
 directory Emacs chooses will most certainly not be what
 you want, so let&rsquo;s do it the correct way.
 The first thing you&rsquo;ve got to do is to
-create a suitable directory (no blanks in directory name
+create a suitable directory (no blanks in names
 please), e.g., c:\myhome. Then you must set the environment
 variable HOME to this directory.  To do this under Windows 9x
 or Me include the line
@@ -37113,7 +37252,7 @@ Gimp), open the image you want to include, cut out the
 relevant part, reduce color depth to 1 bit, resize to
 48*48 and save as bitmap. Now you should get the compface
 package from
-<a href="ftp://ftp.cs.indiana.edu:/pub/faces/">this site</a>.
+<a href="ftp://ftp.cs.indiana.edu/pub/faces/">this site</a>.
 and create the actual X-face by saying
 </p>
 <div class="example">
@@ -38128,13 +38267,13 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#A
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -38310,7 +38449,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -38510,7 +38649,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -38786,6 +38925,9 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-charsets">charsets</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Charsets">Charsets</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-child">child</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Terminology">Terminology</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-ClariNet-Briefs">ClariNet Briefs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Foreign-Groups">Foreign Groups</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cloud">cloud</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Gnus-Cloud">The Gnus Cloud</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cloud_002c-download">cloud, download</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-cloud_002c-download-1">cloud, download</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-coding-system-aliases">coding system aliases</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Charsets">Charsets</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-colors">colors</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Faces-and-Fonts">Faces and Fonts</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-comment">comment</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Group-Parameters">Group Parameters</a></td></tr>
@@ -39198,6 +39340,13 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-gnus_002dcited_002dclosed_002dtext_002dbutton_002dline_002dformat"><code>gnus-cited-closed-text-button-line-format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Article-Hiding">Article Hiding</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dcited_002dlines_002dvisible"><code>gnus-cited-lines-visible</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Article-Hiding">Article Hiding</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dcited_002dopened_002dtext_002dbutton_002dline_002dformat"><code>gnus-cited-opened-text-button-line-format</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Article-Hiding">Article Hiding</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud">gnus-cloud</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Gnus-Cloud">The Gnus Cloud</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002ddownload_002dall_002ddata"><code>gnus-cloud-download-all-data</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002dinteractive"><code>gnus-cloud-interactive</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002dmethod"><code>gnus-cloud-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002dstorage_002dmethod"><code>gnus-cloud-storage-method</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002dsynced_002dfiles"><code>gnus-cloud-synced-files</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dcloud_002dupload_002dall_002ddata"><code>gnus-cloud-upload-all-data</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Gnus-Cloud-Usage">Gnus Cloud Usage</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dconfigure_002dframe"><code>gnus-configure-frame</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Window-Layout">Window Layout</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dconfirm_002dmail_002dreply_002dto_002dnews"><code>gnus-confirm-mail-reply-to-news</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mail">Mail</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dconfirm_002dtreat_002dmail_002dlike_002dnews"><code>gnus-confirm-treat-mail-like-news</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mail">Mail</a></td></tr>
@@ -40046,6 +40195,7 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dchars"><code>gnus-summary-sort-by-chars</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002ddate"><code>gnus-summary-sort-by-date</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dlines"><code>gnus-summary-sort-by-lines</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dmarks"><code>gnus-summary-sort-by-marks</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dmost_002drecent_002ddate"><code>gnus-summary-sort-by-most-recent-date</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dmost_002drecent_002dnumber"><code>gnus-summary-sort-by-most-recent-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-gnus_002dsummary_002dsort_002dby_002dnumber"><code>gnus-summary-sort-by-number</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
@@ -41003,6 +41153,9 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr><td></td><td valign="top"><a href="#index-summary-sorting">summary sorting</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-superseding-articles">superseding articles</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Canceling-and-Superseding">Canceling and Superseding</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-symbolic-prefixes">symbolic prefixes</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Symbolic-Prefixes">Symbolic Prefixes</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-sync">sync</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Gnus-Cloud">The Gnus Cloud</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-synch">synch</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Gnus-Cloud">The Gnus Cloud</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-synchronization">synchronization</a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-Gnus-Cloud">The Gnus Cloud</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index_cp_letter-T">T</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-temporary-groups">temporary groups</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Terminology">Terminology</a></td></tr>
@@ -41276,12 +41429,6 @@ Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Key-Index_ky_symbol-3">$</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_0024-_0028Summary_0029"><code>$ (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Spam-Package-Introduction">Spam Package Introduction</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-f-_0028Summary_0029"><code>$ f (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-g-_0028Summary_0029"><code>$ g (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-m-_0028Summary_0029"><code>$ m (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-o-_0028Summary_0029"><code>$ o (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-t-_0028Summary_0029"><code>$ t (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_0024-u-_0028Summary_0029"><code>$ u (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Key-Index_ky_symbol-4">&amp;</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-_0026-_0028Summary_0029"><code>&amp; (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Searching-for-Articles">Searching for Articles</a></td></tr>
@@ -41448,6 +41595,7 @@ Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002di-_0028Summary_0029"><code>C-c C-s C-i (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002dl-_0028Summary_0029"><code>C-c C-s C-l (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002dm-C_002dd-_0028Summary_0029"><code>C-c C-s C-m C-d (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002dm-C_002dm-_0028Summary_0029"><code>C-c C-s C-m C-m (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002dn-_0028Summary_0029"><code>C-c C-s C-n (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002dn-_0028Summary_0029-1"><code>C-c C-s C-n (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-C_002dc-C_002ds-C_002do-_0028Summary_0029"><code>C-c C-s C-o (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Sorting">Summary Sorting</a></td></tr>
@@ -41541,6 +41689,12 @@ Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top
 <tr><td></td><td valign="top"><a href="#index-G-f-_0028Summary_0029"><code>G f  (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choosing-Commands">Choosing Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-G-f-_0028Group_0029"><code>G f (Group)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Foreign-Groups">Foreign Groups</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-G-g-_0028Summary_0029"><code>G g (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Summary-Maneuvering">Summary Maneuvering</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-f-_0028Summary_0029"><code>G G f (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-g-_0028Summary_0029"><code>G G g (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-m-_0028Summary_0029"><code>G G m (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-o-_0028Summary_0029"><code>G G o (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-t-_0028Summary_0029"><code>G G t (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-G-G-u-_0028Summary_0029"><code>G G u (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#nnmairix-keyboard-shortcuts">nnmairix keyboard shortcuts</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-G-h-_0028Group_0029"><code>G h (Group)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Foreign-Groups">Foreign Groups</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-G-j-_0028Summary_0029"><code>G j (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choosing-Commands">Choosing Commands</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-G-l-_0028Summary_0029"><code>G l (Summary)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Choosing-Commands">Choosing Commands</a></td></tr>
@@ -42135,7 +42289,7 @@ Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top
 
 <h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
 <p><acronym>PGP</acronym> keys for many hierarchies are
-available at <a href="ftp://ftp.isc.org/pub/pgpcontrol/README.html">ftp://ftp.isc.org/pub/pgpcontrol/README.html</a></p>
+available at <a href="https://ftp.isc.org/pub/pgpcontrol/README.html">https://ftp.isc.org/pub/pgpcontrol/README.html</a></p>
 <h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
 <p><code>shr</code> displays colors as declared in the <acronym>HTML</acronym>
 article but tries to adjust them in order to be readable.  If you

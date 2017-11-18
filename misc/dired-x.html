@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 1994-1995, 1999, 2001-2016
+<!-- Copyright (C) 1994-1995, 1999, 2001-2017
 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
@@ -12,8 +12,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Dired Extra User’s Manual</title>
 
 <meta name="description" content="Dired Extra User’s Manual">
@@ -21,7 +22,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -135,12 +135,12 @@ provided by the file <samp>dired-x.el</samp>.
 <li> Based on <samp>dired.texi</samp> by Sebastian Kremer &lt;sk@thp.uni-koeln.de&gt;
 
 </li>
-<li> For <samp>dired-x.el</samp> as distributed with GNU Emacs 25.1.91.
+<li> For <samp>dired-x.el</samp> as distributed with GNU Emacs 26.0.90.
 
 </li>
 </ul>
 
-<p>Copyright © 1994–1995, 1999, 2001–2016
+<p>Copyright © 1994–1995, 1999, 2001–2017
 Free Software Foundation, Inc.
 </p>
 <blockquote>
@@ -602,6 +602,19 @@ and <code>dired-texinfo-unclean-extensions</code>.
 <p>If non-<code>nil</code>, a list of extensions (strings) to omit from Dired listings.
 Its format is the same as that of <code>completion-ignored-extensions</code>.
 </p>
+<a name="index-dired_002domit_002dcase_002dfold"></a>
+</dd>
+<dt><code>dired-omit-case-fold</code></dt>
+<dd>
+<p>Default:  <code>filesystem</code>
+</p>
+<p>By default, when <code>dired-omit-case-fold</code> is set to <code>filesystem</code>,
+<code>dired-omit-mode</code> will match filenames and extensions
+case-sensitively on Dired buffers visiting case-sensitive filesystems,
+and case-insensitively on case-insensitive filesystems.  Set it to
+<code>nil</code> to be always case-sensitive, and to <code>t</code> to be always
+case-insensitive.
+</p>
 <a name="index-dired_002domit_002dlocalp"></a>
 </dd>
 <dt><code>dired-omit-localp</code></dt>
@@ -1002,10 +1015,27 @@ variable <code>window-min-height</code>.
 <dd>
 <a name="index-dired_002dmark_002dextension"></a>
 <p>Mark all files with a certain extension for use in later commands.  A ‘<samp>.</samp>’
-is not automatically prepended to the string entered, you must type it
-explicitly.
+is automatically prepended to the string entered when not present.
+If invoked with prefix argument <kbd>C-u</kbd>, this command unmarks files instead.
+If called with the <kbd>C-u C-u</kbd> prefix, asks for a character to use
+as the marker, and marks files with it.
 </p>
 <p>When called from Lisp, <var>extension</var> may also be a list of extensions
+and an optional argument <var>marker-char</var> specifies the marker used.
+</p>
+</dd>
+<dt><code>dired-mark-suffix</code></dt>
+<dd>
+<a name="index-dired_002dmark_002dsuffix"></a>
+<p>Mark all files with a certain suffix for use in later commands.  A ‘<samp>.</samp>’
+is not automatically prepended to the string entered, you must type it
+explicitly.  This is different from <var>dired-mark-extension</var> which prepends
+a ‘<samp>.</samp>’ if not present.
+If invoked with prefix argument <kbd>C-u</kbd>, this command unmarks files instead.
+If called with the <kbd>C-u C-u</kbd> prefix, asks for a character to use
+as the marker, and marks files with it.
+</p>
+<p>When called from Lisp, <var>suffix</var> may also be a list of suffixes
 and an optional argument <var>marker-char</var> specifies the marker used.
 </p>
 </dd>
@@ -1519,14 +1549,14 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 
 <div class="display">
 <pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre>
 </div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1706,7 +1736,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -1927,7 +1957,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -2656,6 +2686,13 @@ Next: <a href="#Key-Index" accesskey="n" rel="next">Key Index</a>, Previous: <a 
 <tr>
 <td></td>
 <td valign="top">
+<a href="#index-dired_002dmark_002dsuffix"><code>dired-mark-suffix</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Advanced-Mark-Commands">Advanced Mark Commands</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
 <a href="#index-dired_002domit_002dmode"><code>dired-omit-mode</code></a>:</td>
 <td> </td>
 <td valign="top"><a href="#Omitting-Files-in-Dired">Omitting Files in Dired</a></td>
@@ -3173,6 +3210,13 @@ Previous: <a href="#Key-Index" accesskey="p" rel="prev">Key Index</a>, Up: <a hr
 <a href="#index-dired_002dlocal_002dvariables_002dfile-1"><code>dired-local-variables-file</code></a>:</td>
 <td> </td>
 <td valign="top"><a href="#Local-Variables">Local Variables</a></td>
+</tr>
+<tr>
+<td></td>
+<td valign="top">
+<a href="#index-dired_002domit_002dcase_002dfold"><code>dired-omit-case-fold</code></a>:</td>
+<td> </td>
+<td valign="top"><a href="#Omitting-Variables">Omitting Variables</a></td>
 </tr>
 <tr>
 <td></td>

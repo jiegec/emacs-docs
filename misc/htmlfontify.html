@@ -3,7 +3,7 @@
 <!-- This manual documents Htmlfontify, a source code -> crosslinked +
 formatted + syntax colorized html transformer.
 
-Copyright (C) 2002-2003, 2013-2016 Free Software Foundation,
+Copyright (C) 2002-2003, 2013-2017 Free Software Foundation,
 Inc.
 
 Permission is granted to copy, distribute and/or modify this document
@@ -15,8 +15,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Htmlfontify User Manual</title>
 
 <meta name="description" content="Htmlfontify User Manual">
@@ -24,7 +25,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -102,7 +102,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a 
 <p>This manual documents Htmlfontify, a source code -&gt; crosslinked +
 formatted + syntax colorized html transformer.
 </p>
-<p>Copyright © 2002-2003, 2013-2016 Free Software Foundation,
+<p>Copyright © 2002-2003, 2013-2017 Free Software Foundation,
 Inc.
 </p>
 <blockquote>
@@ -265,7 +265,8 @@ entities, so you should even be able to do html-within-html fontified
 display.
 </p>
 <p>You should, however, note that random control or non-ASCII characters
-such as ^L (\x0c) or ¤ (\xa4) won’t get mapped yet.
+such as ^L (U+000C FORM FEED (FF)) or ¤ (U+00A4 CURRENCY SIGN) won’t
+get mapped yet.
 </p>
 <p>If the <var>srcdir</var> and <var>file</var> arguments are set, lookup etags
 derived entries in the <a href="#hfy_002dtags_002dcache">hfy-tags-cache</a> and add html anchors
@@ -1117,7 +1118,7 @@ with a class of <code>t</code> is considered to match any class you specify.
 This matches Emacs’s behavior when deciding on which face attributes to
 use, to the best of my understanding ).
 </p>
-<p>If <var>class</var> is <code>nil</code>, then you just get get whatever
+<p>If <var>class</var> is <code>nil</code>, then you just get whatever
 <code>face-attr-construct</code> returns; i.e., the current specification in
 effect for <var>face</var>.
 </p>
@@ -1288,8 +1289,9 @@ shell doesn’t look promising, fall back to <a href="#hfy_002dshell_002dfile_00
 </div>
 
 <p>Return everything preceding the last ‘<samp>/</samp>’ from a relative filename,
-on the assumption that this will produce a relative directory name.  Hardly
-bombproof, but good enough in the context in which it is being used.
+on the assumption that this will produce the name of a relative
+directory.  Hardly bombproof, but good enough in the context in which
+it is being used.
 </p>
 </dd>
 <dt><code>hfy-html-dekludge-buffer</code></dt>
@@ -2000,14 +2002,14 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#R
 
 <div class="display">
 <pre class="display">Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre>
 </div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -2187,7 +2189,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -2408,7 +2410,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this

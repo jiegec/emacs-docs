@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Copyright (C) 2008, 2010-2016 Free Software Foundation, Inc.
+<!-- Copyright (C) 2008, 2010-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -11,8 +11,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Emacs Lisp Regression Testing</title>
 
 <meta name="description" content="Emacs Lisp Regression Testing">
@@ -20,8 +21,8 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
+<link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
@@ -96,6 +97,7 @@ ul.no-bullet {list-style: none}
     <li><a name="toc-Other-Tools-for-Emacs-Lisp" href="#Mocks-and-Stubs">6.1 Other Tools for Emacs Lisp</a></li>
     <li><a name="toc-Fixtures-and-Test-Suites-1" href="#Fixtures-and-Test-Suites">6.2 Fixtures and Test Suites</a></li>
   </ul></li>
+  <li><a name="toc-Index-1" href="#Index">Index</a></li>
   <li><a name="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a></li>
 </ul>
 </div>
@@ -104,12 +106,12 @@ ul.no-bullet {list-style: none}
 <a name="Top"></a>
 <div class="header">
 <p>
-Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="ERT_003a-Emacs-Lisp-Regression-Testing"></a>
 <h1 class="top">ERT: Emacs Lisp Regression Testing</h1>
 
-<p>Copyright &copy; 2008, 2010&ndash;2016 Free Software Foundation, Inc.
+<p>Copyright &copy; 2008, 2010&ndash;2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -148,7 +150,9 @@ traditional software development methods.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Other-Testing-Concepts" accesskey="6">Other Testing Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Features not in ERT.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="7">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The license for this documentation.
+<tr><td align="left" valign="top">&bull; <a href="#Index" accesskey="7">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concept, Function and Variable Index
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="8">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The license for this documentation.
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -156,9 +160,9 @@ traditional software development methods.
 
 How to Run Tests
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Running-Tests-Interactively" accesskey="8">Running Tests Interactively</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Run tests in your current Emacs.
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Running-Tests-Interactively" accesskey="9">Running Tests Interactively</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Run tests in your current Emacs.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Running-Tests-in-Batch-Mode" accesskey="9">Running Tests in Batch Mode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Run tests in emacs -Q.
+<tr><td align="left" valign="top">&bull; <a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Run tests in emacs -Q.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Test-Selectors">Test Selectors</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Choose which tests to run.
 </td></tr>
@@ -200,6 +204,12 @@ Other Testing Concepts
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+Index
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Index">Index</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Concept, Function and Variable Index
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 Appendix
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The license for this documentation.
@@ -212,10 +222,11 @@ Appendix
 <a name="Introduction"></a>
 <div class="header">
 <p>
-Next: <a href="#How-to-Run-Tests" accesskey="n" rel="next">How to Run Tests</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#How-to-Run-Tests" accesskey="n" rel="next">How to Run Tests</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Introduction-1"></a>
 <h2 class="chapter">1 Introduction</h2>
+<a name="index-introduction-to-ERT"></a>
 
 <p>ERT allows you to define <em>tests</em> in addition to functions,
 macros, variables, and the other usual Lisp constructs.  Tests are
@@ -284,10 +295,11 @@ test.  Tests should clean up even if they fail.  See <a href="#Tests-and-Their-E
 <a name="How-to-Run-Tests"></a>
 <div class="header">
 <p>
-Next: <a href="#How-to-Write-Tests" accesskey="n" rel="next">How to Write Tests</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#How-to-Write-Tests" accesskey="n" rel="next">How to Write Tests</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="How-to-Run-Tests-1"></a>
 <h2 class="chapter">2 How to Run Tests</h2>
+<a name="index-how-to-run-ert-tests"></a>
 
 <p>You can run tests either in the Emacs you are working in, or on the
 command line in a separate Emacs process in batch mode (i.e., with no
@@ -311,11 +323,14 @@ different Emacs versions.
 <a name="Running-Tests-Interactively"></a>
 <div class="header">
 <p>
-Next: <a href="#Running-Tests-in-Batch-Mode" accesskey="n" rel="next">Running Tests in Batch Mode</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Running-Tests-in-Batch-Mode" accesskey="n" rel="next">Running Tests in Batch Mode</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Running-Tests-Interactively-1"></a>
 <h3 class="section">2.1 Running Tests Interactively</h3>
+<a name="index-running-tests-interactively"></a>
+<a name="index-interactive-testing"></a>
 
+<a name="index-ert"></a>
 <p>You can run the tests that are currently defined in your Emacs with
 the command <kbd><kbd>M-x</kbd> ert <kbd>RET</kbd> t <kbd>RET</kbd></kbd>.  (For an
 explanation of the <code>t</code> argument, see <a href="#Test-Selectors">Test Selectors</a>.) ERT will pop
@@ -360,6 +375,7 @@ F list-test
                 (different-atoms c d))))
 </pre></div>
 
+<a name="index-test-results-buffer"></a>
 <p>At the top, there is a summary of the results: we ran all tests defined
 in the current Emacs (<code>Selector: t</code>), 31 of them passed, and 2
 failed unexpectedly.  See <a href="#Expected-Failures">Expected Failures</a>, for an explanation of
@@ -373,20 +389,29 @@ unexpected result.  In the example above, there are two failures, both
 due to failed <code>should</code> forms.  See <a href="#Understanding-Explanations">Understanding Explanations</a>,
 for more details.
 </p>
+<a name="index-TAB_002c-in-ert-results-buffer"></a>
+<a name="index-S_002dTAB_002c-in-ert-results-buffer"></a>
 <p>In the ERT results buffer, <kbd>TAB</kbd> and <kbd>S-TAB</kbd> cycle between
 buttons.  Each name of a function or macro in this buffer is a button;
 moving point to it and typing <kbd>RET</kbd> jumps to its definition.
 </p>
+<a name="index-r_002c-in-ert-results-buffer"></a>
+<a name="index-d_002c-in-ert-results-buffer"></a>
+<a name="index-_002e_002c-in-ert-results-buffer"></a>
+<a name="index-b_002c-in-ert-results-buffer"></a>
+<a name="index-backtrace-of-a-failed-test"></a>
 <p>Pressing <kbd>r</kbd> re-runs the test near point on its own.  Pressing
 <kbd>d</kbd> re-runs it with the debugger enabled.  <kbd>.</kbd> jumps to the
 definition of the test near point (<kbd>RET</kbd> has the same effect if
 point is on the name of the test).  On a failed test, <kbd>b</kbd> shows
 the backtrace of the failure.
 </p>
+<a name="index-l_002c-in-ert-results-buffer"></a>
 <p><kbd>l</kbd> shows the list of <code>should</code> forms executed in the test.
 If any messages were generated (with the Lisp function <code>message</code>)
 in a test or any of the code that it invoked, <kbd>m</kbd> will show them.
 </p>
+<a name="index-L_002c-in-ert-results-buffer"></a>
 <p>By default, long expressions in the failure details are abbreviated
 using <code>print-length</code> and <code>print-level</code>.  Pressing <kbd>L</kbd>
 while point is on a test failure will increase the limits to show more
@@ -397,11 +422,15 @@ of the expression.
 <a name="Running-Tests-in-Batch-Mode"></a>
 <div class="header">
 <p>
-Next: <a href="#Test-Selectors" accesskey="n" rel="next">Test Selectors</a>, Previous: <a href="#Running-Tests-Interactively" accesskey="p" rel="prev">Running Tests Interactively</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Test-Selectors" accesskey="n" rel="next">Test Selectors</a>, Previous: <a href="#Running-Tests-Interactively" accesskey="p" rel="prev">Running Tests Interactively</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Running-Tests-in-Batch-Mode-1"></a>
 <h3 class="section">2.2 Running Tests in Batch Mode</h3>
+<a name="index-running-tests-in-batch-mode"></a>
+<a name="index-batch_002dmode-testing"></a>
 
+<a name="index-ert_002drun_002dtests_002dbatch"></a>
+<a name="index-ert_002drun_002dtests_002dbatch_002dand_002dexit"></a>
 <p>ERT supports automated invocations from the command line or from
 scripts or makefiles.  There are two functions for this purpose,
 <code>ert-run-tests-batch</code> and <code>ert-run-tests-batch-and-exit</code>.
@@ -417,6 +446,7 @@ with a zero exit status if all tests passed, or nonzero if any tests
 failed or if anything else went wrong.  It will also print progress
 messages and error diagnostics to standard output.
 </p>
+<a name="index-ert_002dsummarize_002dtests_002dbatch_002dand_002dexit"></a>
 <p>You can also redirect the above output to a log file, say
 <samp>output.log</samp>, and use the
 <code>ert-summarize-tests-batch-and-exit</code> function to produce a neat
@@ -436,10 +466,12 @@ files that it requires are on your <code>load-path</code>.
 <a name="Test-Selectors"></a>
 <div class="header">
 <p>
-Previous: <a href="#Running-Tests-in-Batch-Mode" accesskey="p" rel="prev">Running Tests in Batch Mode</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Running-Tests-in-Batch-Mode" accesskey="p" rel="prev">Running Tests in Batch Mode</a>, Up: <a href="#How-to-Run-Tests" accesskey="u" rel="up">How to Run Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Test-Selectors-1"></a>
 <h3 class="section">2.3 Test Selectors</h3>
+<a name="index-test-selector"></a>
+<a name="index-selecting-tests"></a>
 
 <p>Functions like <code>ert</code> accept a <em>test selector</em>, a Lisp
 expression specifying a set of tests.  Test selector syntax is similar
@@ -454,17 +486,22 @@ to Common Lisp&rsquo;s type specifier syntax:
 </li><li> A string is a regular expression that selects all tests with matching names.
 </li><li> A test (i.e., an object of <code>ert-test</code> data type) selects that test.
 </li><li> A symbol selects the test that the symbol names.
-</li><li> <code>(member TESTS...)</code> selects the elements of TESTS, a list of
-tests or symbols naming tests.
-</li><li> <code>(eql TEST)</code> selects TEST, a test or a symbol naming a test.
-</li><li> <code>(and SELECTORS...)</code> selects the tests that match all SELECTORS.
-</li><li> <code>(or SELECTORS...)</code> selects the tests that match any SELECTOR.
-</li><li> <code>(not SELECTOR)</code> selects all tests that do not match SELECTOR.
-</li><li> <code>(tag TAG)</code> selects all tests that have TAG on their tags list.
+</li><li> <code>(member <var>tests</var>...)</code> selects the elements of
+<var>tests</var>, a list of tests or symbols naming tests.
+</li><li> <code>(eql <var>test</var>)</code> selects <var>test</var>, a test or a symbol
+naming a test.
+</li><li> <code>(and <var>selectors</var>&hellip;)</code> selects the tests that match
+all <var>selectors</var>.
+</li><li> <code>(or <var>selectors</var>&hellip;)</code> selects the tests that match
+any of the <var>selectors</var>.
+</li><li> <code>(not <var>selector</var>)</code> selects all tests that do not match
+<var>selector</var>.
+</li><li> <code>(tag <var>tag</var>)</code> selects all tests that have <var>tag</var> on
+their tags list.
 (Tags are optional labels you can apply to tests when you define them.)
-</li><li> <code>(satisfies PREDICATE)</code> selects all tests that satisfy PREDICATE,
-a function that takes a test as argument and returns non-<code>nil</code> if
-it is selected.
+</li><li> <code>(satisfies <var>predicate</var>)</code> selects all tests that
+satisfy <var>predicate</var>, a function that takes a test as argument and
+returns non-<code>nil</code> if it is selected.
 </li></ul>
 
 <p>Selectors that are frequently useful when selecting tests to run
@@ -482,11 +519,13 @@ result in the last run, and tag-based selectors such as <code>(not
 <a name="How-to-Write-Tests"></a>
 <div class="header">
 <p>
-Next: <a href="#How-to-Debug-Tests" accesskey="n" rel="next">How to Debug Tests</a>, Previous: <a href="#How-to-Run-Tests" accesskey="p" rel="prev">How to Run Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#How-to-Debug-Tests" accesskey="n" rel="next">How to Debug Tests</a>, Previous: <a href="#How-to-Run-Tests" accesskey="p" rel="prev">How to Run Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="How-to-Write-Tests-1"></a>
 <h2 class="chapter">3 How to Write Tests</h2>
+<a name="index-how-to-write-tests"></a>
 
+<a name="index-ert_002ddeftest"></a>
 <p>ERT lets you define tests in the same way you define functions.  You
 can type <code>ert-deftest</code> forms in a buffer and evaluate them there
 with <code>eval-defun</code> or <code>compile-defun</code>, or you can save the
@@ -512,11 +551,12 @@ to find where a test was defined if the test was loaded from a file.
 <a name="The-should-Macro"></a>
 <div class="header">
 <p>
-Next: <a href="#Expected-Failures" accesskey="n" rel="next">Expected Failures</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Expected-Failures" accesskey="n" rel="next">Expected Failures</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="The-should-Macro-1"></a>
 <h3 class="section">3.1 The <code>should</code> Macro</h3>
 
+<a name="index-should_002c-ert-macro"></a>
 <p>Test bodies can include arbitrary code; but to be useful, they need to
 check whether the code being tested (or <em>code under test</em>)
 does what it is supposed to do.  The macro <code>should</code> is similar to
@@ -552,6 +592,8 @@ test failed, it helps to know that the function <code>+</code> returned 3
 here.  ERT records the return value for any predicate called directly
 within <code>should</code>.
 </p>
+<a name="index-should_002dnot_002c-ert-macro"></a>
+<a name="index-should_002derror_002c-ert-macro"></a>
 <p>In addition to <code>should</code>, ERT provides <code>should-not</code>, which
 checks that the predicate returns <code>nil</code>, and <code>should-error</code>, which
 checks that the form called within it signals an error.  An example
@@ -582,11 +624,14 @@ default.
 <a name="Expected-Failures"></a>
 <div class="header">
 <p>
-Next: <a href="#Tests-and-Their-Environment" accesskey="n" rel="next">Tests and Their Environment</a>, Previous: <a href="#The-should-Macro" accesskey="p" rel="prev">The <code>should</code> Macro</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Tests-and-Their-Environment" accesskey="n" rel="next">Tests and Their Environment</a>, Previous: <a href="#The-should-Macro" accesskey="p" rel="prev">The <code>should</code> Macro</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Expected-Failures-1"></a>
 <h3 class="section">3.2 Expected Failures</h3>
+<a name="index-expected-failures"></a>
+<a name="index-known-bugs"></a>
 
+<a name="index-_003aexpected_002dresult"></a>
 <p>Some bugs are complicated to fix, or not very important, and are left as
 <em>known bugs</em>.  If there is a test case that triggers the bug and
 fails, ERT will alert you of this failure every time you run all
@@ -641,11 +686,14 @@ versions, specific architectures, etc.:
 <a name="Tests-and-Their-Environment"></a>
 <div class="header">
 <p>
-Next: <a href="#Useful-Techniques" accesskey="n" rel="next">Useful Techniques</a>, Previous: <a href="#Expected-Failures" accesskey="p" rel="prev">Expected Failures</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Useful-Techniques" accesskey="n" rel="next">Useful Techniques</a>, Previous: <a href="#Expected-Failures" accesskey="p" rel="prev">Expected Failures</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Tests-and-Their-Environment-1"></a>
 <h3 class="section">3.3 Tests and Their Environment</h3>
 
+<a name="index-skipping-tests"></a>
+<a name="index-test-preconditions"></a>
+<a name="index-preconditions-of-a-test"></a>
 <p>Sometimes, it doesn&rsquo;t make sense to run a test due to missing
 preconditions.  A required Emacs feature might not be compiled in, the
 function to be tested could call an external binary which might not be
@@ -659,6 +707,7 @@ available on the test machine, you name it.  In this case, the macro
   ...)
 </pre></div>
 
+<a name="index-tests-and-their-environment"></a>
 <p>The outcome of running a test should not depend on the current state
 of the environment, and each test should leave its environment in the
 same state it found it in.  In particular, a test should not depend on
@@ -715,25 +764,27 @@ hook variables to <code>nil</code>.  This avoids the above problems.
 <a name="Useful-Techniques"></a>
 <div class="header">
 <p>
-Previous: <a href="#Tests-and-Their-Environment" accesskey="p" rel="prev">Tests and Their Environment</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Tests-and-Their-Environment" accesskey="p" rel="prev">Tests and Their Environment</a>, Up: <a href="#How-to-Write-Tests" accesskey="u" rel="up">How to Write Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Useful-Techniques-when-Writing-Tests"></a>
 <h3 class="section">3.4 Useful Techniques when Writing Tests</h3>
+<a name="index-useful-techniques"></a>
+<a name="index-tips-and-tricks"></a>
 
 <p>Testing simple functions that have no side effects and no dependencies
 on their environment is easy.  Such tests often look like this:
 </p>
 <div class="lisp">
 <pre class="lisp">(ert-deftest ert-test-mismatch ()
-  (should (eql (ert--mismatch &quot;&quot; &quot;&quot;) nil))
-  (should (eql (ert--mismatch &quot;&quot; &quot;a&quot;) 0))
-  (should (eql (ert--mismatch &quot;a&quot; &quot;a&quot;) nil))
-  (should (eql (ert--mismatch &quot;ab&quot; &quot;a&quot;) 1))
-  (should (eql (ert--mismatch &quot;Aa&quot; &quot;aA&quot;) 0))
-  (should (eql (ert--mismatch '(a b c) '(a b d)) 2)))
+  (should (eql (cl-mismatch &quot;&quot; &quot;&quot;) nil))
+  (should (eql (cl-mismatch &quot;&quot; &quot;a&quot;) 0))
+  (should (eql (cl-mismatch &quot;a&quot; &quot;a&quot;) nil))
+  (should (eql (cl-mismatch &quot;ab&quot; &quot;a&quot;) 1))
+  (should (eql (cl-mismatch &quot;Aa&quot; &quot;aA&quot;) 0))
+  (should (eql (cl-mismatch '(a b c) '(a b d)) 2)))
 </pre></div>
 
-<p>This test calls the function <code>ert--mismatch</code> several times with
+<p>This test calls the function <code>cl-mismatch</code> several times with
 various combinations of arguments and compares the return value to the
 expected return value.  (Some programmers prefer <code>(should (eql
 EXPECTED ACTUAL))</code> over the <code>(should (eql ACTUAL EXPECTED))</code>
@@ -756,6 +807,8 @@ shown here.  ERT works either way.)
                          &quot;  signal(ert-test-failed (\&quot;foo\&quot;))&quot;)))))))
 </pre></div>
 
+<a name="index-make_002dert_002dtest"></a>
+<a name="index-ert_002dequal_002dincluding_002dproperties"></a>
 <p>This test creates a test object using <code>make-ert-test</code> whose body
 will immediately signal failure.  It then runs that test and asserts
 that it fails.  Then, it creates a temporary buffer and invokes
@@ -802,7 +855,7 @@ well.
 <a name="How-to-Debug-Tests"></a>
 <div class="header">
 <p>
-Next: <a href="#Extending-ERT" accesskey="n" rel="next">Extending ERT</a>, Previous: <a href="#How-to-Write-Tests" accesskey="p" rel="prev">How to Write Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Extending-ERT" accesskey="n" rel="next">Extending ERT</a>, Previous: <a href="#How-to-Write-Tests" accesskey="p" rel="prev">How to Write Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="How-to-Debug-Tests-1"></a>
 <h2 class="chapter">4 How to Debug Tests</h2>
@@ -823,10 +876,12 @@ a test failed.
 <a name="Understanding-Explanations"></a>
 <div class="header">
 <p>
-Next: <a href="#Interactive-Debugging" accesskey="n" rel="next">Interactive Debugging</a>, Up: <a href="#How-to-Debug-Tests" accesskey="u" rel="up">How to Debug Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Interactive-Debugging" accesskey="n" rel="next">Interactive Debugging</a>, Up: <a href="#How-to-Debug-Tests" accesskey="u" rel="up">How to Debug Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Understanding-Explanations-1"></a>
 <h3 class="section">4.1 Understanding Explanations</h3>
+<a name="index-understanding-explanations"></a>
+<a name="index-explanations_002c-understanding"></a>
 
 <p>Failed <code>should</code> forms are reported like this:
 </p>
@@ -896,22 +951,26 @@ function registered.  See <a href="#Defining-Explanation-Functions">Defining Exp
 <a name="Interactive-Debugging"></a>
 <div class="header">
 <p>
-Previous: <a href="#Understanding-Explanations" accesskey="p" rel="prev">Understanding Explanations</a>, Up: <a href="#How-to-Debug-Tests" accesskey="u" rel="up">How to Debug Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Understanding-Explanations" accesskey="p" rel="prev">Understanding Explanations</a>, Up: <a href="#How-to-Debug-Tests" accesskey="u" rel="up">How to Debug Tests</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Interactive-Debugging-1"></a>
 <h3 class="section">4.2 Interactive Debugging</h3>
+<a name="index-interactive-debugging"></a>
+<a name="index-debugging-failed-tests"></a>
 
 <p>Debugging failed tests essentially works the same way as debugging any
 other problems with Lisp code.  Here are a few tricks specific to
 tests:
 </p>
 <ul>
-<li> Re-run the failed test a few times to see if it fails in the same way
+<li> <a name="index-re_002drunning-a-failed-test"></a>
+Re-run the failed test a few times to see if it fails in the same way
 each time.  It&rsquo;s good to find out whether the behavior is
 deterministic before spending any time looking for a cause.  In the
 ERT results buffer, <kbd>r</kbd> re-runs the selected test.
 
-</li><li> Use <kbd>.</kbd> to jump to the source code of the test to find out exactly
+</li><li> <a name="index-jump-to-the-test-source-code"></a>
+Use <kbd>.</kbd> to jump to the source code of the test to find out exactly
 what it does.  Perhaps the test is broken rather than the code
 under test.
 
@@ -919,7 +978,8 @@ under test.
 tell which one failed, use <kbd>l</kbd>, which shows you the list of all
 <code>should</code> forms executed during the test before it failed.
 
-</li><li> Use <kbd>b</kbd> to view the backtrace.  You can also use <kbd>d</kbd> to re-run
+</li><li> <a name="index-show-backtrace-of-failed-test"></a>
+Use <kbd>b</kbd> to view the backtrace.  You can also use <kbd>d</kbd> to re-run
 the test with debugging enabled, this will enter the debugger and show
 the backtrace as well; but the top few frames shown there will not be
 relevant to you since they are ERT&rsquo;s own debugger hook.  <kbd>b</kbd>
@@ -929,12 +989,14 @@ strips them out, so it is more convenient.
 <code>message</code>, use <kbd>m</kbd> to see what messages it printed before it
 failed.  This can be useful to figure out how far it got.
 
-</li><li> You can instrument tests for debugging the same way you instrument
+</li><li> <a name="index-instrumenting-test-for-Edebug"></a>
+You can instrument tests for debugging the same way you instrument
 <code>defun</code>s for debugging: go to the source code of the test and
 type <kbd><kbd>C-u</kbd> <kbd>C-M-x</kbd></kbd>.  Then, go back to the ERT buffer and
 re-run the test with <kbd>r</kbd> or <kbd>d</kbd>.
 
-</li><li> If you have been editing and rearranging tests, it is possible that
+</li><li> <a name="index-discard-obsolete-test-results"></a>
+If you have been editing and rearranging tests, it is possible that
 ERT remembers an old test that you have since renamed or removed:
 renamings or removals of definitions in the source code leave around a
 stray definition under the old name in the running process (this is a
@@ -947,10 +1009,11 @@ forget about the obsolete test.
 <a name="Extending-ERT"></a>
 <div class="header">
 <p>
-Next: <a href="#Other-Testing-Concepts" accesskey="n" rel="next">Other Testing Concepts</a>, Previous: <a href="#How-to-Debug-Tests" accesskey="p" rel="prev">How to Debug Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Other-Testing-Concepts" accesskey="n" rel="next">Other Testing Concepts</a>, Previous: <a href="#How-to-Debug-Tests" accesskey="p" rel="prev">How to Debug Tests</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Extending-ERT-1"></a>
 <h2 class="chapter">5 Extending ERT</h2>
+<a name="index-extending-ert"></a>
 
 <p>There are several ways to add functionality to ERT.
 </p>
@@ -966,10 +1029,11 @@ Next: <a href="#Other-Testing-Concepts" accesskey="n" rel="next">Other Testing C
 <a name="Defining-Explanation-Functions"></a>
 <div class="header">
 <p>
-Next: <a href="#Low_002dLevel-Functions-for-Working-with-Tests" accesskey="n" rel="next">Low-Level Functions for Working with Tests</a>, Up: <a href="#Extending-ERT" accesskey="u" rel="up">Extending ERT</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Low_002dLevel-Functions-for-Working-with-Tests" accesskey="n" rel="next">Low-Level Functions for Working with Tests</a>, Up: <a href="#Extending-ERT" accesskey="u" rel="up">Extending ERT</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Defining-Explanation-Functions-1"></a>
 <h3 class="section">5.1 Defining Explanation Functions</h3>
+<a name="index-defining-explanation-functions"></a>
 
 <p>The explanation function for a predicate is a function that takes the
 same arguments as the predicate and returns an <em>explanation</em>.
@@ -980,6 +1044,7 @@ comprehensible printed representation.  If the return value of the
 predicate needs no explanation for a given list of arguments, the
 explanation function should return <code>nil</code>.
 </p>
+<a name="index-ert_002dexplainer_002c-property"></a>
 <p>To associate an explanation function with a predicate, add the
 property <code>ert-explainer</code> to the symbol that names the predicate.
 The value of the property should be the symbol that names the
@@ -990,10 +1055,11 @@ explanation function.
 <a name="Low_002dLevel-Functions-for-Working-with-Tests"></a>
 <div class="header">
 <p>
-Previous: <a href="#Defining-Explanation-Functions" accesskey="p" rel="prev">Defining Explanation Functions</a>, Up: <a href="#Extending-ERT" accesskey="u" rel="up">Extending ERT</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Defining-Explanation-Functions" accesskey="p" rel="prev">Defining Explanation Functions</a>, Up: <a href="#Extending-ERT" accesskey="u" rel="up">Extending ERT</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Low_002dLevel-Functions-for-Working-with-Tests-1"></a>
 <h3 class="section">5.2 Low-Level Functions for Working with Tests</h3>
+<a name="index-low_002dlevel-functions"></a>
 
 <p>Both <code>ert-run-tests-interactively</code> and <code>ert-run-tests-batch</code>
 are implemented on top of the lower-level test handling code in the
@@ -1012,7 +1078,7 @@ meant to be usable by other code.  But there is no mature API yet.
 <a name="Other-Testing-Concepts"></a>
 <div class="header">
 <p>
-Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Extending-ERT" accesskey="p" rel="prev">Extending ERT</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Extending-ERT" accesskey="p" rel="prev">Extending ERT</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Other-Testing-Concepts-1"></a>
 <h2 class="chapter">6 Other Testing Concepts</h2>
@@ -1031,10 +1097,11 @@ Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Fre
 <a name="Mocks-and-Stubs"></a>
 <div class="header">
 <p>
-Next: <a href="#Fixtures-and-Test-Suites" accesskey="n" rel="next">Fixtures and Test Suites</a>, Up: <a href="#Other-Testing-Concepts" accesskey="u" rel="up">Other Testing Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Fixtures-and-Test-Suites" accesskey="n" rel="next">Fixtures and Test Suites</a>, Up: <a href="#Other-Testing-Concepts" accesskey="u" rel="up">Other Testing Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Other-Tools-for-Emacs-Lisp"></a>
 <h3 class="section">6.1 Other Tools for Emacs Lisp</h3>
+<a name="index-mocks-and-stubs"></a>
 
 <p>Stubbing out functions or using so-called <em>mocks</em> can make it
 easier to write tests.  See
@@ -1050,10 +1117,11 @@ offers mocks for Emacs Lisp and can be used in conjunction with ERT.
 <a name="Fixtures-and-Test-Suites"></a>
 <div class="header">
 <p>
-Previous: <a href="#Mocks-and-Stubs" accesskey="p" rel="prev">Mocks and Stubs</a>, Up: <a href="#Other-Testing-Concepts" accesskey="u" rel="up">Other Testing Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Mocks-and-Stubs" accesskey="p" rel="prev">Mocks and Stubs</a>, Up: <a href="#Other-Testing-Concepts" accesskey="u" rel="up">Other Testing Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Fixtures-and-Test-Suites-1"></a>
 <h3 class="section">6.2 Fixtures and Test Suites</h3>
+<a name="index-fixtures"></a>
 
 <p>In many ways, ERT is similar to frameworks for other languages like
 SUnit or JUnit.  However, two features commonly found in such
@@ -1112,10 +1180,183 @@ often.  This can be achieved with the <code>:tag</code> argument to
 <code>ert-deftest</code> and <code>tag</code> test selectors.
 </p>
 <hr>
+<a name="Index"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Other-Testing-Concepts" accesskey="p" rel="prev">Other Testing Concepts</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Index-1"></a>
+<h2 class="unnumbered">Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>:</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-1">.</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002e_002c-in-ert-results-buffer"><code>.<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_symbol-2">:</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003aexpected_002dresult"><code>:expected-result</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Expected-Failures">Expected Failures</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-B">B</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b_002c-in-ert-results-buffer"><code>b<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-backtrace-of-a-failed-test">backtrace of a failed test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-batch_002dmode-testing">batch-mode testing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002c-in-ert-results-buffer"><code>d<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-debugging-failed-tests">debugging failed tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-defining-explanation-functions">defining explanation functions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Defining-Explanation-Functions">Defining Explanation Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-discard-obsolete-test-results">discard obsolete test results</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-E">E</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert"><code>ert</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002ddeftest"><code>ert-deftest</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Tests">How to Write Tests</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002dequal_002dincluding_002dproperties"><code>ert-equal-including-properties</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Useful-Techniques">Useful Techniques</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002dexplainer_002c-property"><code>ert-explainer<span class="roman">, property</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Defining-Explanation-Functions">Defining Explanation Functions</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002drun_002dtests_002dbatch"><code>ert-run-tests-batch</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002drun_002dtests_002dbatch_002dand_002dexit"><code>ert-run-tests-batch-and-exit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-ert_002dsummarize_002dtests_002dbatch_002dand_002dexit"><code>ert-summarize-tests-batch-and-exit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-expected-failures">expected failures</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Expected-Failures">Expected Failures</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-explanations_002c-understanding">explanations, understanding</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Understanding-Explanations">Understanding Explanations</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-extending-ert">extending ert</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Extending-ERT">Extending ERT</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-F">F</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-fixtures">fixtures</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Fixtures-and-Test-Suites">Fixtures and Test Suites</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-H">H</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-how-to-run-ert-tests">how to run ert tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Run-Tests">How to Run Tests</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-how-to-write-tests">how to write tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#How-to-Write-Tests">How to Write Tests</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-I">I</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-instrumenting-test-for-Edebug">instrumenting test for Edebug</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-interactive-debugging">interactive debugging</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-interactive-testing">interactive testing</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-introduction-to-ERT">introduction to ERT</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Introduction">Introduction</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-J">J</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jump-to-the-test-source-code">jump to the test source code</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-K">K</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-known-bugs">known bugs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Expected-Failures">Expected Failures</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-L">L</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-l_002c-in-ert-results-buffer"><code>l<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-L_002c-in-ert-results-buffer"><code>L<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-low_002dlevel-functions">low-level functions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Low_002dLevel-Functions-for-Working-with-Tests">Low-Level Functions for Working with Tests</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-M">M</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-make_002dert_002dtest"><code>make-ert-test</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Useful-Techniques">Useful Techniques</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-mocks-and-stubs">mocks and stubs</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Mocks-and-Stubs">Mocks and Stubs</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-preconditions-of-a-test">preconditions of a test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests-and-Their-Environment">Tests and Their Environment</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-r_002c-in-ert-results-buffer"><code>r<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-re_002drunning-a-failed-test">re-running a failed test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-running-tests-in-batch-mode">running tests in batch mode</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-in-Batch-Mode">Running Tests in Batch Mode</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-running-tests-interactively">running tests interactively</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-S_002dTAB_002c-in-ert-results-buffer"><code>S-TAB<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-selecting-tests">selecting tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-Selectors">Test Selectors</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-should_002c-ert-macro"><code>should<span class="roman">, ert macro</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-should-Macro">The <code>should</code> Macro</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-should_002derror_002c-ert-macro"><code>should-error<span class="roman">, ert macro</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-should-Macro">The <code>should</code> Macro</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-should_002dnot_002c-ert-macro"><code>should-not<span class="roman">, ert macro</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#The-should-Macro">The <code>should</code> Macro</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-show-backtrace-of-failed-test">show backtrace of failed test</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Interactive-Debugging">Interactive Debugging</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-skipping-tests">skipping tests</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests-and-Their-Environment">Tests and Their Environment</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-TAB_002c-in-ert-results-buffer"><code>TAB<span class="roman">, in ert results buffer</span></code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-test-preconditions">test preconditions</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests-and-Their-Environment">Tests and Their Environment</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-test-results-buffer">test results buffer</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Running-Tests-Interactively">Running Tests Interactively</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-test-selector">test selector</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Test-Selectors">Test Selectors</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tests-and-their-environment">tests and their environment</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Tests-and-Their-Environment">Tests and Their Environment</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tips-and-tricks">tips and tricks</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Useful-Techniques">Useful Techniques</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index_cp_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-understanding-explanations">understanding explanations</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Understanding-Explanations">Understanding Explanations</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-useful-techniques">useful techniques</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Useful-Techniques">Useful Techniques</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_symbol-2"><b>:</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index_cp_letter-B"><b>B</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-E"><b>E</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-F"><b>F</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-H"><b>H</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-L"><b>L</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-P"><b>P</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index_cp_letter-U"><b>U</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
 <a name="GNU-Free-Documentation-License"></a>
 <div class="header">
 <p>
-Previous: <a href="#Other-Testing-Concepts" accesskey="p" rel="prev">Other Testing Concepts</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Index" accesskey="p" rel="prev">Index</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="GNU-Free-Documentation-License-1"></a>
 <h2 class="appendix">Appendix A GNU Free Documentation License</h2>
@@ -1124,13 +1365,13 @@ Previous: <a href="#Other-Testing-Concepts" accesskey="p" rel="prev">Other Testi
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1306,7 +1547,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -1506,7 +1747,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this

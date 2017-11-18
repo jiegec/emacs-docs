@@ -2,7 +2,7 @@
 <html>
 <!-- This is the manual for the url Emacs Lisp library.
 
-Copyright (C) 1993-1999, 2002, 2004-2016 Free Software
+Copyright (C) 1993-1999, 2002, 2004-2017 Free Software
 Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
@@ -14,8 +14,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>URL Programmer&rsquo;s Manual</title>
 
 <meta name="description" content="URL Programmer&rsquo;s Manual">
@@ -23,7 +24,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Function-Index" rel="index" title="Function Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -129,7 +129,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a 
 
 <p>This is the manual for the <code>url</code> Emacs Lisp library.
 </p>
-<p>Copyright &copy; 1993&ndash;1999, 2002, 2004&ndash;2016 Free Software
+<p>Copyright &copy; 1993&ndash;1999, 2002, 2004&ndash;2017 Free Software
 Foundation, Inc.
 </p>
 <blockquote>
@@ -222,10 +222,10 @@ Next: <a href="#Retrieving-URLs" accesskey="n" rel="next">Retrieving URLs</a>, P
 meaning.  For example, the URI
 </p>
 <div class="example">
-<pre class="example">http://www.gnu.org/software/emacs/
+<pre class="example">https://www.gnu.org/software/emacs/
 </pre></div>
 
-<p>specifies the scheme component &lsquo;<samp>http</samp>&rsquo;, the hostname component
+<p>specifies the scheme component &lsquo;<samp>https</samp>&rsquo;, the hostname component
 &lsquo;<samp>www.gnu.org</samp>&rsquo;, and the path component &lsquo;<samp>/software/emacs/</samp>&rsquo;.
 </p>
 <a name="index-parsed-URIs"></a>
@@ -431,7 +431,7 @@ passed through <code>url-encode-url</code> before using it, to ensure that
 it is properly URI-encoded (see <a href="#URI-Encoding">URI Encoding</a>).
 </p>
 <dl>
-<dt><a name="index-url_002dretrieve_002dsynchronously"></a>Function: <strong>url-retrieve-synchronously</strong> <em>url silent no-cookies</em></dt>
+<dt><a name="index-url_002dretrieve_002dsynchronously"></a>Function: <strong>url-retrieve-synchronously</strong> <em>url &amp;optional silent no-cookies timeout</em></dt>
 <dd><p>This function synchronously retrieves the data specified by <var>url</var>,
 and returns a buffer containing the data.  The return value is
 <code>nil</code> if there is no data associated with the URL (as is the case
@@ -439,7 +439,9 @@ for <code>dired</code>, <code>info</code>, and <code>mailto</code> URLs).
 </p>
 <p>If the optional argument <var>silent</var> is non-<code>nil</code>, progress
 messages are suppressed.  If the optional argument <var>no-cookies</var> is
-non-<code>nil</code>, cookies are not stored or sent.
+non-<code>nil</code>, cookies are not stored or sent.  If the optional
+argument <var>timeout</var> is non-<code>nil</code>, it should be a number that
+says (in seconds) how long to wait for a response before giving up.
 </p></dd></dl>
 
 <dl>
@@ -602,6 +604,13 @@ Next: <a href="#HTTP-language_002fcoding" accesskey="n" rel="next">HTTP language
 <dd><p>This command creates a <samp>*url cookies*</samp> buffer listing the current
 cookies, if there are any.  You can remove a cookie using the
 <kbd>C-k</kbd> (<code>url-cookie-delete</code>) command.
+</p></dd></dl>
+
+<dl>
+<dt><a name="index-url_002dcookie_002ddelete_002dcookies"></a>Function: <strong>url-cookie-delete-cookies</strong> <em>&amp;optional regexp</em></dt>
+<dd><p>This function takes a regular expression as its parameters and deletes
+all cookies from that domain.  If <var>regexp</var> is <code>nil</code>, delete
+all cookies.
 </p></dd></dl>
 
 <dl>
@@ -1650,9 +1659,16 @@ from the local machine.  The supported methods are:
 
 <dl>
 <dt><a name="index-url_002duser_002dagent"></a>User Option: <strong>url-user-agent</strong></dt>
-<dd><p>The User Agent string used for sending HTTP/HTTPS requests.  The value
-should be a string or a function of no arguments that returns a
-string.  The default value is &lsquo;<samp><span class="nolinebreak">User-Agent:</span>&nbsp;<var><span class="nolinebreak">package-name</span></var>&nbsp;URL/Emacs</samp>&rsquo;<!-- /@w -->, where <var>package-name</var> is the value of
+<dd><p>The User Agent string used for sending <acronym>HTTP</acronym>/<acronym>HTTPS</acronym>
+requests.  The value should be <code>nil</code>, which means that no
+&lsquo;<samp>User-Agent</samp>&rsquo; header is generated, <code>default</code>, which means
+that a string is generated based on the setting of
+<code>url-privacy-leve</code>, a string or a function of no arguments that
+returns a string.
+</p>
+<p>The default is <code>default</code>, which means that the
+&lsquo;<samp><span class="nolinebreak">User-Agent:</span>&nbsp;<var><span class="nolinebreak">package-name</span></var>&nbsp;URL/Emacs</samp>&rsquo;<!-- /@w --> string will be
+generated, where <var>package-name</var> is the value of
 <code>url-package-name</code> and its version, if they are non-<code>nil</code>.
 </p></dd></dl>
 
@@ -1669,13 +1685,13 @@ Next: <a href="#Function-Index" accesskey="n" rel="next">Function Index</a>, Pre
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -1851,7 +1867,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -2051,7 +2067,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -2169,6 +2185,7 @@ Next: <a href="#Variable-Index" accesskey="n" rel="next">Variable Index</a>, Pre
 <tr><td></td><td valign="top"><a href="#index-url_002dcache_002dexpired"><code>url-cache-expired</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Disk-Caching">Disk Caching</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-url_002dcompletion_002dfunction"><code>url-completion-function</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History">History</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-url_002dcookie_002ddelete"><code>url-cookie-delete</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cookies">Cookies</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-url_002dcookie_002ddelete_002dcookies"><code>url-cookie-delete-cookies</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cookies">Cookies</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-url_002dcookie_002dlist"><code>url-cookie-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Cookies">Cookies</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-url_002ddo_002dsetup"><code>url-do-setup</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#History">History</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-url_002dencode_002durl"><code>url-encode-url</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#URI-Encoding">URI Encoding</a></td></tr>

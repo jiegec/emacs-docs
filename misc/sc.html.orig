@@ -3,7 +3,7 @@
 <!-- This document describes Supercite, an Emacs package for citing and
 attributing replies to mail and news messages.
 
-Copyright (C) 1993, 2001-2016 Free Software Foundation, Inc.
+Copyright (C) 1993, 2001-2017 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -14,8 +14,9 @@ is included in the section entitled "GNU Free Documentation License".
 
 (a) The FSF's Back-Cover Text is: "You have the freedom to copy and
 modify this GNU manual." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Supercite User&rsquo;s Manual</title>
 
 <meta name="description" content="Supercite User&rsquo;s Manual">
@@ -23,7 +24,6 @@ modify this GNU manual." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Concept-Index" rel="index" title="Concept Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -161,7 +161,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Up: <a 
 <p>This document describes Supercite, an Emacs package for citing and
 attributing replies to mail and news messages.
 </p>
-<p>Copyright &copy; 1993, 2001&ndash;2016 Free Software Foundation, Inc.
+<p>Copyright &copy; 1993, 2001&ndash;2017 Free Software Foundation, Inc.
 </p>
 <blockquote>
 <p>Permission is granted to copy, distribute and/or modify this document
@@ -1009,17 +1009,6 @@ MUA calls <code>sc-cite-original</code> at the right time.  As mentioned
 above, some MUAs handle this differently.  Read the sections that follow
 pertaining to the MUAs you are using.
 </p>
-<a name="index-sc_002dload_002dhook"></a>
-<a name="index-load_002dhook-_0028sc_002d_0029"></a>
-<a name="index-sc_002dpre_002dhook"></a>
-<a name="index-pre_002dhook-_0028sc_002d_0029"></a>
-<p>One final note.  After Supercite is loaded into your Emacs session, it
-runs the hook <code>sc-load-hook</code>.  You can put any customizations into
-this hook since it is only run once.  This will not work, however, if
-your Emacs maintainer has put Supercite into your dumped Emacs image.
-In that case, you can use the <code>sc-pre-hook</code> variable, but this will
-get executed every time <code>sc-cite-original</code> is called.  See <a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a>.
-</p>
 <hr>
 <a name="Replying-and-Yanking"></a>
 <div class="header">
@@ -1054,8 +1043,8 @@ Next: <a href="#Filling-Cited-Text" accesskey="n" rel="next">Filling Cited Text<
 initializes the reply buffer:
 </p>
 <ol>
-<li> <a name="index-sc_002dpre_002dhook-1"></a>
-<a name="index-pre_002dhook-_0028sc_002d_0029-1"></a>
+<li> <a name="index-sc_002dpre_002dhook"></a>
+<a name="index-pre_002dhook-_0028sc_002d_0029"></a>
 <em>Runs <code>sc-pre-hook</code>.</em>
 This hook variable is run before <code>sc-cite-original</code> does any other
 work.  You could conceivably use this hook to set certain Supercite
@@ -1209,8 +1198,6 @@ Previous: <a href="#Reply-Buffer-Initialization" accesskey="p" rel="prev">Reply 
 <a name="index-gin_002dmode-1"></a>
 <a name="index-sc_002dsetup_002dfilladapt"></a>
 <a name="index-setup_002dfilladapt-_0028sc_002d_0029"></a>
-<a name="index-sc_002dload_002dhook-1"></a>
-<a name="index-load_002dhook-_0028sc_002d_0029-1"></a>
 
 <p>Supercite will automatically fill newly cited text from the original
 message unless the variable <code>sc-auto-fill-region-p</code> has a
@@ -1224,7 +1211,8 @@ two best known are <em>filladapt</em> and <em>gin-mode</em>.  Both work well
 with Supercite and both are available at the normal Emacs Lisp archive
 sites.  <em>gin-mode</em> works pretty well out of the box, but if you use
 <em>filladapt</em>, you may want to run the function
-<code>sc-setup-filladapt</code> from your <code>sc-load-hook</code>.  This simply
+<code>sc-setup-filladapt</code> after loading <samp>supercite</samp>
+(e.g., using <code>with-eval-after-load</code>).  This simply
 makes <em>filladapt</em> a little more Supercite savvy than its default
 setup.
 </p>
@@ -2278,13 +2266,13 @@ Next: <a href="#Concept-Index" accesskey="n" rel="next">Concept Index</a>, Previ
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -2460,7 +2448,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -2660,7 +2648,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -3225,8 +3213,6 @@ its <var>variable</var> name.
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-L"><b>L</b></a>
- &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-N"><b>N</b></a>
@@ -3286,10 +3272,6 @@ its <var>variable</var> name.
 <tr><td></td><td valign="top"><a href="#index-fill_002dprefix-1"><code>fill-prefix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-Cited-Text">Filling Cited Text</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-fixup_002dwhitespace_002dp-_0028sc_002d_0029"><code>fixup-whitespace-p (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-Cited-Text">Filling Cited Text</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
-<tr><th><a name="Variable-Index_vr_letter-L">L</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-load_002dhook-_0028sc_002d_0029"><code>load-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Getting-Connected">Getting Connected</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-load_002dhook-_0028sc_002d_0029-1"><code>load-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-Cited-Text">Filling Cited Text</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Variable-Index_vr_letter-M">M</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mail_002dcitation_002dhook"><code>mail-citation-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Getting-Connected">Getting Connected</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-mail_002dcitation_002dhook-1"><code>mail-citation-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Hints-to-MUA-Authors">Hints to MUA Authors</a></td></tr>
@@ -3309,8 +3291,7 @@ its <var>variable</var> name.
 <tr><th><a name="Variable-Index_vr_letter-P">P</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-post_002dhook-_0028sc_002d_0029"><code>post-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-pre_002dcite_002dhook-_0028sc_002d_0029"><code>pre-cite-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Citing-Commands">Citing Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pre_002dhook-_0028sc_002d_0029"><code>pre-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Getting-Connected">Getting Connected</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-pre_002dhook-_0028sc_002d_0029-1"><code>pre-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-pre_002dhook-_0028sc_002d_0029"><code>pre-hook (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-preferred_002dattribution_002dlist-_0028sc_002d_0029"><code>preferred-attribution-list (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-an-Attribution">Selecting an Attribution</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-preferred_002dheader_002dstyle-_0028sc_002d_0029"><code>preferred-header-style (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reference-Headers">Reference Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-preferred_002dheader_002dstyle-_0028sc_002d_0029-1"><code>preferred-header-style (sc-)</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Insertion-Commands">Insertion Commands</a></td></tr>
@@ -3352,8 +3333,6 @@ its <var>variable</var> name.
 <tr><td></td><td valign="top"><a href="#index-sc_002delectric_002dmode_002dhook"><code>sc-electric-mode-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Electric-References">Electric References</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002delectric_002dreferences_002dp"><code>sc-electric-references-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Electric-References">Electric References</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dfixup_002dwhitespace_002dp"><code>sc-fixup-whitespace-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-Cited-Text">Filling Cited Text</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-sc_002dload_002dhook"><code>sc-load-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Getting-Connected">Getting Connected</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-sc_002dload_002dhook-1"><code>sc-load-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Filling-Cited-Text">Filling Cited Text</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dmail_002dfield-2"><code>sc-mail-field</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Frames-You-Can-Customize">Frames You Can Customize</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dmail_002dwarn_002dif_002dnon_002drfc822_002dp"><code>sc-mail-warn-if-non-rfc822-p</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dmode_002dmap_002dprefix"><code>sc-mode-map-prefix</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
@@ -3366,8 +3345,7 @@ its <var>variable</var> name.
 <tr><td></td><td valign="top"><a href="#index-sc_002dnuke_002dmail_002dheaders"><code>sc-nuke-mail-headers</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dpost_002dhook"><code>sc-post-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dpre_002dcite_002dhook"><code>sc-pre-cite-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Citing-Commands">Citing Commands</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-sc_002dpre_002dhook"><code>sc-pre-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Getting-Connected">Getting Connected</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-sc_002dpre_002dhook-1"><code>sc-pre-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-sc_002dpre_002dhook"><code>sc-pre-hook</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reply-Buffer-Initialization">Reply Buffer Initialization</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dpreferred_002dattribution_002dlist"><code>sc-preferred-attribution-list</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Selecting-an-Attribution">Selecting an Attribution</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dpreferred_002dheader_002dstyle"><code>sc-preferred-header-style</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Reference-Headers">Reference Headers</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-sc_002dpreferred_002dheader_002dstyle-1"><code>sc-preferred-header-style</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Insertion-Commands">Insertion Commands</a></td></tr>
@@ -3396,8 +3374,6 @@ its <var>variable</var> name.
 <a class="summary-letter" href="#Variable-Index_vr_letter-E"><b>E</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-F"><b>F</b></a>
- &nbsp; 
-<a class="summary-letter" href="#Variable-Index_vr_letter-L"><b>L</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Variable-Index_vr_letter-M"><b>M</b></a>
  &nbsp; 

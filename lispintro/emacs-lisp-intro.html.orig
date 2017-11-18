@@ -3,16 +3,16 @@
 <!-- This is an Introduction to Programming in Emacs Lisp, for
 people who are not programmers.
 
-Distributed with Emacs version 25.1.91.
+Distributed with Emacs version 26.0.90.
 
-Copyright (C) 1990-1995, 1997, 2001-2016 Free Software
+Copyright (C) 1990-1995, 1997, 2001-2017 Free Software
 Foundation, Inc.
 
 
 
-Printed copies available from http://shop.fsf.org/. Published by:
+Printed copies available from https://shop.fsf.org/. Published by:
 
-GNU Press,                        http://www.fsf.org/licensing/gnu-press/
+GNU Press,                        https://www.fsf.org/licensing/gnu-press/
 a division of the                 email: sales@fsf.org
 Free Software Foundation, Inc.    Tel: +1 (617) 542-5942
 51 Franklin Street, Fifth Floor   Fax: +1 (617) 542-2652
@@ -32,8 +32,9 @@ Documentation License".
 (a) The FSF's Back-Cover Text is: "You have the freedom to
 copy and modify this GNU manual.  Buying copies from the FSF
 supports it in developing GNU and promoting software freedom." -->
-<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Programming in Emacs Lisp</title>
 
 <meta name="description" content="Programming in Emacs Lisp">
@@ -41,7 +42,6 @@ supports it in developing GNU and promoting software freedom." -->
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index" rel="index" title="Index">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
@@ -574,17 +574,17 @@ Next: <a href="#Preface" accesskey="n" rel="next">Preface</a>, Up: <a href="dir.
 <p>This is an <cite>Introduction to Programming in Emacs Lisp</cite>, for
 people who are not programmers.
 </p><br>
-<p>Distributed with Emacs version 25.1.91.
+<p>Distributed with Emacs version 26.0.90.
 </p><br>
-<p>Copyright &copy; 1990&ndash;1995, 1997, 2001&ndash;2016 Free Software
+<p>Copyright &copy; 1990&ndash;1995, 1997, 2001&ndash;2017 Free Software
 Foundation, Inc.
 </p><br>
 
 
-<p>Printed copies available from <a href="http://shop.fsf.org/">http://shop.fsf.org/</a>. Published by:
+<p>Printed copies available from <a href="https://shop.fsf.org/">https://shop.fsf.org/</a>. Published by:
 </p>
 <div class="example">
-<pre class="example">GNU Press,                        http://www.fsf.org/licensing/gnu-press/
+<pre class="example">GNU Press,                        https://www.fsf.org/licensing/gnu-press/
 a division of the                 email: sales@fsf.org
 Free Software Foundation, Inc.    Tel: +1 (617) 542-5942
 51 Franklin Street, Fifth Floor   Fax: +1 (617) 542-2652
@@ -1584,7 +1584,7 @@ reference manuals and be put off by the way this text is organized.
 <p><i>I prefer to learn from reference manuals.  I &ldquo;dive into&rdquo; each
 paragraph, and &ldquo;come up for air&rdquo; between paragraphs.</i>
 </p>
-<p><i>When I get to the end of a paragraph, I assume that that subject is
+<p><i>When I get to the end of a paragraph, I assume that subject is
 done, finished, that I know everything I need (with the
 possible exception of the case when the next paragraph starts talking
 about it in more detail).  I expect that a well written reference manual
@@ -12266,7 +12266,7 @@ backwards.
 <a href="http://www.gnu.org/software/texinfo/manual/texinfo/texinfo.html#Indicating">Indicating</a> in <cite>Texinfo Manual</cite>, which goes to
 a Texinfo manual in the current directory.  Or, if you are on the
 Internet, see
-<a href="http://www.gnu.org/software/texinfo/manual/texinfo/">http://www.gnu.org/software/texinfo/manual/texinfo/</a>
+<a href="https://www.gnu.org/software/texinfo/manual/texinfo/">https://www.gnu.org/software/texinfo/manual/texinfo/</a>
 </p></li></ul>
 
 <hr>
@@ -16855,9 +16855,11 @@ C-w</kbd> instead.  Otherwise, we will run out of own keys.
 
 <a name="index-occur"></a>
 <p>The <code>occur</code> command shows all the lines in the current buffer
-that contain a match for a regular expression.  Matching lines are
-shown in a buffer called <samp>*Occur*</samp>.  That buffer serves as a menu
-to jump to occurrences.
+that contain a match for a regular expression.  When the region is
+active, <code>occur</code> restricts matches to such region.  Otherwise it
+uses the entire buffer.
+Matching lines are shown in a buffer called <samp>*Occur*</samp>.
+That buffer serves as a menu to jump to occurrences.
 </p>
 <a name="index-global_002dunset_002dkey"></a>
 <a name="index-Unbinding-key"></a>
@@ -17259,11 +17261,10 @@ file that set values:
 </pre><pre class="smallexample">
 
 </pre><pre class="smallexample">;; Set calendar highlighting colors
-(add-hook 'calendar-load-hook
-      (lambda ()
-        (set-face-foreground 'diary-face   &quot;skyblue&quot;)
-        (set-face-background 'holiday-face &quot;slate blue&quot;)
-        (set-face-foreground 'holiday-face &quot;white&quot;)))
+(with-eval-after-load 'calendar
+  (set-face-foreground 'diary   &quot;skyblue&quot;)
+  (set-face-background 'holiday &quot;slate blue&quot;)
+  (set-face-foreground 'holiday &quot;white&quot;))
 </pre></div>
 
 <p>The various shades of blue soothe my eye and prevent me from seeing
@@ -17316,7 +17317,7 @@ Next: <a href="#Mode-Line" accesskey="n" rel="next">Mode Line</a>, Previous: <a 
   ;;     then set it, otherwise leave as is:
   (if (eq mpointer nil)
       (setq mpointer &quot;132&quot;)) ; top_left_arrow
-</pre><pre class="smallexample">  (setq x-pointer-shape (string-to-int mpointer))
+</pre><pre class="smallexample">  (setq x-pointer-shape (string-to-number mpointer))
   (set-mouse-color &quot;white&quot;))
 </pre></div>
 
@@ -20488,8 +20489,8 @@ can ill afford to lose manuals this way.
 <p>Free documentation, like free software, is a matter of freedom, not
 price.  The problem with these manuals was not that O&rsquo;Reilly Associates
 charged a price for printed copies&mdash;that in itself is fine.  The Free
-Software Foundation <a href="http://shop.fsf.org">sells printed copies</a> of
-free <a href="http://www.gnu.org/doc/doc.html">GNU manuals</a>, too.
+Software Foundation <a href="https://shop.fsf.org">sells printed copies</a> of
+free <a href="https://www.gnu.org/doc/doc.html">GNU manuals</a>, too.
 But GNU manuals are available in source code form, while these manuals
 are available only on paper.  GNU manuals come with permission to copy
 and modify; the Perl manuals do not.  These restrictions are the
@@ -20568,7 +20569,7 @@ copylefted manuals to non-copylefted ones.
 <br>
 <p>Note: The Free Software Foundation maintains a page on its Web site
 that lists free books available from other publishers:<br>
-<a href="http://www.gnu.org/doc/other-free-books.html">http://www.gnu.org/doc/other-free-books.html</a>
+<a href="https://www.gnu.org/doc/other-free-books.html">https://www.gnu.org/doc/other-free-books.html</a>
 </p>
 <hr>
 <a name="GNU-Free-Documentation-License"></a>
@@ -20585,13 +20586,13 @@ Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#F
 
 <div class="display">
 <pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
-<a href="http://fsf.org/">http://fsf.org/</a>
+<a href="https://fsf.org/">https://fsf.org/</a>
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol>
+<ol start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
@@ -20767,7 +20768,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol>
+<ol type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -20967,7 +20968,7 @@ not give you any rights to use it.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
